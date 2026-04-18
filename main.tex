@@ -1,0 +1,81 @@
+\documentclass{book}
+
+\usepackage[LGR,OT1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textgreek}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french,english]{babel} % For French accents
+\usepackage{geometry} % Set page margins
+\usepackage{amsmath,amssymb} % For math content
+
+\newcommand{\doubleunderline}[1]{\underline{\underline{#1}}}
+\newcommand{\OHom}{\mathcal{H}\mathit{om}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\sO}{\mathcal{O}}
+\newcommand{\sF}{\mathcal{F}}
+\newcommand{\sG}{\mathcal{G}}
+\newcommand{\sL}{\mathcal{L}}
+\newcommand{\somega}{\omega}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbk}{\boldsymbol{k}}
+\newcommand{\DerR}{\mathbb{R}}
+\newcommand{\DerL}{\mathbb{L}}
+
+\usepackage[
+    backend=biber,       % Use biber (modern replacement for bibtex)
+    style=alphabetic,    % Citation style: e.g., [Art62], [Bas62]
+    % style=plain,        % Alternative: numeric style [1], [2]
+    % style=authoryear,   % Alternative: Author-Year style
+    backref=true,        % Optional: Add "Cited on page X" links
+]{biblatex}
+\addbibresource{references.bib} % Your BibTeX file name
+
+\begin{document}
+
+\frontmatter
+\title{Residues and Duality}
+\author{Robin Hartshorne}
+\date{May 1966}
+\maketitle
+\frontmatter
+\chapter*{Preface}
+\markboth{Preface}{Preface}
+
+In the spring of 1963 I suggested to Grothendieck the possibility of my running a seminar at Harvard on his theory of duality for coherent sheaves --- a theory which had been hinted at in his talk to the Séminaire Bourbaki in 1957 \cite{8}, and in his talk to the International Congress of Mathematicians in 1958 \cite{9}, but had never been developed systematically. He agreed, saying that he would provide an outline of the material, if I would fill in the details and write up lecture notes of the seminar. During the summer of 1963, he wrote a series of ``pré-notes'' \cite{10} which were to be the basis for the seminar.
+
+I quote from the preface of the pré-notes:
+
+\begin{quote}
+Les présentes notes donnent une esquisse assez détaillée d'une théorie cohomologique de la dualité des Modules cohérents sur les préschémas. Les idées principales de la théorie m'étaient connues dès 1959, mais le manque de fondements adéquats d'Algèbre Homologique m'avait empêché d'aborder une rédaction d'ensemble. Cette lacune de fondements est sur le point d'être comblée par la thèse de Verdier, ce qui rend en principe possible un exposé satisfaisant. Il est d'ailleurs apparu depuis qu'il existe des théories cohomologiques de dualité formellement très analogues à celle développée ici dans toutes sortes d'autres contextes: faisceaux cohérents sur les espaces analytiques, faisceaux abéliens sur les espaces topologiques (Verdier), modules galoisiens (Verdier, Tate), faisceaux de torsion sur les schémas munis de leur topologie étale, corps de classe en tous genres\,\dots Cela me semble une raison assez sérieuse pour se familiariser avec le yoga général de la dualité dans un cas type, comme la théorie cohomologique des résidus.
+
+La théorie consiste pour l'essentiel dans des questions de variance: construction d'un foncteur \(f^{!}\) et d'un homomorphisme-trace \(\doubleunderline{R}f_{*}f^{!}\to\operatorname{id}\). La construction donnée ici est compliquée et indirecte et n'est pas valable sous des conditions aussi générales qu'on est en droit de s'y attendre. Il faudra sans doute une idée nouvelle pour apporter des simplifications substantielles.
+\end{quote}
+
+The seminar took place in the fall and winter of 1963--64, with the assistance of David Mumford, John Tate, Stephen Lichtenbaum, John Fogarty, and others, and gave rise to a series of six exposés which were circulated to a limited audience under the title ``Séminaire Hartshorne''. The present notes are a revised, expanded, and completed version of the previous notes.
+
+I would like to take this opportunity to thank all those people who have helped in the course of this work, and in particular A.~Grothendieck, who gave continual support and encouragement throughout the whole project.
+
+\vspace{1cm}
+\hfill R.H.\par
+\hfill Cambridge, May 1966
+
+\clearpage
+\tableofcontents
+
+% --------------------------
+% Main Matter (Sample Content)
+% --------------------------
+\mainmatter
+\include{Intro}
+\include{Chapter1}
+\include{Chapter2}
+\include{Chapter3}
+\include{Chapter4}
+\include{Chapter5}
+\include{Chapter6}
+\include{Chapter7}
+\include{Backmatter}
+\end{document}
+
