@@ -1,14 +1,14 @@
 \chapter{Introduction}
 \begin{flushright}
-\textit{
-\begin{quote}
-	The way up and the way down are one and the same.
-\end{quote}
---Heraclitus
-}
+	\textit{
+		\begin{quote}
+			The way up and the way down are one and the same.
+		\end{quote}
+		--Heraclitus
+	}
 \end{flushright}
 \bigskip
-
+%Todo: insert greek letters
 The main purpose of these notes is to prove a duality theorem for cohomology of quasi-coherent sheaves, with respect to a proper morphism of locally noetherian preschemes. Various such theorems are already known. Typical is the duality theorem for a non-singular complete curve $X$ over an algebraically closed field $k$, which says that
 \[
 h^{0}(D)=h^{1}(K-D),
@@ -17,13 +17,15 @@ where $D$ is a divisor, $K$ is the canonical divisor, and
 \[
 h^{i}(D)=\dim_{k} H^{i}(X, \sO_{X}(D))
 \]
-for any $i$, and any divisor $D$. (See e.g.~\cite{16, Ch.\~II} for a proof.)
+for any $i$, and any divisor $D$. (See e.g.~\cite{16, Ch. II} for a proof.)
 
 Various attempts were made to generalize this theorem to varieties of higher dimension, and as Zariski points out in his report \cite{20}, his generalization of a lemma of Enriques--Severi \cite{19} is equivalent to the statement that for a normal projective variety $X$ of dimension $n$ over $k$, for any divisor $D$,
 \[
 h^{0}(D)=h^{n}(K-D).
 \]
-This is also equivalent to a theorem of Serre \cite[FAC, \S 3, Thm.~3]{15} on the vanishing of the cohomology group $H^{1}(X, \sO_{X}(-m))$ for $m$ large and $\sL$ locally free. Using a related theorem \cite[FAC, \S 3, Thm.~3]{15}, Zariski shows how one can deduce on a non-singular projective variety the formula
+This is also equivalent to a theorem of Serre \cite{FAC} \S 76, Thm. 4
+%Todo: better citation?
+on the vanishing of the cohomology group $H^{1}(X, \sO_{X}(-m))$ for $m$ large and $\sL$ locally free. Using a related theorem \cite{FAC} \S 75, Thm. 3, Zariski shows how one can deduce on a non-singular projective variety the formula
 \[
 h^{i}(D)=h^{n-i}(K-D)
 \]
@@ -31,7 +33,7 @@ for $0\leq i\leq n$. In terms of sheaves, this result corresponds to the fact th
 \[
 H^{i}(X, \sF) \quad\text{and}\quad H^{n-i}\bigl(X, \sF^{\vee}\otimes\somega\bigr)
 \]
-are dual to each other, where $\sF$ is a locally free sheaf, $\sF^{\vee}=\underline{\Hom}(\sF,\sO_{X})$, and $\somega=\Omega_{X/k}^{n}$ is the sheaf of $n$-differentials on $X$. Serre \cite{15} gives a proof of this same theorem by analytic methods for a compact complex analytic manifold $X$.
+are dual to each other, where $\sF$ is a locally free sheaf, $\sF^{\vee}$is the dual sheaf $\underline{\Hom}(\sF,\sO_{X})$, and $\somega=\Omega_{X/k}^{n}$ is the sheaf of $n$-differentials on $X$. Serre \cite{15} gives a proof of this same theorem by analytic methods for a compact complex analytic manifold $X$.
 
 Grothendieck \cite{8} gave some generalizations of these theorems for non-singular projective varieties and then in \cite{9} announced the general theorem for schemes proper over a field, with arbitrary singularities, which is the subject of the present lecture notes.
 
@@ -47,14 +49,14 @@ we obtain a pairing
 \begin{equation}\label{eq:3}
 	H^{i}(X, \sF)\times \Ext_{X}^{n-i}(\sF,\somega)\to k
 \end{equation}
-which one shows easily to be a perfect pairing [SGA 62, exposé 12]. This generalizes the statements above, because for a locally free sheaf $\sF$,
+which one shows easily to be a perfect pairing \cite{SGA 62, expose 12}. This generalizes the statements above, because for a locally free sheaf $\sF$,
 \[
 \Ext^{n-i}(\sF,\somega)=\Ext^{n-i}\bigl(\sO_{X},\sF^{\vee}\otimes\somega\bigr)=H^{n-i}\bigl(X,\sF^{\vee}\otimes\somega\bigr).
 \]
 
 Another way of looking at our duality pairing is as an isomorphism
 \begin{equation}\label{eq:4}
-\Ext_{X}^{n-i}(\sF,\somega)\cong \Hom_{k}\bigl(H^{i}(X,\sF),k\bigr).
+	\Ext_{X}^{n-i}(\sF,\somega)\cong \Hom_{k}\bigl(H^{i}(X,\sF),k\bigr).
 \end{equation}
 Since everything is linear over $k$, we may introduce a $k$-vector space $G$, and have an isomorphism
 \begin{equation}\label{eq:5}
