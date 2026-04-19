@@ -89,14 +89,15 @@ In the list of stable notations below, we have distinguished five categories: La
 	\midrule
 	$\gamma$ & trace for smooth morphism & III.3.4, III.11.2, VII.4.1 \\
 	$\Gamma$ & global sections of a sheaf & II.1.5 \\
-	$\delta$ & fundamental local isomorphism & III.7.3 \\
-	$\eta$ & unit morphism & \\
-	$\theta$ & duality morphism & III.5, III.6, III.11 \\
-	$\iota$ & map of a functor to its derived functor & I.5 \\
-	$\tau_{\leq n}$ & truncated complex & I.7 \\
+	$\zeta$ & change of differentials & III.7.3 \\
+	$\eta$ & fundamental local isomorphism  & III.7.3 \\
+	$\theta$ & duality morphism  & III.7.3 \\
+	$\xi$ & map of a functor to its derived functor  & III.7.3 \\
+	$\sigma_{\leq n}$ & truncated complex & I.7 \\
 	$\tau_{\geq n}$ & truncated complex & I.7 \\
-	$\rho$ & residue isomorphism & III.8 \\
+	$\phi$ & residue isomorphism & III.8 \\
 	$\omega$ & sheaf of differentials & III.1 \\
+	$\Omega$ & sheaf of differentials & III.1 \\
 	$\sO_X$ & structure sheaf of a prescheme & \\
 	$\mathfrak{m}$ & maximal ideal of a ring & \\
 	$\mathfrak{p}$ & prime ideal of a ring & \\
@@ -116,10 +117,15 @@ In the list of stable notations below, we have distinguished five categories: La
 	fid & as in $\D(X)_{\text{fid}}$ & I.7 \\
 	fTd & as in $\D(X)_{\text{fTd}}$ & II.4 \\
 	$\operatorname{Gor}$ & as in $\D(X)_{\operatorname{Gor}(Z^\bullet)}$ & IV.3 \\
-	$\mathfrak{p}$ & localization at a prime ideal & \\
+	$\mathfrak{p}$ & as in $A_\mathfrak{p},\,M_\mathfrak{p}$: localization at a prime ideal & \\
 	qc & as in $\D_{\text{qc}}(X)$ & II.1 \\
-	$x$ & stalk of a sheaf at $x$ & \\
-	$Z$ & local cohomology & IV.1 \\
+	$x$ & as in $\sO_x$: local ring at a point  $x$ & \\
+	 & as in $\sF_x$: stalk of a sheaf at  $x$ & \\
+	 & as in $\HH^i_x$: local cohomology & \\
+	$Z$ & as in $\Gamma_Z,\HH^i_Z$ & IV.1 \\
+	$\operatorname{I},\,\operatorname{II}$ & as in $\DerR_{\operatorname{I}},\DerR_{\operatorname{II}}$ & IV.1 \\
+	$\geq n$ & as in $\sigma_{\ge n},\tau_{\ge n}$ & IV.1 \\
+	$*$ & as in $f_*$: direct image & IV.1 \\
 \end{longtable}
 
 \section*{Superscripts}
@@ -127,23 +133,26 @@ In the list of stable notations below, we have distinguished five categories: La
 	\toprule
 	Symbol & Meaning & Reference \\
 	\midrule
-	$b$ & $K^b, \D^b$: bounded & I.2, I.4 \\
-	$i$ & $i$-th term of a complex / cohomology group & \\
-	$R^iF$ & $i$-th derived functor & \\
-	$f^Y$ & base change & VI.2 \\
-	$Z$ & local cohomology & VI.2 \\
-	$\bullet$ & denotes a complex ($\sF^\bullet, X^\bullet$) & \\
-	$\bullet\bullet$ & double complex & I.7 \\
-	$*$ & opposed category / inverse image $f^*$ & I.7, II.4 \\
-	$+$ & bounded below ($K^+, \D^+, R^+$) & I.2, I.4, I.5 \\
-	$-$ & bounded above ($K^-, \D^-, L^-$) & I.2, I.4, I.5 \\
-	$!$ & $f^!$ (twisted inverse image) & Intr., III.8, VII.3 \\
+	$b$ & as in $K^b, \D^b$: bounded & I.2, I.4 \\
+	$i$ & as in $X^i$:$i$-th term of a complex & \\
+	& as in $H^i$:$i$ cohomology group & \\
+	& as in $R^i F$:$i$-th derived functor & \\
+	$y$ & as in $f^y$ & VI.2 \\
+	$z$ & as in $f^z$ & VI.2 \\
+	$\bullet$ & as in $\sF^\bullet, X^\bullet$: denotes a complex  & \\
+	$\bullet\bullet$ & as in $\mathcal{C}^{\bullet\bullet}$: double complex & I.7 \\
+	$\bullet$ & as in $K(A)^{\bullet}$: opposed category&\\
+	$*$& as in $f^*$: inverse image  & I.7, II.4 \\
+	$+$ & as in $K^+, \D^+, \DerR^+$: bounded below  & I.2, I.4, I.5 \\
+	$-$ & as in $K^-, \D^-, \DerR^-$: bounded above  & I.2, I.4, I.5 \\
+	$!$ & as in $f^!$ & Intr., III.8, VII.3 \\
 	$\flat$ & $f^\flat$ & IX.6 \\
+	$\sharp$ & $f^\sharp$ & VI.3 \\
 	$\Delta$ & $f^\Delta$ & VI.3 \\
-	$\vee$ & dual sheaf ($L^\vee$) & II.5.16, III.1 \\
-	$-$ & closure ($|x|^-$) & \\
-	$\sim$ & sheaf associated to a module & \\
-	$\wedge$ & completion of local ring & \\
+	$\vee$ & as in $L^\vee$: dual sheaf & II.5.16, III.1 \\
+	$-$ & as in $\{x\}^-$: closure & \\
+	$\sim$ & as in $\tilde{M}$: sheaf associated to a module & \\
+	$\wedge$ & as in $\hat{A}$: completion of local ring & \\
 \end{longtable}
 
 \section*{Arbitrary Symbols}
@@ -153,17 +162,18 @@ In the list of stable notations below, we have distinguished five categories: La
 	\midrule
 	$\vert$ & restriction & \\
 	$\gg$ & enough larger than & \\
-	$\prod$ & product & \\
+	$\times$ & product & \\
 	$\otimes$ & tensor product & \\
 	$\oplus$ & direct sum & \\
 	$\coprod$ & disjoint union / sum & \\
-	$[\ ]$ & shift operator / closed interval & I.1 \\
-	$[\ ]$ & bibliography / chapter reference & \\
-	$\cup$ & union & \\
+	$[\ ]$ & shift operator  & I.1 \\
+	 & closed interval & I.1 \\
+	&  reference to Bibliography or other chapter  & \\
+	$\bigcup$ & union & \\
 	$\{\ \}$ & the set of & \\
 	$\to$ & morphism & \\
 	$\mapsto$ & effect of a map on elements & \\
-	$+$ & distinguished side of triangle & \\
+	$\cdot\to$ & distinguished side of triangle & \\
 	$\dashrightarrow$ & morphism being constructed & \\
 	$\circ$ & composition of functors ($F\circ G$) & I.2 \\
 \end{longtable}
