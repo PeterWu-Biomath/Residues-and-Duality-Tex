@@ -116,4 +116,59 @@ Having examined the case of projective space, we can state the following ideal t
 		f^{!}(\sG)=\underline{\Hom}_{\sO_{Y}}\bigl(f_{*}\sO_{X},\sG\bigr)^{\sim}.
 		\]
 	\end{enumerate}
+
+\item[(b)] For every proper morphism $f\colon X\to Y$ of preschemes, there is a trace morphism
+\[
+\operatorname{Tr}_{f}\colon \DerR f_{*}f^{!}\to\operatorname{id}
+\]
+of functors from $D(Y)$ to $D(Y)$ such that
+\begin{enumerate}
+	\item[1)] if $g\colon Y\to Z$ is a second proper morphism, then $\operatorname{Tr}_{g\circ f}=\operatorname{Tr}_{g}\circ\operatorname{Tr}_{f}$.
+	\item[2)] if $X=\mathbb{P}_{Y}^{n}$, then $\operatorname{Tr}_{f}$ is the map deduced from the canonical isomorphism $R^{n}f_{*}(\omega)\cong\mathcal{O}_{Y}$.
+	\item[3)] if $f$ is a finite morphism, then $\operatorname{Tr}_{f}$ is obtained from the natural map ``evaluation at one''
+	\[
+	\underline{\Hom}_{\mathcal{O}_Y}\bigl(f_{*}\mathcal{O}_{X},G\bigr)\to G.
+	\]
 \end{enumerate}
+
+\smallskip
+\item[(c)] If $f\colon X\to Y$ is a proper morphism, then the duality morphism
+\[
+\theta_{f}\colon \DerR{\Hom}_{X}\bigl(F,f^{!}G\bigr)\to \DerR{\Hom}_{Y}\bigl(\DerR f_{*}F,G\bigr)
+\]
+obtained by composing the natural map (7) above with $\operatorname{Tr}_{f}$, is an isomorphism for $F\in D(X)$ and $G\in D(Y)$.
+
+\bigskip
+	
+\end{enumerate}
+
+
+It should be noted that we have deliberately left certain technical details out of the above statement, for ease of reading. Thus it seems reasonable to make these statements only for complexes of quasi-coherent sheaves, or rather for complexes of arbitrary sheaves whose cohomology sheaves are quasi-coherent. (We denote this category by $D_{\mathrm{qc}}(Y)$ or $D_{\mathrm{qc}}(X)$.) In fact, we give an example in the case of a finite morphism to show that the duality theorem (c) fails if $G$ is not quasi-coherent (see example following [III,~6.7]). Secondly one must expect certain boundedness conditions on the complexes involved, namely $F$ should be bounded above (we write $F\in D_{\mathrm{qc}}^{-}(X)$) and $G$ should be bounded below ($G\in D_{\mathrm{qc}}^{+}(Y)$) for the duality theorem. Finally, questions of variance will be very important in the proof, and so the equals signs in (a) and (b) must be taken with a grain of salt. We must preserve very carefully the distinction between ``equals'' and ``is canonically isomorphic to''. Hence we will have more precise statements below.
+
+As to proving the ideal theorem, we succeed only partially. Certainly the conditions under which we can prove it will suffice for most applications, but it is unsatisfying to have restrictive hypotheses which are apparently not essential to the truth of the theorem. I mention four sets of hypotheses under which the theorem can be proved.
+
+\begin{enumerate}
+	\item[(i)] For the category of noetherian preschemes of finite Krull dimension, and morphisms $f\colon X\to Y$ which can be factored through a suitable projective space $\mathbb{P}_{Y}^{N}$, we have (a1)--(a3) for $D_{\mathrm{qc}}^{+}(Y)$ [I,~8.7], (b1)--(b3) for $D_{\mathrm{qc}}^{+}(Y)$ [I,~10.5], and (c) for $F\in D_{\mathrm{qc}}^{-}(X)$ and $G\in D_{\mathrm{qc}}^{+}(Y)$ [III,~11.1].
+	
+	\item[(ii)] For the category of noetherian preschemes which admit dualizing complexes (see [V,~\S2]; this implies in particular that the preschemes have finite Krull dimension) and morphisms whose fibres are of bounded dimension, we have (a1)--(a3) and (b1)--(b3) for $D_{C}^{+}(Y)$, and (c) for $F\in D_{\mathrm{qc}}^{-}(X)$, $G\in D_{C}^{+}(Y)$ [VII,~3.4]. Here the subscript $C$ denotes complexes with coherent cohomology sheaves.
+	
+	\item[(iii)] For the category of noetherian preschemes of finite Krull dimension and smooth morphisms, we have (a1)--(a3) for $D_{\mathrm{qc}}^{+}(Y)$, (b1)--(b3) for $G\in D_{\mathrm{qc}}^{b}(Y)$, and (c) for $F\in D_{\mathrm{qc}}^{-}(X)$ and $G\in D_{\mathrm{qc}}^{b}(Y)$ [VII,~4.3]. Here the exponent ``$b$'' denotes complexes which are bounded in both directions, i.e., finite.
+	
+	\item[(iv)] Recently P.~Deligne has shown (unpublished) that for the category of noetherian preschemes, one can construct $f^{!}$ and $\operatorname{Tr}_{f}$ satisfying (a), (b), and (c), working with $F\in D(\operatorname{Qco}(X))$ and $G\in D^{+}(\operatorname{Qco}(Y))$, the derived categories of the categories of quasi-coherent sheaves on $X$ and $Y$, respectively.
+\end{enumerate}
+
+The principal difficulty has been the lack of a suitable construction of the functor $f^{!}$: to define it locally, and then glue. Our procedure is to define $f^{!}$ for a finite or a smooth morphism, where we have it given to us by (a2) and (a3) [III,~\S6,\S11]. Thus by composition we can obtain it for any morphism which can be factored into a finite morphism followed by a smooth morphism [III,~\S8]. However, the derived category is not a local object, so we cannot glue these local determinations of $f^{!}$ to obtain a global one. We resort to a clumsy, round-about procedure of defining $f^{!}$ for a special class of complexes, called residual complexes [VI,~\S1], and then pulling ourselves up by our bootstraps to get it for arbitrary complexes [VII,~\S3]. But our result has the unpleasant hypotheses of (ii) above.
+
+Deligne's construction of $f^{!}$ is entirely different, and proceeds essentially by representing the functor (for $F\in D(X)$)
+\[
+F\longmapsto \DerR{\Hom}_{Y}\bigl(\DerR f_{*}F,G\bigr).
+\]
+This approach has the advantage of giving the duality theorem immediately. He also has a method for calculating $f^{!}G$ locally on $X$. However, it is not immediately clear from his construction that the properties (a2), (a3) and (b2), (b3) hold. In fact, their proof will probably require some knowledge of the duality theorem as we have proved it here. At least one can hope that some combination of the two approaches will provide substantial simplifications of the theory at a later date.
+
+A second difficulty, which lurks on the fringes of these notes, is that the derived category seems to be a little too big when it comes to unbounded complexes. For example, one can have two unequal morphisms $f,g\colon X\to Y$ in $D^{+}(\mathcal{A})$ (where $\mathcal{A}$ is an abelian category) such that their restrictions to each truncation of the complex $X$ to a bounded complex are equal. This gives rise to some trouble with unbounded complexes (see the problem after [II,~5.7], the boundedness hypotheses in [IV,~3.1] and [VII,~4.3a], and the remark following [VI,~1.1c]). Perhaps one will have to replace $D^{+}$ by the categories $\operatorname{ind}D^{b}$ and $\operatorname{pro}D^{b}$, which however may not be triangulated categories.
+
+Thirdly, some discussion of our noetherian hypotheses is in order. In the present state of the theory, the noetherian hypotheses are well entrenched. We have used them in [II,~\S7] for the structure of the injective objects in the category of sheaves on a locally noetherian prescheme, and its consequence that $D^{+}(\operatorname{Qco}(X))\to D_{\operatorname{qc}}^{+}(X)$ is an equivalence of categories. We have used them in the construction of the trace map for projective space [III,~\S4], in the construction of $f^{!}$ for a finite morphism [III,~\S6], in the whole theory of dualizing complexes [V,~\S2], in the definition of residual complexes [VI,~\S1], and so forth. Our finite Krull dimension hypotheses are often needed only to make possible the definition of $\mathbb{R}f_{*}$ and $f^{!}$ for unbounded complexes — a problem which will disappear when the second difficulty above is solved, and the relation between $D(\mathbf{Qco}(X))$ and $D_{\mathrm{qc}}(X)$ is better understood. It is certainly clear that our methods of proof rely heavily on noetherian hypotheses. I expect, however, that once a suitable statement is obtained, e.g., in case (iii) above, one could expect to prove the theorem without noetherian hypotheses, by reducing to the noetherian case. More satisfactory, of course, would be a treatment where noetherian hypotheses on the base were eliminated from the proofs as well as from the statements. When that is achieved, it will be reasonable to state the duality theorem for a proper morphism of ringed topos, whose fibres are noetherian schemes... At the present, however, this must remain a dream of things to come.
+
+Now we will give the reader a brief description of the organization of these notes.
+
+Chapter~\textsc{i} gives the language of derived categories, which is used continually in the sequel. Sections 1--5, containing the definition of derived categories and derived functors, are essential, while sections 6 and 7 are refinements which are needed in proofs later on. This chapter is a self-contained treatment of the subject, and makes no reference to algebraic geometry, so can be used independently as an introduction to the notion of derived category. Sections 1--6 (except for the notion of localizing subcategory and the corresponding categories $K_{A'}(\mathcal{A})$, $D_{A'}(\mathcal{A})$, etc.) are taken almost without change from notes of Verdier, and should appear in his thesis~\cite{18}.
