@@ -172,3 +172,63 @@ Thirdly, some discussion of our noetherian hypotheses is in order. In the presen
 Now we will give the reader a brief description of the organization of these notes.
 
 Chapter~\textsc{i} gives the language of derived categories, which is used continually in the sequel. Sections 1--5, containing the definition of derived categories and derived functors, are essential, while sections 6 and 7 are refinements which are needed in proofs later on. This chapter is a self-contained treatment of the subject, and makes no reference to algebraic geometry, so can be used independently as an introduction to the notion of derived category. Sections 1--6 (except for the notion of localizing subcategory and the corresponding categories $K_{A'}(\mathcal{A})$, $D_{A'}(\mathcal{A})$, etc.) are taken almost without change from notes of Verdier, and should appear in his thesis~\cite{18}.
+
+
+Chapter~\textsc{ii} is a fairly systematic treatment of the applications of the language of derived categories to the category of sheaves on a prescheme. We consider the functors $\Gamma$, $f_{*}$, $\mathcal{H}\mathit{om}$, $\Hom$, $\otimes$, $f^{*}$, their derived functors, and relations between these derived functors, such as associativity formulae. There is really no new mathematics involved here, since it is merely a translation into a new language of known results. However, some care is taken to see what hypotheses are needed. Only section~7 is notable new material. Here we give the structure of injective $\mathcal{O}_{X}$-modules on a locally noetherian prescheme $X$, showing that they are all direct sums of certain indecomposable injectives $J(x,x')$, for pairs of points $x$ specializing to $x'$ of $X$. This extends results of Matlis~\cite{13} and Gabriel~\cite{5} for the case of quasi-coherent sheaves.
+
+Chapter~\textsc{iii} contains everything we can say about duality for projective morphisms, and if the reader cares only for them, he may stop at the end of this chapter. However, it should be noted that the following chapters, besides giving us the tools for the proof of the general duality theorem in Chapter~\textsc{vii}, also give much new insight into the nature of duality for a projective morphism.
+
+There are so many situations in which we have a functor $f^{!}$ like the one mentioned in the ideal theorem above, that we use different notations for them. Thus we have $f^{*}$ for a smooth morphism in section~2, $f^{p}$ for a finite morphism in section~6, and $f^{!}$ for an embeddable morphism in section~8. Later we will also have $f^{Y}$, $f^{Z}$ [VI,~\S2] and $f^{\Delta}$ [VI,~\S3] for residual complexes.
+
+In sections~3, 4, and~5 we recall the explicit calculations of cohomology for projective space, and give the old duality for projective space in the new language of derived categories. Sections~6 and~7 give the corresponding formalism for finite morphisms, and its relation to the case of smooth morphisms, so that in sections~8, 10, and~11 we can prove the ideal duality theorem for projective morphisms. Section~9 gives the formalism of a residue symbol which generalizes the classical residue of a differential on a curve. Even over the complex numbers, this important concept of residue for varieties of dimension greater than one was not known before.
+
+In Chapter~\textsc{iv} we study ``local cohomology'', or cohomology with restricted supports, of abelian sheaves on a locally noetherian topological space, generalizing results of [LC,~\S16]. In particular, we discuss various cohomological properties which a sheaf or complex of sheaves may have with respect to certain families of supports. This gives rise to the notions of depth, Cousin complex, Cohen–Macaulay complex, and Gorenstein complex. The results of this chapter are independent of all other chapters of these notes, and so may be of use elsewhere, although their only application for the moment is to the theory of duality on preschemes.
+
+Chapter~\textsc{v} discusses dualizing complexes (read section~0 to find out what one is) and gives a duality theorem for modules over a local ring, generalizing results of [LC,~\S16]. In particular, the dualizing functor
+\[
+\mathcal{D} = \mathbb{R}\mathcal{H}\mathit{om}(\,\cdot\,, R^{\bullet})
+\]
+treated here will be useful for our bootstrap operation (construction of $f^{!}$) later, because it interchanges $\otimes$ and $\mathcal{H}\mathit{om}$, $f^{!}$ and $\mathbb{L}f_{*}$, and commutes with $\mathbb{R}f_{*}$ (duality theorem).
+
+In Chapter~\textsc{vi} we prepare for the final duality theorem by giving the construction of $f^{!}$ and $\operatorname{Tr}_{f}$ for residual complexes. This is accomplished by a delicate glueing procedure which is the most difficult part of the theory, so we have given it in some detail. Perhaps some day this type of construction will be done more elegantly using the language of fibred categories and results of Giraud's thesis~\cite{6}.
+
+Chapter~\textsc{vii} contains two main results. The first is the residue theorem, which generalizes the classical theorem that the sum of the residues of a differential on a curve is zero, and which is proved by reduction to that case. The second is the proof of the duality theorem for a proper morphism, which, now that all the functorial machinery has been set up, is little more than putting together the pieces of a jigsaw puzzle.
+
+It remains to give the reader some perspective by listing some topics which have a logical place in these notes, but which are not here.
+
+\medskip
+\noindent
+1.\ The cohomology class associated to a cycle.
+Let $X$ be proper and smooth of dimension $n$ over a field $k$. In [8,~\S4] it is shown how to associate to each non-singular subvariety $Y$ of codimension $p$ of $X$, a cohomology class
+\[
+P_{X}(Y) \in H^{p}\bigl(X, \Omega_{X/k}^{p}\bigr).
+\]
+Now this can be done for an arbitrary subvariety of $X$, using the remarks in [9]. One defines
+\[
+\omega_{Y} = H^{-n+p}\bigl(g^{!}k\bigr),
+\]
+where $g\colon Y\to k$ is the projection. Then there is a canonical element
+\[
+\eta \in \Ext_{\mathcal{O}_{Y}}^{-n+p}\bigl(\omega_{Y}, g^{!}k\bigr).
+\]
+One defines a natural map
+\[
+\Omega_{Y/k}^{n-p} \to \omega_{Y},
+\]
+which, together with $\eta$ and the construction of [8,~\S4], gives the cohomology class $P_{X}(Y)$. One proves the fundamental theorem that formation of the cohomology class associated to a cycle takes an intersection of cycles into the cup-product of their cohomology classes.
+
+\medskip
+\noindent
+2.\ The theory of Poincaré duality and the Gysin homomorphism can be developed as in [8,~\S4].
+
+\medskip
+\noindent
+3.\ A Lefschetz–Verdier fixed point formula for coherent sheaves on a scheme proper over a field, to generalize [21, Theorem~2]. In particular, the determination of the local contribution at a non-simple fixed point presents an interesting topic for future investigation.
+
+\medskip
+\noindent
+4.\ The still lacking theory of duality for complexes with differential operators as boundary operator, its ties with ordinary singular homology theory and with vector bundles with integrable connections, as suggested in [22].
+
+\bigskip
+
+A remark on references: Theorem~5.1 of Chapter~\textsc{iii} is referred to as ``Theorem~5.1'' in Chapter~\textsc{iii}, and as \textup{[III,~5.1]} elsewhere. References to the bibliography at the end are given by square brackets with an arabic numeral or some capital letters, e.g., \textup{[14, (31.I)]} or \textup{[EGA III,~2.1.12]}.
