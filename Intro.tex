@@ -13,60 +13,60 @@ The main purpose of these notes is to prove a duality theorem for cohomology of 
 \[
 h^{0}(D)=h^{1}(K-D),
 \]
-where $D$ is a divisor, $K$ is the canonical divisor, and
+where $\DD$ is a divisor, $K$ is the canonical divisor, and
 \[
-h^{i}(D)=\dim_{k} H^{i}(X, \sO_{X}(D))
+h^{i}(D)=\dim_{k} \HH^{i}(X, \sO_{X}(D))
 \]
-for any $i$, and any divisor $D$. (See e.g.~\cite{16, Ch. II} for a proof.)
+for any $i$, and any divisor $\DD$. (See e.g.~\cite{16, Ch. II} for a proof.)
 
-Various attempts were made to generalize this theorem to varieties of higher dimension, and as Zariski points out in his report \cite{20}, his generalization of a lemma of Enriques--Severi \cite{19} is equivalent to the statement that for a normal projective variety $X$ of dimension $n$ over $k$, for any divisor $D$,
+Various attempts were made to generalize this theorem to varieties of higher dimension, and as Zariski points out in his report \cite{20}, his generalization of a lemma of Enriques--Severi \cite{19} is equivalent to the statement that for a normal projective variety $X$ of dimension $n$ over $k$, for any divisor $\DD$,
 \[
 h^{0}(D)=h^{n}(K-D).
 \]
 This is also equivalent to a theorem of Serre \cite{FAC} \S 76, Thm. 4
 %Todo: better citation?
-on the vanishing of the cohomology group $H^{1}(X, \sO_{X}(-m))$ for $m$ large and $\sL$ locally free. Using a related theorem \cite{FAC} \S 75, Thm. 3, Zariski shows how one can deduce on a non-singular projective variety the formula
+on the vanishing of the cohomology group $\HH^{1}(X, \sO_{X}(-m))$ for $m$ large and $\sL$ locally free. Using a related theorem \cite{FAC} \S 75, Thm. 3, Zariski shows how one can deduce on a non-singular projective variety the formula
 \[
 h^{i}(D)=h^{n-i}(K-D)
 \]
 for $0\leq i\leq n$. In terms of sheaves, this result corresponds to the fact that the $k$-vector spaces
 \[
-H^{i}(X, \sF) \quad\text{and}\quad H^{n-i}\bigl(X, \sF^{\vee}\otimes\omega\bigr)
+\HH^{i}(X, \sF) \quad\text{and}\quad \HH^{n-i}\bigl(X, \sF^{\vee}\otimes\omega\bigr)
 \]
-are dual to each other, where $\sF$ is a locally free sheaf, $\sF^{\vee}$is the dual sheaf $\underline{\Hom}(\sF,\sO_{X})$,
+are dual to each other, where $\sF$ is a locally free sheaf, $\sF^{\vee}$ is the dual sheaf $\underline{\Hom}(\sF,\sO_{X})$,
  and $\omega=\Omega_{X/k}^{n}$ is the sheaf of $n$-differentials on $X$. Serre \cite{15} gives a proof of this same theorem by analytic methods for a compact complex analytic manifold $X$.
 
 Grothendieck \cite{8} gave some generalizations of these theorems for non-singular projective varieties and then in \cite{9} announced the general theorem for schemes proper over a field, with arbitrary singularities, which is the subject of the present lecture notes.
 
 To motivate the statement of our main theorem, let us consider the case of projective space $X=\bbP_{k}^{n}$ over an algebraically closed field $k$. Then there is a canonical isomorphism
 \begin{equation}\label{eq:1}
-	H^{n}(X, \omega)\cong k
+	\HH^{n}(X, \omega)\cong k
 \end{equation}
 where $\omega=\Omega_{X/k}^{n}$ is the sheaf of $n$-differentials. Combining this with the Yoneda pairing
 \begin{equation}\label{eq:2}
-	H^{i}(X, \sF)\times \Ext_{X}^{n-i}(\sF,\omega)\to H^{n}(X,\omega)
+	\HH^{i}(X, \sF)\times \Ext_{X}^{n-i}(\sF,\omega)\to \HH^{n}(X,\omega)
 \end{equation}
 we obtain a pairing
 \begin{equation}\label{eq:3}
-	H^{i}(X, \sF)\times \Ext_{X}^{n-i}(\sF,\omega)\to k
+	\HH^{i}(X, \sF)\times \Ext_{X}^{n-i}(\sF,\omega)\to k
 \end{equation}
 which one shows easily to be a perfect pairing \cite{SGA 62, expose 12}. This generalizes the statements above, because for a locally free sheaf $\sF$,
 \[
-\Ext^{n-i}(\sF,\omega)=\Ext^{n-i}\bigl(\sO_{X},\sF^{\vee}\otimes\omega\bigr)=H^{n-i}\bigl(X,\sF^{\vee}\otimes\omega\bigr).
+\Ext^{n-i}(\sF,\omega)=\Ext^{n-i}\bigl(\sO_{X},\sF^{\vee}\otimes\omega\bigr)=\HH^{n-i}\bigl(X,\sF^{\vee}\otimes\omega\bigr).
 \]
 
 Another way of looking at our duality pairing is as an isomorphism
 \begin{equation}\label{eq:4}
-	\Ext_{X}^{n-i}(\sF,\omega)\cong \Hom_{k}\bigl(H^{i}(X,\sF),k\bigr).
+	\Ext_{X}^{n-i}(\sF,\omega)\cong \Hom_{k}\bigl(\HH^{i}(X,\sF),k\bigr).
 \end{equation}
 Since everything is linear over $k$, we may introduce a $k$-vector space $G$, and have an isomorphism
 \begin{equation}\label{eq:5}
-	\Ext_{X}^{n-i}\bigl(\sF,G\otimes_{k}\omega\bigr)\to \Hom_{k}\bigl(H^{i}(X,\sF),G\bigr).
+	\Ext_{X}^{n-i}\bigl(\sF,G\otimes_{k}\omega\bigr)\to \Hom_{k}\bigl(\HH^{i}(X,\sF),G\bigr).
 \end{equation}
 
-Before proceeding further, we must introduce the derived category. It will be discussed in detail in Chapter~I, but for the moment it will be sufficient to know the following: For each abelian category $\mathcal{A}$, there is a category $D(\mathcal{A})$, called the derived category of $\mathcal{A}$, whose objects are complexes of objects of $\mathcal{A}$. If $F\colon\mathcal{A}\to\mathcal{B}$ is an additive functor from one abelian category to another, then under reasonable conditions there is a right derived functor $\DerR F\colon D(\mathcal{A})\to D(\mathcal{B})$ with the property that for any $X\in\operatorname{Ob}\mathcal{A}$, if $X$ denotes also the complex which is $X$ in degree zero, and zero elsewhere, then
+Before proceeding further, we must introduce the derived category. It will be discussed in detail in Chapter~I, but for the moment it will be sufficient to know the following: For each abelian category $\mathcal{A}$, there is a category $\DD(\mathcal{A})$, called the derived category of $\mathcal{A}$, whose objects are complexes of objects of $\mathcal{A}$. If $F\colon\mathcal{A}\to\mathcal{B}$ is an additive functor from one abelian category to another, then under reasonable conditions there is a right derived functor $\DerR F\colon \DD(\mathcal{A})\to \DD(\mathcal{B})$ with the property that for any $X\in\operatorname{Ob}\mathcal{A}$, if $X$ denotes also the complex which is $X$ in degree zero, and zero elsewhere, then
 \[
-H^{i}(\DerR F(X))=R^{i}F(X),
+\HH^{i}(\DerR F(X))=R^{i}F(X),
 \]
 where $R^{i}F$ is the ordinary $i^{\text{th}}$ right derived functor of $F$. Finally, if $F\colon\mathcal{A}\to\mathcal{B}$ and $G\colon\mathcal{B}\to\mathcal{C}$ are two functors then
 \[
@@ -74,11 +74,11 @@ where $R^{i}F$ is the ordinary $i^{\text{th}}$ right derived functor of $F$. Fin
 \]
 This replaces the old-fashioned spectral sequence of a composite functor.
 
-Now we can jazz up our duality for projective space as follows. We replace $k$ by a prescheme $Y$, so that $X=\bbP_{Y}^{n}$. We consider the derived categories $D(X)$ and $D(Y)$ of the categories of $\sO_{X}$-modules and $\sO_{Y}$-modules, respectively. Then cohomology $H^{i}$ becomes $\DerR f_{*}$, the derived functor of the direct image functor $f_{*}$, where $f\colon X\to Y$ is the projection. $\Ext$ becomes the derived functor $\DerR\Hom$ of $\Hom$. We define
+Now we can jazz up our duality for projective space as follows. We replace $k$ by a prescheme $Y$, so that $X=\bbP_{Y}^{n}$. We consider the derived categories $\DD(X)$ and $\DD(Y)$ of the categories of $\sO_{X}$-modules and $\sO_{Y}$-modules, respectively. Then cohomology $\HH^{i}$ becomes $\DerR f_{*}$, the derived functor of the direct image functor $f_{*}$, where $f\colon X\to Y$ is the projection. $\Ext$ becomes the derived functor $\DerR\Hom$ of $\Hom$. We define
 \[
 f^{!}(\sG)=f^{*}(\sG)\otimes\omega
 \]
-for $\sG\in D(Y)$, and we replace $\sF$ by a complex of sheaves $\sF\in D(X)$. Then the isomorphism \eqref{eq:1} gives us an isomorphism
+for $\sG\in \DD(Y)$, and we replace $\sF$ by a complex of sheaves $\sF\in \DD(X)$. Then the isomorphism \eqref{eq:1} gives us an isomorphism
 \begin{equation}\label{eq:6}
 	\DerR f_{*}\,f^{!}\sG\stackrel{\sim}{\to}\sG
 \end{equation}
@@ -121,7 +121,7 @@ Having examined the case of projective space, we can state the following ideal t
 \[
 \operatorname{Tr}_{f}\colon \DerR f_{*}f^{!}\to\operatorname{id}
 \]
-of functors from $D(Y)$ to $D(Y)$ such that
+of functors from $\DD(Y)$ to $\DD(Y)$ such that
 \begin{enumerate}
 	\item[1)] if $g\colon Y\to Z$ is a second proper morphism, then $\operatorname{Tr}_{g\circ f}=\operatorname{Tr}_{g}\circ\operatorname{Tr}_{f}$.
 	\item[2)] if $X=\mathbb{P}_{Y}^{n}$, then $\operatorname{Tr}_{f}$ is the map deduced from the canonical isomorphism $R^{n}f_{*}(\omega)\cong\mathcal{O}_{Y}$.
@@ -136,49 +136,51 @@ of functors from $D(Y)$ to $D(Y)$ such that
 \[
 \theta_{f}\colon \DerR{\Hom}_{X}\bigl(F,f^{!}G\bigr)\to \DerR{\Hom}_{Y}\bigl(\DerR f_{*}F,G\bigr)
 \]
-obtained by composing the natural map (7) above with $\operatorname{Tr}_{f}$, is an isomorphism for $F\in D(X)$ and $G\in D(Y)$.
+obtained by composing the natural map (7) above with $\operatorname{Tr}_{f}$, is an isomorphism for $F\in \DD(X)$ and $G\in \DD(Y)$.
 
 \bigskip
 	
 \end{enumerate}
 
 
-It should be noted that we have deliberately left certain technical details out of the above statement, for ease of reading. Thus it seems reasonable to make these statements only for complexes of quasi-coherent sheaves, or rather for complexes of arbitrary sheaves whose cohomology sheaves are quasi-coherent. (We denote this category by $D_{\mathrm{qc}}(Y)$ or $D_{\mathrm{qc}}(X)$.) In fact, we give an example in the case of a finite morphism to show that the duality theorem (c) fails if $G$ is not quasi-coherent (see example following [III,~6.7]). Secondly one must expect certain boundedness conditions on the complexes involved, namely $F$ should be bounded above (we write $F\in D_{\mathrm{qc}}^{-}(X)$) and $G$ should be bounded below ($G\in D_{\mathrm{qc}}^{+}(Y)$) for the duality theorem. Finally, questions of variance will be very important in the proof, and so the equals signs in (a) and (b) must be taken with a grain of salt. We must preserve very carefully the distinction between ``equals'' and ``is canonically isomorphic to''. Hence we will have more precise statements below.
+It should be noted that we have deliberately left certain technical details out of the above statement, for ease of reading. Thus it seems reasonable to make these statements only for complexes of quasi-coherent sheaves, or rather for complexes of arbitrary sheaves whose cohomology sheaves are quasi-coherent. (We denote this category by $\DD_{\mathrm{qc}}(Y)$ or $\DD_{\mathrm{qc}}(X)$.) In fact, we give an example in the case of a finite morphism to show that the duality theorem (c) fails if $G$ is not quasi-coherent (see example following [III,~6.7]). Secondly one must expect certain boundedness conditions on the complexes involved, namely $F$ should be bounded above (we write $F\in \DD_{\mathrm{qc}}^{-}(X)$) and $G$ should be bounded below ($G\in \DD_{\mathrm{qc}}^{+}(Y)$) for the duality theorem. Finally, questions of variance will be very important in the proof, and so the equals signs in (a) and (b) must be taken with a grain of salt. We must preserve very carefully the distinction between ``equals'' and ``is canonically isomorphic to''. Hence we will have more precise statements below.
 
 As to proving the ideal theorem, we succeed only partially. Certainly the conditions under which we can prove it will suffice for most applications, but it is unsatisfying to have restrictive hypotheses which are apparently not essential to the truth of the theorem. I mention four sets of hypotheses under which the theorem can be proved.
 
 \begin{enumerate}
-	\item[(i)] For the category of noetherian preschemes of finite Krull dimension, and morphisms $f\colon X\to Y$ which can be factored through a suitable projective space $\mathbb{P}_{Y}^{N}$, we have (a1)--(a3) for $D_{\mathrm{qc}}^{+}(Y)$ [I,~8.7], (b1)--(b3) for $D_{\mathrm{qc}}^{+}(Y)$ [I,~10.5], and (c) for $F\in D_{\mathrm{qc}}^{-}(X)$ and $G\in D_{\mathrm{qc}}^{+}(Y)$ [III,~11.1].
+	\item[(i)] For the category of noetherian preschemes of finite Krull dimension, and morphisms $f\colon X\to Y$ which can be factored through a suitable projective space $\mathbb{P}_{Y}^{N}$, we have (a1)--(a3) for $\DD_{\mathrm{qc}}^{+}(Y)$ [I,~8.7], (b1)--(b3) for $\DD_{\mathrm{qc}}^{+}(Y)$ [I,~10.5], and (c) for $F\in \DD_{\mathrm{qc}}^{-}(X)$ and $G\in \DD_{\mathrm{qc}}^{+}(Y)$ [III,~11.1].
 	
-	\item[(ii)] For the category of noetherian preschemes which admit dualizing complexes (see [V,~\S2]; this implies in particular that the preschemes have finite Krull dimension) and morphisms whose fibres are of bounded dimension, we have (a1)--(a3) and (b1)--(b3) for $D_{C}^{+}(Y)$, and (c) for $F\in D_{\mathrm{qc}}^{-}(X)$, $G\in D_{C}^{+}(Y)$ [VII,~3.4]. Here the subscript $C$ denotes complexes with coherent cohomology sheaves.
+	\item[(ii)] For the category of noetherian preschemes which admit dualizing complexes (see [V,~\S2]; this implies in particular that the preschemes have finite Krull dimension) and morphisms whose fibres are of bounded dimension, we have (a1)--(a3) and (b1)--(b3) for $\DD_{c}^{+}(Y)$, and (c) for $F\in \DD_{\mathrm{qc}}^{-}(X)$, $G\in \DD_{c}^{+}(Y)$ [VII,~3.4]. Here the subscript $c$ denotes complexes with coherent cohomology sheaves.
 	
-	\item[(iii)] For the category of noetherian preschemes of finite Krull dimension and smooth morphisms, we have (a1)--(a3) for $D_{\mathrm{qc}}^{+}(Y)$, (b1)--(b3) for $G\in D_{\mathrm{qc}}^{b}(Y)$, and (c) for $F\in D_{\mathrm{qc}}^{-}(X)$ and $G\in D_{\mathrm{qc}}^{b}(Y)$ [VII,~4.3]. Here the exponent ``$b$'' denotes complexes which are bounded in both directions, i.e., finite.
+	\item[(iii)] For the category of noetherian preschemes of finite Krull dimension and smooth morphisms, we have (a1)--(a3) for $\DD_{\mathrm{qc}}^{+}(Y)$, (b1)--(b3) for $G\in \DD_{\mathrm{qc}}^{b}(Y)$, and (c) for $F\in \DD_{\mathrm{qc}}^{-}(X)$ and $G\in \DD_{\mathrm{qc}}^{b}(Y)$ [VII,~4.3]. Here the exponent ``$b$'' denotes complexes which are bounded in both directions, i.e., finite.
 	
-	\item[(iv)] Recently P.~Deligne has shown (unpublished) that for the category of noetherian preschemes, one can construct $f^{!}$ and $\operatorname{Tr}_{f}$ satisfying (a), (b), and (c), working with $F\in D(\operatorname{Qco}(X))$ and $G\in D^{+}(\operatorname{Qco}(Y))$, the derived categories of the categories of quasi-coherent sheaves on $X$ and $Y$, respectively.
+	\item[(iv)] Recently P.~Deligne has shown (unpublished) that for the category of noetherian preschemes, one can construct $f^{!}$ and $\operatorname{Tr}_{f}$ satisfying (a), (b), and (c), working with $F\in \DD(\operatorname{Qco}(X))$ and $G\in \DD^{+}(\operatorname{Qco}(Y))$, the derived categories of the categories of quasi-coherent sheaves on $X$ and $Y$, respectively.
 \end{enumerate}
 
 The principal difficulty has been the lack of a suitable construction of the functor $f^{!}$: to define it locally, and then glue. Our procedure is to define $f^{!}$ for a finite or a smooth morphism, where we have it given to us by (a2) and (a3) [III,~\S6,\S11]. Thus by composition we can obtain it for any morphism which can be factored into a finite morphism followed by a smooth morphism [III,~\S8]. However, the derived category is not a local object, so we cannot glue these local determinations of $f^{!}$ to obtain a global one. We resort to a clumsy, round-about procedure of defining $f^{!}$ for a special class of complexes, called residual complexes [VI,~\S1], and then pulling ourselves up by our bootstraps to get it for arbitrary complexes [VII,~\S3]. But our result has the unpleasant hypotheses of (ii) above.
 
-Deligne's construction of $f^{!}$ is entirely different, and proceeds essentially by representing the functor (for $F\in D(X)$)
+Deligne's construction of $f^{!}$ is entirely different, and proceeds essentially by representing the functor (for $F\in \DD(X)$)
 \[
 F\longmapsto \DerR{\Hom}_{Y}\bigl(\DerR f_{*}F,G\bigr).
 \]
 This approach has the advantage of giving the duality theorem immediately. He also has a method for calculating $f^{!}G$ locally on $X$. However, it is not immediately clear from his construction that the properties (a2), (a3) and (b2), (b3) hold. In fact, their proof will probably require some knowledge of the duality theorem as we have proved it here. At least one can hope that some combination of the two approaches will provide substantial simplifications of the theory at a later date.
 
-A second difficulty, which lurks on the fringes of these notes, is that the derived category seems to be a little too big when it comes to unbounded complexes. For example, one can have two unequal morphisms $f,g\colon X\to Y$ in $D^{+}(\mathcal{A})$ (where $\mathcal{A}$ is an abelian category) such that their restrictions to each truncation of the complex $X$ to a bounded complex are equal. This gives rise to some trouble with unbounded complexes (see the problem after [II,~5.7], the boundedness hypotheses in [IV,~3.1] and [VII,~4.3a], and the remark following [VI,~1.1c]). Perhaps one will have to replace $D^{+}$ by the categories $\operatorname{ind}D^{b}$ and $\operatorname{pro}D^{b}$, which however may not be triangulated categories.
+A second difficulty, which lurks on the fringes of these notes, is that the derived category seems to be a little too big when it comes to unbounded complexes. For example, one can have two unequal morphisms $f,g\colon X\to Y$ in $\DD^{+}(\mathcal{A})$ (where $\mathcal{A}$ is an abelian category) such that their restrictions to each truncation of the complex $X$ to a bounded complex are equal. This gives rise to some trouble with unbounded complexes (see the problem after [II,~5.7], the boundedness hypotheses in [IV,~3.1] and [VII,~4.3a], and the remark following [VI,~1.1c]). Perhaps one will have to replace $\DD^{+}$ by the categories $\operatorname{ind}D^{b}$ and $\operatorname{pro}D^{b}$, which however may not be triangulated categories.
 
-Thirdly, some discussion of our noetherian hypotheses is in order. In the present state of the theory, the noetherian hypotheses are well entrenched. We have used them in [II,~\S7] for the structure of the injective objects in the category of sheaves on a locally noetherian prescheme, and its consequence that $D^{+}(\operatorname{Qco}(X))\to D_{\operatorname{qc}}^{+}(X)$ is an equivalence of categories. We have used them in the construction of the trace map for projective space [III,~\S4], in the construction of $f^{!}$ for a finite morphism [III,~\S6], in the whole theory of dualizing complexes [V,~\S2], in the definition of residual complexes [VI,~\S1], and so forth. Our finite Krull dimension hypotheses are often needed only to make possible the definition of $\mathbb{R}f_{*}$ and $f^{!}$ for unbounded complexes — a problem which will disappear when the second difficulty above is solved, and the relation between $D(\mathbf{Qco}(X))$ and $D_{\mathrm{qc}}(X)$ is better understood. It is certainly clear that our methods of proof rely heavily on noetherian hypotheses. I expect, however, that once a suitable statement is obtained, e.g., in case (iii) above, one could expect to prove the theorem without noetherian hypotheses, by reducing to the noetherian case. More satisfactory, of course, would be a treatment where noetherian hypotheses on the base were eliminated from the proofs as well as from the statements. When that is achieved, it will be reasonable to state the duality theorem for a proper morphism of ringed topos, whose fibres are noetherian schemes... At the present, however, this must remain a dream of things to come.
+Thirdly, some discussion of our noetherian hypotheses is in order. In the present state of the theory, the noetherian hypotheses are well entrenched. We have used them in [II,~\S7] for the structure of the injective objects in the category of sheaves on a locally noetherian prescheme, and its consequence that $\DD^{+}(\operatorname{Qco}(X))\to D_{\operatorname{qc}}^{+}(X)$ is an equivalence of categories. We have used them in the construction of the trace map for projective space [III,~\S4], in the construction of $f^{!}$ for a finite morphism [III,~\S6], in the whole theory of dualizing complexes [V,~\S2], in the definition of residual complexes [VI,~\S1], and so forth. Our finite Krull dimension hypotheses are often needed only to make possible the definition of $\mathbb{R}f_{*}$ and $f^{!}$ for unbounded complexes — a problem which will disappear when the second difficulty above is solved, and the relation between $\DD(\mathbf{Qco}(X))$ and $\DD_{\mathrm{qc}}(X)$ is better understood. It is certainly clear that our methods of proof rely heavily on noetherian hypotheses. I expect, however, that once a suitable statement is obtained, e.g., in case (iii) above, one could expect to prove the theorem without noetherian hypotheses, by reducing to the noetherian case. More satisfactory, of course, would be a treatment where noetherian hypotheses on the base were eliminated from the proofs as well as from the statements. When that is achieved, it will be reasonable to state the duality theorem for a proper morphism of ringed topos, whose fibres are noetherian schemes... At the present, however, this must remain a dream of things to come.
+
+\bigskip
 
 Now we will give the reader a brief description of the organization of these notes.
 
-Chapter~\textsc{i} gives the language of derived categories, which is used continually in the sequel. Sections 1--5, containing the definition of derived categories and derived functors, are essential, while sections 6 and 7 are refinements which are needed in proofs later on. This chapter is a self-contained treatment of the subject, and makes no reference to algebraic geometry, so can be used independently as an introduction to the notion of derived category. Sections 1--6 (except for the notion of localizing subcategory and the corresponding categories $K_{A'}(\mathcal{A})$, $D_{A'}(\mathcal{A})$, etc.) are taken almost without change from notes of Verdier, and should appear in his thesis~\cite{18}.
+Chapter~\textsc{i} gives the language of derived categories, which is used continually in the sequel. Sections 1--5, containing the definition of derived categories and derived functors, are essential, while sections 6 and 7 are refinements which are needed in proofs later on. This chapter is a self-contained treatment of the subject, and makes no reference to algebraic geometry, so can be used independently as an introduction to the notion of derived category. Sections 1--6 (except for the notion of localizing subcategory and the corresponding categories $\KK_{A'}(\mathcal{A})$, $\DD_{A'}(\mathcal{A})$, etc.) are taken almost without change from notes of Verdier, and should appear in his thesis~\cite{18}.
 
 
-Chapter~\textsc{ii} is a fairly systematic treatment of the applications of the language of derived categories to the category of sheaves on a prescheme. We consider the functors $\Gamma$, $f_{*}$, $\mathcal{H}\mathit{om}$, $\Hom$, $\otimes$, $f^{*}$, their derived functors, and relations between these derived functors, such as associativity formulae. There is really no new mathematics involved here, since it is merely a translation into a new language of known results. However, some care is taken to see what hypotheses are needed. Only section~7 is notable new material. Here we give the structure of injective $\mathcal{O}_{X}$-modules on a locally noetherian prescheme $X$, showing that they are all direct sums of certain indecomposable injectives $J(x,x')$, for pairs of points $x$ specializing to $x'$ of $X$. This extends results of Matlis~\cite{13} and Gabriel~\cite{5} for the case of quasi-coherent sheaves.
+Chapter~\textsc{ii} is a fairly systematic treatment of the applications of the language of derived categories to the category of sheaves on a prescheme. We consider the functors $\Gamma$, $f_{*}$, $\Hom$, $\underline{\Hom}$, $\otimes$, $f^{*}$, their derived functors, and relations between these derived functors, such as associativity formulae. There is really no new mathematics involved here, since it is merely a translation into a new language of known results. However, some care is taken to see what hypotheses are needed. Only section~7 is notable new material. Here we give the structure of injective $\mathcal{O}_{X}$-modules on a locally noetherian prescheme $X$, showing that they are all direct sums of certain indecomposable injectives $J(x,x')$, for pairs of points $x$ specializing to $x'$ of $X$. This extends results of Matlis~\cite{13} and Gabriel~\cite{5} for the case of quasi-coherent sheaves.
 
 Chapter~\textsc{iii} contains everything we can say about duality for projective morphisms, and if the reader cares only for them, he may stop at the end of this chapter. However, it should be noted that the following chapters, besides giving us the tools for the proof of the general duality theorem in Chapter~\textsc{vii}, also give much new insight into the nature of duality for a projective morphism.
 
-There are so many situations in which we have a functor $f^{!}$ like the one mentioned in the ideal theorem above, that we use different notations for them. Thus we have $f^{*}$ for a smooth morphism in section~2, $f^{p}$ for a finite morphism in section~6, and $f^{!}$ for an embeddable morphism in section~8. Later we will also have $f^{Y}$, $f^{Z}$ [VI,~\S2] and $f^{\Delta}$ [VI,~\S3] for residual complexes.
+There are so many situations in which we have a functor $f^{!}$ like the one mentioned in the ideal theorem above, that we use different notations for them. Thus we have $f^{\sharp}$ for a smooth morphism in section~2, $f^{\flat}$ for a finite morphism in section~6, and $f^{!}$ for an embeddable morphism in section~8. Later we will also have $f^{y}$, $f^{z}$ [VI,~\S2] and $f^{\Delta}$ [VI,~\S3] for residual complexes.
 
 In sections~3, 4, and~5 we recall the explicit calculations of cohomology for projective space, and give the old duality for projective space in the new language of derived categories. Sections~6 and~7 give the corresponding formalism for finite morphisms, and its relation to the case of smooth morphisms, so that in sections~8, 10, and~11 we can prove the ideal duality theorem for projective morphisms. Section~9 gives the formalism of a residue symbol which generalizes the classical residue of a differential on a curve. Even over the complex numbers, this important concept of residue for varieties of dimension greater than one was not known before.
 
@@ -186,9 +188,9 @@ In Chapter~\textsc{iv} we study ``local cohomology'', or cohomology with restric
 
 Chapter~\textsc{v} discusses dualizing complexes (read section~0 to find out what one is) and gives a duality theorem for modules over a local ring, generalizing results of [LC,~\S16]. In particular, the dualizing functor
 \[
-\mathcal{D} = \mathbb{R}\mathcal{H}\mathit{om}(\,\cdot\,, R^{\bullet})
+\underline{\DD} = \DerR\underline{\Hom}(\,\bullet\,, R^{\bullet})
 \]
-treated here will be useful for our bootstrap operation (construction of $f^{!}$) later, because it interchanges $\otimes$ and $\mathcal{H}\mathit{om}$, $f^{!}$ and $\mathbb{L}f_{*}$, and commutes with $\mathbb{R}f_{*}$ (duality theorem).
+treated here will be useful for our bootstrap operation (construction of $f^{!}$) later, because it interchanges $\otimes$ and $\underline{\Hom}$, $f^{!}$ and $\DerL f_{*}$, and commutes with $\DerR f_{*}$ (duality theorem).
 
 In Chapter~\textsc{vi} we prepare for the final duality theorem by giving the construction of $f^{!}$ and $\operatorname{Tr}_{f}$ for residual complexes. This is accomplished by a delicate glueing procedure which is the most difficult part of the theory, so we have given it in some detail. Perhaps some day this type of construction will be done more elegantly using the language of fibred categories and results of Giraud's thesis~\cite{6}.
 
@@ -201,7 +203,7 @@ It remains to give the reader some perspective by listing some topics which have
 1.\ The cohomology class associated to a cycle.
 Let $X$ be proper and smooth of dimension $n$ over a field $k$. In [8,~\S4] it is shown how to associate to each non-singular subvariety $Y$ of codimension $p$ of $X$, a cohomology class
 \[
-P_{X}(Y) \in H^{p}\bigl(X, \Omega_{X/k}^{p}\bigr).
+\PP_{X}(Y) \in \HH^{p}\bigl(X, \Omega_{X/k}^{p}\bigr).
 \]
 Now this can be done for an arbitrary subvariety of $X$, using the remarks in [9]. One defines
 \[
@@ -215,7 +217,7 @@ One defines a natural map
 \[
 \Omega_{Y/k}^{n-p} \to \omega_{Y},
 \]
-which, together with $\eta$ and the construction of [8,~\S4], gives the cohomology class $P_{X}(Y)$. One proves the fundamental theorem that formation of the cohomology class associated to a cycle takes an intersection of cycles into the cup-product of their cohomology classes.
+which, together with $\eta$ and the construction of [8,~\S4], gives the cohomology class $\PP_{X}(Y)$. One proves the fundamental theorem that formation of the cohomology class associated to a cycle takes an intersection of cycles into the cup-product of their cohomology classes.
 
 \medskip
 \noindent
