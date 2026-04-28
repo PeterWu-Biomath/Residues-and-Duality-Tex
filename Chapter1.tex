@@ -1,6 +1,174 @@
 \chapter{The Derived Category}
+
 \section{Introduction}
-\section{Triangulated categories}
+Let \(\mathcal{A}\) and \(\mathcal{B}\) be abelian categories, and let \(F\colon \mathcal{A}\to\mathcal{B}\) be a functor. Our purpose is to define, functorially for each \(X\in\operatorname{Ob}\mathcal{A}\), a complex \(\mathbb{R}F(X)\) whose cohomology groups are the right derived functors of \(F\) acting on \(X\), namely \(R^iF(X)\). In general, we will define \(\mathbb{R}F(X^\bullet)\) for any complex \(X^\bullet\) of objects of \(\mathcal{A}\).
+
+More precisely, \(\mathbb{R}F\) will be a functor from the derived category \(\mathcal{D}(\mathcal{A})\) of \(\mathcal{A}\) to the derived category \(\mathcal{D}(\mathcal{B})\) of \(\mathcal{B}\).
+
+The derived category \(\mathcal{D}(\mathcal{A})\) is obtained as follows: one first considers the category \(\mathcal{K}(\mathcal{A})\), whose objects are complexes of elements of \(\mathcal{A}\), and whose morphisms are homotopy equivalence classes of morphisms of complexes. The category \(\mathcal{D}(\mathcal{A})\) is obtained by ``localizing'' \(\mathcal{K}(\mathcal{A})\) so that every morphism in \(\mathcal{K}(\mathcal{A})\) which induces an isomorphism on cohomology becomes an isomorphism in \(\mathcal{D}(\mathcal{A})\). This process of localization will be explained in general below.
+
+Although \(\mathcal{A}\) and \(\mathcal{B}\) above are assumed to be abelian categories, the categories \(\mathcal{K}(\mathcal{A})\), \(\mathcal{D}(\mathcal{A})\), etc., are in general not abelian. However, they can be given a structure which carries enough information for our purposes, namely a structure of triangulated category. Thus we will be led to study triangulated categories.
+
+\section{Triangulated Categories}
+\subsection{Definition}
+A triangulated category is an additive category \(\mathcal{C}\), together with
+\begin{enumerate}
+	\item[a)] an automorphism \(T\colon \mathcal{C}\to\mathcal{C}\) called the \emph{translation functor}, and
+	\item[b)] a collection of sextuples \((X,Y,Z,u,v,w)\), called the \emph{triangles} of \(\mathcal{C}\),
+\end{enumerate}
+where in each sextuple \(X,Y,Z\in\operatorname{Ob}\mathcal{C}\) and
+\[
+u\colon X\to Y,\quad v\colon Y\to Z,\quad w\colon Z\to T(X)
+\]
+are morphisms. A triangle is usually written
+\[
+X\xrightarrow{u} Y\xrightarrow{v} Z\xrightarrow{w} T(X).
+\]
+
+A morphism of triangles
+\[
+(X,Y,Z,u,v,w)\to(X',Y',Z',u',v',w')
+\]
+is a commutative diagram
+\[
+\begin{CD}
+	X @>u>> Y @>v>> Z @>w>> T(X) \\
+	@VfVV @VgVV @VhVV @VT(f)VV \\
+	X' @>u'>> Y' @>v'>> Z' @>w'>> T(X')
+\end{CD}
+\]
+
+This data is subject to the following axioms:
+
+\begin{enumerate}
+	\item[\textbf{(TR1)}]
+	\begin{enumerate}
+		\item Every sextuple isomorphic to a triangle is a triangle.
+		\item Every morphism \(u\colon X\to Y\) can be embedded in a triangle.
+		\item The sextuple \((X,X,0,\operatorname{id}_X,0,0)\) is a triangle.
+	\end{enumerate}
+	
+	\item[\textbf{(TR2)}]
+	\((X,Y,Z,u,v,w)\) is a triangle if and only if \((Y,Z,T(X),v,w,-T(u))\) is a triangle.
+	
+	\item[\textbf{(TR3)}]
+	Given two triangles \((X,Y,Z,u,v,w)\) and \((X',Y',Z',u',v',w')\), and morphisms \(f\colon X\to X'\), \(g\colon Y\to Y'\) such that \(u'f=gu\), there exists a morphism \(h\colon Z\to Z'\) (not necessarily unique) so that \((f,g,h)\) is a morphism of triangles.
+	
+	\item[\textbf{(TR4)}] (The octahedral axiom.)\\
+	\begin{center}
+	\begin{tikzcd}
+		& Y' \arrow[dr, dashed, "g"] & \\
+		Z' \arrow[ur, dashed, "f"] \arrow[d] & & X' \arrow[ll, "T(j)i"] \arrow[d] \\
+		X \arrow[rr, "vu"] \arrow[dr, "u"'] \arrow[uur, "j" near start] & & Z \arrow[u] \arrow[dl, "v"'] \arrow[uul, "i" near start] \\
+		& Y \arrow[uul] \arrow[uur] & 
+	\end{tikzcd}
+	\end{center}
+	
+	Suppose given triangles
+	\[
+	\begin{gathered}
+		(X,Y,Z',u,j,\cdot),\\
+		(Y,Z,X',v,\cdot,i),\\
+		(X,Z,Y',vu,\cdot,\cdot)
+	\end{gathered}
+	\]
+	such that
+	\[
+	(Z',Y',X',f,g,T(j)i)
+	\]
+	is a triangle. Then there exist morphisms \(f\colon Z'\to Y'\) and \(g\colon Y'\to X'\) such that the two other faces of the octahedron with \(f,g\) as edges are commutative diagrams.
+\end{enumerate}
+
+\begin{definition}
+	An additive functor \(F\colon \mathcal{C}\to\mathcal{C}'\) from one triangulated category to another is called a \emph{(covariant) \(\partial\)-functor} if it commutes with the translation functor and takes triangles into triangles. A contravariant \(\partial\)-functor takes triangles into triangles with the arrows reversed and sends the translation functor into its inverse.
+\end{definition}
+
+\begin{definition}
+	An additive functor \(H\colon \mathcal{C}\to\mathcal{A}\) from a triangulated category to an abelian category is called a \emph{covariant cohomological functor} if whenever \((X,Y,Z,u,v,w)\) is a triangle, the long sequence
+	\[
+	\cdots\to H(T^iX)\to H(T^iY)\to H(T^iZ)\to H(T^{i+1}X)\to\cdots
+	\]
+	is exact (the morphisms being \(H(T^iu)\), etc.). If \(H\) is a cohomological functor, we often write \(H^i(X)\) for \(H(T^iX)\), \(i\in\mathbb{Z}\). One defines a contravariant cohomological functor by reversing the arrows.
+\end{definition}
+
+\begin{proposition}\label{prop:1.1}
+	\begin{enumerate}
+		\item[a)] The composition of any two consecutive morphisms in a triangle is zero.
+		\item[b)] If \(\mathcal{C}\) is a triangulated category and \(M\) an object of \(\mathcal{C}\), then \(\operatorname{Hom}_{\mathcal{C}}(M,\cdot)\) and \(\operatorname{Hom}_{\mathcal{C}}(\cdot,M)\) are cohomological functors on \(\mathcal{C}\).
+		\item[c)] If in the situation of (TR3) \(f\) and \(g\) are isomorphisms, then \(h\) is also an isomorphism.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	a) Let \((X,Y,Z,u,v,w)\) be a triangle. By (TR2) it is sufficient to show that \(vu=0\). By (TR1), \((Z,Z,0,\operatorname{id}_Z,0,0)\) is a triangle. Also by (TR2), \((Y,Z,T(X),v,w,-T(u))\) is a triangle. We apply (TR3) to the maps \(v\colon Y\to Z\) and \(\operatorname{id}_Z\colon Z\to Z\), giving a morphism of triangles. It follows that \(T(v)(-T(u))=0\), or since \(T\) is an automorphism, \(vu=0\).
+	
+	b) Let \((X,Y,Z,u,v,w)\) be a triangle. To show \(\operatorname{Hom}_{\mathcal{C}}(M,\cdot)\) is a cohomological functor, it suffices by (TR2) to show the sequence
+	\[
+	\operatorname{Hom}_{\mathcal{C}}(M,X)\to\operatorname{Hom}_{\mathcal{C}}(M,Y)\to\operatorname{Hom}_{\mathcal{C}}(M,Z)
+	\]
+	is exact. By a) we know the composition is zero. Now suppose given \(g\in\operatorname{Hom}_{\mathcal{C}}(M,Y)\) such that \(vg=0\). We apply (TR3) to the triangles \((M,M,0,\operatorname{id}_M,0,0)\) and \((X,Y,Z,u,v,w)\) and the map \(g\colon M\to Y\) to conclude there exists \(f\colon M\to X\) such that \(uf=g\).
+	
+	A similar proof shows that \(\operatorname{Hom}_{\mathcal{C}}(\cdot,M)\) is a contravariant cohomological functor.
+	
+	c) In the situation of (TR3), suppose \(f,g\) are isomorphisms. Apply the cohomological functor \(\operatorname{Hom}_{\mathcal{C}}(Z',\cdot)\) to obtain an exact commutative diagram where \(f_*,g_*,T(f)_*,T(g)_*\) are isomorphisms of abelian groups. By the five-lemma, \(h_*\) is an isomorphism. Hence there exists \(\varphi\in\operatorname{Hom}_{\mathcal{C}}(Z',Z)\) such that \(h\varphi=\operatorname{id}_Z\). Using \(\operatorname{Hom}_{\mathcal{C}}(\cdot,Z)\) similarly gives \(\psi\in\operatorname{Hom}_{\mathcal{C}}(Z,Z')\) such that \(\psi h=\operatorname{id}_{Z'}\). Thus \(h\) is an isomorphism.
+\end{proof}
+
+\section{\(\mathcal{K}(\mathcal{A})\) is triangulated}
+Let \(\mathcal{A}\) be an abelian category. A \emph{complex} of objects of \(\mathcal{A}\) is a collection \(X^\bullet=(X^n)_{n\in\mathbb{Z}}\) of objects of \(\mathcal{A}\) together with maps \(d^n\colon X^n\to X^{n+1}\) such that \(d^{n+1}d^n=0\) for all \(n\in\mathbb{Z}\).
+
+A morphism \(f\) of complexes \(X^\bullet\to Y^\bullet\) is a collection of maps \(f^n\colon X^n\to Y^n\) which commute with differentials:
+\[
+f^{n+1}d_X^n = d_Y^n f^n
+\]
+for all \(n\).
+
+Two maps \(f,g\colon X^\bullet\to Y^\bullet\) are \emph{homotopic} if there exists a collection of maps \(k=(k^n)\), \(k^n\colon X^n\to X^{n-1}\) (not necessarily commuting with \(d\)) such that
+\[
+f^n - g^n = d_Y^{n-1}k^n + k^{n+1}d_X^n
+\]
+for all \(n\). Homotopy is an equivalence relation, and compositions of homotopic maps are homotopic.
+
+We define \(\mathcal{K}(\mathcal{A})\) to be the category whose objects are complexes of objects of \(\mathcal{A}\), and whose morphisms are homotopy equivalence classes of morphisms of complexes.
+
+A complex \(X^\bullet\) is \emph{bounded below} if \(X^n=0\) for \(n\ll0\). We denote by \(\mathcal{K}^+(\mathcal{A})\) the full subcategory of \(\mathcal{K}(\mathcal{A})\) of complexes bounded below. Similarly we define \(\mathcal{K}^-(\mathcal{A})\) (bounded above) and \(\mathcal{K}^b(\mathcal{A})\) (bounded on both sides).
+
+We now define a triangulated structure on \(\mathcal{K}(\mathcal{A})\) (resp.\ \(\mathcal{K}^+(\mathcal{A})\), etc.). Let \(T\) be the left shift functor with sign change:
+\[
+T(X^\bullet)^p = X^{p+1},\qquad d_{T(X)} = -d_X.
+\]
+We often write \(X^\bullet[1]\) instead of \(T(X^\bullet)\), and \(X^\bullet[n]\) instead of \(T^n(X^\bullet)\).
+
+If \(u\colon X^\bullet\to Y^\bullet\) is any morphism, consider its \emph{mapping cone} \(Z^\bullet\), defined as the complex
+\[
+Z^\bullet = T(X^\bullet)\oplus Y^\bullet
+\]
+with differential
+\[
+d_Z = \begin{pmatrix} T(d_X) & T(u) \\ 0 & d_Y \end{pmatrix}.
+\]
+There are natural morphisms
+\[
+v\colon Y^\bullet\to Z^\bullet,\qquad w\colon Z^\bullet\to T(X^\bullet).
+\]
+
+We define a triangle in \(\mathcal{K}(\mathcal{A})\) to be any sextuple isomorphic to one obtained from a morphism \(u\) by this construction.
+
+All axioms (TR1)--(TR4) are easily verified, once one notes that the mapping cone of \(\operatorname{id}_{X^\bullet}\) is homotopic to \(0\). Indeed, the matrix
+\[
+k = \begin{pmatrix} 0 & 0 \\ \operatorname{id}_X & 0 \end{pmatrix}
+\]
+gives a contraction homotopy.
+
+\begin{definition}
+	We define \(H\) to be the functor from \(\mathcal{K}(\mathcal{A})\) to \(\mathcal{A}\) which sends a complex \(X^\bullet\) to its \(0^\text{th}\) cohomology:
+	\[
+	H(X^\bullet) = \ker d^0 \big/ \operatorname{im} d^{-1}.
+	\]
+	This is indeed a functor, since homotopic maps induce the same map on cohomology. We write \(H^i = H\circ T^i\) for any \(i\in\mathbb{Z}\).
+\end{definition}
+
+Observe that \(H\) is a cohomological functor from \(\mathcal{K}(\mathcal{A})\) to \(\mathcal{A}\). Indeed, it suffices to check the long exact sequence for triangles coming from mapping cones, which is straightforward.
+
 \section{$\mathcal{K}(\mathcal{A})$ is triangulated}
 \section{Localization of categories}
 \section{Quasi-isomorphisms and the derived category}
