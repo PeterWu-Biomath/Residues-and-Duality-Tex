@@ -1,0 +1,2 @@
+- [OCR sources](project-ocr-sources.md) — doubao has better formulas, marker has better text; always combine both
+- [Formatting conventions](feedback-formatting-conventions.md) — follow the style in Intro.tex and Chapter1.tex for all new content
