@@ -1,22 +1,22 @@
 \chapter{The Derived Category}
 
 \section{Introduction}
-Let \(\mathcal{A}\) and \(\mathcal{B}\) be abelian categories, and let \(F\colon \mathcal{A}\to\mathcal{B}\) be a functor. Our purpose is to define, functorially for each \(X\in\operatorname{Ob}\mathcal{A}\), a complex \(\mathbb{R}F(X)\) whose cohomology groups are the right derived functors of \(F\) acting on \(X\), namely \(R^iF(X)\). In general, we will define \(\mathbb{R}F(X^\bullet)\) for any complex \(X^\bullet\) of objects of \(\mathcal{A}\).
+Let $\mathcal{A}$ and $\mathcal{B}$ be abelian categories, and let $F\colon \mathcal{A}\to\mathcal{B}$ be a functor. Our purpose is to define, functorially for each $X\in\operatorname{Ob}\mathcal{A}$, a complex $\mathbb{R}F(X)$ whose cohomology groups are the right derived functors of $F$ acting on $X$, namely $R^iF(X)$. In general, we will define $\mathbb{R}F(X^\bullet)$ for any complex $X^\bullet$ of objects of $\mathcal{A}$.
 
-More precisely, \(\mathbb{R}F\) will be a functor from the derived category \(\mathcal{D}(\mathcal{A})\) of \(\mathcal{A}\) to the derived category \(\mathcal{D}(\mathcal{B})\) of \(\mathcal{B}\).
+More precisely, $\mathbb{R}F$ will be a functor from the derived category $\mathcal{D}(\mathcal{A})$ of $\mathcal{A}$ to the derived category $\mathcal{D}(\mathcal{B})$ of $\mathcal{B}$.
 
-The derived category \(\mathcal{D}(\mathcal{A})\) is obtained as follows: one first considers the category \(\mathcal{K}(\mathcal{A})\), whose objects are complexes of elements of \(\mathcal{A}\), and whose morphisms are homotopy equivalence classes of morphisms of complexes. The category \(\mathcal{D}(\mathcal{A})\) is obtained by ``localizing'' \(\mathcal{K}(\mathcal{A})\) so that every morphism in \(\mathcal{K}(\mathcal{A})\) which induces an isomorphism on cohomology becomes an isomorphism in \(\mathcal{D}(\mathcal{A})\). This process of localization will be explained in general below.
+The derived category $\mathcal{D}(\mathcal{A})$ is obtained as follows: one first considers the category $\mathcal{K}(\mathcal{A})$, whose objects are complexes of elements of $\mathcal{A}$, and whose morphisms are homotopy equivalence classes of morphisms of complexes. The category $\mathcal{D}(\mathcal{A})$ is obtained by ``localizing'' $\mathcal{K}(\mathcal{A})$ so that every morphism in $\mathcal{K}(\mathcal{A})$ which induces an isomorphism on cohomology becomes an isomorphism in $\mathcal{D}(\mathcal{A})$. This process of localization will be explained in general below.
 
-Although \(\mathcal{A}\) and \(\mathcal{B}\) above are assumed to be abelian categories, the categories \(\mathcal{K}(\mathcal{A})\), \(\mathcal{D}(\mathcal{A})\), etc., are in general not abelian. However, they can be given a structure which carries enough information for our purposes, namely a structure of triangulated category. Thus we will be led to study triangulated categories.
+Although $\mathcal{A}$ and $\mathcal{B}$ above are assumed to be abelian categories, the categories $\mathcal{K}(\mathcal{A})$, $\mathcal{D}(\mathcal{A})$, etc., are in general not abelian. However, they can be given a structure which carries enough information for our purposes, namely a structure of triangulated category. Thus we will be led to study triangulated categories.
 
 \section{Triangulated Categories}
 \subsection{Definition}
-A triangulated category is an additive category \(\mathcal{C}\), together with
+A triangulated category is an additive category $\mathcal{C}$, together with
 \begin{enumerate}
-	\item[a)] an automorphism \(T\colon \mathcal{C}\to\mathcal{C}\) called the \emph{translation functor}, and
-	\item[b)] a collection of sextuples \((X,Y,Z,u,v,w)\), called the \emph{triangles} of \(\mathcal{C}\),
+	\item[a)] an automorphism $T\colon \mathcal{C}\to\mathcal{C}$ called the \emph{translation functor}, and
+	\item[b)] a collection of sextuples $(X,Y,Z,u,v,w)$, called the \emph{triangles} of $\mathcal{C}$,
 \end{enumerate}
-where in each sextuple \(X,Y,Z\in\operatorname{Ob}\mathcal{C}\) and
+where in each sextuple $X,Y,Z\in\operatorname{Ob}\mathcal{C}$ and
 \[
 u\colon X\to Y,\quad v\colon Y\to Z,\quad w\colon Z\to T(X)
 \]
@@ -44,15 +44,15 @@ This data is subject to the following axioms:
 	\item[\textbf{(TR1)}]
 	\begin{enumerate}
 		\item Every sextuple isomorphic to a triangle is a triangle.
-		\item Every morphism \(u\colon X\to Y\) can be embedded in a triangle.
-		\item The sextuple \((X,X,0,\operatorname{id}_X,0,0)\) is a triangle.
+		\item Every morphism $u\colon X\to Y$ can be embedded in a triangle.
+		\item The sextuple $(X,X,0,\operatorname{id}_X,0,0)$ is a triangle.
 	\end{enumerate}
 	
 	\item[\textbf{(TR2)}]
-	\((X,Y,Z,u,v,w)\) is a triangle if and only if \((Y,Z,T(X),v,w,-T(u))\) is a triangle.
+	$(X,Y,Z,u,v,w)$ is a triangle if and only if $(Y,Z,T(X),v,w,-T(u))$ is a triangle.
 	
 	\item[\textbf{(TR3)}]
-	Given two triangles \((X,Y,Z,u,v,w)\) and \((X',Y',Z',u',v',w')\), and morphisms \(f\colon X\to X'\), \(g\colon Y\to Y'\) such that \(u'f=gu\), there exists a morphism \(h\colon Z\to Z'\) (not necessarily unique) so that \((f,g,h)\) is a morphism of triangles.
+	Given two triangles $(X,Y,Z,u,v,w)$ and $(X',Y',Z',u',v',w')$, and morphisms $f\colon X\to X'$, $g\colon Y\to Y'$ such that $u'f=gu$, there exists a morphism $h\colon Z\to Z'$ (not necessarily unique) so that $(f,g,h)$ is a morphism of triangles.
 	
 	\item[\textbf{(TR4)}] (The octahedral axiom.)\\
 	\begin{center}
@@ -76,69 +76,69 @@ This data is subject to the following axioms:
 	\[
 	(Z',Y',X',f,g,T(j)i)
 	\]
-	is a triangle. Then there exist morphisms \(f\colon Z'\to Y'\) and \(g\colon Y'\to X'\) such that the two other faces of the octahedron with \(f,g\) as edges are commutative diagrams.
+	is a triangle. Then there exist morphisms $f\colon Z'\to Y'$ and $g\colon Y'\to X'$ such that the two other faces of the octahedron with $f,g$ as edges are commutative diagrams.
 \end{enumerate}
 
 \begin{definition}
-	An additive functor \(F\colon \mathcal{C}\to\mathcal{C}'\) from one triangulated category to another is called a \emph{(covariant) \(\partial\)-functor} if it commutes with the translation functor and takes triangles into triangles. A contravariant \(\partial\)-functor takes triangles into triangles with the arrows reversed and sends the translation functor into its inverse.
+	An additive functor $F\colon \mathcal{C}\to\mathcal{C}'$ from one triangulated category to another is called a \emph{(covariant) $\partial$-functor} if it commutes with the translation functor and takes triangles into triangles. A contravariant $\partial$-functor takes triangles into triangles with the arrows reversed and sends the translation functor into its inverse.
 \end{definition}
 
 \begin{definition}
-	An additive functor \(H\colon \mathcal{C}\to\mathcal{A}\) from a triangulated category to an abelian category is called a \emph{covariant cohomological functor} if whenever \((X,Y,Z,u,v,w)\) is a triangle, the long sequence
+	An additive functor $H\colon \mathcal{C}\to\mathcal{A}$ from a triangulated category to an abelian category is called a \emph{covariant cohomological functor} if whenever $(X,Y,Z,u,v,w)$ is a triangle, the long sequence
 	\[
 	\cdots\to H(T^iX)\to H(T^iY)\to H(T^iZ)\to H(T^{i+1}X)\to\cdots
 	\]
-	is exact (the morphisms being \(H(T^iu)\), etc.). If \(H\) is a cohomological functor, we often write \(H^i(X)\) for \(H(T^iX)\), \(i\in\mathbb{Z}\). One defines a contravariant cohomological functor by reversing the arrows.
+	is exact (the morphisms being $H(T^iu)$, etc.). If $H$ is a cohomological functor, we often write $H^i(X)$ for $H(T^iX)$, $i\in\mathbb{Z}$. One defines a contravariant cohomological functor by reversing the arrows.
 \end{definition}
 
 \begin{proposition}\label{prop:1.1}
 	\begin{enumerate}
 		\item[a)] The composition of any two consecutive morphisms in a triangle is zero.
-		\item[b)] If \(\mathcal{C}\) is a triangulated category and \(M\) an object of \(\mathcal{C}\), then \(\operatorname{Hom}_{\mathcal{C}}(M,\cdot)\) and \(\operatorname{Hom}_{\mathcal{C}}(\cdot,M)\) are cohomological functors on \(\mathcal{C}\).
-		\item[c)] If in the situation of (TR3) \(f\) and \(g\) are isomorphisms, then \(h\) is also an isomorphism.
+		\item[b)] If $\mathcal{C}$ is a triangulated category and $M$ an object of $\mathcal{C}$, then $\operatorname{Hom}_{\mathcal{C}}(M,\cdot)$ and $\operatorname{Hom}_{\mathcal{C}}(\cdot,M)$ are cohomological functors on $\mathcal{C}$.
+		\item[c)] If in the situation of (TR3) $f$ and $g$ are isomorphisms, then $h$ is also an isomorphism.
 	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-	a) Let \((X,Y,Z,u,v,w)\) be a triangle. By (TR2) it is sufficient to show that \(vu=0\). By (TR1), \((Z,Z,0,\operatorname{id}_Z,0,0)\) is a triangle. Also by (TR2), \((Y,Z,T(X),v,w,-T(u))\) is a triangle. We apply (TR3) to the maps \(v\colon Y\to Z\) and \(\operatorname{id}_Z\colon Z\to Z\), giving a morphism of triangles. It follows that \(T(v)(-T(u))=0\), or since \(T\) is an automorphism, \(vu=0\).
+	a) Let $(X,Y,Z,u,v,w)$ be a triangle. By (TR2) it is sufficient to show that $vu=0$. By (TR1), $(Z,Z,0,\operatorname{id}_Z,0,0)$ is a triangle. Also by (TR2), $(Y,Z,T(X),v,w,-T(u))$ is a triangle. We apply (TR3) to the maps $v\colon Y\to Z$ and $\operatorname{id}_Z\colon Z\to Z$, giving a morphism of triangles. It follows that $T(v)(-T(u))=0$, or since $T$ is an automorphism, $vu=0$.
 	
-	b) Let \((X,Y,Z,u,v,w)\) be a triangle. To show \(\operatorname{Hom}_{\mathcal{C}}(M,\cdot)\) is a cohomological functor, it suffices by (TR2) to show the sequence
+	b) Let $(X,Y,Z,u,v,w)$ be a triangle. To show $\operatorname{Hom}_{\mathcal{C}}(M,\cdot)$ is a cohomological functor, it suffices by (TR2) to show the sequence
 	\[
 	\operatorname{Hom}_{\mathcal{C}}(M,X)\to\operatorname{Hom}_{\mathcal{C}}(M,Y)\to\operatorname{Hom}_{\mathcal{C}}(M,Z)
 	\]
-	is exact. By a) we know the composition is zero. Now suppose given \(g\in\operatorname{Hom}_{\mathcal{C}}(M,Y)\) such that \(vg=0\). We apply (TR3) to the triangles \((M,M,0,\operatorname{id}_M,0,0)\) and \((X,Y,Z,u,v,w)\) and the map \(g\colon M\to Y\) to conclude there exists \(f\colon M\to X\) such that \(uf=g\).
+	is exact. By a) we know the composition is zero. Now suppose given $g\in\operatorname{Hom}_{\mathcal{C}}(M,Y)$ such that $vg=0$. We apply (TR3) to the triangles $(M,M,0,\operatorname{id}_M,0,0)$ and $(X,Y,Z,u,v,w)$ and the map $g\colon M\to Y$ to conclude there exists $f\colon M\to X$ such that $uf=g$.
 	
-	A similar proof shows that \(\operatorname{Hom}_{\mathcal{C}}(\cdot,M)\) is a contravariant cohomological functor.
+	A similar proof shows that $\operatorname{Hom}_{\mathcal{C}}(\cdot,M)$ is a contravariant cohomological functor.
 	
-	c) In the situation of (TR3), suppose \(f,g\) are isomorphisms. Apply the cohomological functor \(\operatorname{Hom}_{\mathcal{C}}(Z',\cdot)\) to obtain an exact commutative diagram where \(f_*,g_*,T(f)_*,T(g)_*\) are isomorphisms of abelian groups. By the five-lemma, \(h_*\) is an isomorphism. Hence there exists \(\varphi\in\operatorname{Hom}_{\mathcal{C}}(Z',Z)\) such that \(h\varphi=\operatorname{id}_Z\). Using \(\operatorname{Hom}_{\mathcal{C}}(\cdot,Z)\) similarly gives \(\psi\in\operatorname{Hom}_{\mathcal{C}}(Z,Z')\) such that \(\psi h=\operatorname{id}_{Z'}\). Thus \(h\) is an isomorphism.
+	c) In the situation of (TR3), suppose $f,g$ are isomorphisms. Apply the cohomological functor $\operatorname{Hom}_{\mathcal{C}}(Z',\cdot)$ to obtain an exact commutative diagram where $f_*,g_*,T(f)_*,T(g)_*$ are isomorphisms of abelian groups. By the five-lemma, $h_*$ is an isomorphism. Hence there exists $\varphi\in\operatorname{Hom}_{\mathcal{C}}(Z',Z)$ such that $h\varphi=\operatorname{id}_Z$. Using $\operatorname{Hom}_{\mathcal{C}}(\cdot,Z)$ similarly gives $\psi\in\operatorname{Hom}_{\mathcal{C}}(Z,Z')$ such that $\psi h=\operatorname{id}_{Z'}$. Thus $h$ is an isomorphism.
 \end{proof}
 
-\section{\(\mathcal{K}(\mathcal{A})\) is triangulated}
-Let \(\mathcal{A}\) be an abelian category. A \emph{complex} of objects of \(\mathcal{A}\) is a collection \(X^\bullet=(X^n)_{n\in\mathbb{Z}}\) of objects of \(\mathcal{A}\) together with maps \(d^n\colon X^n\to X^{n+1}\) such that \(d^{n+1}d^n=0\) for all \(n\in\mathbb{Z}\).
+\section{$\mathcal{K}(\mathcal{A})$ is triangulated}
+Let $\mathcal{A}$ be an abelian category. A \emph{complex} of objects of $\mathcal{A}$ is a collection $X^\bullet=(X^n)_{n\in\mathbb{Z}}$ of objects of $\mathcal{A}$ together with maps $d^n\colon X^n\to X^{n+1}$ such that $d^{n+1}d^n=0$ for all $n\in\mathbb{Z}$.
 
-A morphism \(f\) of complexes \(X^\bullet\to Y^\bullet\) is a collection of maps \(f^n\colon X^n\to Y^n\) which commute with differentials:
+A morphism $f$ of complexes $X^\bullet\to Y^\bullet$ is a collection of maps $f^n\colon X^n\to Y^n$ which commute with differentials:
 \[
 f^{n+1}d_X^n = d_Y^n f^n
 \]
-for all \(n\).
+for all $n$.
 
-Two maps \(f,g\colon X^\bullet\to Y^\bullet\) are \emph{homotopic} if there exists a collection of maps \(k=(k^n)\), \(k^n\colon X^n\to X^{n-1}\) (not necessarily commuting with \(d\)) such that
+Two maps $f,g\colon X^\bullet\to Y^\bullet$ are \emph{homotopic} if there exists a collection of maps $k=(k^n)$, $k^n\colon X^n\to X^{n-1}$ (not necessarily commuting with $d$) such that
 \[
 f^n - g^n = d_Y^{n-1}k^n + k^{n+1}d_X^n
 \]
-for all \(n\). Homotopy is an equivalence relation, and compositions of homotopic maps are homotopic.
+for all $n$. Homotopy is an equivalence relation, and compositions of homotopic maps are homotopic.
 
-We define \(\mathcal{K}(\mathcal{A})\) to be the category whose objects are complexes of objects of \(\mathcal{A}\), and whose morphisms are homotopy equivalence classes of morphisms of complexes.
+We define $\mathcal{K}(\mathcal{A})$ to be the category whose objects are complexes of objects of $\mathcal{A}$, and whose morphisms are homotopy equivalence classes of morphisms of complexes.
 
-A complex \(X^\bullet\) is \emph{bounded below} if \(X^n=0\) for \(n\ll0\). We denote by \(\mathcal{K}^+(\mathcal{A})\) the full subcategory of \(\mathcal{K}(\mathcal{A})\) of complexes bounded below. Similarly we define \(\mathcal{K}^-(\mathcal{A})\) (bounded above) and \(\mathcal{K}^b(\mathcal{A})\) (bounded on both sides).
+A complex $X^\bullet$ is \emph{bounded below} if $X^n=0$ for $n\ll0$. We denote by $\mathcal{K}^+(\mathcal{A})$ the full subcategory of $\mathcal{K}(\mathcal{A})$ of complexes bounded below. Similarly we define $\mathcal{K}^-(\mathcal{A})$ (bounded above) and $\mathcal{K}^b(\mathcal{A})$ (bounded on both sides).
 
-We now define a triangulated structure on \(\mathcal{K}(\mathcal{A})\) (resp.\ \(\mathcal{K}^+(\mathcal{A})\), etc.). Let \(T\) be the left shift functor with sign change:
+We now define a triangulated structure on $\mathcal{K}(\mathcal{A})$ (resp.\ $\mathcal{K}^+(\mathcal{A})$, etc.). Let $T$ be the left shift functor with sign change:
 \[
 T(X^\bullet)^p = X^{p+1},\qquad d_{T(X)} = -d_X.
 \]
-We often write \(X^\bullet[1]\) instead of \(T(X^\bullet)\), and \(X^\bullet[n]\) instead of \(T^n(X^\bullet)\).
+We often write $X^\bullet[1]$ instead of $T(X^\bullet)$, and $X^\bullet[n]$ instead of $T^n(X^\bullet)$.
 
-If \(u\colon X^\bullet\to Y^\bullet\) is any morphism, consider its \emph{mapping cone} \(Z^\bullet\), defined as the complex
+If $u\colon X^\bullet\to Y^\bullet$ is any morphism, consider its \emph{mapping cone} $Z^\bullet$, defined as the complex
 \[
 Z^\bullet = T(X^\bullet)\oplus Y^\bullet
 \]
@@ -151,30 +151,30 @@ There are natural morphisms
 v\colon Y^\bullet\to Z^\bullet,\qquad w\colon Z^\bullet\to T(X^\bullet).
 \]
 
-We define a triangle in \(\mathcal{K}(\mathcal{A})\) to be any sextuple isomorphic to one obtained from a morphism \(u\) by this construction.
+We define a triangle in $\mathcal{K}(\mathcal{A})$ to be any sextuple isomorphic to one obtained from a morphism $u$ by this construction.
 
-All axioms (TR1)--(TR4) are easily verified, once one notes that the mapping cone of \(\operatorname{id}_{X^\bullet}\) is homotopic to \(0\). Indeed, the matrix
+All axioms (TR1)--(TR4) are easily verified, once one notes that the mapping cone of $\operatorname{id}_{X^\bullet}$ is homotopic to $0$. Indeed, the matrix
 \[
 k = \begin{pmatrix} 0 & 0 \\ \operatorname{id}_X & 0 \end{pmatrix}
 \]
 gives a contraction homotopy.
 
 \begin{definition}
-	We define \(H\) to be the functor from \(\mathcal{K}(\mathcal{A})\) to \(\mathcal{A}\) which sends a complex \(X^\bullet\) to its \(0^\text{th}\) cohomology:
+	We define $H$ to be the functor from $\mathcal{K}(\mathcal{A})$ to $\mathcal{A}$ which sends a complex $X^\bullet$ to its $0^\text{th}$ cohomology:
 	\[
 	H(X^\bullet) = \ker d^0 \big/ \operatorname{im} d^{-1}.
 	\]
-	This is indeed a functor, since homotopic maps induce the same map on cohomology. We write \(H^i = H\circ T^i\) for any \(i\in\mathbb{Z}\).
+	This is indeed a functor, since homotopic maps induce the same map on cohomology. We write $H^i = H\circ T^i$ for any $i\in\mathbb{Z}$.
 \end{definition}
 
-Observe that \(H\) is a cohomological functor from \(\mathcal{K}(\mathcal{A})\) to \(\mathcal{A}\). Indeed, it suffices to check the long exact sequence for triangles coming from mapping cones, which is straightforward.
+Observe that $H$ is a cohomological functor from $\mathcal{K}(\mathcal{A})$ to $\mathcal{A}$. Indeed, it suffices to check the long exact sequence for triangles coming from mapping cones, which is straightforward.
 
 \section{Localization of categories}
 
 \begin{definition}
-Let \(\mathcal{C}\) be a category. A collection \(S\) of morphisms of \(\mathcal{C}\) is called a \emph{multiplicative system} if it satisfies the following axioms (FR1)--(FR3):
+Let $\mathcal{C}$ be a category. A collection $S$ of morphisms of $\mathcal{C}$ is called a \emph{multiplicative system} if it satisfies the following axioms (FR1)--(FR3):
 \begin{enumerate}
-\item[(FR1)] If \(f,g\in S\) and the composite \(fg\) exists, then \(fg\in S\). For any \(X\in\operatorname{Ob}\mathcal{C}\), \(\operatorname{id}_X\in S\).
+\item[(FR1)] If $f,g\in S$ and the composite $fg$ exists, then $fg\in S$. For any $X\in\operatorname{Ob}\mathcal{C}$, $\operatorname{id}_X\in S$.
 
 \item[(FR2)] Any diagram
 \[
@@ -188,78 +188,78 @@ W @>v>> Z\\
 X @>u>> Y
 \end{CD}
 \]
-with \(t\in S\). The analogous statement holds with all arrows reversed.
+with $t\in S$. The analogous statement holds with all arrows reversed.
 
-\item[(FR3)] Let \(f,g\colon X\to Y\) be morphisms in \(\mathcal{C}\). The following are equivalent:
+\item[(FR3)] Let $f,g\colon X\to Y$ be morphisms in $\mathcal{C}$. The following are equivalent:
 \begin{enumerate}
-\item[(i)] There exists \(s\colon Y\to Y'\) in \(S\) such that \(sf = sg\);
-\item[(ii)] There exists \(t\colon X'\to X\) in \(S\) such that \(ft = gt\).
+\item[(i)] There exists $s\colon Y\to Y'$ in $S$ such that $sf = sg$;
+\item[(ii)] There exists $t\colon X'\to X$ in $S$ such that $ft = gt$.
 \end{enumerate}
 \end{enumerate}
 \end{definition}
 
 \begin{definition}
-Let \(\mathcal{C}\) be a category and \(S\) a multiplicative system of morphisms in \(\mathcal{C}\). The \emph{localization of \(\mathcal{C}\) with respect to \(S\)} is a category \(\mathcal{C}_S\) together with a functor \(Q\colon\mathcal{C}\to\mathcal{C}_S\) such that:
+Let $\mathcal{C}$ be a category and $S$ a multiplicative system of morphisms in $\mathcal{C}$. The \emph{localization of $\mathcal{C}$ with respect to $S$} is a category $\mathcal{C}_S$ together with a functor $Q\colon\mathcal{C}\to\mathcal{C}_S$ such that:
 \begin{enumerate}
-\item[(a)] \(Q(s)\) is an isomorphism for every \(s\in S\);
-\item[(b)] Any functor \(F\colon\mathcal{C}\to\mathcal{D}\) sending each \(s\in S\) to an isomorphism factors uniquely through \(Q\).
+\item[(a)] $Q(s)$ is an isomorphism for every $s\in S$;
+\item[(b)] Any functor $F\colon\mathcal{C}\to\mathcal{D}$ sending each $s\in S$ to an isomorphism factors uniquely through $Q$.
 \end{enumerate}
 \end{definition}
 
 \begin{proposition}\label{prop:1.3.1}
-Let \(\mathcal{C}\) be a category and \(S\) a multiplicative system in \(\mathcal{C}\). The localization \(\mathcal{C}_S\) may be constructed as follows:
-\(\operatorname{Ob}\mathcal{C}_S = \operatorname{Ob}\mathcal{C}\), and for all \(X,Y\in\operatorname{Ob}\mathcal{C}\),
+Let $\mathcal{C}$ be a category and $S$ a multiplicative system in $\mathcal{C}$. The localization $\mathcal{C}_S$ may be constructed as follows:
+$\operatorname{Ob}\mathcal{C}_S = \operatorname{Ob}\mathcal{C}$, and for all $X,Y\in\operatorname{Ob}\mathcal{C}$,
 \[
 \operatorname{Hom}_{\mathcal{C}_S}(X,Y) = \varinjlim_{I_X} \operatorname{Hom}_{\mathcal{C}}(X',Y),
 \]
-where \(I_X\) is the category whose objects are morphisms \(s\colon X'\to X\) in \(S\), and morphisms are commutative triangles over \(X\).
+where $I_X$ is the category whose objects are morphisms $s\colon X'\to X$ in $S$, and morphisms are commutative triangles over $X$.
 
-Furthermore, if \(\mathcal{C}\) is additive, then \(\mathcal{C}_S\) is also additive.
+Furthermore, if $\mathcal{C}$ is additive, then $\mathcal{C}_S$ is also additive.
 \end{proposition}
 
 \begin{proof}
-Using (FR1), (FR2), (FR3), the index category \(I_X\) satisfies the inductive limit axioms (L1, L2, L3) of [GT, Ch.\ I, \S1], so the direct limit is well-behaved.
+Using (FR1), (FR2), (FR3), the index category $I_X$ satisfies the inductive limit axioms (L1, L2, L3) of [GT, Ch.\ I, \S1], so the direct limit is well-behaved.
 
-A morphism \(X\to Y\) in \(\mathcal{C}_S\) is represented by a right fraction \(X\xleftarrow{s}X'\xrightarrow{f}Y\) with \(s\in S\). Two such fractions define the same morphism iff there exist \(u\colon X'''\to X'\), \(g\colon X'''\to X''\) in \(S\) making the obvious diagram commute and equalizing the representatives.
+A morphism $X\to Y$ in $\mathcal{C}_S$ is represented by a right fraction $X\xleftarrow{s}X'\xrightarrow{f}Y$ with $s\in S$. Two such fractions define the same morphism iff there exist $u\colon X'''\to X'$, $g\colon X'''\to X''$ in $S$ making the obvious diagram commute and equalizing the representatives.
 
-Composition of fractions is defined via (FR2): given fractions \(X\xleftarrow{s}X'\xrightarrow{a}Y\) and \(Y\xleftarrow{t}Y'\xrightarrow{b}Z\), complete the diagram to get a common lift and form the composite morphism \(X\to Z\). The result is independent of representative and lift.
+Composition of fractions is defined via (FR2): given fractions $X\xleftarrow{s}X'\xrightarrow{a}Y$ and $Y\xleftarrow{t}Y'\xrightarrow{b}Z$, complete the diagram to get a common lift and form the composite morphism $X\to Z$. The result is independent of representative and lift.
 
-The localization functor \(Q\colon\mathcal{C}\to\mathcal{C}_S\) satisfies the universal property, and additivity of \(\mathcal{C}\) passes to \(\mathcal{C}_S\) since the limit preserves abelian group structure on Hom-sets.
+The localization functor $Q\colon\mathcal{C}\to\mathcal{C}_S$ satisfies the universal property, and additivity of $\mathcal{C}$ passes to $\mathcal{C}_S$ since the limit preserves abelian group structure on Hom-sets.
 \end{proof}
 
 \begin{definition}
-Let \(\mathcal{C}\) be a triangulated category and \(S\) a multiplicative system in \(\mathcal{C}\). We say \(S\) is \emph{compatible with the triangulation} if:
+Let $\mathcal{C}$ be a triangulated category and $S$ a multiplicative system in $\mathcal{C}$. We say $S$ is \emph{compatible with the triangulation} if:
 \begin{enumerate}
-\item[(FR4)] \(s\in S \implies T(s)\in S\), where \(T\) is the translation functor;
-\item[(FR5)] Axiom (TR3) holds with the extra condition: if \(f,g\in S\) are the given morphisms of triangles, then one may choose the filler \(h\in S\).
+\item[(FR4)] $s\in S \implies T(s)\in S$, where $T$ is the translation functor;
+\item[(FR5)] Axiom (TR3) holds with the extra condition: if $f,g\in S$ are the given morphisms of triangles, then one may choose the filler $h\in S$.
 \end{enumerate}
 \end{definition}
 
 \begin{proposition}\label{prop:1.3.2}
-If \(\mathcal{C}\) is triangulated and \(S\) a triangulation-compatible multiplicative system, then \(\mathcal{C}_S\) admits a \emph{unique} triangulated structure such that \(Q\colon\mathcal{C}\to\mathcal{C}_S\) is a triangle functor, and \(Q\) satisfies the universal property for triangle functors into other triangulated categories.
+If $\mathcal{C}$ is triangulated and $S$ a triangulation-compatible multiplicative system, then $\mathcal{C}_S$ admits a \emph{unique} triangulated structure such that $Q\colon\mathcal{C}\to\mathcal{C}_S$ is a triangle functor, and $Q$ satisfies the universal property for triangle functors into other triangulated categories.
 \end{proposition}
 
 One may also compute morphism sets as
 \[
 \operatorname{Hom}_{\mathcal{C}_S}(X,Y) = \varinjlim_{J_Y}\operatorname{Hom}_{\mathcal{C}}(X,Y'),
 \]
-where \(J_Y\) has objects \(s\colon Y\to Y'\in S\) and morphisms commutative diagrams under \(Y\).
+where $J_Y$ has objects $s\colon Y\to Y'\in S$ and morphisms commutative diagrams under $Y$.
 
 \begin{proposition}\label{prop:1.3.3}
-Let \(\mathcal{C}\) be a category, \(S\) a multiplicative system in \(\mathcal{C}\), and \(\mathcal{D}\subseteq\mathcal{C}\) a full subcategory such that \(S\cap\mathcal{D}\) is a multiplicative system in \(\mathcal{D}\). Assume one of the following:
+Let $\mathcal{C}$ be a category, $S$ a multiplicative system in $\mathcal{C}$, and $\mathcal{D}\subseteq\mathcal{C}$ a full subcategory such that $S\cap\mathcal{D}$ is a multiplicative system in $\mathcal{D}$. Assume one of the following:
 \begin{enumerate}
-\item[(i)] For every \(s\colon X'\to X\) in \(S\) with \(X\in\operatorname{Ob}\mathcal{D}\), there exists \(f\colon X''\to X'\) with \(X''\in\operatorname{Ob}\mathcal{D}\) and \(sf\in S\);
+\item[(i)] For every $s\colon X'\to X$ in $S$ with $X\in\operatorname{Ob}\mathcal{D}$, there exists $f\colon X''\to X'$ with $X''\in\operatorname{Ob}\mathcal{D}$ and $sf\in S$;
 \item[(ii)] The same with all arrows reversed.
 \end{enumerate}
 Then the natural functor
 \[
 \mathcal{D}_{S\cap\mathcal{D}} \to \mathcal{C}_S
 \]
-is fully faithful, so \(\mathcal{D}_{S\cap\mathcal{D}}\) may be identified with a full subcategory of \(\mathcal{C}_S\).
+is fully faithful, so $\mathcal{D}_{S\cap\mathcal{D}}$ may be identified with a full subcategory of $\mathcal{C}_S$.
 \end{proposition}
 
 \begin{proposition}\label{prop:1.3.4}
-Let \(\mathcal{C}\) be a category, \(S\) a multiplicative system, \(Q\colon\mathcal{C}\to\mathcal{C}_S\) the localization functor. Let \(\mathcal{D}\) be any category, and \(F,G\colon\mathcal{C}_S\to\mathcal{D}\) functors. Then the natural restriction map
+Let $\mathcal{C}$ be a category, $S$ a multiplicative system, $Q\colon\mathcal{C}\to\mathcal{C}_S$ the localization functor. Let $\mathcal{D}$ be any category, and $F,G\colon\mathcal{C}_S\to\mathcal{D}$ functors. Then the natural restriction map
 \[
 \alpha\colon \operatorname{Hom}(F,G) \to \operatorname{Hom}(FQ,GQ)
 \]
@@ -267,17 +267,17 @@ between functor morphism sets is bijective.
 \end{proposition}
 
 \begin{proof}
-A functor morphism \(F\to G\) assigns to each object \(X\in\mathcal{C}_S\) a morphism \(F(X)\to G(X)\) making all morphism squares commute.
+A functor morphism $F\to G$ assigns to each object $X\in\mathcal{C}_S$ a morphism $F(X)\to G(X)$ making all morphism squares commute.
 
-Injectivity of \(\alpha\) is clear since \(\operatorname{Ob}\mathcal{C}_S=\operatorname{Ob}\mathcal{C}\). For surjectivity, take a morphism \(FQ\to GQ\). Since every morphism in \(\mathcal{C}_S\) is a fraction built from morphisms of \(\mathcal{C}\) and elements of \(S\), and \(F(s),G(s)\) are isomorphisms for \(s\in S\), the given functor morphism on \(FQ,GQ\) extends uniquely to a functor morphism on \(F,G\) over \(\mathcal{C}_S\).
+Injectivity of $\alpha$ is clear since $\operatorname{Ob}\mathcal{C}_S=\operatorname{Ob}\mathcal{C}$. For surjectivity, take a morphism $FQ\to GQ$. Since every morphism in $\mathcal{C}_S$ is a fraction built from morphisms of $\mathcal{C}$ and elements of $S$, and $F(s),G(s)$ are isomorphisms for $s\in S$, the given functor morphism on $FQ,GQ$ extends uniquely to a functor morphism on $F,G$ over $\mathcal{C}_S$.
 \end{proof}
 
 \section{Quasi-isomorphisms and the derived category}
 
-Let \(\mathcal{A}\) be an abelian category, and let \(\KK(\mathcal{A})\) be the triangulated category of complexes up to homotopy introduced in \S2. A morphism \(f\colon X^\bullet\to Y^\bullet\) in \(\KK(\mathcal{A})\) is called a \emph{quasi-isomorphism} if it induces an isomorphism on all cohomology groups. Denote by \(\operatorname{Qis}\) the collection of all quasi-isomorphisms in \(\KK(\mathcal{A})\).
+Let $\mathcal{A}$ be an abelian category, and let $\KK(\mathcal{A})$ be the triangulated category of complexes up to homotopy introduced in \S2. A morphism $f\colon X^\bullet\to Y^\bullet$ in $\KK(\mathcal{A})$ is called a \emph{quasi-isomorphism} if it induces an isomorphism on all cohomology groups. Denote by $\operatorname{Qis}$ the collection of all quasi-isomorphisms in $\KK(\mathcal{A})$.
 
 \begin{proposition}\label{prop:1.4.2}
-Let \(\mathcal{C}\) be a triangulated category, \(\mathcal{A}\) an abelian category, and \(H\colon\mathcal{C}\to\mathcal{A}\) a cohomological functor. Let \(S\) be the class of morphisms \(s\in\mathcal{C}\) such that \(H(T^i(s))\) is an isomorphism for all \(i\in\mathbb{Z}\). Then \(S\) is a multiplicative system in \(\mathcal{C}\) and is compatible with the triangulation.
+Let $\mathcal{C}$ be a triangulated category, $\mathcal{A}$ an abelian category, and $H\colon\mathcal{C}\to\mathcal{A}$ a cohomological functor. Let $S$ be the class of morphisms $s\in\mathcal{C}$ such that $H(T^i(s))$ is an isomorphism for all $i\in\mathbb{Z}$. Then $S$ is a multiplicative system in $\mathcal{C}$ and is compatible with the triangulation.
 \end{proposition}
 
 \begin{proof}
@@ -287,29 +287,29 @@ To prove (FR2), consider a diagram
 \[
 X\xrightarrow{u} Y \xleftarrow{s} Z,\qquad s\in S.
 \]
-Complete \(s\) to a triangle \((Z,Y,N,s,f,g)\). Complete \(fu\) to a triangle \((W,X,N,t,fu,h)\). Since \((u,\operatorname{id}_N)\) maps two sides of the second triangle to the first, there exists a morphism \(v\colon W\to Z\) giving a morphism of triangles, satisfying \(sv = ut\).
+Complete $s$ to a triangle $(Z,Y,N,s,f,g)$. Complete $fu$ to a triangle $(W,X,N,t,fu,h)$. Since $(u,\operatorname{id}_N)$ maps two sides of the second triangle to the first, there exists a morphism $v\colon W\to Z$ giving a morphism of triangles, satisfying $sv = ut$.
 
-It remains to show \(t\in S\). Since \(s\in S\), the long exact sequence of the first triangle implies \(H(T^i(N))=0\) for all \(i\in\mathbb{Z}\). Substituting into the long exact sequence of the second triangle yields that \(H(T^i(t))\) is an isomorphism for all \(i\in\mathbb{Z}\), so \(t\in S\). The dual statement of (FR2) is proved similarly.
+It remains to show $t\in S$. Since $s\in S$, the long exact sequence of the first triangle implies $H(T^i(N))=0$ for all $i\in\mathbb{Z}$. Substituting into the long exact sequence of the second triangle yields that $H(T^i(t))$ is an isomorphism for all $i\in\mathbb{Z}$, so $t\in S$. The dual statement of (FR2) is proved similarly.
 
-For (FR3), consider \(f,g\colon X\to Y\). It suffices to prove equivalence of:
+For (FR3), consider $f,g\colon X\to Y$. It suffices to prove equivalence of:
 \begin{enumerate}
-\item[(i)] \(\exists\;s\colon Y\to Y'\in S\) with \(sf=sg\);
-\item[(ii)] \(\exists\;t\colon X'\to X\in S\) with \(ft=gt\).
+\item[(i)] $\exists\;s\colon Y\to Y'\in S$ with $sf=sg$;
+\item[(ii)] $\exists\;t\colon X'\to X\in S$ with $ft=gt$.
 \end{enumerate}
-It is enough to treat the case \(g=0\), so we need:
-(i) \(\exists\,s\colon Y\to Y'\in S,\ sf=0\)
-\(\iff\)
-(ii) \(\exists\,t\colon X'\to X\in S,\ ft=0\).
+It is enough to treat the case $g=0$, so we need:
+(i) $\exists\,s\colon Y\to Y'\in S,\ sf=0$
+$\iff$
+(ii) $\exists\,t\colon X'\to X\in S,\ ft=0$.
 
-Assume (i). By (TR1),(TR2), form a triangle \((Z,Y,Y',v,s,u)\). Since \(sf=0\), Proposition 1.1(b) gives \(g\colon X\to Z\) with \(f=vg\). Form a triangle \((X',X,Z,t,g,w)\). Again by Proposition 1.1(b), \(ft=0\). Since \(s\in S\), \(H(T^i(Z))=0\) for all \(i\), which implies \(t\in S\). The converse (ii)\(\Rightarrow\)(i) is symmetric.
+Assume (i). By (TR1),(TR2), form a triangle $(Z,Y,Y',v,s,u)$. Since $sf=0$, Proposition 1.1(b) gives $g\colon X\to Z$ with $f=vg$. Form a triangle $(X',X,Z,t,g,w)$. Again by Proposition 1.1(b), $ft=0$. Since $s\in S$, $H(T^i(Z))=0$ for all $i$, which implies $t\in S$. The converse (ii)$\Rightarrow$(i) is symmetric.
 \end{proof}
 
 \begin{corollary}
-The set \(\operatorname{Qis}\) is a multiplicative system in \(\KK(\mathcal{A})\), compatible with the triangulation.
+The set $\operatorname{Qis}$ is a multiplicative system in $\KK(\mathcal{A})$, compatible with the triangulation.
 \end{corollary}
 
 \begin{definition}
-The \emph{derived category} of \(\mathcal{A}\) is
+The \emph{derived category} of $\mathcal{A}$ is
 \[
 \DD(\mathcal{A}) := \KK(\mathcal{A})_{\operatorname{Qis}}.
 \]
@@ -319,80 +319,80 @@ Similarly define
 \DD^-(\mathcal{A})=\KK^-(\mathcal{A})_{\operatorname{Qis}},\quad
 \DD^b(\mathcal{A})=\KK^b(\mathcal{A})_{\operatorname{Qis}}.
 \]
-By Proposition 1.3.3, these are full subcategories of \(\DD(\mathcal{A})\), and
+By Proposition 1.3.3, these are full subcategories of $\DD(\mathcal{A})$, and
 \[
 \DD^+(\mathcal{A})\cap \DD^-(\mathcal{A}) = \DD^b(\mathcal{A}).
 \]
 \end{definition}
 
 \begin{definition}
-Let \(\mathcal{A}\) be abelian, and \(\mathcal{A}'\subset\mathcal{A}\) a \emph{thick} full abelian subcategory (closed under extensions in \(\mathcal{A}\)). Define \(\KK_{\mathcal{A}'}(\mathcal{A})\) to be the full subcategory of \(\KK(\mathcal{A})\) consisting of complexes \(X^\bullet\) whose cohomology objects \(H^i(X^\bullet)\) lie in \(\mathcal{A}'\). Since \(\mathcal{A}'\) is thick, \(\KK_{\mathcal{A}'}(\mathcal{A})\) is a triangulated subcategory of \(\KK(\mathcal{A})\).
+Let $\mathcal{A}$ be abelian, and $\mathcal{A}'\subset\mathcal{A}$ a \emph{thick} full abelian subcategory (closed under extensions in $\mathcal{A}$). Define $\KK_{\mathcal{A}'}(\mathcal{A})$ to be the full subcategory of $\KK(\mathcal{A})$ consisting of complexes $X^\bullet$ whose cohomology objects $H^i(X^\bullet)$ lie in $\mathcal{A}'$. Since $\mathcal{A}'$ is thick, $\KK_{\mathcal{A}'}(\mathcal{A})$ is a triangulated subcategory of $\KK(\mathcal{A})$.
 
 Define
 \[
 \DD_{\mathcal{A}'}(\mathcal{A}) := \KK_{\mathcal{A}'}(\mathcal{A})_{\operatorname{Qis}}.
 \]
-By Proposition 1.3.3, \(\DD_{\mathcal{A}'}(\mathcal{A})\) is the full subcategory of \(\DD(\mathcal{A})\) of complexes with all cohomology in \(\mathcal{A}'\). One defines similarly \(\KK_{\mathcal{A}'}^+(\mathcal{A}), \DD_{\mathcal{A}'}^+(\mathcal{A})\), etc., for bounded-below complexes.
+By Proposition 1.3.3, $\DD_{\mathcal{A}'}(\mathcal{A})$ is the full subcategory of $\DD(\mathcal{A})$ of complexes with all cohomology in $\mathcal{A}'$. One defines similarly $\KK_{\mathcal{A}'}^+(\mathcal{A}), \DD_{\mathcal{A}'}^+(\mathcal{A})$, etc., for bounded-below complexes.
 \end{definition}
 
 \begin{definition}
-A morphism \(f\colon X^\bullet\to Y^\bullet\) of complexes induces the zero morphism in \(\DD(\mathcal{A})\) if and only if:
+A morphism $f\colon X^\bullet\to Y^\bullet$ of complexes induces the zero morphism in $\DD(\mathcal{A})$ if and only if:
 
-\((*)\) There exists \(s\colon Y^\bullet\to Y'^\bullet\in\operatorname{Qis}\) such that \(sf\) is homotopic to zero (equivalently, \(\exists\;t\colon X'^\bullet\to X^\bullet\in\operatorname{Qis}\) such that \(ft\) is homotopic to zero).
+$(*)$ There exists $s\colon Y^\bullet\to Y'^\bullet\in\operatorname{Qis}$ such that $sf$ is homotopic to zero (equivalently, $\exists\;t\colon X'^\bullet\to X^\bullet\in\operatorname{Qis}$ such that $ft$ is homotopic to zero).
 \end{definition}
 
 \begin{enumerate}
-\item If \(f\) is homotopic to zero, then \((*)\) holds. The converse is false.
+\item If $f$ is homotopic to zero, then $(*)$ holds. The converse is false.
 Take the complex
 \[
 X^\bullet:\; 0\to\mathbb{Z}\xrightarrow{2}\mathbb{Z}\to\mathbb{Z}/2\mathbb{Z}\to 0,
 \]
-and \(f=\operatorname{id}_{X^\bullet}\). Let \(g\colon X^\bullet\to 0\) be the zero map; then \(g\in\operatorname{Qis}\) and \(gf=0\), but \(\operatorname{id}_{X^\bullet}\) is not homotopic to zero.
+and $f=\operatorname{id}_{X^\bullet}$. Let $g\colon X^\bullet\to 0$ be the zero map; then $g\in\operatorname{Qis}$ and $gf=0$, but $\operatorname{id}_{X^\bullet}$ is not homotopic to zero.
 
-\item If \(f\) is homotopic to zero, it induces the zero map on cohomology; the converse is false.
+\item If $f$ is homotopic to zero, it induces the zero map on cohomology; the converse is false.
 Take
 \[
 X^\bullet,Y^\bullet:\quad 0\to\mathbb{Z}\xrightarrow{2}\mathbb{Z}\to 0.
 \]
-The identity map induces zero on cohomology, but there is no \(t\in\operatorname{Qis}\) with \(ft\simeq 0\). Any homotopy operator would force \(2k(x)=1\), impossible in \(\mathbb{Z}\).
+The identity map induces zero on cohomology, but there is no $t\in\operatorname{Qis}$ with $ft\simeq 0$. Any homotopy operator would force $2k(x)=1$, impossible in $\mathbb{Z}$.
 \end{enumerate}
 
-For morphisms \(f,g\colon X^\bullet\to Y^\bullet\) of complexes, the implications below are all strict:
+For morphisms $f,g\colon X^\bullet\to Y^\bullet$ of complexes, the implications below are all strict:
 \[
 f=g \;\Longrightarrow\; f\simeq g \;\Longrightarrow\; f=g \text{ in }\DD(\mathcal{A}) \;\Longrightarrow\; H^i(f)=H^i(g)\;\forall i.
 \]
 
 \begin{proposition}\label{prop:1.4.3}
-Let \(\mathcal{A}\) be identified with the full subcategory of \(\DD(\mathcal{A})\) consisting of complexes concentrated in degree zero. Then the natural embedding \(\mathcal{A}\hookrightarrow\DD(\mathcal{A})\) is fully faithful, i.e., for any \(X,Y\in\operatorname{Ob}\mathcal{A}\),
+Let $\mathcal{A}$ be identified with the full subcategory of $\DD(\mathcal{A})$ consisting of complexes concentrated in degree zero. Then the natural embedding $\mathcal{A}\hookrightarrow\DD(\mathcal{A})$ is fully faithful, i.e., for any $X,Y\in\operatorname{Ob}\mathcal{A}$,
 \[
 \operatorname{Hom}_{\mathcal{A}}(X,Y) \cong \operatorname{Hom}_{\DD(\mathcal{A})}(X,Y).
 \]
 \end{proposition}
 
-We now prove three lemmas, which give an alternative description of \(\DD^+(\mathcal{A})\) when \(\mathcal{A}\) has enough injectives.
+We now prove three lemmas, which give an alternative description of $\DD^+(\mathcal{A})$ when $\mathcal{A}$ has enough injectives.
 
 \begin{lemma}\label{lem:1.4.4}
-Let \(\mathcal{A}\) be abelian, \(f\colon Z^\bullet\to I^\bullet\) a morphism of complexes. Assume:
+Let $\mathcal{A}$ be abelian, $f\colon Z^\bullet\to I^\bullet$ a morphism of complexes. Assume:
 \begin{enumerate}
-\item[(1)] \(Z^\bullet\) is acyclic;
-\item[(2)] Each \(I^p\) is injective in \(\mathcal{A}\);
-\item[(3)] \(I^\bullet\) is bounded below.
+\item[(1)] $Z^\bullet$ is acyclic;
+\item[(2)] Each $I^p$ is injective in $\mathcal{A}$;
+\item[(3)] $I^\bullet$ is bounded below.
 \end{enumerate}
-Then \(f\) is homotopic to zero.
+Then $f$ is homotopic to zero.
 \end{lemma}
 
 \begin{lemma}\label{lem:1.4.5}
-Let \(\mathcal{A}\) be abelian, \(s\colon I^\bullet\to Y^\bullet\) a morphism of complexes. Assume:
+Let $\mathcal{A}$ be abelian, $s\colon I^\bullet\to Y^\bullet$ a morphism of complexes. Assume:
 \begin{enumerate}
-\item[(1)] \(s\) is a quasi-isomorphism;
-\item[(2)] Each \(I^p\) is injective;
-\item[(3)] \(I^\bullet\) is bounded below.
+\item[(1)] $s$ is a quasi-isomorphism;
+\item[(2)] Each $I^p$ is injective;
+\item[(3)] $I^\bullet$ is bounded below.
 \end{enumerate}
-Then \(s\) admits a homotopy inverse.
+Then $s$ admits a homotopy inverse.
 \end{lemma}
 
 \begin{proof}
-Form the mapping cone \(Z^\bullet = T(I^\bullet)\oplus Y^\bullet\) of \(s\). Since \(s\) is a quasi-isomorphism, \(Z^\bullet\) is acyclic. The natural map \(v\colon Z^\bullet\to T(I^\bullet)\) satisfies the hypotheses of Lemma 1.4.4, hence is homotopic to zero. Let \((k,t)\colon T(I^\bullet)\oplus Y^\bullet\to I^\bullet\) be the corresponding homotopy. Then
+Form the mapping cone $Z^\bullet = T(I^\bullet)\oplus Y^\bullet$ of $s$. Since $s$ is a quasi-isomorphism, $Z^\bullet$ is acyclic. The natural map $v\colon Z^\bullet\to T(I^\bullet)$ satisfies the hypotheses of Lemma 1.4.4, hence is homotopic to zero. Let $(k,t)\colon T(I^\bullet)\oplus Y^\bullet\to I^\bullet$ be the corresponding homotopy. Then
 \[
 v = (\operatorname{id}_{I^\bullet},0) = (k,t)\circ d_Z + d_I\circ(k,t).
 \]
@@ -400,57 +400,57 @@ Separating components yields
 \[
 \operatorname{id}_I = dk + kd + ts,\qquad dt - td = 0.
 \]
-Thus \(t\colon Y^\bullet\to I^\bullet\) is a morphism of complexes, and \(ts\) is homotopic to \(\operatorname{id}_I\). Hence \(t\) is a homotopy inverse of \(s\).
+Thus $t\colon Y^\bullet\to I^\bullet$ is a morphism of complexes, and $ts$ is homotopic to $\operatorname{id}_I$. Hence $t$ is a homotopy inverse of $s$.
 \end{proof}
 
 \begin{lemma}\label{lem:1.4.6}
-Let \(\mathcal{A}\) be an abelian category.
+Let $\mathcal{A}$ be an abelian category.
 \begin{enumerate}
-\item[1)] Let \(P\subseteq\operatorname{Ob}\mathcal{A}\) satisfy:
+\item[1)] Let $P\subseteq\operatorname{Ob}\mathcal{A}$ satisfy:
 \begin{enumerate}
-\item[(i)] Every object of \(\mathcal{A}\) admits an injection into an element of \(P\).
+\item[(i)] Every object of $\mathcal{A}$ admits an injection into an element of $P$.
 \end{enumerate}
-Then every bounded-below complex \(X^\bullet\in\KK^+(\mathcal{A})\) admits a quasi-isomorphism into a bounded-below complex \(I^\bullet\) of objects of \(P\).
+Then every bounded-below complex $X^\bullet\in\KK^+(\mathcal{A})$ admits a quasi-isomorphism into a bounded-below complex $I^\bullet$ of objects of $P$.
 
-\item[2)] Assume further that \(P\) satisfies:
+\item[2)] Assume further that $P$ satisfies:
 \begin{enumerate}
-\item[(ii)] If \(0\to X\to Y\to Z\to 0\) is exact and \(X\in P\), then \(Y\in P\iff Z\in P\);
-\item[(iii)] There exists a positive integer \(n\) such that for any exact sequence
+\item[(ii)] If $0\to X\to Y\to Z\to 0$ is exact and $X\in P$, then $Y\in P\iff Z\in P$;
+\item[(iii)] There exists a positive integer $n$ such that for any exact sequence
 \[
 X^0\to X^1\to\cdots\to X^{n-1}\to X^n\to 0,
 \]
-if \(X^0,\dots,X^{n-1}\in P\) then \(X^n\in P\).
+if $X^0,\dots,X^{n-1}\in P$ then $X^n\in P$.
 \end{enumerate}
-Then every \(X^\bullet\in\KK(\mathcal{A})\) admits a quasi-isomorphism into a complex \(I^\bullet\) of objects of \(P\).
+Then every $X^\bullet\in\KK(\mathcal{A})$ admits a quasi-isomorphism into a complex $I^\bullet$ of objects of $P$.
 
-\item[3)] Let \(\mathcal{A}'\) be a thick subcategory of \(\mathcal{A}\), and suppose \(\mathcal{A}'\) has enough \(\mathcal{A}\)-injectives. Then every \(X^\bullet\in\KK_{\mathcal{A}'}^+(\mathcal{A})\) admits a quasi-isomorphism into a bounded-below complex \(I^\bullet\) of \(\mathcal{A}\)-injective objects of \(\mathcal{A}'\).
+\item[3)] Let $\mathcal{A}'$ be a thick subcategory of $\mathcal{A}$, and suppose $\mathcal{A}'$ has enough $\mathcal{A}$-injectives. Then every $X^\bullet\in\KK_{\mathcal{A}'}^+(\mathcal{A})$ admits a quasi-isomorphism into a bounded-below complex $I^\bullet$ of $\mathcal{A}$-injective objects of $\mathcal{A}'$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}[Proof of 1)]
-We may assume \(X^p=0\) for \(p<0\). Embed \(X^0\hookrightarrow I^0\) with \(I^0\in P\). Having defined \(I^0,I^1,\dots,I^p\), choose \(I^{p+1}\in P\) containing
+We may assume $X^p=0$ for $p<0$. Embed $X^0\hookrightarrow I^0$ with $I^0\in P$. Having defined $I^0,I^1,\dots,I^p$, choose $I^{p+1}\in P$ containing
 \[
 I^p\big/\operatorname{im}I^{p-1}\;\oplus\;X^{p+1},
 \]
-and define differentials \(I^p\to I^{p+1}\) and morphisms \(X^{p+1}\to I^{p+1}\) canonically. One verifies \(X^\bullet\to I^\bullet\) is a quasi-isomorphism, and each \(X^p\to I^p\) is injective.
+and define differentials $I^p\to I^{p+1}$ and morphisms $X^{p+1}\to I^{p+1}$ canonically. One verifies $X^\bullet\to I^\bullet$ is a quasi-isomorphism, and each $X^p\to I^p$ is injective.
 \end{proof}
 
 \begin{proof}[Proof of 2)]
-Let \(X^\bullet\) be any complex. For a fixed integer \(i_0\), by (i), the truncated complex
+Let $X^\bullet$ be any complex. For a fixed integer $i_0$, by (i), the truncated complex
 \[
 0\to 0\to X^{i_0}\to X^{i_0+1}\to\cdots
 \]
-admits a quasi-isomorphism into a complex \(I^\bullet\) of objects of \(P\), with each \(X^i\to I^i\) injective. Define \(X_0^\bullet\) by
+admits a quasi-isomorphism into a complex $I^\bullet$ of objects of $P$, with each $X^i\to I^i$ injective. Define $X_0^\bullet$ by
 \[
 \cdots\to X^{i_0-2}\to X^{i_0-1}\to I^{i_0}\to I^{i_0+1}\to\cdots.
 \]
-Then \(X^\bullet\to X_0^\bullet\) is a quasi-isomorphism, \(X_0^i\in P\) for \(i\ge i_0\), and each \(X^i\to X_0^i\) is injective.
+Then $X^\bullet\to X_0^\bullet$ is a quasi-isomorphism, $X_0^i\in P$ for $i\ge i_0$, and each $X^i\to X_0^i$ is injective.
 
-Now suppose we have \(X_1^\bullet\) with \(X_1^i\in P\) for \(i\ge i_1\), and let \(i_2<i_1\). We construct a quasi-isomorphism \(X_1^\bullet\to X_2^\bullet\) such that \(X_2^i\in P\) for \(i\ge i_2\) and \(X_1^i=X_2^i\) for \(i\ge i_1+n\) (with \(n\) from condition (iii)).
+Now suppose we have $X_1^\bullet$ with $X_1^i\in P$ for $i\ge i_1$, and let $i_2<i_1$. We construct a quasi-isomorphism $X_1^\bullet\to X_2^\bullet$ such that $X_2^i\in P$ for $i\ge i_2$ and $X_1^i=X_2^i$ for $i\ge i_1+n$ (with $n$ from condition (iii)).
 
-By the first step, choose a quasi-isomorphism \(X_1^\bullet\to X'^\bullet\) with \(X'^i\in P\) for \(i\ge i_2\) and each map injective. Let \(Y^i=\operatorname{coker}(X_1^i\to X'^i)\). Then \(Y^\bullet\) is acyclic, and \(Y^i\in P\) for \(i\ge i_1\) by (ii). By (iii), the boundaries \(B^i(Y^\bullet)\in P\) for \(i\ge i_1+n\).
+By the first step, choose a quasi-isomorphism $X_1^\bullet\to X'^\bullet$ with $X'^i\in P$ for $i\ge i_2$ and each map injective. Let $Y^i=\operatorname{coker}(X_1^i\to X'^i)$. Then $Y^\bullet$ is acyclic, and $Y^i\in P$ for $i\ge i_1$ by (ii). By (iii), the boundaries $B^i(Y^\bullet)\in P$ for $i\ge i_1+n$.
 
-Define \(X_2^\bullet\) piecewise:
+Define $X_2^\bullet$ piecewise:
 \[
 X_2^i=
 \begin{cases}
@@ -463,45 +463,45 @@ From the exact sequence
 \[
 0\to X_1^i\to B^i(X'^\bullet)\oplus \ker(X_1^{i-1}\to X_1^i)\to B^i(X'^\bullet)\to 0,
 \]
-condition (ii) implies the middle term lies in \(P\) for \(i\ge i_1+n\). One checks \(X_1^\bullet\to X_2^\bullet\) is a quasi-isomorphism.
+condition (ii) implies the middle term lies in $P$ for $i\ge i_1+n$. One checks $X_1^\bullet\to X_2^\bullet$ is a quasi-isomorphism.
 
-Now for any \(X^\bullet\in\KK(\mathcal{A})\), pick a decreasing sequence \(i_0>i_1>i_2>\cdots\to-\infty\). Construct \(X_0^\bullet,X_1^\bullet,X_2^\bullet,\dots\) as above, giving quasi-isomorphisms
+Now for any $X^\bullet\in\KK(\mathcal{A})$, pick a decreasing sequence $i_0>i_1>i_2>\cdots\to-\infty$. Construct $X_0^\bullet,X_1^\bullet,X_2^\bullet,\dots$ as above, giving quasi-isomorphisms
 \[
 X^\bullet\to X_0^\bullet\to X_1^\bullet\to X_2^\bullet\to\cdots.
 \]
-For each fixed degree \(i\), the sequence \(X^i\to X_0^i\to X_1^i\to\cdots\) is eventually constant and lies in \(P\). The direct limit \(I^\bullet=\varinjlim X_r^\bullet\) is the desired complex of objects of \(P\).
+For each fixed degree $i$, the sequence $X^i\to X_0^i\to X_1^i\to\cdots$ is eventually constant and lies in $P$. The direct limit $I^\bullet=\varinjlim X_r^\bullet$ is the desired complex of objects of $P$.
 \end{proof}
 
 \begin{proof}[Proof of 3)]
-Assume \(X^i=0\) for \(i<0\). Embed \(H^0(X^\bullet)\hookrightarrow I^0\), where \(I^0\) is an \(\mathcal{A}\)-injective object of \(\mathcal{A}'\); this is possible since \(H^0(X^\bullet)\in\mathcal{A}'\) and \(\mathcal{A}'\) has enough \(\mathcal{A}\)-injectives. Extend to a morphism \(f^0\colon X^0\to I^0\).
+Assume $X^i=0$ for $i<0$. Embed $H^0(X^\bullet)\hookrightarrow I^0$, where $I^0$ is an $\mathcal{A}$-injective object of $\mathcal{A}'$; this is possible since $H^0(X^\bullet)\in\mathcal{A}'$ and $\mathcal{A}'$ has enough $\mathcal{A}$-injectives. Extend to a morphism $f^0\colon X^0\to I^0$.
 
-Inductively having defined \(I^0,\dots,I^p\) and \(f^i\colon X^i\to I^i\) for \(0\le i\le p\), choose an \(\mathcal{A}\)-injective \(I^{p+1}\in\mathcal{A}'\) containing
+Inductively having defined $I^0,\dots,I^p$ and $f^i\colon X^i\to I^i$ for $0\le i\le p$, choose an $\mathcal{A}$-injective $I^{p+1}\in\mathcal{A}'$ containing
 \[
 I^p\big/\operatorname{im}I^{p-1}\;\oplus\;Z^{p+1}(X^\bullet).
 \]
-Since \(\mathcal{A}'\) is thick, this object belongs to \(\mathcal{A}'\). Extend the natural map \(Z^{p+1}(X^\bullet)\to I^{p+1}\) to \(f^{p+1}\colon X^{p+1}\to I^{p+1}\). The resulting morphism \(f\colon X^\bullet\to I^\bullet\) is a quasi-isomorphism.
+Since $\mathcal{A}'$ is thick, this object belongs to $\mathcal{A}'$. Extend the natural map $Z^{p+1}(X^\bullet)\to I^{p+1}$ to $f^{p+1}\colon X^{p+1}\to I^{p+1}$. The resulting morphism $f\colon X^\bullet\to I^\bullet$ is a quasi-isomorphism.
 \end{proof}
 
 \begin{proposition}\label{prop:1.4.7}
-Let \(\mathcal{A}\) be abelian, and let \(\mathcal{I}\) be the additive subcategory of injective objects of \(\mathcal{A}\). The natural functor
+Let $\mathcal{A}$ be abelian, and let $\mathcal{I}$ be the additive subcategory of injective objects of $\mathcal{A}$. The natural functor
 \[
 \alpha\colon \KK^+(\mathcal{I})\to \DD^+(\mathcal{A})
 \]
-is fully faithful. If furthermore \(\mathcal{A}\) has enough injectives, then \(\alpha\) is an equivalence of categories.
+is fully faithful. If furthermore $\mathcal{A}$ has enough injectives, then $\alpha$ is an equivalence of categories.
 \end{proposition}
 
 \begin{proof}
-By Proposition 1.4.2, \(\operatorname{Qis}\cap\KK^+(\mathcal{I})\) is a multiplicative system in \(\KK^+(\mathcal{I})\). Lemma 1.4.5 verifies condition (ii) of Proposition 1.3.3 for the inclusion \(\KK^+(\mathcal{I})\subseteq\KK^+(\mathcal{A})\) and \(\operatorname{Qis}\). Thus
+By Proposition 1.4.2, $\operatorname{Qis}\cap\KK^+(\mathcal{I})$ is a multiplicative system in $\KK^+(\mathcal{I})$. Lemma 1.4.5 verifies condition (ii) of Proposition 1.3.3 for the inclusion $\KK^+(\mathcal{I})\subseteq\KK^+(\mathcal{A})$ and $\operatorname{Qis}$. Thus
 \[
 \DD^+(\mathcal{I})\to\DD^+(\mathcal{A})
 \]
-is fully faithful. By Lemma 1.4.5, every quasi-isomorphism in \(\KK^+(\mathcal{I})\) is an isomorphism, so \(\KK^+(\mathcal{I}) = \DD^+(\mathcal{I})\).
+is fully faithful. By Lemma 1.4.5, every quasi-isomorphism in $\KK^+(\mathcal{I})$ is an isomorphism, so $\KK^+(\mathcal{I}) = \DD^+(\mathcal{I})$.
 
-If \(\mathcal{A}\) has enough injectives, apply Lemma 1.4.6(1) with \(P=\operatorname{Ob}\mathcal{I}\): every object of \(\DD^+(\mathcal{A})\) is isomorphic to an object of \(\KK^+(\mathcal{I})\). Hence \(\alpha\) is an equivalence.
+If $\mathcal{A}$ has enough injectives, apply Lemma 1.4.6(1) with $P=\operatorname{Ob}\mathcal{I}$: every object of $\DD^+(\mathcal{A})$ is isomorphic to an object of $\KK^+(\mathcal{I})$. Hence $\alpha$ is an equivalence.
 \end{proof}
 
 \begin{proposition}\label{prop:1.4.8}
-Let \(\mathcal{A}\) be abelian, \(\mathcal{A}'\subseteq\mathcal{A}\) a thick abelian subcategory. Assume \(\mathcal{A}'\) has enough \(\mathcal{A}\)-injectives. Then the natural functor
+Let $\mathcal{A}$ be abelian, $\mathcal{A}'\subseteq\mathcal{A}$ a thick abelian subcategory. Assume $\mathcal{A}'$ has enough $\mathcal{A}$-injectives. Then the natural functor
 \[
 \DD^+(\mathcal{A}') \to \DD_{\mathcal{A}'}^+(\mathcal{A})
 \]
@@ -509,49 +509,49 @@ is an equivalence of categories.
 \end{proposition}
 
 \begin{proof}
-Apply Proposition 1.3.3 to the inclusion \(\KK^+(\mathcal{A}')\hookrightarrow\KK^+(\mathcal{A})\). The set \(\operatorname{Qis}\) is a multiplicative system in both categories. Any quasi-isomorphism \(X^\bullet\to Y^\bullet\) with \(X^\bullet\in\KK^+(\mathcal{A}')\) has cohomology in \(\mathcal{A}'\); by Lemma 1.4.6(3), \(Y^\bullet\) admits a quasi-isomorphism into an injective complex \(I^\bullet\in\KK^+(\mathcal{A}')\). Thus condition (ii) of Proposition 1.3.3 holds, so \(\DD^+(\mathcal{A}')\to\DD^+(\mathcal{A})\) is fully faithful, with image exactly \(\DD_{\mathcal{A}'}^+(\mathcal{A})\).
+Apply Proposition 1.3.3 to the inclusion $\KK^+(\mathcal{A}')\hookrightarrow\KK^+(\mathcal{A})$. The set $\operatorname{Qis}$ is a multiplicative system in both categories. Any quasi-isomorphism $X^\bullet\to Y^\bullet$ with $X^\bullet\in\KK^+(\mathcal{A}')$ has cohomology in $\mathcal{A}'$; by Lemma 1.4.6(3), $Y^\bullet$ admits a quasi-isomorphism into an injective complex $I^\bullet\in\KK^+(\mathcal{A}')$. Thus condition (ii) of Proposition 1.3.3 holds, so $\DD^+(\mathcal{A}')\to\DD^+(\mathcal{A})$ is fully faithful, with image exactly $\DD_{\mathcal{A}'}^+(\mathcal{A})$.
 \end{proof}
 
-\textbf{Exercise.} Formulate the analogous statements for projective objects of \(\mathcal{A}\) and the bounded-above derived category \(\DD^-(\mathcal{A})\).
+\textbf{Exercise.} Formulate the analogous statements for projective objects of $\mathcal{A}$ and the bounded-above derived category $\DD^-(\mathcal{A})$.
 
 \section{Derived functors}
 
 We treat only \emph{right derived covariant functors}; the reader may make the obvious modifications for left derived covariant functors, and right/left derived contravariant functors.
 
-Let \(\mathcal{A},\mathcal{B}\) be abelian categories, and let \(F\colon\KK(\mathcal{A})\to\KK(\mathcal{B})\) be a triangulated functor (cf.\ \S1). This holds in particular for any additive functor \(F\colon\mathcal{A}\to\mathcal{B}\), which extends canonically to \(\KK(\mathcal{A})\).
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, and let $F\colon\KK(\mathcal{A})\to\KK(\mathcal{B})$ be a triangulated functor (cf.\ \S1). This holds in particular for any additive functor $F\colon\mathcal{A}\to\mathcal{B}$, which extends canonically to $\KK(\mathcal{A})$.
 
-In general, \(F\) need not send quasi-isomorphisms to quasi-isomorphisms; if it does, then \(F\) localizes to induce a functor \(\DD(\mathcal{A})\to\DD(\mathcal{B})\). Exact functors are examples of this behavior.
+In general, $F$ need not send quasi-isomorphisms to quasi-isomorphisms; if it does, then $F$ localizes to induce a functor $\DD(\mathcal{A})\to\DD(\mathcal{B})$. Exact functors are examples of this behavior.
 
-We are led to ask whether there exists a functor \(\DD(\mathcal{A})\to\DD(\mathcal{B})\) approximating \(F\); this motivates the general definition of derived functors below.
+We are led to ask whether there exists a functor $\DD(\mathcal{A})\to\DD(\mathcal{B})$ approximating $F$; this motivates the general definition of derived functors below.
 
 \begin{definition}
-Let \(\mathcal{A}\) be abelian, and let \(\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})\) be a triangulated subcategory. By Proposition 1.4.2, \(\KK^*(\mathcal{A})\cap\operatorname{Qis}\) is a multiplicative system in \(\KK^*(\mathcal{A})\).
+Let $\mathcal{A}$ be abelian, and let $\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})$ be a triangulated subcategory. By Proposition 1.4.2, $\KK^*(\mathcal{A})\cap\operatorname{Qis}$ is a multiplicative system in $\KK^*(\mathcal{A})$.
 
-We say \(\KK^*(\mathcal{A})\) is a \emph{localizing subcategory} of \(\KK(\mathcal{A})\) if the natural functor
+We say $\KK^*(\mathcal{A})$ is a \emph{localizing subcategory} of $\KK(\mathcal{A})$ if the natural functor
 \[
 \KK^*(\mathcal{A})_{\KK^*(\mathcal{A})\cap\operatorname{Qis}}
 \;\to\;
 \KK(\mathcal{A})_{\operatorname{Qis}} = \DD(\mathcal{A})
 \]
-is fully faithful. In this case we write \(\DD^*(\mathcal{A})\) for the domain category above.
+is fully faithful. In this case we write $\DD^*(\mathcal{A})$ for the domain category above.
 \end{definition}
 
 \textbf{Examples.}
 \begin{enumerate}
 \item The intersection of any family of localizing subcategories is localizing.
-\item \(\KK^+(\mathcal{A}),\KK^-(\mathcal{A}),\KK^b(\mathcal{A})\) are localizing subcategories of \(\KK(\mathcal{A})\) (cf.\ \S4).
-\item If \(\mathcal{A}'\subseteq\mathcal{A}\) is a thick subcategory, then \(\KK_{\mathcal{A}'}(\mathcal{A}),\KK_{\mathcal{A}'}^+(\mathcal{A}),\KK_{\mathcal{A}'}^-(\mathcal{A}),\KK_{\mathcal{A}'}^b(\mathcal{A})\) are localizing subcategories of \(\KK(\mathcal{A})\) (cf.\ \S4).
-\item The complexes of finite injective dimension form a localizing subcategory \(\KK^+(\mathcal{A})_{\mathrm{fid}}\subseteq\KK(\mathcal{A})\) (cf.\ Corollary 1.7.7).
+\item $\KK^+(\mathcal{A}),\KK^-(\mathcal{A}),\KK^b(\mathcal{A})$ are localizing subcategories of $\KK(\mathcal{A})$ (cf.\ \S4).
+\item If $\mathcal{A}'\subseteq\mathcal{A}$ is a thick subcategory, then $\KK_{\mathcal{A}'}(\mathcal{A}),\KK_{\mathcal{A}'}^+(\mathcal{A}),\KK_{\mathcal{A}'}^-(\mathcal{A}),\KK_{\mathcal{A}'}^b(\mathcal{A})$ are localizing subcategories of $\KK(\mathcal{A})$ (cf.\ \S4).
+\item The complexes of finite injective dimension form a localizing subcategory $\KK^+(\mathcal{A})_{\mathrm{fid}}\subseteq\KK(\mathcal{A})$ (cf.\ Corollary 1.7.7).
 \end{enumerate}
 
 \begin{definition}
-Let \(\mathcal{A},\mathcal{B}\) be abelian categories, \(\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})\) a localizing subcategory, and
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, $\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})$ a localizing subcategory, and
 \[
 F\colon\KK^*(\mathcal{A})\to\KK(\mathcal{B})
 \]
 a triangulated functor.
 
-Denote by \(Q\) the localization functor \(\KK^*(\mathcal{A})\to\DD^*(\mathcal{A})\) (resp.\ \(\KK(\mathcal{B})\to\DD(\mathcal{B})\)). The \emph{right derived functor} of \(F\) is a pair
+Denote by $Q$ the localization functor $\KK^*(\mathcal{A})\to\DD^*(\mathcal{A})$ (resp.\ $\KK(\mathcal{B})\to\DD(\mathcal{B})$). The \emph{right derived functor} of $F$ is a pair
 \[
 \mathbf{R}^*F\colon\DD^*(\mathcal{A})\to\DD(\mathcal{B})
 \]
@@ -559,9 +559,9 @@ together with a functor morphism
 \[
 \xi\colon Q\circ F \;\to\; \mathbf{R}^*F\circ Q
 \]
-of functors \(\KK^*(\mathcal{A})\to\DD(\mathcal{B})\), satisfying the following universal property:
+of functors $\KK^*(\mathcal{A})\to\DD(\mathcal{B})$, satisfying the following universal property:
 
-For any triangulated functor \(G\colon\DD^*(\mathcal{A})\to\DD(\mathcal{B})\) and any functor morphism
+For any triangulated functor $G\colon\DD^*(\mathcal{A})\to\DD(\mathcal{B})$ and any functor morphism
 \[
 \zeta\colon Q\circ F \;\to\; G\circ Q,
 \]
@@ -577,20 +577,20 @@ such that
 
 \textbf{Remarks.}
 \begin{enumerate}
-\item If \(\mathbf{R}^*F\) exists, it is unique up to unique isomorphism of functors.
-\item For standard localizing subcategories \(\KK^+(\mathcal{A}),\KK^-(\mathcal{A}),\KK_{\mathcal{A}'}(\mathcal{A})\), we write
+\item If $\mathbf{R}^*F$ exists, it is unique up to unique isomorphism of functors.
+\item For standard localizing subcategories $\KK^+(\mathcal{A}),\KK^-(\mathcal{A}),\KK_{\mathcal{A}'}(\mathcal{A})$, we write
 \[
 \mathbf{R}^+F,\quad \mathbf{R}^-F,\quad \mathbf{R}_{\mathcal{A}'}F
 \]
-respectively; when no confusion arises, we write simply \(\mathbf{R}F\).
+respectively; when no confusion arises, we write simply $\mathbf{R}F$.
 
-\item We define \(R^iF = H^i(\mathbf{R}F)\). If \(F\) is left-exact on \(\mathcal{A}\) and \(\mathcal{A}\) has enough injectives, these coincide with the classical right derived functors of \(F\).
-\item Let \(\varphi\colon F\to G\) be a morphism of functors \(\KK^*(\mathcal{A})\to\KK(\mathcal{B})\). If \(\mathbf{R}F,\mathbf{R}G\) exist, there is a unique induced morphism
+\item We define $R^iF = H^i(\mathbf{R}F)$. If $F$ is left-exact on $\mathcal{A}$ and $\mathcal{A}$ has enough injectives, these coincide with the classical right derived functors of $F$.
+\item Let $\varphi\colon F\to G$ be a morphism of functors $\KK^*(\mathcal{A})\to\KK(\mathcal{B})$. If $\mathbf{R}F,\mathbf{R}G$ exist, there is a unique induced morphism
 \[
 \mathbf{R}\varphi\colon \mathbf{R}F\to\mathbf{R}G
 \]
-compatible with the structure morphisms \(\xi\). This follows directly from the universal property.
-\item Let \(\KK^{**}(\mathcal{A})\subseteq\KK^*(\mathcal{A})\) be localizing subcategories, \(F\colon\KK^*(\mathcal{A})\to\KK(\mathcal{B})\) a triangulated functor. If both \(\mathbf{R}^*F\) and \(\mathbf{R}^{**}(F|_{\KK^{**}(\mathcal{A})})\) exist, there is a natural functor morphism
+compatible with the structure morphisms $\xi$. This follows directly from the universal property.
+\item Let $\KK^{**}(\mathcal{A})\subseteq\KK^*(\mathcal{A})$ be localizing subcategories, $F\colon\KK^*(\mathcal{A})\to\KK(\mathcal{B})$ a triangulated functor. If both $\mathbf{R}^*F$ and $\mathbf{R}^{**}(F|_{\KK^{**}(\mathcal{A})})$ exist, there is a natural functor morphism
 \[
 \mathbf{R}^{**}\big(F|_{\KK^{**}(\mathcal{A})}\big)
 \;\to\;
@@ -600,32 +600,32 @@ We do not know if this is an isomorphism in general, but it holds in all our int
 \end{enumerate}
 
 \begin{theorem}[Existence of Derived Functors]\label{thm:1.5.1}
-Let \(\mathcal{A},\mathcal{B},\KK^*(\mathcal{A}),F\) be as above. Suppose there exists a triangulated subcategory \(\LL\subseteq\KK^*(\mathcal{A})\) such that:
+Let $\mathcal{A},\mathcal{B},\KK^*(\mathcal{A}),F$ be as above. Suppose there exists a triangulated subcategory $\LL\subseteq\KK^*(\mathcal{A})$ such that:
 \begin{enumerate}
-\item[(1)] Every object of \(\KK^*(\mathcal{A})\) admits a quasi-isomorphism into some object of \(\LL\);
-\item[(2)] For every acyclic complex \(I^\bullet\in\operatorname{Ob}\LL\) (i.e.\ \(H^i(I^\bullet)=0\) for all \(i\)), the complex \(F(I^\bullet)\) is also acyclic.
+\item[(1)] Every object of $\KK^*(\mathcal{A})$ admits a quasi-isomorphism into some object of $\LL$;
+\item[(2)] For every acyclic complex $I^\bullet\in\operatorname{Ob}\LL$ (i.e.\ $H^i(I^\bullet)=0$ for all $i$), the complex $F(I^\bullet)$ is also acyclic.
 \end{enumerate}
-Then the right derived functor \((\mathbf{R}^*F,\xi)\) exists. Furthermore, for any \(I^\bullet\in\operatorname{Ob}\LL\), the structure morphism
+Then the right derived functor $(\mathbf{R}^*F,\xi)$ exists. Furthermore, for any $I^\bullet\in\operatorname{Ob}\LL$, the structure morphism
 \[
 \xi(I^\bullet)\colon Q\circ F(I^\bullet) \to \mathbf{R}^*F\circ Q(I^\bullet)
 \]
-is an isomorphism in \(\DD(\mathcal{B})\).
+is an isomorphism in $\DD(\mathcal{B})$.
 \end{theorem}
 
 \begin{proof}
-First, the restriction \(F|_\LL\) sends quasi-isomorphisms to quasi-isomorphisms. Indeed, let \(s\colon I_1^\bullet\to I_2^\bullet\) be a quasi-isomorphism in \(\LL\); complete \(s\) to a triangle in \(\KK^*(\mathcal{A})\). The third vertex \(J^\bullet\) of the triangle is acyclic, so by hypothesis (2), \(F(J^\bullet)\) is acyclic. Hence \(F(s)\) is a quasi-isomorphism.
+First, the restriction $F|_{\LL}$ sends quasi-isomorphisms to quasi-isomorphisms. Indeed, let $s\colon I_1^\bullet\to I_2^\bullet$ be a quasi-isomorphism in $\LL$; complete $s$ to a triangle in $\KK^*(\mathcal{A})$. The third vertex $J^\bullet$ of the triangle is acyclic, so by hypothesis (2), $F(J^\bullet)$ is acyclic. Hence $F(s)$ is a quasi-isomorphism.
 
-Thus \(F\) descends to a functor
+Thus $F$ descends to a functor
 \[
 \overline{F}\colon\LL_{\operatorname{Qis}} \to \DD(\mathcal{B})
 \]
-satisfying \(\overline{F}\circ Q = Q\circ F\) on \(\LL\) (with \(Q\) denoting localization functors as usual).
+satisfying $\overline{F}\circ Q = Q\circ F$ on $\LL$ (with $Q$ denoting localization functors as usual).
 
-Second, the pair \((\LL,\KK^*(\mathcal{A}),\operatorname{Qis})\) satisfies condition (ii) of Proposition 1.3.3, so the natural functor
+Second, the pair $(\LL,\KK^*(\mathcal{A}),\operatorname{Qis})$ satisfies condition (ii) of Proposition 1.3.3, so the natural functor
 \[
 T\colon\LL_{\operatorname{Qis}} \to \DD^*(\mathcal{A})
 \]
-is an equivalence of categories. Let \(U\colon\DD^*(\mathcal{A})\to\LL_{\operatorname{Qis}}\) be a quasi-inverse of \(T\), with functorial isomorphisms
+is an equivalence of categories. Let $U\colon\DD^*(\mathcal{A})\to\LL_{\operatorname{Qis}}$ be a quasi-inverse of $T$, with functorial isomorphisms
 \[
 \alpha\colon \operatorname{id}_{\LL_{\operatorname{Qis}}} \to U\circ T,\qquad
 \beta\colon \operatorname{id}_{\DD^*(\mathcal{A})} \to T\circ U.
@@ -640,24 +640,24 @@ We now define the functor morphism
 \[
 \xi\colon Q\circ F \to \mathbf{R}^*F\circ Q = \overline{F}\circ U\circ Q
 \]
-as follows. Given \(X^\bullet\in\operatorname{Ob}\KK^*(\mathcal{A})\), choose \(I^\bullet\in\operatorname{Ob}\LL\) such that \(Q(I^\bullet)\cong U\circ Q(X^\bullet)\) in \(\DD^*(\mathcal{A})\).
+as follows. Given $X^\bullet\in\operatorname{Ob}\KK^*(\mathcal{A})$, choose $I^\bullet\in\operatorname{Ob}\LL$ such that $Q(I^\bullet)\cong U\circ Q(X^\bullet)$ in $\DD^*(\mathcal{A})$.
 
 We have the canonical isomorphism
 \[
 \beta\big(Q(X^\bullet)\big)\colon Q(X^\bullet) \stackrel{\sim}{\longrightarrow}
 T\circ U\big(Q(X^\bullet)\big) = T\big(Q(I^\bullet)\big).
 \]
-This isomorphism may be represented by a diagram in \(\KK^*(\mathcal{A})\)
+This isomorphism may be represented by a diagram in $\KK^*(\mathcal{A})$
 \[
 X^\bullet \xleftarrow{s} Y^\bullet \xrightarrow{t} I^\bullet
 \]
-with \(s,t\in\operatorname{Qis}\) and \(Y^\bullet\in\operatorname{Ob}\KK^*(\mathcal{A})\). By hypothesis (1), we may assume \(Y^\bullet\in\operatorname{Ob}\LL\). Applying the triangulated functor \(F\), we obtain a diagram in \(\KK(\mathcal{B})\):
+with $s,t\in\operatorname{Qis}$ and $Y^\bullet\in\operatorname{Ob}\KK^*(\mathcal{A})$. By hypothesis (1), we may assume $Y^\bullet\in\operatorname{Ob}\LL$. Applying the triangulated functor $F$, we obtain a diagram in $\KK(\mathcal{B})$:
 \[
 F(X^\bullet) \xleftarrow{F(s)} F(Y^\bullet) \xrightarrow{F(t)} F(I^\bullet).
 \]
-As observed previously, \(F(s),F(t)\) are quasi-isomorphisms.
+As observed previously, $F(s),F(t)$ are quasi-isomorphisms.
 
-This induces a morphism in \(\DD(\mathcal{B})\):
+This induces a morphism in $\DD(\mathcal{B})$:
 \[
 \xi(X^\bullet)\colon Q\circ F(X^\bullet)
 \to Q\circ F(I^\bullet)
@@ -666,14 +666,14 @@ This induces a morphism in \(\DD(\mathcal{B})\):
 = \mathbf{R}^*F\circ Q(X^\bullet).
 \]
 
-One verifies that \(\xi(X^\bullet)\) is independent of the choice of diagram above, that \(\xi\) defines a functor morphism \(Q\circ F\to \mathbf{R}^*F\circ Q\), and that the pair \((\mathbf{R}^*F,\xi)\) satisfies the universal property of the right derived functor.
+One verifies that $\xi(X^\bullet)$ is independent of the choice of diagram above, that $\xi$ defines a functor morphism $Q\circ F\to \mathbf{R}^*F\circ Q$, and that the pair $(\mathbf{R}^*F,\xi)$ satisfies the universal property of the right derived functor.
 
-If \(X^\bullet\in\operatorname{Ob}\LL\), then \(F(t)\) is also a quasi-isomorphism in the construction above, so \(\xi(X^\bullet)\) is an isomorphism in \(\DD(\mathcal{B})\), as required.
+If $X^\bullet\in\operatorname{Ob}\LL$, then $F(t)$ is also a quasi-isomorphism in the construction above, so $\xi(X^\bullet)$ is an isomorphism in $\DD(\mathcal{B})$, as required.
 \end{proof}
 
 \begin{proposition}\label{prop:1.5.2}
-Let \(\mathcal{A},\mathcal{B},\KK^*(\mathcal{A}),F\) be as above, and let \(\KK^{**}(\mathcal{A})\subseteq\KK^*(\mathcal{A})\) be another localizing subcategory of \(\KK(\mathcal{A})\). Suppose there exists a triangulated subcategory \(\LL\subseteq\KK^*(\mathcal{A})\) satisfying hypotheses (1),(2) of Theorem 1.5.1, and such that \(\LL\cap\KK^{**}(\mathcal{A})\) satisfies hypothesis (1) for \(\KK^{**}(\mathcal{A})\).
-If \(\mathbf{R}^*F\) and \(\mathbf{R}^{**}\big(F|_{\KK^{**}(\mathcal{A})}\big)\) both exist, then the natural morphism
+Let $\mathcal{A},\mathcal{B},\KK^*(\mathcal{A}),F$ be as above, and let $\KK^{**}(\mathcal{A})\subseteq\KK^*(\mathcal{A})$ be another localizing subcategory of $\KK(\mathcal{A})$. Suppose there exists a triangulated subcategory $\LL\subseteq\KK^*(\mathcal{A})$ satisfying hypotheses (1),(2) of Theorem 1.5.1, and such that $\LL\cap\KK^{**}(\mathcal{A})$ satisfies hypothesis (1) for $\KK^{**}(\mathcal{A})$.
+If $\mathbf{R}^*F$ and $\mathbf{R}^{**}\big(F|_{\KK^{**}(\mathcal{A})}\big)$ both exist, then the natural morphism
 \[
 \mathbf{R}^{**}\big(F|_{\KK^{**}(\mathcal{A})}\big)
 \;\to\;
@@ -683,53 +683,53 @@ is an isomorphism.
 \end{proposition}
 
 \begin{proof}
-Existence follows immediately from Theorem 1.5.1. For the isomorphism, any object of \(\DD^{**}(\mathcal{A})\) is isomorphic to \(Q(I^\bullet)\) for some \(I^\bullet\in\LL\cap\KK^{**}(\mathcal{A})\). The claim then follows from the final assertion of Theorem 1.5.1.
+Existence follows immediately from Theorem 1.5.1. For the isomorphism, any object of $\DD^{**}(\mathcal{A})$ is isomorphic to $Q(I^\bullet)$ for some $I^\bullet\in\LL\cap\KK^{**}(\mathcal{A})$. The claim then follows from the final assertion of Theorem 1.5.1.
 \end{proof}
 
 \begin{corollary}\label{cor:1.5.3}
-\emph{\(\alpha\))} Let \(\mathcal{A},\mathcal{B}\) be abelian categories, \(F\colon\KK^+(\mathcal{A})\to\KK(\mathcal{B})\) a triangulated functor (e.g., induced by an additive functor \(F_0\colon\mathcal{A}\to\mathcal{B}\)). If \(\mathcal{A}\) has enough injectives, then \(\mathbf{R}^+F\) exists.
+\emph{$\alpha$)} Let $\mathcal{A},\mathcal{B}$ be abelian categories, $F\colon\KK^+(\mathcal{A})\to\KK(\mathcal{B})$ a triangulated functor (e.g., induced by an additive functor $F_0\colon\mathcal{A}\to\mathcal{B}$). If $\mathcal{A}$ has enough injectives, then $\mathbf{R}^+F$ exists.
 
-\emph{\(\beta\))} Let \(\mathcal{A},\mathcal{B}\) be abelian categories, \(F\colon\mathcal{A}\to\mathcal{B}\) additive. Suppose there exists \(P\subseteq\operatorname{Ob}\mathcal{A}\) satisfying (i),(ii) of Lemma 1.4.6, and:
+\emph{$\beta$)} Let $\mathcal{A},\mathcal{B}$ be abelian categories, $F\colon\mathcal{A}\to\mathcal{B}$ additive. Suppose there exists $P\subseteq\operatorname{Ob}\mathcal{A}$ satisfying (i),(ii) of Lemma 1.4.6, and:
 \begin{enumerate}
-\item[(iv)] \(F\) sends short exact sequences in \(\mathcal{A}\) to short exact sequences in \(\mathcal{B}\).
+\item[(iv)] $F$ sends short exact sequences in $\mathcal{A}$ to short exact sequences in $\mathcal{B}$.
 \end{enumerate}
-Then \(\mathbf{R}^+F\) exists (we also denote by \(F\) its canonical extension \(\KK^+(\mathcal{A})\to\KK^+(\mathcal{B})\)).
+Then $\mathbf{R}^+F$ exists (we also denote by $F$ its canonical extension $\KK^+(\mathcal{A})\to\KK^+(\mathcal{B})$).
 
-\emph{\(\gamma\))} Let \(\mathcal{A},\mathcal{B}\) be abelian categories, \(F\colon\mathcal{A}\to\mathcal{B}\) additive. Assume:
+\emph{$\gamma$)} Let $\mathcal{A},\mathcal{B}$ be abelian categories, $F\colon\mathcal{A}\to\mathcal{B}$ additive. Assume:
 \begin{enumerate}
-\item[(a)] The hypotheses of \(\beta\) hold;
-\item[(b)] \(F\) has finite cohomological dimension: there exists \(n>0\) such that \(R^iF(Y)=0\) for all \(Y\in\operatorname{Ob}\mathcal{A}\) and all \(i>n\).
+\item[(a)] The hypotheses of $\beta$ hold;
+\item[(b)] $F$ has finite cohomological dimension: there exists $n>0$ such that $R^iF(Y)=0$ for all $Y\in\operatorname{Ob}\mathcal{A}$ and all $i>n$.
 \end{enumerate}
-Then \(\mathbf{R}F\) exists on all of \(\DD(\mathcal{A})\), and its restriction to \(\DD^+(\mathcal{A})\) coincides with \(\mathbf{R}^+F\).
+Then $\mathbf{R}F$ exists on all of $\DD(\mathcal{A})$, and its restriction to $\DD^+(\mathcal{A})$ coincides with $\mathbf{R}^+F$.
 \end{corollary}
 
-\textbf{Remark.} Case \(\alpha\) is a special case of \(\beta\): if \(\mathcal{A}\) has enough injectives, the class of injective objects satisfies (i),(ii),(iv) for any additive \(F\).
+\textbf{Remark.} Case $\alpha$ is a special case of $\beta$: if $\mathcal{A}$ has enough injectives, the class of injective objects satisfies (i),(ii),(iv) for any additive $F$.
 
 \begin{proof}
-\emph{\(\alpha\))} Let \(\LL\subseteq\KK^+(\mathcal{A})\) be the triangulated subcategory of bounded-below injective complexes. By Lemma 1.4.6(1), every object of \(\KK^+(\mathcal{A})\) admits a quasi-isomorphism into an object of \(\LL\). By Lemma 1.4.5, every quasi-isomorphism in \(\LL\) is an isomorphism, so acyclic objects of \(\LL\) are zero in \(\KK(\mathcal{A})\). Thus condition (2) of Theorem 1.5.1 holds for any triangulated \(F\), so \(\mathbf{R}^+F\) exists.
+\emph{$\alpha$)} Let $\LL\subseteq\KK^+(\mathcal{A})$ be the triangulated subcategory of bounded-below injective complexes. By Lemma 1.4.6(1), every object of $\KK^+(\mathcal{A})$ admits a quasi-isomorphism into an object of $\LL$. By Lemma 1.4.5, every quasi-isomorphism in $\LL$ is an isomorphism, so acyclic objects of $\LL$ are zero in $\KK(\mathcal{A})$. Thus condition (2) of Theorem 1.5.1 holds for any triangulated $F$, so $\mathbf{R}^+F$ exists.
 
-\emph{\(\beta\))} Take \(\LL\subseteq\KK^+(\mathcal{A})\) to be complexes of objects of \(P\); \(\LL\) is triangulated by stability of \(P\) under extensions. Condition (1) holds by Lemma 1.4.6(1). For (2), let \(Z^\bullet\in\LL\) be acyclic; using (ii) repeatedly, all kernels \(\ker d_Z^p\) lie in \(P\). By (iv), \(F\) preserves exactness, so \(F(Z^\bullet)\) is acyclic. Theorem 1.5.1 applies, hence \(\mathbf{R}^+F\) exists.
+\emph{$\beta$)} Take $\LL\subseteq\KK^+(\mathcal{A})$ to be complexes of objects of $P$; $\LL$ is triangulated by stability of $P$ under extensions. Condition (1) holds by Lemma 1.4.6(1). For (2), let $Z^\bullet\in\LL$ be acyclic; using (ii) repeatedly, all kernels $\ker d_Z^p$ lie in $P$. By (iv), $F$ preserves exactness, so $F(Z^\bullet)$ is acyclic. Theorem 1.5.1 applies, hence $\mathbf{R}^+F$ exists.
 
-\emph{\(\gamma\))} Let \(P'\) be the class of \(F\)-acyclic objects of \(\mathcal{A}\) (\(R^iF(X)=0,\forall i>0\)). Then \(P'\) satisfies (i),(ii),(iii) of Lemma 1.4.6. Let \(\LL\subseteq\KK(\mathcal{A})\) be complexes of objects of \(P'\). By Lemma 1.4.6 and the argument for \(\beta\), the hypotheses of Theorem 1.5.1 are satisfied, so \(\mathbf{R}F\) exists.
+\emph{$\gamma$)} Let $P'$ be the class of $F$-acyclic objects of $\mathcal{A}$ ($R^iF(X)=0,\forall i>0$). Then $P'$ satisfies (i),(ii),(iii) of Lemma 1.4.6. Let $\LL\subseteq\KK(\mathcal{A})$ be complexes of objects of $P'$. By Lemma 1.4.6 and the argument for $\beta$, the hypotheses of Theorem 1.5.1 are satisfied, so $\mathbf{R}F$ exists.
 
-By Proposition 1.5.2, the restriction of \(\mathbf{R}F\) to \(\DD^+(\mathcal{A})\) is isomorphic to \(\mathbf{R}^+F\).
+By Proposition 1.5.2, the restriction of $\mathbf{R}F$ to $\DD^+(\mathcal{A})$ is isomorphic to $\mathbf{R}^+F$.
 \end{proof}
 
 \begin{proposition}\label{prop:1.5.4}
-Let \(\mathcal{A},\mathcal{B},\mathcal{C}\) be abelian categories, \(\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})\), \(\KK^\dagger(\mathcal{B})\subseteq\KK(\mathcal{B})\) localizing subcategories, and let
+Let $\mathcal{A},\mathcal{B},\mathcal{C}$ be abelian categories, $\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})$, $\KK^\dagger(\mathcal{B})\subseteq\KK(\mathcal{B})$ localizing subcategories, and let
 \[
 F\colon\KK^*(\mathcal{A})\to\KK(\mathcal{B}),\qquad
 G\colon\KK^\dagger(\mathcal{B})\to\KK(\mathcal{C})
 \]
 be triangulated functors.
 
-\emph{a)} Assume \(F(\KK^*(\mathcal{A}))\subseteq\KK^\dagger(\mathcal{B})\), that \(\mathbf{R}^*F,\mathbf{R}^\dagger G,\mathbf{R}^*(G\circ F)\) exist, and \(\mathbf{R}^*F(\DD^*(\mathcal{A}))\subseteq\DD^\dagger(\mathcal{B})\). Then there exists a unique functor morphism
+\emph{a)} Assume $F(\KK^*(\mathcal{A}))\subseteq\KK^\dagger(\mathcal{B})$, that $\mathbf{R}^*F,\mathbf{R}^\dagger G,\mathbf{R}^*(G\circ F)$ exist, and $\mathbf{R}^*F(\DD^*(\mathcal{A}))\subseteq\DD^\dagger(\mathcal{B})$. Then there exists a unique functor morphism
 \[
 \zeta\colon \mathbf{R}^*(G\circ F) \to \mathbf{R}^\dagger G\circ \mathbf{R}^*F
 \]
-making the diagram of structure maps \(\xi\) commutative.
+making the diagram of structure maps $\xi$ commutative.
 
-\emph{b)} Suppose there exist triangulated subcategories \(\LL\subseteq\KK^*(\mathcal{A})\), \(\MM\subseteq\KK^\dagger(\mathcal{B})\) satisfying Theorem 1.5.1's hypotheses for \(F,G\) respectively, and \(F(\LL)\subseteq\MM\). Then the hypotheses of (a) hold, and the canonical morphism \(\zeta\) is an isomorphism.
+\emph{b)} Suppose there exist triangulated subcategories $\LL\subseteq\KK^*(\mathcal{A})$, $\MM\subseteq\KK^\dagger(\mathcal{B})$ satisfying Theorem 1.5.1's hypotheses for $F,G$ respectively, and $F(\LL)\subseteq\MM$. Then the hypotheses of (a) hold, and the canonical morphism $\zeta$ is an isomorphism.
 \end{proposition}
 
 \begin{proof}
@@ -738,26 +738,26 @@ Straightforward from universal properties.
 
 \textbf{Remarks.}
 \begin{enumerate}
-\item For three composable functors \(F,G,H\), the morphisms \(\zeta\) yield a commutative diagram of derived functor compositions whenever all derived functors exist.
+\item For three composable functors $F,G,H$, the morphisms $\zeta$ yield a commutative diagram of derived functor compositions whenever all derived functors exist.
 \item This proposition illustrates the power of derived categories: classical composite functor spectral sequences are replaced by direct functor composition in the derived category. The spectral sequence may be recovered by taking cohomology of the derived functor morphism.
 \end{enumerate}
 
 \begin{proposition}\label{prop:1.5.6}
-Let \(\mathcal{A}'\subseteq\mathcal{A}\) be a thick abelian subcategory, \(\mathcal{B}\) another abelian category, \(F\colon\KK^+(\mathcal{A})\to\KK^+(\mathcal{B})\) a triangulated functor. Suppose \(\mathbf{R}^+F\) and \(\mathbf{R}^+\big(F|_{\mathcal{A}'}\big)\) both exist. There is a natural functor morphism
+Let $\mathcal{A}'\subseteq\mathcal{A}$ be a thick abelian subcategory, $\mathcal{B}$ another abelian category, $F\colon\KK^+(\mathcal{A})\to\KK^+(\mathcal{B})$ a triangulated functor. Suppose $\mathbf{R}^+F$ and $\mathbf{R}^+\big(F|_{\mathcal{A}'}\big)$ both exist. There is a natural functor morphism
 \[
 \zeta\colon \mathbf{R}^+\big(F|_{\mathcal{A}'}\big) \to \varphi\circ \mathbf{R}^+F,
 \]
-where \(\varphi\colon\DD^+(\mathcal{A}')\to\DD^+(\mathcal{A})\) is the natural embedding. If additionally \(\mathcal{A}'\) has enough \(\mathcal{A}\)-injectives and \(\mathcal{A}\) has enough injectives, then \(\zeta\) is an isomorphism.
+where $\varphi\colon\DD^+(\mathcal{A}')\to\DD^+(\mathcal{A})$ is the natural embedding. If additionally $\mathcal{A}'$ has enough $\mathcal{A}$-injectives and $\mathcal{A}$ has enough injectives, then $\zeta$ is an isomorphism.
 \end{proposition}
 
 \begin{proof}
-Existence of \(\zeta\) follows from the definition of derived functors. If \(\mathcal{A}'\) has enough \(\mathcal{A}\)-injectives, we may compute both derived functors via injective resolutions in \(\mathcal{A}'\); by Proposition 1.4.8, \(\varphi\) is fully faithful, hence \(\zeta\) is an isomorphism.
+Existence of $\zeta$ follows from the definition of derived functors. If $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, we may compute both derived functors via injective resolutions in $\mathcal{A}'$; by Proposition 1.4.8, $\varphi$ is fully faithful, hence $\zeta$ is an isomorphism.
 \end{proof}
 
-\section{Examples. \(\operatorname{Ext}\) and \(\mathbf{R}\mathcal{H}\textit{om}\)}
+\section{Examples. $\operatorname{Ext}$ and $\mathbf{R}\mathcal{H}\textit{om}$}
 
 \begin{definition}
-Let \(\mathcal{A}\) be an abelian category, and let \(X^\bullet,Y^\bullet\in\DD(\mathcal{A})\).
+Let $\mathcal{A}$ be an abelian category, and let $X^\bullet,Y^\bullet\in\DD(\mathcal{A})$.
 Define the \emph{hyperext groups} by
 \[
 \operatorname{Ext}^i\big(X^\bullet,Y^\bullet\big)
@@ -767,11 +767,11 @@ Define the \emph{hyperext groups} by
 
 \textbf{Remarks.}
 \begin{enumerate}
-\item If \(X^\bullet,Y^\bullet\in\DD^+(\mathcal{A})\), then \(\operatorname{Ext}^i\) computed in \(\DD^+(\mathcal{A})\)
-agrees with the above, since \(\DD^+(\mathcal{A})\) is a full subcategory of \(\DD(\mathcal{A})\).
+\item If $X^\bullet,Y^\bullet\in\DD^+(\mathcal{A})$, then $\operatorname{Ext}^i$ computed in $\DD^+(\mathcal{A})$
+agrees with the above, since $\DD^+(\mathcal{A})$ is a full subcategory of $\DD(\mathcal{A})$.
 
-\item This definition gives \(\operatorname{Ext}^i(X,Y)\) for any \(X,Y\in\mathcal{A}\).
-We shall see that if \(\mathcal{A}\) has enough injectives, this coincides with the classical
+\item This definition gives $\operatorname{Ext}^i(X,Y)$ for any $X,Y\in\mathcal{A}$.
+We shall see that if $\mathcal{A}$ has enough injectives, this coincides with the classical
 definition of Ext groups.
 \end{enumerate}
 
@@ -780,7 +780,7 @@ Let
 \[
 0 \to X^\bullet \to Y^\bullet \to Z^\bullet \to 0
 \]
-be a short exact sequence of complexes over \(\mathcal{A}\), and let \(V^\bullet\) be another complex.
+be a short exact sequence of complexes over $\mathcal{A}$, and let $V^\bullet$ be another complex.
 Then we have long exact sequences
 \[
 \cdots \to \operatorname{Ext}^i(V^\bullet,X^\bullet)
@@ -800,13 +800,13 @@ and
 \end{proposition}
 
 \begin{proof}
-Complete \(X^\bullet\to Y^\bullet\) to a triangle in \(\KK(\mathcal{A})\), with third vertex \(W^\bullet\):
+Complete $X^\bullet\to Y^\bullet$ to a triangle in $\KK(\mathcal{A})$, with third vertex $W^\bullet$:
 \[
 X^\bullet \to Y^\bullet \to W^\bullet \to T(X^\bullet).
 \]
-There exists a morphism \(g\colon W^\bullet\to Z^\bullet\). Using the long exact cohomology sequence
-and the five-lemma, one verifies \(g\) is a quasi-isomorphism, hence an isomorphism in \(\DD(\mathcal{A})\).
-Replacing \(Z^\bullet\) by \(W^\bullet\), the result follows from properties of triangles.
+There exists a morphism $g\colon W^\bullet\to Z^\bullet$. Using the long exact cohomology sequence
+and the five-lemma, one verifies $g$ is a quasi-isomorphism, hence an isomorphism in $\DD(\mathcal{A})$.
+Replacing $Z^\bullet$ by $W^\bullet$, the result follows from properties of triangles.
 \end{proof}
 
 \textbf{Remark.}
@@ -814,14 +814,14 @@ Any short exact sequence of complexes
 \[
 0 \to X^\bullet \to Y^\bullet \to Z^\bullet \to 0
 \]
-determines a morphism \(Z^\bullet\to T(X^\bullet)\) in \(\DD(\mathcal{A})\), making \(X^\bullet,Y^\bullet,Z^\bullet\)
+determines a morphism $Z^\bullet\to T(X^\bullet)$ in $\DD(\mathcal{A})$, making $X^\bullet,Y^\bullet,Z^\bullet$
 into a triangle.
 
-We now define a complex whose cohomology yields the \(\operatorname{Ext}\) groups.
+We now define a complex whose cohomology yields the $\operatorname{Ext}$ groups.
 
 \begin{definition}
-For complexes \(X^\bullet,Y^\bullet\) over \(\mathcal{A}\), define the complex
-\(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\) by
+For complexes $X^\bullet,Y^\bullet$ over $\mathcal{A}$, define the complex
+$\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)$ by
 \[
 \mathcal{H}\textit{om}^n\big(X^\bullet,Y^\bullet\big)
 = \prod_{p\in\mathbb{Z}} \operatorname{Hom}_{\mathcal{A}}\big(X^p,Y^{p+n}\big),
@@ -831,47 +831,47 @@ with differential
 d^n = \prod_{p\in\mathbb{Z}} \big(d_X^{p-1} + (-1)^{n+1}d_Y^{p+n}\big).
 \]
 
-The \(n\)-cycles of \(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\) correspond bijectively
-to morphisms \(X^\bullet\to T^n(Y^\bullet)\) of complexes.
-The \(n\)-boundaries correspond to morphisms homotopic to zero.
+The $n$-cycles of $\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)$ correspond bijectively
+to morphisms $X^\bullet\to T^n(Y^\bullet)$ of complexes.
+The $n$-boundaries correspond to morphisms homotopic to zero.
 Thus
 \[
 H^n\big(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\big)
 \cong \operatorname{Hom}_{\KK(\mathcal{A})}\big(X^\bullet, T^n(Y^\bullet)\big).
 \]
 
-Clearly \(\mathcal{H}\textit{om}^\bullet\) is a bifunctor
+Clearly $\mathcal{H}\textit{om}^\bullet$ is a bifunctor
 \[
 \mathcal{H}\textit{om}^\bullet\colon\KK(\mathcal{A})^\circ \times \KK(\mathcal{A}) \to \KK(\mathbf{Ab}).
 \]
 \end{definition}
 
-If \(\mathcal{A}\) has enough injectives, we may form its derived functors.
+If $\mathcal{A}$ has enough injectives, we may form its derived functors.
 
 \begin{lemma}\label{lem:1.6.2}
-Let \(X^\bullet\in\KK(\mathcal{A})\), \(Y^\bullet\in\KK^+(\mathcal{A})\) be a bounded-below complex of injectives.
+Let $X^\bullet\in\KK(\mathcal{A})$, $Y^\bullet\in\KK^+(\mathcal{A})$ be a bounded-below complex of injectives.
 Assume either
 \begin{enumerate}
-\item[(a)] \(Y^\bullet\) is acyclic, or
-\item[(b)] \(X^\bullet\) is acyclic.
+\item[(a)] $Y^\bullet$ is acyclic, or
+\item[(b)] $X^\bullet$ is acyclic.
 \end{enumerate}
-Then \(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\) is acyclic.
+Then $\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)$ is acyclic.
 \end{lemma}
 
 \begin{proof}
-It suffices to show any morphism \(X^\bullet\to Y^\bullet\) is homotopic to zero.
+It suffices to show any morphism $X^\bullet\to Y^\bullet$ is homotopic to zero.
 Case (a): An acyclic bounded-below injective complex is split exact; one constructs a homotopy directly.
 Case (b): Follows from Lemma 1.4.4.
 \end{proof}
 
-Suppose \(\mathcal{A}\) has enough injectives, and let \(\LL\subseteq\KK^+(\mathcal{A})\) be the triangulated
+Suppose $\mathcal{A}$ has enough injectives, and let $\LL\subseteq\KK^+(\mathcal{A})$ be the triangulated
 subcategory of bounded-below injective complexes.
-By Lemma 1.6.2(a), for fixed \(X^\bullet\in\KK(\mathcal{A})\), the functor
+By Lemma 1.6.2(a), for fixed $X^\bullet\in\KK(\mathcal{A})$, the functor
 \[
 \mathcal{H}\textit{om}^\bullet(X^\bullet,\,\cdot\,)\colon\KK^+(\mathcal{A})\to\KK(\mathbf{Ab})
 \]
 satisfies the hypotheses of Theorem 1.5.1, hence admits a right derived functor.
-This is functorial in \(X^\bullet\), giving a biderived functor
+This is functorial in $X^\bullet$, giving a biderived functor
 \[
 \mathbf{R}_\mathrm{II}\mathcal{H}\textit{om}^\bullet
 \colon\KK(\mathcal{A})^\circ \times \DD^+(\mathcal{A}) \to \DD(\mathbf{Ab}).
@@ -884,23 +884,23 @@ hence descends to
 \colon\DD(\mathcal{A})^\circ \times \DD^+(\mathcal{A}) \to \DD(\mathbf{Ab}).
 \]
 
-Dually, if \(\mathcal{A}\) has enough projectives, we obtain
+Dually, if $\mathcal{A}$ has enough projectives, we obtain
 \[
 \mathbf{R}_\mathrm{I}\mathcal{H}\textit{om}^\bullet
 \colon\DD^-(\mathcal{A})^\circ \times \DD(\mathcal{A}) \to \DD(\mathbf{Ab}).
 \]
 
-If \(\mathcal{A}\) has both enough injectives and projectives, the two derived functors
-are canonically isomorphic on \(\DD^-(\mathcal{A})^\circ\times\DD^+(\mathcal{A})\).
-We therefore write simply \(\mathbf{R}\mathcal{H}\textit{om}^\bullet\).
+If $\mathcal{A}$ has both enough injectives and projectives, the two derived functors
+are canonically isomorphic on $\DD^-(\mathcal{A})^\circ\times\DD^+(\mathcal{A})$.
+We therefore write simply $\mathbf{R}\mathcal{H}\textit{om}^\bullet$.
 
 \begin{lemma}\label{lem:1.6.3}
-Let \(\mathcal{A},\mathcal{B},\mathcal{C}\) be abelian categories,
+Let $\mathcal{A},\mathcal{B},\mathcal{C}$ be abelian categories,
 \[
 T\colon\KK^*(\mathcal{A})\times\KK^\dagger(\mathcal{B})\to\KK(\mathcal{C})
 \]
 a bitriangulated functor.
-If the iterated derived functors \(\mathbf{R}_\mathrm{I}\mathbf{R}_\mathrm{II}T\) and \(\mathbf{R}_\mathrm{II}\mathbf{R}_\mathrm{I}T\) both exist,
+If the iterated derived functors $\mathbf{R}_\mathrm{I}\mathbf{R}_\mathrm{II}T$ and $\mathbf{R}_\mathrm{II}\mathbf{R}_\mathrm{I}T$ both exist,
 they are canonically isomorphic.
 \end{lemma}
 
@@ -909,8 +909,8 @@ Immediate from the universal property of derived functors.
 \end{proof}
 
 \begin{theorem}[Yoneda]\label{thm:1.6.4}
-Let \(\mathcal{A}\) have enough injectives.
-For all \(X^\bullet\in\DD(\mathcal{A})\), \(Y^\bullet\in\DD^+(\mathcal{A})\),
+Let $\mathcal{A}$ have enough injectives.
+For all $X^\bullet\in\DD(\mathcal{A})$, $Y^\bullet\in\DD^+(\mathcal{A})$,
 \[
 H^i\big(\mathbf{R}\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\big)
 = \operatorname{Ext}^i\big(X^\bullet,Y^\bullet\big).
@@ -918,12 +918,12 @@ H^i\big(\mathbf{R}\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\big)
 \end{theorem}
 
 \begin{corollary}\label{cor:1.6.5}
-If \(\mathcal{A}\) has enough injectives, the derived-category definition of \(\operatorname{Ext}^i(X,Y)\)
-coincides with the classical Ext groups for all \(X,Y\in\mathcal{A}\).
+If $\mathcal{A}$ has enough injectives, the derived-category definition of $\operatorname{Ext}^i(X,Y)$
+coincides with the classical Ext groups for all $X,Y\in\mathcal{A}$.
 \end{corollary}
 
 \begin{proof}[Proof of Corollary 1.6.5]
-Take an injective resolution \(I^\bullet\) of \(Y\). Then
+Take an injective resolution $I^\bullet$ of $Y$. Then
 \[
 \operatorname{Ext}^i(X,Y) = H^i\big(\mathcal{H}\textit{om}^\bullet(X,I^\bullet)\big),
 \]
@@ -931,13 +931,13 @@ which is the standard definition.
 \end{proof}
 
 \begin{proof}[Proof of Theorem 1.6.4]
-Choose a quasi-isomorphism \(s\colon Y^\bullet\to I^\bullet\) with \(I^\bullet\) a bounded-below injective complex. Then
+Choose a quasi-isomorphism $s\colon Y^\bullet\to I^\bullet$ with $I^\bullet$ a bounded-below injective complex. Then
 \[
 \operatorname{Ext}^i(X^\bullet,Y^\bullet)
 = \operatorname{Ext}^i(X^\bullet,I^\bullet)
 = \operatorname{Hom}_{\DD(\mathcal{A})}\big(X^\bullet,T^i(I^\bullet)\big).
 \]
-By Lemma 1.4.5, any morphism \(X^\bullet\to T^i(I^\bullet)\) in \(\DD(\mathcal{A})\)
+By Lemma 1.4.5, any morphism $X^\bullet\to T^i(I^\bullet)$ in $\DD(\mathcal{A})$
 is represented by an actual morphism of complexes. Therefore
 \[
 \begin{aligned}
@@ -952,51 +952,51 @@ is represented by an actual morphism of complexes. Therefore
 \section{Way-out functors}
 
 \begin{definition}
-Let \(\mathcal{A},\mathcal{B}\) be abelian categories, and let \(F\colon\DD(\mathcal{A})\to\DD(\mathcal{B})\) be a triangulated functor.
-We say \(F\) is \emph{way-out right} if for every \(n_1\in\mathbb{Z}\), there exists \(n_2\in\mathbb{Z}\) such that
-for any complex \(X^\bullet\in\DD(\mathcal{A})\) satisfying \(H^i(X^\bullet)=0\) for all \(i<n_2\),
-we have \(H^i(F(X^\bullet))=0\) for all \(i<n_1\).
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, and let $F\colon\DD(\mathcal{A})\to\DD(\mathcal{B})$ be a triangulated functor.
+We say $F$ is \emph{way-out right} if for every $n_1\in\mathbb{Z}$, there exists $n_2\in\mathbb{Z}$ such that
+for any complex $X^\bullet\in\DD(\mathcal{A})$ satisfying $H^i(X^\bullet)=0$ for all $i<n_2$,
+we have $H^i(F(X^\bullet))=0$ for all $i<n_1$.
 
 One defines \emph{way-out left} and \emph{way-out in both directions} similarly.
-For a contravariant triangulated functor \(F\colon\DD(\mathcal{A})\to\DD(\mathcal{B})\),
-the definition of way-out right is the same, except reversing the inequality to \(i>n_2\).
+For a contravariant triangulated functor $F\colon\DD(\mathcal{A})\to\DD(\mathcal{B})$,
+the definition of way-out right is the same, except reversing the inequality to $i>n_2$.
 \end{definition}
 
 \textbf{Examples.}
 \begin{enumerate}
-\item If \(F_0\colon\mathcal{A}\to\mathcal{B}\) is additive and satisfies the hypotheses of Corollary 1.5.3(\(\alpha\)) or (\(\beta\)),
-then \(\mathbf{R}^+F\) is way-out right.
-If \(F_0\) satisfies (\(\gamma\)), then \(\mathbf{R}F\) is way-out in both directions.
+\item If $F_0\colon\mathcal{A}\to\mathcal{B}$ is additive and satisfies the hypotheses of Corollary 1.5.3($\alpha$) or ($\beta$),
+then $\mathbf{R}^+F$ is way-out right.
+If $F_0$ satisfies ($\gamma$), then $\mathbf{R}F$ is way-out in both directions.
 
-\item For unbounded \(X^\bullet\in\DD(\mathcal{A})\), the functor
-\(\mathbf{R}\mathcal{H}\textit{om}(X^\bullet,\,\cdot\,)\) on \(\DD^+(\mathcal{A})\)
+\item For unbounded $X^\bullet\in\DD(\mathcal{A})$, the functor
+$\mathbf{R}\mathcal{H}\textit{om}(X^\bullet,\,\cdot\,)$ on $\DD^+(\mathcal{A})$
 is generally not way-out.
 \end{enumerate}
 
 \begin{proposition}[Lemma on Way-out Functors]\label{prop:1.7.1}
-Let \(\mathcal{A},\mathcal{B}\) be abelian categories, \(\mathcal{A}'\subseteq\mathcal{A}\) a thick subcategory.
-Let \(F,G\colon\DD_{\mathcal{A}'}^+(\mathcal{A})\to\DD(\mathcal{B})\) be triangulated functors,
-and \(\eta\colon F\to G\) a morphism of functors.
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, $\mathcal{A}'\subseteq\mathcal{A}$ a thick subcategory.
+Let $F,G\colon\DD_{\mathcal{A}'}^+(\mathcal{A})\to\DD(\mathcal{B})$ be triangulated functors,
+and $\eta\colon F\to G$ a morphism of functors.
 \begin{enumerate}
-\item[(i)] If \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\mathcal{A}'\),
-then \(\eta(X^\bullet)\) is an isomorphism for all \(X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})\).
+\item[(i)] If $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$,
+then $\eta(X^\bullet)$ is an isomorphism for all $X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})$.
 
-\item[(ii)] If \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\mathcal{A}'\),
-and \(F,G\) are way-out right,
-then \(\eta(X^\bullet)\) is an isomorphism for all \(X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})\).
+\item[(ii)] If $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$,
+and $F,G$ are way-out right,
+then $\eta(X^\bullet)$ is an isomorphism for all $X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})$.
 
-\item[(iii)] If \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\mathcal{A}'\),
-and \(F,G\) are way-out in both directions,
-then \(\eta(X^\bullet)\) is an isomorphism for all \(X^\bullet\in\DD_{\mathcal{A}'}(\mathcal{A})\).
+\item[(iii)] If $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$,
+and $F,G$ are way-out in both directions,
+then $\eta(X^\bullet)$ is an isomorphism for all $X^\bullet\in\DD_{\mathcal{A}'}(\mathcal{A})$.
 
-\item[(iv)] Let \(P\subseteq\operatorname{Ob}\mathcal{A}'\) be such that every object of \(\mathcal{A}'\) embeds into an object of \(P\).
-If \(\eta(X)\) is an isomorphism for all \(X\in P\), and \(F,G\) are way-out right,
-then \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\mathcal{A}'\).
+\item[(iv)] Let $P\subseteq\operatorname{Ob}\mathcal{A}'$ be such that every object of $\mathcal{A}'$ embeds into an object of $P$.
+If $\eta(X)$ is an isomorphism for all $X\in P$, and $F,G$ are way-out right,
+then $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$.
 \end{enumerate}
 \end{proposition}
 
 \begin{definition}
-Let \(X^\bullet\) be a complex over abelian category \(\mathcal{A}\), \(n\in\mathbb{Z}\).
+Let $X^\bullet$ be a complex over abelian category $\mathcal{A}$, $n\in\mathbb{Z}$.
 Define truncation functors:
 \begin{align*}
 \tau_{>n}(X^\bullet)&\colon \cdots\to 0\to X^{n+1}\to X^{n+2}\to\cdots,\\
@@ -1011,7 +1011,7 @@ There are natural morphisms inducing short exact sequences of complexes:
 0 &\to \sigma_{\le n}(X^\bullet) \to X^\bullet \to \sigma_{>n}(X^\bullet) \to 0.
 \end{align}
 
-The \(\sigma\)-truncations satisfy:
+The $\sigma$-truncations satisfy:
 \[
 H^i\big(\sigma_{>n}(X^\bullet)\big)
 =
@@ -1030,7 +1030,7 @@ H^i(X^\bullet) & i\le n,\\
 \end{definition}
 
 \begin{lemma}\label{lem:1.7.2}
-For any complex \(X^\bullet\) over \(\mathcal{A}\), there exist triangles in \(\DD(\mathcal{A})\):
+For any complex $X^\bullet$ over $\mathcal{A}$, there exist triangles in $\DD(\mathcal{A})$:
 \begin{align}
 \tau_{>n}(X^\bullet) &\to \tau_{\ge n}(X^\bullet) \to X^n \to T\tau_{>n}(X^\bullet),\\
 H^n(X^\bullet) &\to \sigma_{\ge n}(X^\bullet) \to \sigma_{>n}(X^\bullet) \to T H^n(X^\bullet).
@@ -1044,63 +1044,63 @@ Triangle (3) comes from the short exact sequence
 \]
 
 For (4), define
-\(\sigma_{\ge n}'(X^\bullet)\) by
+$\sigma_{\ge n}'(X^\bullet)$ by
 \[
 \cdots\to 0\to X^n/\operatorname{im}d^{n-1}\to X^{n+1}\to\cdots.
 \]
-There is a quasi-isomorphism \(\sigma_{\ge n}(X^\bullet)\to\sigma_{\ge n}'(X^\bullet)\),
+There is a quasi-isomorphism $\sigma_{\ge n}(X^\bullet)\to\sigma_{\ge n}'(X^\bullet)$,
 and an exact sequence
 \[
 0\to H^n(X^\bullet)\to\sigma_{\ge n}'(X^\bullet)\to\sigma_{>n}(X^\bullet)\to 0.
 \]
-This induces the required triangle in \(\DD(\mathcal{A})\).
+This induces the required triangle in $\DD(\mathcal{A})$.
 \end{proof}
 
 \begin{proof}[Proof of Proposition 1.7.1]
-(i) For \(X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})\),
-use descending induction on \(n\) to show
-\(\eta\big(\sigma_{>n}(X^\bullet)\big)\) is an isomorphism.
-For large \(n\), \(\sigma_{>n}(X^\bullet)\) is acyclic, hence trivial.
+(i) For $X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})$,
+use descending induction on $n$ to show
+$\eta\big(\sigma_{>n}(X^\bullet)\big)$ is an isomorphism.
+For large $n$, $\sigma_{>n}(X^\bullet)$ is acyclic, hence trivial.
 The induction step follows from triangle (4) and Proposition 1.1(c).
-For small \(n\), \(X^\bullet\cong\sigma_{>n}(X^\bullet)\) in \(\DD(\mathcal{A})\), done.
+For small $n$, $X^\bullet\cong\sigma_{>n}(X^\bullet)$ in $\DD(\mathcal{A})$, done.
 
-(ii) Let \(X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})\).
-It suffices to show \(H^j(\eta(X^\bullet))\) is an isomorphism for all \(j\).
-Given \(j\), pick \(n_1\ge j+2\), choose \(n_2\) from the way-out property for \(F,G\).
-Since \(H^i(\sigma_{>n_2}(X^\bullet))=0\) for \(i\le n_2\),
-we have \(H^i(F(\sigma_{>n_2}(X^\bullet)))=H^i(G(\sigma_{>n_2}(X^\bullet)))=0\) for \(i<n_1\),
-in particular for \(i=j,j+1\).
+(ii) Let $X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})$.
+It suffices to show $H^j(\eta(X^\bullet))$ is an isomorphism for all $j$.
+Given $j$, pick $n_1\ge j+2$, choose $n_2$ from the way-out property for $F,G$.
+Since $H^i(\sigma_{>n_2}(X^\bullet))=0$ for $i\le n_2$,
+we have $H^i(F(\sigma_{>n_2}(X^\bullet)))=H^i(G(\sigma_{>n_2}(X^\bullet)))=0$ for $i<n_1$,
+in particular for $i=j,j+1$.
 
 By the long exact cohomology sequence:
 \begin{align*}
 H^j\big(F(\sigma_{\le n_2}(X^\bullet))\big) &\stackrel{\sim}{\to} H^j\big(F(X^\bullet)\big),\\
 H^j\big(G(\sigma_{\le n_2}(X^\bullet))\big) &\stackrel{\sim}{\to} H^j\big(G(X^\bullet)\big).
 \end{align*}
-But \(\sigma_{\le n_2}(X^\bullet)\in\DD_{\mathcal{A}'}^b(\mathcal{A})\), so \(\eta\) is an isomorphism there.
-Hence \(H^j(\eta(X^\bullet))\) is an isomorphism.
+But $\sigma_{\le n_2}(X^\bullet)\in\DD_{\mathcal{A}'}^b(\mathcal{A})$, so $\eta$ is an isomorphism there.
+Hence $H^j(\eta(X^\bullet))$ is an isomorphism.
 
-(iii) Decompose \(X^\bullet\) via \(\sigma_{\le0},\sigma_{>0}\), apply (ii) to each piece, then glue via the triangle from (2).
+(iii) Decompose $X^\bullet$ via $\sigma_{\le0},\sigma_{>0}$, apply (ii) to each piece, then glue via the triangle from (2).
 
-(iv) Use Lemma 1.4.6 to resolve any \(X\in\mathcal{A}'\) by a complex \(I^\bullet\) with terms in \(P\).
-Apply (i),(ii) with \(\tau\)-truncations instead of \(\sigma\)-truncations.
+(iv) Use Lemma 1.4.6 to resolve any $X\in\mathcal{A}'$ by a complex $I^\bullet$ with terms in $P$.
+Apply (i),(ii) with $\tau$-truncations instead of $\sigma$-truncations.
 \end{proof}
 
 \begin{proposition}\label{prop:1.7.2}
-Let \(\mathcal{A}'\subseteq\mathcal{A}\), \(\mathcal{B}'\subseteq\mathcal{B}\) be thick abelian categories,
-\(F\colon\DD_{\mathcal{A}'}^+(\mathcal{A})\to\DD(\mathcal{B})\) a triangulated functor.
+Let $\mathcal{A}'\subseteq\mathcal{A}$, $\mathcal{B}'\subseteq\mathcal{B}$ be thick abelian categories,
+$F\colon\DD_{\mathcal{A}'}^+(\mathcal{A})\to\DD(\mathcal{B})$ a triangulated functor.
 \begin{enumerate}
-\item[(i)] If \(F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})\) for all \(X\in\operatorname{Ob}\mathcal{A}'\),
-then \(F(X^\bullet)\in\DD_{\mathcal{B}'}(\mathcal{B})\) for all \(X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})\).
+\item[(i)] If $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in\operatorname{Ob}\mathcal{A}'$,
+then $F(X^\bullet)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})$.
 
-\item[(ii)] If \(F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})\) for all \(X\in\operatorname{Ob}\mathcal{A}'\)
-and \(F\) is way-out right,
-then \(F(X^\bullet)\in\DD_{\mathcal{B}'}(\mathcal{B})\) for all \(X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})\).
+\item[(ii)] If $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in\operatorname{Ob}\mathcal{A}'$
+and $F$ is way-out right,
+then $F(X^\bullet)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})$.
 
-\item[(iii)] If \(F\) is way-out both directions, extend to all \(X^\bullet\in\DD_{\mathcal{A}'}(\mathcal{A})\).
+\item[(iii)] If $F$ is way-out both directions, extend to all $X^\bullet\in\DD_{\mathcal{A}'}(\mathcal{A})$.
 
-\item[(iv)] Let \(P\subseteq\operatorname{Ob}\mathcal{A}'\) such that every object of \(\mathcal{A}'\) embeds into \(P\).
-If \(F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})\) for all \(X\in P\) and \(F\) is way-out right,
-then \(F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})\) for all \(X\in\operatorname{Ob}\mathcal{A}'\).
+\item[(iv)] Let $P\subseteq\operatorname{Ob}\mathcal{A}'$ such that every object of $\mathcal{A}'$ embeds into $P$.
+If $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in P$ and $F$ is way-out right,
+then $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in\operatorname{Ob}\mathcal{A}'$.
 \end{enumerate}
 \end{proposition}
 
@@ -1109,34 +1109,34 @@ Analogous to Proposition 1.7.1.
 \end{proof}
 
 \begin{proposition}\label{prop:1.7.4}
-Let \(\mathcal{A}\) have enough injectives, \(F\colon\mathcal{A}\to\mathcal{B}\) additive of cohomological dimension \(\le n\).
-Let \(P\subseteq\operatorname{Ob}\mathcal{A}\) be all \(X\) with \(R^iF(X)=0\) for \(i\ne n\).
-Assume every object of \(\mathcal{A}\) is a quotient of an object in \(P\).
-Set \(G=R^nF\). Then \(\mathbf{R}F,\mathbf{L}G\) exist, and there is a functorial isomorphism
+Let $\mathcal{A}$ have enough injectives, $F\colon\mathcal{A}\to\mathcal{B}$ additive of cohomological dimension $\le n$.
+Let $P\subseteq\operatorname{Ob}\mathcal{A}$ be all $X$ with $R^iF(X)=0$ for $i\ne n$.
+Assume every object of $\mathcal{A}$ is a quotient of an object in $P$.
+Set $G=R^nF$. Then $\mathbf{R}F,\mathbf{L}G$ exist, and there is a functorial isomorphism
 \[
 \psi\colon \mathbf{R}F \stackrel{\sim}{\to} \mathbf{L}G[-n],
 \]
-where \([-n]\) denotes shifting right by \(n\) degrees.
+where $[-n]$ denotes shifting right by $n$ degrees.
 \end{proposition}
 
 \begin{proof}
-Existence of \(\mathbf{R}F\) follows from Corollary 1.5.3.
-Existence of \(\mathbf{L}G\) follows by dualizing Theorem 1.5.1 for left derived functors.
+Existence of $\mathbf{R}F$ follows from Corollary 1.5.3.
+Existence of $\mathbf{L}G$ follows by dualizing Theorem 1.5.1 for left derived functors.
 
-The class \(P\) satisfies the dual conditions of Lemma 1.4.6 and Corollary 1.5.3.
-Let \(\LL\subseteq\KK(\mathcal{A})\) be complexes of objects in \(P\);
-the hypotheses of Theorem 1.5.1 hold, so \(\mathbf{L}G\) exists.
+The class $P$ satisfies the dual conditions of Lemma 1.4.6 and Corollary 1.5.3.
+Let $\LL\subseteq\KK(\mathcal{A})$ be complexes of objects in $P$;
+the hypotheses of Theorem 1.5.1 hold, so $\mathbf{L}G$ exists.
 
-Since \(\LL_{\operatorname{Qis}}\to\DD(\mathcal{A})\) is an equivalence,
-it suffices to define \(\psi\) on complexes in \(\LL\):
-for any \(X^\bullet\in\LL\),
+Since $\LL_{\operatorname{Qis}}\to\DD(\mathcal{A})$ is an equivalence,
+it suffices to define $\psi$ on complexes in $\LL$:
+for any $X^\bullet\in\LL$,
 \[
 \psi(X^\bullet)\colon \mathbf{R}F(X^\bullet)\to \mathbf{L}G(X^\bullet)[-n],
 \]
 compatible with morphisms of complexes.
 
-Given \(X^\bullet\in\LL\), choose a Cartan--Eilenberg resolution \(C^{\cdot\cdot}\).
-Define the truncated double complex \(C'^{\cdot\cdot}=\sigma_{\le n}^\mathrm{II}(C^{\cdot\cdot})\) by
+Given $X^\bullet\in\LL$, choose a Cartan--Eilenberg resolution $C^{\cdot\cdot}$.
+Define the truncated double complex $C'^{\cdot\cdot}=\sigma_{\le n}^\mathrm{II}(C^{\cdot\cdot})$ by
 \[
 C'^{p,q}=
 \begin{cases}
@@ -1146,32 +1146,32 @@ C^{p,q} & q<n,\\
 \end{cases}
 \]
 
-For each \(p\in\mathbb{Z}\), we have an exact sequence
+For each $p\in\mathbb{Z}$, we have an exact sequence
 \[
 0\to X^p\to C'^{p,0}\to C'^{p,1}\to\cdots\to C'^{p,n-1}\to C'^{p,n}\to 0.
 \]
-The terms \(C'^{p,0},\dots,C'^{p,n-1}\) are injective; \(X^p\in P\) implies \(C'^{p,n}\) is \(F\)-acyclic.
-This resolution computes \(\mathbf{R}F(X^p)\), giving an isomorphism
+The terms $C'^{p,0},\dots,C'^{p,n-1}$ are injective; $X^p\in P$ implies $C'^{p,n}$ is $F$-acyclic.
+This resolution computes $\mathbf{R}F(X^p)$, giving an isomorphism
 \[
 \varphi(t^p)\colon G(X^p)=R^nF(X^p) \to F(C'^{p,n})\big/\operatorname{im}F(C'^{p,n-1}),
 \]
-where \(t^p\colon X^p\to C^{p,\bullet}\) is the resolution map.
-This induces a morphism \(\alpha^p\colon F(C^{p,n})\to G(X^p)\), and hence a double complex morphism
+where $t^p\colon X^p\to C^{p,\bullet}$ is the resolution map.
+This induces a morphism $\alpha^p\colon F(C^{p,n})\to G(X^p)$, and hence a double complex morphism
 \[
 \alpha\colon F(C'^{\cdot\cdot})\to G(X^\bullet),
 \]
-with \(G(X^\bullet)\) concentrated in the \(n\)-th row.
+with $G(X^\bullet)$ concentrated in the $n$-th row.
 
 Passing to associated simple complexes:
 \[
 s(\alpha)\colon F\big(s(C'^{\cdot\cdot})\big)\to G(X^\bullet)[-n].
 \]
 
-By Lemma 1.7.5(f) below, the augmentation \(u\colon X^\bullet\to s(C^{\cdot\cdot})\) is a quasi-isomorphism into an \(F\)-acyclic complex, yielding an isomorphism
+By Lemma 1.7.5(f) below, the augmentation $u\colon X^\bullet\to s(C^{\cdot\cdot})$ is a quasi-isomorphism into an $F$-acyclic complex, yielding an isomorphism
 \[
 \varphi(u)\colon \mathbf{R}F(X^\bullet)\to F\big(s(C^{\cdot\cdot})\big).
 \]
-Since \(X^\bullet\) consists of \(G\)-acyclic objects, we have
+Since $X^\bullet$ consists of $G$-acyclic objects, we have
 \[
 \varphi(\operatorname{id}_{X^\bullet})\colon G(X^\bullet)\to \mathbf{L}G(X^\bullet).
 \]
@@ -1180,46 +1180,46 @@ Composing these gives the desired morphism
 \psi(X^\bullet)\colon \mathbf{R}F(X^\bullet)\to \mathbf{L}G(X^\bullet)[-n].
 \]
 
-The morphism \(\psi(X^\bullet)\) is independent of the Cartan--Eilenberg resolution choice.
-To see \(\psi\) is an isomorphism: \(\mathbf{R}F,\mathbf{L}G\) are way-out in both directions. By the way-out functor lemma (Proposition 1.7.1), reduce to checking \(\psi(X)\) is an isomorphism for \(X\in P\), which holds by construction.
+The morphism $\psi(X^\bullet)$ is independent of the Cartan--Eilenberg resolution choice.
+To see $\psi$ is an isomorphism: $\mathbf{R}F,\mathbf{L}G$ are way-out in both directions. By the way-out functor lemma (Proposition 1.7.1), reduce to checking $\psi(X)$ is an isomorphism for $X\in P$, which holds by construction.
 \end{proof}
 
 \begin{proposition}\label{prop:1.7.6}
-Let \(\mathcal{A}\) have enough injectives, \(X^\bullet\in\KK^+(\mathcal{A})\). The following are equivalent:
+Let $\mathcal{A}$ have enough injectives, $X^\bullet\in\KK^+(\mathcal{A})$. The following are equivalent:
 \begin{enumerate}
-\item[(i)] \(X^\bullet\) admits a quasi-isomorphism into a bounded complex of injective objects of \(\mathcal{A}\).
-\item[(ii)] The functor \(\mathbf{R}\mathcal{H}\textit{om}(\,\cdot\,,X^\bullet)\colon\DD(\mathcal{A})^\circ\to\DD(\mathbf{Ab})\) is way-out left (hence way-out both ways).
-\item[(iii)] There exists \(n_0\in\mathbb{Z}\) such that \(\operatorname{Ext}^i(Y,X^\bullet)=0\) for all \(Y\in\operatorname{Ob}\mathcal{A}\) and all \(i>n_0\).
+\item[(i)] $X^\bullet$ admits a quasi-isomorphism into a bounded complex of injective objects of $\mathcal{A}$.
+\item[(ii)] The functor $\mathbf{R}\mathcal{H}\textit{om}(\,\cdot\,,X^\bullet)\colon\DD(\mathcal{A})^\circ\to\DD(\mathbf{Ab})$ is way-out left (hence way-out both ways).
+\item[(iii)] There exists $n_0\in\mathbb{Z}$ such that $\operatorname{Ext}^i(Y,X^\bullet)=0$ for all $Y\in\operatorname{Ob}\mathcal{A}$ and all $i>n_0$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-\((i)\Rightarrow(ii)\): Assume \(X^\bullet\) is bounded injective. Then \(\mathbf{R}\mathcal{H}\textit{om}(Y^\bullet,X^\bullet)\cong\mathcal{H}\textit{om}(Y^\bullet,X^\bullet)\), which is clearly way-out left.
+$(i)\Rightarrow(ii)$: Assume $X^\bullet$ is bounded injective. Then $\mathbf{R}\mathcal{H}\textit{om}(Y^\bullet,X^\bullet)\cong\mathcal{H}\textit{om}(Y^\bullet,X^\bullet)$, which is clearly way-out left.
 
-\((ii)\Rightarrow(iii)\): Since \(F=\mathbf{R}\mathcal{H}\textit{om}(\,\cdot\,,X^\bullet)\) is way-out left, choose \(n_0\) such that \(H^i(F(Y^\bullet))=0\) whenever \(H^i(Y^\bullet)=0\) for \(i<n_0\).
-For fixed \(Y\in\mathcal{A}\), set \(Y'^\bullet = T^{-n_0}(Y)\). Then \(H^i(Y'^\bullet)=0\) for \(i<n_0\), so \(H^i(F(Y'^\bullet))=0\) for \(i>0\). But
+$(ii)\Rightarrow(iii)$: Since $F=\mathbf{R}\mathcal{H}\textit{om}(\,\cdot\,,X^\bullet)$ is way-out left, choose $n_0$ such that $H^i(F(Y^\bullet))=0$ whenever $H^i(Y^\bullet)=0$ for $i<n_0$.
+For fixed $Y\in\mathcal{A}$, set $Y'^\bullet = T^{-n_0}(Y)$. Then $H^i(Y'^\bullet)=0$ for $i<n_0$, so $H^i(F(Y'^\bullet))=0$ for $i>0$. But
 \[
 H^i(F(Y'^\bullet))=H^i\big(F(T^{-n_0}Y)\big)=H^{i+n_0}(F(Y)),
 \]
-hence \(\operatorname{Ext}^{i+n_0}(Y,X^\bullet)=0\) for all \(i>0\), i.e., \(\operatorname{Ext}^j(Y,X^\bullet)=0\) for \(j>n_0\).
+hence $\operatorname{Ext}^{i+n_0}(Y,X^\bullet)=0$ for all $i>0$, i.e., $\operatorname{Ext}^j(Y,X^\bullet)=0$ for $j>n_0$.
 
-\((iii)\Rightarrow(i)\): Take an injective resolution \(X'^\bullet\in\KK^+(\mathcal{A})\) of \(X^\bullet\) (Lemma 1.4.6). Suppose \(H^m(X'^\bullet)\neq0\) for some \(m>n_0\). From the exact sequence
+$(iii)\Rightarrow(i)$: Take an injective resolution $X'^\bullet\in\KK^+(\mathcal{A})$ of $X^\bullet$ (Lemma 1.4.6). Suppose $H^m(X'^\bullet)\neq0$ for some $m>n_0$. From the exact sequence
 \[
 0\to B^m(X'^\bullet)\to Z^m(X'^\bullet)\to H^m(X'^\bullet)\to 0,
 \]
-the inclusion is proper. Choose \(Y=Z^m(X'^\bullet)\); then
+the inclusion is proper. Choose $Y=Z^m(X'^\bullet)$; then
 \[
 \operatorname{Hom}(Y,B^m(X'^\bullet))\subsetneq \operatorname{Hom}(Y,Z^m(X'^\bullet)).
 \]
-But \(\operatorname{Ext}^m(Y,X^\bullet)=0\) by hypothesis, which forces the map to be an isomorphism, a contradiction. Thus \(H^i(X'^\bullet)=0\) for all \(i>n_0\).
+But $\operatorname{Ext}^m(Y,X^\bullet)=0$ by hypothesis, which forces the map to be an isomorphism, a contradiction. Thus $H^i(X'^\bullet)=0$ for all $i>n_0$.
 
-For \(n\ge n_0\), the truncation map \(i\colon\sigma_{\le n}(X'^\bullet)\to X'^\bullet\) is a quasi-isomorphism.
-For \(n\ge n_0\), \(Z^{n+1}(X'^\bullet)=B^{n+1}(X'^\bullet)\) is injective.
+For $n\ge n_0$, the truncation map $i\colon\sigma_{\le n}(X'^\bullet)\to X'^\bullet$ is a quasi-isomorphism.
+For $n\ge n_0$, $Z^{n+1}(X'^\bullet)=B^{n+1}(X'^\bullet)$ is injective.
 Consider the exact sequence
 \[
 0\to\sigma_{\le n}(X'^\bullet)\to\tau_{\le n}(X'^\bullet)\to B^{n+1}(X'^\bullet)[-n]\to 0.
 \]
-We show \(\operatorname{Ext}^1(Y,B^{n+1})=0\) for all \(Y\in\mathcal{A}\). We have
+We show $\operatorname{Ext}^1(Y,B^{n+1})=0$ for all $Y\in\mathcal{A}$. We have
 \[
 \operatorname{Ext}^1(Y,B^{n+1})
 =\operatorname{Ext}^{n+1}\big(Y,B^{n+1}[-n]\big).
@@ -1231,16 +1231,16 @@ From the Ext long exact sequence:
 \to\operatorname{Ext}^{n+1}\big(Y,B^{n+1}[-n]\big)
 \to\operatorname{Ext}^{n+2}\big(Y,\sigma_{\le n}(X'^\bullet)\big)\to\cdots.
 \]
-The left term vanishes because \(\tau_{\le n}(X'^\bullet)\) is bounded injective; the right term vanishes by hypothesis. Hence \(\operatorname{Ext}^1(Y,B^{n+1})=0\), so \(B^{n+1}\) is injective.
-Thus \(\sigma_{\le n}(X'^\bullet)\) is a bounded injective complex quasi-isomorphic to \(X^\bullet\).
+The left term vanishes because $\tau_{\le n}(X'^\bullet)$ is bounded injective; the right term vanishes by hypothesis. Hence $\operatorname{Ext}^1(Y,B^{n+1})=0$, so $B^{n+1}$ is injective.
+Thus $\sigma_{\le n}(X'^\bullet)$ is a bounded injective complex quasi-isomorphic to $X^\bullet$.
 \end{proof}
 
 \begin{definition}
-If \(X^\bullet\in\KK^+(\mathcal{A})\) satisfies the equivalent conditions of Proposition 1.7.6, we say \(X^\bullet\) has \emph{finite injective dimension}.
+If $X^\bullet\in\KK^+(\mathcal{A})$ satisfies the equivalent conditions of Proposition 1.7.6, we say $X^\bullet$ has \emph{finite injective dimension}.
 \end{definition}
 
 \begin{corollary}\label{cor:1.7.7}
-The complexes of finite injective dimension form a triangulated localizing subcategory of \(\KK(\mathcal{A})\).
+The complexes of finite injective dimension form a triangulated localizing subcategory of $\KK(\mathcal{A})$.
 \end{corollary}
 
 \begin{proof}
@@ -1248,8 +1248,8 @@ Closure under triangles follows from the Ext long exact sequence. Localizing fol
 \end{proof}
 
 \begin{definition}
-Denote by \(\KK^+(\mathcal{A})_{\mathrm{fid}}\) the full subcategory of \(\KK^+(\mathcal{A})\) consisting of complexes of finite injective dimension. The corresponding derived subcategory is \(\DD^+(\mathcal{A})_{\mathrm{fid}}\).
+Denote by $\KK^+(\mathcal{A})_{\mathrm{fid}}$ the full subcategory of $\KK^+(\mathcal{A})$ consisting of complexes of finite injective dimension. The corresponding derived subcategory is $\DD^+(\mathcal{A})_{\mathrm{fid}}$.
 \end{definition}
 
 \textbf{Remark.}
-These subcategories differ from \(\KK_{\mathcal{A}'}(\mathcal{A}),\DD_{\mathcal{A}'}(\mathcal{A})\), as they cannot be characterized solely by conditions on the cohomology objects \(H^i(X^\bullet)\).
+These subcategories differ from $\KK_{\mathcal{A}'}(\mathcal{A}),\DD_{\mathcal{A}'}(\mathcal{A})$, as they cannot be characterized solely by conditions on the cohomology objects $H^i(X^\bullet)$.
