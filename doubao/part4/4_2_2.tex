@@ -1,0 +1,151 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dimk}{dim_k}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\Lfst}{\mathbf{L}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\RGamma}{\mathbf{R}\Gamma}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{motif}{Motif}[section]
+
+\begin{document}
+
+\setcounter{page}{234}
+Case \(p=0\): This is exactly the statement of Lemma 2.2, with \(Z=Z^0\) and \(Z'=Z^1\).
+
+\medskip
+\textbf{Induction Step.}
+Suppose the assertion holds for all degrees \(\le p\). Take a complex \(C^\bullet\) defined up to degree \(p\). Apply Lemma 2.2 to
+\[
+C^p \big/ \operatorname{im}C^{p-1}
+\]
+with respect to \(Z=Z^{p+1}\), \(Z'=Z^{p+2}\), and define \(C^{p+1}\) to be the skeleton sheaf obtained from the lemma. Since
+\[
+C^p \big/ \operatorname{im}C^{p-1} \to C^{p+1}
+\]
+is a \(Z^{p+2}\)-isomorphism, its kernel and cokernel have supports contained in \(Z^{p+2}\). Therefore
+\[
+H^p(C^\bullet),\quad C^{p+1}\big/\operatorname{im}C^p
+\]
+are supported in \(Z^{p+2}\). Also \(C^{p+1}\) lies on the \(Z^{p+1}/Z^{p+2}\)-skeleton, satisfying condition (a).
+
+For uniqueness: let \(C'^\bullet\) be another complex defined up to degree \(p+1\). Restricting to degrees \(\le p\), by induction hypothesis there is a unique isomorphism \(C^\bullet\cong C'^\bullet\). This induces an isomorphism
+\[
+C^p\big/\operatorname{im}C^{p-1} \;\cong\; C'^p\big/\operatorname{im}C'^{p-1}.
+\]
+By Lemma 2.2, this extends uniquely to \(C^{p+1}\cong C'^{p+1}\).
+
+\setcounter{page}{235}
+\begin{definition}
+The complex constructed in Proposition 2.3 is called the \textit{Cousin complex} of \(\sheaf{F}\) with respect to the filtration \(\{Z^p\}\).
+\end{definition}
+
+\noindent\textbf{Examples.}
+\begin{enumerate}
+\item If \(\sheaf{F}\) has support in \(Z^1\), its Cousin complex is identically zero.
+\item If \(\sheaf{F}\) is flasque, then \(C^0 = \sheaf{F}\big/\underline{\Gamma}_{Z^1}(\sheaf{F})\) and \(C^p=0\) for all \(p>0\).
+\end{enumerate}
+
+\begin{lemma}
+Under the hypotheses of Proposition 2.3, we have
+\[
+\underline{H}_{Z^p/Z^{p+1}}^i(\sheaf{F}) = 0 \quad \text{for all } i>p.
+\]
+\end{lemma}
+
+\begin{proof}
+By Motif F, it suffices to check \(H_x^i(\sheaf{F})=0\) for all \(x\in Z^p\setminus Z^{p+1}\). The group \(H_x^i(\sheaf{F})\) may be computed on the space of generizations of \(x\), which has combinatorial dimension \(p\). For flasque resolutions one has vanishing for \(i>p\); cf. [LC 1.12, EGA II.4.15.2].
+\end{proof}
+
+\setcounter{page}{236}
+\begin{proposition}
+Let \(X=Z^0\supseteq Z^1\supseteq Z^2\supseteq\cdots\) be a separated filtration (\(\bigcap Z^p=\emptyset\)) satisfying the prior hypotheses. The canonical map
+\[
+\alpha\colon \sheaf{F} \to \underline{H}_{Z^0/Z^1}^0(\sheaf{F})
+\]
+makes the complex
+\[
+\underline{H}_{Z^0/Z^1}^0(\sheaf{F})
+\to \underline{H}_{Z^1/Z^2}^1(\sheaf{F})
+\to \underline{H}_{Z^2/Z^3}^2(\sheaf{F})
+\to\cdots
+\]
+into a Cousin complex for \(\sheaf{F}\).
+\end{proposition}
+
+\begin{proof}
+One verifies the augmentation condition and axioms (a)--(c) pointwise on generization spaces, reducing to finite filtrations. We verify condition (b) as representative. Use descending induction on \(r\): \(E_r^{pq}\) is supported in \(Z^{p+r}\). For large \(r\), \(E_r^{pq}=E_\infty^{pq}=0\). For \(r>1\), \(E_r^{p-r,r-1}=0\) by Lemma 2.4, giving the exact sequence
+\[
+0\to E_{r+1}^{p0}\to E_r^{p0}\to E_r^{p+r,-r+1}.
+\]
+Inductively \(E_{r+1}^{p0}\) lies in \(Z^{p+r+1}\), hence \(E_2^{p0}\) lies in \(Z^{p+2}\).
+
+\setcounter{page}{237}
+\end{proof}
+
+\begin{proposition}
+Under the above hypotheses, the following are equivalent:
+\begin{enumerate}
+\item[\textup{(i)}] \(\underline{H}_{Z^p}^i(\sheaf{F})=0\) for all \(i\ne p\);
+\item[\textup{(ii)}] \(Z^p\)-depth of \(\sheaf{F}\) equals \(p\) for all \(p\);
+\item[\textup{(iii)}] \(\underline{H}_{Z^p/Z^{p+1}}^i(\sheaf{F})=0\) for all \(i\ne p\);
+\item[\textup{(iv)}] The Cousin complex of \(\sheaf{F}\) is a flasque resolution of \(\sheaf{F}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i)\(\Leftrightarrow\)(ii): By definition of depth.
+
+(ii)\(\Rightarrow\)(iii): Use the long exact sequence for relative local cohomology; vanishing for \(i>p\) is Lemma 2.4, vanishing for \(i<p\) follows from depth assumptions.
+
+\setcounter{page}{238}
+(iii)\(\Rightarrow\)(iv): The spectral sequence degenerates at \(E_1\), so the Cousin complex becomes a flasque resolution.
+
+(iv)\(\Rightarrow\)(i): Use the Cousin complex to compute local cohomology; only degree \(p\) cohomology survives.
+\end{proof}
+
+\begin{definition}
+If the equivalent conditions of Proposition 2.6 hold, \(\sheaf{F}\) is said to be \textit{Cohen--Macaulay} with respect to the filtration \(\{Z^p\}\).
+\end{definition}
+
+\begin{remark}
+Let \(X\) be a locally noetherian prescheme, \(Z^p\) the set of points of codimension \(\ge p\). A coherent sheaf \(\sheaf{F}\) with full support is Cohen--Macaulay in the above sense if and only if
+\[
+\operatorname{depth}_{\sheaf{O}_{X,x}} \sheaf{F}_x = \dim\sheaf{O}_{X,x}
+\]
+for all \(x\in X\), recovering the standard definition.
+\end{remark}
+
+\setcounter{page}{239}
+\noindent\textbf{Example.}
+Let \(X\) be a non-singular locally noetherian scheme, filtered by codimension, and take \(\sheaf{F}=\sheaf{O}_X\). Then \(\sheaf{O}_X\) is Cohen--Macaulay. Its Cousin complex is an injective resolution, with degree-\(p\) component
+\[
+\bigoplus_{\operatorname{codim}x=p} i_x\big(H_x^p(\sheaf{O}_X)\big).
+\]
+Here \(H_x^p(\sheaf{O}_X)\) is the injective hull of the residue field \(k(x)\) over \(\sheaf{O}_{X,x}\). This construction gives the prototype of \textit{residual complexes}, studied in Chapter VI.
+
+\end{document}

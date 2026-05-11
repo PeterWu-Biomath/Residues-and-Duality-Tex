@@ -1,0 +1,136 @@
+\setcounter{page}{170}
+\begin{proposition}
+\begin{enumerate}
+\item[(i)] For composable finite morphisms \(X\xrightarrow{f}Y\xrightarrow{g}Z\), the diagram
+\[
+\begin{CD}
+\Rfst (gf)^b @>{\operatorname{Tr}_{gf}}>> \id \\
+@VVV @| \\
+\Rfst g^b \circ \Rfst f^b @>{\operatorname{Tr}_g\circ\operatorname{Tr}_f}>> \id
+\end{CD}
+\]
+commutes as functors on \(D_{\mathrm{qc}}^+(Z)\) (resp.\ \(D_{\mathrm{qc}}(Z)\)).
+
+\item[(ii)] Let \(u: Y' \to Y\) be a flat base extension, and \(X'=X\times_Y Y'\), \(v:X'\to X\), \(g:X'\to Y'\) as in Proposition 6.3. Then the diagram
+\[
+\begin{CD}
+u^* \Rfst f^b @>{\sim}>> \Rfst g^b u^* \\
+@V{u^*\operatorname{Tr}_f}VV @V{\operatorname{Tr}_g u^*}VV \\
+u^* @= u^*
+\end{CD}
+\]
+commutes on \(D_{\mathrm{qc}}^+(Y)\) (resp.\ \(D_{\mathrm{qc}}(Y)\)). The left vertical morphism is from [II.5.12].
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Left to the reader.
+\end{proof}
+
+\setcounter{page}{171}
+\begin{theorem}[Duality for finite morphisms]
+Let \(f: X \to Y\) be a finite morphism of noetherian preschemes of finite Krull dimension. Then the duality morphism
+\[
+\theta_{f}\colon \Rfst \RHom_X\bigl(F^\bullet,f^b G^\bullet\bigr)
+\to \RHom_Y\bigl(\Rfst F^\bullet,G^\bullet\bigr)
+\]
+defined by composing [I.5.5] with the trace morphism \(\operatorname{Trf}_f\) is an isomorphism for all \(F^\bullet \in D_{\mathrm{qc}}^-(X)\) and \(G^\bullet \in D_{\mathrm{qc}}^+(Y)\).
+\end{theorem}
+
+\begin{proof}
+Making the standard functorial reductions, we reduce to a purely algebraic statement:
+Let \(A\to B\) be a ring homomorphism, \(M\) a \(B\)-module, \(N\) an \(A\)-module. Then the natural map
+\[
+\Hom_B\bigl(M,\Hom_A(B,N)\bigr)
+\to \Hom_A(M,N)
+\]
+is a canonical isomorphism.
+\end{proof}
+
+\subsection{Example}
+One cannot expect the duality theorem to hold for non-quasi-coherent sheaves, even for a finite étale morphism of integral noetherian schemes.
+
+Let \(Y\) be a non-singular curve over an algebraically closed field \(k\), and \(X\to Y\) a double cover. Let \(y\in Y\) be a closed point, with two distinct points \(x_1,x_2\in X\) lying over \(y\). Let \(K(X),K(Y)\) denote the function fields of \(X,Y\) respectively.
+
+Let \(G\) be the sheaf concentrated at \(y\) isomorphic to \(K(Y)\). Then \(G\) is an indecomposable injective \(\sheaf{O}_Y\)-module which is not quasi-coherent [II.7.11]. One verifies that \(f^b(G)\) is the direct sum of two copies of \(K(X)\), concentrated at \(x_1,x_2\) respectively; it is a direct sum of two indecomposable injective \(\sheaf{O}_X\)-modules.
+
+\setcounter{page}{172}
+Take \(F=\sheaf{O}_X\). Then:
+\[
+f_*\RHom_X\bigl(F,f^b G\bigr)
+\]
+is isomorphic to \(2\cdot K(X)\) concentrated at \(y\), while
+\[
+\RHom_Y\bigl(f_*F,G\bigr)
+\]
+is isomorphic to \(K(X)\) concentrated at \(y\).
+
+Thus the duality morphism \(\underline{\theta}_f\) cannot be an isomorphism for this non-quasi-coherent \(G\).
+
+\setcounter{page}{173}
+\begin{remark}
+Let \(f: X \to Y\) be a closed immersion of preschemes (not necessarily locally noetherian), with \(X\) a locally complete intersection in \(Y\). We may strengthen the preceding results:
+
+We define
+\[
+f^{b}\colon D^{+}(Y) \to D^{+}(Y), \qquad
+(\text{resp. } f^{b}\colon D(Y) \to D(X))
+\]
+by the same formula as before. Since \(X\) is a local complete intersection, the functor \(\RHom_Y(f_*\sheaf{O}_X,\,\cdot)\) has finite cohomological dimension.
+
+As in Proposition 6.2, the natural morphism
+\[
+(g f)^{b} \to f^{b} g^{b}
+\]
+is defined and is an isomorphism on \(D^+(Z)\) (resp.\ \(D(Z)\)). For closed immersions \(\overline{f}^*,\overline{g}^*\) are identity functors, so no reduction to quasi-coherent complexes is needed.
+
+The trace morphism
+\[
+\operatorname{Trf}_{f}\colon \Rfst f^{b}\bigl(G^\bullet\bigr) \to G^\bullet
+\]
+from Proposition 6.5 extends to all \(G^\bullet\in D^+(Y)\) (resp.\ \(D(Y)\)), since the morphism \(\tau\) in its construction is an identity map.
+
+The compatibility diagrams of Proposition 6.6 remain valid. Note that for closed immersions, \(f_*\) is exact so the quasi-coherence assumption in [II.5.12] is superfluous.
+
+Finally, the duality theorem holds for all \(F^\bullet\in D(X)\), \(G^\bullet\in D^+(Y)\). We may assume \(G^\bullet\) is a complex of injective \(\sheaf{O}_Y\)-modules; then \(f^b G^\bullet\) is also a complex of injectives, and \(f_*\) is exact. The morphism
+\[
+f_*\RHom_X\bigl(F^\bullet,f^b G^\bullet\bigr)
+\to \RHom_Y\bigl(f_*F^\bullet,G^\bullet\bigr)
+\]
+is an isomorphism on each component, hence for the full complex. No appeal to the way-out functor lemma is required.
+
+\setcounter{page}{174}
+\end{remark}
+
+\begin{proposition}
+Let \(f: X \to Y\) be a finite morphism of locally noetherian preschemes.
+\begin{enumerate}
+\item[(a)] There is a functorial isomorphism
+\[
+f^b\bigl(F^\bullet \stackrel{\mathbf{L}}{\otimes} G^\bullet\bigr)
+\cong f^b(F^\bullet) \stackrel{\mathbf{L}}{\otimes} f^b(G^\bullet)
+\]
+for \(F^\bullet \in D^{+}(Y)\), \(G^\bullet \in D^b_{\mathrm{fTd}}(Y)\).
+
+\item[(b)] There is a functorial isomorphism
+\[
+\RHom\bigl(\Lfst F^\bullet,f^b G^\bullet\bigr)
+\cong f^b\bigl(\RHom(F^\bullet,G^\bullet)\bigr)
+\]
+for \(F^\bullet \in D_{\mathrm{c}}^-(Y)\), \(G^\bullet \in D_{\mathrm{qc}}^+(Y)\).
+
+\item[(c)] For \(F^\bullet,G^\bullet\in D_{\mathrm{qc}}^b(Y)_{\mathrm{fTd}}\), the following diagram commutes
+\[
+\begin{CD}
+F^\bullet \otimes \Rfst f^b G^\bullet
+@>{\text{Proj. Formula [II 5.6]}}>>
+\Rfst\big(\Lfst F^\bullet \stackrel{\mathbf{L}}{\otimes} \Lfst G^\bullet\big)
+\end{CD}
+\]
+\end{enumerate}
+\end{proposition}
+
+\setcounter{page}{175}
+\begin{proof}
+Left to the reader.
+\end{proof}

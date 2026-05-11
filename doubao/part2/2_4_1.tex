@@ -1,0 +1,183 @@
+\setcounter{page}{93}
+\section{\S4 The Derived Functors of $\otimes$ and $f^*$}
+
+Let $X$ be a prescheme, and let $F^\bullet,G^\bullet\in K(\operatorname{Mod}(X))$.
+Define the tensor product complex $F^\bullet\otimes G^\bullet$ as the simple complex associated to the double complex $(F^p\otimes G^q)$, with
+\[
+\big(F^\bullet\otimes G^\bullet\big)^n
+= \sum_{p+q=n} F^p\otimes G^q,
+\]
+and differential
+\[
+d = d_F + (-1)^n d_G.
+\]
+
+Homotopies are compatible with tensor products, so we have a bifunctor
+\[
+\otimes\colon K(\operatorname{Mod}(X)) \times K(\operatorname{Mod}(X))
+\to K(\operatorname{Mod}(X)).
+\]
+
+\textbf{Lemma 4.1.}
+Let $F^\bullet,G^\bullet$ be complexes of $\sheaf{O}_X$-modules, with $G^\bullet$ bounded above.
+Assume either
+\begin{enumerate}
+\item[(a)] $G^\bullet$ is acyclic; or
+\item[(b)] $F^\bullet$ is acyclic, and either
+        \begin{enumerate}
+        \item[1)] $F^\bullet$ is bounded above, or
+        \item[2)] $G^\bullet$ is bounded in both directions.
+        \end{enumerate}
+\end{enumerate}
+Then $F^\bullet\otimes G^\bullet$ is acyclic.
+
+\setcounter{page}{94}
+\textit{Proof.}
+Let $K^{\cdot\cdot}$ denote the double complex $K^{pq}=F^p\otimes G^q$.
+We have the standard spectral sequences (EGA $\mathrm{O_{III}}$ 11.3.2):
+\[
+E_2^{pq} = H_\mathrm{I}^p H_\mathrm{II}^q(K^{\cdot\cdot}) \implies H^n(F^\bullet\otimes G^\bullet),
+\]
+\[
+E_2^{pq} = H_\mathrm{II}^p H_\mathrm{I}^q(K^{\cdot\cdot}) \implies H^n(F^\bullet\otimes G^\bullet).
+\]
+
+The hypotheses guarantee biregularity of the spectral sequences.
+Case (a): Each $B^q(G^\cdot)=Z^q(G^\cdot)$ is flat, so $F^p\otimes G^q$ is acyclic for all $p,q$.
+Hence all $E_2^{pq}=0$, so $H^n(F^\bullet\otimes G^\bullet)=0$.
+
+Case (b): Each $G^q$ is flat, so $F^\bullet\otimes G^q$ is acyclic for all $p,q$.
+Again $E_2^{pq}=0$, forcing acyclicity of $F^\bullet\otimes G^\bullet$.
+
+Let $L\subseteq K^-(\operatorname{Mod}(X))$ be the triangulated subcategory of complexes of flat $\sheaf{O}_X$-modules.
+By Proposition 1.2 and Lemma 4.1(a), the tensor functor
+\[
+-\otimes-\colon K^-(\operatorname{Mod}(X)) \to K(\operatorname{Mod}(X))
+\]
+satisfies the hypotheses of Theorem I.5.1, so we obtain
+\setcounter{page}{95}
+\[
+\mathbf{L}_\mathrm{II}\otimes\colon K^-(\operatorname{Mod}(X)) \times D^-(X) \to D(X).
+\]
+
+By Lemma 4.1(b), the functor is exact in the first variable and descends to
+\[
+\mathbf{L}_\mathrm{I}\mathbf{L}_\mathrm{II}\otimes
+\colon D^-(X)\times D^-(X)\to D(X).
+\]
+
+Deriving in either order yields the same functor (Lemma I.6.3).
+We write simply
+\[
+F^\bullet\stackrel{\mathbf{L}}{\otimes} G^\bullet
+\]
+for the left derived tensor bifunctor.
+
+\textbf{Definition.}
+For $F^\bullet,G^\bullet\in D^-(X)$, define the \textit{local hyperTor} groups
+\[
+\mathcal{Tor}_i\big(F^\bullet,G^\bullet\big)
+= H^{-i}\big(F^\bullet\stackrel{\mathbf{L}}{\otimes} G^\bullet\big).
+\]
+
+\textbf{Proposition 4.2.}
+Let $X$ be a prescheme, $F^\bullet\in K^b(\operatorname{Mod}(X))$.
+The following are equivalent:
+\begin{enumerate}
+\item[(i)] There exists a quasi-isomorphism $G^\bullet\to F^\bullet$ with $G^\bullet$ a bounded complex of flat $\sheaf{O}_X$-modules.
+\item[(ii)] The functor $F^\bullet\otimes-\colon D^-(X)\to D^-(X)$ is way-out right (hence way-out both ways).
+\setcounter{page}{96}
+\item[(iii)] There exists $n_0\in\mathbb{Z}$ such that $\mathcal{Tor}_i(F^\bullet,G)=0$ for all $\sheaf{O}_X$-modules $G$ and all $i>n_0$.
+\end{enumerate}
+
+\textit{Proof.}
+Analogous to Proposition I.7.6; omitted.
+Key facts:
+1. An $\sheaf{O}_X$-module $F$ is flat $\iff \mathcal{Tor}_1(F,G)=0$ for all $G$.
+2. For a surjection $Z\to B\to 0$, one has $Z\otimes G\simeq B\otimes G$ under suitable conditions.
+3. Use truncations $\sigma_{\ge n}(F^\bullet)$ to construct bounded flat resolutions.
+
+\textbf{Remark.}
+In condition (iii), it suffices to test only quasi-coherent sheaves, or even the stalks $G=\sheaf{O}_{X,x}$ and residue fields $k(x)$ at each $x\in X$.
+In (ii), it suffices to restrict the functor to $D_\mathrm{qc}^-(X)$.
+
+\setcounter{page}{97}
+\textbf{Definition and Corollary 4.3.}
+A complex $F^\bullet\in K^b(\operatorname{Mod}(X))$ satisfying the equivalent conditions of Proposition 4.2 is said to have \textit{finite Tor-dimension}.
+These complexes form a localizing subcategory of $K^b(\operatorname{Mod}(X))$, denoted
+\[
+K^b(\operatorname{Mod}(X))_{\mathrm{fTd}}.
+\]
+The corresponding derived subcategory is
+\[
+D^b(X)_{\mathrm{fTd}}.
+\]
+\textit{Proof.} Cf.\ Corollary I.7.7.
+
+Now consider
+\[
+-\otimes-\colon K^b(\operatorname{Mod}(X))_{\mathrm{fTd}} \to K(\operatorname{Mod}(X)).
+\]
+Let $L\subseteq K^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$ be complexes of flat modules.
+By Proposition 4.2 and Lemma 4.1(a2), $L$ satisfies Theorem I5.1, so we obtain
+\[
+\mathbf{L}\otimes\colon K(\operatorname{Mod}(X)) \times D^b(X)_{\mathrm{fTd}} \to D(X).
+\]
+By Lemma 4.1(b2), this descends to
+\[
+\mathbf{L}_\mathrm{I}\mathbf{L}\otimes
+\colon D(X)\times D^b(X)_{\mathrm{fTd}}\to D(X),
+\]
+also denoted simply $\stackrel{\mathbf{L}}{\otimes}$.
+
+\setcounter{page}{98}
+\textbf{Problem.}
+Does the bifunctor
+\[
+\otimes\colon K(\operatorname{Mod}(X)) \times K^b(\operatorname{Mod}(X))_{\mathrm{fTd}}
+\to K(\operatorname{Mod}(X))
+\]
+admit a left derived functor in the first variable?
+For fixed $G^\bullet\in K^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$, does there exist a subcategory $L\subseteq K(\operatorname{Mod}(X))$ satisfying the hypotheses of Theorem I.5.1 for $-\otimes G^\bullet$?
+
+\textbf{Proposition 4.4.}
+Let $X$ be a prescheme (resp.\ locally noetherian), $F^\bullet\in D_\mathrm{qc}(X)$ (resp.\ $D_\mathrm{c}(X)$),
+$G^\bullet\in D_\mathrm{qc}^-(X)$ (resp.\ $D_\mathrm{c}^-(X)$).
+Assume either
+\begin{enumerate}
+\item[(a)] $F^\bullet\in D^-(X)$, or
+\item[(b)] $G^\bullet\in D^b(X)_{\mathrm{fTd}}$.
+\end{enumerate}
+Then
+\[
+F^\bullet\stackrel{\mathbf{L}}{\otimes} G^\bullet
+\in D_\mathrm{qc}(X)\ (\text{resp. } D_\mathrm{c}(X)).
+\]
+
+\textit{Proof.}
+Local on $X$. For quasi-coherent/coherent sheaves, $\mathcal{Tor}_i(F,G)$ is quasi-coherent/coherent for all $i$.
+Use affine open covers and resolutions by direct sums of $\sheaf{O}_X$ to compute Tor groups; apply Proposition I.7.3.
+
+\setcounter{page}{99}
+Now let $f\colon X\to Y$ be a morphism of preschemes.
+The pullback functor
+\[
+f^*\colon \operatorname{Mod}(Y)\to\operatorname{Mod}(X)
+\]
+admits a left derived functor
+\[
+\mathbf{L}f^*\colon D^-(Y)\to D^-(X),
+\]
+since there are enough flat $\sheaf{Y}$-modules, and they are $f^*$-acyclic.
+
+If $f^*$ has finite cohomological dimension on $\operatorname{Mod}(Y)$, we say $f$ has \textit{finite Tor-dimension}, and extend
+\[
+\mathbf{L}f^*\colon D(Y)\to D(X).
+\]
+
+\textbf{Proposition 4.5.}
+Let $f\colon X\to Y$ be a morphism of preschemes (resp.\ locally noetherian).
+Then $\mathbf{L}f^*$ maps $D_\mathrm{qc}^-(Y)$ into $D_\mathrm{qc}^-(X)$ (resp.\ $D_\mathrm{c}^-(Y)\to D_\mathrm{c}^-(X)$).
+If $f$ has finite Tor-dimension, the statement extends to unbounded complexes.
+
+\textit{Proof.} Left to the reader.

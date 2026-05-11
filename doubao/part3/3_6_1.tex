@@ -1,0 +1,152 @@
+
+\setcounter{page}{164}
+\section{Duality for a finite morphism}
+
+Throughout this section we let \(f: X \to Y\) be a finite morphism of locally noetherian preschemes. We will define a functor \(f^b\) and a morphism of functors
+\[
+\operatorname{Trf}_f\colon \Rfst f^b \to \id,
+\]
+with the same formal properties as \(f^!\) and \(\operatorname{Trp}_f\) of \S4 above. Then we prove a duality theorem similar to the one for projective space. This duality theorem is much more elementary, but it is important to place it in the correct functorial context.
+
+The locally noetherian hypothesis is not required merely for the definition of \(f^b\), but is essential for its functorial properties and the existence of the trace map. This suggests the definition may not be canonical in the non-noetherian setting. We also give an example showing quasi-coherence hypotheses on sheaves are necessary for duality to hold.
+
+Let \(f: X \to Y\) be a finite morphism of locally noetherian preschemes. Let \(\overline{f}\colon (X,\sheaf{O}_X)\to (Y,f_*\sheaf{O}_X)\) be the induced morphism of ringed spaces, and let \(\operatorname{Mod}(f_*\sheaf{O}_X)\) denote the category of \(f_*\sheaf{O}_X\)-modules on \(Y\). We consider the functors
+\setcounter{page}{165}
+\[
+\overline{f}_{*}\colon \operatorname{Mod}(X) \to \operatorname{Mod}(f_{*}\sheaf{O}_X),
+\]
+\[
+\overline{f}^{*}\colon \operatorname{Mod}(f_{*}\sheaf{O}_X) \to \operatorname{Mod}(X).
+\]
+
+Since \(f\) is finite, \(\overline{f}\) is flat, hence \(\overline{f}^*\) is exact. The pair \((\overline{f}^*,\overline{f}_*)\) are adjoint functors [EGA O], with unit morphism
+\[
+\tau\colon \id \to \overline{f}_{*}\overline{f}^{*},
+\]
+inducing a natural isomorphism
+\[
+\Hom_{\sheaf{O}_X}\bigl(\overline{f}^*G, F\bigr)
+\cong
+\Hom_{f_*\sheaf{O}_X}\bigl(G, \overline{f}_*F\bigr)
+\]
+for all \(F\in\operatorname{Mod}(X)\), \(G\in\operatorname{Mod}(f_*\sheaf{O}_X)\).
+
+\begin{definition}
+Let \(f: X \to Y\) be a finite morphism of locally noetherian preschemes. Define the functor
+\[
+f^{b}\colon D^{+}(Y) \to D^{+}(X)
+\]
+by
+\[
+f^{b}
+= \overline{f}^{*} \circ \RHom_{Y}\bigl(f_{*}\sheaf{O}_X,\,\cdot\bigr).
+\]
+Here \(\RHom_Y(f_*\sheaf{O}_X,\,\cdot)\) is regarded as a functor \(D^+(Y)\to D^+\bigl(\operatorname{Mod}(f_*\sheaf{O}_X)\bigr)\), and \(\overline{f}^*\) is exact so preserves derived category structure.
+\end{definition}
+
+\setcounter{page}{166}
+If \(f\) has finite Tor-dimension, then \(f_*\sheaf{O}_X\) has finite Tor-dimension in \(\operatorname{Mod}(Y)\). Since \(f_*\sheaf{O}_X\) is coherent, it admits locally finite free resolutions. Consequently \(\RHom_Y(f_*\sheaf{O}_X,\,\cdot)\) has finite cohomological dimension, allowing us to extend
+\[
+f^{b}\colon D(Y) \to D(X)
+\]
+by the same formula.
+
+\begin{proposition}
+Let \(f: X \to Y\) be a finite morphism of locally noetherian preschemes (resp.\ of finite Tor-dimension). Then
+\[
+f^{b}\bigl(D_{\mathrm{qc}}^{+}(Y)\bigr) \subseteq D_{\mathrm{qc}}^{+}(X),\quad
+f^{b}\bigl(D_{\mathrm{c}}^{+}(Y)\bigr) \subseteq D_{\mathrm{c}}^{+}(X),
+\]
+and in the finite Tor-dimension case
+\[
+f^{b}\bigl(D_{\mathrm{qc}}(Y)\bigr) \subseteq D_{\mathrm{qc}}(X),\quad
+f^{b}\bigl(D_{\mathrm{c}}(Y)\bigr) \subseteq D_{\mathrm{c}}(X).
+\]
+\end{proposition}
+
+\begin{proof}
+Follows from [I], [II.3.2], and the fact \(\overline{f}^*\) preserves quasi-coherence and coherence of sheaves.
+\end{proof}
+
+\setcounter{page}{167}
+\begin{proposition}
+Let \(X\xrightarrow{f} Y\xrightarrow{g} Z\) be composable finite morphisms of locally noetherian preschemes (resp.\ finite Tor-dimension). There exists a natural functor morphism
+\[
+(g f)^{b} \to f^{b} g^{b}
+\]
+of functors \(D^+(Z)\to D^+(X)\) (resp.\ \(D(Z)\to D(X)\)). This morphism is an isomorphism on \(D_{\mathrm{qc}}^+(Z)\) (resp.\ \(D_{\mathrm{qc}}(Z)\)).
+\end{proposition}
+
+\begin{proof}
+For a sheaf \(G\in\operatorname{Mod}(Z)\) we have a canonical isomorphism
+\[
+\overline{(gf)}^{*}\RHom_Z\bigl((gf)_*\sheaf{O}_X,G\bigr)
+\cong
+\overline{f}^{*}\RHom_Y\Bigl(f_*\sheaf{O}_X,\,\overline{g}^{*}\RHom_Z\bigl(g_*\sheaf{O}_Y,G\bigr)\Bigr).
+\]
+By [I.5.4] this induces the functor morphism \((gf)^b\to f^b g^b\).
+
+To verify it is an isomorphism on quasi-coherent complexes, use the way-out functor lemma to reduce to injective quasi-coherent sheaves. For a ring homomorphism \(A\to B\), \(\Hom_A(B,I)\) is injective whenever \(I\) is injective over \(A\); combined with [II.7.14], [II.7.16] the isomorphism follows.
+\end{proposition}
+
+\setcounter{page}{168}
+\begin{proposition}
+Let \(f: X\to Y\) be finite locally noetherian, \(u: Y'\to Y\) flat locally noetherian, and form the Cartesian square
+\[
+\begin{CD}
+X' @>v>> X \\
+@VgVV @VfVV \\
+Y' @>u>> Y
+\end{CD}
+\]
+with \(X'=X\times_Y Y'\). Then there is a natural functorial isomorphism
+\[
+v^{*} f^{b}(G^{\cdot}) \cong g^{b} u^{*}(G^{\cdot})
+\]
+for all \(G^\bullet\in D^+(Y)\) (resp.\ \(G^\bullet\in D(Y)\)).
+\end{proposition}
+
+\begin{proof}
+Follows from [II.5.8]. Details omitted.
+\end{proposition}
+
+\begin{corollary}
+With the above hypotheses, if additionally \(u,v\) are smooth, then
+\[
+v^{*} f^{\dagger}(G^{\cdot}) \cong g^{b} u^{\#}(G^{\cdot}),
+\]
+compatible with the composition isomorphisms of Propositions 2.2 and 6.2.
+\end{corollary}
+
+\begin{proof}
+Immediate from base-change compatibility of dualizing sheaves.
+\end{corollary}
+
+\setcounter{page}{169}
+\begin{proposition}
+Let \(f: X\to Y\) be a finite morphism of locally noetherian preschemes (resp.\ finite Tor-dimension). There exists a functorial morphism
+\[
+\operatorname{Trf}_{f}\colon \Rfst f^{b}(G^{\cdot}) \to G^{\cdot}
+\]
+for \(G^\bullet\in D_{\mathrm{qc}}^+(Y)\) (resp.\ \(G^\bullet\in D_{\mathrm{qc}}(Y)\)).
+\end{proposition}
+
+\begin{proof}
+For \(G\in\operatorname{Mod}(Y)\), consider the canonical unit map
+\[
+\tau\colon \RHom_Y\bigl(f_*\sheaf{O}_X,G\bigr)
+\to \overline{f}_{*}\overline{f}^{*}\RHom_Y\bigl(f_*\sheaf{O}_X,G\bigr).
+\]
+This induces a derived functor morphism
+\[
+\mathbf{R}\tau\colon \RHom_Y\bigl(f_*\sheaf{O}_X,G^\bullet\bigr)
+\to \Rfst f^b(G^\bullet).
+\]
+For quasi-coherent \(G^\bullet\), \(\mathbf{R}\tau\) is an isomorphism: reduce to injective quasi-coherent sheaves via way-out lemma, using affineness of finite morphisms [EGA II.4.3].
+
+Compose \((\mathbf{R}\tau)^{-1}\) with the evaluation-at-unit morphism
+\[
+\RHom_Y\bigl(f_*\sheaf{O}_X,G^\bullet\bigr) \to G^\bullet
+\]
+to define \(\operatorname{Trf}_f\).
+\end{proposition}

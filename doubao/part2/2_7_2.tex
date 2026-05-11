@@ -1,0 +1,128 @@
+\setcounter{page}{128}
+\textbf{Lemma 7.12.}
+Let $X$ be a locally noetherian prescheme, and let $\sheaf{I}$ be an injective $\sheaf{O}_X$-module. Then the stalk $\sheaf{I}_x$ is an injective module over the local ring $\sheaf{O}_{X,x}$ at each point $x\in X$.
+
+\textit{Proof.}
+Since $\sheaf{O}_{X,x}$ is a noetherian ring, it suffices to check the injectivity extension property for finitely generated modules over $\sheaf{O}_{X,x}$.
+Let $M\subseteq N$ be finitely generated $\sheaf{O}_{X,x}$-modules and $\varphi\colon M\to\sheaf{I}_x$ a homomorphism.
+By EGA I.9.4.8, there exist coherent sheaves $\overline{M}\subseteq\overline{N}$ on $X$ with stalks $M,N$ at $x$.
+We may extend $\varphi$ to a morphism $\overline{M}_U\to\sheaf{I}$ on a suitable open neighborhood $U$ of $X$.
+Since $\sheaf{I}$ is injective, this extends to $\overline{N}_U\to\sheaf{I}$, whose stalk at $x$ extends $\varphi$.
+
+\textit{Proof of Theorem 7.11.}
+Let $\sheaf{I}$ be an indecomposable injective $\sheaf{O}_X$-module.
+Define $\operatorname{Supp}(\sheaf{I})=\{x\in X\mid \sheaf{I}_x\neq 0\}$.
+Choose a maximal point $x\in\operatorname{Supp}(\sheaf{I})$ (maximal under specialization).
+By Lemma 7.12, $\sheaf{I}_x$ is an injective $\sheaf{O}_{X,x}$-module;
+let $I_0$ be an indecomposable injective direct summand of $\sheaf{I}_x$.
+
+\setcounter{page}{129}
+By Proposition 7.4, $I_0$ is the injective hull $I(\mathfrak{p})$ for some prime $\mathfrak{p}\subseteq\sheaf{O}_{X,x}$ corresponding to $x$.
+Using the earlier notation, $i_x(I_0)=J(x)$.
+Let $z=\overline{\{x\}}$ be the closure of $x$.
+There is a natural map $\varphi\colon\sheaf{O}_z\to\sheaf{I}$ whose stalk at $x$ maps into $I_0\subseteq\sheaf{I}_x$.
+Since $x$ is maximal in $\operatorname{Supp}(\sheaf{I})$, the image of $\varphi$ has support contained in $z$.
+Let $z'=\overline{\{x'\}}$ for a specialization $x'$ of $x$.
+Applying Lemma 7.7 to $\ker\varphi$, we may shrink $U$ to get an injective morphism
+\[
+\psi_U\colon \sheaf{O}_{z,z',U}\to\sheaf{I}.
+\]
+Since $J(x,x')$ is the injective hull of $\sheaf{O}_{z,z',U}$, the map $\psi_U$ extends to $J(x,x')\to\sheaf{I}$.
+This is an inclusion, and since $\sheaf{I}$ is indecomposable and $J(x,x')$ injective, we have $J(x,x')\cong\sheaf{I}$.
+q.e.d.
+
+\setcounter{page}{130}
+\textbf{Corollary 7.13.}
+Let $X$ be a locally noetherian prescheme. Every injective $\sheaf{O}_X$-module is uniquely a direct sum of indecomposable injectives $J(x,x')$.
+
+\textbf{Corollary 7.14.}
+Let $A$ be a noetherian ring, $X=\operatorname{Spec}A$, and let $I$ be an injective $A$-module. Then the associated sheaf $\widetilde{I}$ is an injective $\sheaf{O}_X$-module.
+
+\textit{Proof.}
+Follows from Theorem 7.3, Proposition 7.4, Proposition 7.6, and Corollary 7.9.
+
+\textbf{Corollary 7.15.}
+Let $A$ be a noetherian ring, $M$ a finite-type $A$-module, $N$ any $A$-module. Then
+\[
+\mathcal{Ext}_X^i(\widetilde{M},\widetilde{N}) \;\cong\; \widetilde{\operatorname{Ext}_A^i(M,N)}
+\]
+for all $i\in\mathbb{Z}$, where $X=\operatorname{Spec}A$.
+
+\textit{Proof.}
+The functor $M\mapsto\widetilde{M}$ is exact. For any $A$-modules $M,N$, we have
+$\Hom_A(M,N)^\sim = \Hom_X(\widetilde{M},\widetilde{N})$.
+Take an injective resolution of $N$; its associated sheaf is an injective resolution of $\widetilde{N}$, which yields the isomorphism.
+
+\setcounter{page}{131}
+\textbf{Lemma 7.16.}
+Let $X$ be a prescheme, $\sheaf{F}$ an $\sheaf{O}_X$-module. Then $\sheaf{F}$ is injective in $\operatorname{Mod}(X)$ if and only if there exists an open cover $\{U_\alpha\}$ of $X$ such that $\sheaf{F}|_{U_\alpha}$ is injective in $\operatorname{Mod}(U_\alpha)$ for all $\alpha$.
+
+\textit{Proof.}
+If $\sheaf{F}$ is injective, its restriction to any open set is injective.
+Conversely, suppose injectivity holds locally. Given $G'\subseteq G$ and a morphism $G'\to\sheaf{F}$, extend $G'$ by zero outside each $U_\alpha$; local injectivity gives extensions, which glue to a global extension of the morphism.
+
+\setcounter{page}{132}
+\textbf{Proposition 7.17.}
+Let $X$ be a locally noetherian prescheme, $\sheaf{F}$ a quasi-coherent $\sheaf{O}_X$-module. The following are equivalent:
+\begin{enumerate}
+\item[(i)] $\sheaf{F}$ is an injective $\sheaf{O}_X$-module;
+\item[(ii)] $\sheaf{F}$ is isomorphic to a direct sum of sheaves $J(x)$ for $x\in X$;
+\item[(iii)] For every $x\in X$, the stalk $\sheaf{F}_x$ is an injective $\sheaf{O}_{X,x}$-module;
+\item[(iv)] $\mathcal{Ext}^1(\sheaf{G},\sheaf{F})=0$ for all coherent sheaves $\sheaf{G}$ on $X$;
+\item[(v)] There exists an open cover $\{U_\alpha\}$ of $X$ such that $\sheaf{F}|_{U_\alpha}$ is injective for all $\alpha$.
+\end{enumerate}
+
+\textit{Proof.}
+$(i)\iff(ii)$: By Corollary 7.13; quasi-coherence forces $J(x,x')=J(x)$.
+$(ii)\iff(iii)$: Immediate from definition of $J(x)$.
+$(iii)\implies(iv)$: Ext commutes with stalks for coherent sheaves.
+$(iv)\implies(v)$: On affine opens $U=\operatorname{Spec}A$, $\mathcal{Ext}_A^1(M,N)=0$ for all finite-type $M$ implies $N$ injective.
+$(v)\implies(i)$: By Lemma 7.16.
+
+\setcounter{page}{133}
+\textbf{Theorem 7.18.}
+Let $X$ be a locally noetherian prescheme. Every quasi-coherent $\sheaf{O}_X$-module embeds into a quasi-coherent injective $\sheaf{O}_X$-module.
+
+\textit{Proof.}
+The injective hull of a quasi-coherent sheaf decomposes into $J(x,x')$. Quasi-coherence forces only $J(x)$ to appear, which are quasi-coherent. Hence the injective hull is quasi-coherent.
+
+\setcounter{page}{134}
+\textbf{Corollary 7.19.}
+Let $X$ be a locally noetherian prescheme. The natural functor
+\[
+D^+\big(\mathsf{Qco}(X)\big) \to D_{\mathrm{qc}}^+(X)
+\]
+is an equivalence of categories.
+
+\textit{Proof.}
+Follows from Theorem 7.18 and Chapter I Proposition 4.8.
+
+\textbf{Proposition 7.20.}
+Let $X$ be locally noetherian, $\mathcal{A}=\operatorname{Mod}(X)$, $F^\bullet\in K_{\mathrm{qc}}^+(\mathcal{A})$. The following are equivalent:
+\begin{enumerate}
+\item[(i)$_{\mathrm{qc}}$] $F^\bullet$ admits a quasi-isomorphism into a bounded complex of quasi-coherent injective $\sheaf{O}_X$-modules;
+\item[(ii)] $\mathbf{R}\mathcal{H}\textit{om}^\bullet(\,\cdot\,,F^\bullet)$ is way-out left;
+\item[(iii)] There exists $n_0$ such that $\mathcal{Ext}^i(G,F^\bullet)=0$ for all $G\in\operatorname{Mod}(X)$ and $i>n_0$;
+\item[(iii)$_{\mathrm{c}}$] There exists $n_0$ such that $\mathcal{Ext}^i(G,F^\bullet)=0$ for all coherent $G$ and $i>n_0$.
+\end{enumerate}
+
+\textit{Proof.}
+Implications follow as in Chapter I. The non-trivial $(iii)_{\mathrm{c}}\implies(i)_{\mathrm{qc}}$ uses Proposition 7.17 and Theorem 7.18.
+
+\setcounter{page}{135}
+\textbf{Example.}
+Let $X_n$ be the projective plane blown up recursively: start with projective plane $X_1$, blow up a closed point on an exceptional curve to form $X_{n+1}$. Define
+\[
+X = \bigsqcup_{n=1}^\infty \big(X_n\setminus E_n\big),
+\]
+gluing each open piece to the next. Then $X$ is locally noetherian, but $\mathsf{Qco}(X)$ is \textit{not} a locally noetherian category.
+
+For $k\ge 1$, define closed subsets
+\[
+Y_k = \bigcup_{n=k}^\infty \big(E_n\setminus\{x_n\}\big).
+\]
+The descending chain $Y_1\supset Y_2\supset\cdots$ gives an ascending chain of ideal sheaves $J_1\subset J_2\subset\cdots$ in $\mathsf{Qco}(X)$ that never stabilizes. Hence $\mathsf{Qco}(X)$ lacks a noetherian generating family.
+
+\setcounter{page}{136}
+\textbf{Remark.}
+It is unknown if $D\big(\mathsf{Qco}(X)\big)\to D_{\mathrm{qc}}(X)$ is an equivalence for general locally noetherian $X$. We conjecture it holds for regular noetherian schemes of finite Krull dimension, where $\operatorname{Mod}(X)$ has finite global injective dimension.

@@ -1,0 +1,82 @@
+\setcounter{page}{145}
+\section{\S2 The Functor $f^!$ for a Smooth Morphism}
+
+\textbf{Definition.}
+Let $f\colon X\to Y$ be a smooth morphism of preschemes.
+Define the functor
+\[
+f^!\colon D(Y)\to D(X)
+\]
+by
+\[
+f^\bullet(G^\bullet) = \mathbf{L}f^*\big(G^\bullet\big) \otimes \omega_{X/Y}[n],
+\]
+where $[n]$ denotes the shift left by $n$ degrees.
+
+Since smooth morphisms are flat, we have $\mathbf{L}f^* = f^*$ on all of $D(Y)$.
+The dualizing sheaf $\omega_{X/Y}$ is invertible, hence belongs to $D_{\mathrm{fTd}}(X)$,
+so the derived tensor product is well-defined (cf.\ Chapter II).
+
+\textbf{Proposition 2.1.}
+Let $f\colon X\to Y$ be smooth, $u\colon Y'\to Y$ a morphism of finite Tor-dimension,
+and let $X' = X\times_Y$. Then there is a natural isomorphism of functors
+\[
+\mathbf{L}v^*\circ f^! \;\cong\; g^!\circ \mathbf{L}u^*
+\]
+from $D(Y)$ to $D(X')$.
+
+\textit{Proof.}
+Follows from the base-change compatibility of $\omega_{X/Y}$ (\S1)
+and derived functor compatibilities in Chapter II.
+
+\setcounter{page}{146}
+\textbf{Remark.}
+We follow the convention of writing "$=$" for canonical isomorphisms whenever the compatibility is unambiguous.
+When sign conventions or coordinate choices affect the isomorphism, we explicitly name the morphism and track compatibilities.
+
+\textbf{Proposition 2.2.}
+Let $X\xrightarrow{f}Y\xrightarrow{g}Z$ be smooth morphisms.
+There exists a functorial isomorphism
+\[
+\zeta_{f,g}\colon (gf)^! \;\xrightarrow{\sim}\; f^!\circ g^!
+\]
+of functors $D(Z)\to D(X)$.
+For any composition of three smooth morphisms, the corresponding isomorphisms yield commutative diagrams.
+
+\textit{Proof.}
+Construct $\zeta_{f,g}$ using the composition isomorphism for dualizing sheaves (Definition 1.5).
+Commutativity follows from Proposition 1.6.
+
+\textbf{Proposition 2.3.}
+Let $f\colon X\to Y$ be smooth.
+Then $f^!$ maps $D_{\mathrm{qc}}(Y)$ to $D_{\mathrm{qc}}(X)$.
+If $X,Y$ are locally noetherian, $f^!$ maps $D_{\mathrm{c}}(Y)$ to $D_{\mathrm{c}}(X)$.
+
+\textit{Proof.}
+Immediate from quasi-coherence and coherence pullback properties.
+
+\setcounter{page}{147}
+\textbf{Proposition 2.4.}
+Let $f\colon X\to Y$ be smooth.
+\begin{enumerate}
+\item[(a)] There is a functorial isomorphism
+\[
+f^\bullet\big(F^\bullet \stackrel{\mathbf{L}}{\otimes} G^\bullet\big)
+\;\cong\;
+f^\bullet F^\bullet \stackrel{\mathbf{L}}{\otimes} f^\bullet G^\bullet,
+\]
+valid if either $F^\bullet,G^\bullet\in D^-(Y)$,
+or one lies in $D^b_{\mathrm{fTd}}(Y)$ and the other in $D(Y)$.
+
+\item[(b)] There is a functorial homomorphism
+\[
+f^\bullet\big(\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)\big)
+\to
+\mathbf{R}\mathcal{H}\textit{om}^\bullet\big(f^\bullet F^\bullet,\,f^\bullet G^\bullet\big),
+\]
+for $F^\bullet\in D(Y)$, $G^\bullet\in D^+(Y)$.
+If $Y$ is locally noetherian and $F^\bullet\in D_{\mathrm{c}}^-(Y)$, this is an isomorphism.
+\end{enumerate}
+
+\textit{Proof.}
+Follows from Chapter II Propositions 5.8, 5.9, 5.13, 5.16.

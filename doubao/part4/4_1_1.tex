@@ -1,0 +1,160 @@
+This chapter consists for a great part in definitions, which generalize those of the Local Cohomology lecture notes [LC]. Notable new material is the spectral sequence of a filtered topological space, and the Cousin complex of a sheaf.
+
+\section{Local cohomology groups, sheaves, and complexes}
+
+Throughout this section, \(X\) will be an arbitrary topological space, and \(F\) a sheaf of abelian groups on \(X\). There are three ways in which one can vary the basic definition of the cohomology of \(F\) with supports in a closed subset \(Z\) of \(X\): one can replace \(Z\) by a family of supports; one can define a relative local cohomology if \(z' \subseteq z\) are two closed subsets; and one can make everything local by sheafifying. Therefore we will present the definitions in the form of a theme and variations, to allow for all possible combinations of the generalizations suggested above.
+
+We state our results mostly in terms of the cohomology groups, and leave to the reader the appropriate statements in terms of the derived category. When \(X\) is an arbitrary
+
+\setcounter{page}{216}
+topological space, we work in the derived category \(D(\cat{Ab}(X))\) of the category of abelian sheaves on \(X\). If \(X\) is a prescheme, we work in the derived category \(D(\operatorname{Mod}(X))\) of \(\sheaf{O}_X\)-modules. All the derived functors considered in this chapter are compatible in the two cases with the natural functor of the category
+\[D^{+}(X) \to D^{+}(\cat{Ab}(X)),\]
+since any injective \(\sheaf{O}_X\)-module is flasque, and flasque sheaves are acyclic for the functors considered (Motif C below).
+
+\subsection{Theme}
+Let \(Z\) be a closed subset of \(X\). Define \(\Gamma_{Z}(X, F)\) to be the group consisting of those global sections of \(F\) whose support lies in \(Z\). Define \(H_{Z}^{i}(X, F)\) to be the \(i^{\text{th}}\) right derived functor of \(\Gamma_{Z}\), and define \(\RGamma_{Z}\) to be the right derived functor on the derived category \(D^{+}(\cat{Ab}(X))\). These are called the local cohomology groups of \(F\) with supports in \(Z\). They have the following properties:
+
+\begin{motif}
+If 
+\[0 \to F' \to F \to F'' \to 0\]
+is a short exact sequence of abelian sheaves on \(X\), then there
+
+\setcounter{page}{217}
+is a long exact sequence of groups 
+\[0 \to \Gamma_{Z}\left(X, F'\right) \to \Gamma_{Z}(X, F) \to \Gamma_{Z}(X, F'') \to\]
+\[H_{Z}^{1}\left(X, F'\right) \to H_{Z}^{1}(X, F) \to H_{Z}^{1}\left(X, F''\right) \to \cdots .\]
+\end{motif}
+\begin{proof}
+This is the same as to say that \(\Gamma_{Z}\) is left exact, and so is equal to \(H^{\circ}(\RGamma_{Z})\) which it is.
+\end{proof}
+
+\begin{motif}
+There is a long exact sequence 
+\[0 \to \Gamma_{Z}(X, F) \to \Gamma(X, F) \to \Gamma(X-Z, F) \to\]
+\[H_{Z}^{1}(X, F) \to H^{1}(X, F) \to H^{1}(X-Z, F) \to H_{Z}^{2}(X, F) \to \cdots .\]
+\end{motif}
+\begin{proof}
+For any sheaf \(F\) one has an exact sequence
+\[0 \to \Gamma_{Z}(X, F) \to \Gamma(X, F) \to \Gamma(X-Z, F),\]
+and if \(F\) is flasque (in particular if \(F\) is injective) one can write a zero on the right. Thus if \(I^\bullet\) is an injective resolution of \(F\), we have an exact sequence of complexes 
+\[0 \to \Gamma_{Z}\left(X, I^{\bullet}\right) \to \Gamma\left(X, I^{\bullet}\right) \to \Gamma\left(X-I^{\bullet}, F\right) \to 0\]
+which gives rise to a triangle in \(D^+(\cat{Ab})\),
+
+\setcounter{page}{218}
+\[\RGamma(X-Z,F) \to \RGamma_Z(X,F) \to \RGamma(X,F)\]
+Taking cohomology gives the result.
+\end{proof}
+
+\begin{motif}
+For \(F\) flasque, and \(i>0\), \(H_{Z}^{i}(X, F)=0\)
+\end{motif}
+\begin{proof}
+This follows from Motif B, and the fact that \(H^{i}(X, F)=H^{i}(X-Z, F)=0\) for \(i>0\), and \(\Gamma(X, F) \to \Gamma(X-Z, F)\) is surjective for \(F\) flasque.
+\end{motif}
+
+\begin{remark}
+In fact, \(F\) is flasque subspace \(Z\) of \(X\), \(H_{Z}^{1}(X, F)=0\) [LC, 1.10].
+\end{remark}
+
+\subsection{Variation 1}
+\begin{definition}
+A family of supports on a topological space \(X\) is a set \(\varphi\) of closed subsets of \(X\) such that
+(a)if \(z \in \varphi\), and \(z'\) is a closed subset of \(z\), then \(Z' \in \varphi\),
+(b)if \(z_{1}, z_{2} \in \varphi\), then \(z_{1} \cup z_{2} \in \varphi\)
+\end{definition}
+
+Now let \(\varphi\) be a family of supports, and define \(\Gamma_{\varphi}(X, F)\) to be the group of global sections of \(F\) whose support is in \(\varphi\). Define \(\RGamma_{\varphi}(X, F)\) and \(H_{\varphi}^{i}(X, F)\) to be the right derived functors.
+
+\setcounter{page}{219}
+\begin{motif}
+Repeat as above, with \(Z\) replaced by \(\varphi\).
+\end{motif}
+
+\begin{motif}
+\[H_{\varphi}^{i}(X, F)=\varinjlim_{Z \in \varphi} H_{Z}^{i}(X, F) .\]
+\end{motif}
+\begin{proof}
+It is true for \(i=0\), and direct limits commute with cohomology of complexes.
+\end{proof}
+
+\begin{motif}
+For \(F\) flasque, and \(i>0\), \(H_{\varphi}^{i}(X, F)=0\)
+\end{motif}
+\begin{proof}
+Follows from Motif D, and Motif C above.
+\end{proof}
+
+\subsection{Variation 2}
+Let \(z' \subseteq z\) be closed subsets of \(X\). Define \(\Gamma_{z/z'}(X, F)\) to be \(\Gamma_{z}(X, F) / \Gamma_{z'}(X, F)\).
+Define \(\RGamma_{z/z'}\) and \(H_{z/z'}^{i}\) to be the right derived functors.
+
+Note that in general \(\Gamma_{z/z'}\) is not left exact, so that \(\Gamma_{z/z'} \ne H_{z/z'}^{\circ}\)
+
+\begin{motif}
+Repeat with \(H^{\circ}\) in place of \(\Gamma\), and \(z / z'\) in place of \(Z\).
+\end{motif}
+
+\begin{motif}
+There is a long exact sequence 
+\[0 \to \Gamma_{z'}(X, F) \to \Gamma_{z}(X, F) \to H_{z/z'}^{\circ}(X, F) \to\]
+\[H_{z'}^{1}(X, F) \to H_{z}^{1}(X, F) \to H_{z/z'}^{1}(X, F) \to\]
+\[H_{z'}^{2}(X, F) \to \cdots .\]
+\end{motif}
+
+\begin{motif}
+Repeat.
+\end{motif}
+
+\setcounter{page}{220}
+\subsection{Variation 3}
+Let \(Z\) be a closed subset of \(X\). Define \(\underline{\Gamma}_{Z}(F)\) to be the sheaf whose sections over an open set \(U\) are the elements of \(\Gamma_{Z \cap U}(U,F|_{U})\).
+Define \(\mathbf{R}\underline{\Gamma}_{Z}(F)\) and \(\underline{H}_{Z}^{i}(F)\) to be the right derived functors, which are now complexes of sheaves, resp. sheaves on \(X\).
+
+\begin{motif}
+Repeat with underlines.
+\end{motif}
+
+\begin{motif}
+There is a four-term exact sequence 
+\[0 \to \underline{\Gamma}_{z}(F) \to F \to j_{*}\left(\left.F\right|_{X-Z}\right) \to \underline{H}_{Z}^{1}(F) \to 0\]
+where \(j: X-Z \to X\) is the inclusion and for \(i>0\), there are isomorphisms 
+\[R^{i} j_{*}\left(\left.F\right|_{X-Z}\right) \stackrel{\sim}{\to} \underline{H}_{Z}^{i+1}(F) .\]
+\end{motif}
+
+\begin{motif}
+For \(F\) flasque and \(i>0\), \(\underline{H}_{Z}^{i}(F)=0\)
+\end{motif}
+\begin{proof}
+One sees easily that \(\underline{H}_{Z}^{i}(F)\) is the sheaf associated to the presheaf 
+\[U \to H_{Z \cap U}^{i}\left(U,\left.F\right|_{U}\right) .\]
+Now since the restriction of a flasque sheaf to an open subset is flasque, the result follows from Motif C above.
+\end{proof}
+
+\setcounter{page}{221}
+\begin{motif}
+There is a spectral sequence 
+\[E_{2}^{p q}=H^{p}\left(X, \underline{H}_{Z}^{q}(F)\right) \Rightarrow E^{n}=H_{Z}^{n}(X, F),\]
+or equivalently, in terms of the derived categories, \(\RGamma_{Z}=\RGamma \circ \mathbf{R}\underline{\Gamma}_{Z}\)
+\end{motif}
+\begin{proof}
+Referring to [I.5.4], we need only show that \(\underline{\Gamma}_{z}\) takes injectives into \(F\)-acyclic objects. Indeed, any injective is flasque, and \(\Gamma_{z}\) of a flasque is flasque, and any flasque is \(F\)-acyclic.
+\end{proof}
+
+\subsection{Variation 4}
+Combining variations 1 and 2, let \(\psi \subseteq \varphi\) be two families of supports. Define \(\Gamma_{\varphi / \psi}(X, F)\) and its derived functors \(\RGamma_{\varphi / \psi}\) and \(H_{\varphi / \psi}^{i}\)
+
+\begin{motif}
+Repeat.
+\end{motif}
+\begin{motif}
+Repeat.
+\end{motif}
+\begin{motif}
+Repeat.
+\end{motif}
+\begin{motif}
+\[H_{\varphi / \psi}^{i}(X, F)=\varinjlim_{\substack{z \in \varphi \\ z' \in \psi \\ z' \subseteq z}} H_{z / z'}^{i}(X) .\]
+\end{motif}
+Repeat.
+
+\end{document}

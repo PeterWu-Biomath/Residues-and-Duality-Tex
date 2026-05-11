@@ -1,0 +1,195 @@
+\setcounter{page}{68}
+\section{\S7 Way-out Functors and Isomorphisms}
+
+\textbf{Definition.}
+Let \(\cat{A},\cat{B}\) be abelian categories, and let \(F\colon D(\cat{A})\to D(\cat{B})\) be a triangulated functor.
+We say \(F\) is \textit{way-out right} if for every \(n_1\in\mathbb{Z}\), there exists \(n_2\in\mathbb{Z}\) such that
+for any complex \(X^\bullet\in D(\cat{A})\) satisfying \(H^i(X^\bullet)=0\) for all \(i<n_2\),
+we have \(H^i(F(X^\bullet))=0\) for all \(i<n_1\).
+
+One defines \textit{way-out left} and \textit{way-out in both directions} similarly.
+For a contravariant triangulated functor \(F\colon D(\cat{A})\to D(\cat{B})\),
+the definition of way-out right is the same, except reversing the inequality to \(i>n_2\).
+
+\textbf{Examples.}
+1. If \(F_0\colon\cat{A}\to\cat{B}\) is additive and satisfies the hypotheses of Corollary 5.3(\(\alpha\)) or (\(\beta\)),
+then \(\mathbf{R}^+F\) is way-out right.
+If \(F_0\) satisfies (\(\gamma\)), then \(\mathbf{R}F\) is way-out in both directions.
+
+2. For unbounded \(X^\bullet\in D(\cat{A})\), the functor
+\(\mathbf{R}\mathcal{H}\textit{om}(X^\bullet,\,\cdot\,)\) on \(D^+(\cat{A})\)
+is generally not way-out.
+
+\setcounter{page}{69}
+\textbf{Proposition 7.1 (Lemma on Way-out Functors).}
+Let \(\cat{A},\cat{B}\) be abelian categories, \(\cat{A}'\subseteq\cat{A}\) a thick subcategory.
+Let \(F,G\colon D_{\cat{A}'}^+(\cat{A})\to D(\cat{B})\) be triangulated functors,
+and \(\eta\colon F\to G\) a morphism of functors.
+\begin{enumerate}
+\item[(i)] If \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\cat{A}'\),
+then \(\eta(X^\bullet)\) is an isomorphism for all \(X^\bullet\in D_{\cat{A}'}^b(\cat{A})\).
+
+\item[(ii)] If \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\cat{A}'\),
+and \(F,G\) are way-out right,
+then \(\eta(X^\bullet)\) is an isomorphism for all \(X^\bullet\in D_{\cat{A}'}^+(\cat{A})\).
+
+\item[(iii)] If \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\cat{A}'\),
+and \(F,G\) are way-out in both directions,
+then \(\eta(X^\bullet)\) is an isomorphism for all \(X^\bullet\in D_{\cat{A}'}(\cat{A})\).
+
+\item[(iv)] Let \(P\subseteq\operatorname{Ob}\cat{A}'\) be such that every object of \(\cat{A}'\) embeds into an object of \(P\).
+If \(\eta(X)\) is an isomorphism for all \(X\in P\), and \(F,G\) are way-out right,
+then \(\eta(X)\) is an isomorphism for all \(X\in\operatorname{Ob}\cat{A}'\).
+\end{enumerate}
+
+\textbf{Definition.}
+Let \(X^\bullet\) be a complex over abelian category \(\cat{A}\), \(n\in\mathbb{Z}\).
+Define truncation functors:
+\[
+\tau_{>n}(X^\bullet)\colon \cdots\to 0\to X^{n+1}\to X^{n+2}\to\cdots
+\]
+\[
+\tau_{\le n}(X^\bullet)\colon \cdots\to X^{n-1}\to X^n\to 0\to\cdots
+\]
+\[
+\sigma_{>n}(X^\bullet)\colon \cdots\to 0\to \operatorname{im}d^n\to X^{n+1}\to X^{n+2}\to\cdots
+\]
+\[
+\sigma_{\le n}(X^\bullet)\colon \cdots\to X^{n-1}\to \ker d^n\to 0\to\cdots
+\]
+
+\setcounter{page}{70}
+There are natural morphisms inducing short exact sequences of complexes:
+\[
+(1)\quad 0 \to \tau_{>n}(X^\bullet) \to X^\bullet \to \tau_{\le n}(X^\bullet) \to 0
+\]
+\[
+(2)\quad 0 \to \sigma_{\le n}(X^\bullet) \to X^\bullet \to \sigma_{>n}(X^\bullet) \to 0
+\]
+
+The \(\sigma\)-truncations satisfy:
+\[
+H^i\big(\sigma_{>n}(X^\bullet)\big)
+=
+\begin{cases}
+H^i(X^\bullet) & i>n,\\
+0 & i\le n;
+\end{cases}
+\]
+\[
+H^i\big(\sigma_{\le n}(X^\bullet)\big)
+=
+\begin{cases}
+H^i(X^\bullet) & i\le n,\\
+0 & i>n.
+\end{cases}
+\]
+
+\setcounter{page}{71}
+\textbf{Lemma 7.2.}
+For any complex \(X^\bullet\) over \(\cat{A}\), there exist triangles in \(D(\cat{A})\):
+\[
+(3)\quad \tau_{>n}(X^\bullet) \to \tau_{\ge n}(X^\bullet) \to X^n \to T\tau_{>n}(X^\bullet)
+\]
+\[
+(4)\quad H^n(X^\bullet) \to \sigma_{\ge n}(X^\bullet) \to \sigma_{>n}(X^\bullet) \to T H^n(X^\bullet)
+\]
+
+\textit{Proof.}
+Triangle (3) comes from the short exact sequence
+\[
+0\to\tau_{>n}(X^\bullet)\to\tau_{\ge n}(X^\bullet)\to X^n\to 0.
+\]
+
+For (4), define
+\(\sigma_{\ge n}'(X^\bullet)\) by
+\[
+\cdots\to 0\to X^n/\operatorname{im}d^{n-1}\to X^{n+1}\to\cdots.
+\]
+There is a quasi-isomorphism \(\sigma_{\ge n}(X^\bullet)\to\sigma_{\ge n}'(X^\bullet)\),
+and an exact sequence
+\[
+0\to H^n(X^\bullet)\to\sigma_{\ge n}'(X^\bullet)\to\sigma_{>n}(X^\bullet)\to 0.
+\]
+This induces the required triangle in \(D(\cat{A})\).
+
+\setcounter{page}{72}
+\textit{Proof of Proposition 7.1.}
+(i) For \(X^\bullet\in D_{\cat{A}'}^b(\cat{A})\),
+use descending induction on \(n\) to show
+\(\eta\big(\sigma_{>n}(X^\bullet)\big)\) is an isomorphism.
+For large \(n\), \(\sigma_{>n}(X^\bullet)\) is acyclic, hence trivial.
+The induction step follows from triangle (4) and Proposition 1.1(c).
+For small \(n\), \(X^\bullet\cong\sigma_{>n}(X^\bullet)\) in \(D(\cat{A})\), done.
+
+(ii) Let \(X^\bullet\in D_{\cat{A}'}^+(\cat{A})\).
+It suffices to show \(H^j(\eta(X^\bullet))\) is an isomorphism for all \(j\).
+Given \(j\), pick \(n_1\ge j+2\), choose \(n_2\) from the way-out property for \(F,G\).
+Since \(H^i(\sigma_{>n_2}(X^\bullet))=0\) for \(i\le n_2\),
+we have \(H^i(F(\sigma_{>n_2}(X^\bullet)))=H^i(G(\sigma_{>n_2}(X^\bullet)))=0\) for \(i<n_1\),
+in particular for \(i=j,j+1\).
+
+\setcounter{page}{73}
+By the long exact cohomology sequence:
+\[
+H^j\big(F(\sigma_{\le n_2}(X^\bullet))\big) \stackrel{\sim}{\to} H^j\big(F(X^\bullet)\big),
+\]
+\[
+H^j\big(G(\sigma_{\le n_2}(X^\bullet))\big) \stackrel{\sim}{\to} H^j\big(G(X^\bullet)\big).
+\]
+But \(\sigma_{\le n_2}(X^\bullet)\in D_{\cat{A}'}^b(\cat{A})\), so \(\eta\) is an isomorphism there.
+Hence \(H^j(\eta(X^\bullet))\) is an isomorphism.
+
+(iii) Decompose \(X^\bullet\) via \(\sigma_{\le0},\sigma_{>0}\), apply (ii) to each piece, then glue via the triangle from (2).
+
+(iv) Use Lemma 4.6 to resolve any \(X\in\cat{A}'\) by a complex \(I^\bullet\) with terms in \(P\).
+Apply (i),(ii) with \(\tau\)-truncations instead of \(\sigma\)-truncations.
+q.e.d.
+
+\setcounter{page}{74}
+\textbf{Proposition 7.2.}
+Let \(\cat{A}'\subseteq\cat{A}\), \(\cat{B}'\subseteq\cat{B}\) be thick abelian categories,
+\(F\colon D_{\cat{A}'}^+(\cat{A})\to D(\cat{B})\) a triangulated functor.
+\begin{enumerate}
+\item[(i)] If \(F(X)\in D_{\cat{B}'}(\cat{B})\) for all \(X\in\operatorname{Ob}\cat{A}'\),
+then \(F(X^\bullet)\in D_{\cat{B}'}(\cat{B})\) for all \(X^\bullet\in D_{\cat{A}'}^b(\cat{A})\).
+
+\item[(ii)] If \(F(X)\in D_{\cat{B}'}(\cat{B})\) for all \(X\in\operatorname{Ob}\cat{A}'\)
+and \(F\) is way-out right,
+then \(F(X^\bullet)\in D_{\cat{B}'}(\cat{B})\) for all \(X^\bullet\in D_{\cat{A}'}^+(\cat{A})\).
+
+\item[(iii)] If \(F\) is way-out both directions, extend to all \(X^\bullet\in D_{\cat{A}'}(\cat{A})\).
+
+\item[(iv)] Let \(P\subseteq\operatorname{Ob}\cat{A}'\) such that every object of \(\cat{A}'\) embeds into \(P\).
+If \(F(X)\in D_{\cat{B}'}(\cat{B})\) for all \(X\in P\) and \(F\) is way-out right,
+then \(F(X)\in D_{\cat{B}'}(\cat{B})\) for all \(X\in\operatorname{Ob}\cat{A}'\).
+\end{enumerate}
+
+\textit{Proof.} Analogous to Proposition 7.1, omitted.
+
+\setcounter{page}{75}
+\textbf{Proposition 7.4.}
+Let \(\cat{A}\) have enough injectives, \(F\colon\cat{A}\to\cat{B}\) additive of cohomological dimension \(\le n\).
+Let \(P\subseteq\operatorname{Ob}\cat{A}\) be all \(X\) with \(R^iF(X)=0\) for \(i\ne n\).
+Assume every object of \(\cat{A}\) is a quotient of an object in \(P\).
+Set \(G=R^nF\). Then \(\mathbf{R}F,\mathbf{L}G\) exist, and there is a functorial isomorphism
+\[
+\psi\colon \mathbf{R}F \stackrel{\sim}{\to} \mathbf{L}G[-n],
+\]
+where \([-n]\) denotes shifting right by \(n\) degrees.
+
+\textit{Proof.}
+Existence of \(\mathbf{R}F\) follows from Corollary 5.3.
+Existence of \(\mathbf{L}G\) follows by dualizing Theorem 5.1 for left derived functors.
+
+The class \(P\) satisfies the dual conditions of Lemma 4.6 and Corollary 5.3.
+Let \(L\subseteq K(\cat{A})\) be complexes of objects in \(P\);
+the hypotheses of Theorem 5.1 hold, so \(\mathbf{L}G\) exists.
+
+Since \(L_{\mathsf{Qis}}\to D(\cat{A})\) is an equivalence,
+it suffices to define \(\psi\) on complexes in \(L\):
+for any \(X^\bullet\in L\),
+\[
+\psi(X^\bullet)\colon \mathbf{R}F(X^\bullet)\to \mathbf{L}G(X^\bullet)[-n],
+\]
+compatible with morphisms of complexes.

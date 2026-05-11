@@ -1,0 +1,93 @@
+
+\setcounter{page}{210}
+\section{Duality for projective morphisms}
+
+Combining the results of \S8 and \S10, we have well-defined functors $f^!$ and trace morphisms $\operatorname{Tr}_f$ for projectively embeddable morphisms. We now prove the main duality theorem for this class of morphisms.
+
+\begin{theorem}
+Let $f\colon X\to Y$ be a projectively embeddable morphism of noetherian preschemes of finite Krull dimension. The duality morphism
+\[
+\theta_{f}\colon
+\Rfst \RHom_X\bigl(F^\bullet,f^! G^\bullet\bigr)
+\to \RHom_Y\bigl(\Rfst F^\bullet,G^\bullet\bigr)
+\]
+defined by composing [II.5.5] with $\operatorname{Tr}_f$ is an isomorphism for all $F^\bullet\in D_{\mathrm{qc}}^-(X)$ and $G^\bullet\in D_{\mathrm{qc}}^+(Y)$.
+\end{theorem}
+
+\begin{proof}
+Factor $f = p\circ g$ with $g$ finite and $p\colon\mathbb{P}_Y^n\to Y$ the projective projection. By functorial compatibility [II.8.6] and axiom \textsc{TRA1}, we have $\theta_f = \theta_p\circ\theta_g\circ c_{g,p}$. It suffices to verify $\theta_p,\theta_g$ are isomorphisms, which follows from Theorem 5.1 (projective case) and Theorem 6.7 (finite case), together with the compatibility axioms of Theorem 8.7 and Theorem 10.5.
+\end{remark}
+
+\noindent\textbf{Remarks.}
+1. The graded component morphisms $\theta_f^i$ are also isomorphisms.
+2. This result is provisional; a general duality theorem for arbitrary proper morphisms will be proved in Chapter VII.
+\setcounter{page}{211}
+3. Taking global sections and applying $H^0$, we obtain
+\[
+\Hom_{D(X)}\big(F^\bullet,f^!G^\bullet\big)
+\cong
+\Hom_{D(Y)}\big(\Rfst F^\bullet,G^\bullet\big).
+\]
+For $F^\bullet,G^\bullet\in D_{\mathrm{qc}}^b(Y)$, this implies $\mathbf{R}f_*$ is left adjoint to $f^!$, with unit/counit given by $\operatorname{Tr}_f$. The pair $(f^!,\operatorname{Tr}_f)$ is uniquely determined on $D_{\mathrm{qc}}^b(Y)$. There may exist non-isomorphic extensions of $f^!$ to $D_{\mathrm{qc}}^+(Y)$ still satisfying duality.
+
+\begin{corollary}
+Let $f\colon X\to Y$ be a smooth projectively embeddable morphism of locally noetherian preschemes of relative dimension $n$. The following hold:
+\begin{enumerate}
+\item[(a)] There exists a canonical morphism
+\[
+\gamma_f\colon R^n f_*\big(\omega_{X/Y}\big) \to \sheaf{O}_Y.
+\]
+\setcounter{page}{212}
+\item[(b)] For composable smooth projectively embeddable morphisms $X\xrightarrow{f}Y\xrightarrow{g}Z$ of relative dimensions $n,m$, there is a commutative diagram
+\[
+\begin{CD}
+R^{n+m}(gf)_*\big(\omega_{X/Z}\big)
+@>{\zeta_{f,g}}>>
+R^m g_*\big(R^n f_*(\omega_{Y/Z}\otimes\omega_{X/Y})\big)
+\end{CD}
+\]
+Here $R^nf_*$ is right exact on quasi-coherent sheaves, so the projection formula gives the sheaf-level isomorphism.
+
+\item[(c)] $\gamma_f$ commutes with arbitrary flat base extension.
+
+\item[(d)] If $f\colon\mathbb{P}_Y^n\to Y$ is projective projection, $\gamma_f$ coincides with the isomorphism of Theorem 3.4.
+
+\item[(e)] If $f$ is finite and smooth, $\gamma_f$ reduces to the classical trace map
+\[
+\gamma_f\colon f_*\sheaf{O}_X \to \sheaf{O}_Y.
+\]
+\setcounter{page}{213}
+\item[(f)] For quasi-coherent $F$ on $X$ and injective quasi-coherent $G$ on $Y$, the duality map
+\[
+\theta_f^i\colon
+\mathcal{Ext}_X^i\big(F,f^!G\big)
+\to
+\Hom_Y\big(R^{n-i}f_*(F),G\big)
+\]
+is an isomorphism.
+
+\item[(g)] $\gamma_f$ is an isomorphism if and only if $f$ is surjective with geometrically connected fibres.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Define $\gamma_f$ by evaluating $\operatorname{Tr}_f$ at $G=\sheaf{O}_Y$. Part (b) follows from axiom \textsc{TRA1}.
+
+For (c), the statement is local on $Y$; we may assume $Y$ affine. Any smooth projectively embeddable morphism factors through a projective space embedding $f=p\circ i$. Using the fundamental local isomorphism and base-compatibility of $\omega_{X/Y}$, the construction is compatible with arbitrary flat base change.
+
+Part (d) follows directly from compatibility axiom \textsc{TRA3}.
+Part (e) is a standard exercise in finite morphism trace theory.
+Part (f) is a special case of Theorem 11.1.
+Part (g) follows from EGA III 4.3.1 combined with (f).
+\setcounter{page}{214}
+\end{proof}
+
+\noindent\textbf{Remarks.}
+1. We will extend these results to arbitrary smooth proper morphisms in later chapters.
+2. When $Y=\operatorname{Spec}k$ for an algebraically closed field $k$, $X$ a smooth projective variety over $k$, and $F$ a coherent sheaf on $X$, formula (f) recovers classical Serre duality:
+\[
+\Ext_X^i\big(F,\omega_X\big)
+\cong
+H^{n-i}(X,F)^\vee,
+\]
+where $(-)^\vee$ denotes the dual finite-dimensional $k$-vector space.

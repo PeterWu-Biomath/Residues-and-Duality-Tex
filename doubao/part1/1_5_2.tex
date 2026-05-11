@@ -1,0 +1,119 @@
+\setcounter{page}{42}
+From the homotopy relation we obtain
+\[
+\id_I = dk + kd + ts
+\]
+and
+\[
+dt - td = 0.
+\]
+Thus \(t\colon Y^\bullet\to I^\bullet\) is a morphism of complexes, and \(ts\) is homotopic to \(\id_I\). Hence \(t\) is a homotopy inverse of \(s\).
+
+\medskip
+\textbf{Lemma 4.6.}
+Let \(\cat{A}\) be an abelian category.
+\begin{enumerate}
+\item[1)] Let \(P\subseteq\operatorname{Ob}\cat{A}\) satisfy:
+\begin{enumerate}
+\item[(i)] Every object of \(\cat{A}\) admits an injection into an element of \(P\).
+\end{enumerate}
+Then every bounded-below complex \(X^\bullet\in K^+(\cat{A})\) admits a quasi-isomorphism into a bounded-below complex \(I^\bullet\) of objects of \(P\).
+
+\item[2)] Assume further that \(P\) satisfies:
+\begin{enumerate}
+\item[(ii)] If \(0\to X\to Y\to Z\to 0\) is exact and \(X\in P\), then \(Y\in P\iff Z\in P\);
+\item[(iii)] There exists a positive integer \(n\) such that for any exact sequence
+\[
+X^0\to X^1\to\cdots\to X^{n-1}\to X^n\to 0,
+\]
+if \(X^0,\dots,X^{n-1}\in P\) then \(X^n\in P\).
+\end{enumerate}
+Then every \(X^\bullet\in K(\cat{A})\) admits a quasi-isomorphism into a complex \(I^\bullet\) of objects of \(P\).
+
+\item[3)] Let \(\cat{A}'\) be a thick subcategory of \(\cat{A}\), and suppose \(\cat{A}'\) has enough \(\cat{A}\)-injectives. Then every \(X^\bullet\in K_{\cat{A}'}^+(\cat{A})\) admits a quasi-isomorphism into a bounded-below complex \(I^\bullet\) of \(\cat{A}\)-injective objects of \(\cat{A}'\).
+\end{enumerate}
+
+\setcounter{page}{43}
+\textit{Proofs.}
+1) We may assume \(X^p=0\) for \(p<0\). Embed \(X^0\hookrightarrow I^0\) with \(I^0\in P\). Having defined \(I^0,I^1,\dots,I^p\), choose \(I^{p+1}\in P\) containing
+\[
+I^p\big/\operatorname{im}I^{p-1}\;\oplus\;X^{p+1},
+\]
+and define differentials \(I^p\to I^{p+1}\) and morphisms \(X^{p+1}\to I^{p+1}\) canonically. One verifies \(X^\bullet\to I^\bullet\) is a quasi-isomorphism, and each \(X^p\to I^p\) is injective.
+
+2) Proceed in steps. Let \(X^\bullet\) be any complex, and fix an integer \(i_0\). By (i), the truncated complex
+\[
+0\to 0\to X^{i_0}\to X^{i_0+1}\to\cdots
+\]
+admits a quasi-isomorphism into a complex \(I^\bullet\) of objects of \(P\), with each \(X^i\to I^i\) injective. Define \(X_0^\bullet\) by
+\[
+\cdots\to X^{i_0-2}\to X^{i_0-1}\to I^{i_0}\to I^{i_0+1}\to\cdots.
+\]
+Then \(X^\bullet\to X_0^\bullet\) is a quasi-isomorphism, \(X_0^i\in P\) for \(i\ge i_0\), and each \(X^i\to X_0^i\) is injective.
+
+Suppose we have \(X_1^\bullet\) with \(X_1^i\in P\) for \(i\ge i_1\), and let \(i_2<i_1\). We construct a quasi-isomorphism \(X_1^\bullet\to X_2^\bullet\) such that \(X_2^i\in P\) for \(i\ge i_2\) and \(X_1^i=X_2^i\) for \(i\ge i_1+n\) (with \(n\) from condition (iii)).
+
+\setcounter{page}{44}
+By the first step, choose a quasi-isomorphism \(X_1^\bullet\to X'^\bullet\) with \(X'^i\in P\) for \(i\ge i_2\) and each map injective. Let \(Y^i=\operatorname{coker}(X_1^i\to X'^i)\). Then \(Y^\bullet\) is acyclic, and \(Y^i\in P\) for \(i\ge i_1\) by (ii). By (iii), the boundaries \(B^i(Y^\bullet)\in P\) for \(i\ge i_1+n\).
+
+Define \(X_2^\bullet\) piecewise:
+\[
+X_2^i=
+\begin{cases}
+X'^i & i < i_1+n,\\
+B^i(X'^\bullet)\oplus \ker(X_1^{i-1}\to X_1^i) & i = i_1+n,\\
+X_1^i & i > i_1+n.
+\end{cases}
+\]
+From the exact sequence
+\[
+0\to X_1^i\to B^i(X'^\bullet)\oplus \ker(X_1^{i-1}\to X_1^i)\to B^i(X'^\bullet)\to 0,
+\]
+condition (ii) implies the middle term lies in \(P\) for \(i\ge i_1+n\). One checks \(X_1^\bullet\to X_2^\bullet\) is a quasi-isomorphism.
+
+Now for any \(X^\bullet\in K(\cat{A})\), pick a decreasing sequence \(i_0>i_1>i_2>\cdots\to-\infty\). Construct \(X_0^\bullet,X_1^\bullet,X_2^\bullet,\dots\) as above, giving quasi-isomorphisms
+\[
+X^\bullet\to X_0^\bullet\to X_1^\bullet\to X_2^\bullet\to\cdots.
+\]
+For each fixed degree \(i\), the sequence \(X^i\to X_0^i\to X_1^i\to\cdots\) is eventually constant and lies in \(P\). The direct limit \(I^\bullet=\varinjlim X_r^\bullet\) is the desired complex of objects of \(P\).
+
+\setcounter{page}{45}
+3) Assume \(X^i=0\) for \(i<0\). Embed \(H^0(X^\bullet)\hookrightarrow I^0\), where \(I^0\) is an \(\cat{A}\)-injective object of \(\cat{A}'\); this is possible since \(H^0(X^\bullet)\in\cat{A}'\) and \(\cat{A}'\) has enough \(\cat{A}\)-injectives. Extend to a morphism \(f^0\colon X^0\to I^0\).
+
+Inductively having defined \(I^0,\dots,I^p\) and \(f^i\colon X^i\to I^i\) for \(0\le i\le p\), choose an \(\cat{A}\)-injective \(I^{p+1}\in\cat{A}'\) containing
+\[
+I^p\big/\operatorname{im}I^{p-1}\;\oplus\;Z^{p+1}(X^\bullet).
+\]
+Since \(\cat{A}'\) is thick, this object belongs to \(\cat{A}'\). Extend the natural map \(Z^{p+1}(X^\bullet)\to I^{p+1}\) to \(f^{p+1}\colon X^{p+1}\to I^{p+1}\). The resulting morphism \(f\colon X^\bullet\to I^\bullet\) is a quasi-isomorphism.
+
+\setcounter{page}{46}
+\textbf{Proposition 4.7.}
+Let \(\cat{A}\) be abelian, and let \(\cat{I}\) be the additive subcategory of injective objects of \(\cat{A}\). The natural functor
+\[
+\alpha\colon K^+(\cat{I})\to D^+(\cat{A})
+\]
+is fully faithful. If furthermore \(\cat{A}\) has enough injectives, then \(\alpha\) is an equivalence of categories.
+
+\textit{Proof.} By Proposition 4.2, \(\mathsf{Qis}\cap K^+(\cat{I})\) is a multiplicative system in \(K^+(\cat{I})\). Lemma 4.5 verifies condition (ii) of Proposition 3.3 for the inclusion \(K^+(\cat{I})\subseteq K^+(\cat{A})\) and \(\mathsf{Qis}\). Thus
+\[
+D^+(\cat{I})\to D^+(\cat{A})
+\]
+is fully faithful. By Lemma 4.5, every quasi-isomorphism in \(K^+(\cat{I})\) is an isomorphism, so \(K^+(\cat{I}) = D^+(\cat{I})\).
+
+\setcounter{page}{47}
+If \(\cat{A}\) has enough injectives, apply Lemma 4.6(1) with \(P=\operatorname{Ob}\cat{I}\): every object of \(D^+(\cat{A})\) is isomorphic to an object of \(K^+(\cat{I})\). Hence \(\alpha\) is an equivalence.
+
+\medskip
+\textbf{Proposition 4.8.}
+Let \(\cat{A}\) be abelian, \(\cat{A}'\subseteq\cat{A}\) a thick abelian subcategory. Assume \(\cat{A}'\) has enough \(\cat{A}\)-injectives. Then the natural functor
+\[
+D^+(\cat{A}') \to D_{\cat{A}'}^+(\cat{A})
+\]
+is an equivalence of categories.
+
+\textit{Proof.} Apply Proposition 3.3 to the inclusion \(K^+(\cat{A}')\hookrightarrow K^+(\cat{A})\). The set \(\mathsf{Qis}\) is a multiplicative system in both categories. Any quasi-isomorphism \(X^\bullet\to Y^\bullet\) with \(X^\bullet\in K^+(\cat{A}')\) has cohomology in \(\cat{A}'\); by Lemma 4.6(3), \(Y^\bullet\) admits a quasi-isomorphism into an injective complex \(I^\bullet\in K^+(\cat{A}')\). Thus condition (ii) of Proposition 3.3 holds, so \(D^+(\cat{A}')\to D^+(\cat{A})\) is fully faithful, with image exactly \(D_{\cat{A}'}^+(\cat{A})\).
+
+\setcounter{page}{48}
+\medskip
+\textbf{Exercise.}
+Formulate the analogous statements for projective objects of \(\cat{A}\) and the bounded-above derived category \(D^-(\cat{A})\).

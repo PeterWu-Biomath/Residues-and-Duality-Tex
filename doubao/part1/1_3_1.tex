@@ -1,0 +1,65 @@
+\setcounter{page}{25}
+\section{\S2. $K(\cat{A})$ is Triangulated}
+
+Let \(\cat{A}\) be an abelian category. A \textit{complex} of objects of \(\cat{A}\) is a collection \(X^\bullet = (X^n)_{n\in\mathbb{Z}}\) of objects of \(\cat{A}\), together with morphisms \(d^n\colon X^n\to X^{n+1}\) such that \(d^{n+1}\circ d^n = 0\) for all \(n\in\mathbb{Z}\).
+
+A \textit{morphism of complexes} \(f\colon X^\bullet\to Y^\bullet\) is a family of morphisms \(f^n\colon X^n\to Y^n\) commuting with differentials:
+\[
+f^{n+1}\circ d_X^n = d_Y^n\circ f^n
+\]
+for all \(n\).
+
+Two morphisms \(f,g\colon X^\bullet\to Y^\bullet\) are \textit{homotopic} if there exists a family of morphisms \(k=(k^n)\), \(k^n\colon X^n\to X^{n-1}\), such that
+\[
+f^n - g^n = d_Y^{n-1}\circ k^n + k^{n+1}\circ d_X^n
+\]
+for all \(n\). Homotopy is an equivalence relation, and compositions of homotopic maps are homotopic.
+
+We define \(K(\cat{A})\) to be the category whose objects are complexes over \(\cat{A}\), and whose morphisms are homotopy equivalence classes of complex morphisms.
+
+A complex \(X^\bullet\) is \textit{bounded below} if \(X^n=0\) for all sufficiently small \(n\ll 0\). Denote by \(K^+(\cat{A})\) the full subcategory of \(K(\cat{A})\) consisting of bounded-below complexes. Similarly define \(K^-(\cat{A})\) (bounded above) and \(K^b(\cat{A})\) (bounded on both sides).
+
+\setcounter{page}{26}
+Now we equip \(K(\cat{A})\) (and likewise \(K^+(\cat{A}),K^-(\cat{A}),K^b(\cat{A})\)) with a triangulated structure.
+The translation functor \(T\) shifts degrees left by one and flips the sign of the differential:
+\[
+T(X^\bullet)^p = X^{p+1},\qquad d_{T(X)} = -d_X.
+\]
+We also write \(X^\bullet[n] = T^n(X^\bullet)\).
+
+Given any morphism \(u\colon X^\bullet\to Y^\bullet\) in \(K(\cat{A})\), form its \textit{mapping cone} \(Z^\bullet\), which is the complex \(T(X^\bullet)\oplus Y^\bullet\), with differential given by the matrix
+\[
+\begin{pmatrix}
+T(d_X) & T(u)\\
+0 & d_Y
+\end{pmatrix}.
+\]
+There are natural morphisms \(v\colon Y^\bullet\to Z^\bullet\) and \(w\colon Z^\bullet\to T(X^\bullet)\).
+
+A \textit{triangle} in \(K(\cat{A})\) is any sextuple isomorphic to one obtained from the above construction starting from a morphism \(u\colon X^\bullet\to Y^\bullet\).
+
+All axioms \(\text{TR1}\)--\(\text{TR4}\) are readily verified, using the fact that the mapping cone of the identity morphism \(\id_X\colon X^\bullet\to X^\bullet\) is homotopic to zero.
+This cone is \(T(X^\bullet)\oplus X^\bullet\), and the matrix
+
+\setcounter{page}{27}
+\[
+k = \begin{pmatrix}
+0 & 0\\
+\id_X & 0
+\end{pmatrix}
+\]
+defines a homotopy to the zero complex.
+
+\medskip
+\textbf{Definition.}
+Define the cohomology functor \(H\colon K(\cat{A})\to\cat{A}\) sending a complex \(X^\bullet\) to its \(0\)-th cohomology object:
+\[
+H(X^\bullet) = \ker d^0 \big/ \operatorname{im} d^{-1}.
+\]
+This is indeed a functor, since homotopic complex morphisms induce identical maps on cohomology.
+For any \(i\in\mathbb{Z}\), write
+\[
+H^i = H\circ T^i.
+\]
+
+The functor \(H\) is a cohomological functor from \(K(\cat{A})\) to the abelian category \(\cat{A}\). It suffices to verify the long exact sequence for triangles coming from mapping cones of morphisms \(u\colon X^\bullet\to Y^\bullet\), where exactness holds by direct inspection.

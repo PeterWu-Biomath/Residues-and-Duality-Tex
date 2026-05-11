@@ -1,0 +1,140 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dimk}{dim_k}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\Lfst}{\mathbf{L}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\RGamma}{\mathbf{R}\Gamma}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{remark}{Remark}[section]
+
+\begin{document}
+
+\setcounter{page}{246}
+Continuing the induction argument via distinguished triangles in the derived category, we identify
+\[
+Q(\tau_{\ge p-1}E(F^\bullet))
+\]
+with the appropriate truncated derived local cohomology complex. By triangulated category axiom \(\text{TR3}\), we obtain the desired isomorphism \(\varphi\) in the derived category, compatible with the cohomology isomorphisms induced by the spectral sequence degeneration.
+
+\medskip
+\textbf{(iii)\(\Rightarrow\)(ii)}
+Use a flasque resolution for \(F^\bullet\) afforded by the Cousin complex \(E(F^\bullet)\). By construction,
+\[
+\underline{H}_{Z^p/Z^{p+1}}(E(F^\bullet)) = E^p(F^\bullet),
+\]
+which immediately implies the vanishing condition for \(i\ne p\).
+
+\setcounter{page}{247}
+\begin{definition}
+A bounded complex \(F^\bullet\in D^b(X)\) is \textit{Cohen--Macaulay with respect to the filtration \(Z^\bullet\)} if it satisfies the equivalent conditions of Proposition 3.1. For a single sheaf, this recovers the earlier definition from Proposition 2.6.
+\end{definition}
+
+\begin{lemma}
+Let \(F^\bullet,G^\bullet\in\underline{\operatorname{Coz}}(Z^\bullet;X)\) be Cousin complexes.
+\begin{enumerate}
+\item[\textup{(a)}] If two morphisms \(f,g\colon F^\bullet\to G^\bullet\) induce identical maps \(H^i(f)=H^i(g)\) on all cohomology sheaves, then \(f=g\) as complex morphisms.
+\item[\textup{(b)}] Any morphism \(\overline{f}\colon Q(F^\bullet)\to Q(G^\bullet)\) in \(D^+(X)\) may be represented by an actual complex morphism \(f\colon F^\bullet\to G^\bullet\), provided \(G^\bullet\) is a complex of injective sheaves.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\textup{(a)} Reduce to the zero morphism \(f-g\) inducing trivial cohomology maps. We may assume \(X=Z^0\). Since \(H^0(f-g)=0\), the map
+\[
+f^0\colon F^0\to G^0
+\]
+factors through the quotient by boundaries \(B^1(F^\bullet)\). But \(B^1(F^\bullet)\) is supported in \(Z^1\), while \(G^0\) has \(Z^1\)-depth \(\ge 1\), so there are no non-zero morphisms \(B^1(F^\bullet)\to G^0\). Hence \(f^0=0\). Iterate degree-wise to conclude all components vanish.
+
+\textup{(b)} Follows from standard derived category resolution properties [I.4.5, I.4.7].
+\end{proof}
+
+\setcounter{page}{248}
+\begin{corollary}
+Let \(F^\bullet,G^\bullet\in\underline{\operatorname{Coz}}(Z^\bullet;X)\). Any complex morphism inducing an isomorphism on cohomology is a complex isomorphism.
+\end{corollary}
+
+\begin{definition}
+A complex \(F^\bullet\in D^b(X)\) is \textit{Gorenstein with respect to the filtration \(Z^\bullet\)} if:
+\begin{enumerate}
+\item \(F^\bullet\) is Cohen--Macaulay;
+\item For every \(x\in X\) and all \(i\in\mathbb{Z}\), the stalk \(H_x^i(F^\bullet)\) is either zero or an injective module over the local ring at \(x\).
+\end{enumerate}
+Denote by \(D^b(X)_{\operatorname{Gor}(Z^\bullet)}\) the full subcategory of such Gorenstein complexes.
+\end{definition}
+
+\setcounter{page}{249}
+\begin{remark}
+\begin{enumerate}
+\item If \(X=\operatorname{Spec}A\) for a noetherian local ring \(A\), with codimension filtration, this definition recovers the usual notion of a Gorenstein complex/ring [LC 4.14].
+\item If \(F^\bullet\) is Gorenstein, then its associated Cousin complex \(E(F^\bullet)\) is an injective Cousin complex.
+\end{enumerate}
+\end{remark}
+
+\begin{example}
+Dualizing complexes on locally noetherian schemes are Gorenstein with respect to the codimension filtration (cf.\ Chapter V).
+\end{example}
+
+\setcounter{page}{250}
+\begin{proposition}
+The functor
+\[
+E\colon D^b(X)_{\operatorname{Gor}(Z^\bullet)} \to \underline{\operatorname{Icz}}(Z^\bullet,X)
+\]
+from Gorenstein complexes to injective Cousin complexes is an equivalence of categories. The localization functor \(Q\) is a quasi-inverse to \(E\).
+\end{proposition}
+
+\begin{proof}
+We construct functorial isomorphisms \(\varphi\colon \mathbf{1}\to QE\) and \(\psi\colon EQ\to\mathbf{1}\).
+
+For each Gorenstein complex \(F^\bullet\), choose an isomorphism
+\[
+\varphi(F^\bullet)\colon F^\bullet \stackrel{\sim}{\to} QE(F^\bullet)
+\]
+as in Proposition 3.1, such that \(H^i(\varphi)\) is the inverse of the spectral sequence cohomology map.
+
+Let \(f\colon F^\bullet\to G^\bullet\) be a morphism of Gorenstein complexes. The diagram
+\[
+\begin{CD}
+F^\bullet @>\varphi(F^\bullet)>> QE(F^\bullet) \\
+@VfVV @VQE(f)VV \\
+G^\bullet @>\varphi(G^\bullet)>> QE(G^\bullet)
+\end{CD}
+\]
+must commute in \(D^+(X)\). By Lemma 3.2(b), the morphism
+\[
+\varphi(G^\bullet)\circ f\circ\varphi(F^\bullet)^{-1}
+\]
+is represented by a complex morphism \(E(F^\bullet)\to E(G^\bullet)\). By Lemma 3.2(a), this coincides with \(E(f)\), so \(\varphi\) is functorial.
+
+\setcounter{page}{251}
+Conversely, for any injective Cousin complex \(F^\bullet\), we have a canonical isomorphism \(EQ(F^\bullet)\cong F^\bullet\), completing the equivalence.
+\end{proposition}
+
+\begin{remark}
+This category equivalence is essential for the construction of residual complexes in Chapter VI.
+\end{remark}
+
+\end{document}

@@ -1,0 +1,164 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+
+% Calligraphic for categories and sheaves per requirement
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard shortcuts
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dimk}{dim_k}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+
+\begin{document}
+
+\chapter*{Introduction}
+\textit{--- Heraclitus}
+
+The main purpose of these notes is to prove a duality theorem for cohomology of quasi-coherent sheaves, with respect to a proper morphism of locally noetherian preschemes. Various such theorems are already known. Typical is the duality theorem for a non-singular complete curve \(X\) over an algebraically closed field \(k\), which says that
+\[
+h^{\circ}(D)=h^{1}(K-D),
+\]
+where \(D\) is a divisor, \(K\) is the canonical divisor, and
+\[
+h^{i}(D)=\dimk H^{i}(X,\sheaf{L}(D))
+\]
+for any \(i\), and any divisor \(D\). (See e.g.\ [16, Ch.~II] for a proof.)
+
+Various attempts were made to generalize this theorem to varieties of higher dimension, and as Zariski points out in his report [20], his generalization of a lemma of Enriques-Severi [19] is equivalent to the statement that for a normal projective variety \(X\) of dimension \(n\) over \(k\),
+\[
+h^{\circ}(D)=h^{n}(K-D)
+\]
+for any divisor \(D\). This is also equivalent to a theorem of Serre [FAC \S Thm.] on the vanishing of the cohomology group \(H^{1}(X,\sheaf{L}(-m))\) for \(m\) large and \(\sheaf{L}\) locally free. Using a related theorem [FAC \S Thm.~3], Zariski shows how one can deduce on a non-singular projective variety the formula
+\[
+h^{i}(D)=h^{n-i}(K-D)
+\]
+for \(0 \le i \le n\). In terms of sheaves, this result corresponds to the fact that the \(k\)-vector spaces
+\[
+H^{i}(X,\sheaf{F}) \quad \text{and} \quad H^{n-i}\bigl(X,\sheaf{F}^{\vee} \otimes \omega\bigr)
+\]
+are dual to each other, where \(\sheaf{F}\) is a locally free sheaf, \(\sheaf{F}^{\vee}\) is the dual sheaf \(\underline{\Hom}(\sheaf{F},\sheaf{O}_X)\), and \(\omega=\Omega_{X/k}^{n}\) is the sheaf of \(n\)-differentials on \(X\). Serre [15] gives a proof of this same theorem by analytic methods for a compact complex analytic manifold \(X\).
+
+Grothendieck [8] gave some generalizations of these theorems for non-singular projective varieties and then in [9] announced the general theorem for schemes proper over a field, with arbitrary singularities, which is the subject of the present lecture notes.
+
+To motivate the statement of our main theorem, let us consider the case of projective space \(X = \mathbb{P}_k^n\) over an algebraically closed field \(k\). Then there is a canonical isomorphism
+\[
+(1)\quad H^{n}(X,\omega) \cong k
+\]
+where \(\omega=\Omega_{X/k}^{n}\) is the sheaf of \(n\)-differentials. Combining this with the Yoneda pairing
+\[
+(2)\quad H^{i}(X,\sheaf{F}) \times \Ext_{X}^{n-i}(\sheaf{F},\omega) \to H^{n}(X,\omega)
+\]
+we obtain a pairing
+\[
+(3)\quad H^{i}(X,\sheaf{F}) \times \Ext_{X}^{n-i}(\sheaf{F},\omega) \to k.
+\]
+
+For a locally free sheaf \(\sheaf{F}\),
+\[
+\Ext^{n-i}(\sheaf{F},\omega)
+= \Ext^{n-i}\bigl(\sheaf{O}_X,\sheaf{F}^{\vee} \otimes \omega\bigr)
+= H^{n-i}\bigl(X,\sheaf{F}^{\vee} \otimes \omega\bigr).
+\]
+This pairing is easily shown to be a perfect pairing [SGA 62, exposé 12]. This generalizes the statements above.
+
+Another way of looking at our duality pairing is as an isomorphism
+\[
+(4)\quad \Ext_{X}^{n-i}(\sheaf{F},\omega) \to \Hom_k\bigl(H^{i}(X,\sheaf{F}),k\bigr).
+\]
+
+Since everything is linear over \(k\), we may introduce a \(k\)-vector space \(G\), and have an isomorphism
+\[
+(5)\quad \Ext_{X}^{n-i}\bigl(\sheaf{F}, G \otimes_k \omega\bigr)
+\to \Hom_k\bigl(H^{i}(X,\sheaf{F}), G\bigr).
+\]
+
+Before proceeding further, we must introduce the derived category. It will be discussed in detail in Chapter I, but for the moment it will be sufficient to know the following:
+For each abelian category \(\cat{A}\), there is a category \(D(\cat{A})\), called the derived category of \(\cat{A}\), whose objects are complexes of objects of \(\cat{A}\). If \(F\colon \cat{A}\to\cat{B}\) is an additive functor from one abelian category to another, then under reasonable conditions there is a right derived functor
+\(\mathbf{R}F\colon D(\cat{A})\to D(\cat{B})\)
+with the property that for any \(X\in\operatorname{Ob}\cat{A}\), if \(X\) denotes also the complex which is \(X\) in degree zero, and zero elsewhere, then
+\[
+H^{i}(\mathbf{R}F(X)) = R^{i}F(X),
+\]
+where \(R^{i}F\) is the ordinary \(i^\text{th}\) right derived functor of \(F\). Finally, if \(F\colon\cat{A}\to\cat{B}\) and \(G\colon\cat{B}\to\cat{C}\) are two functors, then
+\[
+\mathbf{R}(G\circ F) = \mathbf{R}G \circ \mathbf{R}F.
+\]
+This replaces the old-fashioned spectral sequence of a composite functor.
+
+Now we can jazz up our duality for projective space as follows. We replace \(k\) by a prescheme \(Y\), so that \(X=\mathbb{P}_Y^n\). We consider the derived categories \(D(X)\) and \(D(Y)\) of the categories of \(\sheaf{O}_X\)-modules and \(\sheaf{O}_Y\)-modules, respectively. Then cohomology \(H^i\) becomes \(\Rfst\), the derived functor of the direct image functor \(f_*\), where \(f\colon X\to Y\) is the projection. \(\Ext\) becomes the derived functor \(\RHom\) of \(\Hom\). We define \(f^!(G)=f^*(G)\otimes\omega\) for \(G\in D(Y)\), and we replace \(\sheaf{F}\) by a complex of sheaves \(\sheaf{F}\in D(X)\). Then the isomorphism (1) gives us an isomorphism
+\[
+(6)\quad \Rfst f^! G \stackrel{\sim}{\to} G
+\]
+which we call the trace map.
+
+The Yoneda pairing reappears as a natural map
+\[
+(7)\quad \RHom_X\bigl(\sheaf{F},f^! G\bigr)
+\to \RHom_Y\bigl(\Rfst \sheaf{F},\Rfst f^! G\bigr),
+\]
+which, composed with the trace map (6) gives us the duality morphism
+\[
+(8)\quad \RHom_X\bigl(\sheaf{F},f^! G\bigr)
+\to \RHom_Y\bigl(\Rfst \sheaf{F}, G\bigr)
+\]
+which generalizes (5). This is easily proved to be an isomorphism ([III 5.1] below) under suitable hypotheses on \(Y,\sheaf{F},G\). In fact, the proof is nothing but ``general nonsense'' once one has the isomorphism (4).
+
+Having examined the case of projective space, we can state the following ideal theorem, which is the primum mobile of these notes, although it may never appear explicitly in this form.
+
+\subsection*{Ideal Theorem}
+\textbf{(a)} For every morphism \(f\colon X\to Y\) of finite type of preschemes, there is a functor
+\[
+f^!\colon D(Y)\to D(X)
+\]
+such that
+\begin{enumerate}
+\item if \(g\colon Y\to Z\) is a second morphism of finite type, then \((gf)^! = f^! g^!\);
+\item if \(f\) is a smooth morphism, then \(f^!(G)=f^*(G)\otimes\omega\), where \(\omega=\Omega_{X/Y}^{n}\) is the sheaf of highest order differentials;
+\item if \(f\) is a finite morphism, then
+\[
+f^!(G)=\underline{\Hom}_{\sheaf{O}_Y}\bigl(f_*\sheaf{O}_X,G\bigr)^{\sim}.
+\]
+\end{enumerate}
+
+\textbf{(b)} For every proper morphism \(f\colon X\to Y\) of preschemes, there is a trace morphism
+\[
+\operatorname{Tr}_f\colon \Rfst f^! \to \id
+\]
+of functors from \(D(Y)\) to \(D(Y)\) such that
+\begin{enumerate}
+\item if \(g\colon Y\to Z\) is a second proper morphism, then \(\operatorname{Tr}_{gf}=\operatorname{Tr}_g\circ\operatorname{Tr}_f\);
+\item if \(X=\mathbb{P}_Y^n\), then \(\operatorname{Tr}_f\) is the map deduced from the canonical isomorphism \(R^{n}f_*(\omega)\cong\sheaf{O}_Y\);
+\item if \(f\) is a finite morphism, then \(\operatorname{Tr}_f\) is obtained from the natural map ``evaluation at one''
+\[
+\Hom_Y\bigl(f_*\sheaf{O}_X,G\bigr)\to G.
+\]
+\end{enumerate}
+
+\textbf{(c)} If \(f\colon X\to Y\) is a proper morphism, then the duality
+\[
+\theta_f\colon \RHom_X\bigl(\sheaf{F},f^! G\bigr)
+\to \RHom_Y\bigl(\Rfst \sheaf{F},G\bigr)
+\]
+obtained by composing the natural map (7) above with \(\operatorname{Tr}_f\), is an isomorphism for \(\sheaf{F}\in D(X)\) and \(G\in D(Y)\).
+
+\medskip
+It should be noted that we have deliberately left certain technical details out of the above statement, for ease of reading. Thus it seems reasonable to make these statements only for complexes of quasi-coherent sheaves, or rather for complexes of arbitrary sheaves, whose cohomology sheaves are quasi-coherent. (We denote this category by \(D_{\mathrm{qc}}(Y)\) or \(D_{\mathrm{qc}}(X)\).) In fact, we give an example in the case of a finite morphism to show that the duality theorem (c) fails if \(G\) is not quasi-coherent (see example following [III 6.7]). Secondly one must expect certain boundedness conditions on the complexes involved, namely \(F\) should be bounded above (we write \(F\in D_{\mathrm{qc}}^-(X)\)) and \(G\) should be bounded below (\(G\in D_{\mathrm{qc}}^+(Y)\)) for the duality theorem. Finally, questions of variance will be very important in the proof, and so the equals signs in (a1) and (b1) must be taken with a grain of salt. We must preserve very carefully the distinction between ``equals'' and ``is canonically isomorphic to''. Hence we will have more precise statements below.
+
+As to proving the ideal theorem, we succeed only partially. Certainly the conditions under which we can prove it will suffice for most applications, but it is unsatisfying to have restrictive hypotheses which are apparently not essential to the truth of the theorem. I mention four sets of hypotheses under which the theorem can be proved.
+
+\begin{enumerate}
+\item[(i)] For the category of noetherian preschemes of finite Krull dimension, and morphisms \(f\colon X\to Y\) which can be factored through a suitable projective space \(\mathbb{P}_Y^N\), we have (a1)--(a3) for \(D_{\mathrm{qc}}^+(Y)\) [I 8.7], (b1)--(b3) for \(D_{\mathrm{qc}}^+(Y)\) [I 10.5], and (c) for \(F\in D_{\mathrm{qc}}^-(X)\) and \(G\in D_{\mathrm{qc}}^+(Y)\) [VII 11.1].
+
+\item[(ii)] For the category of noetherian preschemes which admit dualizing complexes (see [V \S]; this implies in particular that the preschemes have finite Krull dimension) and morphisms whose fibres are of bounded dimension, we have (a1)--(a3) and (b1)--(b3) for \(D_{C}^+(Y)\), and (c) for \(F\in D_{\mathrm{qc}}^-(X)\), \(G\in D_{C}^+(Y)\) [VII 3.4]. Here the subscript ``\(C\)'' denotes complexes with coherent cohomology sheaves.
+
+\item[(iii)] For the category of noetherian preschemes of finite Krull dimension and smooth morphisms, we have (a1)--(a3) for \(D_{\mathrm{qc}}^+(Y)\), (b1)--(b3) for \(G\in D_{\mathrm{qc}}^b(Y)\), and (c) for \(F\in D_{\mathrm{qc}}^-(X)\) and \(G\in D_{\mathrm{qc}}^b(Y)\) [VII 4.3]. Here the exponent ``\(b\)'' denotes complexes which are bounded in both directions, i.e., finite.
+\end{enumerate}
+
+\end{document}

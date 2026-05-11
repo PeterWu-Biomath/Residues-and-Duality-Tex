@@ -1,0 +1,47 @@
+\setcounter{page}{115}
+\section{\S6 Compatibilities Among the Relations of \S5}
+
+In situations involving three or more derived functors, different compositions of the homomorphisms and isomorphisms from \S5 may yield functor morphisms. One naturally expects the result to be independent of the choice of composition. We give three illustrative examples.
+
+1. Let \(W\xleftarrow{h}Z\xleftarrow{g}Y\xleftarrow{f}X\) be three morphisms of preschemes. By Proposition 5.1, we have isomorphisms
+\[
+\mathbf{R}^+(h_*g_*f_*) \xrightarrow{\sim} \mathbf{R}^+h_*\mathbf{R}^+(g_*f_*)
+\xrightarrow{\sim} \mathbf{R}^+h_*\mathbf{R}^+g_*\mathbf{R}^+f_*.
+\]
+We require this composite isomorphism to yield a commutative diagram.
+
+\setcounter{page}{116}
+2. Let \(X\xrightarrow{f}Y\xrightarrow{g}Z\) be morphisms of noetherian preschemes of finite Krull dimension. There exist functorial morphisms
+\[
+\mathbf{R}(g_*f_*)\mathbf{R}\mathcal{H}\textit{om}_Z^\bullet(-,-)
+\to
+\mathbf{R}g_*\mathbf{R}\mathcal{H}\textit{om}_Z^\big(\mathbf{R}(g_*f_*)-,\mathbf{R}(g_*f_*)-\big),
+\]
+\[
+\mathbf{R}g_*\mathbf{R}\mathcal{H}\textit{om}_Z^\big(\mathbf{R}(g_*f_*)-,\mathbf{R}(g_*f_*)-\big)
+\to
+\mathbf{R}g_*\mathbf{R}\mathcal{H}\textit{om}_Y^\big(\mathbf{R}f_*-,\mathbf{R}f_*-\big).
+\]
+The horizontal maps come from Proposition 5.1, vertical maps from Proposition 5.5; we implicitly use the canonical identification \(g_*f_*\cong(gf)_*\). We require this diagram to commute.
+
+3. For any prescheme \(X\) and complexes \(F^\bullet,G^\bullet,H^\bullet,I^\bullet\in D^-(X)\), the associativity isomorphisms
+\[
+F^\bullet\stackrel{\mathbf{L}}{\otimes}\big(G^\bullet\stackrel{\mathbf{L}}{\otimes}H^\bullet\big)
+\stackrel{\sim}{\longleftrightarrow}
+\big(F^\bullet\stackrel{\mathbf{L}}{\otimes}G^\bullet\big)\stackrel{\mathbf{L}}{\otimes}H^\bullet
+\]
+must form commutative diagrams when iterated.
+
+\setcounter{page}{117}
+In the first example, commutativity follows from the remark after Proposition I.5.4.
+For the second and third examples, the derived functor morphisms are uniquely determined by the canonical sheaf-level maps and compatibility with the defining structure morphisms of derived functors. Commutativity then reduces to known commutative results for ordinary sheaf functors.
+
+These three are only representative examples. Many further compatibility diagrams arise naturally. In principle one could state and prove every such diagram, but the list is unwieldy to compile and tedious to verify. Moreover, new compatibilities arise constantly in subsequent arguments.
+
+\setcounter{page}{118}
+Verifying every commutative diagram mechanically is unilluminating for the reader and laborious for the author. At present there is no comprehensive meta-theorem guaranteeing all such natural diagrams commute automatically, nor a complete catalogue of necessary fundamental diagrams.
+
+Nevertheless, we will freely assume all reasonable compatibilities hold whenever the relevant hypotheses are satisfied, writing simply \(=\) for canonical isomorphisms without explicit naming. Later, for less obvious compatibilities (especially those involving sign conventions), we will explicitly state and verify the required diagrams.
+
+\setcounter{page}{119}
+A fully rigorous foundational treatment of natural isomorphism compatibilities remains a topic for future development. Mac Lane [12, pp. 1–15] notes this open problem even for tensor associativity. The language of fibred categories (SGA 60–61, Exposé VI) and techniques from Giraud’s thesis may provide the necessary framework for a systematic solution.

@@ -1,0 +1,136 @@
+\setcounter{page}{49}
+\section{\S5. Derived Functors}
+
+We treat only \textit{right derived covariant functors}; the reader may make the obvious modifications for left derived covariant functors, and right/left derived contravariant functors.
+
+Let \(\cat{A},\cat{B}\) be abelian categories, and let \(F\colon K(\cat{A})\to K(\cat{B})\) be a triangulated functor (cf.\ \S1). This holds in particular for any additive functor \(F\colon\cat{A}\to\cat{B}\), which extends canonically to \(K(\cat{A})\).
+
+In general, \(F\) need not send quasi-isomorphisms to quasi-isomorphisms; if it does, then \(F\) localizes to induce a functor \(D(\cat{A})\to D(\cat{B})\). Exact functors are examples of this behavior.
+
+We are led to ask whether there exists a functor \(D(\cat{A})\to D(\cat{B})\) approximating \(F\); this motivates the general definition of derived functors below.
+
+\medskip
+\textbf{Definition.}
+Let \(\cat{A}\) be abelian, and let \(K^*(\cat{A})\subseteq K(\cat{A})\) be a triangulated subcategory. By Proposition 4.2, \(K^*(\cat{A})\cap\mathsf{Qis}\) is a multiplicative system in \(K^*(\cat{A})\).
+
+We say \(K^*(\cat{A})\) is a \textit{localizing subcategory} of \(K(\cat{A})\) if the natural functor
+\[
+K^*(\cat{A})_{K^*(\cat{A})\cap\mathsf{Qis}}
+\;\to\;
+K(\cat{A})_{\mathsf{Qis}} = D(\cat{A})
+\]
+is fully faithful. In this case we write \(D^*(\cat{A})\) for the domain category above.
+
+\setcounter{page}{50}
+\textbf{Examples.}
+\begin{enumerate}
+\item The intersection of any family of localizing subcategories is localizing.
+\item \(K^+(\cat{A}),K^-(\cat{A}),K^b(\cat{A})\) are localizing subcategories of \(K(\cat{A})\) (cf.\ \S4).
+\item If \(\cat{A}'\subseteq\cat{A}\) is a thick subcategory, then \(K_{\cat{A}'}(\cat{A}),K_{\cat{A}'}^+(\cat{A}),K_{\cat{A}'}^-(\cat{A}),K_{\cat{A}'}^b(\cat{A})\) are localizing subcategories of \(K(\cat{A})\) (cf.\ \S4).
+\item The complexes of finite injective dimension form a localizing subcategory \(K^+(\cat{A})_{\mathrm{fid}}\subseteq K(\cat{A})\) (cf.\ Corollary 7.7).
+\end{enumerate}
+
+\medskip
+\textbf{Definition.}
+Let \(\cat{A},\cat{B}\) be abelian categories, \(K^*(\cat{A})\subseteq K(\cat{A})\) a localizing subcategory, and
+\[
+F\colon K^*(\cat{A})\to K(\cat{B})
+\]
+a triangulated functor.
+
+Denote by \(Q\) the localization functor \(K^*(\cat{A})\to D^*(\cat{A})\) (resp.\ \(K(\cat{B})\to D(\cat{B})\)). The \textit{right derived functor} of \(F\) is a pair
+\[
+\mathbf{R}^*F\colon D^*(\cat{A})\to D(\cat{B})
+\]
+together with a functor morphism
+\[
+\xi\colon Q\circ F \;\to\; \mathbf{R}^*F\circ Q
+\]
+of functors \(K^*(\cat{A})\to D(\cat{B})\), satisfying the following universal property:
+
+\setcounter{page}{51}
+For any triangulated functor \(G\colon D^*(\cat{A})\to D(\cat{B})\) and any functor morphism
+\[
+\zeta\colon Q\circ F \;\to\; G\circ Q,
+\]
+there exists a unique functor morphism
+\[
+\eta\colon \mathbf{R}^*F \to G
+\]
+such that
+\[
+\zeta = (\eta\circ Q)\circ \xi.
+\]
+
+\medskip
+\textbf{Remarks.}
+\begin{enumerate}
+\item If \(\mathbf{R}^*F\) exists, it is unique up to unique isomorphism of functors.
+\item For standard localizing subcategories \(K^+(\cat{A}),K^-(\cat{A}),K_{\cat{A}'}(\cat{A})\), we write
+\[
+\mathbf{R}^+F,\quad \mathbf{R}^-F,\quad \mathbf{R}_{\cat{A}'}F
+\]
+respectively; when no confusion arises, we write simply \(\mathbf{R}F\).
+
+\setcounter{page}{52}
+\item We define \(R^iF = H^i(\mathbf{R}F)\). If \(F\) is left-exact on \(\cat{A}\) and \(\cat{A}\) has enough injectives, these coincide with the classical right derived functors of \(F\).
+\item Let \(\varphi\colon F\to G\) be a morphism of functors \(K^*(\cat{A})\to K(\cat{B})\). If \(\mathbf{R}F,\mathbf{R}G\) exist, there is a unique induced morphism
+\[
+\mathbf{R}\varphi\colon \mathbf{R}F\to\mathbf{R}G
+\]
+compatible with the structure morphisms \(\xi\). This follows directly from the universal property.
+\item Let \(K^{**}(\cat{A})\subseteq K^*(\cat{A})\) be localizing subcategories, \(F\colon K^*(\cat{A})\to K(\cat{B})\) a triangulated functor. If both \(\mathbf{R}^*F\) and \(\mathbf{R}^{**}(F|_{K^{**}(\cat{A})})\) exist, there is a natural functor morphism
+\[
+\mathbf{R}^{**}\big(F|_{K^{**}(\cat{A})}\big)
+\;\to\;
+\mathbf{R}^*F\big|_{D^{**}(\cat{A})}.
+\]
+
+\setcounter{page}{53}
+We do not know if this is an isomorphism in general, but it holds in all our intended applications (cf.\ Corollary 5.3).
+\end{enumerate}
+
+\medskip
+\textbf{Theorem 5.1 (Existence of Derived Functors).}
+Let \(\cat{A},\cat{B},K^*(\cat{A}),F\) be as above. Suppose there exists a triangulated subcategory \(L\subseteq K^*(\cat{A})\) such that:
+\begin{enumerate}
+\item[(1)] Every object of \(K^*(\cat{A})\) admits a quasi-isomorphism into some object of \(L\);
+\item[(2)] For every acyclic complex \(I^\bullet\in\operatorname{Ob}L\) (i.e.\ \(H^i(I^\bullet)=0\) for all \(i\)), the complex \(F(I^\bullet)\) is also acyclic.
+\end{enumerate}
+Then the right derived functor \((\mathbf{R}^*F,\xi)\) exists. Furthermore, for any \(I^\bullet\in\operatorname{Ob}L\), the structure morphism
+\[
+\xi(I^\bullet)\colon Q\circ F(I^\bullet) \to \mathbf{R}^*F\circ Q(I^\bullet)
+\]
+is an isomorphism in \(D(\cat{B})\).
+
+\textit{Proof.}
+First, the restriction \(F|_L\) sends quasi-isomorphisms to quasi-isomorphisms. Indeed, let \(s\colon I_1^\bullet\to I_2^\bullet\) be a quasi-isomorphism in \(L\); complete \(s\) to a triangle in \(K^*(\cat{A})\). The third vertex \(J^\bullet\) of the triangle is acyclic, so by hypothesis (2), \(F(J^\bullet)\) is acyclic. Hence \(F(s)\) is a quasi-isomorphism.
+
+Thus \(F\) descends to a functor
+\[
+\overline{F}\colon L_{\mathsf{Qis}} \to D(\cat{B})
+\]
+
+\setcounter{page}{54}
+satisfying \(\overline{F}\circ Q = Q\circ F\) on \(L\) (with \(Q\) denoting localization functors as usual).
+
+Second, the pair \((L,K^*(\cat{A}),\mathsf{Qis})\) satisfies condition (ii) of Proposition 3.3, so the natural functor
+\[
+T\colon L_{\mathsf{Qis}} \to D^*(\cat{A})
+\]
+is an equivalence of categories. Let \(U\colon D^*(\cat{A})\to L_{\mathsf{Qis}}\) be a quasi-inverse of \(T\), with functorial isomorphisms
+\[
+\alpha\colon \id_{L_{\mathsf{Qis}}} \to U\circ T,\qquad
+\beta\colon \id_{D^*(\cat{A})} \to T\circ U.
+\]
+
+Define
+\[
+\mathbf{R}^*F := \overline{F}\circ U.
+\]
+
+We now define the functor morphism
+\[
+\xi\colon Q\circ F \to \mathbf{R}^*F\circ Q = \overline{F}\circ U\circ Q
+\]
+as follows. Given \(X^\bullet\in\operatorname{Ob}K^*(\cat{A})\), choose \(I^\bullet\in\operatorname{Ob}L\) such that \(Q(I^\bullet)\cong U\circ Q(X^\bullet)\) in \(D^*(\cat{A})\).

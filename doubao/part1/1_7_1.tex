@@ -1,0 +1,185 @@
+\setcounter{page}{62}
+\section{\S6 Examples. $\operatorname{Ext}$ and $\mathbf{R}\mathcal{H}\textit{om}$}
+
+\textbf{Definition.}
+Let \(\cat{A}\) be an abelian category, and let \(X^\bullet,Y^\bullet\in D(\cat{A})\).
+Define the \textit{hyperext groups} by
+\[
+\operatorname{Ext}^i\big(X^\bullet,Y^\bullet\big)
+= \Hom_{D(\cat{A})}\big(X^\bullet, T^i(Y^\bullet)\big).
+\]
+
+\textbf{Remarks.}
+1. If \(X^\bullet,Y^\bullet\in D^+(\cat{A})\), then \(\operatorname{Ext}^i\) computed in \(D^+(\cat{A})\)
+agrees with the above, since \(D^+(\cat{A})\) is a full subcategory of \(D(\cat{A})\).
+
+2. This definition gives \(\operatorname{Ext}^i(X,Y)\) for any \(X,Y\in\cat{A}\).
+We shall see that if \(\cat{A}\) has enough injectives, this coincides with the classical
+definition of Ext groups.
+
+\textbf{Proposition 6.1.}
+Let
+\[
+0 \to X^\bullet \to Y^\bullet \to Z^\bullet \to 0
+\]
+be a short exact sequence of complexes over \(\cat{A}\), and let \(V^\bullet\) be another complex.
+Then we have long exact sequences
+\[
+\cdots \to \operatorname{Ext}^i(V^\bullet,X^\bullet)
+\to \operatorname{Ext}^i(V^\bullet,Y^\bullet)
+\to \operatorname{Ext}^i(V^\bullet,Z^\bullet)
+\to \operatorname{Ext}^{i+1}(V^\bullet,X^\bullet)
+\to \cdots
+\]
+and
+\[
+\cdots \to \operatorname{Ext}^i(Z^\bullet,V^\bullet)
+\to \operatorname{Ext}^i(Y^\bullet,V^\bullet)
+\to \operatorname{Ext}^i(X^\bullet,V^\bullet)
+\to \operatorname{Ext}^{i+1}(Z^\bullet,V^\bullet)
+\to \cdots
+\]
+
+\setcounter{page}{63}
+\textit{Proof.}
+Complete \(X^\bullet\to Y^\bullet\) to a triangle in \(K(\cat{A})\), with third vertex \(W^\bullet\):
+\[
+0 \to X^\bullet \to Y^\bullet \to Z^\bullet \to 0.
+\]
+There exists a morphism \(g\colon W^\bullet\to Z^\bullet\). Using the long exact cohomology sequence
+and the five-lemma, one verifies \(g\) is a quasi-isomorphism, hence an isomorphism in \(D(\cat{A})\).
+Replacing \(Z^\bullet\) by \(W^\bullet\), the result follows from properties of triangles.
+
+\textbf{Remark.}
+Any short exact sequence of complexes
+\[
+0 \to X^\bullet \to Y^\bullet \to Z^\bullet \to 0
+\]
+determines a morphism \(Z^\bullet\to T(X^\bullet)\) in \(D(\cat{A})\), making \(X^\bullet,Y^\bullet,Z^\bullet\)
+into a triangle.
+
+We now define a complex whose cohomology yields the \(\operatorname{Ext}\) groups.
+
+\textbf{Definition.}
+For complexes \(X^\bullet,Y^\bullet\) over \(\cat{A}\), define the complex
+\(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\) by
+\[
+\mathcal{H}\textit{om}^n\big(X^\bullet,Y^\bullet\big)
+= \prod_{p\in\mathbb{Z}} \Hom_{\cat{A}}\big(X^p,Y^{p+n}\big),
+\]
+with differential
+\[
+d^n = \prod_{p\in\mathbb{Z}} \big(d_X^{p-1} + (-1)^{n+1}d_Y^{p+n}\big).
+\]
+
+\setcounter{page}{64}
+The \(n\)-cycles of \(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\) correspond bijectively
+to morphisms \(X^\bullet\to T^n(Y^\bullet)\) of complexes.
+The \(n\)-boundaries correspond to morphisms homotopic to zero.
+Thus
+\[
+H^n\big(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\big)
+\cong \Hom_{K(\cat{A})}\big(X^\bullet,Y^\bullet\big).
+\]
+
+Clearly \(\mathcal{H}\textit{om}^\bullet\) is a bifunctor
+\[
+\mathcal{H}\textit{om}^\bullet\colon K(\cat{A})^\circ \times K(\cat{A}) \to K(\mathbf{Ab}).
+\]
+
+If \(\cat{A}\) has enough injectives, we may form its derived functors.
+
+\textbf{Lemma 6.2.}
+Let \(X^\bullet\in K(\cat{A})\), \(Y^\bullet\in K^+(\cat{A})\) be a bounded-below complex of injectives.
+Assume either
+\begin{enumerate}
+\item[(a)] \(Y^\bullet\) is acyclic, or
+\item[(b)] \(X^\bullet\) is acyclic.
+\end{enumerate}
+Then \(\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\) is acyclic.
+
+\textit{Proof.}
+It suffices to show any morphism \(X^\bullet\to Y^\bullet\) is homotopic to zero.
+Case (a): An acyclic bounded-below injective complex is split exact; one constructs a homotopy directly.
+Case (b): Follows from Lemma 4.4.
+
+\setcounter{page}{65}
+Suppose \(\cat{A}\) has enough injectives, and let \(L\subseteq K^+(\cat{A})\) be the triangulated
+subcategory of bounded-below injective complexes.
+By Lemma 6.2(a), for fixed \(X^\bullet\in K(\cat{A})\), the functor
+\[
+\mathcal{H}\textit{om}^\bullet(X^\bullet,\,\cdot\,)\colon K^+(\cat{A})\to K(\mathbf{Ab})
+\]
+satisfies the hypotheses of Theorem 5.1, hence admits a right derived functor.
+This is functorial in \(X^\bullet\), giving a biderived functor
+\[
+\mathbf{R}_\mathrm{II}\mathcal{H}\textit{om}^\bullet
+\colon K(\cat{A})^\circ \times D^+(\cat{A}) \to D(\mathbf{Ab}).
+\]
+
+By Lemma 6.2(b), this functor sends acyclic complexes to acyclic complexes in the first variable,
+hence descends to
+\[
+\mathbf{R}\mathcal{H}\textit{om}^\bullet
+\colon D(\cat{A})^\circ \times D^+(\cat{A}) \to D(\mathbf{Ab}).
+\]
+
+Dually, if \(\cat{A}\) has enough projectives, we obtain
+\[
+\mathbf{R}_\mathrm{I}\mathcal{H}\textit{om}^\bullet
+\colon D^-(\cat{A})^\circ \times D(\cat{A}) \to D(\mathbf{A}).
+\]
+
+\setcounter{page}{66}
+If \(\cat{A}\) has both enough injectives and projectives, the two derived functors
+are canonically isomorphic on \(D^-(\cat{A})^\circ\times D^+(\cat{A})\).
+We therefore write simply \(\mathbf{R}\mathcal{H}\textit{om}^\bullet\).
+
+\textbf{Lemma 6.3.}
+Let \(\cat{A},\cat{B},\cat{C}\) be abelian categories,
+\[
+T\colon K^*(\cat{A})\times K^\dagger(\cat{B})\to K(\cat{C})
+\]
+a bitriangulated functor.
+If the iterated derived functors \(\mathbf{R}_\mathrm{I}\mathbf{R}_\mathrm{II}T\) and \(\mathbf{R}_\mathrm{II}\mathbf{R}_\mathrm{I}T\) both exist,
+they are canonically unique compatible isomorphisms.
+
+\textit{Proof.} Immediate from the universal property of derived functors.
+
+\textbf{Theorem 6.4 (Yoneda).}
+Let \(\cat{A}\) have enough injectives.
+For all \(X^\bullet\in D(\cat{A})\), \(Y^\bullet\in D^+(\cat{A})\),
+\[
+H^i\big(\mathbf{R}\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\big)
+= \operatorname{Ext}^i\big(X^\bullet,Y^\bullet\big).
+\]
+
+\textbf{Corollary 6.5.}
+If \(\cat{A}\) has enough injectives, the derived-category definition of \(\operatorname{Ext}^i(X,Y)\)
+coincides with the classical Ext groups for all \(X,Y\in\cat{A}\).
+
+\textit{Proof.}
+Take an injective resolution \(I^\bullet\) of \(Y\). Then
+\[
+\operatorname{Ext}^i(X,Y) = H^i\big(\mathcal{H}\textit{om}^\bullet(X,I^\bullet)\big),
+\]
+which is the standard definition.
+
+\setcounter{page}{67}
+\textit{Proof of Theorem 6.4.}
+Choose a quasi-isomorphism \(s\colon Y^\bullet\to I^\bullet\) with \(I^\bullet\) a bounded-below injective complex. Then
+\[
+\operatorname{Ext}^i(X^\bullet,Y^\bullet)
+= \operatorname{Ext}^i(X^\bullet,I^\bullet)
+= \Hom_{D(\cat{A})}\big(X^\bullet,T^i(I^\bullet)\big).
+\]
+By Lemma 4.5, any morphism \(X^\bullet\to T^i(I^\bullet)\) in \(D(\cat{A})\)
+is represented by an actual morphism of complexes. Therefore
+\[
+\begin{aligned}
+\Hom_{D(\cat{A})}\big(X^\bullet,T^i(I^\bullet)\big)
+&= \Hom_{K(\cat{A})}\big(X^\bullet,T^i(I^\bullet)\big) \\
+&= H^i\big(\mathcal{H}\textit{om}^\bullet(X^\bullet,I^\bullet)\big) \\
+&= H^i\big(\mathbf{R}\mathcal{H}\textit{om}^\bullet(X^\bullet,Y^\bullet)\big).
+\end{aligned}
+\]

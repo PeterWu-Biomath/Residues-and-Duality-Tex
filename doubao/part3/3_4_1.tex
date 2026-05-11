@@ -1,0 +1,123 @@
+\setcounter{page}{154}
+\section{The trace map for projective space}
+
+In this section we define the trace isomorphism 
+\[
+\operatorname{Trp}_f\colon \Rfst f^!\bigl(G^\bullet\bigr) \stackrel{\sim}{\to} G^\bullet
+\]
+for \(G^\bullet \in D_{\mathrm{qc}}^+(Y)\), where \(Y\) is a locally noetherian prescheme, and \(f\colon \mathbb{P}_{Y}^{n} \to Y\) is the projection. The definition uses the results of [II.7] on locally noetherian preschemes. Without using these results, we can define the trace map only for \(G^\bullet \in D_{\mathrm{qc}}^b(Y)\).
+
+\begin{lemma}
+Let \(Y\) be a locally noetherian prescheme, let \(X=\mathbb{P}_{Y}^{n}\), and let \(f\colon X \to Y\) be the projection. Then every quasi-coherent sheaf \(\sheaf{F}\) on \(X\) is a quotient of a sheaf of the form
+\[
+L=\bigoplus f^*\bigl(\sheaf{G}_i\bigr)(-m_i)
+\]
+where the \(\sheaf{G}_i\) are quasi-coherent sheaves on \(Y\), and \(m_i>0\) are integers.
+\end{lemma}
+
+\begin{proof}
+Since \(\sheaf{F}\) is the direct limit of its coherent subsheaves, we may assume \(\sheaf{F}\) itself is coherent. For each \(m>0\) we have a natural map
+\[
+f^* f_*(\sheaf{F}(m)) \to \sheaf{F}(m),
+\]
+and we know from Serre's theorem [EGA III 2.2.1] that for each noetherian open subset \(V \subseteq Y\), the restriction of this map to \(f^{-1}(V)\) is surjective for large enough \(m\).
+
+Hence the map
+\[
+\bigoplus_{m>0} f^* f_*(\sheaf{F}(m))(-m) \to \sheaf{F}
+\]
+is surjective on all of \(X\), so we are done.
+\end{proof}
+
+\setcounter{page}{155}
+\begin{lemma}
+Let \(X,Y,f\) be as in the previous lemma. For any sheaf \(L\) on \(X\) of the form in Lemma 4.1, we have \(R^i f_*(L)=0\) for \(i \neq n\).
+\end{lemma}
+
+\begin{proof}
+It is sufficient to show that for \(\sheaf{G}\) quasi-coherent on \(Y\) and \(m>0\),
+\[
+R^i f_*\bigl(f^*(\sheaf{G})(-m)\bigr)=0 \quad \text{for } i \neq n.
+\]
+The question is local on \(Y\), so we may assume \(Y\) quasi-compact, and use the projection formula [II.5.6] (note \(f^*(\sheaf{G})(-m)=f^*(\sheaf{G}) \otimes \sheaf{O}_X(-m)\)):
+\[
+\Rfst\bigl(f^*(\sheaf{G})(-m)\bigr) 
+\stackrel{\sim}{\to} \Rfst\bigl(\sheaf{O}_X(-m)\bigr) \stackrel{\mathbf{L}}{\otimes} \sheaf{G}.
+\]
+
+But \(R^i f_*(\sheaf{O}_X(-m))=0\) for \(i \neq n\) by the explicit calculations (Theorem 3.4), and \(R^n f_*(\sheaf{O}_X(-m))\) is locally free on \(Y\), so there is only one non-zero sheaf on the right, and we are done.
+\end{proof}
+
+\setcounter{page}{156}
+\begin{proposition}
+Let \(Y\) be a locally noetherian prescheme, let \(X=\mathbb{P}_{Y}^{n}\) and let \(f\colon X \to Y\) be the projection. Then there exists a functorial isomorphism
+\[
+\operatorname{Trp}_f\colon \Rfst f^!\bigl(G^\bullet\bigr) \stackrel{\sim}{\to} G^\bullet
+\]
+for \(G^\bullet \in D_{\mathrm{qc}}^+(Y)\).
+\end{proposition}
+
+\begin{proof}
+Since \(X\) and \(Y\) are locally noetherian, we reduce to constructing a similar isomorphism for \(G^\bullet \in D^+\bigl(\cat{Qco}(Y)\bigr)\), where
+\[
+\Rfst\colon D\bigl(\cat{Qco}(X)\bigr) \to D\bigl(\cat{Qco}(Y)\bigr), \quad
+f^*\colon D\bigl(\cat{Qco}(Y)\bigr) \to D\bigl(\cat{Qco}(X)\bigr).
+\]
+
+We use here [II.7.19] which says that \(D^+\bigl(\cat{Qco}(Y)\bigr) \to D_{\mathrm{qc}}^+(Y)\) is an equivalence of categories, and [I.5.6] which says that taking derived functors is compatible with this isomorphism. Note that \(\Rfst\) is defined on all of \(D\bigl(\cat{Qco}(X)\bigr)\) since \(f_*\) is of finite cohomological dimension on \(\cat{Qco}(X)\).
+
+In fact, we will construct an isomorphism
+\[
+\operatorname{Trp}_f\colon \Rfst f^!\bigl(G^\bullet\bigr) \to G^\bullet
+\]
+for all \(G^\bullet \in D\bigl(\cat{Qco}(Y)\bigr)\).
+
+\setcounter{page}{157}
+We apply [I.7.4] to the abelian categories \(\cat{A}=\cat{Qco}(X)\), \(\cat{B}=\cat{Qco}(Y)\), and to the functor \(F=f_*\). The functor \(f_*\) has cohomological dimension \(n\) on \(\cat{Qco}(X)\). Let \(P \subseteq \operatorname{Ob}\cat{Qco}(X)\) be the collection of sheaves of the form in Lemma 4.1. Then by the two lemmas above, \(P\) satisfies the hypotheses of loc.\ cit., so \(\mathbf{L}(R^n f_*)\) exists, and there is an isomorphism
+\[
+\psi\colon \Rfst \stackrel{\sim}{\to} \mathbf{L}(R^n f_*)[-n]
+\]
+of functors from \(D\bigl(\cat{Qco}(X)\bigr)\) to \(D\bigl(\cat{Qco}(Y)\bigr)\).
+
+Apply this isomorphism to \(f^! G^\bullet\) for \(G^\bullet \in K\bigl(\cat{Qco}(Y)\bigr)\), which gives
+\[
+\Rfst f^!\bigl(G^\bullet\bigr)
+\stackrel{\sim}{\to} \mathbf{L}(R^n f_*)\bigl(f^*\bigl(G^\bullet\bigr) \otimes \omega\bigr).
+\]
+
+Now each sheaf \(f^*(G^p) \otimes \omega\) is in \(P\) (since \(\omega \cong \sheaf{O}_X(-n-1)\)), hence is \(R^n f_*\)-acyclic, so the expression on the right reduces to
+\[
+R^n f_*\bigl(f^*(G^\bullet) \otimes \omega\bigr).
+\]
+
+For each component \(G^p\), the projection formula gives an isomorphism
+\[
+R^n f_*\bigl(f^*(G^p) \otimes \omega\bigr) 
+\stackrel{\sim}{\to} R^n f_*(\omega) \otimes G^p.
+\]
+Composing with the isomorphism \(\gamma\) of Theorem 3.4 identifies this with \(G^p\). Composing all these isomorphisms yields the required trace isomorphism
+\[
+\operatorname{Trp}_f\colon \Rfst f^! G^\bullet \to G^\bullet.
+\]
+\end{proof}
+
+\setcounter{page}{158}
+\begin{remark}
+Remember that the isomorphism \(\operatorname{Trp}_f\) we have just defined depends on the isomorphism \(\gamma\) of Theorem 3.4, and so depends apparently on the projective coordinates. If one does not wish to use [II.7.19] and [I.7.4], one can define \(\operatorname{Trp}_f\) for \(G^\bullet \in D_{\mathrm{qc}}^b(Y)\) simply by using the projection formula [II.5.6].
+\end{remark}
+
+The following proposition shows that the two methods of constructing the trace map agree when both are defined.
+
+\begin{proposition}
+Let \(f,X,Y\) be as in Proposition 4.3, and assume one of \(F^\bullet, G^\bullet\) has finite Tor-dimension for \(F^\bullet,G^\bullet \in D_{\mathrm{qc}}^b(Y)\). Then the following diagram is commutative:
+\[
+F^\bullet \stackrel{\mathbf{L}}{\otimes} \Rfst f^! G^\bullet
+\to \Rfst\bigl(f^* F^\bullet \stackrel{\mathbf{L}}{\otimes} f^* G^\bullet\bigr)
+\]
+where the upper horizontal arrow is the projection formula [II 5.6] and the right-hand vertical arrow is the isomorphism of Proposition 2.4a.
+\end{proposition}
+
+\setcounter{page}{159}
+\begin{proof}
+The question is local on \(Y\), so we may assume \(Y\) affine. Then we can take a resolution of \(F^\bullet\) by direct sums of copies of \(\sheaf{Y}\). Thus we may work entirely within \(D^-\bigl(\cat{Qco}(Y)\bigr)\); the result follows easily from the definition of the morphisms involved. If \(C^{\cdot\cdot}\) is a Cartan-Eilenberg resolution of \(f^! G^\bullet\), then \(f^* F^\bullet \otimes C^{\cdot\cdot}\) is a Cartan-Eilenberg resolution of \(f^* F^\bullet \otimes f^* G^\bullet\).
+\end{proof}

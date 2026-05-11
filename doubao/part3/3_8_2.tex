@@ -1,0 +1,103 @@
+\setcounter{page}{189}
+Proof. Left to the patient reader.
+
+\begin{definition}
+Let \(S\) be a fixed prescheme. A morphism \(f\colon X\to Y\) in the category of preschemes over \(S\) is called \textit{\(S\)-embeddable} if there exists a smooth prescheme \(P\) over \(S\) and a finite morphism \(i\colon X\to P\times_S Y\) such that \(f = p_2\circ i\). Unless specified otherwise, embeddable means over \(S=\operatorname{Spec}\mathbb{Z}\).
+\end{definition}
+
+\noindent\textbf{Examples.}
+\begin{enumerate}
+\item Any projective morphism with an ample sheaf is embeddable, since it factors through \(\mathbb{P}_Y^N\) (EGA II 5.5.4(ii)).
+\item Any finite morphism is embeddable, take \(P=S\).
+\item Any finite-type morphism of affine schemes is embeddable into an affine space.
+\item Compositions of embeddable morphisms are embeddable.
+\item Embeddable morphisms are stable under base extension.
+\end{enumerate}
+
+\setcounter{page}{190}
+\begin{theorem}
+Let \(S\) be a fixed prescheme, and let \(\operatorname{Lno}(S)\) denote the category of locally noetherian preschemes over \(S\). There exists a functorial theory of \(f^!\) for embeddable morphisms in \(\operatorname{Lno}(S)\) consisting of the data (1)--(5) below, subject to axioms \(\textsc{VAR 1--VAR 6}\). This theory is unique: any other set of data \((1')\)--\((5')\) satisfying the same axioms is canonically isomorphic, with compatibility for all structure isomorphisms.
+\end{theorem}
+
+\noindent\textbf{Data:}
+\begin{enumerate}
+\item For every embeddable morphism \(f\colon X\to Y\), a functor
+\[
+f^!\colon D_{\mathrm{qc}}^+(Y) \to D_{\mathrm{qc}}^+(X).
+\]
+
+\item For each composition \(X\xrightarrow{f}Y\xrightarrow{g}Z\) of embeddable morphisms, a functorial isomorphism
+\[
+c_{f,g}\colon (gf)^! \stackrel{\sim}{\to} f^!\circ g^!.
+\]
+
+\item For every finite morphism \(f\), an isomorphism
+\[
+d_f\colon f^! \stackrel{\sim}{\to} f^b.
+\]
+
+\item For every smooth embeddable morphism \(f\), an isomorphism
+\[
+e_f\colon f^! \stackrel{\sim}{\to} f^*.
+\]
+\setcounter{page}{191}
+\item For every embeddable morphism \(f\colon X\to Y\) and flat base extension \(u\colon Y'\to Y\), let \(X'=X\times_Y Y'\) with projections \(v\colon X'\to X,\ g\colon X'\to Y'\). There is a functorial isomorphism
+\[
+b_{u,f}\colon v^! f^! \stackrel{\sim}{\to} g^! u^*.
+\]
+\end{enumerate}
+
+\noindent\textbf{Axioms \(\textsc{VAR 1--VAR 6}\):}
+\begin{enumerate}
+\item[\(\textsc{VAR 1}\)] \(c_{f,\id}=c_{\id,f}=\id\); triple compositions yield commutative diagrams of the \(c_{f,g}\) isomorphisms.
+
+\item[\(\textsc{VAR 2}\)] Compatibility of \(c_{f,g}\) with \(d_f,d_g\) for compositions of finite morphisms (via Proposition 6.2).
+
+\item[\(\textsc{VAR 3}\)] Compatibility of \(c_{f,g}\) with \(e_f,e_g\) for compositions of smooth morphisms (via Proposition 2.2).
+
+\item[\(\textsc{VAR 4}\)] Cartesian squares commute with \(b_{u,f}\), compatible with \(d_f,e_u,e_v\) and Corollary 6.4.
+
+\item[\(\textsc{VAR 5}\)] Compatibility of \(c_{f,g}\) with residue isomorphisms \(\psi_{f,g}\) for finite/smooth compositions (Propositions 8.2, 8.4).
+
+\item[\(\textsc{VAR 6}\)] Base extension isomorphism \(b_{u,f}\) is compatible with Proposition 2.1 and 6.3 for smooth/finite morphisms.
+\end{enumerate}
+
+\setcounter{page}{192}
+\begin{proof}
+We give only a sketch. Choose an embedding \(i\colon X\to P_Y\) for an embeddable morphism \(f\), then define \(f^! = i^b\circ p_2^*\). Independence of the embedding follows from Propositions 8.2 and 8.6b. For compositions \(gf\), use product embeddings and define \(c_{f,g}\) via Corollary 6.4. Define \(d_f,e_f,b_{u,f}\) by the earlier propositions. Verifying the six axioms requires standard commutative diagram chasing. Uniqueness follows from functorial compatibility. Note that (5) and \(\textsc{VAR 6}\) are not required for uniqueness.
+\end{proof}
+
+\setcounter{page}{193}
+\begin{remark}
+A major open problem is extending this \(f^!\) theory to \textit{arbitrary finite-type morphisms} of locally noetherian preschemes. The fundamental obstacle: the presheaf \(U\mapsto D_{\mathrm{qc}}^+(U)\) is \textbf{not a sheaf of categories}. One may have local compatible gluing data for complexes on an open cover, yet no global complex exists. Even gluing isomorphism morphisms locally may fail. Though every finite-type morphism is locally embeddable, we cannot glue local \(f^!\) functors to a global one.
+
+To resolve this, we introduce \textit{residual complexes} in Chapter VI. These are actual chain complexes (not derived category objects) and hence admit gluing. We build an analogous \(f^!\) formalism for residual complexes, then recover the derived-category \(f^!\) under mild hypotheses: noetherian schemes of finite Krull dimension admitting dualizing complexes, and bounded complexes with coherent cohomology.
+\end{remark}
+
+\setcounter{page}{194}
+\begin{proposition}
+Let \(f\colon X\to Y\) be an embeddable morphism of locally noetherian preschemes.
+\begin{enumerate}
+\item There exists a functorial isomorphism
+\[
+f^!\big(F^\bullet \stackrel{\mathbf{L}}{\otimes} G^\bullet\big)
+\cong f^!(F^\bullet) \stackrel{\mathbf{L}}{\otimes} f^!(G^\bullet)
+\]
+for \(F^\bullet\in D_{\mathrm{qc}}^+(Y)\), \(G^\bullet\in D_{\mathrm{qc}}^b(Y)_{\mathrm{fTd}}\).
+
+\item There exists a functorial isomorphism
+\[
+\RHom\big(\Lfst F^\bullet,\,f^! G^\bullet\big)
+\cong f^!\big(\RHom(F^\bullet,G^\bullet)\big)
+\]
+for \(F^\bullet\in D_{\mathrm{c}}^-(Y)\), \(G^\bullet\in D_{\mathrm{qc}}^+(Y)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Factor \(f\) as finite followed by smooth, apply Propositions 2.4 and 6.9. Left to the reader.
+\end{proof}
+
+\begin{remark}
+One would like to extend the first isomorphism to flat \(f\), \(F^\bullet\in D_{\mathrm{qc}}^b(Y)_{\mathrm{fTd}}\), \(G^\bullet\in D_{\mathrm{qc}}^+(Y)\). Both sides are well-defined, but a canonical morphism is unknown. However, if \(Y\) admits a dualizing complex, such an isomorphism holds for coherent-complex cohomology (cf. Chapter V).
+\end{remark}

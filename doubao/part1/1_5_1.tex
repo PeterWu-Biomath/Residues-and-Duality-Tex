@@ -1,0 +1,133 @@
+\setcounter{page}{35}
+\section{\S4. Quasi-isomorphisms and the Derived Category}
+
+Let \(\cat{A}\) be an abelian category, and let \(K(\cat{A})\) be the triangulated category of complexes up to homotopy introduced in \S2. A morphism \(f\colon X^\bullet\to Y^\bullet\) in \(K(\cat{A})\) is called a \textit{quasi-isomorphism} if it induces an isomorphism on all cohomology groups. Denote by \(\mathsf{Qis}\) the collection of all quasi-isomorphisms in \(K(\cat{A})\).
+
+\medskip
+\textbf{Proposition 4.1.}
+The set \(\mathsf{Qis}\) is a multiplicative system in \(K(\cat{A})\).
+
+\textit{Proof.} This follows from the more general result below.
+
+\medskip
+\textbf{Proposition 4.2.}
+Let \(\cat{C}\) be a triangulated category, \(\cat{A}\) an abelian category, and \(H\colon\cat{C}\to\cat{A}\) a cohomological functor. Let \(S\) be the class of morphisms \(s\in\cat{C}\) such that \(H(T^i(s))\) is an isomorphism for all \(i\in\mathbb{Z}\). Then \(S\) is a multiplicative system in \(\cat{C}\) and is compatible with the triangulation.
+
+\textit{Proof.} We verify axioms \(\text{FR1}\)--\(\text{FR5}\). Axioms \(\text{FR1}\) and \(\text{FR4}\) are trivial. Axiom \(\text{FR5}\) follows from the long exact sequence of a cohomological functor and the five-lemma.
+
+\setcounter{page}{36}
+To prove \(\text{FR2}\), consider a diagram
+\[
+X\xrightarrow{u} Y \xleftarrow{s} Z,\qquad s\in S.
+\]
+Complete \(s\) to a triangle \((Z,Y,N,s,f,g)\). Complete \(fu\) to a triangle \((W,X,N,t,fu,h)\). Since \((u,\id_N)\) maps two sides of the second triangle to the first, there exists a morphism \(v\colon W\to Z\) giving a morphism of triangles, satisfying \(sv = ut\).
+
+It remains to show \(t\in S\). Since \(s\in S\), the long exact sequence of the first triangle implies \(H(T^i(N))=0\) for all \(i\in\mathbb{Z}\). Substituting into the long exact sequence of the second triangle yields that \(H(T^i(t))\) is an isomorphism for all \(i\in\mathbb{Z}\), so \(t\in S\). The dual statement of \(\text{FR2}\) is proved similarly.
+
+\setcounter{page}{37}
+For \(\text{FR3}\), consider \(f,g\colon X\to Y\). It suffices to prove equivalence of:
+\begin{enumerate}
+\item[(i)] \(\exists\;s\colon Y\to Y'\in S\) with \(sf=sg\);
+\item[(ii)] \(\exists\;t\colon X'\to X\in S\) with \(ft=gt\).
+\end{enumerate}
+It is enough to treat the case \(g=0\), so we need:
+(i) \(\exists\,s\colon Y\to Y'\in S,\ sf=0\)
+\(\iff\)
+(ii) \(\exists\,t\colon X'\to X\in S,\ ft=0\).
+
+Assume (i). By \(\text{TR1},\text{TR2}\), form a triangle \((Z,Y,Y',v,s,u)\). Since \(sf=0\), Proposition 1.1(b) gives \(g\colon X\to Z\) with \(f=vg\). Form a triangle \((X',X,Z,t,g,w)\). Again by Proposition 1.1(b), \(ft=0\). Since \(s\in S\), \(H(T^i(Z))=0\) for all \(i\), which implies \(t\in S\). The converse (ii)\(\Rightarrow\)(i) is symmetric.
+
+\medskip
+\textbf{Definition.}
+The \textit{derived category} of \(\cat{A}\) is
+\[
+D(\cat{A}) := K(\cat{A})_{\mathsf{Qis}}.
+\]
+Similarly define
+\[
+D^+(\cat{A})=K^+(\cat{A})_{\mathsf{Qis}},\quad
+D^-(\cat{A})=K^-(\cat{A})_{\mathsf{Qis}},\quad
+D^b(\cat{A})=K^b(\cat{A})_{\mathsf{Qis}}.
+\]
+By Proposition 3.3, these are full subcategories of \(D(\cat{A})\), and
+\[
+D^+(\cat{A})\cap D^-(\cat{A}) = D^b(\cat{A}).
+\]
+
+\setcounter{page}{38}
+\textbf{Definition.}
+Let \(\cat{A}\) be abelian, and \(\cat{A}'\subset\cat{A}\) a \textit{thick} full abelian subcategory (closed under extensions in \(\cat{A}\)). Define \(K_{\cat{A}'}(\cat{A})\) to be the full subcategory of \(K(\cat{A})\) consisting of complexes \(X^\bullet\) whose cohomology objects \(H^i(X^\bullet)\) lie in \(\cat{A}'\). Since \(\cat{A}'\) is thick, \(K_{\cat{A}'}(\cat{A})\) is a triangulated subcategory of \(K(\cat{A})\).
+
+Define
+\[
+D_{\cat{A}'}(\cat{A}) := K_{\cat{A}'}(\cat{A})_{\mathsf{Qis}}.
+\]
+By Proposition 3.3, \(D_{\cat{A}'}(\cat{A})\) is the full subcategory of \(D(\cat{A})\) of complexes with all cohomology in \(\cat{A}'\). One defines similarly \(K_{\cat{A}'}^+(\cat{A}), D_{\cat{A}'}^+(\cat{A})\), etc., for bounded-below complexes.
+
+\textbf{Remark.} There is a natural functor \(D(\cat{A}')\to D_{\cat{A}'}(\cat{A})\), which is in general neither injective nor surjective (cf.\ Proposition 4.8).
+
+\medskip
+\textbf{Example.}
+A morphism \(f\colon X^\bullet\to Y^\bullet\) of complexes induces the zero morphism in \(D(\cat{A})\) if and only if:
+
+\((*)\) There exists \(s\colon Y^\bullet\to Y'^\bullet\in\mathsf{Qis}\) such that \(sf\) is homotopic to zero (equivalently, \(\exists\;t\colon X'^\bullet\to X^\bullet\in\mathsf{Qis}\) such that \(ft\) is homotopic to zero).
+
+\setcounter{page}{39}
+\begin{enumerate}
+\item If \(f\) is homotopic to zero, then \((*)\) holds. The converse is false.
+Take the complex
+\[
+X^\bullet:\; 0\to\mathbb{Z}\xrightarrow{2}\mathbb{Z}\to\mathbb{Z}/2\mathbb{Z}\to 0,
+\]
+and \(f=\id_{X^\bullet}\). Let \(g\colon X^\bullet\to 0\) be the zero map; then \(g\in\mathsf{Qis}\) and \(gf=0\), but \(\id_{X^\bullet}\) is not homotopic to zero.
+
+\item If \(f\) is homotopic to zero, it induces the zero map on cohomology; the converse is false.
+Take
+\[
+X^\bullet,Y^\bullet:\quad 0\to\mathbb{Z}\xrightarrow{2}\mathbb{Z}\to 0.
+\]
+The identity map induces zero on cohomology, but there is no \(t\in\mathsf{Qis}\) with \(ft\simeq 0\). Any homotopy operator would force \(2k(x)=1\), impossible in \(\mathbb{Z}\).
+\end{enumerate}
+
+\setcounter{page}{40}
+For morphisms \(f,g\colon X^\bullet\to Y^\bullet\) of complexes, the implications below are all strict:
+\[
+f=g \;\Longrightarrow\; f\simeq g \;\Longrightarrow\; f=g \text{ in }D(\cat{A}) \;\Longrightarrow\; H^i(f)=H^i(g)\;\forall i.
+\]
+
+\medskip
+\textbf{Proposition 4.3.}
+Let \(\cat{A}\) be identified with the full subcategory of \(D(\cat{A})\) consisting of complexes concentrated in degree zero. Then the natural embedding \(\cat{A}\hookrightarrow D(\cat{A})\) is an equivalence of categories.
+
+\textit{Proof.} Left to the reader.
+
+We now prove three lemmas, which give an alternative description of \(D^+(\cat{A})\) when \(\cat{A}\) has enough injectives.
+
+\medskip
+\textbf{Lemma 4.4.}
+Let \(\cat{A}\) be abelian, \(f\colon Z^\bullet\to I^\bullet\) a morphism of complexes. Assume:
+\begin{enumerate}
+\item[(1)] \(Z^\bullet\) is acyclic;
+\item[(2)] Each \(I^p\) is injective in \(\cat{A}\);
+\item[(3)] \(I^\bullet\) is bounded below.
+\end{enumerate}
+Then \(f\) is homotopic to zero.
+
+\textit{Proof.} Standard and straightforward.
+
+\setcounter{page}{41}
+\medskip
+\textbf{Lemma 4.5.}
+Let \(\cat{A}\) be abelian, \(s\colon I^\bullet\to Y^\bullet\) a morphism of complexes. Assume:
+\begin{enumerate}
+\item[(1)] \(s\) is a quasi-isomorphism;
+\item[(2)] Each \(I^p\) is injective;
+\item[(3)] \(I^\bullet\) is bounded below.
+\end{enumerate}
+Then \(s\) admits a homotopy inverse.
+
+\textit{Proof.} Form the mapping cone \(Z^\bullet = T(I^\bullet)\oplus Y^\bullet\) of \(s\). Since \(s\) is a quasi-isomorphism, \(Z^\bullet\) is acyclic. The natural map \(v\colon Z^\bullet\to T(I^\bullet)\) satisfies the hypotheses of Lemma 4.4, hence is homotopic to zero. Let \((k,t)\colon T(I^\bullet)\oplus Y^\bullet\to I^\bullet\) be the corresponding homotopy operator. Then
+\[
+v = (\id_{I^\bullet},0) = (k,t)\circ d_Z + d_I\circ(k,t).
+\]
+Separating components yields the required homotopy inverse.

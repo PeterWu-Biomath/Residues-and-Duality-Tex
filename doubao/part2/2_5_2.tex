@@ -1,0 +1,182 @@
+\setcounter{page}{107}
+To prove the projection formula is an isomorphism, we show the induced sheaf map
+\[
+H^i\Big(\mathbf{R}f_*\big(F^\bullet\otimes^{\mathbf{L}}_X \mathbf{L}f^*G^\bullet\big)\Big)
+\to
+H^i\big(\mathbf{R}f_*F^\bullet\otimes^{\mathbf{L}}_Y G^\bullet\big)
+\]
+is an isomorphism for all $i$. This question is local on $Y$, and all functors commute with localization, so we may assume $Y$ is affine.
+
+Both sides are way-out left in $G^\bullet$. Since $Y$ is affine, every quasi-coherent $\mathcal{O}_Y$-module is a quotient of a free $\mathcal{O}_Y$-module. By the dual version of the way-out functor lemma (I.7.1), we reduce to $G^\bullet$ being a single free $\mathcal{O}_Y$-module. Since quasi-compact morphisms commute with direct sums, we further reduce to $G=\mathcal{O}_Y$. Then both sides coincide, completing the proof.
+
+\textbf{Remark.} Detailed arguments like this will be omitted in subsequent sections.
+
+\setcounter{page}{108}
+\textbf{Corollary 5.7.}
+Let $f,X,Y$ satisfy the hypotheses of Proposition 5.6, and suppose $f$ has finite Tor-dimension. If $F^\bullet\in D^b(X)$ has finite Tor-dimension, then $\mathbf{R}f_*F^\bullet\in D^b(Y)$ also has finite Tor-dimension.
+
+\textit{Proof.}
+Consider the functor
+\[
+G^\bullet \mapsto \mathbf{L}f^*G^\bullet,
+\]
+which is way-out right because $f$ has finite Tor-dimension.
+The functor
+\[
+G^\bullet \mapsto F^\bullet\otimes^{\mathbf{L}}_X\mathbf{L}f^*G^\bullet
+\]
+is way-out right since $F^\bullet$ has finite Tor-dimension.
+Hence
+\[
+G^\bullet \mapsto \mathbf{R}f_*\big(F^\bullet\otimes^{\mathbf{L}}_X\mathbf{L}f^*G^\bullet\big)
+\]
+is way-out right. By the projection formula, this coincides with
+\[
+G^\bullet \mapsto \mathbf{R}f_*F^\bullet\otimes^{\mathbf{L}}_Y G^\bullet,
+\]
+also way-out right for $G^\bullet\in D_{\mathrm{qc}}^-(Y)$. By Proposition 4.2, $\mathbf{R}f_*F^\bullet$ has finite Tor-dimension.
+
+\setcounter{page}{109}
+\textbf{Problem.}
+Let $f,X,Y$ be as above with $f$ of finite Tor-dimension.
+For $F^\bullet\in D^b_{\mathrm{fTd}}(X)$ and $G^\bullet\in D_{\mathrm{qc}}(Y)$, are the functors
+\[
+\mathbf{R}f_*\big(F^\bullet\otimes^{\mathbf{L}}_X\mathbf{L}f^*G^\bullet\big)
+\quad\text{and}\quad
+\mathbf{R}f_*F^\bullet\otimes^{\mathbf{L}}_Y G^\bullet
+\]
+naturally isomorphic? The main difficulty is constructing the canonical morphism; once defined, the way-out lemma easily gives the isomorphism.
+
+\textbf{Proposition 5.8.}
+Let $f\colon X\to Y$ be a flat morphism of preschemes. There is a natural functorial homomorphism
+\[
+f^*\mathbf{R}\mathcal{H}\textit{om}_Y(F^\bullet,G^\bullet)
+\to
+\mathbf{R}\mathcal{H}\textit{om}_X(f^*F^\bullet,f^*G^\bullet)
+\]
+for $F^\bullet\in D(Y)$, $G^\bullet\in D^+(Y)$.
+If $Y$ is locally noetherian, this is an isomorphism for $F^\bullet\in D_{\mathrm{c}}^-(Y)$.
+(For flat $f$, $f^*$ is exact, so we write $f^*$ instead of $\mathbf{L}f^*$.)
+
+\textit{Proof.}
+Assume $G^\bullet$ is a complex of injective sheaves, and use the canonical sheaf map
+\[
+f^*\Hom_Y(F,G) \to \Hom_X(f^*F,f^*G).
+\]
+For the isomorphism, reduce to $F^\bullet=\mathcal{O}_Y$ via the way-out lemma, using affine localization.
+
+\setcounter{page}{110}
+\textbf{Proposition 5.9.}
+Let $f\colon X\to Y$ be a morphism of preschemes. There is a natural isomorphism
+\[
+\mathbf{L}f^*F^\bullet\otimes^{\mathbf{L}}_X \mathbf{L}f^*G^\bullet
+\;\simeq\;
+\mathbf{L}f^*\big(F^\bullet\otimes^{\mathbf{L}}_Y G^\bullet\big)
+\]
+for all $F^\bullet,G^\bullet\in D^-(Y)$.
+
+\textit{Proof.} Left to the reader.
+
+\textbf{Proposition 5.10.}
+Let $f\colon X\to Y$ be a morphism of noetherian preschemes of finite Krull dimension. There is a natural functorial homomorphism
+\[
+\tau\colon
+\mathbf{R}f_*\mathbf{R}\mathcal{H}\textit{om}_X(\mathbf{L}f^*F^\bullet,G^\bullet)
+\to
+\mathbf{R}\mathcal{H}\textit{om}_Y(F^\bullet,\mathbf{R}f_*G^\bullet)
+\]
+for $F^\bullet\in D^-(Y)$, $G^\bullet\in D^+(X)$.
+If $F^\bullet\in D_{\mathrm{c}}^-(Y)$, then $\tau$ is an isomorphism.
+
+\textit{Proof.}
+Define the canonical map
+\[
+\rho\colon F^\bullet \to \mathbf{R}f_*\mathbf{L}f^*F^\bullet
+\]
+by the unit of the adjunction. The morphism $\tau$ follows from Proposition 5.5.
+For the isomorphism, assume $Y$ affine and reduce to $F^\bullet=\mathcal{O}_Y$, so $\mathbf{L}f^*F^\bullet=\mathcal{O}_X$ and both sides coincide.
+
+\setcounter{page}{111}
+\textbf{Corollary 5.11.}
+Under the hypotheses of Proposition 5.10, we have a natural bijection
+\[
+\Hom_{D(X)}(\mathbf{L}f^*F^\bullet,G^\bullet)
+\;\simeq\;
+\Hom_{D(Y)}(F^\bullet,\mathbf{R}f_*G^\bullet).
+\]
+In other words, $\mathbf{L}f^*$ is left adjoint to $\mathbf{R}f_*$ on $D_{\mathrm{c}}^-(Y)\times D^+(X)$.
+
+\textit{Proof.}
+Apply $H^0\circ\mathbf{R}\Gamma$ to the isomorphism in Proposition 5.10, using Propositions 5.2 and 5.3.
+
+\textbf{Proposition 5.12.}
+Let $f\colon X\to Y$ be finite type over noetherian finite-dimensional preschemes.
+Let $u\colon Y'\to Y$ be flat, $X'=X\times_Y Y'$, with projections $v\colon X'\to X$, $g\colon X'\to Y'$.
+There is a natural isomorphism
+\[
+u^*\mathbf{R}f_*F^\bullet
+\;\simeq\;
+\mathbf{R}g_*v^*F^\bullet
+\]
+for all $F^\bullet\in D_{\mathrm{qc}}(X)$.
+
+\setcounter{page}{112}
+\textit{Proof.}
+Define the morphism via the canonical base-change map $u^*f_*F\to g_*v^*F$, extended to derived functors.
+Both sides are way-out functors; reduce to a single quasi-coherent sheaf $F$. The result is EGA III 1.4.15.
+
+\textbf{Proposition 5.13.}
+Let $X$ be a prescheme. The derived tensor product is commutative and associative:
+\[
+F^\bullet\otimes^{\mathbf{L}}G^\bullet \;\simeq\; G^\bullet\otimes^{\mathbf{L}}F^\bullet,
+\]
+\[
+\big(F^\bullet\otimes^{\mathbf{L}}G^\bullet\big)\otimes^{\mathbf{L}}H^\bullet
+\;\simeq\;
+F^\bullet\otimes^{\mathbf{L}}\big(G^\bullet\otimes^{\mathbf{L}}H^\bullet\big)
+\]
+for all $F^\bullet,G^\bullet,H^\bullet\in D^-(X)$.
+
+\textit{Proof.} Left to the reader.
+
+\setcounter{page}{113}
+\textbf{Proposition 5.14.}
+There is a natural functorial homomorphism
+\[
+\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)\otimes^{\mathbf{L}}H^\bullet
+\to
+\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet\otimes^{\mathbf{L}}H^\bullet)
+\]
+for $F^\bullet\in D(X)$, $G^\bullet\in D^+(X)$, $H^\bullet\in D^b_{\mathrm{fTd}}(X)$.
+If $X$ is locally noetherian and $F^\bullet\in D_{\mathrm{c}}^-(X)$, this is an isomorphism.
+
+\textit{Proof.} Left to the reader.
+
+\textbf{Proposition 5.15.}
+Let $X$ be locally noetherian, and assume every coherent sheaf is a quotient of a finite-rank locally free sheaf (LFR). Then
+\[
+\mathbf{R}\mathcal{H}\textit{om}^\big(F^\bullet,\mathbf{R}\mathcal{H}\textit{om}^\bullet(G^\bullet,H^\bullet)\big)
+\;\simeq\;
+\mathbf{R}\mathcal{H}\textit{om}^\bullet\big(F^\bullet\otimes^{\mathbf{L}}G^\bullet,H^\bullet\big)
+\]
+for $F^\bullet,G^\bullet\in D_{\mathrm{c}}^-(X)$, $H^\bullet\in D^+(X)$.
+
+\textit{Proof.}
+Use LFR resolutions to compute $\mathbf{R}\mathcal{H}\textit{om}$. LFRs are flat, so their tensor product preserves LFRs. Reduce via the way-out lemma to $F^\bullet=\mathcal{O}_X$.
+
+\setcounter{page}{114}
+\textbf{Proposition 5.16.}
+Let $X$ be a prescheme, $L^\bullet$ a bounded complex of finite-rank locally free sheaves. Define $L^{\vee\bullet}=\underline{\mathcal{H}\textit{om}}^\bullet(L^\bullet,\mathcal{O}_X)$. Then there are natural isomorphisms
+\[
+\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)\otimes^{\mathbf{L}}L^\bullet
+\;\simeq\;
+\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet\otimes^{\mathbf{L}}L^\bullet),
+\]
+\[
+\;\simeq\;
+\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet\otimes^{\mathbf{L}}L^{\vee\bullet},G^\bullet)
+\]
+for all $F^\bullet\in D^-(X)$, $G^\bullet\in D^+(X)$.
+
+\textit{Proof.}
+The identities hold for ordinary sheaves. Injective tensored with LFR remains injective, so the derived extension is immediate.

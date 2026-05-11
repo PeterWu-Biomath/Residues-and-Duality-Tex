@@ -1,0 +1,129 @@
+\setcounter{page}{148}
+\section{\S3 Recall of Explicit Cohomology Calculations}
+
+We recall cohomology computations for projective spaces following EGA III and Godement [G, II].
+
+Let $X$ be a prescheme, $\mathfrak{U}=(U_i)$ an open cover of $X$, and $\mathcal{F}$ an $\mathcal{O}_X$-module sheaf.
+We define the \v{C}ech complex $\check{C}^\bullet(\mathfrak{U},\mathcal{F})$ as follows:
+
+For each integer $p\ge 0$ and index tuple $i_0<i_1<\cdots<i_p$, set
+\[
+U_{i_0\cdots i_p} = U_{i_0}\cap\cdots\cap U_{i_p}.
+\]
+Define the sheaf $\check{C}^p(\mathfrak{U},\mathcal{F})$ by its sections over an open $V\subseteq X$:
+\[
+\check{C}^p(\mathfrak{U},\mathcal{F})(V)
+= \prod_{i_0<\cdots<i_p} \mathcal{F}\big(V\cap U_{i_0\cdots i_p}\big).
+\]
+
+This is indeed a sheaf; it coincides with the product of direct image sheaves
+$i_*\big(\mathcal{F}|_{U_{i_0\cdots i_p}}\big)$, where $i:U_{i_0\cdots i_p}\hookrightarrow X$ is the open immersion.
+
+A section $\alpha\in\check{C}^p(\mathfrak{U},\mathcal{F})(V)$ is written as a product
+\[
+\alpha = \prod_{i_0<\cdots<i_p} \alpha_{i_0\cdots i_p},\qquad
+\alpha_{i_0\cdots i_p}\in\mathcal{F}\big(V\cap U_{i_0\cdots i_p}\big).
+\]
+
+\setcounter{page}{149}
+Define the boundary differential
+\[
+d\colon \check{C}^p(\mathfrak{U},\mathcal{F})
+\to \check{C}^{p+1}(\mathfrak{U},\mathcal{F})
+\]
+by
+\[
+(d\alpha)_{i_0\cdots i_{p+1}}
+= \sum_{j=0}^{p+1} (-1)^j \rho_j\big(\alpha_{i_0\cdots\hat{i}_j\cdots i_{p+1}}\big),
+\]
+where $\rho_j$ denotes the restriction map of sections.
+
+The augmentation morphism
+\[
+\epsilon\colon \mathcal{F} \to \check{C}^0(\mathfrak{U},\mathcal{F})
+\]
+sends a section $\alpha\in\mathcal{F}(V)$ to the product of its restrictions to each $V\cap U_i$.
+
+\textbf{Proposition 3.1} [G, II.5.2.1].
+If $\mathfrak{U}$ is an open cover of $X$, the augmentation $\epsilon\colon\mathcal{F}\to\check{C}^\bullet(\mathfrak{U},\mathcal{F})$
+is a quasi-isomorphism (i.e., a \v{C}ech resolution of $\mathcal{F}$).
+
+\textbf{Proposition 3.2.}
+Let $f\colon X\to Y$ be a separated morphism of preschemes, $\mathfrak{U}=(U_i)$ an open cover of $X$ such that $f|_{U_i}$ is affine for all $i$.
+If $\mathcal{F}$ is quasi-coherent on $X$, then every sheaf $\check{C}^p(\mathfrak{U},\mathcal{F})$ is $f_*$-acyclic.
+
+\setcounter{page}{150}
+\textit{Proof.}
+Products of $f_*$-acyclic sheaves remain $f_*$-acyclic.
+It suffices to show $i_*(\mathcal{F}|_U)$ is $f_*$-acyclic whenever $U\subseteq X$ is open and $f|_U$ affine.
+Since $f$ is separated and $f|_U$ affine, the open immersion $i\colon U\hookrightarrow X$ is affine.
+For quasi-coherent $\mathcal{F}$, $\mathcal{F}|_U$ is acyclic for affine morphisms (EGA III 1.3.2).
+By the spectral sequence for composed functors, $i_*(\mathcal{F}|_U)$ is $f_*$-acyclic.
+
+\textbf{Corollary 3.3.}
+Let $f\colon X\to Y$ be separated, $\mathfrak{U}$ an open cover of $X$ with $f|_{U_i}$ affine for all $i$, and $\mathcal{F}$ quasi-coherent on $X$.
+Then the canonical morphisms
+\[
+f_*\big(\check{C}^\bullet(\mathfrak{U},\mathcal{F})\big)
+\xrightarrow{\xi} \mathbf{R}f_*\big(\check{C}^\bullet(\mathfrak{U},\mathcal{F})\big)
+\xleftarrow{\mathbf{R}f_*(\epsilon)} \mathbf{R}f_*(\mathcal{F})
+\]
+are isomorphisms in $D(Y)$.
+
+\textit{Proof.}
+Follows from Proposition 3.1, Proposition 3.2, and Chapter I §5.1, §5.3.
+
+\setcounter{page}{151}
+Now apply to projective spaces.
+Let $Y$ be a prescheme, $X=\mathbb{P}^n_Y = \operatorname{Proj}\mathcal{Y}[T_0,\dots,T_n]$.
+Let $U_i = D(T_i)\subseteq X$ be the standard affine open where $T_i\neq 0$.
+Then $\mathfrak{U}=(U_0,\dots,U_n)$ is a finite open cover, and each $f|_{U_i}$ is affine ($U_i\cong\mathbb{A}^n_Y$), where $f\colon X\to Y$ is the structure projection.
+
+On $U_0$, define inhomogeneous coordinates
+\[
+t_i = \frac{T_i}{T_0},\quad i=1,\dots,n.
+\]
+Let $\omega_{X/Y} = \Omega^n_{X/Y}$ be the sheaf of relative $n$-forms.
+The section
+\[
+\tau = dt_1\wedge dt_2\wedge\cdots\wedge dt_n
+\]
+generates $\omega|_{U_0}$.
+Since $\omega(n+1)\cong\mathcal{O}_X$, the section $\tau$ extends to a global section
+\[
+\tau\in\Gamma(X,\omega(n+1)).
+\]
+
+\setcounter{page}{152}
+Multiplication by $T_0T_1\cdots T_n$ gives an isomorphism $\omega\xrightarrow{\sim}\omega(n+1)$ on $U_{0\cdots n}$.
+We obtain a section
+\[
+\frac{\tau}{T_0\cdots T_n} \in \omega\big(U_{0\cdots n}\big),
+\]
+which defines an $n$-cocycle in $f_*\check{C}^\bullet(\mathfrak{U},\omega)$.
+By Corollary 3.3, this cocycle defines a canonical element
+\[
+\overline{\tau} \in \Gamma\big(Y,R^n f_*(\omega)\big).
+\]
+
+\textbf{Theorem 3.4} [EGA III 2.1.12].
+Let $Y$ be a prescheme, $X=\mathbb{P}^n_Y$, $f\colon X\to Y$ the projection, $\omega=\omega_{X/Y}$.
+\begin{enumerate}
+\item $R^n f_*(\omega)$ is invertible on $Y$, and $\overline{\tau}$ is a generating section, defining an isomorphism
+\[
+\gamma\colon R^n f_*(\omega) \xrightarrow{\sim} \mathcal{O}_Y.
+\]
+\item For all $0<i<n$ and all $m\in\mathbb{Z}$, $R^i f_*\big(\mathcal{O}_X(m)\big)=0$.
+\item For $i=0$ and $m<0$, $R^0 f_*\big(\mathcal{O}_X(m)\big)=0$.
+\item The cup product pairing
+\[
+f_*\big(\mathcal{O}_X(m)\big) \times R^n f_*\big(\omega(-m)\big)
+\to R^n f_*(\omega)
+\]
+is perfect for all $m\ge 0$.
+\end{enumerate}
+
+\setcounter{page}{153}
+\textbf{Remarks.}
+1. The isomorphism $\gamma$ is compatible with arbitrary base change, as the construction is flat over $Y$.
+2. The isomorphism $\gamma$ is invariant under automorphisms of projective space (cf.\ Corollary 10.2 later).

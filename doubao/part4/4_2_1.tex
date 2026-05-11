@@ -1,0 +1,102 @@
+
+\setcounter{page}{229}
+\section{Depth and the Cousin Complex}
+
+Throughout this section, \(X\) denotes a locally noetherian topological space in which every closed irreducible subset has a unique generic point.
+
+\begin{definition}
+Let \(F^\bullet\) be a bounded-below complex of abelian sheaves on \(X\), and let \(\underline{\varphi}\) be a sheaf of families of supports. The \(\varphi\)-\textit{depth} of \(F^\bullet\) is the largest integer \(n\) (or \(+\infty\)) such that
+\[
+\underline{H}_{\underline{\varphi}}^i(F^\bullet) = 0 \quad \text{for all } i < n.
+\]
+\end{definition}
+
+\begin{remark}
+If \(X\) is a locally noetherian prescheme, \(Z\subseteq X\) closed, and \(\sheaf{F}\) a coherent sheaf, this definition coincides with the usual \(Z\)-depth [LC 3.8].
+\end{remark}
+
+\setcounter{page}{230}
+\begin{proposition}
+Let \(Z'\subseteq Z\) be specialization-stable subsets of \(X\), with every point of \(Z\setminus Z'\) maximal in \(Z\). Let \(\sheaf{F}\) be an abelian sheaf on \(X\). The following are equivalent:
+\begin{enumerate}
+\item[\textup{(i)}] The natural maps
+\[
+\underline{\Gamma}_{Z'}(\sheaf{F}) \longleftarrow \underline{\Gamma}_Z(\sheaf{F}) \longrightarrow \underline{H}_{Z/Z'}^0(\sheaf{F})
+\]
+are isomorphisms.
+
+\item[\textup{(ii)}] There exists an isomorphism
+\[
+\sheaf{F} \cong \bigoplus_{x\in Z\setminus Z'} i_x(M_x)
+\]
+for abelian groups \(M_x\).
+(Recall \(i_x(M)\) is the constant sheaf \(M\) supported on \(\overline{\{x\}}\), zero elsewhere.)
+
+\item[\textup{(iii)}] \(\sheaf{F}\) is flasque, has support in \(Z\), and has \(Z'\)-depth \(\ge 1\).
+
+\item[\textup{(iv)}] \(\sheaf{F}\) has support in \(Z\) and has \(Z'\)-depth \(\ge 2\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\textup{(i)}\(\Rightarrow\)(ii): Follows immediately from Motif F of Variation 8.
+
+\textup{(ii)}\(\Rightarrow\)(iii): The direct sum of sheaves \(i_x(M_x)\) is flasque; clearly support lies in \(Z\) and \(Z'\)-depth \(\ge 1\).
+
+\textup{(iii)}\(\Rightarrow\)(iv): Flasque sheaves satisfy \(\underline{H}_{Z'}^i(\sheaf{F})=0\) for all \(i>0\), hence \(Z'\)-depth \(=+\infty\ge 2\).
+
+\setcounter{page}{231}
+\textup{(iv)}\(\Rightarrow\)(i): By Motif B we have the exact sequence
+\[
+0\to\underline{\Gamma}_{Z'}(\sheaf{F})\to\underline{\Gamma}_Z(\sheaf{F})\to\underline{H}_{Z/Z'}^0(\sheaf{F})
+\to\underline{H}_{Z'}^1(\sheaf{F})\to\underline{H}_Z^1(\sheaf{F})\to\cdots.
+\]
+Since \(Z'\)-depth \(\ge 2\), we have \(\underline{H}_{Z'}^1(\sheaf{F})=\underline{H}_Z^1(\sheaf{F})=0\). Thus the middle map is an isomorphism.
+\end{proof}
+
+\begin{definition}
+A sheaf \(\sheaf{F}\) satisfying the equivalent conditions of Proposition 2.1 is said to lie on the \(\boldsymbol{Z/Z'}\)-skeleton of \(X\).
+\end{definition}
+
+\setcounter{page}{232}
+\begin{lemma}
+Let \(Z'\subseteq Z\) satisfy the hypotheses of Proposition 2.1, and let \(\sheaf{F}\) be a sheaf with support in \(Z\). There exists a unique (up to unique isomorphism) \(Z'\)-isomorphism
+\[
+\alpha\colon \sheaf{F} \to \sheaf{G}
+\]
+where \(\sheaf{G}\) lies on the \(Z/Z'\)-skeleton.
+(A \(Z'\)-isomorphism is a sheaf homomorphism whose kernel and cokernel have support contained in \(Z'\).)
+\end{lemma}
+
+\begin{proof}
+1. \textit{Existence}: Set \(\sheaf{G} = \underline{H}_{Z/Z'}^0(\sheaf{F})\), and take \(\alpha\) the canonical map \(\underline{\Gamma}_Z(\sheaf{F})\to\underline{H}_{Z/Z'}^0(\sheaf{F})\). By the exact sequence of Motif B, \(\alpha\) is a \(Z'\)-isomorphism, and \(\sheaf{G}\) lies on the skeleton by Proposition 2.1.
+
+2. \textit{Uniqueness}: Let \(\beta\colon\sheaf{F}\to\sheaf{G}'\) be another \(Z'\)-isomorphism. The functor \(\underline{H}_{Z/Z'}^0\) sends \(Z'\)-isomorphisms to isomorphisms, yielding a commutative diagram
+\[
+\begin{CD}
+\sheaf{F} @>\alpha>> \sheaf{G} \\
+@V\betaVV @VV\cong V \\
+\sheaf{G}' @>>\gamma> \sheaf{G}
+\end{CD}
+\]
+giving unique isomorphism between \(\sheaf{G},\sheaf{G}'\).
+\end{proof}
+
+\setcounter{page}{233}
+\begin{proposition}
+Let \(X = Z^0 \supseteq Z^1 \supseteq Z^2 \supseteq \cdots\) be a filtration by specialization-stable subsets, with every point in \(Z^p\setminus Z^{p+1}\) maximal in \(Z^p\). Let \(\sheaf{F}\) be an abelian sheaf on \(X\). There exists a unique (up to isomorphism) augmented complex
+\[
+0 \to \sheaf{F} \to C^0 \to C^1 \to C^2 \to \cdots
+\]
+satisfying:
+\begin{enumerate}
+\item[\textup{(a)}] Each \(C^p\) lies on the \(Z^p/Z^{p+1}\)-skeleton.
+\item[\textup{(b)}] For \(p>0\), \(H^p(C^\bullet)\) has support in \(Z^{p+2}\).
+\item[\textup{(c)}] The kernel of \(\sheaf{F}\to C^0\) has support in \(Z^1\), and its cokernel has support in \(Z^2\).
+\end{enumerate}
+Moreover, \(C^\bullet\) depends functorially on \(\sheaf{F}\).
+\end{proposition}
+
+\begin{proof}
+By induction on \(p\). We construct the complex such that \(C^p/\operatorname{im}C^{p-1}\) has support in \(Z^{p+1}\) (with the obvious convention for \(p=0\)), then verify the remaining properties by induction.
+\end{proof}

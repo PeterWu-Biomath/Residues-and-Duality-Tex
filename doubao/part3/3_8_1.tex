@@ -1,0 +1,110 @@
+
+\setcounter{page}{184}
+\section{The functor \(f^!\) for embeddable morphisms}
+
+In this section we use the fundamental local isomorphism to relate the functors \(f^*\) and \(f^b\) defined earlier, and define \(f^!\) for morphisms that factor as a finite morphism followed by a smooth morphism. The main results here are provisional, serving as a model for the stronger general duality theorems in Chapter VII after developing local residue techniques.
+
+\begin{lemma}
+Let \(f\colon X\to Y\), \(i\colon Y\to X\) be morphisms of locally noetherian preschemes, with \(i\) a section of \(f\) and smooth. Then there exists a functorial isomorphism
+\[
+\psi_{i,f}\colon G^\bullet \stackrel{\sim}{\to} i^b f^* G^\bullet
+\]
+for all \(G^\bullet\in D(Y)\).
+\end{lemma}
+
+\begin{proof}
+By Proposition 1.2, a smooth morphism is locally a complete intersection, so we may apply Corollary 7.3 to \(i\). By definition of \(f^*\),
+\[
+i^b f^* G^\bullet = i^b\big(\Lfst G^\bullet \otimes \omega_{X/Y}[\dim]\big).
+\]
+By the fundamental local isomorphism (Corollary 7.3), this is isomorphic to
+\[
+\Lfst i^*\big(\Lfst G^\bullet \otimes \omega_{X/Y}\big) \otimes \omega_{Y/X}[-\dim].
+\]
+Using standard derived functor compatibilities [II.5.9], [II.5.4], this simplifies to
+\[
+G^\bullet \otimes i^*\omega_{X/Y} \otimes \omega_{Y/X}.
+\]
+Composing with the canonical isomorphism \(\zeta_{i,f}\) from Definition 1.5 yields the isomorphism \(G^\bullet\cong i^b f^* G^\bullet\).
+\end{proof}
+
+\setcounter{page}{185}
+\begin{proposition}
+Let \(f\colon X\to Y\), \(g\colon Y\to Z\) be morphisms of locally noetherian preschemes, with \(f\) finite, \(g\) smooth, and \(gf\) finite. Then there is a functorial isomorphism
+\[
+\psi_{f,g}\colon (gf)^b \stackrel{\sim}{\to} f^b g^*
+\]
+defined on \(D_{\mathrm{qc}}^+(Z)\).
+\end{proposition}
+
+\begin{proof}
+Consider the fibre product \(X\times_Z Y\) with projections \(p_1\colon X\times_Z Y\to X\), \(p_2\colon X\times_Z Y\to Y\), and let \(i\colon X\to X\times_Z Y\) be the graph morphism of \(f\). Since \(g\) is smooth, \(p_1\) is smooth by base change, so Lemma 8.1 applies to \(i,p_1\). We have
+\[
+(gf)^b \cong i^b p_1^*(gf)^b.
+\]
+By Corollary 6.4 this is isomorphic to \(i^b p_2^* g^*\), and by Proposition 6.2 this reduces to \(f^b g^*\).
+\end{proof}
+
+\setcounter{page}{186}
+\begin{remark}
+This residue isomorphism was first discovered by Grothendieck via a lengthy argument. The streamlined proof above is due to Cartier (as interpreted by Mumford). It plays a critical role in constructing the trace map for residual complexes in Chapter VI, a key prerequisite for the general residue theorem.
+\end{remark}
+
+\begin{corollary}
+Let \(f\colon X\to Y\) be a morphism of locally noetherian preschemes which is both finite and smooth. Then there is an isomorphism
+\[
+\psi_f\colon f^b \stackrel{\sim}{\to} f^*
+\]
+defined on \(D_{\mathrm{qc}}^+(Y)\).
+\end{corollary}
+
+\begin{proof}
+Set \(g=\id_Y\) in Proposition 8.2.
+\end{proof}
+
+\setcounter{page}{187}
+\begin{remark}
+One may verify that this isomorphism coincides with the classical trace map \(f_*\sheaf{O}_X\to\sheaf{Y}\) when restricted to ordinary sheaves.
+\end{remark}
+
+\begin{proposition}
+Let \(f\colon X\to Y\), \(g\colon Y\to Z\) be morphisms of locally noetherian preschemes, with \(f\) finite, \(g\) smooth, and \(gf\) smooth. Then there is a functorial isomorphism
+\[
+\psi_{f,g}\colon (gf)^* \to f^b g^*
+\]
+defined on \(D_{\mathrm{qc}}^+(Z)\).
+\end{proposition}
+
+\begin{proof}
+Using the fibre product notation from Proposition 8.2:
+\[
+(gf)^* \cong i^b p_1^*(gf)^*
+\cong i^b p_2^* g^*
+\cong f^b g^*.
+\]
+The isomorphisms follow respectively from Lemma 8.1, Proposition 2.2, and Proposition 8.2.
+\end{proposition}
+
+\begin{corollary}
+With the hypotheses of Proposition 8.4, there exists a natural trace morphism
+\[
+\operatorname{Tr}_f\colon f_*\omega_{X/Z} \to \omega_{Y/Z}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply the isomorphism of Proposition 8.4 to \(G^\bullet=\sheaf{O}_Z\) and compose with the trace map from Proposition 6.5.
+\end{proof}
+
+\setcounter{page}{188}
+\begin{remark}
+When \(Z=\operatorname{Spec}k\) for a field \(k\), and \(X,Y\) are irreducible with separable function field extension \(K(X)/K(Y)\), this trace morphism recovers the classical field trace. It satisfies standard functorial compatibilities with composition and flat base extension, and merits further independent study.
+\end{remark}
+
+\begin{proposition}
+\begin{enumerate}
+\item[(a)] The isomorphisms of Propositions 8.2 and 8.4 are compatible with flat base extension, via the base-change isomorphisms of Propositions 2.1 and 6.3.
+\item[(b)] For three composable morphisms \(X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}W\) satisfying the hypotheses of Propositions 2.2, 6.2, 8.2, 8.4 pairwise, the corresponding functor isomorphisms form commutative diagrams.
+\item[(c)] For Cartesian diagrams with finite/smooth morphisms, the induced isomorphisms are canonically compatible.
+\end{enumerate}
+\end{proposition}

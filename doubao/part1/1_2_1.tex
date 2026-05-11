@@ -1,0 +1,117 @@
+\setcounter{page}{20}
+\section{\S1. Triangulated Categories}
+
+\textbf{Definition.}
+A \textit{triangulated category} is an additive category \(\cat{C}\), together with
+\begin{enumerate}
+\item[(a)] an automorphism \(T\colon \cat{C}\to\cat{C}\) called the \textit{translation functor};
+\item[(b)] a collection of sextuples \((X,Y,Z,u,v,w)\), called the \textit{triangles} of \(\cat{C}\), where \(X,Y,Z\in\operatorname{Ob}\cat{C}\), and
+\[
+u\colon X\to Y,\quad v\colon Y\to Z,\quad w\colon Z\to T(X).
+\]
+\end{enumerate}
+A triangle is usually written
+\[
+X\xrightarrow{u} Y\xrightarrow{v} Z\xrightarrow{w} T(X).
+\]
+
+A \textit{morphism of triangles} is a commutative diagram
+\[
+\begin{CD}
+X @>u>> Y @>v>> Z @>w>> T(X)\\
+@VfVV @VgVV @VhVV @VVT(f)VV\\
+X' @>u'>> Y' @>v'>> Z' @>w'>> T(X')
+\end{CD}
+\]
+morphing \((X,Y,Z,u,v,w)\) to \((X',Y',Z',u',v',w')\).
+
+This data is subject to the following axioms:
+
+\setcounter{page}{21}
+
+\begin{enumerate}
+\item[(TR1)] Every sextuple isomorphic to a triangle is a triangle.
+Every morphism \(u\colon X\to Y\) can be embedded in some triangle \((X,Y,Z,u,v,w)\).
+The sextuple \((X,X,0,\id_X,0,0)\) is a triangle.
+
+\item[(TR2)] \((X,Y,Z,u,v,w)\) is a triangle if and only if
+\[
+(Y,Z,T(X),v,w,-T(u))
+\]
+is a triangle.
+
+\item[(TR3)] Given two triangles \((X,Y,Z,u,v,w)\) and \((X',Y',Z',u',v',w')\), and morphisms \(f\colon X\to X'\), \(g\colon Y\to Y'\) commuting with \(u,u'\), there exists a morphism \(h\colon Z\to Z'\) (not necessarily unique) such that \((f,g,h)\) is a morphism of triangles.
+
+\item[(TR4)] (The octahedral axiom.)
+\end{enumerate}
+
+\setcounter{page}{22}
+Suppose given triangles
+\[
+(X,Y,Z',u,j,\,\cdot\,),\qquad
+(Y,Z,X',v,\,\cdot\,,i),\qquad
+(X,Z,Y',vu,\,\cdot\,,\,\cdot\,)
+\]
+such that
+\[
+(Z',Y',X',f,g,T(j)\circ i)
+\]
+is a triangle. Then there exist morphisms \(f\colon Z'\to Y'\) and \(g\colon Y'\to X'\) such that the remaining two faces of the octahedron are commutative diagrams.
+
+\medskip
+\textbf{Definition.}
+An additive functor \(F\colon\cat{C}\to\cat{C}'\) between triangulated categories is a \textit{(covariant) triangle functor} if it commutes with the translation functor and sends triangles to triangles.
+A contravariant triangle functor reverses arrows in triangles and sends the translation functor to its inverse.
+
+\medskip
+\textbf{Definition.}
+An additive functor \(H\colon\cat{C}\to\cat{A}\) from a triangulated category to an abelian category is a \textit{covariant cohomological functor} if whenever \((X,Y,Z,u,v,w)\) is a triangle, the long sequence
+
+\setcounter{page}{23}
+\[
+\cdots \to H(T^i X)\to H(T^i Y)\to H(T^i Z)\to H(T^{i+1}X)\to\cdots
+\]
+is exact (the maps being \(H(T^i u)\), etc.).
+If \(H\) is cohomological, we write
+\[
+H^i(X) := H(T^i X),\quad i\in\mathbb{Z}.
+\]
+A contravariant cohomological functor is defined by reversing all arrows.
+
+\medskip
+\textbf{Proposition 1.1.}
+\begin{enumerate}
+\item[(a)] The composition of any two consecutive morphisms in a triangle is zero.
+\item[(b)] If \(\cat{C}\) is triangulated and \(M\in\operatorname{Ob}\cat{C}\), then
+\(\Hom_{\cat{C}}(M,\,\cdot\,)\) and \(\Hom_{\cat{C}}(\,\cdot\,,M)\)
+are cohomological functors on \(\cat{C}\).
+\item[(c)] If in the situation of \(\text{TR3}\), \(f,g\) are isomorphisms, then \(h\) is also an isomorphism.
+\end{enumerate}
+
+\textit{Proof.}
+(a) Let \((X,Y,Z,u,v,w)\) be a triangle. By (TR2) it suffices to show \(vu=0\).
+By (TR1), \((Z,Z,0,\id_Z,0,0)\) is a triangle.
+By (TR2), \((Y,Z,T(X),v,w,-T(u))\) is a triangle.
+Apply (TR3) to \(v\colon Y\to Z\) and \(\id_Z\colon Z\to Z\); we get a map \(h\colon T(X)\to 0\) satisfying
+\[
+T(v)\circ\big(-T(u)\big)=0.
+\]
+Since \(T\) is an automorphism, this implies \(vu=0\).
+
+\setcounter{page}{24}
+
+(b) We show \(\Hom_{\cat{C}}(M,\,\cdot\,)\) is cohomological. By (TR2), it is enough to check exactness of
+\[
+\Hom_{\cat{C}}(M,X)\to\Hom_{\cat{C}}(M,Y)\to\Hom_{\cat{C}}(M,Z).
+\]
+By (a), the composite is zero.
+Suppose \(g\in\Hom_{\cat{C}}(M,Y)\) with \(vg=0\).
+Apply (TR3) to the triangles \((M,M,0,\id_M,0,0)\) and \((X,Y,Z,u,v,w)\), together with morphisms \(g\colon M\to Y\) and \(0\colon 0\to Z\).
+We obtain \(f\colon M\to X\) with \(uf=g\), which gives exactness.
+The contravariant case \(\Hom_{\cat{C}}(\,\cdot\,,M)\) is similar.
+
+(c) Assume \(f,g\) are isomorphisms in the setup of (TR3).
+Apply the cohomological functor \(\Hom_{\cat{C}}(Z',\,\cdot\,)\) to the morphism of triangles to get an exact commutative diagram of abelian groups.
+Since \(f,g\) are isomorphisms, the induced maps \(f_*,g_*,T(f)_*,T(g)_*\) are automorphisms of abelian groups. By the five-lemma, \(h_*\) is an isomorphism.
+Thus there exists \(\varphi\in\Hom_{\cat{C}}(Z',Z)\) with \(h_*(\varphi)=\id_{Z'}\), so \(h\) has a right inverse.
+Using \(\Hom_{\cat{C}}(\,\cdot\,,Z)\) similarly gives a left inverse, hence \(h\) is an isomorphism.

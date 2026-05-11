@@ -1,0 +1,158 @@
+\setcounter{page}{76}
+\textbf{Definition.}
+Let \(\cat{A}\) be an abelian category, and let \(X^\bullet\) be a complex over \(\cat{A}\).
+We refer to [M, Ch.\ IV, \S4] for the definition of double complexes, morphisms of double complexes, and homotopies between such morphisms.
+
+A \textit{Cartan--Eilenberg resolution} of \(X^\bullet\) is a double complex \(C^{\cdot\cdot}\) of injective objects of \(\cat{A}\) with \(C^{p,q}=0\) for \(q<0\), together with an augmentation
+\(\epsilon\colon X^\bullet\to C^{\cdot,0}\), such that for every \(p\in\mathbb{Z}\), the induced maps
+\[
+B^p(\epsilon)\colon B^p(X^\bullet)\to B_\mathrm{I}^p(C^{\cdot\cdot}),\qquad
+H^p(\epsilon)\colon H^p(X^\bullet)\to H_\mathrm{I}^p(C^{\cdot\cdot})
+\]
+are injective resolutions in the ordinary sense (cf.\ [M, Ch.\ XVII, \S], where this is called an injective resolution of the complex \(X^\bullet\)).
+
+We recall standard properties of double complexes and Cartan--Eilenberg resolutions.
+
+\textbf{Lemma 7.5.}
+\begin{enumerate}
+\item[(a)] If \(\cat{A}\) has enough injectives, every complex \(X^\bullet\) admits a Cartan--Eilenberg resolution.
+\item[(b)] Let \(f\colon X^\bullet\to Y^\bullet\) be a morphism of complexes. If \(C^{\cdot\cdot},D^{\cdot\cdot}\) are Cartan--Eilenberg resolutions of \(X^\bullet,Y^\bullet\) respectively, there exists a double complex morphism \(F\colon C^{\cdot\cdot}\to D^{\cdot\cdot}\) lifting \(f\).
+\item[(c)] If \(f,g\colon X^\bullet\to Y^\bullet\) are homotopic, and \(F,G\) lift \(f,g\) respectively to Cartan--Eilenberg resolutions, then \(F\) is homotopic to \(G\).
+\end{enumerate}
+
+\setcounter{page}{77}
+\begin{enumerate}
+\item[(d)] Homotopic double complex morphisms induce homotopic morphisms of their associated simple complexes.
+\item[(e)] Let \(\sigma_{\le n}^\mathrm{II}\) denote truncation with respect to the second index. If \(F,G\) are homotopic double complex maps, their restrictions to \(\sigma_{\le n}^\mathrm{II}(C^{\cdot\cdot})\to\sigma_{\le n}^\mathrm{II}(D^{\cdot\cdot})\) are also homotopic.
+\item[(f)] Let \(\epsilon\colon X^\bullet\to C^{\cdot\cdot}\) be an augmentation with \(C^{p,q}=0\) for \(q<0\) and \(q>n_0\), such that each \(X^p\to C^{p,\bullet}\) is a resolution. Then the natural map \(X^\bullet\to s(C^{\cdot\cdot})\) to the associated simple complex is a quasi-isomorphism.
+\end{enumerate}
+
+\textit{Proofs.}
+(a), (b), (c): [M, Ch.\ XVII, Prop.\ 1.2].
+(d): [M, Ch.\ IV, \S4].
+(e): Elementary.
+(f): Follows from the spectral sequence of a double complex (EGA O\(_{\mathrm{III}}\) 11.3.3(ii)) or direct verification.
+
+\textit{Proof of Proposition 7.4 (continued).}
+Given \(X^\bullet\in L\), choose a Cartan--Eilenberg resolution \(C^{\cdot\cdot}\) (exists since \(\cat{A}\) has enough injectives). Define the truncated double complex \(C'^{\cdot\cdot}=\sigma_{\le n}^\mathrm{II}(C^{\cdot\cdot})\) by
+\[
+C'^{p,q}=
+\begin{cases}
+C^{p,q} & q<n,\\
+\ker d_2^{p,n} & q=n,\\
+0 & q>n.
+\end{cases}
+\]
+
+\setcounter{page}{78}
+For each \(p\in\mathbb{Z}\), we have an exact sequence
+\[
+0\to X^p\to C'^{p,0}\to C'^{p,1}\to\cdots\to C'^{p,n-1}\to C'^{p,n}\to 0.
+\]
+The terms \(C'^{p,0},\dots,C'^{p,n-1}\) are injective; \(X^p\in P\) implies \(C'^{p,n}\) is \(F\)-acyclic.
+This resolution computes \(\mathbf{R}F(X^p)\), giving an isomorphism
+\[
+\varphi(t^p)\colon G(X^p)=R^nF(X^p) \to F(C'^{p,n})\big/\operatorname{im}F(C'^{p,n-1}),
+\]
+where \(t^p\colon X^p\to C^{p,\bullet}\) is the resolution map.
+This induces a morphism \(\alpha^p\colon F(C^{p,n})\to G(X^p)\), and hence a double complex morphism
+\[
+\alpha\colon F(C'^{\cdot\cdot})\to G(X^\bullet),
+\]
+with \(G(X^\bullet)\) concentrated in the \(n\)-th row.
+
+Passing to associated simple complexes:
+\[
+s(\alpha)\colon F\big(s(C'^{\cdot\cdot})\big)\to G(X^\bullet)[-n].
+\]
+
+\setcounter{page}{79}
+By Lemma 7.5(f), the augmentation \(u\colon X^\bullet\to s(C^{\cdot\cdot})\) is a quasi-isomorphism into an \(F\)-acyclic complex, yielding an isomorphism
+\[
+\varphi(u)\colon \mathbf{R}F(X^\bullet)\to F\big(s(C^{\cdot\cdot})\big).
+\]
+Since \(X^\bullet\) consists of \(G\)-acyclic objects, we have
+\[
+\varphi(\id_{X^\bullet})\colon G(X^\bullet)\to \mathbf{L}G(X^\bullet).
+\]
+Composing these gives the desired morphism
+\[
+\psi(X^\bullet)\colon \mathbf{R}F(X^\bullet)\to \mathbf{L}G(X^\bullet).
+\]
+
+The morphism \(\psi(X^\bullet)\) is independent of the Cartan--Eilenberg resolution choice.
+Using Lemma 7.5, one verifies compatibility with morphisms \(f\colon X^\bullet\to Y^\bullet\) in \(L\), so \(\psi\) is a functor morphism
+\[
+\psi\colon \mathbf{R}F\to \mathbf{L}G[-n].
+\]
+
+To see \(\psi\) is an isomorphism: \(\mathbf{R}F,\mathbf{L}G\) are way-out in both directions. By the way-out functor lemma, reduce to checking \(\psi(X)\) is an isomorphism for \(X\in P\), which holds by construction. q.e.d.
+
+\setcounter{page}{80}
+\textbf{Proposition 7.6.}
+Let \(\cat{A}\) have enough injectives, \(X^\bullet\in K^+(\cat{A})\). The following are equivalent:
+\begin{enumerate}
+\item[(i)] \(X^\bullet\) admits a quasi-isomorphism into a bounded complex of injective objects of \(\cat{A}\).
+\item[(ii)] The functor \(\mathbf{R}\mathcal{H}\textit{om}(\,\cdot\,,X^\bullet)\colon D(\cat{A})^\circ\to D(\mathbf{Ab})\) is way-out left (hence way-out both ways).
+\item[(iii)] There exists \(n_0\in\mathbb{Z}\) such that \(\operatorname{Ext}^i(Y,X^\bullet)=0\) for all \(Y\in\operatorname{Ob}\cat{A}\) and all \(i>n_0\).
+\end{enumerate}
+
+\textit{Proof.}
+\((i)\Rightarrow(ii)\): Assume \(X^\bullet\) is bounded injective. Then \(\mathbf{R}\mathcal{H}\textit{om}(Y^\bullet,X^\bullet)\cong\mathcal{H}\textit{om}(Y^\bullet,X^\bullet)\), which is clearly way-out left.
+
+\((ii)\Rightarrow(iii)\): Since \(F=\mathbf{R}\mathcal{H}\textit{om}(\,\cdot\,,X^\bullet)\) is way-out left, choose \(n_0\) such that \(H^i(F(Y^\bullet))=0\) whenever \(H^i(Y^\bullet)=0\) for \(i<n_0\).
+For fixed \(Y\in\cat{A}\), set \(Y'^\bullet = T^{-n_0}(Y)\). Then \(H^i(Y'^\bullet)=0\) for \(i<n_0\), so \(H^i(F(Y'^\bullet))=0\) for \(i>0\). But
+\[
+H^i(F(Y'^\bullet))=H^i\big(F(T^{-n_0}Y)\big)=H^{i+n_0}(F(Y)),
+\]
+hence \(\operatorname{Ext}^{i+n_0}(Y,X^\bullet)=0\) for all \(i>0\), i.e., \(\operatorname{Ext}^j(Y,X^\bullet)=0\) for \(j>n_0\).
+
+\setcounter{page}{81}
+\((iii)\Rightarrow(i)\): Take an injective resolution \(X'^\bullet\in K^+(\cat{A})\) of \(X^\bullet\) (Lemma 4.6). Suppose \(H^m(X'^\bullet)\neq0\) for some \(m>n_0\). From the exact sequence
+\[
+0\to B^m(X'^\bullet)\to Z^m(X'^\bullet)\to H^m(X'^\bullet)\to 0,
+\]
+the inclusion is proper. Choose \(Y=Z^m(X'^\bullet)\); then
+\[
+\Hom(Y,B^m(X'^\bullet))\subsetneq \Hom(Y,Z^m(X'^\bullet)).
+\]
+But \(\operatorname{Ext}^m(Y,X^\bullet)=0\) by hypothesis, which forces the map to be an isomorphism, a contradiction. Thus \(H^i(X'^\bullet)=0\) for all \(i>n_0\).
+
+\setcounter{page}{82}
+For \(n\ge n_0\), the truncation map \(i\colon\sigma_{\le n}(X'^\bullet)\to X'^\bullet\) is a quasi-isomorphism.
+For \(n\ge n_0\), \(Z^{n+1}(X'^\bullet)=B^{n+1}(X'^\bullet)\) is injective.
+Consider the exact sequence
+\[
+0\to\sigma_{\le n}(X'^\bullet)\to\tau_{\le n}(X'^\bullet)\to B^{n+1}(X'^\bullet)[-n]\to 0.
+\]
+We show \(\operatorname{Ext}^1(Y,B^{n+1})=0\) for all \(Y\in\cat{A}\). We have
+\[
+\operatorname{Ext}^1(Y,B^{n+1})
+=\operatorname{Ext}^{n+1}\big(Y,B^{n+1}[-n]\big).
+\]
+
+\setcounter{page}{83}
+From the Ext long exact sequence:
+\[
+\cdots\to\operatorname{Ext}^{n+1}\big(Y,\tau_{\le n}(X'^\bullet)\big)
+\to\operatorname{Ext}^{n+1}\big(Y,B^{n+1}[-n]\big)
+\to\operatorname{Ext}^{n+2}\big(Y,\sigma_{\le n}(X'^\bullet)\big)\to\cdots.
+\]
+The left term vanishes because \(\tau_{\le n}(X'^\bullet)\) is bounded injective; the right term vanishes by hypothesis. Hence \(\operatorname{Ext}^1(Y,B^{n+1})=0\), so \(B^{n+1}\) is injective.
+Thus \(\sigma_{\le n}(X'^\bullet)\) is a bounded injective complex quasi-isomorphic to \(X^\bullet\).
+
+\textbf{Definition.}
+If \(X^\bullet\in K^+(\cat{A})\) satisfies the equivalent conditions of Proposition 7.6, we say \(X^\bullet\) has \textit{finite injective dimension}.
+
+\setcounter{page}{84}
+\textbf{Corollary 7.7.}
+The complexes of finite injective dimension form a triangulated localizing subcategory of \(K(\cat{A})\).
+
+\textit{Proof.}
+Closure under triangles follows from the Ext long exact sequence. Localizing follows from Proposition 3.3: any complex quasi-isomorphic to a finite injective dimension complex also has finite injective dimension.
+
+\textbf{Definition.}
+Denote by \(K^+(\cat{A})_{\mathrm{fid}}\) the full subcategory of \(K^+(\cat{A})\) consisting of complexes of finite injective dimension. The corresponding derived subcategory is \(D^+(\cat{A})_{\mathrm{fid}}\).
+
+\textbf{Remark.}
+These subcategories differ from \(K_{\cat{A}'}(\cat{A}),D_{\cat{A}'}(\cat{A})\), as they cannot be characterized solely by conditions on the cohomology objects \(H^i(X^\bullet)\).

@@ -1,0 +1,128 @@
+\setcounter{page}{120}
+\section{\S7 Injective Sheaves on a Locally Noetherian Prescheme}
+
+In this section we describe the structure of injective objects in $\operatorname{Mod}(X)$, the category of $\sheaf{O}_X$-modules on a locally noetherian prescheme $X$. In particular, every quasi-coherent $\sheaf{O}_X$-module embeds into a quasi-coherent injective $\sheaf{O}_X$-module. Consequently the natural functor
+\[
+D^+\big(\mathsf{Qco}(X)\big) \to D^+_{\mathrm{qc}}(X)
+\]
+is an equivalence of categories.
+
+We use results of Gabriel [5], which generalize Matlis [13] for noetherian rings.
+
+\textbf{Definition.}
+Let $\cat{A}$ be an abelian category, $M\in\operatorname{Ob}\cat{A}$. An \textit{injective hull} of $M$ is an injective object $I\in\operatorname{Ob}\cat{A}$ together with a monomorphism $M\hookrightarrow I$, such that every non-zero subobject $N\subseteq I$ satisfies $M\cap N\neq 0$.
+
+\textbf{Theorem 7.1} [5, Ch.\ II, Thm.\ 2].
+If $\cat{A}$ is an abelian category with generators and exact direct limits, then every object of $\cat{A}$ admits an injective hull.
+
+\textbf{Examples.}
+The category of modules over a commutative ring has generators and exact direct limits, hence possesses injective hulls.
+
+\setcounter{page}{121}
+The category $\operatorname{Mod}(X)$ of $\sheaf{O}_X$-modules on any prescheme $X$ has generators and exact direct limits, so every sheaf has an injective hull.
+
+\textbf{Definition} [5, Ch.\ II, \S].
+An object of an abelian category $\cat{A}$ is \textit{noetherian} if every ascending chain of subobjects stabilizes.
+An abelian category $\cat{A}$ is \textit{locally noetherian} if it has exact direct limits and a generating family consisting of noetherian objects.
+
+\textbf{Examples.}
+Modules over a noetherian ring form a locally noetherian category, with the ring itself a noetherian generator.
+
+The category $\mathsf{Qco}(X)$ of quasi-coherent sheaves on a noetherian prescheme is locally noetherian; coherent sheaves form a noetherian generating family (Gabriel [5, Ch.\ VI]).
+
+\textbf{Proposition 7.2} [5, Ch.\ IV, Prop.\ 6].
+Any direct sum of injective objects in a locally noetherian category is injective.
+
+\textbf{Theorem 7.3} [5, Ch.\ IV, Thm.\ 2].
+Let $\cat{A}$ be locally noetherian. Every injective object of $\cat{A}$ decomposes uniquely (up to isomorphism and reindexing) into a direct sum of indecomposable injective objects:
+\[
+I \cong \bigoplus_{j\in J} I_j.
+\]
+
+\setcounter{page}{122}
+If $\bigoplus_{k\in K}I_k$ is another such decomposition, there exists a bijection $h\colon J\to K$ with $I_j\cong I_{h(j)}$.
+
+\textbf{Proposition 7.4} [13].
+Let $A$ be a noetherian ring. The indecomposable injective $A$-modules are precisely the injective hulls $I(\mathfrak{p})$ of residue fields $k(\mathfrak{p})$, as $\mathfrak{p}$ ranges over prime ideals of $A$.
+
+We recall further structure of these injective hulls (Matlis):
+
+\textbf{Proposition 7.5.}
+Let $A$ be noetherian, $\mathfrak{p}\subseteq A$ prime, $I$ the injective hull of $k(\mathfrak{p})$. Then $I$ is a direct limit of an ascending chain
+\[
+0\subseteq E^1\subseteq E^2\subseteq\cdots
+\]
+where $E^i = \Hom_A\big(A_\mathfrak{p}/\mathfrak{p}^iA_\mathfrak{p},I\big)$ is an Artin module over the local ring $A_\mathfrak{p}$, and
+\[
+\dim_{k(\mathf{p})}\big(E^{i+1}/E^i\big)
+= \dim_{k(\mathf{p})}\big((\mathfrak{p}^i/\mathfrak{p}^{i+1})\otimes_A k(\mathf{p})\big).
+\]
+
+\setcounter{page}{123}
+We now apply these results to locally noetherian preschemes.
+
+\textbf{Definition.}
+Let $X$ be a prescheme, $x\in X$, $M$ an $\sheaf{O}_{X,x}$-module. Define $i_x(M)$ to be the direct image sheaf $i_*\widetilde{M}$, where $i\colon\operatorname{Spec}\sheaf{O}_{X,x}\to X$ is the canonical inclusion, and $\widetilde{M}$ is the quasi-coherent sheaf associated to $M$.
+
+\textbf{Remark.}
+Of particular interest is the case where $\operatorname{Supp}M$ is exactly the closed point of $\operatorname{Spec}\sheaf{O}_{X,x}$. Then
+\[
+\Gamma(U,i_x(M)) =
+\begin{cases}
+M & x\in U,\\
+0 & x\notin U.
+\end{cases}
+\]
+For any $\sheaf{O}_X$-module $F$, we have
+\[
+\Hom_{\sheaf{O}_X}\big(F,i_x(M)\big)
+= \Hom_{\sheaf{O}_{X,x}}\big(F_x,M\big),
+\]
+where $F_x$ denotes the stalk of $F$ at $x$.
+
+\textbf{Proposition 7.6.}
+Let $X$ be locally noetherian, $x\in X$, $I$ the injective hull of $k(x)$ over $\sheaf{O}_{X,x}$. Then $i_x(I)$ is a quasi-coherent injective $\sheaf{O}_X$-module.
+
+\setcounter{page}{124}
+\textit{Proof.}
+By construction, $I$ is supported at the closed point of $\operatorname{Spec}\sheaf{O}_{X,x}$.
+Given an inclusion $F\subseteq G$ of $\sheaf{O}_X$-modules and a morphism $\varphi\colon F\to i_x(I)$, we extend the stalk map $F_x\to I$ over the local ring to $G_x\to I$, which by the sheaf Hom property induces an extension $G\to i_x(I)$. Hence $i_x(I)$ is injective.
+
+\textbf{Lemma 7.7.}
+Let $X$ be noetherian, $\sheaf{G}\subseteq\sheaf{O}_X$ an ideal sheaf (not necessarily quasi-coherent). There exist finitely many open sets $U_i\subseteq X$ and sections $s_{ij}\in\Gamma(U_i,\sheaf{G})$ such that for every $x\in X$, the sections $s_{ij}$ with $x\in U_i$ generate the stalk $\sheaf{G}_x$ as an $\sheaf{O}_{X,x}$-module.
+
+\textit{Proof.}
+We may assume $X=\operatorname{Spec}A$ affine (finite affine cover). For $x\in X$, take a basic open neighborhood $U_x=\operatorname{Spec}A_f$. Let
+\[
+\rho\colon A=\Gamma(X,\sheaf{O}_X)\to\Gamma(U,\sheaf{O}_X)
+\]
+be restriction, and set $\mathfrak{a}(U)=\rho^{-1}\Gamma(U,\sheaf{G})$.
+
+\setcounter{page}{125}
+Smaller open sets give larger ideals. By the ascending chain condition on $A$, there exists a maximal $\mathfrak{a}(U_x)$ for some neighborhood $U_x$ of $x$. For all $U\subseteq U_x$,
+\[
+\Gamma(U,\sheaf{G})
+= \mathfrak{a}_x\otimes_A \Gamma(U,\sheaf{O}_X)
+= \Gamma(U_x,\sheaf{G})\otimes_{\Gamma(U_x,\sheaf{O}_X)}\Gamma(U,\sheaf{O}_X).
+\]
+If $x'$ specializes to $x$, then $\sheaf{G}_{x'}$ is finitely generated by sections from $U_x$. Thus for each $x$, we find $U_x$ and finitely many sections generating all stalks at specialization points in $U_x$. By quasi-compactness, finitely many such neighborhoods cover $X$.
+
+\setcounter{page}{126}
+\textbf{Theorem 7.8.}
+Let $X$ be locally noetherian. Then $\operatorname{Mod}(X)$ is a locally noetherian category.
+
+\textit{Proof.}
+$\operatorname{Mod}(X)$ has exact direct limits. The sheaves $\sheaf{O}_U$ (equal to $\sheaf{O}_X$ on $U$, zero outside, for noetherian open affines $U\subseteq X$) form a generating family. Each $\sheaf{O}_U$ is noetherian: any ascending chain of subsheaves stabilizes by Lemma 7.7 and finite generation of stalks.
+
+\setcounter{page}{127}
+\textbf{Corollary 7.9.}
+Let $X$ be locally noetherian. Any direct sum of injective $\sheaf{O}_X$-modules is injective.
+
+\textbf{Corollary 7.10.}
+Let $X$ be locally noetherian. Every injective $\sheaf{O}_X$-module decomposes uniquely into a direct sum of indecomposable injective $\sheaf{O}_X$-modules.
+
+\textbf{Definition.}
+Let $X$ be locally noetherian, $x\in X$, $x'$ a specialization of $x$ ($x'\in\overline{\{x\}}$). Let $I$ be the injective hull of $k(x)$ over $\sheaf{O}_{X,x}$. Define $J(x,x')$ to be the restriction of $i_x(I)$ to the closed subset $\overline{\{x'\}}\subseteq\overline{\{x\}}$. If $x=x'$, write $J(x)=J(x,x')$. Then $J(x,x')$ is an indecomposable injective $\sheaf{O}_X$-module.
+
+\textbf{Theorem 7.11.}
+Let $X$ be locally noetherian. The indecomposable injective $\sheaf{O}_X$-modules are exactly the sheaves $J(x,x')$ for all pairs $x,x'\in X$ with $x$ specializing to $x'$.

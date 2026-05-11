@@ -1,0 +1,123 @@
+\setcounter{page}{55}
+We have the canonical isomorphism
+\[
+\beta\big(Q(X^\bullet)\big)\colon Q(X^\bullet) \stackrel{\sim}{\longrightarrow}
+T\circ U\big(Q(X^\bullet)\big) = T\big(Q(I^\bullet)\big).
+\]
+This isomorphism may be represented by a diagram in \(K^*(\cat{A})\)
+\[
+X^\bullet \xleftarrow{s} Y^\bullet \xrightarrow{t} I^\bullet
+\]
+with \(s,t\in\mathsf{Qis}\) and \(Y^\bullet\in\operatorname{Ob}K^*(\cat{A})\). By hypothesis (1) of Theorem 5.1, we may assume \(Y^\bullet\in\operatorname{Ob}L\). Applying the triangulated functor \(F\), we obtain a diagram in \(K(\cat{B})\):
+\[
+F(X^\bullet) \xleftarrow{F(s)} F(Y^\bullet) \xrightarrow{F(t)} F(I^\bullet).
+\]
+As observed previously, \(F(s),F(t)\) are quasi-isomorphisms.
+
+This induces a morphism in \(D(\cat{B})\):
+\[
+\xi(X^\bullet)\colon Q\circ F(X^\bullet)
+\to Q\circ F(I^\bullet)
+= \overline{F}\circ Q(I^\bullet)
+= \overline{F}\circ U\circ Q(X^\bullet)
+= \mathbf{R}^*F\circ U\circ Q(X^\bullet).
+\]
+
+One verifies that \(\xi(X^\bullet)\) is independent of the choice of diagram above, that \(\xi\) defines a functor morphism \(Q\circ F\to \mathbf{R}^*F\circ Q\), and that the pair \((\mathbf{R}^*F,\xi)\) satisfies the universal property of the right derived functor.
+
+\setcounter{page}{56}
+If \(X^\bullet\in\operatorname{Ob}L\), then \(F(t)\) is also a quasi-isomorphism in the construction above, so \(\xi(X^\bullet)\) is an isomorphism in \(D(\cat{B})\), as required.
+
+\medskip
+\textbf{Proposition 5.2.}
+Let \(\cat{A},\cat{B},K^*(\cat{A}),F\) be as above, and let \(K^{**}(\cat{A})\subseteq K^*(\cat{A})\) be another localizing subcategory of \(K(\cat{A})\). Suppose there exists a triangulated subcategory \(L\subseteq K^*(\cat{A})\) satisfying hypotheses (1),(2) of Theorem 5.1, and such that \(L\cap K^{**}(\cat{A})\) satisfies hypothesis (1) for \(K^{**}(\cat{A})\).
+If \(\mathbf{R}^*F\) and \(\mathbf{R}^{**}\big(F|_{K^{**}(\cat{A})}\big)\) both exist, then the natural morphism
+\[
+\mathbf{R}^{**}\big(F|_{K^{**}(\cat{A})}\big)
+\;\to\;
+\mathbf{R}^*F\big|_{D^{**}(\cat{A})}
+\]
+is an isomorphism.
+
+\textit{Proof.} Existence follows immediately from Theorem 5.1. For the isomorphism, any object of \(D^{**}(\cat{A})\) is isomorphic to \(Q(I^\bullet)\) for some \(I^\bullet\in L\cap K^{**}(\cat{A})\). The claim then follows from the final assertion of Theorem 5.1.
+
+\medskip
+\textbf{Corollary 5.3.}
+\paragraph{$\alpha$)}
+Let \(\cat{A},\cat{B}\) be abelian categories, \(F\colon K^+(\cat{A})\to K(\cat{B})\) a triangulated functor (e.g., induced by an additive functor \(F_0\colon\cat{A}\to\cat{B}\)). If \(\cat{A}\) has enough injectives, then \(\mathbf{R}^+F\) exists.
+
+\setcounter{page}{57}
+\paragraph{$\beta$)}
+Let \(\cat{A},\cat{B}\) be abelian categories, \(F\colon\cat{A}\to\cat{B}\) additive. Suppose there exists \(P\subseteq\operatorname{Ob}\cat{A}\) satisfying (i),(ii) of Lemma 4.6, and:
+\begin{enumerate}
+\item[(iv)] \(F\) sends short exact sequences in \(\cat{A}\) to short exact sequences in \(\cat{B}\).
+\end{enumerate}
+Then \(\mathbf{R}^+F\) exists (we also denote by \(F\) its canonical extension \(K^+(\cat{A})\to K^+(\cat{B})\)).
+
+\paragraph{$\gamma$)}
+Let \(\cat{A},\cat{B}\) be abelian categories, \(F\colon\cat{A}\to\cat{B}\) additive. Assume:
+\begin{enumerate}
+\item[(a)] The hypotheses of \(\beta\) hold;
+\item[(b)] \(F\) has finite cohomological dimension: there exists \(n>0\) such that \(R^iF(Y)=0\) for all \(Y\in\operatorname{Ob}\cat{A}\) and all \(i>n\).
+\end{enumerate}
+Then \(\mathbf{R}F\) exists on all of \(D(\cat{A})\), and its restriction to \(D^+(\cat{A})\) coincides with \(\mathbf{R}^+F\).
+
+\medskip
+\textbf{Remark.} Case \(\alpha\) is a special case of \(\beta\): if \(\cat{A}\) has enough injectives, the class of injective objects satisfies (i),(ii),(iv) for any additive \(F\).
+
+\setcounter{page}{58}
+\textit{Proof.}
+\paragraph{$\alpha$)}
+Let \(L\subseteq K^+(\cat{A})\) be the triangulated subcategory of bounded-below injective complexes. By Lemma 4.6(1), every object of \(K^+(\cat{A})\) admits a quasi-isomorphism into an object of \(L\). By Lemma 4.5, every quasi-isomorphism in \(L\) is an isomorphism, so acyclic objects of \(L\) are zero in \(K(\cat{A})\). Thus condition (2) of Theorem 5.1 holds for any triangulated \(F\), so \(\mathbf{R}^+F\) exists.
+
+\paragraph{$\beta$)}
+Take \(L\subseteq K^+(\cat{A})\) to be complexes of objects of \(P\); \(L\) is triangulated by stability of \(P\) under extensions. Condition (1) holds by Lemma 4.6(1). For (2), let \(Z^\bullet\in L\) be acyclic; using (ii) repeatedly, all kernels \(\ker d_Z^p\) lie in \(P\). By (iv), \(F\) preserves exactness, so \(F(Z^\bullet)\) is acyclic. Theorem 5.1 applies, hence \(\mathbf{R}^+F\) exists.
+
+\paragraph{$\gamma$)}
+Let \(P'\) be the class of \(F\)-acyclic objects of \(\cat{A}\) (\(R^iF(X)=0,\forall i>0\)). Then \(P'\) satisfies (i),(ii),(iii) of Lemma 4.6. Let \(L\subseteq K(\cat{A})\) be complexes of objects of \(P'\). By Lemma 4.6 and the argument for \(\beta\), the hypotheses of Theorem 5.1 are satisfied, so \(\mathbf{R}F\) exists.
+
+\setcounter{page}{59}
+By Proposition 5.2, the restriction of \(\mathbf{R}F\) to \(D^+(\cat{A})\) is isomorphic to \(\mathbf{R}^+F\).
+
+\medskip
+\textbf{Proposition 5.4.}
+Let \(\cat{A},\cat{B},\cat{C}\) be abelian categories, \(K^*(\cat{A})\subseteq K(\cat{A})\), \(K^\dagger(\cat{B})\subseteq K(\cat{B})\) localizing subcategories, and let
+\[
+F\colon K^*(\cat{A})\to K(\cat{B}),\qquad
+G\colon K^\dagger(\cat{B})\to K(\cat{C})
+\]
+be triangulated functors.
+
+\paragraph{a)}
+Assume \(F(K^*(\cat{A}))\subseteq K^\dagger(\cat{B})\), that \(\mathbf{R}^*F,\mathbf{R}^\dagger G,\mathbf{R}^*(G\circ F)\) exist, and \(\mathbf{R}^*F(D^*(\cat{A}))\subseteq D^\dagger(\cat{B})\). Then there exists a unique functor morphism
+\[
+\zeta\colon \mathbf{R}^*(G\circ F) \to \mathbf{R}G\circ \mathbf{R}^*F
+\]
+making the diagram of structure maps \(\xi\) commutative.
+
+\setcounter{page}{60}
+\paragraph{b)}
+Suppose there exist triangulated subcategories \(L\subseteq K^*(\cat{A})\), \(M\subseteq K^\dagger(\cat{B})\) satisfying Theorem 5.1's hypotheses for \(F,G\) respectively, and \(F(L)\subseteq M\). Then the hypotheses of (a) hold, and the canonical morphism \(\zeta\) is an isomorphism.
+
+\textit{Proof.} Straightforward from universal properties.
+
+\medskip
+\textbf{Remarks.}
+1. For three composable functors \(F,G,H\), the morphisms \(\zeta\) yield a commutative diagram of derived functor compositions whenever all derived functors exist.
+
+2. This proposition illustrates the power of derived categories: classical composite functor spectral sequences are replaced by direct functor composition in the derived category. The spectral sequence may be recovered by taking cohomology of the derived functor morphism.
+
+\setcounter{page}{61}
+\medskip
+\textbf{Corollary 5.5.}
+Left to the reader: formulate analogs of Proposition 5.4 in the style of Corollary 5.3.
+
+\medskip
+\textbf{Proposition 5.6.}
+Let \(\cat{A}'\subseteq\cat{A}\) be a thick abelian subcategory, \(\cat{B}\) another abelian category, \(F\colon K^+(\cat{A})\to K^+(\cat{B})\) a triangulated functor. Suppose \(\mathbf{R}^+F\) and \(\mathbf{R}^+\big(F|_{\cat{A}'}\big)\) both exist. There is a natural functor morphism
+\[
+\zeta\colon \mathbf{R}^+\big(F|_{\cat{A}'}\big) \to \varphi\circ \mathbf{R}^+F,
+\]
+where \(\varphi\colon D^+(\cat{A}')\to D^+(\cat{A})\) is the natural embedding. If additionally \(\cat{A}'\) has enough \(\cat{A}\)-injectives and \(\cat{A}\) has enough injectives, then \(\zeta\) is an isomorphism.
+
+\textit{Proof.} Existence of \(\zeta\) follows from the definition of derived functors. If \(\cat{A}'\) has enough \(\cat{A}\)-injectives, we may compute both derived functors via injective resolutions in \(\cat{A}'\); by Proposition 4.8, \(\varphi\) is fully faithful, hence \(\zeta\) is an isomorphism.

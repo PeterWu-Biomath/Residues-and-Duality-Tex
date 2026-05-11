@@ -1,0 +1,93 @@
+
+\setcounter{page}{195}
+\section{The residue symbol}
+
+This section will not be used in the sequel and may be omitted on a first reading. We define the \textit{residue symbol} $\Res_{X/Y}[t_1,\dots,t_n]$, a direct generalization of the classical complex/algebraic residue. For a non-singular curve $X$ over a field $k$, a regular differential form $\omega$, and a function $t$ with an isolated zero at a point $P$, the classical residue
+\[
+Res\left[\dfrac{\omega}{t}\right]
+\]
+coincides with the ordinary residue of $\omega/t$ at $P$. Since these results are not needed later, proofs are omitted.
+
+Let $f\colon X\to Y$ be a smooth morphism of relative dimension $n$. Let $t_1,\dots,t_n\in\Gamma(X,\sheaf{O}_X)$, and let $Z\subset X$ be the closed subscheme defined by the ideal $I=(t_1,\dots,t_n)$. Assume $Z$ is finite and flat over Y (EGA IV). Let $\omega\in\Gamma(X,\omega_{X/Y})$ be a global relative $n$-form on $X$. Under these hypotheses we define the residue symbol
+\[
+\Res_{X/Y}\bigl[t_1,\dots,t_n\bigr] \in \Gamma(Y,\sheaf{O}_Y).
+\]
+
+Let $i\colon Z\hookrightarrow X$ be the closed immersion and set $g = f\circ i$. By the residue isomorphism of Proposition 8.2 we have
+\setcounter{page}{196}
+\[
+g^b(\sheaf{O}_Y) \cong i^b f^*(\sheaf{O}_Y)
+= i^b\bigl(\omega_{X/Y}[n]\bigr).
+\]
+By the fundamental local isomorphism (Corollary 7.3):
+\[
+i^b\bigl(\omega_{X/Y}\bigr)
+\cong \Lfst i^*\omega_{X/Y} \otimes \omega_{Z/X}.
+\]
+Our hypotheses imply $Z$ is locally a complete intersection in $X$, and $t_1,\dots,t_n$ form a regular sequence locally. The sheaf $\Lambda^n(I/I^2)$ is invertible of rank $1$ on $Z$, with global basis $\overline{t}_1\wedge\cdots\wedge\overline{t}_n$. Using the global section $\omega\in\Gamma(X,\omega_{X/Y})$ we obtain via the above isomorphisms a distinguished global section of $g^b(\sheaf{O}_Y)$. Applying $g_*$ and using faithfully flat descent:
+\[
+g_*g^b(\sheaf{O}_Y)
+\cong \RHom_{\sheaf{O}_Y}\bigl(g_*\sheaf{O}_Z,\sheaf{O}_Y\bigr).
+\]
+Since $g$ is finite flat, $g_*\sheaf{O}_Z$ is locally free. Evaluating our distinguished section against the unit section of $g_*\sheaf{O}_Z$ yields a canonical element
+\[
+\Res_{X/Y}\bigl[t_1,\dots,t_n\bigr] \in \Gamma(Y,\sheaf{O}_Y).
+\]
+\setcounter{page}{197}
+The residue symbol satisfies the following fundamental properties (all conditions on $X,Y,t_i,\omega$ are assumed implicitly whenever the symbol is written):
+
+\noindent\textbf{(R0)} $\sheaf{O}_Y$-linearity in $\omega$.
+
+\noindent\textbf{(R1)} If $s_i = \sum_j c_{ij}t_j$ with $c_{ij}\in\Gamma(Y,\sheaf{O}_Y)$, then
+\[
+Res\left[\dfrac{\omega}{s_1,\dots,s_n}\right]
+= \det(c_{ij})\, Res\left[\dfrac{\omega}{t_1,\dots,t_n}\right].
+\]
+In particular, the residue symbol is alternating in $t_1,\dots,t_n$.
+
+\noindent\textbf{(R2)} Invariance under étale localization on $Y$.
+
+\noindent\textbf{(R3)} Restriction property. Let $X'\subset X$ be a smooth complete intersection over $Y$ defined by functions $s_1,\dots,s_p\in\Gamma(X,\sheaf{O}_X)$, with $X'$ of relative dimension $n+p$ over $Y$. Let $t_1',\dots,t_n'$ be the restrictions of $t_1,\dots,t_n$ to $X'$. Then
+\[
+Res_{X'/Y}\left[\dfrac{\omega|_{X'}}{t_1',\dots,t_n'}\right]
+= Res_{X/Y}\left[\dfrac{\omega}{t_1,\dots,t_n,s_1,\dots,s_p}\right].
+\]
+\setcounter{page}{198}
+\noindent\textbf{(R4)} Transitivity. Let $X\xrightarrow{f}Y\xrightarrow{g}Z$ be smooth morphisms of relative dimensions $n,p$ respectively. Let $t_1',\dots,t_n'\in\Gamma(X,\sheaf{O}_X)$, $s_1,\dots,s_p\in\Gamma(Y,\sheaf{O}_Y)$, and set $s_i' = f^*s_i$. Then
+\[
+Res_{X/Z}\left[\dfrac{f^*\omega}{t_1',\dots,t_n',s_1',\dots,s_p'}\right]
+= Res_{Y/Z}\left[\dfrac{\omega \otimes Res_{X/Y}\left[\dfrac{\eta}{t_1',\dots,t_n'}\right]}{s_1,\dots,s_p}\right].
+\]
+
+\noindent\textbf{(R5)} Compatibility with arbitrary base change.
+
+\noindent\textbf{(R6)} Normalization / Trace Formula:
+\[
+Res\left[\dfrac{\varphi\,dt_1\wedge\cdots\wedge dt_n}{t_1,\dots,t_n}\right]
+= \Tr_{Z/Y}(\varphi|_Z).
+\]
+In particular, for $\varphi=1$:
+\[
+Res\left[\dfrac{dt_1\wedge\cdots\wedge dt_n}{t_1,\dots,t_n}\right]
+= \operatorname{rank}(Z/Y)\cdot 1_Y.
+\]
+\setcounter{page}{199}
+\noindent\textbf{(R7)} Intersection vanishing: For integers $k_1,\dots,k_n>0$, not all equal to $1$,
+\[
+Res\left[\dfrac{dt_1\wedge\cdots\wedge dt_n}{t_1^{k_1},\dots,t_n^{k_n}}\right] = 0.
+\]
+
+\noindent\textbf{(R8)} Duality: If $\omega\in\Gamma(X,\sum t_i\omega_{X/Y})$ then $Res[\omega;t_1,\dots,t_n]=0$. Conversely, if $Res[f\omega;t_1,\dots,t_n]=0$ for all $f\in\Gamma(X,\sheaf{O}_X)$, then $\omega\in\Gamma(X,\sum t_i\omega_{X/Y})$.
+
+\noindent\textbf{(R9)} Exterior differentiation: For $\omega\in\Gamma(X,\Omega_{X/Y}^{n-1})$ and $k_i>0$,
+\[
+Res\left[\dfrac{d\omega}{t_1^{k_1},\dots,t_n^{k_n}}\right]
+= \sum_i k_i\, Res\left[\dfrac{\omega}{t_1,\dots,t_i^{k_i+1},\dots,t_n}\right].
+\]
+
+\noindent\textbf{(R10)} Finite morphism residue formula: Let $g\colon X'\to X$ be finite, both smooth over $Y$. Let $t_i' = g^*t_i$. Then
+\[
+Res_{X'/Y}\left[\dfrac{\omega'}{t_1',\dots,t_n'}\right]
+= Res_{X/Y}\left[\dfrac{\Tr_g(\omega)}{t_1,\dots,t_n}\right],
+\]
+where $\Tr_g$ is the trace morphism from Corollary 8.5.

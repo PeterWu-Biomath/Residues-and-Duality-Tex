@@ -1,0 +1,92 @@
+
+\setcounter{page}{205}
+\begin{proposition}
+The following diagram of functors on \(D_{\mathrm{qc}}^+(Y)\) commutes:
+\[
+\begin{CD}
+\Rfst u_* u^! @>{\operatorname{Trf}_u}>> u^* \\
+@V{\alpha}VV @| \\
+\Rfst g_* g^! @>{\operatorname{Trf}_g}>> u^*
+\end{CD}
+\]
+where the morphism \(\alpha\) is composed of the isomorphism from [II.5.1] and Corollary 6.4.
+\end{proposition}
+
+\begin{proof}
+Left to the reader. One verifies compatibility by chasing functor definitions. The subtle point: if \(C^{\bullet\bullet}\) is a Cartan--Eilenberg resolution of \(f^*G^\bullet\), then \(v^b(C^{\bullet\bullet})\) need not be a Cartan--Eilenberg resolution of \(v^b f^*G^\bullet\). However, one may find a dominating Cartan--Eilenberg resolution \(D^{\bullet\bullet}\) mapping to \(v^b(C^{\bullet\bullet})\), which suffices for the argument.
+\end{proof}
+
+\setcounter{page}{206}
+\begin{proposition}
+Let \(X,Y\) be locally noetherian preschemes, let \(f\colon X\to\mathbb{P}_Y^n\) be finite, and let \(g\colon\mathbb{P}_Y^n\to Y\) be the projection, with \(gf\) finite. Then there is a commutative diagram on \(D_{\mathrm{qc}}^+(Y)\):
+\[
+\begin{CD}
+\Rfst(gf)_*(gf)^! @>{\operatorname{Trf}_{gf}}>> \id \\
+@VVV @| \\
+\Rfst g_* g^! @>{\operatorname{Trp}_g}>> \id
+\end{CD}
+\]
+The left vertical arrow is built from [II.5.1] and the residue isomorphism of Proposition 8.2.
+\end{proposition}
+
+\begin{proof}
+Consider the fibre product \(X\times_Y\mathbb{P}_Y^n\) as in Proposition 8.2. The result follows from Propositions 6.6 and 10.1.
+\end{proposition}
+
+\begin{definition}
+A morphism \(f\colon X\to Y\) of preschemes is \textit{projectively embeddable} if it factors as \(f = p\circ g\), where \(p\colon\mathbb{P}_Y^n\to Y\) is a projective space projection and \(g\colon X\to\mathbb{P}_Y^n\) is finite.
+\end{definition}
+
+\noindent\textbf{Example.}
+If \(f\colon X\to Y\) is a projective morphism with \(Y\) quasi-compact and admitting an ample sheaf, then \(f\) is projectively embeddable (EGA II.5.5.4(ii)).
+
+\setcounter{page}{207}
+\begin{theorem}
+Consider the category \(\operatorname{Lno}\) of locally noetherian preschemes. There exists a unique trace theory for projectively embeddable morphisms \(f\colon X\to Y\), consisting for each such morphism of a functorial morphism
+\[
+\operatorname{Tr}_f\colon \Rfst f^! \to \id
+\]
+on \(D_{\mathrm{qc}}^+(Y)\), subject to axioms \(\textsc{TRA 1--TRA 4}\) below.
+\end{theorem}
+
+\noindent\textbf{\textsc{TRA 1}}
+For a composition \(X\xrightarrow{f}Y\xrightarrow{g}Z\) of projectively embeddable morphisms, the diagram
+\[
+\begin{CD}
+\mathbf{R}(gf)_*(gf)^! @>{\operatorname{Tr}_{gf}}>> \id \\
+@VVV @| \\
+\Rfst g_*\Rfst f^! @>{\operatorname{Tr}_g\circ\operatorname{Tr}_f}>> \id
+\end{CD}
+\]
+commutes.
+
+\noindent\textbf{\textsc{TRA 2}}
+For every finite morphism \(f\), \(\operatorname{Tr}_f\) is compatible with \(d_f\) (the identification \(f^!\cong f^b\)).
+
+\noindent\textbf{\textsc{TRA 3}}
+For the projective projection \(f\colon\mathbb{P}_Y^n\to Y\), \(\operatorname{Tr}_f\) is compatible with \(e_f\) (the identification \(f^!\cong f^*\)).
+
+\noindent\textbf{\textsc{TRA 4}}
+Let \(f\colon X\to Y\) be projectively embeddable, \(u\colon Y'\to Y\) flat base change, \(X'=X\times_Y Y'\) with projections \(v\colon X'\to X,\ g\colon X'\to Y'\). The diagram
+\[
+\begin{CD}
+u^*\Rfst f^! @>{\operatorname{Tr}_f}>> u^* \\
+@V{b_{u,f}}VV @| \\
+\Rfst g_* g^! @>{\operatorname{Tr}_g}>> u^*
+\end{CD}
+\]
+commutes.
+
+\setcounter{page}{208}
+\begin{proof}
+The notation refers to the structure isomorphisms \(c_{f,g},d_f,e_f,b_{u,f}\) from Theorem 8.7.
+
+To define \(\operatorname{Tr}_f\), choose a factorization \(f=p\circ g\) into finite \(g\) and projective projection \(p\). Define \(\operatorname{Tr}_f\) by composing \(c_{g,p},d_g,\operatorname{Trf}_g,e_p,\operatorname{Trp}_p\). Independence of factorization follows by dominating any two factorizations by a third, then applying Proposition 10.4. Axioms \(\textsc{TRA1--TRA4}\) are straightforward diagram chases.
+\end{proof}
+
+\setcounter{page}{209}
+\begin{remark}
+The second main goal of these notes is to extend this trace theory to \textit{arbitrary proper morphisms}. This cannot be done by naive localization, since proper morphisms are not locally projective.
+
+Instead, we abandon the projective case entirely, and construct trace maps for graded residual complexes using only finite morphism traces. After proving the residue theorem, we bootstrap to obtain a general trace map—under the hypotheses that schemes are noetherian of finite Krull dimension admitting dualizing complexes, and complexes have coherent cohomology.
+\end{remark}

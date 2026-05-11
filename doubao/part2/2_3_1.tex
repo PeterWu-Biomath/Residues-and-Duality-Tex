@@ -1,0 +1,78 @@
+\setcounter{page}{90}
+\section{\S3 The Derived Functor of $\boldsymbol{\mathcal{H}\textit{om}}^\bullet$}
+
+Let $X$ be a prescheme, and let $F^\bullet,G^\bullet\in K(\operatorname{Mod}(X))$.
+Define the complex $\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)\in K(\operatorname{Mod}(X))$ by
+\[
+\mathcal{H}\textit{om}^n(F^\bullet,G^\bullet)
+= \prod_{p\in\mathbb{Z}} \mathcal{H}\textit{om}\big(F^p,G^{p+n}\big),
+\]
+with differential
+\[
+d = d_F + (-1)^{n+1}d_G.
+\]
+
+The bifunctor
+\[
+\mathcal{H}\textit{om}^\bullet\colon K(\operatorname{Mod}(X))^\circ \times K(\operatorname{Mod}(X))
+\to K(\operatorname{Mod}(X))
+\]
+is a triangulated bifunctor.
+
+\textbf{Lemma 3.1.}
+Let $F^\bullet$ be any complex of $\sheaf{O}_X$-modules, and let $G^\bullet$ be a bounded-below complex of injective $\sheaf{O}_X$-modules. If either $F^\bullet$ or $G^\bullet$ is acyclic, then $\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)$ is acyclic.
+
+\textit{Proof.}
+It suffices to check acyclicity of
+$\Gamma\big(U,\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)\big)
+= \mathcal{H}\textit{om}^\bullet(F^\bullet|_U,G^\bullet|_U)$
+for every open $U\subseteq X$.
+Since injective $\sheaf{O}_X$-modules restrict to injective $\sheaf{O}_U$-modules,
+the claim follows from Lemma 6.2 of Chapter I, applied to the abelian category of $\sheaf{O}_U$-modules.
+
+\setcounter{page}{91}
+Using Lemma 3.1 and the method of \S6 Chapter I, we obtain the right derived bifunctor
+\[
+\mathbf{R}\mathcal{H}\textit{om}^\bullet\colon D(X)^\circ \times D^+(X) \to D(X).
+\]
+
+\textbf{Exercise.}
+Suppose $X$ is locally noetherian, and every coherent $\sheaf{O}_X$-module is a quotient of a locally free finite-rank $\sheaf{O}_X$-module (e.g., $X$ quasi-projective over a field).
+Show that
+\[
+\mathbf{R}_\mathrm{I}\mathbf{R}_\mathrm{II}\mathcal{H}\textit{om}^\bullet
+\colon D_\mathrm{c}^-(X)\times D(X)\to D(X)
+\]
+exists.
+
+\textbf{Problem.}
+Without the above hypothesis, study sheaves acyclic for $\mathcal{H}\textit{om}$ in the first variable. Determine whether there are sufficiently many such sheaves to define the double derived functor above.
+
+\textbf{Definition.}
+For $F^\bullet\in D(X)$, $G^\bullet\in D^+(X)$, define the \textit{local hyperext groups}
+\[
+\mathcal{Ext}^i(F^\bullet,G^\bullet)
+= H^i\big(\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)\big).
+\]
+
+\setcounter{page}{92}
+\textbf{Lemma 3.2.}
+Let $X$ be locally noetherian, let $F$ be a coherent $\sheaf{O}_X$-module, and let $G$ be coherent (resp.\ quasi-coherent). Then $\mathcal{Ext}^i(F,G)$ is coherent (resp.\ quasi-coherent) for all $i\ge 0$.
+
+\textit{Proof.}
+The coherent case is EGA $\mathrm{O}_{\mathrm{III}}$ 12.3.3; the quasi-coherent case follows by a parallel argument.
+
+\textbf{Proposition 3.3.}
+Let $X$ be locally noetherian, $F^\bullet\in D_\mathrm{c}(X)$, $G^\bullet\in D_\mathrm{c}^+(X)$ (resp.\ $D_\mathrm{qc}^+(X)$). Assume either
+\begin{enumerate}
+\item[(a)] $F^\bullet\in D_\mathrm{c}^-(X)$, or
+\item[(b)] $G^\bullet\in D_\mathrm{c}^+(X)_\mathrm{fid}$ (cf.\ \S7 Chapter I).
+\end{enumerate}
+Then
+\[
+\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)
+\in D_\mathrm{c}(X)\ (\text{resp. } D_\mathrm{qc}(X)).
+\]
+
+\textit{Proof.}
+Follows from Lemma 3.1 and two applications of Proposition 7.3 (Chapter I). Details are omitted.

@@ -1,0 +1,111 @@
+\setcounter{page}{28}
+\section{\S3. Localization of Categories}
+
+\textbf{Definition.}
+Let \(\cat{C}\) be a category. A collection \(S\) of morphisms of \(\cat{C}\) is called a \textit{multiplicative system} if it satisfies the following axioms \(\text{FR1}\)--\(\text{FR3}\):
+
+\begin{enumerate}
+\item[(FR1)] If \(f,g\in S\) and the composite \(fg\) exists, then \(fg\in S\). For any \(X\in\operatorname{Ob}\cat{C}\), \(\id_X\in S\).
+
+\item[(FR2)] Any diagram
+\[
+X\xrightarrow{u} Y \xleftarrow{s} Z,\quad s\in S
+\]
+can be completed to a commutative diagram
+\[
+\begin{CD}
+W @>v>> Z\\
+@VtVV @VsVV\\
+X @>u>> Y
+\end{CD}
+\]
+with \(t\in S\). The analogous statement holds with all arrows reversed.
+
+\item[(FR3)] Let \(f,g\colon X\to Y\) be morphisms in \(\cat{C}\). The following are equivalent:
+\begin{enumerate}
+\item[(i)] There exists \(s\colon Y\to Y'\) in \(S\) such that \(sf = sg\);
+\item[(ii)] There exists \(t\colon X'\to X\) in \(S\) such that \(ft = gt\).
+\end{enumerate}
+\end{enumerate}
+
+\setcounter{page}{29}
+\textbf{Definition.}
+Let \(\cat{C}\) be a category and \(S\) a multiplicative system of morphisms in \(\cat{C}\). The \textit{localization of \(\cat{C}\) with respect to \(S\)} is a category \(\cat{C}_S\) together with a functor \(Q\colon\cat{C}\to\cat{C}_S\) such that:
+\begin{enumerate}
+\item[(a)] \(Q(s)\) is an isomorphism for every \(s\in S\);
+\item[(b)] Any functor \(F\colon\cat{C}\to\cat{D}\) sending each \(s\in S\) to an isomorphism factors uniquely through \(Q\).
+\end{enumerate}
+
+\textbf{Remark.} One can prove such a localization exists without extra assumptions on \(S\), though we do not use this fact here.
+
+\medskip
+\textbf{Proposition 3.1.}
+Let \(\cat{C}\) be a category and \(S\) a multiplicative system in \(\cat{C}\). The localization \(\cat{C}_S\) may be constructed as follows:
+\(\operatorname{Ob}\cat{C}_S = \operatorname{Ob}\cat{C}\), and for all \(X,Y\in\operatorname{Ob}\cat{C}\),
+\[
+\Hom_{\cat{C}_S}(X,Y) = \varinjlim_{I_X} \Hom_{\cat{C}}(X',Y),
+\]
+where \(I_X\) is the category whose objects are morphisms \(s\colon X'\to X\) in \(S\), and morphisms are commutative triangles over \(X\).
+
+\setcounter{page}{30}
+Furthermore, if \(\cat{C}\) is additive, then \(\cat{C}_S\) is also additive.
+
+\textit{Proof.}
+Using \(\text{FR1}\), \(\text{FR2}\), \(\text{FR3}\), the index category \(I_X\) satisfies the inductive limit axioms (LI, L2, L3) of [GT, Ch.\ I, \S], so the direct limit is well-behaved.
+
+A morphism \(X\to Y\) in \(\cat{C}_S\) is represented by a right fraction \(X\xleftarrow{s}X'\xrightarrow{f}Y\) with \(s\in S\). Two such fractions define the same morphism iff there exist \(u\colon X'''\to X'\), \(g\colon X'''\to X''\) in \(S\) making the obvious diagram commute and equalizing the representatives.
+
+\setcounter{page}{31}
+Composition of fractions is defined via \(\text{FR2}\): given fractions \(X\xleftarrow{s}X'\xrightarrow{a}Y\) and \(Y\xleftarrow{t}Y'\xrightarrow{b}Z\), complete the diagram to get a common lift and form the composite morphism \(X\to Z\). The result is independent of representative and lift.
+
+The localization functor \(Q\colon\cat{C}\to\cat{C}_S\) satisfies the universal property, and additivity of \(\cat{C}\) passes to \(\cat{C}_S\) since the limit preserves abelian group structure on Hom-sets.
+
+\medskip
+\textbf{Definition.}
+Let \(\cat{C}\) be a triangulated category and \(S\) a multiplicative system in \(\cat{C}\). We say \(S\) is \textit{compatible with the triangulation} if:
+\begin{enumerate}
+\item[(FR4)] \(s\in S \implies T(s)\in S\), where \(T\) is the translation functor;
+\item[(FR5)] Axiom \(\text{TR3}\) holds with the extra condition: if \(f,g\in S\) are the given morphisms of triangles, then one may choose the filler \(h\in S\).
+\end{enumerate}
+
+\setcounter{page}{32}
+\textbf{Proposition 3.2.}
+If \(\cat{C}\) is triangulated and \(S\) a triangulation-compatible multiplicative system, then \(\cat{C}_S\) admits a \textit{unique} triangulated structure such that \(Q\colon\cat{C}\to\cat{C}_S\) is a triangle functor, and \(Q\) satisfies the universal property for triangle functors into other triangulated categories.
+
+\textit{Proof.} Left to the reader.
+
+One may also compute morphism sets as
+\[
+\Hom_{\cat{C}_S}(X,Y) = \varinjlim_{J_Y}\Hom_{\cat{C}}(X,Y'),
+\]
+where \(J_Y\) has objects \(s\colon Y\to Y'\in S\) and morphisms commutative diagrams under \(Y\).
+
+\medskip
+\textbf{Proposition 3.3.}
+Let \(\cat{C}\) be a category, \(S\) a multiplicative system in \(\cat{C}\), and \(\cat{D}\subseteq\cat{C}\) a full subcategory such that \(S\cap\cat{D}\) is a multiplicative system in \(\cat{D}\). Assume one of the following:
+\begin{enumerate}
+\item[(i)] For every \(s\colon X'\to X\) in \(S\) with \(X\in\operatorname{Ob}\cat{D}\), there exists \(f\colon X''\to X'\) with \(X''\in\operatorname{Ob}\cat{D}\) and \(sf\in S\);
+\item[(ii)] The same with all arrows reversed.
+\end{enumerate}
+Then the natural functor
+\[
+\cat{D}_{S\cap\cat{D}} \to \cat{C}_S
+\]
+is fully faithful, so \(\cat{D}_{S\cap\cat{D}}\) may be identified with a full subcategory of \(\cat{C}_S\).
+
+\setcounter{page}{33}
+\textit{Proof.} Straightforward.
+
+\medskip
+\textbf{Proposition 3.4.}
+Let \(\cat{C}\) be a category, \(S\) a multiplicative system, \(Q\colon\cat{C}\to\cat{C}_S\) the localization functor. Let \(\cat{D}\) be any category, and \(F,G\colon\cat{C}_S\to\cat{D}\) functors. Then the natural restriction map
+\[
+\alpha\colon \Hom(F,G) \to \Hom(FQ,GQ)
+\]
+between functor morphism sets is bijective.
+
+\setcounter{page}{34}
+\textit{Proof.}
+A functor morphism \(F\to G\) assigns to each object \(X\in\cat{C}_S\) a morphism \(F(X)\to G(X)\) making all morphism squares commute.
+
+Injectivity of \(\alpha\) is clear since \(\operatorname{Ob}\cat{C}_S=\operatorname{Ob}\cat{C}\). For surjectivity, take a morphism \(FQ\to GQ\). Since every morphism in \(\cat{C}_S\) is a fraction built from morphisms of \(\cat{C}\) and elements of \(S\), and \(F(s),G(s)\) are isomorphisms for \(s\in S\), the given functor morphism on \(FQ,GQ\) extends uniquely to a functor morphism on \(F,G\) over \(\cat{C}_S\).

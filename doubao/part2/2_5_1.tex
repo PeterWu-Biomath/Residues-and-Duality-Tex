@@ -1,0 +1,164 @@
+\setcounter{page}{100}
+\section{\S5 Relations Among the Derived Functors}
+
+In this section we list natural homomorphisms and isomorphisms between the derived functors defined in the previous sections.
+
+\textbf{Proposition 5.1.}
+Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be morphisms of preschemes.
+There is a natural isomorphism
+\[
+\zeta^+\colon \mathbf{R}^+(g_*\circ f_*) \xrightarrow{\sim} \mathbf{R}^+g_*\circ\mathbf{R}^+f_*
+\]
+of functors $D^+(X)\to D^+(Z)$.
+
+If furthermore $X,Y$ are noetherian of finite Krull dimension, there is a natural isomorphism
+\[
+\zeta\colon \mathbf{R}(g_*\circ f_*) \xrightarrow{\sim} \mathbf{R}g_*\circ\mathbf{R}f_*
+\]
+of functors $D(X)\to D(Z)$.
+
+\textit{Proof.}
+Use Theorem I.5.4(b).
+For the bounded case, let $L\subseteq K^+(\operatorname{Mod}(X))$ be complexes of injective sheaves,
+and $M\subseteq K^+(\operatorname{Mod}(Y))$ complexes of $g_*$-acyclic sheaves.
+Then $f_*(L)\subseteq M$: injective sheaves are flasque (EGA $\mathrm{O_{III}}$ 12.2.4),
+and flasque sheaves are $g_*$-acyclic (EGA $\mathrm{O_{III}}$ 12.2.1).
+The universal property yields $\zeta^+$.
+
+\setcounter{page}{101}
+For the unbounded case, let $L\subseteq K(\operatorname{Mod}(X))$ be complexes that are both $f_*$-acyclic and $g_*f_*$-acyclic,
+and $M\subseteq K(\operatorname{Mod}(Y))$ complexes of $g_*$-acyclic sheaves.
+If $F\in L$, then $\mathbf{R}f_*(F)\cong f_*(F)$,
+so $R^ig_*(f_*F)=R^i(g_*f_*)(F)=0$ for $i>0$, hence $f_*F\in M$.
+The class of sheaves which are $f_*$- and $g_*f_*$-acyclic satisfies I.4.6,
+so Theorem I.5.4(b) applies to give the isomorphism $\zeta$.
+
+\textbf{Proposition 5.2.}
+Let $f\colon X\to Y$ be a morphism of preschemes.
+There is a natural isomorphism
+\[
+\zeta^+\colon \mathbf{R}^+\Gamma(X,\,\cdot\,) \xrightarrow{\sim} \mathbf{R}^+\Gamma(Y,\mathbf{R}^+f_*)
+\]
+of functors $D^+(X)\to D(\mathbf{Ab})$.
+
+If $X,Y$ are noetherian of finite Krull dimension, there is a natural isomorphism
+\[
+\zeta\colon \mathbf{R}\Gamma(X,\,\cdot\,) \xrightarrow{\sim} \mathbf{R}\Gamma(Y,\mathbf{R}f_*)
+\]
+of functors $D(X)\to D(\mathbf{Ab})$.
+
+\setcounter{page}{102}
+\textit{Proof.}
+Similar to Proposition 5.1.
+
+\textbf{Proposition 5.3.}
+Let $X$ be a prescheme. There is a natural isomorphism of bifunctors
+\[
+\mathbf{R}\mathcal{H}\textit{om}^\bullet(F^\bullet,G^\bullet)
+\xrightarrow{\sim}
+\Gamma\big(X,\mathbf{R}\underline{\mathcal{H}\textit{om}}^\bullet(F^\bullet,G^\bullet)\big)
+\]
+from $D^-(X)^\circ\times D^+(X)$ to $D(\mathbf{Ab})$.
+
+\textit{Proof.}
+For ordinary sheaves, $\Hom(F,G)=\Gamma(X,\underline{\Hom}(F,G))$.
+If $G$ is injective, $\underline{\Hom}(F,G)$ is flasque [G, II 7.3.2], hence $\Gamma$-acyclic.
+The result follows from derived functor universal properties.
+
+\textbf{Proposition 5.4.}
+Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be morphisms of preschemes.
+There is a natural isomorphism
+\[
+\zeta^-\colon \mathbf{L}^-(f^*\circ g^*)
+\xrightarrow{\sim}
+\mathbf{L}^-f^*\circ\mathbf{L}^-g^*
+\]
+of functors $D^-(Z)\to D^-(X)$.
+
+If $f,g$ have finite Tor-dimension, then so does $g\circ f$, and there is a natural isomorphism
+\[
+\zeta\colon \mathbf{L}(g\circ f)^*
+\xrightarrow{\sim}
+\mathbf{L}f^*\circ\mathbf{L}g^*
+\]
+of functors $D(Z)\to D(X)$.
+
+\setcounter{page}{103}
+\textit{Proof.}
+Left to the reader. Note $g^*$ sends flat $\sheaf{O}_Z$-modules to flat $\sheaf{O}_Y$-modules.
+
+\textbf{Proposition 5.5.}
+Let $f\colon X\to Y$, with $X$ noetherian of finite Krull dimension.
+For $F^\bullet\in D^-(X)$, $G^\bullet\in D^+(X)$, there is a natural functorial homomorphism
+\[
+\mathbf{R}f_*\mathbf{R}\mathcal{H}\textit{om}_X(F^\bullet,G^\bullet)
+\to
+\mathbf{R}\mathcal{H}\textit{om}_Y(\mathbf{R}f_*F^\bullet,\mathbf{R}f_*G^\bullet).
+\]
+
+\textit{Proof.}
+The hypotheses guarantee both sides are well-defined (\S3).
+We define a morphism of bifunctors $D^-(X)^\circ\times D^+(X)\to D(Y)$.
+Let $L\subseteq K^-(\operatorname{Mod}(X))$ be complexes of $f_*$-acyclic sheaves,
+$M\subseteq K^+(\operatorname{Mod}(X))$ complexes of injective sheaves.
+The localizations $L_{\mathsf{Qis}}\to D^-(X)$ and $M_{\mathsf{Qis}}\to D^+(X)$ are equivalences,
+so it suffices to define the morphism on $L_{\mathsf{Qis}}\times M_{\mathsf{Qis}}$.
+
+\setcounter{page}{104}
+Using the canonical morphisms from derived functor definitions, we have the commutative diagram:
+\[
+\begin{array}{l}
+(1)\ \xi_{f_*}\colon \mathbf{R}f_*\underline{\mathcal{H}\textit{om}}^\bullet(F^\bullet,G^\bullet)
+\to \mathbf{R}f_*\mathbf{R}\underline{\mathcal{H}\textit{om}}^\bullet(F^\bullet,G^\bullet) \\
+(2)\ \xi_{\mathcal{H}\textit{om}}\colon \underline{\mathcal{H}\textit{om}}^\bullet(F^\bullet,G^\bullet)
+\to \mathbf{R}\underline{\mathcal{H}\textit{om}}^\bullet(F^\bullet,G^\bullet) \\
+(4)\ \xi_{f_*}\colon \underline{\mathcal{H}\textit{om}}^\bullet(f_*F^\bullet,f_*G^\bullet)
+\to \mathbf{R}\underline{\mathcal{H}\textit{om}}^\bullet(f_*F^\bullet,f_*G^\bullet) \\
+(5)\ \xi_{f_*}\colon \mathbf{R}\mathcal{H}\textit{om}_Y(f_*F^\bullet,f_*G^\bullet)
+\to \mathbf{R}\mathcal{H}\textit{om}_Y(\mathbf{R}f_*F^\bullet,\mathbf{R}f_*G^\bullet)
+\end{array}
+\]
+
+The map is induced by the canonical sheaf morphism
+\[
+f_*\underline{\Hom}_X(F,G)
+\to
+\underline{\Hom}_Y(f_*F,f_*G).
+\]
+
+\setcounter{page}{105}
+(1) is an isomorphism since $\underline{\mathcal{H}\textit{om}}^\bullet(F^\bullet,G^\bullet)$ is flasque hence $f_*$-acyclic.
+(2) is an isomorphism as $G^\bullet$ is injective.
+(4), (5) are likewise isomorphisms.
+Thus there exists a unique functor morphism
+\[
+\Psi\colon
+\mathbf{R}f_*\mathbf{R}\underline{\mathcal{H}\textit{om}}^\bullet(F^\bullet,G^\bullet)
+\to
+\mathbf{R}\mathcal{H}\textit{om}_Y(\mathbf{R}f_*F^\bullet,\mathbf{R}f_*G^\bullet)
+\]
+making the diagram commute.
+
+\textbf{Remark.}
+In subsequent arguments we adopt the convention:
+for complexes of acyclic/injective objects, we identify $\mathbf{R}F$ with $F$ and omit localization functors $Q$.
+
+\setcounter{page}{106}
+\textbf{Proposition 5.6 (Projection Formula).}
+Let $f\colon X\to Y$ be quasi-compact, with $X,Y$ noetherian of finite Krull dimension.
+For $F^\bullet\in D^-(X)$, $G^\bullet\in D_{\mathrm{qc}}^-(Y)$, there is a natural isomorphism
+\[
+\mathbf{R}f_*\big(F^\bullet \stackrel{\mathbf{L}}{\otimes}_X \mathbf{L}f^*G^\bullet\big)
+\;\simeq\;
+\mathbf{R}f_*F^\bullet \stackrel{\mathbf{L}}{\otimes}_Y G^\bullet.
+\]
+
+\textit{Proof.}
+Assume $F^\bullet$ is $f_*$-acyclic and $G^\bullet$ is a complex of flat $\sheaf{O}_Y$-modules.
+Compose the classical sheaf projection formula
+\[
+f_*\big(F^\bullet\otimes_X f^*G^\bullet\big)
+\to
+f_*F^\bullet\otimes_Y G^\bullet
+\]
+with derived functor identifications to obtain the isomorphism.

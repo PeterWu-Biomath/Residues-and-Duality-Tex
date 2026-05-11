@@ -1,0 +1,87 @@
+
+\setcounter{page}{240}
+\section{Generalization to Complexes}
+
+In this section we extend the previous results to complexes, introducing Cohen--Macaulay complexes, Gorenstein complexes, and their relation to Cousin complexes.
+
+Throughout, \(X\) is a locally noetherian topological space where every closed irreducible subset has a unique generic point. We write
+\[
+D^+(X) = D^+(\cat{Ab}(X)) \quad\text{or}\quad D^+(\operatorname{Mod}(X))
+\]
+interchangeably; the theory holds for both abelian sheaves and \(\sheaf{O}_X\)-module sheaves on a prescheme.
+
+Consider a filtration \(Z^\bullet = (Z^p)_{p\in\mathbb{Z}}\) on \(X\) satisfying:
+\begin{enumerate}
+\item \(Z^p\) is closed and stable under specialization for all \(p\), and
+\[
+\cdots \supseteq Z^{p-1} \supseteq Z^p \supseteq Z^{p+1} \supseteq \cdots;
+\]
+\item every point \(x\in Z^p\setminus Z^{p+1}\) is maximal in \(Z^p\) (no proper specialization inside \(Z^p\));
+\item the filtration is strictly exhaustive: \(X = \bigcup_{p} Z^p\);
+\item the filtration is separated: \(\displaystyle\bigcap_{p} Z^p = \emptyset\).
+\end{enumerate}
+
+\setcounter{page}{241}
+\begin{definition}
+A \textit{Cousin complex} on \(X\) (with respect to filtration \(Z^\bullet\)) is a complex \(G^\bullet\) of sheaves such that for each \(p\), \(G^p\) lies on the \(Z^p/Z^{p+1}\)-skeleton.
+Denote by \(\underline{\operatorname{Coz}}(Z^\bullet;X)\) the additive category of Cousin complexes and complex morphisms.
+\end{definition}
+
+\begin{remark}
+The Cousin complex of a sheaf (Proposition 2.3) is an example of a Cousin complex. All Cousin complexes are flasque and bounded below.
+\end{remark}
+
+\begin{definition}
+For \(F^\bullet\in D^+(X)\), define the complex
+\[
+E(F^\bullet)
+\]
+as the \(E_1^{\bullet\bullet}\) term of the filtered-space spectral sequence (Motif G), i.e.
+\[
+E^p(F^\bullet) = \underline{H}_{Z^p/Z^{p+1}}^p(F^\bullet).
+\]
+By Motif F, each term lies on the \(Z^p/Z^{p+1}\)-skeleton, so \(E(F^\bullet)\) is a Cousin complex. Note \(E(F^\bullet)\) need not be bounded above even if \(F^\bullet\in D^b(X)\).
+\end{definition}
+
+\setcounter{page}{242}
+\begin{proposition}
+Let \(F^\bullet\in D^b(X)\). The following are equivalent:
+\begin{enumerate}
+\item[\textup{(i)}]
+\begin{enumerate}
+\item[\textup{a)}] \(\underline{H}_{Z^p}^i(F^\bullet)=0\) for all \(i<p\);
+\item[\textup{b)}] The natural map \(\underline{H}_{Z^p}(F^\bullet)\to H^p(F^\bullet)\) is surjective for \(i=p\) and bijective for \(i>p\).
+\end{enumerate}
+
+\item[\textup{(ii)}] \(\underline{H}_{Z^p/Z^{p+1}}^i(F^\bullet)=0\) for all \(i\ne p\).
+
+\item[\textup{(iii)}] There exists an isomorphism \(F^\bullet\cong E(F^\bullet)\) in \(D^+(X)\).
+\end{enumerate}
+Furthermore, this isomorphism can be chosen so that the induced maps on cohomology are inverses to those from the degenerate spectral sequence.
+\end{proposition}
+
+\begin{remark}
+The isomorphism in (iii) is not unique in general and is non-functorial.
+\end{remark}
+
+\setcounter{page}{243}
+\begin{proof}
+\textup{(i)}\(\Rightarrow\)(ii): Follows directly from the long exact sequence
+\[
+\cdots\to\underline{H}_{Z^{p+1}}^i(F^\bullet)\to\underline{H}_{Z^p}^i(F^\bullet)\to\underline{H}_{Z^p/Z^{p+1}}^i(F^\bullet)\to\underline{H}_{Z^{p+1}}^{i+1}(F^\bullet)\to\cdots
+\]
+from Motif B.
+
+\textup{(ii)}\(\Rightarrow\)(i): Check pointwise on generization spaces; reduce to finite filtration. For \(i<p\), vanishing follows from the exact sequence; for \(i\ge p\) we get surjectivity and bijectivity as required.
+
+\setcounter{page}{244}
+\textup{(i)\(\Leftrightarrow\)(iii)}: Since \(F^\bullet\in D^b(X)\), there exists \(i_0\) with \(H^i(F^\bullet)=0\) for \(i\ge i_0\). By condition (ii), \(E(F^\bullet)\) also vanishes in high degrees. We construct an isomorphism by descending induction using truncations \(\tau_{\ge p}\) and the triangle formalism for derived local cohomology.
+\end{proof}
+
+\setcounter{page}{245}
+\begin{proposition}
+With the above filtration hypotheses, suppose \(F^\bullet\in D^b(X)\) satisfies the equivalent conditions of Proposition 3.1. Then we have a canonical exact sequence
+\[
+0\to \underline{H}_{Z^p}(F^\bullet)\to \underline{H}_{Z^p/Z^{p+1}}^p(F^\bullet)\to \underline{H}_{Z^{p+1}}^{p+1}(F^\bullet)\to 0.
+\]
+\end{proposition}

@@ -1,0 +1,58 @@
+\setcounter{page}{87}
+\section{\S2 The Derived Functors of $f_*$ and $\Gamma$}
+
+Let $f\colon X\to Y$ be a morphism of preschemes.
+The direct image functor $f_*\colon \operatorname{Mod}(X)\to\operatorname{Mod}(Y)$ is left-exact.
+Since $\operatorname{Mod}(X)$ has enough injectives, we have the right derived functor
+\[
+\mathbf{R}^+ f_*\colon D^+(X)\to D^+(Y).
+\]
+
+There are two important cases where we may define $\mathbf{R}f_*$ for unbounded complexes:
+
+1. If $X$ is noetherian of finite Krull dimension $n$, then $H^i(X,F)=0$ for all $i>n$ and every abelian sheaf $F$ on $X$ [T 3.6.5].
+If $F$ is an $\sheaf{O}_X$-module, its sheaf cohomology coincides with its cohomology as an abelian sheaf (EGA $\mathrm{O_{III}}$ 12.1.1).
+Since $R^i f_*$ is the sheaf associated to the presheaf $V\mapsto H^i(f^{-1}(V),F)$, we get $R^i f_*(F)=0$ for $i>n$.
+Thus $f_*$ has finite cohomological dimension on $\operatorname{Mod}(X)$, so by [I 5.3] we may extend to
+\[
+\mathbf{R}f_*\colon D(X)\to D(Y).
+\]
+
+\setcounter{page}{88}
+2. If $f_*$ has finite cohomological dimension on $\mathsf{Qco}(X)$, we define
+\[
+\mathbf{R}f_*\colon D\big(\mathsf{Qco}(X)\big)\to D\big(\mathsf{Qco}(Y)\big).
+\]
+
+This holds under either condition:
+\begin{enumerate}
+\item[(a)] $f$ is separated, quasi-compact, and $Y$ is quasi-compact (EGA III 1.4.12);
+\item[(b)] $X,Y$ are locally noetherian, $f$ is of finite type, and the fibres of $f$ have bounded dimension (EGA III 4.1.5, [T 3.6.5]).
+\end{enumerate}
+
+We state results for one context; the reader may adapt them to the other.
+When no confusion arises, we write $\mathbf{R}f_*$ instead of $\mathbf{R}^+f_*$.
+
+\textbf{Proposition 2.1.}
+If $f\colon X\to Y$ is separated and quasi-compact, then $\mathbf{R}f_*$ maps $D_{\mathrm{qc}}^+(X)$ to $D_{\mathrm{qc}}^+(Y)$.
+If furthermore $X$ is noetherian of finite Krull dimension, then $\mathbf{R}f_*$ maps $D_{\mathrm{qc}}(X)$ to $D_{\mathrm{qc}}(Y)$.
+
+\textit{Proof.}
+By EGA III 1.4.10, $R^i f_*(F)$ is quasi-coherent whenever $F\in\mathsf{Qco}(X)$.
+Thus $\mathbf{R}f_*(F)\in D_{\mathrm{qc}}^+(Y)$.
+Since $\mathbf{R}f_*$ is way-out right, the full statement follows from [I 7.3].
+
+\setcounter{page}{89}
+\textbf{Proposition 2.2.}
+Let $f\colon X\to Y$ be a proper morphism with $Y$ locally noetherian.
+Then $\mathbf{R}f_*$ sends $D_{\mathrm{c}}^+(X)$ to $D_{\mathrm{c}}^+(Y)$.
+If additionally $X$ is noetherian of finite Krull dimension, then $\mathbf{R}f_*$ sends $D_{\mathrm{c}}(X)$ to $D_{\mathrm{c}}(Y)$.
+
+\textit{Proof.}
+Identical argument, using EGA III 3.2.1 in place of EGA III 1.4.10.
+
+If $X$ is a prescheme, the global section functor $\Gamma\colon\operatorname{Mod}(X)\to\mathbf{Ab}$ is left-exact, with right derived functor
+\[
+\mathbf{R}^+\Gamma\colon D^+(X)\to D(\mathbf{Ab}).
+\]
+As above, if $X$ is noetherian of finite Krull dimension, we may extend $\mathbf{R}\Gamma$ to all of $D(X)$.

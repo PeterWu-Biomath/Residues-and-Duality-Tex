@@ -1,0 +1,43 @@
+\setcounter{page}{85}
+\chapter{Application to Preschemes}
+
+In this chapter we discuss the various sheaf categories used throughout the sequel, their derived categories, the standard functors between them, and the relations among these functors. In \S7 we give the structure of injective \(\sheaf{O}_X\)-modules on a locally noetherian prescheme \(X\).
+
+\section{\S1 Categories of Sheaves}
+
+Let \((X,\sheaf{O}_X)\) be a prescheme. Denote by \(\operatorname{Mod}(X)\) the category of sheaves of \(\sheaf{O}_X\)-modules, and its derived category by
+\[
+D(X) = D\big(\operatorname{Mod}(X)\big).
+\]
+
+We consider the thick subcategories of \(\operatorname{Mod}(X)\):
+\(\mathsf{Qco}(X)\) (quasi-coherent sheaves) and \(\mathsf{Coh}(X)\) (coherent sheaves).
+(Cf.\ EGA O for definitions and the fact these are thick subcategories.)
+
+Following the notation of Chapter I, \S4, we write:
+\[
+D_{\mathrm{qc}}(X) = D_{\mathsf{Qco}(X)}\big(\operatorname{Mod}(X)\big),\quad
+D_{\mathrm{c}}(X) = D_{\mathsf{Coh}(X)}\big(\operatorname{Mod}(X)\big).
+\]
+We also use bounded variants \(D_{\mathrm{qc}}^+(X)\), etc.
+
+\textbf{Proposition 1.1.}
+The categories \(\operatorname{Mod}(X)\) and \(\mathsf{Qco}(X)\) have enough injectives.
+
+\setcounter{page}{86}
+\textit{Proof.}
+Well known; see e.g.\ [T, 1.10.1], or [G, II] for \(\operatorname{Mod}(X)\).
+
+\textbf{Proposition 1.2.}
+Every sheaf of \(\sheaf{O}_X\)-modules is a quotient of a flat \(\sheaf{O}_X\)-module.
+
+\textit{Proof.}
+For an open set \(U\subseteq X\), define \(\sheaf{O}_{X,U}\) to be the sheaf equal to \(\sheaf{O}_X\) on \(U\) and zero outside \(U\).
+Then \(\sheaf{O}_{X,U}\) is a flat \(\sheaf{O}_X\)-module, and any direct sum of such sheaves is also flat.
+
+Let \(F\) be any \(\sheaf{O}_X\)-module sheaf, and let \(\{s_i\in\Gamma(U_i,F)\}\) be a set of local generators of \(F\).
+There is a surjective morphism
+\[
+\bigoplus_i \sheaf{O}_{X,U_i} \to F
+\]
+sending \(1\in\Gamma(U_i,\sheaf{O}_{X,U_i})\) to the section \(s_i\).

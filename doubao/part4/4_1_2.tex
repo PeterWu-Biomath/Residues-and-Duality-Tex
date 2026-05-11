@@ -1,0 +1,201 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dimk}{dim_k}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\Lfst}{\mathbf{L}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\RGamma}{\mathbf{R}\Gamma}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{motif}{Motif}[section]
+
+\begin{document}
+
+\setcounter{page}{222}
+
+\subsection{Variation 5}
+Combining Variations 1 and 3, we give the following definition.
+
+\begin{definition}
+A \textit{sheaf of families of supports} on a topological space \(X\) is a sheaf of sets \(\underline{\varphi}\) such that for every open set \(U\subseteq X\), \(\underline{\varphi}(U)\) is a family of supports on \(U\); and for open inclusion \(V\subseteq U\), the restriction map
+\[
+\underline{\varphi}(U)\to\underline{\varphi}(V)
+\]
+sends \(Z\in\underline{\varphi}(U)\) to \(Z\cap V\in\underline{\varphi}(V)\).
+\end{definition}
+
+\begin{remark}
+\begin{enumerate}
+\item If \(\varphi\) is a family of supports on \(X\), define the associated sheaf of families of supports \(\tilde{\varphi}\) as the sheaf associated to the presheaf
+\[
+U\mapsto \{\,Z\cap U \mid Z\in\varphi\,\}.
+\]
+
+\item If \(\underline{\varphi}\) is a sheaf of families of supports on \(X\), define the global family of supports
+\[
+\Gamma(\underline{\varphi}) = \underline{\varphi}(X).
+\]
+
+\item In general, the operations \(\Gamma(\cdot)\) and tilde \(\tilde{\phantom{\varphi}}\) are \textit{not} inverses. For example, on a locally compact Hausdorff space, let \(\varphi\) be the family of compact subsets. Then \(\tilde{\varphi}\) is the maximal sheaf of supports, and \(\Gamma(\tilde{\varphi})\) is maximal; but if \(X\) is non-compact, \(\varphi\ne\Gamma(\tilde{\varphi})\).
+
+\item Let \(f\colon X\to Y\) be a finite-type morphism of locally noetherian preschemes, fix integer \(p\). Define \(\underline{\varphi}(U)\) to be all relatively closed \(Z\subseteq U\) such that for every \(y\in f(U)\), the intersection \(Z\cap X_y\) has codimension \(\ge p\) in the fibre \(X_y\). Then in general \(\Gamma(\tilde{\varphi})\ne\varphi\).
+
+Example: \(Y=\operatorname{Spec}k[x,y]\), \(X=\mathbb{P}_Y^1\), \(p=1\). Take \(Z\subset X\) obtained by blowing up the origin of \(Y\): locally \(Z\in\underline{\varphi}\) away from the origin, but \(Z\notin\Gamma(\underline{\varphi})\).
+
+\item Let \(Z\subseteq X\) be stable under specialization. Define codimension of a point \(x\in X\) as the length of the longest chain of proper specializations
+\[
+x_0\prec x_1\prec\cdots\prec x_n = x.
+\]
+Then finite unions of closures of points in \(Z\) form a family of supports \(\varphi\), with associated sheaf \(\tilde{\varphi}\). For locally noetherian \(X\) where every closed irreducible subset has a unique generic point, there is a bijection between specialization-stable subsets \(Z\) and families \(\varphi\) satisfying \(\varphi=\Gamma(\tilde{\varphi})\). In such cases we write
+\[
+\Gamma_Z,\; H_Z^i,\; \underline{\Gamma}_Z
+\]
+instead of \(\Gamma_\varphi,H_\varphi^i,\underline{\Gamma}_{\tilde{\varphi}}\).
+\end{enumerate}
+\end{remark}
+
+Now let \(\underline{\varphi}\) be a sheaf of families of supports on \(X\). Define the sheaf
+\[
+\underline{\Gamma}_{\underline{\varphi}}(\sheaf{F})
+\]
+whose sections over open \(U\) are \(\Gamma_{\underline{\varphi}(U)}(U,\sheaf{F}|_U)\).
+Define the right derived functors
+\[
+\mathbf{R}\underline{\Gamma}_{\underline{\varphi}},\quad \underline{H}_{\underline{\varphi}}^i(\sheaf{F}).
+\]
+
+\begin{motif}
+Repeat Motifs A, C as before.
+\end{motif}
+
+\begin{motif}
+If \(\underline{\varphi}\) is of \textit{global nature} (\(\underline{\varphi}=\widetilde{\Gamma(\underline{\varphi})}\)), then
+\[
+\underline{H}_{\underline{\varphi}}^i(\sheaf{F})
+= \varinjlim_{Z\in\Gamma(\underline{\varphi})} \underline{H}_Z^i(\sheaf{F}).
+\]
+\end{motif}
+
+\begin{motif}
+There is a spectral sequence
+\[
+E_2^{pq} = H^p\big(X,\underline{H}_{\underline{\varphi}}^q(\sheaf{F})\big)
+\Rightarrow H_{\Gamma(\underline{\varphi})}^{p+q}(X,\sheaf{F}),
+\]
+or in derived categories:
+\[
+\RGamma_{\Gamma(\underline{\varphi})}
+= \RGamma \circ \mathbf{R}\underline{\Gamma}_{\underline{\varphi}}.
+\]
+\end{motif}
+
+\setcounter{page}{225}
+
+\subsection{Variation 6}
+Combine Variations 2 and 3: let \(Z'\subseteq Z\) be closed subsets. Define
+\[
+\Gamma_{Z/Z'},\;\mathbf{R}\Gamma_{Z/Z'},\;\underline{H}_{Z/Z'}^i
+\]
+and repeat Motifs A, B, C.
+
+\subsection{Variation 7}
+Combine Variations 1, 2, 3: let \(\underline{\psi}\subseteq\underline{\varphi}\) be sheaves of supports on \(X\). Define
+\[
+\Gamma_{\underline{\varphi}/\underline{\psi}},\;
+\mathbf{R}\Gamma_{\underline{\varphi}/\underline{\psi}},\;
+\underline{H}_{\underline{\varphi}/\underline{\psi}}^i
+\]
+and repeat Motifs A, B, C, D, E.
+
+\subsection{Variation 8}
+Define purely punctual local cohomology. Let \(x\in X\). Define \(\Gamma_x(\sheaf{F})\) as the subgroup of the stalk \(\sheaf{F}_x\) consisting of germs represented by sections defined near \(x\) with support contained in \(\overline{\{x\}}\). Define derived functors
+\[
+\mathbf{R}\Gamma_x,\quad H_x^i(\sheaf{F}).
+\]
+One has
+\[
+H_x^i(\sheaf{F})
+= \big(\underline{H}_{\overline{\{x\}}}(\sheaf{F})\big)_x,
+\]
+the stalk at \(x\) of the sheafified local cohomology. Repeat Motifs A, C.
+
+\setcounter{page}{226}
+
+\begin{motif}
+Let \(X\) be locally noetherian, every closed irreducible subset having a unique generic point. Let \(Z'\subseteq Z\) be specialization-stable subsets such that every point of \(Z\setminus Z'\) is \textit{maximal} in \(X\) (no non-trivial specialization within \(Z\setminus Z'\)). Then for any \(F^\bullet\in D^+(\cat{Ab}(X))\) there is a canonical isomorphism
+\[
+\underline{H}_{Z/Z'}^\bullet(F^\bullet)
+\cong \bigoplus_{x\in Z\setminus Z'} i_x\big(H_x^\bullet(F^\bullet)\big),
+\]
+where \(i_x(G)\) denotes the constant sheaf \(G\) supported on \(\overline{\{x\}}\).
+\end{motif}
+
+\begin{proof}
+It suffices to prove for a single sheaf \(\sheaf{F}\in\cat{Ab}(X)\):
+\[
+\underline{\Gamma}_{Z/Z'}(\sheaf{F})
+\cong \bigoplus_{x\in Z\setminus Z'} i_x\big(\Gamma_x(\sheaf{F})\big).
+\]
+For open \(U\), map a section in \(\Gamma_{Z\cap U}(U,\sheaf{F}|_U)\) to its germs at maximal points \(x\in (Z\setminus Z')\cap U\). By local noetherianity, support of any section is a finite union of closures of points; maximality ensures only finitely many non-zero germs. The map is injective and surjective by germ-section correspondence.
+\end{proof}
+
+\setcounter{page}{227}
+
+\subsection{Coda: Spectral Sequence of a Filtered Space}
+\begin{motif}
+Let
+\[
+\underline{\varphi}^0 \supseteq \underline{\varphi}^1 \supseteq \underline{\varphi}^2 \supseteq\cdots
+\]
+be a filtration of \(X\) by sheaves of supports, and let \(F^\bullet\in D^+(\cat{Ab}(X))\) be bounded below. There exists a biregular spectral sequence
+\[
+E_1^{pq}
+= H_{\underline{\varphi}^p/\underline{\varphi}^{p+q}}^\bullet(F^\bullet)
+\Rightarrow H^n(X,F^\bullet).
+\]
+If the filtration is finite (\(\underline{\varphi}^n=\emptyset\) for large \(n\)), the spectral sequence converges strongly.
+
+In derived categories, one has an iterated distinguished triangle filtration:
+\[
+\RGamma_{\underline{\varphi}^0}\leftarrow
+\RGamma_{\underline{\varphi}^1}\leftarrow
+\RGamma_{\underline{\varphi}^2}\leftarrow\cdots\leftarrow
+\RGamma_\emptyset = \id.
+\]
+\end{motif}
+
+\begin{proof}
+Take an injective resolution of \(F^\bullet\). The filtered complex
+\[
+I^\bullet = \underline{\Gamma}_{\underline{\varphi}^0}(I^\bullet)
+\supseteq \underline{\Gamma}_{\underline{\varphi}^1}(I^\bullet)
+\supseteq\cdots
+\supseteq \underline{\Gamma}_{\underline{\varphi}^n}(I^\bullet)=0
+\]
+yields the standard filtered complex spectral sequence.
+\end{proof}
+
+\end{document}
