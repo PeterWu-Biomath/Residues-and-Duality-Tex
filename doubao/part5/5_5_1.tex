@@ -1,0 +1,89 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\Lfst}{\mathbf{L}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+\DeclareMathOperator{\varinjlim}{\varinjlim}
+
+\begin{document}
+
+\setcounter{page}{272}
+\section{Local Cohomology on a Prescheme.}
+
+Let \(X\) be a prescheme, \(Y\) a closed subset, and \(F\) a sheaf of \(\sheaf{O}_X\)-modules. We interpret the local cohomology groups \(H_{Y}^{i}(F)\) in terms of Ext's.
+
+For each \(n \ge 1\), let \(Y_{n}\) be the subscheme of \(X\) defined by the sheaf of ideals \(I_{Y}^{n}\), where \(I_{Y}\) is the sheaf of ideals of some scheme structure on \(Y\). Then for each n we have a natural map
+\[
+\Hom_{\sheaf{O}_{X}}\left(\sheaf{O}_{Y_{n}}, F\right) \to \Gamma_{Y}(F),
+\]
+since an element of the first group is given by a global section of \(F\) which is annihilated by \(I_{Y}^{n}\) and hence has support on \(Y\). Taking the direct limit as \(n\) varies, we deduce a map
+\[
+\varinjlim_{n} \Hom\left(\sheaf{O}_{Y_{n}}, F\right) \to \Gamma_{Y}(F) .
+\]
+
+Taking derived functors, we deduce a map of functors from \(D^{+}(X)\) to \(D^{+}(\cat{Ab})\)
+\[
+(*) \quad \RHom \varinjlim_{n} \Hom\left(\sheaf{O}_{Y_{n}}, F^{\cdot}\right) \to \RHom \Gamma_{Y}\left(F^{\cdot}\right).
+\]
+
+\begin{theorem}
+If \(X\) is a noetherian prescheme, and \(F^{\cdot} \in D_{qc}^{+}(X)\), i.e., the complex \(F^{\cdot}\) has quasi-coherent cohomology (cf. [II]), then (*) is an isomorphism.
+\end{theorem}
+
+\setcounter{page}{273}
+\textbf{Remarks.}
+1. Since there are enough flasque \(\sheaf{O}_X\)-modules, \(\RHom \Gamma_{Y}(F^{\cdot})\) is the same as if one had calculated it in the category \(D^{+}\) (abelian sheaves on \(X\)).
+
+2. The derived category does not have direct limits, so we cannot write \(\varinjlim_{n} \RHom \Hom(\sheaf{O}_{Y_{n}}, F^{\cdot})\), as one is tempted to.
+However, upon descending from the derived category this difficulty disappears, and we have the Corollary below.
+
+\begin{corollary}
+Under the hypotheses of the theorem, the map induced on cohomology,
+\[
+\varinjlim_{n} Ext^{i}\left(\sheaf{O}_{Y_{n}}, F^{\cdot}\right) \to H_{Y}^{i}\left(F^{\cdot}\right)
+\]
+is an isomorphism, for all \(i\).
+\end{corollary}
+
+\begin{proof}
+If \(X\) is noetherian, and \(F\) quasi-coherent, then
+\[
+\varinjlim_{n} \Hom\left(\sheaf{O}_{Y_{n}}, F\right) \to \Gamma_{Y}(F)
+\]
+is an isomorphism, since every section of \(F\) with support on \(Y\) will be annihilated by some power of \(I_{Y}\). Therefore, by the lemma on Way-Out Functors [I.7.1], the morphism of derived functors (*) is an isomorphism for \(F^{\cdot} \in D_{qc}^{+}(X)\).
+
+\setcounter{page}{274}
+For the Corollary, just observe that taking cohomology of complexes commutes with direct limits.
+\end{proof}
+
+\begin{corollary}
+If \(X\) is locally noetherian, and \(F^{\cdot} \in D_{qc}^{+}(X)\), then the analogous maps
+\[
+\RHom \varinjlim_{n} \Hom\left(\sheaf{O}_{Y_{n}}, F^{\cdot}\right) \to \RHom \underline{\Gamma}_{Y}\left(F^{\cdot}\right)
+\]
+and
+\[
+\varinjlim_{n} Ext^{i}\left(\sheaf{O}_{Y_{n}}, F^{\cdot}\right) \to \underline{H}_{Y}^{i}\left(F^{\cdot}\right)
+\]
+are isomorphisms.
+\end{corollary}
+
+\begin{proof}
+By definition of the derived category, it is sufficient to prove the second. This follows from Corollary 4.2, since Ext and \(H_{Y}\) are sheaves associated to presheaves given by Ext and \(H_{Y}\).
+\end{proof}
+
+\end{document}

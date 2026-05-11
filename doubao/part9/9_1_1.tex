@@ -1,0 +1,109 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+% Standard operators
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator*{lim}{\varprojlim}
+
+\begin{document}
+
+\setcounter{page}{388}
+\section{Smooth morphisms.}
+
+In this section we give the special case of the duality theorem for a proper smooth morphism of locally noetherian preschemes.
+In this case we can eliminate the hypothesis that our preschemes admit residual complexes.
+One defines \(f^{!}(\sheaf{Y})\).
+The functor \(f^{!}\) can glue the sheaves \(\omega_{X/Y}\) and one defines \(f^{!}=f^{*} \otimes \omega_{X/Y}[n]\) the details to the reader.
+The results below are valid practically without change for Cohen-Macaulay morphisms (see [V.9.7]).
+In that case \(\omega_{X/Y}\) is defined only locally, but one can glue to obtain a global one.
+One then as in the smooth case. We leave
+
+Throughout this section, let \(f: X \to Y\) be a proper, smooth morphism of locally noetherian preschemes, and we will suppose for simplicity that the fibres are all of the same relative dimension, say \(n\).
+We denote by \(\omega_{X/Y}\) the sheaf of relative \(n\)-differentials \(\Omega_{X/Y}^{n}\) and by \(f^{!}\) the functor
+given by
+\[f^{!}: D(Y) \to D(X)\]
+\[f^{!}\left(G^{\cdot}\right)=f^{*}\left(G^{\cdot}\right) \otimes \omega_{X/Y}[n]\]
+
+\setcounter{page}{389}
+\begin{theorem}
+For every proper, smooth morphism \(f: X \to Y\) of relative dimension \(n\) of locally noetherian preschemes, there is a morphism
+\[\gamma_{f}: R^{n} f_{*}\left(\omega_{X/Y}\right) \to \sheaf{Y}\]
+with the properties b)-g) of [III 10.5].
+\end{theorem}
+
+\begin{proof}
+We will first consider the case where \(Y\) is noetherian and admits a dualizing complex.
+Then by Corollary 3.4,
+\[f^{!}\left(\sheaf{Y}\right)=f^{*}\left(\sheaf{Y}\right) \otimes \omega_{X/Y}[n],\]
+and we have a trace map
+\[Tr_{f}: \mathbf{R} f_{*} f^{!}\left(\sheaf{Y}\right) \to \sheaf{Y}.\]
+Taking the cohomology in degree \(n\), we obtain a map
+\[\gamma_{f}: R^{n} f_{*}\left(\omega_{X/Y}\right) \to \sheaf{Y}\]
+as required. The proofs of the properties b)-g) are similar to loc. cit. except for c), which we will leave to the reader.
+
+For the general case, the question is local by c), so we may assume \(Y = \Spec A\) is the spectrum of a noetherian ring \(A\).
+We consider flat base extensions \(u_i: Y_i \to Y\), where \(Y_i\) is
+
+\setcounter{page}{390}
+the spectrum of a complete local noetherian ring \(B_i\), flat over \(A\).
+By the Cohen structure theorem [I, (31.1)], each \(B_i\) is a quotient of a regular local ring, hence admits a dualizing complex, and so the theorem holds for \(Y_i\).
+Thus for each \(i\) we have a morphism
+\[\gamma_{f_i}: R^{n} f_{i *}\left(\omega_{X_i/Y_i}\right) \to \sheaf{Y_i}.\]
+Furthermore, by c), if \(v_{ij}: Y_i \to Y_j\) is a morphism we have
+\[\gamma_{f_i}=v_{ij}^{*} \gamma_{f_j}\]
+By the lemma below, applied to the \(A\)-module
+\[\Hom\left(R^{n} f_{*}\left(\omega_{X/Y}\right), \sheaf{Y}\right),\]
+there is a unique
+\[\gamma_{f}: R^{n} f_{*}\left(\omega_{X/Y}\right) \to \sheaf{Y}\]
+such that \(\gamma_{f_i}=u_{i}^{*} \gamma_{f}\) for all \(i\).
+By virtue of its construction, has the properties b)-g), which completes the proof (details left to reader).
+
+\setcounter{page}{391}
+\begin{lemma}
+Let \(A\) be a noetherian ring, and let \(M\ be an \(A\)-module.
+Consider the category of \(A\)-algebras \((B_i)_{i \in I}\) which are complete noetherian local rings, flat over \(A\), and morphisms of \(A\)-algebras.
+Then the natural map
+\[\varphi: M \to \lim_{\leftarrow} M \otimes_{A} B_{i}\]
+is injective, and if moreover \(M\) is of finite type, bijective.
+\end{lemma}
+
+\begin{proof}
+To see that \(\varphi\) is injective, it is sufficient to notice that the map
+\[M \to \prod M \otimes \hat{A}_{\mathfrak{m}}\]
+is injective, where the product is taken over the maximal ideals \(\mathfrak{m}\) of \(A\).
+For surjectivity, suppose first that \(M \cong A / \mathfrak{p}\), where \(\mathfrak{p}\) is a prime ideal of \(A\).
+Then we have the following commutative diagram:
+
+\setcounter{page}{392}
+\[M_{\mathfrak{p}} \to M_{\mathfrak{p}} \otimes_{A}\left(A_{\mathfrak{p}}\right)^{\wedge}\]
+is bijective. On the other hand, \(\varphi_3\) is injective, so \(\varphi_1\) is bijective.
+Now \(M_{\mathfrak{p}}=k(\mathfrak{p})\), and so
+Now let \(M\) be an arbitrary \(A\)-module of finite type.
+Then we can find a filtration
+\[0=M_{0} \subseteq M_{1} \subseteq \cdots \subseteq M_{r}=M\]
+whose quotients \(M_{i}/M_{i-1}\) are of the form \(A / \mathfrak{p}_i\) with \(\mathfrak{p}_i \in \operatorname{Ass} M\).
+By using the 5-lemma and induction on \(r\), we reduce to the previous case.
+\end{proof}
+
+Remark. One sees from the proof that it would be sufficient to consider only \(B_i\) of the form \((A_{\mathfrak{g}})^{\wedge}\) where \(\mathfrak{g}\) is either maximal, or an element of \(\operatorname{Ass} M\).
+
+\setcounter{page}{393}
+\begin{corollary}
+a) For every proper, smooth morphism \(f: X \to Y\) of noetherian preschemes of finite Krull dimension.
+There is a trace morphism
+\[Tr_{f}: \mathbf{R} f_{*} f^{!} G^{\cdot} \to G^{\cdot}\]
+for \(G^{\cdot} \in D_{qc}^{b}(Y)\), satisfying TRA 1-TRA 4 of [III 10.5] (but where TRA 4 is valid for arbitrary base extension).
+
+b) The resulting duality morphism
+\[\underline{\theta}_{f}: \mathbf{R} f_{*} \underline{Hom}_{X}^{\cdot}\left(F^{\cdot}, f^{!} G^{\cdot}\right) \to \underline{\mathbf{R}} \underline{Hom}_{Y}^{\cdot}\left(\mathbf{R} f_{*} F^{\cdot}, G^{\cdot}\right)\]
+is an isomorphism for \(F^{\cdot} \in D_{qc}^{-}(X)\) and \(G^{\cdot} \in D_{qc}^{b}(Y)\)
+\end{corollary}
+
+Proof. Define \(Tr_{f}\) by the projection formula and \(\gamma_{f}\).
+Details left to reader.
+
+\end{document}

@@ -1,0 +1,102 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\begin{document}
+
+\setcounter{page}{318}
+\section{$f^\Delta$ for residual complexes.}
+
+In this section we construct the functor \(f^{\Delta}\) for residual complexes, which we call \(f^{\Delta}\) to avoid confusion. We refer back to the previous section for the notations \(f^{Y}\), \(f^{Z}\) the isomorphisms (I)-(IV), and the compatibilities (i)-(vii).
+
+We will work in the category of locally noetherian preschemes, and we will consider only morphisms which are of finite type, and such that the dimensions of the fibres are bounded. It will be understood in the following that these conditions hold for all schemes and morphisms considered.
+
+We are now in a position to state our theorem.
+
+\begin{theorem}
+There exists a theory of variance consisting of the data a)-d) below subject to the conditions VAR 1 - VAR 5. Furthermore, this theory is unique in the sense that given a second collection of such data a')-d') there is a unique isomorphism of the functors a) and a') compatible with the isomorphisms b)-d) and b')-d').
+
+a) For every morphism \(f: X \to Y\), a functor
+\[f^{\Delta}: Res(Y) \to Res(X)\]
+
+\setcounter{page}{319}
+on the category of residual complexes.
+
+b) For every pair of consecutive morphisms \(f: X \to Y\), \(g: Y \to Z\), an isomorphism
+\[c_{f,g}:(g f)^{\Delta} \stackrel{\sim}{\to} f^{\Delta} g^{\Delta}.\]
+
+c) For every finite morphism \(f\), an isomorphism
+\[\psi_{f}: f^{\Delta} \to f^{Y}.\]
+
+d) For every smooth morphism \(g\), an isomorphism
+\[\varphi_{g}: g^{\Delta} \to g^{Z}.\]
+\end{theorem}
+
+VAR 1). For any \(f\), \(c_{id,f}=c_{f,id}=id\), and if \(f, g, h\) are three consecutive morphisms, then there is a commutative diagram
+
+\setcounter{page}{320}
+(In other words, the \(f^{\Delta}\) and \(c_{f,g}\) define a "cat\'egorie cliv\'ee normalis\'ee" in the terminology of [SGA 1960-61].)
+
+VAR 2). If \(f,g\) are consecutive finite morphisms, then \(c_{f,g}\) is compatible, via \(\psi_{f}\) and \(\psi_{g}\), with the usual isomorphism (I).
+
+VAR 3). If \(f,g\) are consecutive smooth morphisms, then \(c_{f,g}\) is compatible, via \(\varphi_{f}\) and \(\varphi_{g}\), with the usual isomorphism (II).
+
+VAR 4). Given a Cartesian diagram, with \(f, k\) finite and \(g,h\) smooth, the isomorphisms b) are compatible via c), d) with the isomorphism (III) of a square above, i.e., there is a commutative diagram
+
+\setcounter{page}{321}
+VAR 5). Given a diagram as shown, with \(i\) a closed immersion, \(f\) finite, and \(p\) smooth, we have a commutative diagram
+
+The proof of this theorem requires drawing a great many diagrams and checking their commutativity. We will therefore carry out in detail only a few of these verifications, by way of example, and will leave the others to the reader, marking them with the symbol (:) which indicates that he has some work to do at that point. The proof per se will follow after some definitions and lemmas.
+
+Definition. Let \(U \subseteq X\) be an open set. Let \(f: X \to Y\) be a fixed morphism, and we define a chart on \(U\) to be the following collection of data:
+
+\setcounter{page}{322}
+1) A functor \(f^{a}: Res(Y) \to Res(U)\).
+
+2) A factorization \(f|_{U}=p i\)
+\[U \stackrel{i}{\to} P \to Y\]
+where \(i\) is a closed immersion into a scheme smooth over \(Y\).
+
+3) An isomorphism
+\[\gamma_{i,p}: f^{a} \to i^{Y} p^{Z}\]
+of functors, such that for every commutative diagram such as the one shown, there is a commutative diagram of isomorphisms
+
+Definition. If \(f|_{U}=j q\), \(q: Q \to Y\), and a second chart on the same open set \(U\), a permissible isomorphism between the two is an isomorphism
+
+\setcounter{page}{323}
+\begin{lemma}
+Given two charts on an open set \(U\), there exists a unique permissible isomorphism between them.
+\end{lemma}
+
+\begin{proof}
+The uniqueness is clear, because one can take \(R=P \times_{Y} Q\) and \(k\) the diagonal map. Then the isomorphism \(\alpha\) is determined by the condition of the definition.
+
+For the existence, let \(f^{a}\), \(f^{b}\) etc., be two charts as above, and let \((R, k, r, s)\) and \((s, \ell, \cdots)\) be two diagrams as above. We must show that the isomorphisms \(\alpha_{R}\) and \(\alpha_{s}\) defined by the condition above are the same. By considering the third diagram and comparing each to this one, we reduce to the case where \(S\) dominates R. In other words, we have a commutative diagram, with \(k\), \(\ell\) closed immersions and \(r\), s, t smooth morphisms. We must show that the following diagram is commutative:
+
+\setcounter{page}{324}
+\end{proof}
+
+We will check this one completely by filling in more arrows to make little commutative diagrams. At the left hand end of the diagram we fill in as follows:
+
+The left-hand square is identically commutative. The right-hand one is commutative by virtue of a special case of compatibility (v) above.
+
+\setcounter{page}{325}
+On the right-hand side of our long diagram we fill in two analogous commutative squares. This leaves in the middle the following diagram
+
+The middle squares are obviously commutative; the upper left and upper right are commutative because the isomorphism IV operates between U and R, and II operates between R and Y, so that the order doesn't matter, and the lower left and lower right are commutative by (ii) above. q.e.d.
+
+\begin{lemma}
+The composition of permissible isomorphisms is permissible. The inverse of a permissible isomorphism is permissible.
+\end{lemma}
+
+\begin{proof}
+The inverse is obvious. For the composition, using \(P \times Q \times R\) to construct the unique permissible isomorphism between \(f^{a}\) with \(f^{b}\), \(f^{b}\) with \(f^{c}\), and \(f^{a}\) with \(f^{c}\), we see that the composition of the first two is the third.
+\end{proof}
+
+\textbf{Proof of theorem.} First we prove the existence of the theory of variance.
+
+a) Construction of the functor \(f^{\Delta}\). Let \(f: X \to Y\) be a morphism. Let \(\mathcal{U}=(\mathcal{U}_{\nu})\) be a cover of \(X\) by open sets with charts on them. Note that charts exist locally: If \(x \in X\) is a point, let \(V\) be a noetherian affine neighborhood of \(f(x)\) in \(Y\), and let \(U\) be an affine neighborhood of \(x\) in \(f^{-1}(V)\).
+
+\end{document}

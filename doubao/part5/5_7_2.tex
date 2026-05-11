@@ -1,0 +1,106 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\varinjlim}{\varinjlim}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+\DeclareMathOperator{\RGamma}{\mathbf{R}\Gamma}
+\DeclareMathOperator{\Spec}{Spec}
+
+\begin{document}
+
+\setcounter{page}{281}
+Remark. If A is a regular local ring, then A itself is a dualizing complex for A (see Example 2.2), and we recover the old local duality theorem [LC 6.3]. This is also true more generally for Gorenstein local rings (Theorem 9.1 below).
+
+\setcounter{page}{282}
+\section{Application to Dualizing Complexes.}
+Let \(X\) be a locally noetherian prescheme, and let \(R^{\cdot}\) be a dualizing complex on \(X\). Then for each point \(x \in X\), \(R_{x}\) is a dualizing complex for the local ring \(\sheaf{O}_{x}\) (Corollary 2.3). Thus by Proposition 3.4 we can find an integer \(d(x)\) such that
+\[
+Ext_{\sheaf{O}_{x}}^{i}\left(k(x), R_{x}^{\cdot}\right)=
+\begin{cases}
+0 & \text{for } i \neq d(x) \\
+k(x) & \text{for } i=d(x) .
+\end{cases}
+\]
+
+\begin{proposition}
+With the hypotheses above, if \(x \to y\) is an immediate specialization, then
+\[
+d(y)=d(x)+1 .
+\]
+\end{proposition}
+
+\begin{proof}
+Since the question is local around \(y\), we may assume that \(X = \Spec \sheaf{O}_{y}\).
+Let \(Z\) be the reduced induced subscheme structure on \(\overline{\{x\}}\), and let \(j: Z \to X\) be the inclusion, Then \(j^{b} R^{\cdot}\) is dualizing on \(Z\) by Proposition 2.4, and for any \(\sheaf{O}_{Z}\)-module \(F\) we have
+\[
+Ext_{\sheaf{O}_{Z}}^{i}\left(F, j^{b} R^{\cdot}\right)=Ext_{\sheaf{X}}^{i}\left(j_{*} F, R^{\cdot}\right)
+\]
+by duality for \(j\) [III 6.7]. Thus \(d(x)\), \(d(y)\) are the same if calculated on \(Z\) with \(j^{b} R^{\cdot}\), and so we reduce to the case \(X=Z\) integral local of dimension 1, with generic point \(x\) and closed point \(y\).
+
+\setcounter{page}{283}
+By translating, we may assume that \(R^{\cdot}\) is normalized, i.e., \(d(y)=0\).
+To calculate \(d(x)\) we consider
+\[
+Ext_{k(x)}^{i}(k(x), R^{\cdot})=Ext_{A}^{i}(A, R^{\cdot}) \otimes_{A} k(x),
+\]
+where \(X=\Spec A\). Now \(Ext_{A}^{i}(A, R^{\cdot})\) is dual to \(H_{y}^{-i}(A)\).
+Since \(A\) is a domain, \(H_{y}^{\circ}(A)=0\).
+For \(p \neq0,1\), \(H_{y}^{p}(A)=0\) since \(A\) is of dimension 1 [Ic 1.12].
+Thus \(Ext^{i}(A, R^{\cdot})=0\) for \(i \neq-1\), and so \(d(x)=-1\), as required.
+\end{proof}
+
+Definition. An integer-valued function \(d\) on a prescheme \(X\) with the property of the proposition will be called a codimension function on \(X\).
+
+Definition. A prescheme \(X\) is catenary if whenever \(Z \subseteq Z'\) are irreducible closed subsets of \(X\), then every maximal chain
+\[
+z=z_{0}<z_{1}<\cdots<z_{n}=z'
+\]
+of irreducible closed subsets between \(Z\) and \(Z'\) has the same length \(n\).
+
+\begin{corollary}
+A locally noetherian prescheme \(X\) which admits a dualizing complex is catenary, and has finite Krull dimension.
+\end{corollary}
+
+\setcounter{page}{284}
+\begin{proof}
+Indeed the existence of a codimension function \(d\) implies that \(X\) is catenary. On the other hand, since \(R^{\cdot}\) is quasi-isomorphic to a bounded complex of injective sheaves, the function \(d\) is bounded in both directions, so \(X\) has finite Krull dimension.
+\end{proof}
+
+Definition. Let \(X\) be a locally noetherian prescheme, and let \(R^{\cdot}\) be a dualizing complex on \(X\). We define the filtration \(Z^{\cdot}\) associated to \(R^{\cdot}\) by
+\[
+z^{p}=\{x \in X \mid d(x) \geq p\}
+\]
+for each \(p\). Then by virtue of the previous proposition and corollary, \(Z^{\cdot}\) is a finite filtration of \(X\), and each \(x \in z^{p}-z^{p+1}\) is maximal.
+
+\begin{proposition}
+Let \(X\) be a locally noetherian prescheme, let \(R^{\cdot}\) be a dualizing complex on \(X\), and let \(Z^{\cdot}\) be the associated filtration. Then \(R^{\cdot}\) is Gcrenstein with respect to \(Z^{\cdot}\) (cf. [IV.3.1]).
+Moreover, for each \(x \in X\), the injective hull \(J(x)\) of \(k(x)\) over \(\sheaf{O}_{x}\) occurs exactly once as a direct summand of \(E(R^{\cdot})\).
+\end{proposition}
+
+\setcounter{page}{285}
+\begin{proof}
+Using condition (ii) of [IV 3.1] and [IV.I.F], it is sufficient to show that
+\[
+H_{x}^{i}\left(R^{\cdot}\right)=
+\begin{cases}
+0 & \text{for } i \neq d(x) \\
+J(x) & \text{for } i=d(x) .
+\end{cases}
+\]
+But this follows from Proposition 6.1 above.
+\end{proof}
+
+\end{document}

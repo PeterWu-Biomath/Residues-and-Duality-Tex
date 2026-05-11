@@ -1,0 +1,104 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+% Standard operators
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Res}{Res}
+
+\begin{document}
+
+\setcounter{page}{363}
+that \(a_{i}=0\) for \(i<-r\). Then \(Z = \Spec \sheaf{O}_{x}/t^{r}\) will do.
+Our element \(u\) is then identified with the element
+\[\in \Hom_{\sheaf{O}_{x}}\left(B, I \otimes_{A} \omega_{x} \otimes K / \sheaf{O}_{x}\right)\]
+defined by \(\psi(1)=u\). This corresponds by the residue isomorphism to a certain
+\[\varphi \in \Hom_{A}(B,I),\]
+and by definition of the trace morphism we then have
+\[\Gamma\left(Tr_{f,x}\right)(u)=\varphi(1) .\]
+
+But by the lemma above, \(\varphi(1)\) is the coefficient of \(t^{-1} dt\), so our trace is \(a_{-1}\), as required.
+
+\setcounter{page}{364}
+Remark. Since the trace morphism has already been defined, and we are here calculating it, we can state as a corollary that the process of taking the coefficient of \(t^{-1} dt\) in \(u\) is independent of the local parameter \(t\) chosen.
+This is in strong contrast with the approach of Serre's book [16, Ch. II] where the residue of a differential is defined as \(a_{-1}\), and a tedious proof is required to show that it is independent of the local parameter [loc. cit. Prop. 5].
+
+To establish the relation between his approach and ours, we make the following
+
+Definition. Let \(M\) be an \(A\)-module, and let
+\[w \in M \otimes_{A} \omega_{\eta}\]
+be a meromorphic differential on \(X\).
+Then for each closed point \(x \in X\), rational over \(Y\), we define the residue of \(w\) at \(x\), as follows.
+Choose a local parameter \(t\) at \(x\). Let
+\[w_{x} \in M \otimes_{A} \omega_{x} \otimes K / \sheaf{O}_{x}\]
+be the image of \(w\) under the natural map
+\[\omega_{\eta}=\omega_{x} \otimes K \to \omega_{x} \otimes K / \sheaf{O}_{x} .\]
+
+Write
+\[w_{x}=\sum_{i<0} a_{i} t^{i} dt\]
+with \(a_{i} \in M\), and then define
+\[\Res_{x}(w)=a_{-1} .\]
+
+\setcounter{page}{365}
+(Observe that \(a_{-1}\) is independent of the choice of local parameter. Indeed, we may assume that \(M\) is finitely generated, in which case it is a submodule of \(I^{n}\) for some \(n\), so we reduce to the case \(M=I\), where \(a_{-1}=\Gamma(Tr_{f,x})\) which is independent of \(t\).)
+
+Lemma. Residues have the following properties
+\begin{enumerate}
+\item \(\Res_{x}(w)\) is \(A\)-linear in \(w\).
+\item \(\Res_{x}(w)=0\) if \(w \in M \otimes \omega_{x}\).
+\item \(\Res_{x}(dg)=0\) for any \(g \in M \otimes_{A} K\).
+\item \(\Res_{x}(t^{-1} dt)=1\) if \(t\) is a local parameter at \(x\).
+\end{enumerate}
+
+Proof. All properties follow from the definition.
+
+\setcounter{page}{366}
+Theorem 1.5
+Let \(A\) be a local Artin ring with algebraically closed residue field \(k\), let \(Y=\Spec A\), and let \(X=\mathbb{P}_{Y}^{1}\) be the projective line over \(Y\).
+Let \(M\) be an \(A\)-module, and let
+\[w \in M \otimes_{A} \omega_{\eta}\]
+be a meromorphic differential on \(X\).
+Then
+\[\sum_{\substack{x \in X \\ closed }} \Res_{x}(w)=0\]
+
+Proof. (Modeled on the proof of [16, Ch. II, Lemma 3].)
+First of all, we may assume that \(M\) is finitely generated.
+Then writing \(M\) as a quotient of \(A^{n}\) for suitable \(n\), we reduce to the case \(M=A\).
+Let \(w \in \omega_{\eta}\) be a meromorphic differential.
+Let \(X_0\) be the affine line contained as an open subset of \(X\).
+Then from the exact sequence of sheaves
+\[0 \to \omega \to i_{\eta}(\omega_{\eta}) \to \bigoplus_{x \in X} i_{x}\left(\omega_{x} \otimes K / \sheaf{O}_{x}\right) \to 0\]
+we obtain the following exact sequence of global sections on \(X_0\):
+\[0 \to \Gamma(X_0,\omega) \to \omega_{\eta} \to \bigoplus_{x \in X_0} \omega_{x} \otimes K / \sheaf{O}_{x} \to 0 .\]
+
+\setcounter{page}{367}
+For each closed point \(x \in X_0\), we can choose a local parameter of the form \(t-c_{x}\), with \(c_{x} \in A\).
+Then our exact sequence shows that \(w\) can be written uniquely in the form
+\[w=f(t) dt+\sum_{\substack{x \in X_0 \\ closed }} \sum_{i<0} a_{i,x}\left(t-c_{x}\right)^{i} dt\]
+where \(f(t) \in A[t]\) is a polynomial in \(t\) with coefficients in \(A\).
+By linearity, we reduce to proving the residue formula in the two cases
+\[(1)\quad w=t^{n} dt,\quad n \ge 0\]
+\[(2)\quad w=\left(t-c_{x_0}\right)^{n},\quad n<0.\]
+
+In the first case, \(\Res_{x}(w)=0\) for every \(x \in X_0\).
+We take \(s=1/t\) as a local point at \(\infty\).
+Then \(w=-s^{-n-2} ds\), so the residue is zero.
+
+In the second case, for any \(x \ne x_0\), \(t-c_{x_0}\) is invertible, so its residue is zero.
+Take \(s=1/(t-c_{x_0})\) as local parameter at \(\infty\).
+Then \(w=-s^{-n-2} ds\), residue zero.
+Hence the sum of the residues is zero. q.e.d.
+
+\setcounter{page}{368}
+Remark. It follows from the theorem of the next section that the theorem remains true for any smooth proper curve \(X\) over \(Y\).
+
+Corollary 1.6.
+\[Tr_{f}: f_{*} f^{\Delta}(\tilde{I}) \to \tilde{I}\]
+is a morphism of complexes.
+
+Proof. Using Proposition 1.3 above, this is precisely the statement of the Theorem in the case \(M = I\).
+
+\end{document}

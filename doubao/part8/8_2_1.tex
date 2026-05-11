@@ -1,0 +1,58 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\begin{document}
+
+\setcounter{page}{369}
+\section{The residue theorem.}
+
+\begin{theorem}[Residue theorem]
+Let \(f: X \to Y\) be a proper morphism of noetherian schemes, and let \(K^{\cdot}\) be a residual complex on \(Y\). Then the trace map
+\[Tr_{f}: f_{*} f^{\Delta} K^{\cdot} \to K^{\cdot}\]
+defined in [VI] is a morphism of complexes.
+\end{theorem}
+
+\begin{proof}
+We write the residual complexes as sums of injective hulls,
+\[\bigoplus_{p} K^{p}=\bigoplus_{y \in Y} J(y)\]
+and
+\[\bigoplus_{p}\left(f^{\Delta} K^{\cdot}\right)^{p}=\bigoplus_{x \in X} J(x) .\]
+
+We must show that for each \(x \in X\) and each \(a \in \Gamma(J(x))\) that \(Tr_{f}(d a)=d(Tr_{f} a)\), where \(d\) denotes the operator in the complex \(K^{\cdot}\) (resp. \(f^{\Delta} K^{\cdot}\)).
+
+\setcounter{page}{370}
+Case i. Suppose that \(x\) is closed in its fibre. Then \(Tr_{f}\) maps \(f_{*}(J(x))\) into \(J(y)\) where \(y=f(x)\), and we must show that the following diagram is commutative:
+\[f_{*}(J(x)) \stackrel{d}{\to} \bigoplus_{x'} f_{*}\left(J\left(x'\right)\right)\]
+where we take those \(x'\) which are immediate specializations of \(x\), and those \(y'\) which are immediate specializations of \(y\). Clearly it is enough to consider each \(y'\) separately, so we must show the commutativity of the diagram
+\[f_{*}(J(x)) \stackrel{d}{\to} \bigoplus_{\substack{x \to x' \\ f(x')=y'}} f_{*}\left(J\left(x'\right)\right)\]
+
+\setcounter{page}{371}
+Given a particular element \(a \in \Gamma(J(x))\), we can put a subscheme structure on \(\overline{\{x\}}\) so that \(a \in \Gamma(i_{*} i^{\Delta} f^{\Delta} K^{\cdot})\) where \(i: Z \to X\) is the inclusion. Let \(g: Z \to Y\) be the composition \(fi\). Then since \(i\) is a finite morphism \(Tr_{i}=\rho_{i}\) is a morphism of complexes (see [VI]) and so using TRA 1 it will be sufficient to show that \(Tr_{g}\) is a morphism of complexes. In other words, we may replace \(X\) by \(Z\) and thus reduce to the case \(X\) is irreducible and \(x\) is the generic point.
+
+Now by reason of codimensions [VI 3.4] each \(x'\) is closed in its fibre, i.e., the fibre of \(y'\) is discrete. Also \(f\) is a proper morphism, so by [EGA III 4.4.11] there is an open neighborhood \(U\) of \(y'\) such that the restriction of \(f\) to \(f^{-1}(U)\) is a finite morphism. Thus we may assume that \(f\) itself is finite, in which case \(Tr_{f}=\rho_{f}\) which is a morphism of complexes, and we are done.
+
+\setcounter{page}{372}
+Case 2. Suppose that \(x\) is not closed in its fibre. Then \(Tr_{f}\) maps \(f_{*}(J(x))\) to zero. If no immediate specialization of \(x\) is closed in its fibre, then \(Tr_{f} \circ d\) is zero on \(f_{*}(J(x))\) and there is nothing to prove.
+So suppose that some immediate specializations \(x'\) of \(x\) are closed in their fibres. Then we have \(f(x)=f(x')=y\) for all such \(x'\), and we must check that the diagram
+\[f_{*}(J(x)) \stackrel{d}{\to} \bigoplus_{x'} f_{*}(J(x')) \stackrel{Tr_f}{\to} J(y)\]
+is commutative.
+
+Then can replace \(x\) by \(\overline{\{x\}}\) with a suitable subscheme structure. Thus we reduce to the case \(X\) irreducible and \(x\) its generic point. As above, we fix an element \(a \in \Gamma(J(x))\)
+
+\setcounter{page}{373}
+Next we make the base extension compatible with localization. Since everything factors through a closed subscheme \(Y'\) defined by a suitable power of the maximal ideal of \(Y\), since \(f\) maps the generic point of \(X\) to the closed point of \(Y\), and \(i:Y'\to Y\) is a finite morphism, its trace is a morphism of complexes, so we can replace \(Y\) by \(Y'\), and so reduce to the case \(Y = \Spec A\) with \(A\) a local Artin ring, and \(X\) irreducible of dimension one over \(Y\).
+
+We refer to [EGA IV] for the following two results:
+a) A proper scheme of dimension \(1\) over an Artin ring is projective, and
+b) A projective scheme \(X\) of relative dimension \(\le n\) over a local ring \(A\) admits a finite morphism into \(\mathbb{P}_{A}^{n}\).
+
+Using these results, we see that \(X\) is projective over \(Y\), and admits a finite morphism onto \(\mathbb{P}_{A}^{1}\). Since the theorem is known for a finite morphism, we reduce to the case \(X=\mathbb{P}_{A}^{1}\), with \(A\) an artin ring. We now invoke [VI 5.4] and [VI 5.6] to reduce to the case where the residue field of \(A\) is algebraically closed. (Note that the base extension \(Y'\to Y\) is faithfully flat, so that it is enough to prove the theorem in the extended situation.) But this is Corollary 1.6, so we are done.
+
+q.e.d.
+
+\end{proof}
+
+\end{document}

@@ -1,0 +1,148 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\varinjlim}{\varinjlim}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+\DeclareMathOperator{\RGamma}{\mathbf{R}\Gamma}
+\DeclareMathOperator{\Spec}{Spec}
+
+\begin{document}
+
+\setcounter{page}{286}
+\section{Pointwise dualizing complexes And \(f^*,f^!\)}
+
+In this section we give a generalization of the notion of dualizing complex, which may exist on a locally noetherian prescheme of infinite Krull dimension. We apply this notion to show that \(f^{\#}\) of a dualizing complex is dualizing, where \(f\) is a smooth morphism. Throughout this section, \(X\) will denote a locally noetherian prescheme.
+
+\textbf{Definition.}
+A complex \(R^{\cdot} \in D_{c}^{+}(X)\) has pointwise finite injective dimension (pfid) if for every \(x \in X\),
+\(R_{x}^{\cdot} \in D_{c}^{+}(\Spec \sheaf{O}_{x})\)
+has finite injective dimension.
+
+\begin{proposition}
+Let \(R^{\cdot} \in D_{C}^{+}(X)\) have pointwise finite injective dimension. Then conditions (i)-(iv) of Proposition 2.1
+are equivalent.
+\end{proposition}
+
+\begin{proof}
+The same as loc. cit. since one can check reflexivity pointwise.
+\end{proof}
+
+\textbf{Definition.}
+A complex \(R^{\cdot} \in D_{c}^{+}(X)\) with pfid is pointwise dualizing if it satisfies the equivalent conditions of the proposition.
+
+\textbf{Remarks.}
+i. Since fid implies pfid, we see that any dualizing complex is pointwise dualizing.
+
+2.If \(X = \Spec A\) where \(A\) is a local ring,then fid \(\iff\) pfid, so a complex is dualizing if and only if it is
+pointwise dualizing.
+
+\setcounter{page}{287}
+3. We say a complex \(F^{\cdot} \in D(X)\) is pointwise bounded below if for every \(x \in X\),
+\(F_{x}^{\cdot} \in D^{+}(\Spec \sheaf{O}_{x})\),
+and we write \(F^{\cdot} \in D^{p+}(X)\). Similarly we define \(D^{p-}(X)\) and \(D^{pb}(X)\).
+These are full subcategories of \(D(X)\) (cf. [I 884,5]).
+Now if \(R^{\cdot} \in D_{c}^{+}(X)\) is pointwise dualizing, then the functor \(\RHom^{\cdot}(\cdot, R^{\cdot})\) gives an anti-isomorphism of \(D^{p-}\) and \(D^{p+}\), and an auto-antiisomorphism of \(D^{pb}(X)\).
+
+4.If \(R^{\cdot}\) is a pointwise dualizing complex on \(X\), we can define as in \S7 the associated codimension function \(d: X \to \mathbb{Z}\), and the associated filtration \(Z^{\cdot}\).
+Proposition 7.1 holds in this case, so the filtration \(Z^{\cdot}\) satisfies the conditions of [IV 3], in particular, it is separated. Thus we see as in Corollary 7.2 that \(X\) is catenary.
+
+5. If \(R^{\cdot}\) is pointwise dualizing on \(X\), and if \(R^{\cdot} \in D_{c}^{b}(X)\), then \(R^{\cdot}\) is Gorenstein with respect to the filtration (cf. Proposition 7.3). The boundedness hypothesis is necessary.
+
+\textbf{Example.}
+If \(X\) is a regular prescheme, then \(\sheaf{O}_{X}\) is a pointwise dualizing complex for \(X\).
+
+\setcounter{page}{288}
+Indeed, for each \(x \in X\),
+\(\Spec \sheaf{O}_{x}\) is a regular prescheme of finite Krull dimension, so we apply Example 2.2 above.
+
+\begin{proposition}
+Let \(R^{\cdot} \in D_{C}^{+}(X)\) be pointwise dualizing, and assume that \(X\) is noetherian and of finite Krull dimension. Then \(R^{\cdot}\) has finite injective dimension and so is dualizing (by Proposition 2.3).
+\end{proposition}
+
+\begin{proof}
+Since \(X\) is noetherian and of finite Krull dimension, the codimension function \(d\) associated to \(R^{\cdot}\) is bounded. But we saw in the proof of Proposition 3.4 that for every \(x \in X\), and every module \(M\) of finite type over \(\sheaf{O}_{x}\),
+\[Ext_{\sheaf{O}_{x}}^{i}\left(M, R_{x}^{\cdot}\right)=0 \text{ for } i \notin[d(x)-\dim M, d(x)] .\]
+
+Thus in particular for every coherent sheaf \(F\) on \(X\)
+\[Ext_{\sheaf{X}}^{i}\left(F, R^{\cdot}\right)=0 \text{ for } i>\sup_{x \in X} d(x),\]
+and so \(R^{\cdot}\) has finite injective dimension [II 7.20 (iii)c].
+\end{proof}
+
+\begin{theorem}
+Let \(f: X \to Y\) be a smooth morphism of locally noetherian preschemes, and let \(R^{\cdot} \in D_{C}^{+}(Y)\) be pointwise dualizing. Then \(f^{\#}(R^{\cdot})\) (cf. [III \S2]) is pointwise dualizing on \(X\).
+If furthermore \(Y\) is noetherian, \(f\) of finite type, and \(R^{\cdot}\) dualizing, then \(f^{\#}(R^{\cdot})\) is also dualizing.
+\end{theorem}
+
+\setcounter{page}{289}
+\begin{proof}
+For the first statement, the question is local on \(X\) and \(Y\), so we reduce immediately to the case \(Y=\Spec A\), with \(A\) a local ring, and \(X\) of finite type, affine over \(Y\). Then \(X\) admits a closed immersion into a suitable affine space \(\mathbb{A}_{Y}^{n}\), so using [III 8.] and Proposition 2.4 (which is valid also for "pointwise dualizing"), we reduce to the case \(X=\mathbb{A}_{Y}^{n}\).
+
+Case 1. \(A\) is a regular local ring. Then \(R^{\cdot}\) is dualizing, since \(A\) is local, and by uniqueness (Theorem 3.1) we may assume, after shifting if necessary, that \(R^{\cdot} \cong A\).
+Then \(f^{*}(R^{*}) \cong \Omega_{X/Y}^{n}\) which is locally free of rank one, and hence pointwise dualizing (Example 2.2, since \(X\) is regular if \(Y\) is).
+
+Case 2. \(A\) is a quotient of a regular local ring \(A'\).
+Let \(Y'=\Spec A'\).
+Then \(X\) is obtained from the morphism \(\mathbb{A}_{Y'}^{n} \to Y'\) by the base extension \(Y \to Y'\), and we reduce to the previous case by means of [III.6.4], Proposition 2.4, the uniqueness (Theorem 3.1) on \(Y\).
+
+General case. \(A\) is an arbitrary noetherian local ring. Let \(\hat{A}\) be the completion of \(A\), and let \(Y'=\Spec \hat{A}\).
+We make the base extension \(u: Y' \to Y\), and then \(u^{*}(R^{*})\) is dualizing on \(Y'\) by Corollary 3.5. But \(\hat{A}\) is a quotient of a regular local
+
+\setcounter{page}{290}
+ring by Cohen's structure theorem [14,(31.1)], so \(f'^{*}(u^{*}(R^{*}))\) is dualizing on \(X'=X \times_{Y} Y'\), by Case 2. Now for any point \(x \in X\), the completion of the ring \(\sheaf{O}_{x}\) is also the ring \(\sheaf{O}_{x} \otimes_{A} \hat{A}\), which is the semilocal ring of the points of \(X'\) lying over \(x\), and so applying Corollary 3.5 once in each direction, and [III 2.1] we see that \(f^{*}(R^{*})\) is pointwise dualizing on \(X\).
+
+Now if \(Y\) is noetherian, \(f\) of finite type, and \(R^{*}\) dualizing, then \(Y\) has finite Krull dimension by Corollary 7.2, hence \(X\) has finite Krull dimension, and so \(f^{*}(R^{*})\) is dualizing by Proposition 8.2. q.e.d.
+
+\begin{corollary}
+Under the hypotheses of the theorem, let \(d_{Y}\) and \(d_{X}\) be the codimension functions associated with the pointwise dualizing complexes \(R^{*}\) and \(f^{*}(R^{*})\), respectively. Then for each \(x \in X\),
+\[d_{X}(x)=d_{Y}(y)+\operatorname{tr.deg}k(x)/k(y)\]
+where \(y=f(x)\).
+\end{corollary}
+
+\begin{proof}
+Chasing through the reductions above (and noting that this formula holds trivially for a finite morphism and \(f^{b}(R^{*})\)), we reduce to the case \(Y=\Spec A\), \(A\) a regular local
+
+\setcounter{page}{291}
+ring, \(R^{*}=A\), and \(X=\mathbb{A}_{Y}^{n}\).
+Then \(f^{*}(R^{*})=\omega_{X/Y}\), which is locally free of rank one, so for any \(x \in X\) we have \(d_{X}(x)=\dim \sheaf{O}_{x}\), and for any \(y \in Y\), \(d_{Y}(y)=\dim \sheaf{O}_{Y}\) [LC].
+Our formula is then the usual dimension formula for a local homomorphism of local rings (cf. [EGA IV 17.3.3]).
+\end{proof}
+
+\textbf{Remark.}
+Using Proposition 2.4, the result of the theorem can be extended to show that for any embeddable morphism \(f\) of noetherian preschemes, \(f^{*}\) takes dualizing complexes to dualizing complexes. The formula of the Corollary also extends to this case.
+
+\begin{proposition}
+Let \(f: X \to Y\) be an embeddable morphism of locally noetherian preschemes, let \(R^{*} \in D_{c}^{+}(Y)\) be a dualizing complex on \(Y\), and let \(D\) denote the functor \(\RHom_{Y}^{\cdot}(\cdot, R^{\cdot})\) and \(\RHom_{X}^{\cdot}(\cdot, f^{!}R^{\cdot})\) (the one meant will be clear from the context). Then there is a functorial isomorphism
+\[f^{!}\left(F^{\cdot}\right) \cong D\left(Lf^{*}\left(D\left(F^{\cdot}\right)\right)\right)\]
+for all \(F^{*} \in D_{c}^{+}(Y)\).
+\end{proposition}
+
+\begin{proof}
+Apply [III 8.8, 7] to \(D(F^{*})\) and \(R^{*}\).
+\end{proof}
+
+\setcounter{page}{292}
+\begin{corollary}
+Under the hypotheses of the proposition, assume furthermore that \(f\) is flat, of finite type, and that \(Y\) is noetherian. Then there is a functorial isomorphism
+\[f^{!}\left(F^{\cdot} \otimes G^{\cdot}\right) \stackrel{\sim}{\to} f^{*}\left(F^{\cdot}\right) \otimes f^{!}\left(G^{\cdot}\right)\]
+for \(F^{*} \in D_{c}^{+}(Y)\) and \(G^{*} \in D_{c}^{b}(Y)_{\text{fTd}}\).
+\end{corollary}
+
+\begin{proof}
+Note first that Theorem 8.3 and the Remark following apply to show that \(f^{*}(R^{\cdot})\) is dualizing on \(X\).
+The result now follows from the Proposition, using [II 5.8] and Proposition 2.6 above.
+\end{proof}
+
+\end{document}

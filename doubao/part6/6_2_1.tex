@@ -1,0 +1,162 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Spec}{Spec}
+
+\begin{document}
+
+\setcounter{page}{293}
+\section{9. Gorenstein preschemes.}
+
+\begin{theorem}
+Let \(A\) be a noetherian local ring.
+Then the following conditions are equivalent:
+(i) \(A\) is a dualizing complex for itself.
+(ii) \(A\) has a finite injective resolution.
+(iii) \(A\) is Cohen-Macaulay, and whenever
+\((x_{1}, \cdots, x_{n})\) is a maximal \(A\)-sequence, then the
+ideal \((x_{1}, \cdots, x_{n})\) is irreducible.
+(iv) There is an integer \(d\) such that
+\[Ext^{i}(k, A)=
+\begin{cases}
+0 & \text{for } i \neq d \\
+k & \text{for } i=d
+\end{cases}\]
+where \(k\) is the residue field of \(A\).
+(v) \(A\) is Gorenstein with respect to a suitable
+filtration \(z^{*}\) of \(\Spec A\).
+(vi) There is an integer \(d\) such that
+\[H_{x}^{i}(A)
+\begin{cases}
+=0 & \text{for } i \neq d \\
+\text{is injective} & \text{for } i=d
+\end{cases}\]
+where \(x\) is the closed point of \(\Spec A\).
+\end{theorem}
+
+\setcounter{page}{294}
+\begin{proof}
+(i)\(\iff\)(ii) By definition of dualizing complex.
+
+(ii)\(\iff\)(iii)\(\iff\)(iv) Proved by Bass [2, Theorem].
+This article, incidentally, is a good summary of all previous occurrences of Gorenstein rings in the literature.
+
+(iv)\(\Rightarrow\)(i) This is Proposition 3.4 above.
+
+(i)\(\Rightarrow\)(v) This is Proposition 7.3 above.
+
+(v)\(\Rightarrow\)(vi) By [IV 3.4], \(E(A)\) is an injective
+resolution of \(A\), and furthermore, for each \(p \in \mathbb{Z}\), \(E^{P}(A)\) is a direct sum of constant (injective) sheaves on subspaces
+\(\overline{\{y\}}\) of \(\Spec A\) with \(y \in z^{p}-z^{p+1}\).
+But We can calculate \(H_{x}^{i}(A)\) as \(H^{i}(\Gamma_{x}(E(A)))\)
+by what we have Just seen, consists of a single injective sheaf in some degree (say \(d\)), since \(x\) is a minimal point of \(\Spec A\).
+
+\setcounter{page}{295}
+First note by [LC 6., part ] that \(H_{x}^{n}(A) \neq0\) where \(n=\dim A\), so \(n=d\).
+(The hypothesis in loc. cit. that \(A\) is a quotient of a regular local ring can be circumvented by passing to the completion [LC 5.9].)
+Therefore \(A\) is Cohen-Macaulay [LC 3.10].
+Let \((x_{1}, \cdots, x_{n})\) be a maximal \(A\)-sequence, and let \(q=(x_{1}, \cdots, x_{n})\).
+Then \(H_{x}^{n}(A)\) is an essential extension of \(A/q\) [11, proof of Prop. 2], and so is irreducible, since \(A/q\) is a simple and hence irreducible \(A\)-module.
+We conclude that \(H_{x}^{n}(A)\) is an irreducible injective \(A\)-module with support at \(x\), and so is an injective hull of \(k\).
+
+Now for any \(A\)-module \(M\),
+\[\Hom (k, M)=\Hom\left(k, \Gamma_{x}(M)\right).\]
+
+Furthermore, the functor \(\Gamma_{x}\) takes inJectives into injectives, so we have a spectral sequence of derived functors, which degenerates in this case to give
+\[Ext^{i}(k, A)=
+\begin{cases}
+0 & i \neq n \\
+k & i=n .
+\end{cases}\]
+\end{proof}
+
+\textbf{Definition.}
+A local noetherian ring satisfying the equivalent conditions of the theorem is called a local Gorenstein ring.
+
+\textbf{Remark.}
+For a local ring, regular \(\implies\) complete intersection \(\implies\) Gorenstein \(\implies\) Cohen-Macaulay, and these implications are all strict.
+
+\setcounter{page}{296}
+\textbf{Definition.}
+A prescheme is Gorenstein if all of its local rings are Gorenstein local rings.
+
+\begin{corollary}
+A localization of a Gorenstein local ring is Gorenstein.
+\end{corollary}
+\begin{proof}
+Follows from Corollary 2.3 above.
+\end{proof}
+
+\begin{proposition}
+Let \(f: X \to \Spec k\) be an embeddable morphism, where \(k\) is a field.
+Then \(X\) is Gorenstein if and only if \(f^{!}(k)\) is isomorphic, in \(D^{+}(X)\), to an invertible sheaf.
+\end{proposition}
+\begin{proof}
+Indeed, by the remark at the end of the last section, \(f^{!}(k)\) is a dualizing complex on \(X\).
+But \(X\) is Gorenstein if and only if \(\sheaf{O}_{X}\) is a dualizing complex on \(X\).
+So the result follows from the uniqueness of the dualizing complex (Theorem 3.1 above).
+\end{proof}
+
+\begin{corollary}
+Let \(X\) be a Gorenstein prescheme of finite type over a field \(k\), and let \(k \subseteq K\) be a field extension.
+Then \(X \otimes_{k} K\) is also Gorenstein.
+\end{corollary}
+\begin{proof}
+\(f^{!}\) is compatible with flat base extension [III 8.7, 5)].
+\end{proof}
+
+\setcounter{page}{297}
+\begin{corollary}
+Let \(K, L\) be extension fields of a field \(k\), and assume that one of them is finitely generated.
+Then \(K \otimes_{k} L\) is a Gorenstein ring (i.e., every localization of it is a local Gorenstein ring).
+\end{corollary}
+\begin{proof}
+Similar to the above.
+One can also give a direct proof, by induction on the number of generators.
+This generalizes [EGA IV 6.7.1.1] which says that \(K \otimes L\) is Cohen-Macaulay.
+\end{proof}
+
+\begin{proposition}
+Let \(f: X \to Y\) be a flat morphism of locally noetherian preschemes, with \(Y\) Gorenstein (but no finiteness assumption on \(f\)).
+Then \(X\) is Gorenstein if and only if all the fibres \(X_{y}\), for \(y \in Y\), are Gorenstein preschemes.
+\end{proposition}
+\begin{proof}
+The question is local, so we reduce to the following: let \(A \to B\) be a local homomorphism of local rings, with \(A\) Gorenstein and \(B\) flat over \(A\).
+Then \(B\) is Gorenstein if and only if \(B / \mathfrak{m}_{A} B\) is Gorenstein.
+
+To prove this, we use condition (iv) of Theorem 9.1.
+By flatness,
+\[Ext_{B}^{i}\left(B / \mathfrak{m}_{A} B, B\right)=
+\begin{cases}
+0 & \text{for } i \neq d \\
+B / \mathfrak{m}_{A} B & \text{for } i=d
+\end{cases}\]
+for a suitable \(d\).
+Thus the spectral sequence of Ext's for the
+
+\setcounter{page}{298}
+change of ring from \(B\) to \(B/\mathfrak{m}_A B\) degenerates, and we have
+\[Ext_{B}^{i}\left(k_{B}, B\right) \cong Ext_{B / \mathfrak{m}_{A} B}^{i-d}\left(k_{B}, B / \mathfrak{m}_{A} B\right)\]
+for each \(i\), whence the result.
+\end{proof}
+
+\textbf{Exercise 9.7.}
+Let \(f: X \to Y\) be a flat morphism of finite type of locally noetherian preschemes.
+Show that \(f'(\sheaf{O}_{Y})\) (which is defined locally on \(X\)) is isomorphic in \(D^{+}(X)\) to an invertible sheaf if and only if all the fibres \(X_{y}\) of \(f\), for \(y \in Y\), are Gorenstein preschemes.
+Also show that \(f'(\sheaf{O}_{Y})\) has a unique non-zero cohomology sheaf, which is flat over \(Y\), if and only if all the fibres of \(f\) are Cohen-Macaulay preschemes.
+Such morphisms are called Gorenstein morphisms (resp. Cohen-Macaulay morphisms).
+
+Compare [EGA IV 6.3 and 6.7] for statements analogous to Corollary 9.5 and Proposition 9.6 for Cohen-Macaulay.
+
+\end{document}

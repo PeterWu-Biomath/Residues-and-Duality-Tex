@@ -1,0 +1,37 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Standard operators
+\DeclareMathOperator{\Spec}{Spec}
+
+\begin{document}
+
+\setcounter{page}{302}
+\chapter{VI. RESIDUAL COMPLEXES}
+
+Introduction.
+
+In this chapter we return to the problem of constructing for a morphism of finite
+type, a functor \(f^{!}\) which should reduce to \(f^{b}\) for a finite morphism, and \(f^{\#}\) for a smooth
+morphism. We ran into difficulty earlier [III] because the
+derived category is not a local object -- one cannot glue together elements of the derived category given locally.
+we overcome that difficulty in a special case by using residual complexes. The residual complex is a very special complex of quasi-coherent injective sheaves (see definition below) which is almost unique (it was called "residue complex" in the Edinburgh Congress talk [9]).
+
+Modulo some technicalities arising from possibly infinite Krull dimension, this is how they work: To each dualizing complex \(R^{\cdot} \in D_{c}^{+}(X)\) is associated functorially a residual complex \(K^{\cdot}=E(R^{\cdot})\), and \(Q(K^{\cdot})\) (which is the image of the complex \(K^{\cdot}\) in \(D_{c}^{+}(X)\)) is isomorphic to \(R^{\cdot}\) in \(D_{c}^{+}(X)\).
+Thus we will define \(f^{!}\) locally for a residual complex \(K^{\cdot}\) by
+
+\setcounter{page}{303}
+\[f^{!}\left(K^{\cdot}\right)=E\left(f^{!}\left(Q\left(K^{\cdot}\right)\right)\right),\]
+where \(f^{!}\) is the one we know for embeddable morphisms. Then since \(f^{!}(K^{\cdot})\) is an actual complex defined locally, we can glue to get a global \(f^{!}(K^{\cdot})\).
+We will give the statement and proof of the existence of \(f^{!}\) in some detail, since this is an important step towards the general duality theorem. Later, after proving the duality theorem, we will pull ourselves up by our bootstraps to obtain a definition of \(f^{!}\) for objects in the derived category \(D_{c}^{+}(X)\).
+
+Once having \(f^{!}\) we will define a trace map for residual complexes, which will be a map of graded sheaves
+\[Tr_{f}: f_{*} f^{!} K^{\cdot} \to K^{\cdot}.\]
+
+We will prove in the next chapter that if \(f\) is a proper morphism, then \(Tr_{f}\) is a map of complexes (Residue Theorem).
+
+\end{document}

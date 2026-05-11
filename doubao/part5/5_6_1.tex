@@ -1,0 +1,46 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\varinjlim}{\varinjlim}
+
+\begin{document}
+
+\setcounter{page}{275}
+\section{5. Dualizing functors on a local noetherian ring.}
+
+In this section we recall without proof the definition and some properties of dualizing functors on a local noetherian ring \(A\), with maximal ideal \(\mathfrak{m}\).
+For proofs, see [LC,84].
+
+\begin{proposition}
+Let \(I\) be an injective hull of the residue field \(k\) of \(A\), and denote by \(T\) the functor \(\Hom(\cdot,I)\).
+Then for every \(A\)-module \(M\) of finite length, the natural map
+\[M \to T T(M)\]
+is an isomorphism.
+\end{proposition}
+
+\textbf{Definition.}
+A contravariant additive functor \(T\) from the category \(c_{f}\) of \(A\)-modules of finite length into itself is called a dualizing functor for \(A\) if there exists an injective hull \(I\) of \(k\) and an isomorphism of functors \(T \cong \Hom(\cdot, I)\).
+
+\begin{proposition}
+A contravariant additive functor \(T\) from \(c_{f}\) into itself is a dualizing functor if and only if it is exact, and \(T(k) \cong k\).
+In that case one can take \(I=\varinjlim_{n} T(A/\mathfrak{m}^{n})\) and then there is a canonical isomorphism \(T \cong \Hom(\cdot, I)\).
+\end{proposition}
+
+\begin{proposition}
+If \(I\) is an injective hull of \(k\), then the functor \(\Hom(-,I)\) gives an anti-isomorphism of the category (dcc) of \(A\)-modules with descending chain condition (we call them \(A\)-modules of co-finite type) and the category (acc) of modules of finite type over the completion \(\hat{A}\) of \(A\).
+\end{proposition}
+
+\end{document}

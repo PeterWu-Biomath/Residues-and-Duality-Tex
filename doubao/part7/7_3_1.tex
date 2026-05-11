@@ -1,0 +1,82 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+% Standard operators
+\DeclareMathOperator{\Spec}{Spec}
+
+\begin{document}
+
+\setcounter{page}{311}
+\section{Functorial Properties.}
+
+In this section we define a notion of \(f^{y}\) for residual complexes in case \(f\) is a finite or smooth morphism. To avoid confusion, we introduce new, temporary notation \(f^{y}\) and \(f^{z}\) for these functors. The letters y,z are arbitrary symbols; they have nothing to do with schemes Y,Z, or with points thereof. We give four isomorphisms I-IV between these functors, and seven compatibilities (i)-(vii) which will be referred to in the next two sections.
+
+If: \(X \to Y\) is a finite morphism of locally noetherian preschemes, we define a functor
+\[f^{y}: Res(Y) \to Res(X)\]
+on the category of residual complexes by
+\[f^{y}\left(K^{\cdot}\right)=E f^{b} Q\left(K^{\cdot}\right) .\]
+
+Note by Proposition l.la that \(Q(K^{\cdot})\) is a pointwise dualizing complex; by [v.2.4] \(f^{b} Q(K^{\cdot})\) is pointwise dualizing on \(X\), and by Proposition l.lb, \(Ef^{b} Q(K^{\cdot})\) is a residual complex on \(X\).
+
+\setcounter{page}{312}
+If \(f: X \to Y\) and \(g: Y \to Z\) are two finite morphisms of locally noetherian preschemes, we define an isomorphism
+\[(g f)^{Y} \stackrel{\sim}{\to} f^{Y} g^{Y} \tag{I}\]
+of functors from Res(Z) to Res(X) as follows. By Lemma 1.2 it will be enough to define this isomorphism in the scheme \(\Spec(\sheaf{O}_{x})\) for each \(x \in X\), in a manner compatible with localization. Afortiori, it is enough to define the isomorphism after making a base extension \(\Spec(\sheaf{O}_{z}) \to Z\), for each point \(z \in Z\), and thus we reduce to the case where (and hence also X and Y are noetherian of finite Krull dimension. In that case pointwise dualizing complexes are dualizing, and we have a functorial isomorphism \(\varphi: 1 \to Q E\) on the category of dualizing complexes on Y (Proposition 1.1c). Now for a residual complex \(K^{\cdot}\) on Z we define our isomorphism as follows:
+\[(g f)^{Y} K^{\cdot}=E(g f)^{b} Q K^{\cdot} \underset{[m \in 6.2]}{\cong} E f^{b} g^{b} Q K^{\cdot} \cong E f^{b} Q E g^{b} Q K^{\cdot}=f^{y} g^{y}\left(K^{\cdot}\right) .\]
+
+We will use this same technique of reduction to the case of finite Krull dimension without explicit mention below. It enables us to carry over isomorphisms defined for dualizing complexes to residual complexes.
+
+\setcounter{page}{313}
+For a composition of three finite morphisms, there is the usual commutative diagram (referred to as (i)) of the isomorphisms (I).
+
+For a smooth morphism \(f: X \to Y\) of locally noetherian preschemes we define a functor
+\[f^{z}: Res(Y) \to Res(X)\]
+by
+\[f^{z}\left(K^{\cdot}\right)=E f^{*} Q\left(K^{\cdot}\right) .\]
+
+This takes residual complexes into residual complexes by virtue of Proposition 1.1a,b, and [V.8.3].
+
+For a composition of two smooth morphisms f,g, we define an isomorphism
+\[(g f)^{z} \stackrel{\sim}{\to} f^{z} g^{z} \tag{II}\]
+using the above reduction to the case of finite Krull dimension, and carrying over the isomorphism [III 2.2].
+
+For a composition of three smooth morphisms, there is a compatibility (referred to as (ii)) of the isomorphisms (II), which follows from the compatibility of [III 2.2].
+
+There are two other isomorphisms, expressing compatibilities between the functors \(f^{y}\) and \(g^{z}\): the Cartesian square, and
+
+\setcounter{page}{314}
+the residue isomorphism. For the first, we suppose given a Cartesian diagram
+\(W = X \times_{Z} Y\)
+with \(f\) (and hence k) a finite morphism, and \(g\) (and hence h) a smooth morphism. In that case there is an isomorphism
+\[h^{z} f^{y} \to k^{y} g^{z} \tag{III}\]
+obtained as above from the isomorphism of [III 6.].
+
+If we have another Cartesian diagram as shown, with r also a finite morphism, then there is a commutative diagram of isomorphisms
+
+\setcounter{page}{315}
+Also if we have another Cartesian diagram doubling the smooth side of the square, i.e., with r smooth,then there is a similar commutative diagram (iv) involving the isomorphisms (II) and (III). These two compatibilities follow from [III 6.].
+
+For the residue isomorphism, we suppose that we have a finite morphism f which is factored into pi, with i a closed immersion, and p smooth. Then there is an isomorphism
+\[f^{Y} \to i^{Y} p^{z} \tag{IV}\]
+obtained as above from that of [III 8.2].
+
+If we have a diagram such as the one shown, with f,g immersions, and finite, i,k closed q,p smooth, then there is a commutative diagram
+
+\setcounter{page}{316}
+This follows from [III 8.6b] applied to the triples (i,q,p) and \((f, k, p)\).
+
+There are also two commutative diagrams expressing compatibility between the square isomorphism (III) and the residue isomorphism (IV).
+
+For the first, suppose one has \(Q=Y \times_{Z} P\) and f,g smooth. Then there is a commutative diagram
+
+\setcounter{page}{317}
+which follows from [III 8 6c ].
+
+For the second, suppose there is a Cartesian diagram as shown \((W=X \times_{Y} Z\); \(Q=P \times_{Y} Z\)) with f,g finite, i,J closed immersions, and P,q,u,v,w smooth. Then there is a commutative diagram
+
+This follows from [III 8 modified as in [III 6]].
+
+\end{document}

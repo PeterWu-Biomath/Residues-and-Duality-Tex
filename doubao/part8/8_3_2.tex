@@ -1,0 +1,114 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\begin{document}
+
+\setcounter{page}{381}
+We deduce the following elementary but essential consequences:
+(i)If \(\theta_{f}\) and \(\theta_{g}\) are isomorphisms for all arguments, so is \(\theta_{gf}\).
+(ii)If \(\theta_{g}\) and \(\theta_{gf}\) are isomorphisms for all arguments, so is \(\theta_{f}\).
+(iii)If \(\theta_{f}\) and \(\theta_{gf}\) are isomorphisms for all arguments, then \(\theta_{g}\) is an isomorphism for every complex of the form \(\mathbf{R} f_{*} F^{*}\) with \(F^{*} \in D_{c}^{-}(X)\).
+
+e) By noetherian induction on \(X\), we may assume the theorem proven for every morphism of the form \(g: Z \to Y\), where \(g=fi\), and \(i: Z \to X\) is a closed immersion of \(Z\) onto a subscheme of \(X\), different from \(X\).
+
+f) We now apply Chow's Lemma [EGA II 5.6.1] to deduce the existence of a scheme \(X'\) projective over \(Y\), together with a projective \(Y\)-morphism \(g: X' \to X\), which is an isomorphism on a non-empty open subset \(U\) of \(X\) (we may assume \(X \ne \emptyset\)).
+
+Given a coherent sheaf \(F\) on \(X\), consider the natural map
+
+\setcounter{page}{382}
+\[F \to \mathbf{R}g_{*} g^{*} F,\]
+and embed it in a distinguished triangle.
+Then since \(g\) is an isomorphism on \(U\), \(G^{*}\) has support on \(X-U\), and so \(\theta_{f}(G^{*})\) is an isomorphism by our induction hypothesis e).
+Thus it will be sufficient to show that \(\theta_{f}(\mathbf{R g}_{*} g^{*} F)\) is an isomorphism.
+Using (iii) above, we reduce to showing \(\theta_{g}\) and \(\theta_{fg}\) are isomorphisms for all arguments, and so we reduce to the case \(f\) is projective.
+
+g) Since \(Y\) is affine, we can embed \(X\) in a suitable projective space over \(Y\), say \(f=pi\), with
+\(p: \mathbb{P}_{Y}^{n} \to Y\) the projection.
+Using (i) above, we can treat \(i\) and \(p\) separately.
+Now \(i\) is a finite morphism, so \(\theta_{i}\) is an isomorphism by Proposition 3.1 above, and [III 6.7].
+Also \(\theta_{p}\) is an isomorphism by Proposition 3.2 above, and [III 5.1].
+q.e.d.
+
+\setcounter{page}{383}
+We can now pull ourselves up by our bootstraps, and obtain a theory of \(f^{!}\) and \(Tr_{f}\) for complexes with coherent cohomology and schemes admitting dualizing complexes.
+
+Corollary 3.4. We consider the category of noetherian preschemes which admit a dualizing complex, and we consider morphisms of finite type. Then
+
+(a). For every such morphism \(f: X \to Y\), there is a theory of
+functor
+\[f^{!}: D_{c}^{+}(Y) \to D_{c}^{+}(X)\]
+plus the data 2)-5) and properties VAR 1 - VAR 6 of [III 8.7] (only leave out the word "embeddable" wherever it occurs).
+
+(b). For every such proper morphism \(f: X \to Y\), there is a theory of trace consisting of a functorial morphism
+\[Tr_{f}: \mathbf{R} f_{*} f^{!} \to 1\]
+with the properties TRA 1 - TRA 4 of [III 10.5] (only leave out the phrase "projectively embeddable" wherever it occurs).
+
+\setcounter{page}{384}
+(c). For every such proper morphism \(f: X \to Y\), the duality morphism
+\[\underline{\theta}_{f}: \mathbf{R} f_{*} \underline{Hom}_{X}^{\cdot}\left(F^{*}, f^{!} G^{*}\right) \to \mathbf{R} \underline{Hom}_{Y}^{\cdot}\left(\mathbf{R} f_{*} F^{*}, G^{*}\right),\]
+obtained by composing the morphism of [II 5.5] with \(Tr_{f}\), is an isomorphism for \(F^{*} \in D_{qc}^{-}(X)\) and \(G^{*} \in D_{c}^{+}(Y)\).
+(Compare [I 11.1].)
+
+Proof. (a)
+Let \(K^{*}\) be a residual complex on \(Y\) (and is then a dualizing complex on \(Y\), and \(Q f^{\Delta} K\) a dualizing complex on \(X\)).
+Let \(\underline{D}_{Y}\) and \(\underline{D}_{X}\) be as in the theorem above, and define
+\[f^{!}\left(G^{*}\right)=\underline{D}_{X}\left(\mathbf{L} f^{*} \underline{D}_{Y}\left(G^{*}\right)\right)\]
+for all \(G^{*} \in D_{C}^{+}(Y)\).
+Note that \(\underline{D}_{Y}(G^{*}) \in D_{C}^{-}(Y)\), so that \(\mathbf{L} f^{*}\) is defined.
+Here is where we need that \(QK^{*}\) is a dualizing complex, not just pointwise dualizing.
+Observe also that \(f^{!}\) is independent of the choice of \(K^{\cdot}\) (use [V 3.1]).
+
+The construction of the isomorphisms \(c_{f,g}\) is easy, using [VI 3.1].
+For the isomorphisms \(d_{f}\) and \(e_{f}\) we use [III 6.9b] and [III 2.4], respectively.
+The details of these constructions, and verifications of VAR 1 - VAR 6 are left to the reader (:).
+
+Observe, by the way, that this part of the Corollary does not depend on the duality theorem, and could have come just after the construction of \(f^{\Delta}\) [VI 3.1].
+
+\setcounter{page}{385}
+(b) To define \(Tr_{f}\), let \(G^{\cdot} \in D_{C}^{+}(Y)\), and use [II 5.10],
+[VI 4.2], Theorem 2.1 above, and [V 2.1].
+The verification of TRA 1 is clear, using TRA 1 of [VI 4.2].
+For TRA 2 we use [III 6.9c]. Details left to reader (:).
+
+(c) To prove the duality formula, we reduce as in part b) of the proof of the theorem above, to the case of complexes with coherent cohomology.
+Let \(F^{*} \in D_{c}^{-}(X)\) and \(G^{*} \in D_{C}^{+}(Y)\) Consider
+\[\mathbf{R} f_{*} \mathbf{Hom}_{X}\left(F^{*}, f^{*} G^{*}\right) . \tag{1}\]
+
+We write \(F^{*}=\underline{D}_{X} \underline{D}_{X}(F^{*})\) and \(f^{\cdot} G^{\cdot}=\underline{D}_{X}(\mathbf{L}^{*} \underline{D}_{Y}(G^{\cdot}))\).
+Now since \(\underline{D}_{X}\) is a dualizing functor, it transforms \(\mathbf{R}Hom\) into \(\mathbf{R}Hom\) of the duals of the arguments, with the order reversed.
+
+\setcounter{page}{386}
+Thus (1) becomes
+\[\mathbf{R} f_{*} \mathbf{Hom}_{X}\left(\mathbf{L} f^{*} \underline{D}_{Y}\left(G^{\cdot}\right), \underline{D}_{X}\left(F^{\cdot}\right)\right) . \tag{2}\]
+
+Applying the duality theorem above, this becomes
+\[D_{Y} \mathbf{R} f_{*} \mathbf{Hom}_{X}\left(\mathbf{L} f^{*} \underline{D}_{Y}\left(G^{\cdot}\right), \underline{D}_{X}\left(F^{\cdot}\right)\right) \tag{3}\]
+which in turn, since \(\mathbf{L} f^{*}\) is a left adjoint of \(\mathbf{R} f_{*}\),
+\[D_{Y} \mathbf{Hom}_{Y}\left(\underline{D}_{Y}\left(G^{\cdot}\right), \mathbf{R} f_{*} \underline{D}_{X}\left(F^{\cdot}\right)\right) . \tag{4}\]
+
+Now applying duality to the second argument, (4) becomes
+\[\mathbf{R}Hom_{Y}\left(\mathbf{R} f_{*} F^{*}, G^{*}\right) .\]
+
+The reader may check that our chain of isomorphisms is indeed \(\underline{\theta}_{f}\), which proves (c).
+
+\setcounter{page}{387}
+Proposition 3.5 (Compatibility of Local and Global duality). Let \(f: X \to Y\) be a proper morphism of noetherian schemes,
+let \(x \in X\) be a closed point, with local ring \(A=\sheaf{O}_{x}\).
+Let \(R^{*}\) be the dualizing complex \((Qf^{A} K^{*})_{x}\) on \(A\), and assume that \(R^{*}\) is normalized.
+Let \(I=\Gamma_{x}(R^{*})\).
+Let \(F^{*} \in D_{c}^{+}(X)\).
+Then the diagram
+is commutative, where \(\theta_{x}\) is the local duality isomorphism, \(\alpha\) is the natural map of derived functors obtained from the inclusion \(\Gamma_{x} \subseteq f_{*}\),
+and the trace map
+\[Tr_{f, x}: f_{*} J(x)=I \to K^{*},\]
+and \(\underline{D}_{Y}\) is the transpose by \(\underline{D}_{Y}\) of the global duality isomorphism of Theorem 3.3.
+(Note we write four times Hom instead of \(\mathbf{R}Hom\), because the second argument in each case is injective.)
+
+Proof. Immediate from the definitions of the maps in question.
+
+Remark. This compatibility is the one needed to complete the proof of "Lichtenbaum's theorem" [LC theorem 6.9, see parenthetical remark in middle of p. 103].
+
+\end{document}

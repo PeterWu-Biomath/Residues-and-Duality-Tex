@@ -1,0 +1,116 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\varinjlim}{\varinjlim}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+\DeclareMathOperator{\RGamma}{\mathbf{R}\Gamma}
+
+\begin{document}
+
+\setcounter{page}{276}
+\section{Local Duality.}
+
+Throughout this section we let \(A\) be a noetherian local ring, with maximal ideal \(\mathfrak{m}\), and residue field \(k\), and let \(R^{\cdot}\) be a dualizing complex on \(X = \operatorname{Spec}A\) (cf. 62). Recall
+Proposition 3.4 which gives a necessary and sufficient condition for a complex \(R^{\cdot} \in D_{C}^{+}(A)\) to be dualizing.
+
+\textbf{Definition.}
+We say that the dualizing complex \(R^{\cdot}\) is normalized if the integer \(d\) of Proposition 3.4 is zero.
+
+\textbf{Remark.}
+Since the translate of a dualizing complex is again one, we can normalize by translation.
+
+\begin{proposition}
+If \(R^{\cdot}\) is normalized, then \(\RGamma_{x}(R^{\cdot})\), where \(x\) is the closed point of \(\operatorname{Spec}A\), is isomorphic in the derived category to an injective hull \(I\) of \(k\).
+\end{proposition}
+
+\begin{proof}
+The cohomology of \(\RGamma_{x}(R^{\cdot})\) is
+\[H_{x}^{i}\left(R^{\cdot}\right) \cong \varinjlim_{n} Ext^{i}\left(A / \mathfrak{m}^{n}, R^{\cdot}\right)\]
+by Corollary 4.2 above. On the other hand, we saw from the proof of Proposition 3.4 that \(Ext^{i}(M, R^{\cdot})=0\) for \(i \neq0\) and all \(M\) of finite length. Furthermore, by Proposition 5.2,the functor \(Ext^{\circ}(\cdot, R^{\cdot})\), is a dualizing functor, and corresponds to
+
+\setcounter{page}{277}
+the injective hull of \(k\) given by
+\[I=\varinjlim_{n} Ext^{\circ}\left(A / \mathfrak{m}^{n}, R^{\cdot}\right) .\]
+
+So we see that \(H_{x}^{i}(R^{\cdot})=0\) for \(i \neq0\),and \(H_{x}^{\circ}(R^{\cdot})=I\).
+Therefore \(\RGamma_{x}(R^{\cdot}) \cong I\) in the derived category [I.4.3].
+\end{proof}
+
+Now let \(M\) be an \(A\)-module.
+Then there is a natural homomorphism
+\[\Gamma_{x}(M) \to \Hom\left(\Hom\left(M, R^{\cdot}\right), \Gamma_{x}\left(R^{\cdot}\right)\right) .\]
+
+This gives rise to a morphism of functors on \(D^{+}(A)\),
+\[\RGamma_{x}\left(M^{\cdot}\right) \to \RHom\left(\RHom\left(M^{\cdot}, R^{\cdot}\right), \RGamma_{x}\left(R^{\cdot}\right)\right),\]
+since we can take \(R^{\cdot}\) to be an injective complex, in which case \(\RGamma_{x}(R^{\cdot})=\Gamma_{x}(R^{\cdot})\) is also injective. Indeed, whenever \(J\) is an injective \(A\)-module, and \(Y\) a closed subset of \(\operatorname{Spec}A\), then \(\Gamma_{Y}(J)\) is injective (cf. [II] for the structure of injective \(A\)-modules). We now assume (without loss of generality) that \(R^{\cdot}\) is normalized, and so, by the Proposition, have a morphism of functors
+
+\setcounter{page}{278}
+\[\theta: \RGamma_{x}\left(M^{\cdot}\right) \to \Hom\left(\RHom\left(M^{\cdot}, R^{\cdot}\right), I\right) .\]
+
+(Following the usual conventions, we do not write \(\mathbf{R}\) before a functor which is already exact.)
+
+\begin{theorem}[Local Duality]
+Let \(A\) be a local noetherian ring, let \(R^{\cdot}\) be a normalized dualizing complex, let \(I\) be the corresponding injective hull of \(k\), and let \(M^{\cdot} \in D_{C}^{+}(A)\) (i.e., the cohomology modules of \(M^{\cdot}\) are of finite type). Then \(\theta\) as defined above is an isomorphism.
+\end{theorem}
+
+\begin{corollary}
+With \(A\), \(R^{\cdot}\), \(I\) as above, let \(M\) be a module of finite type. Then the homomorphisms
+\[\theta^{i}: H_{x}^{i}(M) \to \Hom\left(Ext^{-i}\left(M, R^{\cdot}\right), I\right)\]
+induced by \(\theta\) are isomorphisms.
+\end{corollary}
+
+\begin{proof}
+Using the Lemma on Way-out Functors [I.?.l] one sees that the Corollary is equivalent to the theorem. To prove the Corollary, note that \(\theta^{i}\) is an isomorphism for \(M=k\), because \(H_{x}^{i}(k)=0\) for \(i \neq0\),and \(H_{x}^{\circ}(k)=k\); note also that for all \(M\) of finite type, both sides are modules with support at \(x\). Thus we are reduced to proving the following
+
+\setcounter{page}{279}
+\begin{lemma}
+Let \(\theta^{i}: S^{i} \to T^{i}\) be a morphism of covariant cohomological functors on the category of modules over a noetherian ring \(A\). Assume
+\begin{enumerate}
+\item[(i)] for every maximal ideal \(\mathfrak{m} \subseteq A\), \(\theta^{i}(A / \mathfrak{m})\) is an isomorphism,
+\item[(ii)] for every non-maximal prime ideal \(\mathfrak{p} \subseteq A\), \(S^{i}(A / \mathfrak{p})\) and \(T^{i}(A / \mathfrak{p})\) have support \(< \operatorname{Supp}(A/\mathfrak{p})\).
+\end{enumerate}
+Then \(\theta^{i}(M)\) is an isomorphism for every \(A\)-module \(M\) of finite type.
+\end{lemma}
+
+\begin{proof}
+If \(M\) is any module of finite type, then admits a finite filtration each of whose quotients is of the form \(A/P\) with \(P\) prime. By assumption, \(\theta^{i}(A / \mathfrak{m})\) is an isomorphism for every maximal ideal \(\mathfrak{m}\). Thus by the 5-lemma we reduce to the case \(M=A / \mathfrak{p}\) with \(\mathfrak{p}\) not maximal. By noetherian induction, we may assume that \(\theta^{i}(M')\) is an isomorphism for every \(M'\) of finite type with support \(< \operatorname{Supp}(A/\mathfrak{p})\).
+
+Now for each \(f \in M=A / \mathfrak{p}\), \(f \neq0\), we consider the exact sequence
+\[0 \to M \stackrel{f}{\to} M \to M / fM \to 0,\]
+and apply the functors \(S^{i}\), \(T^{i}\) to it, splitting it as follows:
+
+\setcounter{page}{280}
+\[\cdots \to S^{i}(M) \stackrel{f}{\to} S^{i}(M) \to \cdots\]
+and
+\[\cdots \to S^{i-1}(M) \to S^{i-1}(M) \to S^{i-1}(M / f M) \to K_{f} \to 0\]
+
+Now by our induction hypothesis, is an isomorphism, so \(\alpha\) is surjective. Since \(\operatorname{Supp}S^{i}(M)<\operatorname{supp} M\), each element of \(S^{i}(M)\) is annihilated by some non-zero \(f \in M\).
+Thus \(S^{i}(M)=\bigcup K_{f}\) as \(f\) ranges over the non-zero elements of \(M\). Similarly \(T^{i}(M)=\bigcup L_{f}\). Therefore \(\beta\) is surjective.
+
+This is true for each \(i\), so also \(\gamma\) is surjective, But that implies \(\alpha\) is injective, so \(\alpha\) is an isomorphism. Then, as above, is also an isomorphism. q.e.d.
+\end{proof}
+
+\begin{corollary}
+For \(M\) of finite type, the modules \(Ext^{i}\left(M, R^{\cdot}\right)\) are of co-finite type (see Proposition 5.3), and we have a functorial isomorphism
+\[Ext^{i}\left(M, R^{\cdot}\right)^{\wedge} \to \Hom\left(H_{x}^{-i}(M), I\right)\]
+of \(\hat{A}\)-modules.
+\end{corollary}
+
+\begin{proof}
+Apply the functor \(\Hom(\cdot, I)\) to the isomorphism \(\theta^{i}\), and use the fact that for any \(A\)-module of finite type \(M\), this functor applied twice gives the completion \(\hat{M}\). [Ic p. 61].
+\end{proof}
+
+\end{document}

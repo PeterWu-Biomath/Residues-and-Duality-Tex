@@ -1,0 +1,64 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Spec}{Spec}
+
+\begin{document}
+
+\setcounter{299}
+\section{Existence of Dualizing Complexes.}
+
+We now draw together the experience gained in this chapter to make some remarks about the existence of a dualizing complex on a locally noetherian prescheme \(X\). (We leave the analogous discussion for pointwise dualizing complexes to the reader.)
+
+\textbf{Sufficient conditions.}
+
+1. If \(X\) is Gorenstein and of finite Krull dimension, then \(\sheaf{O}_{X}\) is a dualizing complex for \(X\). In particular, any regular prescheme of finite Krull dimension has a dualizing complex.
+
+2.If \(f: X \to Y\) is a morphism of finite type, with \(Y\) noetherian, and if \(Y\) admits a dualizing complex \(R^{\cdot}\), we will see in the next chapter that \(X\) admits a dualizing complex \(f^{!}(R^{\cdot})\) (If \(f\) is embeddable this result follows from \S8 above.) Thus any noetherian prescheme of finite type over a Gorenstein prescheme of finite Krull dimension admits a dualizing complex.
+
+3. In particular, any prescheme of finite type over a field \(k\) admits a dualizing complex.
+
+4. If \(X\) is the spectrum of a complete local ring \(A\), then \(X\) admits a dualizing complex. Indeed, \(A\) is a quotient of a regular local ring by the Cohen structure theorem (31.1)].
+
+\setcounter{page}{300}
+\textbf{Necessary conditions.}
+
+1.If \(X\) admits a dualizing complex, then \(X\) has finite Krull dimension (Corollary 7.2).
+
+2.If \(X\) admits a dualizing complex, then \(X\) is catenary (in fact universally catenary since any prescheme of finite type over \(X\) admits a dualizing complex, at least locally).
+
+3. More precisely, \(X\) admits a codimension function \(d\).
+
+4.If \(A\) is a local noetherian ring admitting a dualizing complex, and if \(\mathfrak{p} \subseteq A\) is a prime ideal, then \(\hat{A} \otimes_{A} k(\mathfrak{p})\) is a Gorenstein ring.
+
+This follows from the following
+
+\begin{proposition}
+If \(A\) is a local noetherian domain, with quotient field \(K\), which admits a dualizing complex, then \(\hat{A} \otimes_{A} K\) is a Gorenstein ring.
+\end{proposition}
+
+\begin{proof}
+Let \(R^{\cdot}\) be a dualizing complex on \(A\). Then \(R^{\cdot} \otimes_{A} \hat{A}\) is dualizing on \(\hat{A}\) by Corollary 3.5, and so by localization, \((R^{\cdot} \otimes_{A} \hat{A}) \otimes_{A} K\) is dualizing on \(\hat{A} \otimes_{A} K\). But \(R^{\cdot} \otimes_{A} K\) is dualizing on \(K\), so by Theorem 3.1 we may assume \(R^{\cdot} \otimes_{A} K \cong K\) after translating if necessary. But \((R^{\cdot} \otimes_{A} \hat{A}) \otimes_{A} K \cong (R^{\cdot} \otimes_{A} K) \otimes_{K}(\hat{A} \otimes_{A} K)\) so \(\hat{A} \otimes_{A} K\) is a dualizing complex for itself, and we are done (Theorem 9.1 (i)).
+\end{proof}
+
+\setcounter{page}{301}
+\textbf{Example.}
+There are local noetherian domains of dimension 3 which are not catenary, and local noetherian domains of dimension 2 which are not universally catenary, and which therefore have no dualizing complexes [1, Appendix A1, Ex. 2].
+
+\textbf{Problems.}
+1. We do now know if \(\hat{A} \otimes_{A} K\) is a Gorenstein ring, even if \(A\) is a local domain of dimension 1, hence we do not know whether every local domain of dimension 1 admits a dualizing complex.
+
+2.If \(X\) is noetherian and of finite Krull dimension, and if it admits a dualizing complex locally, and if it admits a codimension function \(d\), we do not know whether \(X\) admits a dualizing complex globally.
+
+\end{document}

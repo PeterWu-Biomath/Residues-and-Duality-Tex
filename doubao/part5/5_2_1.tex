@@ -1,0 +1,64 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+
+\begin{document}
+
+\setcounter{page}{254}
+Example: Duality for abelian groups.
+
+Let \(X=\operatorname{Spec}\mathbb{Z}\). Then the category of quasi-coherent sheaves on \(X\) is isomorphic to the category \(\cat{Ab}\) of abelian groups. We know that \(\mathbb{Q}/\mathbb{Z}\) gives a good duality for finite abelian groups, i.e., that the functor \(\Hom(\cdot,\mathbb{Q}/\mathbb{Z})\) is an exact contravariant functor, which, when applied twice to a finite abelian group, gives that group back again. Similarly, the group \(\mathbb{Z}\) gives a good notion of duality for finitely generated free abelian groups.
+
+\(D_{c}^{b}(\cat{Ab})\), consisting of those bounded complex in \(D^{+}(\cat{Ab})\) which have finitely generated cohomology. (c is for "coherent", which means "finitely generated" in our case.) Since the complex above is an injective resolution of \(\mathbb{Z}\), hence isomorphic to \(\mathbb{Q}/\mathbb{Z}\) in the derived category, we arrive at the following proposition.
+
+\[
+\mathbb{Q}/\mathbb{Z}
+\]
+and work in the derived category
+
+Combining the two, we consider
+
+Proposition 1.1.
+\[
+D: M^{\bullet} \to \RHom^{\cdot}\left(M^{\bullet}, \mathbb{Z}\right)
+\]
+
+\setcounter{page}{255}
+The functor is a contravariant -functor from \(D_{c}^{b}(\cat{Ab})\) into itself, and there is a natural functorial isomorphism
+\[
+\eta: \id D_{c}^{b}(\cat{Ab}) \stackrel{\sim}{\to} DD .
+\]
+
+Proof. Since the cohomology of \(D(M^{\bullet})\) is \(\Ext^{i}(M^{\cdot}, \mathbb{Z})\), if \(M^{\bullet} \in D_{C}^{b}(\cat{Ab})\), then so is \(D(M^{\bullet})\). The natural functorial homomorphism \(\eta\) is defined in Lemma 1.2 below. To show that it is an isomorphism, by taking a free resolution of \(M^{\bullet}\) and applying the lemma on way-out functors [I.?.l], we reduce to the case \(M^{*}=\mathbb{Z}^{r}\) for some \(r\). Since the functors in question are additive, one reduces to the case \(M^{\bullet}=\mathbb{Z}\), and to complete the proof, one need only observe that \(\Ext^{i}(\mathbb{Z}, \mathbb{Z})=\mathbb{Z}\) if \(i=0\), and \(0\) otherwise.
+
+Lemma 1.2.
+let \(F^{\bullet} \in D(X)\). Let \(X\) be a prescheme, let \(R^{\bullet} \in D^{+}(X)\) and
+
+\[
+\eta: F^{\bullet} \to \RHom^{\cdot}\left(\RHom^{\cdot}\left(F^{\bullet}, R^{\bullet}\right), R^{\bullet}\right) .
+\]
+
+Then there is a natural functorial homomorphism
+
+\setcounter{page}{256}
+Proof. Replacing \(R^{\bullet}\) by an injective resolution, we can erase the derived symbol. As usual, we need only define \(\eta\) on objects of \(D(X)\), i.e., complexes. Given an index \(p\), and a section \(s \in F^{p}(U)\) over an open set \(U\) in \(X\), we must define, for each \(q\), a homomorphism of sheaves
+\[
+\Hom^{q}\left(F^{\cdot}, R^{\cdot}\right)_{U} \to R_{U}^{p+q} ,
+\]
+where the subscript \(U\) denotes restriction of sheaves to \(U\). Given a homomorphism \(f \in \underline{\Hom}^{q}(F^{\cdot},R^{\cdot})_{U}(v)\) defined on an open set \(V \subseteq U\), we send it to the section \(s_{v}\), where \(s_{v}\) is the section \(s\), restricted to \(V\). Then we map to \(f(s_{v}) \in R^{p+q}(V)\). One checks that this indeed does define a morphism of complexes, and that it is functorial in \(F^{\bullet}\).
+
+\end{document}

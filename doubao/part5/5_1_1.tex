@@ -1,0 +1,60 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dimk}{dim_k}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\Lfst}{\mathbf{L}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+
+\begin{document}
+
+\setcounter{page}{252}
+\chapter{V. DUALIZING COMPLEXES AND LOCAL DUALITY}
+
+Introduction.
+
+In this chapter we discuss dualizing complexes on a locally noetherian prescheme \(X\).
+A dualizing complex is a complex \(R^{\bullet} \in D^{+}(X)\) such that the functor
+\[
+D: M^{\bullet} \to \RHom^{\bullet}\left(M^{\bullet}, R^{\bullet}\right)
+\]
+induces an auto-duality of the category \(D_{c}^{b}(X)\) consisting of those bounded complexes in \(D^{+}(X)\) which have coherent cohomology.
+We will show that a large class of preschemes admits dualizing complexes, and that they are almost uniquely determined.
+
+The notion of dualizing complex will allow us to write the duality theorem in a new way.
+
+For example, let \(X\) be projective \(n\)-space over a field \(k\).
+Then \(R^{\bullet}=\omega[n]\) (where \(\omega=\omega_{X/k}\) is the sheaf of relative \(n\)-differentials [III 1])
+is a dualizing complex for \(X\), and \(k\) is a dualizing complex for \(k\).
+We have a canonical isomorphism \(\Rfst(\omega[n]) \cong k\) [III 3.4], and hence, for any complex \(F^{\bullet} \in D_{c}^{b}(X)\), a homomorphism
+\[
+\theta: \Rfst \underline{D}_{X}\left(F^{\bullet}\right) \to \underline{D}_{k}\left(\Rfst\left(F^{\bullet}\right)\right),
+\]
+
+\setcounter{page}{253}
+where \(\underline{D}_{X}\) and \(\underline{D}_{k}\) are the dualizing functors on \(X\) and on \(k\), respectively.
+The duality theorem [III 5.1] says that \(\theta\) is an isomorphism, i.e., that the dualizing functors on \(X\) and on \(k\) commute with \(\Rfst\).
+
+In the latter part of the chapter we discuss the local duality theorem, as in [LC or [SGA 62, expos\'e 2,4].
+The proof of the duality theorem given here is different, however.
+
+The reader will see that the existence of a dualizing complex on a locally noetherian prescheme \(X\) implies that \(X\) has finite Krull dimension.
+Hence we will give a more general notion, that of a pointwise dualizing complex, to cover the case of infinite Krull dimension.
+
+For convenience we defer the question of existence of dualizing complexes until the end of the chapter (section 10).
+
+\end{document}

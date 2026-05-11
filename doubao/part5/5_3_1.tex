@@ -1,0 +1,179 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\Lfst}{\mathbf{L}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+
+\begin{document}
+
+\setcounter{page}{257}
+\section{Dualizing Complexes.}
+
+Throughout this section, \(X\) will denote a locally noetherian prescheme. We will consider complexes \(R^{\bullet} \in D^{+}(X)\) which have coherent cohomology and finite injective dimension, i.e., \(R^{\bullet} \in D_{C}^{+}(X)_{\text{fid}}\) (see [I.7.6] and [II.7.20]). Note that if \(X\) is quasi-compact, then the condition of finite injective dimension on a complex \(R^{\bullet} \in D_{C}^{+}(X)\) can be checked locally (eg., by [II 7.20(iii)]). Note also that such a complex \(R^{\bullet}\) is quasiisomorphic to a bounded complex of quasi-coherent injective sheaves on \(X\) [II 7.20(i)\(_{qc}\)], and hence (using [I3.3)) the functor
+\[
+D: F^{\cdot} \to \RHom^{\cdot}\left(F^{\cdot}, R^{\cdot}\right)
+\]
+sends \(D_{c}^{b}(X)\) into itself, and interchanges \(D_{C}^{+}(X)\) and \(D_{C}^{-}(X)\).
+
+\textbf{Definition.} Let \(R^{\bullet} \in D^{+}(X)\). We say that a complex \(F^{\bullet} \in D(X)\) is reflexive (with respect to \(R^{\bullet}\)) if the natural map
+\[
+\eta: F^{\bullet} \to \RHom^{\cdot}\left(\RHom^{\cdot}\left(F^{\bullet}, R^{\bullet}\right), R^{\bullet}\right)
+\]
+of Lemma 1.2 is an isomorphism.
+
+\setcounter{page}{258}
+\begin{proposition}
+Let \(R^{\bullet} \in D_{c}^{+}(X)_{\text{fid}}\). Then the following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] Every \(F^{\bullet} \in D_{c}(X)\) is reflexive (with respect to \(R^{\bullet}\)).
+\item[(ii)] Every \(F^{\bullet} \in D_{C}^{b}(X)\) is reflexive.
+\item[(iii)] Every coherent sheaf on \(X\) is reflexive.
+\item[(iv)] The structure sheaf \(\sheaf{O}_{X}\) is reflexive.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Clearly \((i) \Rightarrow (ii) \Rightarrow (iii) \Rightarrow (iv)\). To prove \((iv)\Rightarrow(i)\) we note that the question is local on \(X\). We may assume that \(X\) is affine. Every coherent sheaf is the quotient of a free sheaf \(\sheaf{O}_{X}^{r}\); the functors in question are additive, so the result follows from the Lemma on Way-Out Functors [I.7.1 (ii) and (iv)], taking into account [II 7.20(ii)] which implies that \(\RHom^{\cdot}(\cdot, R^{\cdot})\) is way-out in both directions.
+\end{proof}
+
+\textbf{Definition.} Let \(X\) be a locally noetherian prescheme. A complex \(R^{\bullet} \in D_{C}^{+}(X)_{\text{fid}}\) satisfying the equivalent conditions of the proposition is called a dualizing complex for \(X\).
+
+\textbf{Definition.} The Krull dimension of a locally noetherian prescheme \(X\) is the largest \(n\) (or \(+\infty\)) for which there is a chain \(z_{0}<z_{1}<\cdots<z_{n}\) of closed irreducible subsets \(z_{i}\) of \(X\). It is also the sup of the dimensions of the local rings of \(X\).
+
+\setcounter{page}{259}
+\begin{example}
+Let \(X\) be a regular prescheme of finite Krull dimension. (A regular prescheme is a prescheme such that all the local rings \(\sheaf{O}_{X,x}\) of points of \(X\) are regular local rings.) Then the structure sheaf \(\sheaf{O}_{X}\) is a dualizing complex for \(X\).
+
+Indeed, condition (iv) of the proposition is trivial, because \(\underline{\Ext}^{i}(\sheaf{O}_{X},\sheaf{O}_{X})=\sheaf{O}_{X}\) for \(i=0\), and \(0\) otherwise, Clearly \(\sheaf{O}_{X} \in D_{c}^{+}(X)\). To show that \(\sheaf{O}_{X}\) has finite injective dimension, we use condition (iii) of [I.7.20]. Let \(n_{0}\) be the Krull dimension of \(X\). Then for every coherent sheaf \(F\) on \(X\), \(\underline{Ext}^{i}(F,\sheaf{O}_{X})=0\) for \(i>n_{0}\), because \(\Ext^{i}\) commutes with taking stalks, and the local rings \(\sheaf{O}_{X}\) all have cohomological dimension \(\le n_{0}\) since they are regular local rings [14 (28.2)]
+\end{example}
+
+\begin{corollary}
+Let \(R^{\bullet} \in D_{c}^{+}(X)_{\text{fid}}\). Then \(R^{\bullet}\) is dualizing if and only if for every \(x \in X\), \(R_{x}\) is dualizing on the local scheme \(\operatorname{Spec}\sheaf{O}_{x}\). Furthermore, it is sufficient to take the closed points \(x \in X\).
+\end{corollary}
+
+\begin{proof}
+For \(x \in X\), we see that the stalk \(R_{x}\) has finite injective dimension in \(D_{c}^{+}(\operatorname{Spec}\sheaf{O}_{x})\) by using [ II 7.20 \((i) qc\)] and [II.7.17 (iii)]. Thus the result follows from condition (iv) of the Proposition.
+\end{proof}
+
+\setcounter{page}{260}
+\begin{proposition}
+Let \(f: X \to Y\) be a finite morphism of locally noetherian preschemes, and let \(R^{\bullet}\) be a dualizing complex on \(Y\). Then \(f^{b} R^{\bullet}\) is a dualizing complex on \(X\) (cf. [III).
+\end{proposition}
+
+\begin{proof}
+We may assume that \(R^{\bullet}\) is a bounded complex of quasi-coherent injective sheaves on \(Y\). We have
+\[
+f^{b}\left(R^{\cdot}\right)=\RHom_{Y}\left(f_{*} \sheaf{O}_{X}, R^{\cdot}\right),
+\]
+which is a bounded complex of quasi-coherent injectives on \(X\). Hence \(f^{b}(R^{\cdot}) \in D_{c}^{b}(X)_{\text{fid}}\). To see that \(f^{b}(R^{\cdot})\) is dualizing, we apply condition (iv) of the previous proposition, and consider the map
+\[
+\eta: \sheaf{O}_{X} \to \RHom_{X}\left(\RHom_{X}\left(\sheaf{O}_{X}, f^{b}\left(R^{\cdot}\right)\right), f^{b}\left(R^{\cdot}\right)\right) .
+\]
+
+Applying \(\Rfst\) to this map, and using duality for a finite morphism [III 6.7] twice, we see that \(\Rfst(\eta)\) is an isomorphism. But we are dealing with quasi-coherent sheaves, and \(f_{*}\) is faithful, so \(\eta\) is an isomorphism.
+\end{proposition}
+
+\setcounter{page}{261}
+\textbf{Remarks.}
+1. We will see later that if \(f\) is a smooth morphism, then \(f^{*}\) of a dualizing complex is dualizing (Theorem 8.3 below).
+
+2. This result, joined with the example above, shows that any closed subscheme of a regular prescheme of finite Krull dimension admits a dualizing complex.
+
+\begin{proposition}
+A complex \(R^{\cdot} \in D_{c}^{+}(X)_{\text{fid}}\) is dualizing if and only if for every closed point \(x \in X\), the sheaf \(k(x)\), consistingof the residue field \(k(x)\) at the point \(x\) and zero elsewhere, is reflexive.
+\end{proposition}
+
+\begin{proof}
+1) Using Corollary 2.3, we reduce to the case where \(X\) is the spectrum of a local noetherian ring \(A\), with residue field \(k\). The assumption is then that \(k\) is reflexive, and we wish to show for every \(A\)-module of finite type \(M\), that \(M\) is reflexive on \(X\).
+
+2) Using induction on the length, we show first that every \(A\)-module \(M\) of finite length is reflexive. Indeed, for length \(M=1\), we have assumed it.
+For length \(M>1\), one can write a short exact sequence
+\[
+0 \to M' \to M \to M'' \to 0
+\]
+where \(M'\) and \(M''\) have length \(<\) length \(M\). Then by the induction hypothesis \(M'\) and \(M''\) are reflexive, and by long exact sequences
+\end{proof}
+
+\setcounter{page}{262}
+(DD is a contravariant functor) and the five-lemma, \(M\) is reflexive.
+
+3) Now we show that any module of finite type \(M\) is reflexive, using induction on the dimension of \(M\). If \(\dim M=0\), then \(M\) has finite length, so it is reflexive by 2) above. Let \(M\) be a module of finite type. Let \(M'\) be the submodule of elements with support contained in the maximal ideal \(\mathfrak{m}\). Then \(M'\) has finite length, so it is sufficient to consider \(M / M'\). In other words, we have reduced to the case \(\operatorname{Ass} M\) consists only of maximal ideals.
+
+Let \(t \in \mathfrak{m}\) be an element which is not a zero-divisor in \(M\), so that we have an exact sequence
+\[
+0 \to M \stackrel{t}{\to} M \to M / tM \to 0 .
+\]
+
+Now \(\dim M / tM < \dim M\), so by the induction hypothesis \(M / tM\) is reflexive. Therefore, for each \(i \neq 0\), we have an exact sequence
+\[
+H^{i}(DD(M)) \stackrel{t}{\to} H^{i}(DD(M)) \to 0 .
+\]
+
+Now these \(H^{i}\) are \(A\)-modules of finite type, and \(t \in \mathfrak{m}\), so by Nakayama's lemma, \(H^{i}(DD(M))=0\) for \(i \neq 0\).
+
+\setcounter{page}{263}
+Consider the commutative diagram with exact rows:
+\[
+\to H^{\circ}(DD(M)) \stackrel{t}{\to} H^{\circ}(DD(M)) \to H^{\circ}(DD(M/tM)) \to 0
+\]
+A diagram chase shows that
+\[
+H^{\circ}(DD(M))=\alpha(M)+tH^{\circ}(DD(M)),
+\]
+so by Nakayama's Lemma, \(\alpha\) is surjective. To show that \(\alpha\) is injective, let \(x \in M\). Choose \(n\) so large that \(x \notin t^{n} M\), and draw the same diagram as above, but with \(t^{n}\) in place of \(t\). Then \(x\) does not become \(0\) in \(M / t^{n} M\), and \(M / t^{n} M \cong H^{\circ}(DD(M/t^{n} M))\), so \(\alpha(x) \neq 0\).
+
+Thus \(M\) is reflexive. Taking \(M=A\), we find that \(R^{\bullet}\) is a dualizing complex. q.e.d.
+
+\begin{proposition}
+Let \(X\) be a locally noetherian prescheme, let \(R^{\cdot} \in D_{c}^{+}(X)_{\text{fid}}\) be a dualizing complex, and let \(D\) be the functor \(\RHom^{\cdot}(\cdot, R^{\cdot})\). Then
+\begin{enumerate}
+\item[a).] A complex \(G^{\cdot} \in D_{c}^{b}(X)\) has finite Tor-dimension if and only if \(D(G^{\cdot})\) has finite injective dimension.
+\item[b).] There is a functorial isomorphism
+\[
+D\left(\RHom^{\cdot}\left(F^{\cdot}, G^{\cdot}\right)\right) \stackrel{\sim}{\to} F^{\cdot} \stackrel{\mathbf{L}}{\otimes} D\left(G^{\cdot}\right)
+\]
+for \(F^{\cdot} \in D_{c}^{-}(X)\) and \(G^{\cdot} \in D^{+}(X)_{\text{fid}}\), or for \(F^{\cdot} \in D_{c}(X)\) and \(G^{\cdot} \in D^{+}(X)\).
+\end{enumerate}
+
+\setcounter{page}{264}
+\item[c).] There is a functorial isomorphism
+\[
+D\left(F^{\cdot} \stackrel{\mathbf{L}}{\otimes} G^{\cdot}\right) \stackrel{\sim}{\to} \RHom^{\cdot}\left(F^{\cdot}, D\left(G^{\cdot}\right)\right)
+\]
+for \(F^{\cdot}\) and \(G^{\cdot} \in D_{c}^{-}(X)\), or for \(F^{\cdot} \in D_{c}(X)\) and \(G^{\cdot} \in D_{c}^{b}(X)_{\text{fid}}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The natural map of sheaves
+\[
+F \otimes \Hom(G, R) \to \Hom(\Hom(F, G), R)
+\]
+gives rise to a morphism of functors on the derived category,
+\[
+F^{\cdot} \stackrel{\mathbf{L}}{\otimes} \RHom^{\cdot}\left(G^{\cdot}, R^{\cdot}\right)
+\to \RHom^{\cdot}\left(\RHom^{\cdot}\left(F^{\cdot}, G^{\cdot}\right), R^{\cdot}\right),
+\]
+provided either 1) \(F^{\cdot} \in D^{-}(X)\), \(G^{\cdot} \in D^{+}(X)\) and \(R^{\cdot} \in D^{+}(X)_{\text{fid}}\) or 2) \(F^{\cdot} \in D(X)\), \(G^{\cdot}, R^{\cdot} \in D^{+}(X)\), and \(\RHom^{\cdot}(G^{\cdot},R^{\cdot}) \in D^{b}(X)_{\text{fid}}\).
+
+\setcounter{page}{265}
+If under the set of conditions 1), we assume furthermore that \(F^{\cdot} \in D_{c}^{-}(X)\), then by [I.7.1], the morphism is an isomorphism. Indeed, we reduce to the case \(F=\sheaf{O}_{X}\), which is trivial. Taking the inverse isomorphism gives b) under the first set of hypotheses. As a corollary, we see that if \(G^{\cdot} \in D^{+}(X)\) has finite injective dimension, then \(D(G^{\cdot})\) has finite Tor-dimension. Indeed, by the Remark following [II 4.2] it is enough to show that there is an integer \(n_{0}\) such that \(\underline{Tor}_{i}(F, G^{*})=0\) for all \(i>n_{0}\) and all coherent sheaves \(F\) on \(X\), and this follows from b). Now if \(G^{\cdot} \in D^{+}(X)_{\text{fid}}\), so by 2) and [I.7.1] b) under the second set of hypotheses.
+
+For statement c), let \(F^{\cdot}\), \(G^{\cdot} \in D_{c}^{-}(X)\), apply b) to \(F^{\cdot}\) and \(D(G^{\cdot})\), and apply \(D\) to the resulting isomorphism. Then since \(D^{2}=\id\) on \(D_{c}(X)\), we have the required isomorphism under the first set of conditions. As a corollary we deduce (using [II 7.20 (iii)c]) that if \(G^{\cdot} \in D_{c}^{b}(X)\) has finite Tor-dimension, then \(D(G^{\cdot})\) has finite injective dimension. This gives the other half of a), and applying \(D\) to the second half of b) gives the second half of c). q.e.d.
+\end{proof}
+
+\end{document}

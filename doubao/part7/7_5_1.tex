@@ -1,0 +1,102 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+% Standard operators
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+
+\begin{document}
+
+\setcounter{page}{335}
+\section{Trace for Residual Complexes.}
+
+In this section we define the trace map for residual complexes. For a morphism \(f: X \to Y\) (with the conventions of the previous section) it is a map of graded sheaves
+\[Tr_{f}: f_{*} f^{\Delta} K^{*} \to K^{*}\]
+where \(K^{*}\) is a residual complex on \(Y\). It will be a morphism of complexes only if \(f\) is proper (see the Residue Theorem in the next chapter, which generalizes the classical theorem that the sum of the residues of a differential on a curve is zero).
+
+First we define the trace map for a finite morphism, by carrying over the map of [III.6.5] to residual complexes. Let \(f: X \to Y\) be a finite morphism. We will denote by \(f'\) the functor
+\[f^{*} Hom_{\sheaf{O}_{Y}}\left(f_{*} \sheaf{O}_{X}, \cdot\right)\]
+so that \(f^{b}=\mathbf{R} f'\).
+
+\setcounter{page}{336}
+\begin{lemma}
+Let \(f: X \to Y\) be a finite morphism, and let \(K^{*}\) be a residual complex on \(Y\). Then \(f'(K^{*})\) is a residual complex on \(X\), and \(f_{*} f'(K^{*})\) is a Cousin complex
+on \(Y\), with respect to the filtration \(Z^{*}\) associated with \(Q(K^{*})\) (cf. [IV B3]).
+\end{lemma}
+
+\begin{proof}
+It is clear that \(f'\) takes quasi-coherent injectives on \(Y\) to quasi-coherent injectives on \(X\), and it is also clear that \(f'(K^{*})\) has coherent cohomology, so we have only to check that it is isomorphic to a sum of sheaves of the form \(J(x)\). Indeed, it will be sufficient to show, for each \(y \in Y\), that
+\[f'(J(y)) \cong \sum_{x \to y}\]
+Letting \(A\) be the local ring of \(y\), and \(B\) the semilocal ring of the points \(x\) lying over \(y\), we have a local homomorphism \(A \to B\) where \(B\) is a finite \(A\)-module. If \(k\) is the residue field of \(A\), and \(I\) is an injective hull of \(k\) over \(A\), we must show that \(J=\Hom_{A}(B, I)\) is isomorphic to \(\sum_{i=1}^{r} I_{i}\) where \(k_{1},\dots,k_{r}\) are the residue fields of \(B\) and \(I_{i}\) is an injective hull of \(k_{i}\) over \(B\).
+
+For any \(B\)-module of finite type \(M\), we have
+\[\Hom_{B}(M, J)=\Hom_{B}\left(M, \Hom_{A}(B, I)\right) \cong \Hom_{A}(M, I) .\]
+
+\setcounter{page}{337}
+Now \(J\) is injective, and has support at the closed points of \(\Spec B\). Hence it is a direct sum of some number of copies of the injectives \(I_{i}\). To find out how many, we have only to calculate
+\[\Hom_{B}\left(k_{i}, J\right) \cong \Hom_{A}\left(k_{i}, I\right) \cong k_{i},\]
+which is true since \(k_{i}\) is an \(A\)-module of finite length, and \(I\) is dualizing. Hence each \(I_{i}\) occurs Just once.
+
+Now \(f_{*} f'(K^{*})\) is a direct sum, for each \(y \in Y\), of
+\[\sum_{x \to y} f_{*} J(x)\]
+which is a constant sheaf spread out on \(\overline{\{y\}}\), and which occurs in degree \(p=d(y)\), where \(d\) is the associated codimension function. Hence \(f_{*} f'(K^{*})\) is a Cousin complex with respect to the filtration \(Z^{*}\). q.e.d.
+
+Now we are in a position to define the trace map for the finite morphism \(f\), which we will call \(\rho_{f}\) to avoid confusion:
+\[\rho_{f}: f_{*} f^{Y}\left(K^{*}\right) \to K^{*} .\]
+
+\setcounter{page}{338}
+Let \(K^{*}\) be a residual complex on \(Y\).
+Since \(f'\left(K^{*}\right)\) is an injective complex, the natural map
+\[\xi_{f}: Q f'\left(K^{\cdot}\right) \to f^{b} Q\left(K^{\cdot}\right)\]
+is an isomorphism in \(D^{+}(X)\) [I.5.1]. Hence also
+\[E \xi_{f'}: f'\left(K^{*}\right)=E Q f'\left(K^{*}\right) \to E f^{b} Q\left(K^{*}\right)=f^{Y}\left(K^{*}\right)\]
+(recall for any Cousin complex \(EQ \cong 1\)).
+
+Consider the map
+\[f_{*} f'\left(K^{*}\right) \stackrel{\xi_{f_{*}}}{\to} \mathbf{R} f_{*} Q f'\left(K^{*}\right) \stackrel{\xi_{f'}}{\to} \mathbf{R} f_{*} f^{b} Q\left(K^{*}\right) \stackrel{Tr f_{f}}{\to} Q\left(K^{*}\right),\]
+where the last map, \(Trf_{f}\), is the trace of [III 6.5]. By the lemma above, \(f_{*} f'(K^{*})\) is a Cousin complex with respect to the filtration \(Z^{*}\), and \(K^{*}\) is an injective Cousin complex, so by [III 3.2], this map in the derived category is represented by a unique map of complexes
+\[f_{*} f'\left(K^{*}\right) \to K^{*}\]
+
+Composing with the inverse of the isomorphism \(E \xi_{f}\),
+
+\setcounter{page}{339}
+we obtain the desired map
+\[\rho_{f}: f_{*} f^{Y}\left(K^{*}\right) \to K^{*} .\]
+
+If \(f: X \to Y\), and \(g: Y \to Z\) are two finite morphisms, then there is a commutative diagram
+\[(g f)_{*}(g f)^{Y} \stackrel{\rho_{g f}}{\to} 1\]
+which follows from [III 6.6] and the functoriality of the above construction.
+
+Remark. We have given the above definition in some detail to establish its relation with the trace map defined for the derived category in Chapter III. One could of course define \(\rho_{f}\) much more quickly by the usual "evaluation at one" map, without passing to the derived category, but we need the functorial properties below.
+
+Theorem 4.2. As above, we work in the category of locally noetherian preschemes, and morphisms of finite type
+
+\setcounter{page}{340}
+such that the dimension of the fibres is bounded. There exists a unique theory of trace, consisting of the data a) below, subject to the conditions TRA 1 and TRA 2.
+
+a) For each morphism \(f: X \to Y\), a morphism
+\[Tr_{f}: f_{*} f^{\Delta} \to 1\]
+of functors from \(Res(Y)\) to the category of graded sheaves of \(\sheaf{Y}\)-modules (where 1 denotes the forgetful functor: consider a residual complex \(K_{Y}\) simply as a graded module).
+
+TRA 1). If f and g are two consecutive morphisms of finite type, then there is a commutative diagram
+\[(g f)_{*}(g f)^{\Delta} \stackrel{Tr_{g f}}{\to} 1\]
+
+TRA 2). If \(f\) is a finite morphism, then \(Tr_{f}\) is the one we already know, i.e., \(Tr_{f}=\rho_{f} \psi_{f}\).
+
+\setcounter{page}{341}
+\begin{lemma}
+Let \(f: X \to Y\) be a morphism of finite type, let \(x \in X\) be a point which is closed in its fibre, and let \(Z\) be the closure of \(x\) in \(X\), with the reduced induced structure. Then there is an open neighborhood \(V\) of \(y=f(x)\) such that \(Z \cap f^{-1}(V)\) is finite over \(V\).
+\end{lemma}
+
+\begin{proof}
+Replacing \(X\) by \(Z\) and \(Y\) by \(f(Z)\) with the reduced induced structure, we reduce to the case where \(X\) and \(Y\) are integral schemes, \(x\) is the generic point of \(X\), and \(f\) is dominant. Since furthermore the question is local on \(X\) and \(Y\), we may assume that \(X\) and \(Y\) are affine, and thus we reduce to the following statement in algebra:
+
+Let \(A \to B\) be an inclusion of integral domains, with \(B\) a finitely generated \(A\)-algebra. Let \(K\) be the quotient field of \(A\), and assume that \(B \otimes_{A} K\) is a finite extension field of \(K\). Then there exists an element \(f \neq0\) in \(A\) such that \(B \otimes_{A} A_{f}\) is a finite \(A_{f}\)-module.
+
+To prove this statement, let \(b_{1}, \cdots, b_{n}\) be a finite set of elements in \(B\) such that
+
+\end{document}

@@ -1,0 +1,178 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\begin{document}
+
+\setcounter{page}{349}
+\section{5. Behavior with respect to certain base changes.}
+
+In this section we show that the functor \(f^{\Delta}\) and the morphism \(Tr_{f}\) are compatible with certain base changes which take residual complexes into residual complexes.
+
+Definition. A morphism \(f: X \to Y\) of locally noetherian
+preschemes is residually if
+a) \(f\) is flat
+b) \(f\) is integral [EGA II 6.1.1], and
+c) the fibres of \(f\) are Gorenstein preschemes
+
+Examples.
+i. An open immersion is residually stable.
+2. A composition of residually stable morphisms is residually stable (use [V 9.6]).
+3. If \(X\) and \(Y\) are the spectra of fields \(k \subseteq K\), then \(f\)
+is residually stable if and only if \(K\) is algebraic over \(k\).
+4. If \(f: X \to Y\) is residually stable, then every point \(x \in X\) is closed in its fibre, since \(f\) is integral. Thus the fibres are zero-dimensional Gorenstein preschemes.
+
+\setcounter{page}{350}
+\begin{proposition}
+If \(f: X \to Y\) is a residually stable morphism, and if \(u: Y' \to Y\)
+is a morphism of finite type, then \(g: X' = X \times_{Y} Y' \to Y'\)
+is also residually stable.
+\end{proposition}
+
+\begin{proof}
+Clearly \(g\) is flat and integral. To show that the fibres of \(g\) are Gorenstein, let \(y' \in Y'\),
+let \(y=u(y')\), and consider the map of fibres \(v: X'_{y'} \to X_{y}\).
+Now \(X_{y}\) is Gorenstein since \(f\) is residually stable.
+The fibres of \(v\) are tensor products of fields, one of which is finitely generated (namely \(k(y') / k(y)\)), hence Gorenstein [V 9.5]. Hence \(X'_{y'}\) is Gorenstein [V 9.6].
+\end{proof}
+
+\begin{lemma}
+Let \(A\) be a noetherian local ring, and let \(I\) be an \(A\)-module. Then \(I\) is an injective hull of the residue field \(k\) of \(A\) if and only
+a) \(I\) has support at the closed point of \(\Spec A\),
+b) \(\Hom_{A}(k, I) \cong k\),
+c) There is a sequence of ideals \(\alpha_{1} \supseteq \alpha_{2} \supseteq \cdots\) of \(A\) which form a base for the \(\mathfrak{m}\)-adic topology, such that for all \(n\),
+\[
+\operatorname{length}\left(A / \alpha_{n}\right)
+= \operatorname{length}\left(\Hom_{A}\left(A / \alpha_{n}, I\right)\right).
+\]
+\end{lemma}
+
+\setcounter{page}{351}
+\begin{proof}
+If \(I\) is an injective hull of \(k\), then a),b),c) are immediate, since \(\Hom_{A}(\cdot, I)\) is a dualizing functor for
+modules of finite length. In fact, c) holds for any ideal which is primary for \(\mathfrak{m}\).
+
+Conversely, let \(I\) be an \(A\)-module satisfying a),b),c), and let \(J\) be an injective hull of \(k\).
+By b), we can find an injection \(k \subseteq I\), and since \(J\) is injective, the natural map \(k \to J\) extends to a map \(\psi: I \to J\).
+I claim \(\psi\) is injective. Indeed, given \(y \in I\), \(y \neq0\), we have \(\mathfrak{m}^{n} y=0\) for sufficiently large \(n\).
+Let \(n\) be the least such integer. Then there is an \(x \in \mathfrak{m}^{n-1}\) such that \(xy \neq0\), but \(\mathfrak{m}(xy)=0\), so \(xy \in k\).
+Hence \(\psi(xy) \neq0\), and \(\psi(xy)=x\cdot\psi(y)\), so \(\psi(y)\neq0\), and \(\psi\) is injective.
+
+Now choose a sequence of ideals as in c). Then we note that
+\[
+\psi\left(\Hom\left(A / \alpha_{n}, I\right)\right) \subseteq \Hom\left(A / \alpha_{n}, J\right),
+\]
+and both have the same length, namely the length of \(A / \alpha_{n}\).
+Therefore they are equal. But \(I\) and \(J\) are the union of the submodules of elements annihilated by \(\alpha_{n}\), so we see that \(\psi\) is also surjective.
+Thus \(I\) is isomorphic to \(J\), and so is an injective hull of \(k\).
+\end{proof}
+
+\setcounter{page}{352}
+\begin{proposition}
+Let \(f: X \to Y\) be a residually stable morphism, and let \(K^{\cdot}\) be a residual complex on \(Y\). Then \(f^{*}(K^{\cdot})\) is a residual complex on \(X\).
+\end{proposition}
+
+\begin{proof}
+Clearly \(f^{*}(K^{\cdot})\) is a complex of quasi-coherent sheaves with coherent cohomology. We have only to check that there is an isomorphism
+\[
+\sum_{p} f^{*}\left(K^{p}\right) \cong \sum_{x \in X} J(x) .
+\]
+
+Thus we reduce to the following local statement: For each \(x \in X\), let \(y=f(x)\),
+let \(A=\sheaf{O}_{y}\) be the local ring of \(Y\),
+let \(B=\sheaf{O}_{x}\) be the local ring of \(X\),
+let \(I\) be an injective hull of \(k=k(y)\) over \(A\),
+then \(I\otimes_{A} B\) is an injective hull of \(k'=k(x)\) over \(B\).
+
+We apply the criteria of the lemma above.
+Since \(I\) is an injective hull of \(k\) over \(A\), we have
+a) \(I\) has support at the closed point of \(\Spec A\)
+\[
+b) \Hom_{A}(k, I) \cong k
+\]
+c) For each \(n\), where \(\mathfrak{m}\) is the maximal ideal of \(A\),
+\[
+\operatorname{length}\left(A / \mathfrak{m}^{n}\right)
+= \operatorname{length}\left(\Hom_{A}\left(A / \mathfrak{m}^{n}, I\right)\right).
+\]
+
+\setcounter{page}{353}
+Now since \(x\) is closed in its fibre, \(I\otimes_{A}\) has support at the closed point of \(\Spec B\).
+Since \(B\) is flat over \(A\), we have
+\[
+\Hom_{B}\left(B / \mathfrak{m} B, I \otimes_{A} B\right) \cong B / \mathfrak{m} B .
+\]
+Therefore
+\[
+\Hom_{B}\left(k', I \otimes_{A} B\right) \cong \Hom_{B}\left(k', B / \mathfrak{m} B\right) \cong k',
+\]
+since \(B/\mathfrak{m}B\) is an Artinian Gorenstein ring.
+Finally note for each \(n\),
+\[
+\operatorname{length}\left(B / \mathfrak{m}^{n} B\right)
+= \operatorname{length}\left(\Hom_{B}\left(B / \mathfrak{m}^{n} B, I \otimes_{A} B\right)\right).
+\]
+
+Thus the conditions of the lemma are fulfilled, and \(I \otimes_{A} B\) is an injective hull of \(k'\) over \(B\).
+\end{proposition}
+
+\begin{proposition}
+Let \(Y\) be the spectrum of a local Artin ring \(A\).
+Then one can find a residually stable morphism \(u: Y' \to Y\)
+where \(Y'\) is the spectrum of a local Artin ring \(A'\) with algebraically closed residue field.
+\end{proposition}
+
+\begin{proof}
+By [EGA O777 10.3.1] one can find a local Artin ring \(A'\) and a local homomorphism \(A \to A'\) such that \(A'\) is flat over \(A\), \(\mathfrak{m}A'=\mathfrak{m}'\), and \(k' =\) the algebraic closure of \(k\).
+Then \(Y'=\Spec A'\) will do.
+Indeed, \(Y'\) is flat over \(Y\). It is integral since it is Artinian, and its residue field is algebraic over that of \(Y\).
+The only fibre is a field, which is Gorenstein.
+\end{proof}
+
+\setcounter{page}{354}
+Now we come to the behavior of \(f^{\Delta}\) and \(Tr_{f}\) under residually stable base change.
+Let \(f: X \to Y\) be a morphism of finite type, and let \(u: Y' \to Y\) be a residually morphism.
+Let \(X'=X \times_{Y} Y'\), and let \(u',f'\) be as shown.
+
+If \(f\) is a finite morphism, there is a natural isomorphism
+\[
+f'^{Y} u^{*} \to u'^{*} f^{Y} \tag{V}
+\]
+derived from [III 6.3].
+
+On the other hand if \(f\) smooth, an isomorphism
+\[
+f'^{Z} u^{*} \to u'^{*} f^{Z} \tag{VI}
+\]
+derived from [III 2.1].
+
+\begin{theorem}
+For every morphism \(f: X \to Y\) of finite type, and every residually stable morphism \(u: Y' \to Y\) (using the notations above) there is an isomorphism
+\[
+d_{u,f}: f'^{\Delta} u^{*} \to u'^{*} f^{\Delta}
+\]
+such that
+
+\setcounter{page}{355}
+1)If \(v: Y'' \to Y'\) is another residually stable morphism, then \(d_{uv,f}=d_{u,f}d_{v,f}\)
+
+2) If \(f,g\) are two consecutive morphisms of finite type, then the isomorphisms \(d_{u,f}\) are compatible with \(c_{f,g}\)
+
+3) If \(f\) is a finite morphism, then \(d_{u,f}\) compatible with \(\psi_{f}\) via (V)
+
+4) If \(f\) is a smooth morphism, then \(d_{u,f}\) compatible with \(\varphi_{f}\) via (VI).
+\end{theorem}
+
+Suggestion of Proof. Show first that V and VI are compatible with the isomorphisms I,II,III and IV of \S2.
+Define \(d_{u,f}\) for \(f\) finite or smooth using 3) and 4). Then define \(d_{u,f}\) for arbitrary \(f\) and check its properties, following the construction of \(f^{\Delta}\) given in \S3.
+
+\begin{theorem}
+Let \(u\) and \(f\) be as in the previous theorem. Then there is a commutative diagram
+\end{theorem}
+
+\setcounter{page}{356}
+Proof. Show first that the analogous diagram of \(f^{Y}\) is valid for finite morphisms. Then follow the construction of \(Tr_{f}\) to show that it is true in general.
+
+\end{document}

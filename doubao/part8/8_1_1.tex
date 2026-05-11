@@ -1,0 +1,149 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+% Standard operators
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\length}{length}
+
+\begin{document}
+
+\setcounter{page}{357}
+\chapter{VII, THE DUALITY THEOREM}
+
+\section{Curves over an Artin ring.}
+
+In this section we will make explicit the residual complex on a curve over the spectrum of an Artin ring, and we will identify the trace map of [VI] with the "classical" residue of a differential.
+line over an Artin ring with algebraically closed residue field, we will prove that the sum of the residues is zero, This special case will be used in the following section to prove the general residue theorem for a proper morphism of locally noetherian preschemes, which in turn implies that the sum of the residues is zero on any proper curve.
+
+Throughout this section we will let \(Y\) be the spectrum of a local Artin ring \(A\) with residue field \(k\), and we let \(X\) be a smooth curve over \(Y\) (i.e., a connected irreducible A closed point \(x \in X\) is rational over \(Y\) if its residue field \(k(x)\) is \(k\).
+In that case one can find a local parameter \(t \in \sheaf{O}_{x}\) with the following properties:
+
+\setcounter{page}{358}
+\[
+(0)\quad \sheaf{O}_{x} / t \cong A.
+\]
+\[
+(1)\quad t \in \mathfrak{m}_{x}-\mathfrak{m}_{x}^{2}
+\]
+\[
+(2)\quad t \text{ is a non-zero-divisor in } \sheaf{O}_{x}
+\]
+\[
+(3)\quad \sheaf{O}_{x} / t^{n} \text{ is a free } A\text{-module with basis } 1, t, \dots, t^{n-1}
+\]
+\((4)\) The total quotient ring \(K\) of \(\sheaf{O}_{x}\) is generated as an \(\sheaf{O}_{x}\)-module by \(1, t^{-1}, t^{-2}, \dots\)
+
+\begin{proposition}
+Let \(f: X \to Y\) be as above.
+Let \(I\) be an injective hull of \(k\) over \(A\), so that \(\tilde{I}\) is a residual complex on \(Y\).
+
+a). \(f^{z}(\tilde{I})\) is the complex
+\[
+i_{\eta}\left(I \otimes_{A} \omega_{\eta}^{-1}\right) \to \bigoplus_{x \in X} i_{x}\left(H_{x}^{1}\left(I \otimes_{A} \omega_{x}\right)\right)
+\]
+where \(\omega=\Omega_{X/Y}^{1}\) is the sheaf of relative 1-differentials, \(\eta\) is the generic point of \(X\), \(i_{\eta}\), \(i_{x}\) is the notation of [II 7], meaning the given module spread out as a constant sheaf, and \(H_{x}^{1}\) is a local cohomology group [IV 1].
+
+\setcounter{page}{359}
+b). \(f^{z}(\tilde{I})\) is an injective resolution of \(f^{*}(\tilde{I}) \otimes \omega[1]\).
+
+c).If \(x \in X\) is a point rational over \(Y\), then
+\[
+H_{x}^{1}\left(I \otimes_{A} \omega_{x}\right) \cong I \otimes_{A} \omega_{x} \otimes K / \sheaf{O}_{x}
+\]
+where \(K\) is the total quotient ring of \(\sheaf{O}_{x}\) (which is equal \(\sheaf{O}_{\eta}\) at the generic point, hence independent to the stalk x).
+\end{proposition}
+
+\begin{proof}
+a). follows directly from the definition of \(f^{z}\) [VI 82], using [IV 83] and [IV.I.F].
+
+b). follows from [V 8.3],[V.7.3], and [IV.3.1].
+
+c). Suppose that \(x\) is rational over \(Y\), and let \(t\) be a local parameter.
+Then by [V.4.1] we can calculate the local cohomology as
+\[
+H_{x}^{1}\left(I \otimes_{A} \omega_{x}\right)=\varinjlim_{n} \Ext_{\sheaf{O}_{x}}^{1}\left(\sheaf{O}_{x} / t^{n}, I \otimes_{A} \omega_{x}\right) .
+\]
+But \(t\) is a non-zero-divisor in \(\sheaf{O}_{x}\) so we can calculate the Ext with the resolution
+\[
+0 \to \sheaf{O}_{x} \stackrel{t^{n}}{\to} \sheaf{O}_{x} \to \sheaf{O}_{x} / t^{n} \to 0,
+\]
+and find that
+\[
+\Ext_{\sheaf{O}_{x}}^{1}\left(\sheaf{O}_{x} / t^{n}, I \otimes_{A} \omega_{x}\right) \cong I \otimes_{A} \omega_{x} / t^{n}\left(I \otimes_{A} \omega_{x}\right) .
+\]
+
+\setcounter{page}{360}
+The map in the direct system is multiplication by \(t\), and so we have
+\[
+H_{x}^{1}\left(I \otimes_{A} \omega_{x}\right) \cong I \otimes_{A} \omega_{x} \otimes K / \sheaf{O}_{x} .
+\]
+\[
+\varinjlim_{n} \sheaf{O}_{x} / t^{n} \cong K / \sheaf{O}_{x} ,
+\]
+\end{proof}
+
+Now let \(Z\) be a closed subscheme of \(X\), concentrated at a closed point \(x_{0} \in X\), rational over \(Y\).
+Then we can write \(Z=\Spec B\), with \(B\) a local Artin ring, finite over \(A\).
+Let \(I\) be an injective hull of \(k\) over \(A\) as above, and take \(\tilde{I}\) to be a residual complex on \(Y\).
+We propose to calculate explicitly the residue isomorphism (IV) of [VI 82] between \(i^{Y} f^{z}(\tilde{I})\) and \(g^{Y}(\tilde{I})\).
+Since \(Z\) is an affine scheme, we will use modules, instead of sheaves, for convenience.
+Using the results above, we have
+\[
+\Gamma\left(g^{Y}(\tilde{I})\right)=\Hom_{A}(B, I)
+\]
+
+\setcounter{page}{361}
+\[
+\Gamma\left(i^{y} f^{z}(\tilde{I})\right)=\Hom_{\sheaf{O}}\left(B, I \otimes_{A} \omega_{x_{0}} \otimes K / \sheaf{O}\right)
+\]
+With \(Z\) point \(x_{0}\) there are no homomorphisms of \(\sheaf{O}_{Z}\) into \(i_{\eta}(I \otimes_{A} \omega_{\eta})\) or into \(i_{x}(H_{x}^{1}(I \otimes_{A} \omega_{x}))\) for \(x \neq x_{0}\).
+Let \(b_{0} \in \mathfrak{m}_{B}\) under the structural morphism \(\sheaf{O} \to B\) Finally, note that \(\omega_{x_{0}}\) is a free \(\sheaf{O}\)-module with basis \(dt\), so we can represent elements of \(I \otimes_{A} \omega_{x_{0}} \otimes K / \sheaf{O}\) as
+\[
+\sum_{i<0} a_{i} t^{i} dt
+\]
+with \(a_{i} \in I\).
+
+\begin{lemma}
+If
+\[
+\varphi \in \Hom_{A}(B, I)
+\]
+and
+\[
+\psi \in \Hom_{\sheaf{O}}\left(B, I \otimes \omega_{x} \otimes K / \sheaf{O}\right)
+\]
+correspond under the residue isomorphism, then for each \(b \in B\),
+\[
+\psi(b)=\sum_{r=0}^{\infty} \varphi\left(b b_{0}^{r}\right) t^{-r-1} dt
+\]
+and \(\varphi(b) =\) coefficient of \(t^{-1} dt\) in \(\psi(b)\).
+(Note that the sum in the first expression is finite since \(b_{0}\) is nilpotent)
+
+\setcounter{page}{362}
+\end{lemma}
+
+Proof. Left as a good exercise in definition-chasing to the reader.
+
+\begin{proposition}
+With the above notations, the trace
+map of [VI]
+\[
+Tr_{f}: f_{*} f^{\Delta}(\tilde{I}) \to \tilde{I}
+\]
+is zero on \(f_{*} i_{\eta}(I \otimes_{A} \omega_{\eta})\) and for each closed point \(x \in X\), rational over \(Y\), its restriction to the stalk at \(x\) is given as follows: let \(t \in \sheaf{O}_{x}\) be a local parameter, and write \(u \in I \otimes_{A} \omega_{x} \otimes K / \sheaf{O}_{x}\)
+\[
+u=\sum_{i<0} a_{i} t^{i} dt
+\]
+with \(a_{i} \in I\) Then \(\Gamma(Tr_{f,x})(u)=a_{-1}\).
+\end{proposition}
+
+Proof. Must choose a closed subscheme \(i: Z \to X\), finite over \(Y\), such that \(u \in \Gamma(i^{Y} f^{z}(\tilde{I}))\).
+To apply the definition of the trace map, we
+Given \(u\) as above, suppose
+
+\end{document}

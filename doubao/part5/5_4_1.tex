@@ -1,0 +1,204 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+
+% Calligraphic for categories and sheaves
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+
+% Standard math operators
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Rfst}{\mathbf{R}f_*}
+\DeclareMathOperator{\Lfst}{\mathbf{L}f_*}
+\DeclareMathOperator{\RHom}{\mathbf{R}\mathcal{H}\textit{om}}
+
+\begin{document}
+
+\setcounter{page}{266}
+\section{The Uniqueness of the Dualizing Complex.}
+
+\begin{theorem}
+Let \(X\) be a connected, locally noetherian prescheme, and let \(R^{\bullet}\) be a dualizing complex on \(X\).
+Let \(R'^{\bullet} \in D_{C}^{+}(X)\) be any other complex.
+Then \(R'^{\bullet}\) is a dualizing complex if and only if there exists an invertible sheaf \(L\) on \(X\), and an integer \(n\), such that
+\[
+R'^{\bullet} \cong R^{\bullet} \otimes L[n] .
+\]
+Furthermore, \(L\) and \(n\) are determined uniquely to within isomorphism.
+\end{theorem}
+
+\begin{proof}
+1) Observe that such an \(R'^{\bullet}\) is a dualizing complex. Indeed, we may assume that \(R^{\bullet}\) is a bounded complex of quasicoherent injectives. Then \(R^{\bullet} \otimes L[n]\) is also a bounded complex of injectives, since the property of being injective is local [II 7.16], and \(L\) is locally free. \(R'\) is dualizing by Corollary 2.3.
+
+2) Observe that \(L\) and \(n\) are uniquely determined by the identity
+\[
+L[n] \cong \RHom^{\cdot}(R^{\cdot}, R'^{\cdot}) .
+\]
+
+\setcounter{page}{267}
+3) Now we show that existence of \(L\) and \(n\), assuming that \(R'\) is a dualizing complex.
+Let \(D\) and \(D'\) be the dualizing functors corresponding to \(R^{\bullet}\) and \(R'^{\bullet}\).
+Define
+\[
+L^{\cdot}=D' D(\sheaf{X})=\RHom^{\cdot}(R^{\cdot}, R'^{\cdot}) .
+\]
+We will prove that \(L^{\cdot}\) is isomorphic, in \(D^{+}(X)\), to a complex of the form \(L[n]\), where \(L\) is an invertible sheaf, and that
+\[
+R'^{\cdot} \cong R^{\cdot} \otimes L^{\cdot}.
+\]
+\end{proof}
+
+\begin{lemma}
+There is a natural functorial isomorphism, for all \(M^{\cdot} \in D_{C}^{-}(X)\),
+\[
+M^{\cdot} \otimes L^{\cdot} \stackrel{\sim}{\to} D' D\left(M^{\cdot}\right) .
+\]
+(Note that this tensor product makes sense since \(L^{\cdot} \in D_{C}^{-}(X)\), cf. [II ~].)
+\end{lemma}
+
+\begin{proof}
+AS in Lemma 1.2 above, one defines a functorial homomorphism
+\[
+M^{*} \otimes \RHom^{\cdot}\left(R^{*}, R'^{\cdot}\right)
+\to \RHom^{\cdot}\left(\RHom^{\cdot}\left(M^{*}, R^{*}\right), R'^{\cdot}\right) .
+\]
+Since it is an isomorphism for \(M^{\cdot}=\sheaf{X}\) by the lemma on way-out functors, it is an isomorphism for all \(M^{*} \in D_{C}^{-}(X)\).
+
+\setcounter{page}{268}
+We now define \(L'^{\cdot}=DD'(\sheaf{X})\), and use the lemma to deduce that
+\[
+L^{\cdot} \otimes L'^{\cdot}=D' D\left(L'^{\cdot}\right)=D' D D'\left(\sheaf{X}\right)=\sheaf{X} .
+\]
+\end{proof}
+
+\begin{lemma}
+Let \(X\) be a connected locally noetherian prescheme, and let \(L^{\cdot}, L'^{\cdot} \in D_{C}^{-}(X)\) be such that
+\[
+L^{\cdot} \otimes L'^{\cdot} \cong \sheaf{X}.
+\]
+Then \(L^{\cdot}=L[n]\) for some invertible sheaf \(L\), and \(L'^{\cdot}=L^{\vee}[-n]\).
+\end{lemma}
+
+\begin{proof}
+Since \(X\) is connected, we reduce immediately to the case where \(X\) is the spectrum of a local noetherian ring \(A\), and we wish to show that \(L^{\cdot}=\sheaf{X}[n]\).
+Let \(p\) be the largest integer such that \(H^{p}(L^{\cdot}) \ne 0\), and let \(q\) be the largest integer such that \(H^{q}(L'^{\cdot}) \ne 0\).
+Then one sees easily that \(p+q\) is the largest integer for which \(H^{n}(L^{\cdot} \otimes L'^{\cdot}) \ne 0\), and
+\[
+H^{p+q}(L^{\cdot} \otimes L'^{\cdot})
+=H^{p}(L^{\cdot}) \otimes H^{q}(L'^{\cdot}) .
+\]
+Therefore \(p+q=0\), and
+\[
+H^{p}(L^{\cdot}) \otimes H^{q}(L'^{\cdot})=\sheaf{X}.
+\]
+It follows, by a simple lemma on modules of finite type over a local noetherian ring [cf. EGA, Ch. O, 5.4.3],
+that \(H^{p}(L^{\cdot}) \cong H^{q}(L'^{\cdot}) \cong \sheaf{X}\).
+Now since \(\sheaf{X}\) is locally free, one shows that \(L^{\cdot}=L_{i} \oplus \sheaf{X}[-p]\),
+where \(L_{i}\) has cohomology only in dimensions \(< p\).
+Similarly, \(L'^{\cdot}=L_{1}' \oplus \sheaf{X}[p]\).
+
+\setcounter{page}{269}
+Thus from
+\[
+L^{\cdot} \otimes L'^{\cdot} \cong \sheaf{X}
+\]
+we deduce
+\[
+L_{i}[p] \oplus L_{1}'[-p] \oplus\left(L_{1}^{\cdot} \otimes L_{1}'^{\cdot}\right)=0
+\]
+from which it follows that \(L_{i}\) and \(L_{1}'\) are \(0\) in \(D_{c}^{-}(X)\), so that \(L^{\cdot} \cong \sheaf{X}[-p]\),
+and \(L'^{\cdot} \cong \sheaf{X}[p]\), as required.
+\end{lemma}
+
+This proves the lemma, so we have only to show that
+\[
+R'^{\cdot}=R^{\cdot} \otimes L^{\cdot}.
+\]
+Indeed, \(R^{\cdot} \in D_{c}^{b}(X)\), so applying Lemma 3.2,
+\[
+R^{*} \otimes L^{*}=D' D\left(R^{*}\right)=D'\left(\sheaf{X}\right)=R'^{\cdot} \quad q.e.d.
+\]
+
+We now give an application of the uniqueness theorem.
+
+\begin{proposition}
+Let \(A\) be a noetherian local ring with residue field \(k\), and let \(R^{\cdot} \in D_{C}^{+}(A)\).
+Then \(R^{\cdot}\) is dualizing if and only if there is an integer \(d\) such that
+\[
+Ext^{i}\left(k, R^{\cdot}\right)=
+\begin{cases}
+0 & i \neq d \\
+k & i=d .
+\end{cases}
+\]
+(Here we write \(D^{+}(A)\) for the derived category of the category of \(A\)-modules.
+The subscript \(c\) denotes complexes whose cohomology modules are of finite type.
+We carry over the definitions and results of the previous sections to this case.
+(Cf. [II.7.19] which ensures that we will not get into trouble.))
+\end{proposition}
+
+\begin{proof}
+First suppose that \(R^{\cdot}\) is dualizing, and let \(j : \operatorname{Spec}k \to \operatorname{Spec}A\) be the inclusion.
+Then by Proposition 2.4,
+
+\setcounter{page}{270}
+\[
+j^{b}\left(R^{\cdot}\right)=\RHom^{\cdot}\left(k, R^{\cdot}\right)
+\]
+is a dualizing complex on \(k\).
+But \(k\) itself is a dualizing complex on \(k\), so by the Uniqueness Theorem above,
+\(j^{b}(R^{\cdot}) \cong k[-d]\) for some \(d\). This \(d\) will do.
+
+For the converse, it is clear that \(k\) is reflexive, so by Proposition 2.5 we have only to show that \(R^{\cdot}\) has finite inJective dimension.
+Indeed, we will show by induction on \(r=\dim M\), for any \(A\)-module \(M\) of finite type, that
+\[
+Ext^{i}\left(M, R^{\cdot}\right)=0 \text{ for } i \notin[d-r, d].
+\]
+Indeed, for \(\dim M=0\), \(M\) is of finite length, and our statement follows from the case \(M=k\) by induction on the length of \(M\).
+
+For \(\dim M=r>0\), we induct as in the proof of Proposition 2.5.
+First we may assume that \(\mathfrak{m} \notin \operatorname{Ass}M\), where \(\mathfrak{m}\) is the maximal ideal of \(A\).
+Then choosing \(t \in \mathfrak{m}\) with \(t\) a non-zerodivisor in \(M\), we have
+\[
+0 \to M \stackrel{t}{\to} M \to M / tM \to 0 .
+\]
+Then for \(i \notin[d-r+1, d]\) we have \(Ext^{i}(M / t M, R^{*})=0\),
+hence for \(i \notin[d-r,d]\) we have from the long exact sequence of Ext's,
+\[
+Ext^{i}\left(M, R^{\cdot}\right) \stackrel{t}{\to} Ext^{i}\left(M, R^{\cdot}\right) \to 0 .
+\]
+It follows by Nakayama's lemma that \(Ext^{i}(M, R^{\cdot})=0\). q.e.d.
+\end{proof}
+
+\setcounter{page}{271}
+\begin{corollary}
+Let \(A\) be a noetherian local ring, and \(R^{*} \in D_{C}^{+}(A)\).
+Then \(R^{*}\) is dualizing on \(A\) if and only \(R \otimes_{A} \hat{A}\) is dualizing on the completion \(\hat{A}\) of \(A\).
+\end{corollary}
+
+\begin{proof}
+clearly
+\[
+R^{\cdot} \otimes_{A} \hat{A} \in D_{C}^{+}(\hat{A}) .
+\]
+Furthermore,
+\[
+Ext_{\hat{A}}^{i}\left(k, R^{\cdot} \otimes_{A} \hat{A}\right)
+=Ext_{A}^{i}\left(k, R^{\cdot}\right) \otimes_{A} \hat{A}
+\]
+for all \(i\). Thus the "only if" implication is clear.
+For the "if" implication, note that the functor \(\otimes_{A} \hat{A}\) is faithfully flat,
+so if \(M\) is a non-zero \(A\)-module, then \(M \otimes_{A} \hat{A}\) is non-zero.
+Furthermore, if \(M\) is an \(A\)-module, such that \(M \otimes_{A} \hat{A} \cong k\), then \(M \cong k\).
+(Indeed, map \(M\) to \(k\) via the natural map \(M \to M \otimes_{A} \hat{A}\).
+This map becomes an isomorphism upon tensoring with \(\hat{A}\), hence was an isomorphism).
+The result thus follows from the proposition.
+\end{corollary}
+
+\end{document}

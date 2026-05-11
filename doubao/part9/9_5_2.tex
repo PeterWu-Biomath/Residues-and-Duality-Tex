@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\begin{document}
+
+$f / S$
+Les flèches horizontales sont des immersions ouvertes et les obliques sont propres.
+Tout morphisme compaotifiable est séparé de type fini, et Nagata affirme que sa démonstration prouve la réciproque pour les schémas noethériens intègres, mais les hypotheses qu'il fait sur la base ne sont pas olaires.
+
+On se propose, pour tout $f$ compactifiable, de définir $Rf_{!}: \mathrm{proD}_{\mathrm{coh}}^{b}(X) \to \mathrm{proD}_{\mathrm{coh}}^{b}(S)$.
+Rappelons que la catégorie $\mathrm{D}_{\mathrm{coh}}^{b}(S)$, catégorie dérivée bornée de la catégorie des faisceaux cobrents sur $S$, est sous-catégorie pleine de la catégorie dérivée de tous les faisceaux, l'image essentielle formée des complexes à cohomologie cohérente et bornée.
+
+Si $f$ est propre, on dispose de $Rf_{*}: \mathrm{D}_{\mathrm{coh}}^{b}(X) \to \mathrm{D}_{\mathrm{coh}}^{b}(S)$ de dimension finie, qui induit $Rf_{!}: \mathrm{proD}_{\mathrm{coh}}^{b}(X) \to \mathrm{proD}_{\mathrm{coh}}^{b}(S)$.
+Si $f$ est une immersion ouverte, $f_{!}$ induit $\mathrm{D}^{b}(\mathrm{coh}\text{ sur }X) \to \mathrm{D}^{b}(\mathrm{coh}\text{ sur }S)$, et cette flèche se prolonge en $Rf_{!}$.
+
+Pour un composé $f=gh$ ($g$ propre, $h$ immersion ouverte) on prend $Rf_{!}=Rg_{!}Rh_{!}$.
+Ii faut vérifier l'indépendance de la compactifioation.
+
+Considérons un diagramme commutatif, on se ramène à supposer $X$ dense dans $X'$, pour être dans les conditions de la proposition 5.
+Soit $K$ un complexe coh@rent born@ sur $X$, prolongé en $\overline{K}$ sur $X'$.
+On a une flèche
+\[g_{*} \overline{K} \to Rg_{*} \overline{K}\]
+La prop. 5 montre que cette suite spectrale dégénère, et il résulte de la prop. 3 que la flèche déduite est un isomorphisme, d'où la formule voulue.
+
+Ii reste à vérifier
+\[=R \overline{f}_{*} R g h_{!}=R f_{*} R j''_{!}\]
+
+Comme deux compaotifiactions peuvent toujours être coiffées par une troisième, ceci suffit à prouver l'indépendance de l'arbitraire.
+
+b) pour tout couple compactifiable, une identification
+\[Rfg_{!}=R f_{!} Rg_{!}\]
+
+c) pour tout triple compactifiable, une compatibilité
+
+On aurait alors prouv@
+Théorème 1. Pour $f: X \to Y$ compactifiable, posons $\mathrm{Hom}_{f}(K,L)=\mathrm{Hom}_{Y}(Rf_{!}K,L)$.
+Modulo des questions de compactificabilit@, on fair ainsi des catégories $\mathrm{proD}_{\mathrm{coh}}^{b}(X)$ cofibrées sur les préschémas noethériens.
+
+\section{4. Définition de $Rf^{!}$}
+Il résulte d'un tapis g6n@ral de Verdier que le foncteur $Rf_{*}: D(X) \to D(S)$ a un adjoint à droite $D^{+}(S) \to D^{+}(X)$; il ne mérite un nom, soit $Rf^{!}$, que pour $f$ propre.
+
+Ii faut tout d'abord expliciter un procédé de calcul de $Rf_{*}$ au niveau des complexes, du type $R f_{*} K=f_{*} C^{*}(K)$ où $C^{*}$ est une résolution acyclique finie dépendante de façon fonctorielle, exacte, et compatible avec les limites induotives filtrantes.
+A ce moment, pour tout injectif $I$ sur $S$, $\mathrm{Hom}(f_{*} C^{p},I)$ est exact en quasi-coh@rent sur $X$, et transforme lim en lim, donc est représentable par $f_{p}^{!} I$, injectif quasi-coh@rent.
+Les $f_{p}^{!}$ forment un complexe, ce qui définit $Rf^{!}: D^{+}(S) \to D^{+}X$.
+
+Voici comment définir une telle résolution :
+1) Si $S$ est séparé : on prend un recouvrement fini de $X$ par ouverts affines et $R f_{*} K=f_{*} \check{C}(u,K)$
+2) Sinon : les résolutions flasques canoniques ont deux défauts: a) $f_{*} C^{*}$ n'est plus quasi-cob@rent ;
+b) $C^{*}$ ne commute pas aux limites inductives filtran- tes.
+Ii est facile de corriger ce défaut : on représente quasi-coh@rent comme $F=\varinjlim F_i$ et on pose $C^{*}F=\varinjlim C^{*}F_i$.
+Cela ne dépend pas de l'arbitraire.
+
+Pour une immersion ouverte, on prend $R f^{!}=f^{*}$.
+Pour un morphisme composé $f=gh$, on prend $Rf^{!}=Rg^{!}Rh^{!}$.
+Mettant bout à bout, on trouve
+
+Théorème 2. Les foncteurs $Rf_{!}: \mathrm{proD}_{\mathrm{coh}}^{b}(X) \to \mathrm{proD}_{\mathrm{coh}}^{b}(S)$ et $Rf^{!}: D^{+}(S) \to D^{+}(X)$ sont adjoints l'un de l'autre.
+
+Il faudrait vérifier l'indépendance de la compactification et un sorite de compatibilités.
+Des cas particuliers résultent de la formule d'adjonction.
+
+Proposition 6. Soit $f: X \to S$ compactifiable, la fibre en $x \in X$ de $H^{p}Rf^{!}L$ est donn@e par
+\[\left(\mathscr{H}^{P} R f^{l} L\right)_{x}=\varinjlim_{x\in U} \mathrm{Hom}_{S}^{p}\left(R f_{!}(U, \mathscr{O}_{U}), L\right)\]
+
+On peut supposer $X$ propre et $L$ complexe de faisceaux injectifs quasi-coh@rents.
+
+On supposera admis pour $Rf_{!}$ un formalisme analogue.
+
+Si on veut rendre plus explicite la définition de $Rf^{!}$ dans le cas propre.
+
+\section{5. Calcul de $Rf^{!}$}
+Pour un morphisme fini, $Rf^{!}$ est ce qu'on veut ; pour l'espace projectif, l'unicité d'un adjoint ne laisse pas le choix.
+Pour une immersion ouverte, $R f^{!}=R f^{*}$.
+Pour tout ouvert quasi-projectif on peut calculer $Rf^{!}$ localement.
+Rappelons un cas important.
+
+Proposition 7. Soit $f: X \to Y$ compactifiable. Supposons $f$ localement intersection complète de dimension relative $d$, soit $d=d'-d''$.
+
+Alors $Rf^{!}$ est réduit à un seul faisceau de cohomologie situé en degré $-d$.
+Pour passer aux complexes généraux, il faudrait des formules du type
+\[Rf^{!}(K \stackrel{L}{\otimes} L)=Rf^{!}K \stackrel{L}{\otimes} f^{*}L\]
+Seule la définition pose un problème.
+
+1ère méthode : dualité
+2ème méthode. On suppose $f$ compactifiable, plat et localement d'intersection complate relative. On a alors $Rf^{!}\mathscr{O}=\omega[d]$.
+On définit
+\[\mathrm{Hom}_{S}\left(R^{d} f_{!} J, I\right)=\mathrm{Hom}_{\overline{X}}\left(f, I_{1}\right) \quad \text{et} \quad R f^{!} I=I_{1}[d]\]
+
+BIBLIOGRAPHIE
+[I] J.L. VERDIER Séminaire Bourbaki, Novembre 65, exposé 300.
+[2] M. NAGATA Imbedding of an abstract variety in a complete variety. Journal of Math. of Kyoto University, vol. 2 n~ 1962.
+
+\end{document}

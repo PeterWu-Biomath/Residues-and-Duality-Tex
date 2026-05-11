@@ -1,0 +1,136 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+% Standard operators
+\DeclareMathOperator{\Spec}{Spec}
+
+\begin{document}
+
+\setcounter{page}{304}
+\section{Residual Complexes.}
+
+Throughout this section, \(X\) will denote a locally noetherian prescheme. If \(x\) is a point of \(X\), and if \(I\) is an injective hull of \(k(x)\) over the local ring \(\sheaf{O}_{x}\), we will denote by \(J(x)\) the quasi-coherent \(\sheaf{O}_{X}\)-module, which is the constant sheaf \(I\) on \(\overline{\{x\}}\), and 0 elsewhere (notation of [II B7]).
+
+\textbf{Definition.} A residual complex on \(X\) is a complex \(K^{\cdot}\) of quasi-coherent injective \(\sheaf{O}_{X}\)-modules, bounded below, with coherent cohomology sheaves, and such that there is an isomorphism
+\[
+\sum_{p \in \mathbb{Z}} K^{p} \cong \sum_{x \in X} J(x)
+\]
+
+\textbf{Example.} If \(X\) is a regular prescheme, then the Cousin complex for the structure sheaf \(\sheaf{O}_{X}\) is a residual complex for \(X\) (see example at end of [IV]).
+
+\begin{proposition}
+a) If \(K^{\cdot}\) is a residual complex on \(X\), then its image \(Q(K^{\cdot}) \in D_{c}^{+}(X)\) is a pointwise dualizing complex.
+
+b) If \(R^{\cdot} \in D_{c}^{+}(X)\) is a pointwise dualizing complex on \(X\), then \(E(R^{\cdot})\) is a residual complex on \(X\). (Here \(E\) is the notation of [IV 3], with respect to the filtration \(Z^{\cdot}\) associated with \(R^{\cdot}\)
+
+\setcounter{page}{305}
+(cf. [V] Remark 5].)
+
+c) If \(X\) admits a residual complex (or pointwise dualizing complex) with bounded cohomology, then there is a functorial isomorphism
+\[
+\varphi: R^{\cdot} \to QE\left(R^{\cdot}\right)
+\]
+for pointwise dualizing complexes. Hence the functor
+\[
+E: \operatorname{Ptwdual}(X) \to \operatorname{Res}(X)
+\]
+is an equivalence of the category of pointwise dualizing complexes of \(D_{c}^{+}(X)\) and the category of residual complexes (and morphisms of complexes). Its inverse is \(Q\).
+\end{proposition}
+
+\begin{proof}
+a) The question is local, so we may assume \(X=\Spec A\), where \(A\) is a noetherian local ring. By [V.3.4] we have only to check that there is an integer \(d\) such that
+\[
+Ext^{i}\left(k, K^{\cdot}\right)=
+\begin{cases}
+0 & \text{for } i \neq d \\
+k & \text{for } i=d
+\end{cases}
+\]
+where \(k\) is the residue field of \(A\). Since \(k=k(x_{0})\), where \(x_{0}\) is the closed point of \(X\), we have
+\[
+\Hom \left(k, J\left(x_{0}\right)\right)=k
+\]
+\[
+\Hom (k, J(x))=0 \text{ for } x \neq x_{0}.
+\]
+
+\setcounter{page}{306}
+The result now follows from the definition of a residual complex.
+
+b) By the pointwise convergence of the spectral sequence [IV.I.G] we see that \(H^{i}(R^{\cdot})=H^{i}(E(R^{\cdot}))\) for all \(i\), and hence \(E(R^{\cdot})\) is a complex which is bounded below and has coherent cohomology. By [IV.I.F] the question of whether it is a residual complex is local, so we may assume \(X\) is the spectrum of a local ring, in which case our result is [V].
+
+c) This follows from [V, Remark 5] and [IV.3.].
+\end{proof}
+
+\textbf{Remarks.}
+1. In particular, if \(X\) admits a dualizing complex (and hence has finite Krull dimension), the functor
+\[
+E: \operatorname{Dual}(X) \to \operatorname{Res}(X)
+\]
+is an equivalence of categories, with inverse \(Q\).
+
+2. I expect that the statement c) is false without the boundedness assumption. That is, there may be two non-isomorphic pointwise dualizing complexes \(R^{\cdot}\) and \(R'^{\cdot}\) such that \(E(R^{\cdot})=E(R'^{\cdot})\). In particular, there may not be a uniqueness theorem similar to [V.3.1] for pointwise dualizing complexes.
+
+3. It follows from the proposition that \(X\) admits a residual complex if and only if it admits a pointwise dualizing complex, so the remarks of [V] apply.
+
+\setcounter{page}{307}
+\textbf{Exercise.} Show that there is a uniqueness theorem analogous to [V.3.1] for residual complexes, i.e., two residual complexes can differ only by shifting degrees and tensoring with an invertible sheaf. The touchy point is to show that if \(K^{\cdot}\), \(K'^{\cdot}\) are residual complexes, then \(\Hom^{\cdot}(K^{\cdot}, K'^{\cdot})\) is a complex with coherent cohomology:
+
+We now give two technical results which will be used in the following sections.
+
+\begin{lemma}
+Let \(K^{\cdot}\) and \(K'^{\cdot}\) be residual complexes on \(X\). Then to give an isomorphism \(\psi: K^{\cdot} \to K'^{\cdot}\) is equivalent to giving, for each \(x \in X\), an isomorphism
+\[
+\forall x: Q\left(K_{x}^{\cdot}\right) \to Q\left(K_{x}'\right)
+\]
+in \(D_{c}^{+}(\Spec \sheaf{O}_{x})\), such that whenever \(x \to y\) is a specialization, is obtained from \(y\) by localization.
+\end{lemma}
+
+\begin{proof}
+Clearly gives rise to a system \((t_{x})\) as described. Conversely, given the isomorphisms \(v_{x}\) we first note that by c ) of the Proposition above, unique isomorphism \(S_x\) comes from a
+
+\setcounter{page}{308}
+\[
+\psi_{x}: k_{x}^{*} \to k_{x}'
+\]
+of the actual residual complexes, and these compatible with localization. And since the codimension functions \(d\) and \(d'\) associated to \(K^{\cdot}\) and \(K'^{\cdot}\) are the same. And since for \(x \neq y\) there are no non-zero maps of \(J(x)\) into \(J(y)\)), our system of isomorphisms \(\bar{t}_{x}\) gives rise to, and is determined by, a collection of isomorphisms
+\[
+\varphi_{x}: I(x) \to I'(x)
+\]
+for each \(x \in X\), where \(I(x)\) (resp. \(I'(x)\)) is the (unique) isomorphic to \(J(x)\) subsheaf of \(K^{\cdot}\) (resp. \(K'^{\cdot}\)) for an immediate specialization \(x \to y\), \(\varphi_{x}\) and \(\varphi_{y}\) compatible with the boundary maps of the complexes \(K^{\cdot}\) and \(K'^{\cdot}\). But to give such a collection of isomorphisms \((\varphi_{x})\) to give an isomorphism \(\psi: K^{\cdot} \to K'^{\cdot}\), so we are done.
+\end{proof}
+
+\begin{lemma}[Glueing Lemma]
+Let \((U_{\nu})\) be an open cover of \(X\), and let \(K_{\nu}^{\cdot}\) be a residual complex on \(U_{\nu}\), for each \(\nu\). Suppose furthermore that for each pair of indices \(\mu,\nu\) we are given an isomorphism
+
+\setcounter{page}{309}
+\[
+a_{\mu \nu}: K_{\nu}^{*} \to K_{\mu}^{*}
+\]
+of the restrictions of these complexes to \(U_{\mu \nu}=U_{\mu} \cap U_{\nu}\) such
+\[
+a_{\mu \nu} a_{\nu \lambda} a_{\lambda \mu}=1
+\]
+on \(U_{\mu \nu \lambda}\). Suppose finally that the lower bound of the complexes \(K_{\nu}^{*}\) can be chosen uniformly for all \(\nu\). Then there exists a unique residual complex \(K^{\cdot}\) on \(X\), together with isomorphisms
+\[
+\beta_{\nu}:\left.K^{\cdot}\right|_{U_{\nu}} \to K_{\nu}^{*}
+\]
+for each \(\nu\), which are compatible with \(a_{\mu \nu}\) on \(U_{\mu \nu}\).
+\end{lemma}
+
+\begin{proof}
+This is the usual situation for glueing, so it is clear that we can glue the complexes \(K_{\nu}^{*}\) into a global complex \(K^{\cdot}\) on \(X\), which is bounded below. It is also clear that \(K^{\cdot}\) is a complex of quasi-coherent injective \(\sheaf{O}_{X}\)-modules [II.7.16], and has coherent cohomology. Finally since the \(J(x)\) are constant sheaves on irreducible subsets of \(X\), we can glue together local isomorphisms to obtain a global isomorphism
+\[
+\sum_{p \in \mathbb{Z}} K^{p} \cong \sum_{x \in X} J(x)
+\]
+
+\setcounter{page}{310}
+Hence \(K^{\cdot}\) is a residual complex.
+\end{proof}
+
+\textbf{Remark.} This lemma has the interesting consequence that one can glue dualizing complexes given locally in \(D_{c}^{+}(U_{\nu})\) into a global dualizing complex in \(D_{c}^{+}(X)\), whereas one cannot glue arbitrary objects of the derived category given locally (cf. remarks at end of [III]).
+
+\end{document}

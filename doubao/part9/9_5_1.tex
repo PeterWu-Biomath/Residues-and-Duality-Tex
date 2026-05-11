@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\begin{document}
+
+APPENDIX : COHOMOLOGIE A SUPPORT PROPRE ET CONSTRUCTION DU FONCTEUR
+par P. DELIGNE
+
+(1) Verdier a montré que dans le cadre topologique, le formalisme de la dualité de Poincaré me ramenait à des probl~mes locaux en haut (voir [I]). Pour transpomer ma construction au cadre schématique, il faut disposer d'une théorie de la cohomologie "à support propre" pour les faisceaux cohérents.
+
+Sauf mention explicite du contraire, tous les préschémas considèrent sont noethériens et les faisceaux quasi-cohérents.
+
+\section{I. Le sorite des pro-objets}
+Proposition I. Soit C une U-catégorie (2) oú existent limites inductives finies. Soit h un foncteur $C \to (\text{ens})$. Les conditions suivantes sont équivalentes :
+(i) h est limite inductive, solon un petit (3) ensemble ordonné filtrant, de foncteurs représentables.
+(ii) h est limite inductive, selon une petite catégorie filtrante, de foncteurs représentables.
+(iii) h transforme lim finies en lim un petit ensemble d'obets telique tout élément d'un factorise par l'un d'eux.
+
+Les implications viales et $(i) \Rightarrow (ii) \Rightarrow (iii)$ sont tristandard. Reste à prouver que (ii) $\Rightarrow$ (i).
+Si $\mathcal{L},\mathcal{M}$ sont deux catégories filtrantes, un foncteur $F: \mathcal{L} \to \mathcal{N}$ est dit cofinal si $\varinjlim_{\mathcal{L}} F(L)$ est le foncteur final. Pour tout $G: \mathcal{L} \to \mathcal{N}$ on a $\varinjlim G = \varinjlim F$.
+
+Pour toute petite catégorie filtrante, il existe un foncteur cofinal d'un petit ensemble ordonnant dans $\checkmark$.
+La première projection $L \times N \to L$ est un foncteur cofinal (N muni de l'ordre naturel); ceci permet de se
+
+(3) "petit" = " $\in U$".
+ramener a supposer que $\mathrm{Ob}\,\alpha$, préordonné par $\mathrm{Hom}(x,Y) \neq\emptyset$, n'a pas de plus grand élément.
+On ordonne par inclusion l'ensemble E des sous-catégories finies de $\ell$ ayant un seul objet final (fini signifie d'ensemble de flèches fini).
+On définit un foncteur de E dans $\alpha$ en associant à chacune de oes cat@gories son objet final.
+Sous les hypotheses faites, E est filtrant et ce foncteur cofinal.
+
+Les foncteurs v@rifiant les conditions 6quivalentes de la proposition I sont les Ind-objets de C une sous-catégorie pleine de $\mathrm{Hom}(C,(\mathrm{Ens}))$, stable par limite inductive.
+$C \to \mathrm{Ind}\,C$ est un foncteur.
+Si les limites inductives filtrantes existent dans C, pour tout $h\in\mathrm{Ind}$, le foncteur $X \mapsto \mathrm{Hom}(h,h_X)$ est corepresentable, d'où un foncteur, noté $\varprojlim$, de $\mathrm{Ind}\,C$ dans C.
+En particulier, on a toujours un foncteur $\mathrm{Ind}\to\mathrm{Ind}\,C$, et tout foncteur $C\to\mathrm{Ind}$ se prolonge en un foncteur $\mathrm{Ind}\,C\to\mathrm{Ind}\,C$.
+Dans Ind C, les limites inductives sont exactes, et seront notées $\varinjlim$, identifiant C à une sous-catégorie pleine; en particulier, si $(x_i)_{i\in I}$ est un syst~me inductif filtrant dans C
+\[
+\varinjlim_{i} x_{i}
+\]
+
+Ce qui pr@c~de, sauf la prop. I (iii) et l'assertion pr@c@dente reste vrai en utilisant partout des limites de suites.
+On définit par dualiti@ la cat@gorie pro C des pro-objets (sous-cat@gorie pleine de $\mathrm{Hom}(C,(\mathrm{Ens}))$
+
+Proposition 2. Soit $X$ un préschéma quasi-compact quasi-séparé. La catégorie des faisceaux quasi-coh@rents sur $X$ est équivalente à la catégorie des Ind-objets de la catégorie des faisceaux de présentation finie sur $X$
+la flèche est "lin $F_i \mapsto \varinjlim_i$".
+si $F$ est de p.f., pour tout syst~me inductif filtrant, $\mathrm{Hom}(F,\varinjlim g_i)$ (par un recollement fini qui commute $\varinjlim$, on se ramène au cas affine).
+Le foncteur pr@c@dent est donc pleinement fiddle. Son image est stable par limites inductives et sommes finies.
+Ii suffit de prouver que pour tout $x \in X$, tout faisceau sur $X$, il existe $F$ de p.f. et une flèche de $F$ dans $G$ d@ns l'image.
+sera limite d'images de faisceaux de p.f. et chacune d'elles quotient d'un faisceau de type fini.
+
+Soit sur un voisimage quasi-compact $U$ une flèche $f: \mathscr{C} \to \mathscr{F}$, $\tau$ de p.f., s dans l'image.
+Ii suffit de prolonger $\tau$ et $f$ sur $X$, ce qui revient k effectuer un prolongement de $U$
+
+Lemme. Soit $\mathscr{C}$ un faisceau de p.f. sur un ouvert quasi-compact $U$, $\mathscr{F}$ un faisceau sur $X$, et $f$ une flèche de $\mathscr{C}$ dans $F$.
+Il est possible d prolonger $\tau$ ot $f$ sur $X$, définis sur $X$.
+
+Soit $\iota:U\hookrightarrow X$ l'inclusion, et $\sigma_1$ le produit fibré de $\iota_*\mathscr{C}$ et $\mathscr{F}$.
+$\mathscr{C}_1$ prolonge $\mathscr{C}$, et s'envoie dans $\mathscr{F}$.
+Si on représente comme limite de ses sous-faisceaux de type fini, comme $U$ est quasi-compact et $\mathscr{C}$ de p.f., l'un d'eux prolonge $\tau$.
+Cor I. Pour qu'un foncteur contravariant additif soit représentable, il faut et suffit Qu'il soit exact à gauche et transforme lim filtrante en lim filtrante.
+Cor 2. Tout faisceau de p.f. se prolonge en un faisceau de p.f.
+
+\end{document}

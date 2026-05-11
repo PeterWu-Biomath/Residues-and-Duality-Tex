@@ -1,0 +1,131 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\begin{document}
+
+\setcounter{page}{326}
+which is of finite type over \(V\).
+Then \(U\) admits a closed immersion \(i\) into an affine space \(\mathbb{A}_{V}^{n}\) for suitable \(n\).
+Let \(P=\mathbb{A}_{V}^{n}\), let \(p: P \to Y\) be the natural projection, let \(f^{a}=i^{y} p^{z}\), and \(\gamma_{i,p}=id\).
+This gives a chart on \(U\) which is a neighborhood of the given point \(x\).
+
+If \(f^{a}\) is a chart on an open set \(U\), and if \(U' \subseteq U\) is a smaller open set, we define the notion of a restriction of the chart to \(U'\), as follows: let \(P' \subseteq P\) be an open set whose intersection with \(i(U)\) is \(i(U')\).
+Then we take \(f^{a}|_{U'}\), \(i|_{U'}\), \(P'\), \(\gamma_{i,p}|_{U'}\), as the restriction of the chart.
+Note that a restriction of permissible isomorphisms is permissible.
+
+For each pair of indices \(\mu,\nu\) choose restrictions of the charts on \(U_{\nu}\) and \(U_{\mu}\) to \(U_{\mu\nu}=U_{\nu}\cap U_{\mu}\), and let \(\alpha_{\mu\nu}\) be the unique permissible isomorphism between them.
+One sees immediately that the isomorphism of functors
+
+\setcounter{page}{327}
+\[\alpha_{\mu\nu}: f^{\nu} \to f^{\mu}\]
+thus defined on \(U_{\mu\nu}\) is independent of the restrictions of the charts chosen.
+Furthermore it follows from the lemmas that on a triple intersection \(U_{\mu\nu\lambda}\) these isomorphisms are compatible:
+\[\alpha_{\mu\nu}\alpha_{\nu\lambda}\alpha_{\lambda\mu}=id .\]
+
+Thus, since we are dealing with functors on residual complexes, we can use Lemma 1.3, and glue the functors \(f^{\nu}\) via the isomorphisms \(\alpha_{\mu\nu}\) to obtain a functor
+\[f^{\Delta}: Res(Y) \to Res(X)\]
+(together with isomorphisms \(\beta_{\nu}:f^{\Delta}|_{U_{\nu}} \to f^{\nu}\) compatible with \(\alpha_{\mu\nu}\)) which is the one we want.
+
+b) Construction of the isomorphisms \(c_{f,g}\).
+Let \(f: X \to Y\) and \(g: Y \to Z\) be morphisms.
+It will be sufficient to construct \(c_{f,g}\) locally, chart by chart, and show that it is compatible with the permissible isomorphisms of change of chart.
+For then we can glue.
+Thus we may assume that \(f\) and \(g\) are embeddable in smooth morphisms, and we may even assume that \(X\) is embeddable in an affine space over \(Y\), since that
+
+\setcounter{page}{328}
+so that we have a commutative diagram as shown, with \(i,j,k\) closed immersions, \(p,q,r\) smooth, and the upper right square Cartesian.
+Define \(c_{f,g}\) as follows:
+\[c_{f,g}:(g f)^{a} \stackrel{\gamma_{ji,rq}}{\to}(j i)^{y}(r q)^{z} \stackrel{I,\Pi}{\to} i^{y} j^{y} q^{z} r^{z} \leftarrow \Pi_{i} y_{p} z_{k} y_{r} z \stackrel{\gamma_{i,p}\gamma_{k,r}}{\leftarrow} f^{b} g^{c} .\]
+
+Now we must show that \(c_{f,g}\) is compatible with the permissible isomorphisms of change of chart.
+It is sufficient to vary one at a time.
+Furthermore, if \(k': Y \to Q\) is another chart for \(g\), by considering \(k''=k\times k': Y \to P \times_{Z} Q\), we reduce to the case where \(Q\) dominates \(P\).
+So we have a diagram such as the one shown, and we must show that the two \(c_{f,g}\) are compatible, i.e., that the following diagram is commutative:
+
+\setcounter{page}{329}
+\[f^{a} \stackrel{\gamma_{i,p}}{\to} i^{y} p^{z} \stackrel{IV}{\to} k^{y}(p r)^{z} \stackrel{IV}{\to} k^{y}(q s)^{z} \leftarrow II \to x_{s}^{z} q^{z} \stackrel{II}{\to} k^{y} q^{z} \stackrel{II}{\to} k^{y} p^{z} \stackrel{II}{\to} l^{y}(r t)^{z}=l^{y}(q s)^{z}<\Pi l^{y}(s t)^{z}<\Pi l^{y}(s t)^{z}<\Pi l^{y}(s t)^{z}<\Pi l^{y}(s t)^{z}<\Pi l^{y}(s t)^{z}<\Pi l^{y}(s t)^{z}<\Pi l^{y}(s t)^{z} q^{z}<\mathbb{N}} j^{y} q^{z}<\stackrel{\gamma}{\to} \ell^{y} .\]
+
+One may verify this (~) using the definition of a permissible isomorphism, and the compatibilities ii, v, and vii above.
+
+Similarly we must consider a change of the chart on \(X\) to another, say \(i': X \to \mathbb{A}_{Y}^{m}\) and as before we may assume that \(i'\) dominates \(i\).
+This involves checking another analogous commutative diagram of isomorphisms, which we leave to the reader (!).
+
+c) Construction of the isomorphism \(\psi_{f}\) for a finite morphism \(f\).
+Let \(f: X \to Y\) be a finite morphism.
+As before, it will be sufficient to construct the isomorphism locally on charts, provided our definition is compatible with permissible isomorphisms of charts.
+So let \(i: X \to P\) be a chart for \(f\), and define
+
+\setcounter{page}{330}
+\[\psi_{f}: f^{a} \stackrel{\gamma_{i,p}}{\to} i^{y} p^{z} \stackrel{IV}{\leftarrow} f^{Y} .\]
+
+If \(j: X \to Q\) is another chart, one may assume as usual that \(j\) dominates \(i\), and one checks (~) using compatibility \((v)\) above that \(\psi_{f}\) is compatible.
+
+d) For a smooth morphism \(g: X \to Y\) we must construct the isomorphism \(\varphi_{g}\).
+Take \(g\) as its own chart, and take \(\varphi_{g}=\gamma\)
+There is no choice involved, hence nothing to check.
+
+Having constructed the data a) - d), we must verify the conditions VAR 1 - VAR 5.
+VAR 1). Given three morphisms f,g,h, we use a diagram such as the one shown to calculate \(c_{f,g}\), etc., on the charts.
+The diagram of the condition becomes a large diagram whose commutative one checks (:) using (iii) and (iv) above.
+
+VAR 2). If f and g are consecutive finite morphisms, one checks (~) that \(c_{f,g}\) is compatible with (I) via \(\psi_{f}\) and \(\psi_{g}\), by using (v) and (vi) above.
+
+\setcounter{page}{331}
+VAR 3). Trivial. One has only to observe that the isomorphism (III) is the identity if one side of the square is the identity.
+
+VAR 4) and VAR 5) follow (:) from the definitions and a few more commutative diagrams.
+
+This completes the proof of existence of the theory of variance, and we now show its uniqueness.
+For that purpose, suppose that \(\{f^{\Delta}, c_{f,g}^{\Delta}, \psi_{f}^{\Delta}, \varphi_{g}^{\Delta}\}\) and \(\{f^{x}, c_{g}^{x}, \psi_{f}^{x}, \varphi_{g}^{x}\}\)
+are two sets of data a)-d), each satisfying the conditions VAR 1 - VAR 5 (which we will call VAR \(1^{\Delta}\), VAR \(1^{x}\), etc.)
+We will construct an isomorphism \(\delta: f^{\Delta} \to f^{x}\), compatible with the data b)-d) and b')-d'), and we will observe that \(\delta\) is unique.
+
+Let \(f: X \to Y\) be a morphism of finite type, and choose locally an embedding \(i: X \to P\) into a scheme smooth over Y.
+Define \(\delta\) by
+
+\setcounter{page}{332}
+\[\delta: f^{\Delta} \stackrel{c_{i,p}^{\Delta}}{\to} i^{\Delta} p^{\Delta} \stackrel{\psi_{i}^{\Delta}, \varphi_{p}^{\Delta}}{\to} i^{y} p^{z} \stackrel{\psi_{i}^{x}, \varphi_{p}^{x}}{\to} i^{x} p^{x} \stackrel{c_{i,p}^{x}}{\to} f^{x} .\]
+
+(Note that in order to be compatible with \(c_{i,p}\), \(\psi_{i}\), \(\varphi_{p}\), we must choose \(\delta\) this way, which proves the uniqueness.)
+
+To see that \(\delta\) is independent of the embedding chosen, let \(j: X \to Q\) be another one.
+Replacing Q by \(P\times Q\) as usual we reduce to the case Q dominates P, and have a diagram such as the one shown.
+We must check that the perimeter of the following diagram is commutative:
+
+\setcounter{page}{333}
+Thus \(\delta\) is well-defined locally. Now cover \(X\) by open sets \(U_{\nu}\) for which this is possible, and glue together the local isomorphisms
+\[\delta_{\nu}:\left(f_{U_{\nu}}\right)^{\Delta} \stackrel{\sim}{\to}\left(f_{U_{\nu}}\right)^{x}\]
+where \(j_{\nu}: U_{\nu} \to X\) is the open immersion.
+Since \(j_{\nu}^{\Delta}\) is isomorphic via \(\varphi_{j_{\nu}}^{\Delta}\) with \(j_{\nu}^{z}\) which is the restriction, we can glue once we have checked (:) that the isomorphisms are compatible with restriction.
+Thus
+\[\delta: f^{\Delta} \to f^{x}\]
+is defined.
+
+Now we must check that \(\delta\) is compatible with the isomorphisms \(c_{f,g}\), \(\psi_{f}\), \(\varphi_{g}\).
+This can be done locally using VAR 1 - VAR 5, and we leave the details to the reader (~). q.e.d.
+
+\begin{proposition}
+Let \(f: X \to Y\) be a morphism (with the conventions above) and let \(K^{\cdot}\) be a residual complex on \(Y\).
+Let \(d\) denote the codimension function on \(X\) (resp. \(Y\)) associated with the pointwise dualizing complex \(f^{\Delta} K^{\cdot}\) (resp. \(K^{\cdot}\)).
+Then for each \(x \in X\), if \(y=f(x)\), we have
+\[d(x)=d(y)+\operatorname{tr.deg}k(x)/k(y) .\]
+\end{proposition}
+
+\setcounter{page}{334}
+Proof. The question is local, and compatible with composition of morphisms.
+Thus we reduce to the case \(f\) finite (trivial) or \(f\) smooth (which is [V 8.4]).
+
+\begin{corollary}
+Let \(f: X \to Y\) be a morphism (with the conventions above: \(f\) is of finite type, and the dimensions of its fibres are bounded).
+Then if \(Y\) admits a residual complex (resp. dualizing complex) so does \(X\).
+\end{corollary}
+
+Proof. The existence of a residual complex on \(X\), given one on \(Y\), follows from the theorem.
+If \(Y\) admits a dualizing complex \(R^{\cdot}\), then the associated codimension function \(d\) on \(Y\) is bounded.
+By the proposition, the codimension function associated to \(Q f^{\Delta} E(R^{\cdot})\) is also bounded.
+But \(Q f^{\Delta} E(R^{\cdot})\) is pointwise dualizing, hence dualizing (cf. proof of [V 8]).
+
+\end{document}

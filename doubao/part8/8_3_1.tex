@@ -1,0 +1,149 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\begin{document}
+
+\setcounter{374}
+\section{The duality theorem for proper morphisms.}
+
+In this section we prove the long-awaited duality theorem for a proper morphism
+\(f: X \to Y\) of locally noetherian preschemes.
+We will suppose the existence of a residual complex \(K^{\cdot}\) on \(Y\).
+Then \(K^{\cdot}\) and \(f^{\Delta} K^{\cdot}\) give rise to pointwise dualizing functors \(D_{Y}\) and \(D_{X}\) on \(Y\) and \(X\), respectively,
+and we express the duality theorem as
+\[D_{X}\left(F^{\cdot}\right) \stackrel{\sim}{\to} D_{Y}\left(\mathbf{R} f_{*} F^{\cdot}\right)\]
+for \(F^{\cdot} \in D_{qc}(X)\).
+
+Before proving the theorem, we must show that the trace \(Tr_{f}\) of [VI 4.2] agrees with \(Tr_f\) of [III 6.5]
+in the case of a finite or projective morphism.
+
+So let \(f: X \to Y\) be a finite morphism, and assume that
+\(Y\) is noetherian and has finite Krull dimension.
+Let \(K^{\cdot}\) be a residual complex on \(Y\).
+Then we construct an isomorphism
+\[\alpha_{f}: Q f_{*} f^{\Delta} K^{\cdot} \to \mathbf{R} f_{*} f^{b} Q K^{\cdot}\]
+as follows:
+
+\setcounter{page}{375}
+\[Q f_{*} f^{\Delta} K^{\cdot} \stackrel{\xi_{f_{*}}}{\to} \mathbf{R} f_{*} Q f^{\Delta} K^{\cdot}
+\stackrel{\psi_{f}}{\to} \mathbf{R} f_{*} f^{\nabla} K^{\cdot}\]
+where as usual, \(Q\) denotes the natural map from complexes to elements of the derived category;
+\(\xi_{f_{*}}\) is the isomorphism of [I.5.1];
+\(\psi_{f}\) is the isomorphism of [VI 3.1c];
+the map (I) is the definition of \(f^{Y}\) [VI],
+and (2) is the isomorphism of [VI 1.1c]
+(here is where we need the hypothesis that \(Y\) is noetherian of finite Krull dimension).
+
+\begin{proposition}
+Let \(f: X \to Y\) be a finite morphism, with \(Y\ noetherian of finite Krull dimension,
+and let \(K^{\cdot}\) be a residual complex on \(Y\).
+Then there is a commutative diagram
+where \(Tr_{f}\) is the trace of [VI 4.2] and \(Tr_f\) is the trace of [III 6.5].
+\end{proposition}
+
+\setcounter{page}{376}
+\begin{proof}
+Follows immediately from TRA 2 [VI 4.2] and the definition of \(\rho_{f}\) [VI 4].
+\end{proof}
+
+Now let \(Y\) be a noetherian prescheme of finite Krull dimension,
+and let \(f: X=\mathbb{P}_{Y}^{n} \to Y\) be the structural map of an \(n\)-dimensional projective space over \(Y\).
+Let \(K^{\cdot}\) be a residual complex on \(Y\).
+Then we define an isomorphism
+\[\beta_{f}: Q f_{*} f^{\Delta} K^{\cdot} \stackrel{\sim}{\to} \mathbf{R} f_{*} f^{*} Q K^{\cdot}\]
+similar to the map \(\alpha_{f}\) above, using \(\xi_{f_{*}}\),
+the map \(\varphi_{f}\) of [VI 3.1d], the definition of \(f^{z}\) [VI], and [VI 1.1c].
+
+\begin{proposition}
+Let \(Y\) be a noetherian prescheme of finite Krull dimension,
+let \(X=\mathbb{P}_{Y}^{n}\), let \(f: X \to Y\) be the projection,
+and let \(K^{\cdot}\) be a residual complex on \(Y\).
+Then there is a commutative diagram
+where \(Tr_{f}\) is the trace of [VI 4.2], and \(Trp_{f}\) is the trace of [III 6.3].
+\end{proposition}
+
+\setcounter{page}{377}
+\begin{proof}
+Choose a section \(s: Y \to X\) of \(f\), and consider the following diagram:
+where the notations have the sources indicated,
+and the second vertical arrow is obtained by sandwiching \(\alpha_{s}\)
+in the middle of the four isomorphisms which define \(\beta_{f}\).
+
+Now we make the following observations:
+i). The composition of the upper row is the identity on \(QK^{\cdot}\).
+This follows from TRA 1 [VI 4.2].
+
+2). The composition of the lower row is also the identity on \(QK^{\cdot}\).
+This is the statement of [III 10.1].
+
+3). The left-hand square is commutative. This follows from VAR 5 [VI 3.1] and the definition of the isomorphisms \(\alpha_{s}\), \(\beta_{f}\) and (IV) of [VI 3.2].
+
+\setcounter{page}{378}
+4). Proposition 3.1 above.
+
+5). \(c_{s,f}\) and \(Trp_{f}\) are isomorphisms by construction, hence \(Trf_{s}\) is an isomorphism.
+
+6). \(c_{s,f}\) is an isomorphism, hence \(Q Tr_{s}\) and \(Q Tr_{f}\) are isomorphisms.
+(Note incidentally we have used Theorem 2.1 above that \(Tr_{f}\) is a morphism of complexes,
+in order to consider \(Q Tr_{f}\) in the first place.)
+
+We conclude finally that the right-hand square is commutative.
+q.e.d.
+
+Now we come to the duality theorem itself.
+Let \(f: X \to Y\) be a proper morphism of noetherian preschemes of finite Krull dimension.
+Let \(K^{\cdot}\) be a residual complex on \(Y\).
+(Note that the existence of a residual complex imposes a slight restriction on the preschemes considered [VI 1.1] and [V].)
+We denote by \(D_{Y}\) (resp. \(\underline{D}_{Y}\)) the functor \(\mathbf{R}\Hom_{Y}^{\cdot}(\cdot, Q K^{\cdot})\),
+and by \(D_{X}\) (resp. \(\underline{D}_{X}\)) the functor \(\mathbf{R}\Hom_{X}^{\cdot}(\cdot, Q f^{\Delta} K^{\cdot})\).
+Then composing the morphism of [II.5.5] with \(\xi f_{*}\) and \(Q Tr_{f}\), we obtain the duality morphism
+
+\setcounter{page}{379}
+\[\theta_{f}: \mathbf{R} f_{*} \underline{D}_{X}\left(F^{\cdot}\right) \to \underline{D}_{Y}\left(\mathbf{R} f_{*} F^{\cdot}\right)\]
+for \(F^{\cdot} \in D^{-}(X)\).
+
+Applying the functor \(\mathbf{R}\Gamma(Y,\cdot)\) to both sides, and using [II 5.2] and [II 5.3] we obtain a global duality morphism
+\[\theta_{f}: D_{X}\left(F^{\cdot}\right) \to D_{Y}\left(\mathbf{R} f_{*} F^{\cdot}\right).\]
+
+Taking the cohomology of this, we get morphisms
+\[\theta_{f}^{i}: Ext_{X}^{i}\left(F^{\cdot}, Q f^{\Delta} K^{\cdot}\right) \to Ext_{Y}^{i}\left(\mathbf{R} f_{*} F^{\cdot}, Q K^{\cdot}\right).\]
+
+\begin{theorem}[Duality Theorem]
+Let \(f: X \to Y\) be a proper morphism of noetherian preschemes of finite Krull dimension,
+and let \(K^{\cdot}\) be a residual complex on \(Y\).
+Then the morphisms \(\underline{\theta}_{f}\), \(\theta_{f}\), and \(\theta_{f}^{i}\) defined above are isomorphisms
+for all \(F^{\cdot} \in D_{qc}^{-}(X)\).
+\end{theorem}
+
+(Note that the hypothesis of finite Krull dimension is needed only for the definition of \(\beta_{f}\) (cf. [II 5.5]).
+If we restrict to bounded complexes \(F^{\cdot} \in D_{qc}^{b}(X)\),
+we can state the theorem assuming only that \(X\) and \(Y\) are locally noetherian,
+and that the fibres of \(f\) are of bounded dimension. The proof is the same.)
+
+\setcounter{380}
+\begin{proof}
+We proceed in several steps, eventually using Chow's lemma to reduce to the case of projective space which we know already.
+
+a) Clearly it is sufficient to show that \(\underline{\theta}_{f}\) is an isomorphism.
+The question is local on \(Y\), so we may assume \(Y\) is the spectrum of a local ring.
+In particular, we may assume that \(Y\) is noetherian, affine, and of finite Krull dimension.
+Using the lemma on way-out functors, we reduce to the case of a single quasi-coherent sheaf \(F\) on \(X\).
+
+b) Any quasi-coherent sheaf is the direct limit of its coherent subsheaves.
+In particular, it is a quotient of a direct sum of coherent sheaves.
+Thus using the lemma on way-out functors again, we reduce to the case of a direct sum of coherent sheaves.
+Now since \(\mathbf{R}\Hom\) transforms direct sums in the first variable to direct products,
+we reduce to the case of a single coherent sheaf \(F\) on \(X\).
+
+c) Now since \(Y\) is affine, and all the sheaves considered are quasi-coherent,
+it is enough to show \(\theta_{f}\) is an isomorphism.
+
+d) If \(f: X \to Y\) and \(g: Y \to Z\) are two proper morphisms,
+and \(K_{Z}^{\cdot}\) a residual complex on \(Z\),
+and if we take \(K^{\cdot}=g^{\Delta} K_{Z}^{\cdot}\), then for any \(F^{\cdot} \in D_{c}^{-}(X)\) we have a commutative diagram
+\end{proof}
+
+\end{document}
