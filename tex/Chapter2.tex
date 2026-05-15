@@ -1,9 +1,942 @@
-
 \chapter{Application to Preschemes}
+
+In this chapter we will discuss the various categories of sheaves we plan to use in the sequel, their derived categories, various functors between them, and relations among these functors. In \S7 we give the structure of injective sheaves of $\sO_X$-modules on a locally noetherian prescheme $X$.
+
 \section{Categories of sheaves}
+
+Let $(X,\sO_X)$ be a prescheme. We will denote by $\operatorname{Mod}(X)$ the category of sheaves of $\sO_X$-modules, and we will denote its derived category by $\DD(X)=\DD(\operatorname{Mod}(X))$.
+
+We will consider the thick subcategories of $\operatorname{Mod}(X)$ consisting of the quasi-coherent sheaves, denoted by $\Qco(X)$, and the coherent sheaves, denoted by $\Coh(X)$. (Cf.\ [EGA~O, \S5] for definitions and the fact that these are thick subcategories.) We will write $\DD_{\mathrm{qc}}(X)$ for $\DD_{\Qco(X)}(\operatorname{Mod}(X))$ and $\DD_{\mathrm{c}}(X)$ for $\DD_{\Coh(X)}(\operatorname{Mod}(X))$, using the notation of [I.4]. Similarly $\DD_{\mathrm{qc}}^+(X)$ etc.
+
+\begin{proposition}\label{prop:2.1.1}
+There are enough injectives in the categories $\operatorname{Mod}(X)$ and $\Qco(X)$.
+\end{proposition}
+
+\begin{proof}
+This is well known, e.g., [T, 1.10.1], or, for $\operatorname{Mod}(X)$, [G, II~7.1.1].
+\end{proof}
+
+\begin{proposition}\label{prop:2.1.2}
+Every sheaf of $\sO_X$-modules is a quotient of a flat $\sO_X$-module.
+\end{proposition}
+
+\begin{proof}
+If $U$ is an open subset of $X$, we denote by $\sO_{X,U}$ the sheaf which is $\sO_X$ on $U$ and $0$ outside [G, II~Thm.~2.9.1]. Then $\sO_{X,U}$ is a flat $\sO_X$-module, and any direct sum of these is also flat. If $\sF$ is any sheaf of $\sO_X$-modules, let $s_i\in\Gamma(U_i,\sF)$ be a set of generators of $\sF$ as an $\sO_X$-module. Then $\sF$ is a quotient of $\bigoplus_i \sO_{X,U_i}$, by sending $1\in\Gamma(U_i,\sO_{X,U_i})$ to $s_i$.
+\end{proof}
+
 \section{The derived functors of $f_*$ and $\Gamma$}
-\section{The derived functor of $\mathcal{H}\mathit{om}$}
+
+Let $f\colon X\to Y$ be a morphism of preschemes. Then the functor $f_*$ sends $\operatorname{Mod}(X)$ to $\operatorname{Mod}(Y)$. Since the first of these categories has enough injectives, we have a derived functor
+\[
+\DerR^+f_*\colon \DD^+(X) \longrightarrow \DD^+(Y).
+\]
+
+There are two cases in which we can define $\DerR f_*$ for unbounded complexes. If $X$ is noetherian of finite Krull dimension $n$, then $H^i(X,\sF)=0$ for $i>n$ and every sheaf $\sF$ of abelian groups on $X$ [T~3.6.5]. Note that if $\sF$ is an $\sO_X$-module, then its cohomology as an $\sO_X$-module is the same as its cohomology as an abelian sheaf [EGA~0\textsubscript{III}~12.1.1]. Therefore we have $\RR^if_*(\sF)=0$ for $i>n$, since this sheaf is the sheaf associated to the presheaf $V\mapsto H^i(f^{-1}(V),\sF)$. Thus $f_*$ has finite cohomological dimension on $\operatorname{Mod}(X)$, and using [I.5.3($\gamma$)] we can define
+\[
+\DerR f_*\colon \DD(X) \longrightarrow \DD(Y).
+\]
+
+On the other hand, if $f_*$ has finite cohomological dimension on $\Qco(X)$, we can define
+\[
+\DerR f_*\colon \DD(\Qco(X)) \longrightarrow \DD(\Qco(Y)).
+\]
+This will be the case if
+\begin{enumerate}
+\item[a)] $f$ is separated, quasi-compact, and $Y$ is quasi-compact, by [EGA~III~1.4.12], or
+\item[b)] if $X,Y$ are locally noetherian, $f$ is of finite type, and the fibres of $f$ are of bounded dimension (use [EGA~III~4.1.5] and [T~3.6.5]).
+\end{enumerate}
+
+We will often make statements in only one of these two contexts, and will let the reader make the necessary modifications for the other. We will also write $\DerR f_*$ instead of $\DerR^+f_*$, when no confusion can arise.
+
+\begin{proposition}\label{prop:2.2.1}
+If $f\colon X\to Y$ is separated and quasi-compact, then $\DerR f_*$ takes $\DD_{\mathrm{qc}}^+(X)$ into $\DD_{\mathrm{qc}}^+(Y)$. If, furthermore, $X$ is noetherian of finite Krull dimension, $\DerR f_*$ takes $\DD_{\mathrm{qc}}(X)$ into $\DD_{\mathrm{qc}}(Y)$.
+\end{proposition}
+
+\begin{proof}
+By [EGA~III~1.4.10], if $\sF$ is quasi-coherent on $X$, then all the $\RR^if_*(\sF)$ are quasi-coherent sheaves on $Y$. In other words, $\RR^if_*(\sF)\in\DD_{\mathrm{qc}}^+(Y)$. But $\DerR f_*$ is a way-out functor, so the result follows from [I.7.3].
+\end{proof}
+
+\begin{proposition}\label{prop:2.2.2}
+If $f\colon X\to Y$ is a proper morphism, and $Y$ is locally noetherian, then $\DerR f_*$ sends $\DD_{\mathrm{c}}^+(X)$ into $\DD_{\mathrm{c}}^+(Y)$. If, furthermore, $X$ is noetherian of finite Krull dimension, $\DerR f_*$ takes $\DD_{\mathrm{c}}(X)$ into $\DD_{\mathrm{c}}(Y)$.
+\end{proposition}
+
+\begin{proof}
+Same as the previous proposition, using [EGA~III~3.2.1].
+\end{proof}
+
+If $X$ is a prescheme, the global section functor $\Gamma$ has a right derived functor
+\[
+\DerR^+\Gamma\colon \DD^+(X) \longrightarrow \DD(\Ab).
+\]
+As above, we can extend the domain of definition of $\DerR\Gamma$ to $\DD(X)$ if $X$ is noetherian of finite Krull dimension.
+\section{The derived functor of $\underline{\Hom}^\bullet$}
+
+Let $X$ be a prescheme, and let $F^\bullet,G^\bullet\in\KK(\operatorname{Mod}(X))$. Then we define $\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\in\KK(\operatorname{Mod}(X))$ as in [I.6] by
+\[
+\underline{\Hom}{}^n(F^\bullet,G^\bullet) = \prod_{p\in\mathbb{Z}} \underline{\Hom}_{\operatorname{Mod}(X)}(F^p, G^{p+n})
+\]
+and
+\[
+d^n = d_F + (-1)^{n+1} d_G.
+\]
+Then $\underline{\Hom}^\bullet$ is a bi-$\partial$-functor
+\[
+\underline{\Hom}^\bullet\colon \KK(\operatorname{Mod}(X))^\bullet \times \KK(\operatorname{Mod}(X)) \longrightarrow \KK(\operatorname{Mod}(X)).
+\]
+
+\begin{lemma}\label{lem:2.3.1}
+Let $F^\bullet$ be a complex of $\sO_X$-modules, and let $G^\bullet$ be a complex of injective $\sO_X$-modules, bounded below. Assume that either $F^\bullet$ or $G^\bullet$ is acyclic. Then $\underline{\Hom}^\bullet(F^\bullet,G^\bullet)$ is acyclic.
+\end{lemma}
+
+\begin{proof}
+It is enough to show for each open subset $U$ of $X$ that
+$\Gamma(U,\underline{\Hom}^\bullet(F^\bullet,G^\bullet)) = \Hom^\bullet(F^\bullet|_U, G^\bullet|_U)$ is acyclic. But this follows from [I.6.2] applied to the abelian category of $\sO_U$-modules, since if $G$ is an injective $\sO_X$-module, then $G|_U$ is an injective $\sO_X$-module.
+\end{proof}
+
+Using this Lemma, we can follow the method of [I.6] and obtain a derived functor
+\[
+\DerR\underline{\Hom}^\bullet\colon \DD(X)^\bullet \times \DD^+(X) \longrightarrow \DD(X)
+\]
+(more precisely $\DerR_{\mathrm{I}}\DerR_{\mathrm{II}}\underline{\Hom}^\bullet$).
+
+\textbf{Exercise.}
+Suppose that $X$ is locally noetherian, and that every coherent $\sO_X$-module is a quotient of a locally free $\sO_X$-module of finite rank (e.g.\ $X$ quasi-projective over a field). Show then that
+\[
+\DerR_{\mathrm{II}}\DerR_{\mathrm{I}}\underline{\Hom}^\bullet\colon \DD_{\mathrm{c}}^-(X)^\bullet \times \DD(X) \longrightarrow \DD(X)
+\]
+exists.
+
+\medskip
+
+\textbf{Problem.}
+Without the hypotheses of the Exercise, study sheaves on $X$ which are acyclic for $\underline{\Hom}$ in the first variable. Find out whether there are enough of them, and hence whether $\DerR_{\mathrm{I}}\underline{\Hom}^\bullet$ exists.
+
+\begin{definition}
+If $F^\bullet\in\DD(X)$ and $G^\bullet\in\DD^+(X)$, we define the \emph{local hyperext}
+\[
+\underline{\operatorname{Ext}}^i(F^\bullet,G^\bullet) = H^i\big(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\big).
+\]
+\end{definition}
+
+\begin{lemma}
+	Let 
+	$X$ 
+	be a locally noetherian prescheme. Let $\sF$ be a coherent $\sO_X$-module, and let $\sG$ be a coherent (resp.\ quasi-coherent) $\sO_X$-module. Then for all $i\ge 0$, $\underline{\operatorname{Ext}}^i(\sF,\sG)$ is coherent (resp.\ quasi-coherent).
+\end{lemma}
+
+\begin{proof}
+The coherent case is [EGA~0\textsubscript{III}~12.3.3], and the quasi-coherent case is proved similarly.
+\end{proof}
+
+\begin{proposition}\label{prop:2.3.3}
+Let $X$ be a locally noetherian prescheme. Let $F^\bullet\in\DD_{\mathrm{c}}(X)$ and $G^\bullet\in\DD_{\mathrm{c}}^+(X)$ (resp.\ $\DD_{\mathrm{qc}}^+(X)$). Assume either
+\begin{enumerate}
+\item[a)] $F^\bullet\in\DD_{\mathrm{c}}(X)$, or
+\item[b)] $G^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$ (cf.\ [I.7]).
+\end{enumerate}
+Then $\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\in\DD_{\mathrm{c}}(X)$ (resp.\ $\DD_{\mathrm{qc}}(X)$).
+\end{proposition}
+
+\begin{proof}
+This follows from the lemma and [I.7.3] applied twice. The details are left to the reader.
+\end{proof}
 \section{The derived functors of $\otimes$ and $f^*$}
+
+Let $X$ be a prescheme, and let $F^\bullet,G^\bullet\in\KK(\operatorname{Mod}(X))$. Then we define the tensor product $F^\bullet\otimes G^\bullet$ to be the simple complex associated to the double complex $(F^p\otimes G^q)$, i.e.,
+\[
+(F^\bullet\otimes G^\bullet)^n = \bigoplus_{p+q=n} F^p\otimes G^q
+\]
+and
+\[
+d = d_F + (-1)^n d_G.
+\]
+Homotopies carry over to the tensor product, so we have a functor
+\[
+\otimes\colon \KK(\operatorname{Mod}(X)) \times \KK(\operatorname{Mod}(X)) \longrightarrow \KK(\operatorname{Mod}(X)).
+\]
+
+\begin{lemma}\label{lem:2.4.1}
+Let $F^\bullet$ be a complex of $\sO_X$-modules, and let $G^\bullet$ be a complex of flat $\sO_X$-modules, bounded above. Assume that either
+\begin{enumerate}
+\item[a)] $G^\bullet$ is acyclic, or
+\item[b)] $F^\bullet$ is acyclic,
+\end{enumerate}
+and assume also that either
+\begin{enumerate}
+\item[1)] $F^\bullet$ is bounded above, or
+\item[2)] $G^\bullet$ is bounded in both directions.
+\end{enumerate}
+Then $F^\bullet\otimes G^\bullet$ is acyclic.
+\end{lemma}
+
+\begin{proof}
+Let $K^{\bullet\bullet}$ be the double complex $K^{pq}=F^p\otimes G^q$. Then there are spectral sequences [EGA~0\textsubscript{III}~11.3.2]
+\begin{align*}
+''E_2^{pq} &= H_{\mathrm{I}}^p H_{\mathrm{II}}^q(K^{\bullet\bullet}) \Longrightarrow E^n = H^n(F^\bullet\otimes G^\bullet)
+\intertext{and}
+''E_2^{pq} &= H_{\mathrm{II}}^p H_{\mathrm{I}}^q(K^{\bullet\bullet}) \Longrightarrow E^n = H^n(F^\bullet\otimes G^\bullet).
+\end{align*}
+Our hypotheses 1) or 2) imply that these spectral sequences are biregular. In case a), one shows that $B^q(G^\bullet)=Z^q(G^\bullet)$ is flat for each $q$, and so $F^p\otimes G^\bullet$ is acyclic for each $p$. This implies that $'E_2^{pq}=0$ for all $p,q$, and hence $E^n=0$, and $F^\bullet\otimes G^\bullet$ is acyclic. In case b), $F^\bullet\otimes G^q$ is acyclic for each $q$, since $G^q$ is flat, and so $''E_2^{pq}=0$ for each $p,q$. Hence again $E^n=0$, and $F^\bullet\otimes G^\bullet$ is acyclic.
+\end{proof}
+
+Now let $F^\bullet\in\KK^-(\operatorname{Mod}(X))$, and let $\mathcal{L}\subseteq\KK^-(\operatorname{Mod}(X))$ be the triangulated subcategory of complexes of flat $\sO_X$-modules. Then by Proposition~2.1.2 and the lemma, part a1), $\mathcal{L}$ satisfies the hypotheses of [I.5.1] for the functor
+\[
+F^\bullet\otimes\cdot\colon \KK^-(\operatorname{Mod}(X)) \longrightarrow \KK(\operatorname{Mod}(X)),
+\]
+and hence
+\[
+\DerL_{\mathrm{II}}\otimes\colon \KK^-(\operatorname{Mod}(X)) \times \DD^-(X) \longrightarrow \DD(X)
+\]
+exists. (It is clearly functorial in $F^\bullet$.)
+
+By the lemma, part b1), this functor is exact in the first variable, hence passes to the quotient to give
+\[
+\DerL_{\mathrm{I}}\DerL_{\mathrm{II}}\otimes\colon \DD(X) \times \DD^-(X) \longrightarrow \DD(X).
+\]
+Of course we can derive $\otimes$ in the first variable first, then in the second variable, and by [I.6.3] we get the same result. We will therefore use the ambiguous notation $F^\bullet \underline{\underline{\otimes}} G^\bullet$ for $\DerL_{\mathrm{I}}\DerL_{\mathrm{II}}\otimes(F^\bullet,G^\bullet)$.
+
+\begin{definition}
+If $F^\bullet,G^\bullet\in\DD^-(X)$, we define the \emph{local hyperTor}
+\[
+\underline{\operatorname{Tor}}_i(F^\bullet,G^\bullet) = H^{-i}(F^\bullet\underline{\underline{\otimes}} G^\bullet).
+\]
+\end{definition}
+
+\begin{proposition}\label{prop:2.4.2}
+Let $X$ be a prescheme, and let $F^\bullet\in\operatorname{Ob}\KK^b(\operatorname{Mod}(X))$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] There is a quasi-isomorphism $s\colon G^\bullet\to F^\bullet$ where $G^\bullet$ is a bounded complex of flat $\sO_X$-modules.
+\item[(ii)] The functor $F^\bullet\underline{\underline{\otimes}}\cdot$ from $\DD^-(X)$ to $\DD(X)$ is way-out right (and hence way-out in both directions).
+\item[(iii)] There is an $n_0$ such that $\underline{\operatorname{Tor}}_i(F^\bullet,\sG)=0$ for all $\sO_X$-modules $\sG$, and all $i>n_0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The proof is entirely analogous to the proof of [I.7.6] and will be left to the reader. Important points are 1) an $\sO_X$-module $F$ is flat if and only if $\underline{\operatorname{Tor}}_1(F,\sG)=0$ for all $\sO_X$-modules $\sG$, 2) if $Z\to B\to 0$ is a surjection of $\sO_X$-modules with $Z\neq B$, then there exists an $\sO_X$-module $\sG$ (for example $\sG=\sO_X$) such that $Z\otimes\sG\neq B\otimes\sG$, and 3) the analogue of [I.4.5] for flat modules fails. Instead, we use the commutative diagram
+
+\[
+\begin{tikzcd}
+F'^\bullet \arrow[r] \arrow[d] & F^\bullet \arrow[d] \\
+\sigma_{\ge n}(F'^\bullet) \arrow[r] & \sigma_{\ge n}(F^\bullet)
+\end{tikzcd}
+\]
+where $F'^\bullet$ is a (not necessarily bounded) flat resolution of $F^\bullet$. Since $F^\bullet$ itself is a bounded complex, for $n$ small enough, $\sigma_{\ge n}(F^\bullet)$ is equal to $F^\bullet$. Hence $\sigma_{\ge n}(F'^\bullet)\to F^\bullet$ is the required quasi-isomorphism.
+\end{proof}
+
+\textbf{Remark.}
+We see from the proof that it is sufficient in (iii) to consider only quasi-coherent sheaves $\sG$. Indeed, it is sufficient to consider only the sheaves $\sO_X$, and $k(x)$ for every point $x\in X$. Similarly, in (ii) it is sufficient to consider the restriction of the functor $F^\bullet\underline{\underline{\otimes}}\cdot$ to $\DD_{\mathrm{qc}}^-(X)$.
+
+\begin{definition}
+If $F^\bullet\in\operatorname{Ob}\KK^b(\operatorname{Mod}(X))$ satisfies the equivalent conditions of the Proposition, we say that $F^\bullet$ has \emph{finite Tor-dimension}. These complexes form a localizing subcategory of $\KK(\operatorname{Mod}(X))$, which we denote by $\KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$. The corresponding subcategory of $\DD(X)$ is denoted by $\DD^b(X)_{\mathrm{fTd}}$.
+\end{definition}
+
+\begin{proof}[Proof of the localizing property]
+Cf.\ [I.7.7].
+\end{proof}
+
+Now let $F^\bullet\in\operatorname{Ob}\KK(\operatorname{Mod}(X))$, and consider the functor $F^\bullet\otimes\cdot\colon \KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}\to\KK(\operatorname{Mod}(X))$.
+
+Let $\mathcal{L}\subseteq\KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$ be the subcategory of complexes of flat modules. Then by Proposition~\ref{prop:2.4.2} and Lemma~\ref{lem:2.4.1}, part a2), $\mathcal{L}$ satisfies the hypotheses of [I.5.1] for this functor. Hence we can take the left derived functor in the second variable, and obtain
+\[
+\DerL_{\mathrm{II}}\otimes\colon \KK(\operatorname{Mod}(X)) \times \DD^b(X)_{\mathrm{fTd}} \longrightarrow \DD(X).
+\]
+By Lemma~\ref{lem:2.4.1}, part b2), this gives rise to a functor
+\[
+\DerL_{\mathrm{I}}\DerL_{\mathrm{II}}\otimes\colon \DD(X) \times \DD^b(X)_{\mathrm{fTd}} \longrightarrow \DD(X)
+\]
+which we will also denote by $\underline{\underline{\otimes}}$.
+
+\medskip
+
+\textbf{Problem.}
+Does the functor
+\[
+\otimes\colon \KK(\operatorname{Mod}(X)) \times \KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}} \longrightarrow \KK(\operatorname{Mod}(X))
+\]
+admit a left derived functor in the first variable? Given $G^\bullet\in\operatorname{Ob}\KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$, does there exist a subcategory $\mathcal{L}\subseteq\KK(\operatorname{Mod}(X))$ satisfying the hypotheses of [I.5.1] for $\cdot\otimes G^\bullet$?
+
+\begin{proposition}\label{prop:2.4.4}
+Let $X$ be a prescheme (resp.\ a locally noetherian prescheme), and let $F^\bullet\in\DD_{\mathrm{qc}}(X)$ (resp.\ $\DD_{\mathrm{c}}(X)$) and let $G^\bullet\in\DD_{\mathrm{qc}}(X)$ (resp.\ $\DD_{\mathrm{c}}(X)$). Assume either
+\begin{enumerate}
+\item[a)] $F^\bullet\in\DD^-(X)$, or
+\item[b)] $G^\bullet\in\DD^b(X)_{\mathrm{fTd}}$.
+\end{enumerate}
+Then $F^\bullet\underline{\underline{\otimes}} G^\bullet\in\DD_{\mathrm{qc}}(X)$ (resp.\ $\DD_{\mathrm{c}}(X)$).
+\end{proposition}
+
+\begin{proof}
+Using [I.7.3] as before, it is enough to show that if $\sF,\sG$ are quasi-coherent (resp.\ coherent) $\sO_X$-modules, then $\underline{\operatorname{Tor}}_i(\sF,\sG)$ is quasi-coherent (resp.\ coherent) for all $i\ge 0$. The question is local on $X$, so we may assume $X$ affine. Then $\sF$ has a resolution by quasi-coherent (resp.\ coherent) $\sO_X$-modules, namely direct sums (resp.\ finite direct sums) of copies of $\sO_X$. We can use this resolution to calculate the $\underline{\operatorname{Tor}}_i(\sF,\sG)$.
+\end{proof}
+
+Suppose now that $f\colon X\to Y$ is a morphism of preschemes. Then we have
+\[
+f^*\colon \operatorname{Mod}(Y) \longrightarrow \operatorname{Mod}(X)
+\]
+and we can take its left-derived functor
+\[
+\DerL f^*\colon \DD^-(Y) \longrightarrow \DD^-(X)
+\]
+since there are enough flat $\sO_Y$-modules, and they are $f^*$-acyclic. If $f^*$ has finite cohomological dimension on $\operatorname{Mod}(Y)$, then we say $f$ has finite Tor-dimension, and we can extend the domain of definition of $\DerL f^*$ to
+\[
+\DerL f^*\colon \DD(Y) \longrightarrow \DD(X).
+\]
+
+\begin{proposition}\label{prop:2.4.5}
+Let $f\colon X\to Y$ be a morphism of preschemes (resp.\ locally noetherian preschemes). Then $\DerL f^*$ takes $\DD_{\mathrm{qc}}^-(Y)$ (resp.\ $\DD_{\mathrm{c}}^-(Y)$) into $\DD_{\mathrm{qc}}^-(X)$ (resp.\ $\DD_{\mathrm{c}}^-(X)$). If $f$ is of finite Tor-dimension, the same is true for unbounded complexes.
+\end{proposition}
+
+\begin{proof}
+Left to reader.
+\end{proof}
 \section{Relations among the derived functors}
-\section{Compatibilities among the relations of \textsection 3.5}
+
+In this section we will make a list of various natural homomorphisms and isomorphisms among the derived functors discussed in the previous sections.
+
+\begin{proposition}\label{prop:2.5.1}
+Let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms of preschemes. Then there is a natural isomorphism
+\[
+\zeta^+\colon \DerR^+(g_*\cdot f_*) \xrightarrow{\sim} \DerR^+g_*\cdot \DerR^+f_*
+\]
+of functors from $\DD^+(X)$ to $\DD^+(Z)$.
+
+Suppose furthermore that $X$ and $Y$ are noetherian of finite Krull dimension. Then there is a natural isomorphism
+\[
+\zeta\colon \DerR(g_*\cdot f_*) \xrightarrow{\sim} \DerR g_*\cdot \DerR f_*
+\]
+of functors from $\DD(X)$ to $\DD(Z)$.
+\end{proposition}
+
+\begin{proof}
+We use [I.5.4b]. For the first statement, let $\mathcal{L}\subseteq\KK^+(\operatorname{Mod}(X))$ be the complexes of injective sheaves, and let $\mathcal{M}\subseteq\KK^+(\operatorname{Mod}(Y))$ be the complexes of $g_*$-acyclic sheaves. Then $f_*(\mathcal{L})\subseteq\mathcal{M}$ (indeed, $f_*$ of an injective sheaf is flasque [EGA~0\textsubscript{III}~12.2.4] and a flasque sheaf is $g_*$-acyclic [EGA~0\textsubscript{III}~12.2.1]). Then the hypotheses are satisfied, so we have $\zeta^+$.
+
+For the second statement, let $\mathcal{L}\subseteq\KK(\operatorname{Mod}(X))$ be the complexes of sheaves which are $f_*$-acyclic and $g_*f_*$-acyclic. Let $\mathcal{M}\subseteq\KK(\operatorname{Mod}(Y))$ be the complexes of $g_*$-acyclic sheaves. Then by the first statement of the proposition we see that $f_*(\mathcal{L})\subseteq\mathcal{M}$. Indeed, if $F$ is both $f_*$-acyclic and $g_*f_*$-acyclic, then $\DerR f_*(F)\cong f_*(F)$, so for $i>0$, $\RR^ig_*(f_*F)\cong\RR^i(g_*f_*)(F)=0$, and $f_*F$ is $g_*$-acyclic. On the other hand, one sees easily that the collection $P$ of sheaves on $X$ which are $f_*$-acyclic and $g_*f_*$-acyclic satisfies (i) and (ii) of [I.4.6], so $\mathcal{L}$ and $\mathcal{M}$ satisfy the hypotheses of [I.5.1], and we have the isomorphism $\zeta$ by [I.5.4b].
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.2}
+Let $f\colon X\to Y$ be a morphism of preschemes. Then there is a natural isomorphism
+\[
+\zeta^+\colon \DerR^+\Gamma(X,\cdot) \xrightarrow{\sim} \DerR^+\Gamma(Y,\DerR f_*(\cdot))
+\]
+of functors from $\DD^+(X)$ to $\DD^+(\Ab)$.
+
+If furthermore $X$ and $Y$ are noetherian of finite Krull dimension, then there is a natural isomorphism
+\[
+\zeta\colon \DerR\Gamma(X,\cdot) \xrightarrow{\sim} \DerR\Gamma(Y,\DerR f_*(\cdot))
+\]
+of functors from $\DD(X)$ to $\DD(\Ab)$.
+\end{proposition}
+
+\begin{proof}
+Similar to proof of the previous proposition.
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.3}
+Let $X$ be a prescheme. Then there is a natural isomorphism
+\[
+\DerR\Hom^\bullet(F^\bullet,G^\bullet) \xrightarrow{\sim} \DerR\Gamma(X,\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet))
+\]
+of bi-functors from $\DD^-(X)^\bullet\times\DD^+(X)$ to $\DD(\Ab)$.
+\end{proposition}
+
+\begin{proof}
+Use [I.5.4]. Note that for any two sheaves $F$ and $G$, $\Hom(F,G)=\Gamma(\underline{\Hom}(F,G))$. Also note that if $G$ is injective, then $\underline{\Hom}(F,G)$ is flasque [G, II~7.3.2], and hence $\Gamma$-acyclic.
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.4}
+Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of preschemes. Then there is a natural isomorphism
+\[
+\zeta^-\colon \DerL^-(f^*\cdot g^*) \xrightarrow{\sim} \DerL^-f^*\cdot \DerL^-g^*
+\]
+of functors from $\DD^-(Z)$ to $\DD^-(X)$.
+
+If furthermore $f$ and $g$ have finite Tor-dimension (see \S4) then so does $g\circ f$, and there is a natural isomorphism
+\[
+\zeta\colon \DerL(g\circ f)^* \xrightarrow{\sim} \DerL f^*\cdot \DerL g^*
+\]
+of functors from $\DD(Z)$ to $\DD(X)$.
+\end{proposition}
+
+\begin{proof}
+Left to reader. (Note that $g^*$ takes flat $\sO_Z$-modules into flat $\sO_Y$-modules.)
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.5}
+Let $f\colon X\to Y$ be a morphism of preschemes, with $X$ noetherian of finite Krull dimension. Then there is a natural functorial homomorphism
+\[
+\DerR f_* \DerR\underline{\Hom}^\bullet_X(F^\bullet,G^\bullet) \longrightarrow \DerR\underline{\Hom}^\bullet_Y(\DerR f_*F^\bullet,\DerR f_*G^\bullet)
+\]
+for $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD^+(X)$.
+\end{proposition}
+
+\begin{proof}
+Note first that our hypotheses on $f$, $Y$, $F^\bullet$, and $G^\bullet$ ensure that both objects above are defined (cf.\ \S2 and \S3 above). We wish to define a morphism between two functors from $\DD^-(X)^\bullet\times\DD^+(X)$ to $\DD(Y)$. Let $\mathcal{L}\subseteq\KK^-(\operatorname{Mod}(X))$ be the complexes of $f_*$-acyclic objects, and let $\mathcal{M}\subseteq\KK^+(\operatorname{Mod}(X))$ be the complexes of injective objects. Then, as we have seen before ([I, \S5] and \S2 above) the natural functors
+\[
+\mathcal{L}_{\mathrm{qis}} \longrightarrow \DD^-(X)
+\]
+and
+\[
+\mathcal{M}_{\mathrm{qis}} \longrightarrow \DD^+(X)
+\]
+are equivalences of categories. Hence it will be sufficient to define a morphism between the extensions of our functors to functors from $\mathcal{L}_{\mathrm{qis}}{}^\bullet\times\mathcal{M}_{\mathrm{qis}}{}^\bullet$ to $\DD(Y)$. But now, using [I.3.4] applied to the triangulated categories $\mathcal{L}$ and $\mathcal{M}$, we see that it is enough to define a morphism of functors
+\[
+\DerR f_* \DerR\underline{\Hom}_X^\bullet(QF^\bullet, QG^\bullet) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(\DerR f_*QF^\bullet, \DerR f_*QG^\bullet)
+\]
+(where $Q$ denotes the localization functor from $\mathcal{L}$ to $\mathcal{L}_{\mathrm{qis}}$ or $\mathcal{M}$ to $\mathcal{M}_{\mathrm{qis}}$) for $F^\bullet\in\mathcal{L}$ and $G^\bullet\in\mathcal{M}$.
+
+We now make explicit the morphisms $\xi$ between a functor and its derived functor (cf.\ definition of derived functor, [I.5]) and obtain the following diagram:
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+	Qf_* \underline{\Hom}^\bullet(F^\bullet, G^\bullet)
+	\arrow[r, "\xi_{f_*}"', "(1)"]
+	\arrow[d, "\varphi"']
+	& \DerR f_*\, Q\underline{\Hom}^\bullet(F^\bullet, G^\bullet)
+	\arrow[d, "(2)", "\xi_{\underline{\Hom}^\bullet}"'] \\
+	Q\underline{\Hom}^\bullet(f_*F^\bullet, f_*G^\bullet)
+	\arrow[d, "(3)", "\xi_{\underline{\Hom}^\bullet}"']
+	& \DerR f_* \DerR\underline{\Hom}^\bullet(QF^\bullet, QG^\bullet)
+	\arrow[dd, dotted, "\psi"'] \\
+	\DerR\underline{\Hom}^\bullet(Qf_*F^\bullet, Qf_*G^\bullet)
+	\arrow[d, "(4)", "\xi_{f_*}"']
+	& \\
+	\DerR\underline{\Hom}^\bullet(Qf_*F^\bullet, \DerR f_*QG^\bullet)
+	\arrow[r, "(5)", "\xi_{f_*}"']
+	& \DerR\underline{\Hom}^\bullet(\DerR f_*QF^\bullet, \DerR f_*QG^\bullet)
+\end{tikzcd}
+\]
+Here $\varphi$ is deduced from the well-known natural map
+\[
+f_* \underline{\Hom}_X(F,G) \longrightarrow \underline{\Hom}_Y(f_*F,f_*G)
+\]
+for any two sheaves of $\sO_X$-modules $F,G$. Now we use the last statement of [I.5.1] to deduce that certain of the $\xi$'s are isomorphisms.
+
+\begin{enumerate}
+\item[(1)] Since $G^\bullet$ is made of injective sheaves, $\underline{\Hom}^\bullet(F^\bullet,G^\bullet)$ is made of flasque sheaves [G, II~7.3.2] (note only finite products are involved since $F^\bullet\in\KK^-$ and $G^\bullet\in\KK^+$). But flasque sheaves are $f_*$-acyclic, so they can be used to calculate $\DerR f_*$, and hence the map $\xi_{f_*}$ denoted by (1) above is an isomorphism.
+\item[(2)] $G^\bullet$ is injective (or more precisely ``$\mathcal{M}$ satisfies the hypotheses of [I.5.1] for $\underline{\Hom}^\bullet(F^\bullet,\cdot)$'') and so $\xi_{\underline{\Hom}^\bullet}$ is an isomorphism.
+\item[(3)] We can say nothing here.
+\item[(4)] $G^\bullet$ is injective, so $\xi_{f_*}$ is an isomorphism.
+\item[(5)] $F^\bullet$ is made of $f_*$-acyclic sheaves, so $\xi_{f_*}$ here is an isomorphism.
+\end{enumerate}
+
+Therefore, since (1), (2), (4), and (5) are isomorphisms, there is a unique
+\[
+\psi\colon \DerR f_* \DerR\underline{\Hom}^\bullet(QF^\bullet,QG^\bullet) \longrightarrow \DerR\underline{\Hom}^\bullet(\DerR f_*QF^\bullet, \DerR f_*QG^\bullet)
+\]
+making the diagram commutative. This is the desired morphism of functors.
+\end{proof}
+
+\textbf{Remark.}
+We have given the above proof in some detail to show the method. Faced with a similar situation in the sequel, we will say simply ``we may assume $F^\bullet$ is made of $f_*$-acyclic objects, and $G^\bullet$ of injective objects'', and then we will drop all $Q$'s, and write ``$=$'' for any $\xi$ which is an isomorphism. In other words, we use the convention that we may erase the $\DerR$ before a functor applied to an argument for which $\xi$ is an isomorphism. So if $F^\bullet$ is a complex of $f_*$-acyclic objects, we will write $\DerR f_*(F^\bullet)=f_*F^\bullet$.
+
+\begin{proposition}[Projection formula]\label{prop:2.5.6}
+Let $f\colon X\to Y$ be a quasi-compact morphism of noetherian preschemes, of finite Krull dimension. Then there is a natural functorial isomorphism
+\[
+\DerR f_*(F^\bullet) \underline{\underline{\otimes}}_Y G^\bullet \xrightarrow{\sim} \DerR f_*(F^\bullet \underline{\underline{\otimes}}_X \DerL f^*G^\bullet)
+\]
+for $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^-(Y)$.
+\end{proposition}
+
+\begin{proof}
+Note first that both sides are defined. To define the morphism, we may assume that $F^\bullet$ is a complex of $f_*$-acyclic sheaves, and that $G^\bullet$ is a complex of $\sO_Y$-flat sheaves. Then we get the morphism by composing the usual projection formula for sheaves with suitable $\xi$'s:
+\[
+f_*(F^\bullet)\otimes_Y G^\bullet \xrightarrow{\sim} f_*(F^\bullet\otimes_X f^*G^\bullet) \xrightarrow{\xi} \DerR f_*(F^\bullet\otimes_X f^*G^\bullet)
+\]
+using the conventions of the remark above.
+
+To show it is an isomorphism, we must show for each $i$ that the map of sheaves
+\[
+H^i\big(\DerR f_*(F^\bullet)\underline{\underline{\otimes}}_Y G^\bullet\big) \longrightarrow H^i\big(\DerR f_*(F^\bullet\underline{\underline{\otimes}}_X \DerL f^*G^\bullet)\big)
+\]
+is an isomorphism. But this question is local on $Y$. Furthermore, the functors involved are all compatible with localization on $Y$, so we may assume $Y$ affine. Now, going back to the original morphism, note that both sides are way-out left functors in $G^\bullet$. Note also that every quasi-coherent $\sO_Y$-module is a quotient of a free $\sO_Y$-module, since $Y$ is affine. Hence, using the Lemma on Way-Out Functors [I.7.1 (ii) and (iv), dual statement], we reduce to the case where $G^\bullet$ is reduced to a single sheaf $G$, which is a free $\sO_Y$-module. But now $X$, $Y$, and $f$ are quasi-compact, so everything commutes with infinite direct sums, and we reduce to the case $G=\sO_Y$. (The noetherian hypothesis ensures that $\RR^if_*$ commutes with direct sums, cf.\ [T~3.6.2] and [G, II~\S4.12].) Then we have $\DerR f_*(F^\bullet)$ on each side and we are done.
+\end{proof}
+
+\textbf{Remark.}
+Again we have given a proof in some detail to show the method. In the sequel, we may leave many of these details to the reader.
+
+\begin{corollary}\label{cor:2.5.7}
+Let $f,X,Y$ be as in the Proposition, and assume that $f$ has finite Tor-dimension. Let $F^\bullet\in\DD^b(X)$ have finite Tor-dimension (see Definition~4.3 above). Then $\DerR f_*F^\bullet\in\DD^b(Y)$ also has finite Tor-dimension.
+\end{corollary}
+
+\begin{proof}
+We use condition (ii) of Proposition~4.2. Since $f$ has finite Tor-dimension, the functor on $\DD_{\mathrm{qc}}^-(Y)$
+\[
+G^\bullet \longmapsto \DerL f^*G^\bullet
+\]
+is way-out right. Since $F^\bullet$ also has finite Tor-dimension,
+\[
+G^\bullet \longmapsto F^\bullet \underline{\underline{\otimes}}_X \DerL f^*G^\bullet
+\]
+is way-out right, and so
+\[
+G^\bullet \longmapsto \DerR f_*(F^\bullet \underline{\underline{\otimes}}_X \DerL f^*G^\bullet)
+\]
+is way-out right. By the Proposition, this implies that the functor
+\[
+G^\bullet \longmapsto \DerR f_*(F^\bullet) \underline{\underline{\otimes}}_Y G^\bullet
+\]
+is way-out right (for $G^\bullet\in\DD_{\mathrm{qc}}^-(Y)$). But this implies that $\DerR f_*(F^\bullet)$ has finite Tor-dimension (using the Remark following Proposition~4.2).
+\end{proof}
+
+\textbf{Problem.}
+Let $f,X,Y$ be as in the Proposition, and assume that $f$ has finite Tor-dimension. Then the functors $\DerR f_*(F^\bullet)\underline{\underline{\otimes}}_Y G^\bullet$ and $\DerR f_*(F^\bullet\underline{\underline{\otimes}}_X \DerL f^* G^\bullet)$ are both defined for $F^\bullet\in\DD^b(X)_{\mathrm{fTd}}$, and $G^\bullet\in\DD_{\mathrm{qc}}(Y)$, using the result of the Corollary. Are they isomorphic? The problem is to define a morphism between them, since once we have a morphism, it is easy to prove that it is an isomorphism, using the lemma on way-out functors.
+
+\begin{proposition}\label{prop:2.5.8}
+Let $f\colon X\to Y$ be a flat morphism of preschemes. Then there is a natural functorial homomorphism
+\[
+f^* \DerR\underline{\Hom}^\bullet_Y(F^\bullet,G^\bullet) \longrightarrow \DerR\underline{\Hom}^\bullet_X(f^*F^\bullet,f^*G^\bullet)
+\]
+for $F^\bullet\in\DD(Y)$ and $G^\bullet\in\DD^+(Y)$. If furthermore $Y$ is locally noetherian, and $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$, it is an isomorphism. (We write $f^*$ instead of $\DerL f^*$ since it is an exact functor.)
+\end{proposition}
+
+\begin{proof}
+To define the map, we may assume $G^\bullet$ is a complex of injective sheaves, and then use the natural map of sheaves
+\[
+f^*\underline{\Hom}_Y(F,G) \longrightarrow \underline{\Hom}_X(f^*F,f^*G).
+\]
+To show the isomorphism, we may assume that $Y$ is affine, and then we reduce to the case $F=\sO_Y$ by the lemma on way-out functors.
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.9}
+Let $f\colon X\to Y$ be a morphism of preschemes. Then there is a natural functorial isomorphism
+\[
+\DerL f^*(F^\bullet) \underline{\underline{\otimes}}_X \DerL f^*(G^\bullet) \xrightarrow{\sim} \DerL f^*(F^\bullet\underline{\underline{\otimes}}_Y G^\bullet)
+\]
+for $F^\bullet,G^\bullet\in\DD^-(Y)$.
+\end{proposition}
+
+\begin{proof}
+Left to reader.
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.10}
+Let $f\colon X\to Y$ be a morphism of noetherian preschemes of finite Krull dimension. Then there is a natural functorial homomorphism
+\[
+\rho\colon F^\bullet \longrightarrow \DerR f_* \DerL f^*F^\bullet
+\]
+for $F^\bullet\in\DD^-(Y)$, which gives rise by Proposition~5.5 to a natural functorial homomorphism
+\[
+\tau \colon \DerR f_* \DerR\underline{\Hom}_X^\bullet(\DerL f^* F^\bullet, G^\bullet) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(F^\bullet, \DerR f_* G^\bullet)
+\]
+for $F^\bullet\in\DD^-(Y)$ and $G^\bullet\in\DD^+(X)$.
+
+If furthermore $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$, then $\tau$ is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+To define $\rho$, we may assume $F^\bullet$ is a complex of flat $\sO_Y$-modules, compose the natural map $F^\bullet\to f_*f^*F^\bullet$ with $\xi_{f_*}$. To check that $\tau$ is an isomorphism, we may assume $Y$ affine, and then reduce to the case $F^\bullet=\sO_Y$. Then $\DerL f^*F^\bullet=\sO_X$, and we have simply $\DerR f_*G^\bullet$ on each side.
+\end{proof}
+
+\begin{corollary}\label{cor:2.5.11}
+Under the hypotheses of the Proposition, we have
+\[
+\Hom_{\DD(X)}(\DerL f^*F^\bullet,G^\bullet) \xrightarrow{\sim} \Hom_{\DD(Y)}(F^\bullet,\DerR f_*G^\bullet)
+\]
+in other words, $\DerL f^*$ and $\DerR f_*$ are adjoint functors from $\DD_{\mathrm{c}}^-(Y)$ to $\DD_{\mathrm{c}}^-(X)$ and $\DD^+(X)$ to $\DD^+(Y)$, respectively.
+\end{corollary}
+
+\begin{proof}
+Apply $H^0\DerR\Gamma$ to both sides of the isomorphism $\tau$ of the Proposition, and use Propositions~5.2, 5.3, and [I.6.4].
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.12}
+Let $f\colon X\to Y$ be a morphism of finite type of noetherian preschemes of finite Krull dimension. Let $u\colon Y'\to Y$ be a flat morphism, let $X'=X\times_Y Y'$, and let $v\colon X'\to X$ and $g\colon X'\to Y'$ be the projections, as shown:
+
+\[
+\begin{tikzcd}
+	X' \arrow[r, "v"] \arrow[d, "g"'] & X \arrow[d, "f"] \\
+	Y' \arrow[r, "u"] & Y
+\end{tikzcd}
+\]
+
+Then there is a natural functorial isomorphism
+\[
+u^* \DerR f_*F^\bullet \xrightarrow{\sim} \DerR g_* v^*F^\bullet
+\]
+for $F^\bullet\in\DD_{\mathrm{qc}}(X)$.
+\end{proposition}
+
+\begin{proof}
+To define the morphism, we may assume $F^\bullet$ is a complex of $f_*$-acyclic sheaves, and use the natural map $u^*f_*F^\bullet\to g_*v^*F^\bullet$ followed by $\xi_{g_*}$. Both sides are way-out in both directions, so to prove the isomorphism we reduce by the lemma on way-out functors to the case of a single quasi-coherent sheaf $F$ on $Y$. Then we must show that for each $i$,
+\[
+H^i(u^*\DerR f_*F) \xrightarrow{\sim} H^i(\DerR g_* v^*F).
+\]
+This is [EGA~III~1.4.15]. (Recall that the proof uses \v{C}ech cohomology, hence the quasi-coherence hypothesis.)
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.13}
+Let $X$ be a prescheme. Then there are natural functorial isomorphisms
+\[
+F^\bullet\underline{\underline{\otimes}} G^\bullet \xrightarrow{\sim} G^\bullet\underline{\underline{\otimes}} F^\bullet
+\]
+and
+\[
+F^\bullet\underline{\underline{\otimes}} (G^\bullet\underline{\underline{\otimes}} H^\bullet) \xrightarrow{\sim} (F^\bullet\underline{\underline{\otimes}} G^\bullet)\underline{\underline{\otimes}} H^\bullet
+\]
+for all $F^\bullet,G^\bullet,H^\bullet\in\DD^-(X)$.
+\end{proposition}
+
+\begin{proof}
+Left to reader.
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.14}
+Let $X$ be a prescheme. Then there is a natural functorial homomorphism
+\[
+\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\underline{\underline{\otimes}} H^\bullet \longrightarrow \DerR\underline{\Hom}^\bullet(F^\bullet, G^\bullet\underline{\underline{\otimes}} H^\bullet)
+\]
+for $F^\bullet\in\DD(X)$, $G^\bullet\in\DD^+(X)$, and $H^\bullet\in\DD^b(X)_{\mathrm{fTd}}$. If furthermore $X$ is locally noetherian, and $F^\bullet\in\DD_{\mathrm{c}}^-(X)$, then it is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+Left to reader.
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.15}
+Let $X$ be a locally noetherian prescheme, and assume that every coherent sheaf on $X$ is a quotient of a locally free sheaf of finite rank (lffr). Then there is a natural functorial isomorphism
+\[
+\DerR\underline{\Hom}^\bullet(F^\bullet, \DerR\underline{\Hom}^\bullet(G^\bullet, H^\bullet)) \xrightarrow{\sim} \DerR\underline{\Hom}^\bullet(F^\bullet\underline{\underline{\otimes}} G^\bullet, H^\bullet)
+\]
+for $F^\bullet,G^\bullet\in\DD_{\mathrm{c}}^-(X)$, and $H^\bullet\in\DD^+(X)$.
+\end{proposition}
+
+\begin{proof}
+To define the morphism, we use the result of the exercise in \S3 above. We take resolutions of $F^\bullet$ and $G^\bullet$ by lffr's, and use them to calculate $\DerR\underline{\Hom}^\bullet$. Note that any lffr is flat, and so if $F^\bullet,G^\bullet$ are complexes of lffr's, then $F^\bullet\underline{\underline{\otimes}} G^\bullet=F^\bullet\otimes G^\bullet$, which is also a complex of lffr's. For the isomorphism, we use the lemma on way-out functors and reduce to the case $F^\bullet=\sO_X$.
+\end{proof}
+
+\begin{proposition}\label{prop:2.5.16}
+Let $X$ be a prescheme, and let $L^\bullet$ be a bounded complex of locally free sheaves of finite rank. Let $L^{\bullet\vee}=\underline{\Hom}^\bullet(L^\bullet,\sO_X)$. Then there are natural functorial isomorphisms
+\[
+\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\underline{\underline{\otimes}} L^\bullet \xrightarrow{\sim} \DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet\underline{\underline{\otimes}} L^\bullet) \cong \DerR\underline{\Hom}^\bullet(F^\bullet\underline{\underline{\otimes}} L^{\bullet\vee},G^\bullet)
+\]
+for all $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD^+(X)$.
+\end{proposition}
+
+\begin{proof}
+Easy once one notes that the corresponding formulae hold for sheaves, and if $G$ is an injective sheaf, and $L$ a lffr, then $G\otimes L$ is injective.
+\end{proof}
+
+\section{Compatibilities among the relations of \S5}
+
+In situations involving three or more derived functors, there may be different ways of composing the homomorphisms and isomorphisms of \S5 to obtain a homomorphism or isomorphism of functors. One would like to know that the result is independent of any choices. We give three examples.
+
+\begin{enumerate}
+\item Let $f\colon X\to Y$, $g\colon Y\to Z$, and $h\colon Z\to W$ be three morphisms of preschemes. Then by Proposition~5.1 there are isomorphisms
+\[
+\begin{tikzcd}
+\DerR^+(h_*g_*f_*) \arrow[r, "\sim"] \arrow[d, "\sim"'] & \DerR^+h_* \DerR^+(g_*f_*) \arrow[d, "\sim"] \\
+\DerR^+(h_*g_*)\DerR^+(f_*) \arrow[r, "\sim"] & \DerR^+h_* \DerR^+g_* \DerR^+f_*
+\end{tikzcd}
+\]
+We would like to know that this diagram is commutative.
+
+\item Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of noetherian preschemes of finite Krull dimension. Then there are functorial homomorphisms
+\[
+\begin{tikzcd}[row sep=large, column sep=8em]
+	\DerR(g_* f_*) \DerR \underline{\mathrm{Hom}}_X^\bullet(F^\bullet, G^\bullet) 
+	\arrow[r, "\sim"] 
+	\arrow[dd]
+	& \DerR g_* \DerR f_* \DerR \underline{\mathrm{Hom}}_X^\bullet(F^\bullet, G^\bullet) 
+	\arrow[d] \\
+	% Middle row for the right-hand side
+	& \DerR g_* \DerR \underline{\mathrm{Hom}}_Y^\bullet(\DerR f_* F^\bullet, \DerR f_* G^\bullet) 
+	\arrow[d] \\
+	\DerR \underline{\mathrm{Hom}}_Z^\bullet(\DerR(g_* f_*) F^\bullet, \DerR(g_* f_*) G^\bullet) 
+	\arrow[r, "\sim"]
+	& \DerR \underline{\mathrm{Hom}}_Z^\bullet(\DerR g_* \DerR f_* F^\bullet, \DerR g_* \DerR f_* G^\bullet)
+\end{tikzcd}
+\]
+for $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD^+(X)$. Here the horizontal arrows are deduced from Proposition~5.1, and the vertical arrows from Proposition~5.5, and we have tacitly included in the left-hand vertical arrow a double use of the natural isomorphism $g_*f_*\cong(gf)_*$. We would like to know that this diagram is commutative.
+
+\item Let $X$ be a prescheme. Then there are functorial isomorphisms
+\[
+\begin{tikzcd}[row sep=large, column sep=5em]
+	F^\bullet \underline{\underline{\otimes}} (G^\bullet \underline{\underline{\otimes}} (H^\bullet \underline{\underline{\otimes}} I^\bullet)) 
+	\arrow[r, "\sim"] 
+	\arrow[dd] 
+	& F^\bullet \underline{\underline{\otimes}} ((G^\bullet \underline{\underline{\otimes}} H^\bullet) \underline{\underline{\otimes}} I^\bullet) 
+	\arrow[d, "\wr"] \\
+	& (F^\bullet \underline{\underline{\otimes}} (G^\bullet \underline{\underline{\otimes}} H^\bullet)) \underline{\underline{\otimes}} I^\bullet 
+	\arrow[d, "\wr"] \\
+	(F^\bullet \underline{\underline{\otimes}} G^\bullet) \underline{\underline{\otimes}} (H^\bullet \underline{\underline{\otimes}} I^\bullet) 
+	\arrow[r, "\sim"] 
+	& ((F^\bullet \underline{\underline{\otimes}} G^\bullet) \underline{\underline{\otimes}} H^\bullet) \underline{\underline{\otimes}} I^\bullet
+\end{tikzcd}
+\]
+for $F^\bullet, G^\bullet, H^\bullet, I^\bullet\in\DD^-(X)$, by Proposition~5.13. We would like to know that this diagram is commutative.
+\end{enumerate}
+
+In the first example, the commutativity follows from the Remark after [I.5.4]. In the second and third examples, we note that the homomorphisms and isomorphisms referred to are uniquely determined by the corresponding natural maps for sheaves, and by the condition that they commute with the relevant morphisms $\xi$ which occur in the definition of the derived functor. The required commutativities then follow from the analogous results for sheaves, which we may assume known.
+
+Now these examples are only three of many more similar compatibilities which will come immediately to the reader's mind. I could make a big list, and in principle could prove each one on the list. However, I would be sure to need some more later, and already the list of ones I can think of off-hand is too cumbersome to write down. And since the chore of inventing these diagrams and checking their commutativity is almost mechanical, the reader would not want to read them, nor I write them. It would be comforting to know that such a list existed, or to have a meta-theorem saying that any such diagram one would dream up is commutative. However, both of these possibilities seem of an order of complexity too great to treat in these notes.
+
+Unfortunately, I will have to use many of these compatibilities in an essential way in what is to follow. Perhaps for each theorem in the sequel one could make a list of exactly which compatibilities are needed, and verify them, but even that is too clumsy at this stage. So I must ask the reader's indulgence. I believe in the truth of the theorems stated, and I hope to convince him of their truth also. But I have not verified every commutative diagram which is necessary for a rigorous proof, and I do not suppose that any reader will have the patience to do so either.
+
+In particular, I believe that all reasonable compatibilities one could imagine between the ``natural'' homomorphisms and isomorphisms of \S5 are true, and so in the sequel I will write simply ``$=$'' instead of naming the isomorphism (provided, of course, the relevant hypotheses are satisfied). However, in later chapters we will deal with more homomorphisms and isomorphisms, where the compatibilities one can imagine are not always obvious, and may even be false (e.g., where there is a question of sign). Hence I will name those isomorphisms and list (in principle) the compatibilities we will need, and keep track of them.
+
+For a completely satisfactory treatment of this question of ``natural'' isomorphisms and their compatibilities, we must await future developments. Mac Lane [12 pp.\ 14,15] refers to the problem in the context of the associativity of the tensor product, where he says that he does not know even a finite number of diagrams such as the one in example 3 above, which together imply that all such diagrams involving associativities are commutative. Perhaps the language of fibred categories [SGA 60--61, expos\'e VI] or the techniques of [Giraud, thesis] will supply what is needed.
+
 \section{Injective sheaves on a locally noetherian prescheme}
+
+In this section we give the structure of the injective objects in the category $\operatorname{Mod}(X)$ of all $\sO_X$-modules on a locally noetherian prescheme $X$. We show in particular that every quasi-coherent $\sO_X$-module can be embedded in a quasi-coherent injective $\sO_X$-module, and hence that the natural functor
+\[
+\DD^+(\Qco(X)) \longrightarrow \DD_{\mathrm{qc}}^+(X)
+\]
+is an equivalence of categories.
+
+We use results of Gabriel [5], which in turn were inspired from results of Matlis [13] in the case of noetherian rings.
+
+\begin{definition}
+Let $A$ be an abelian category, and let $M$ be an object of $A$. An \emph{injective hull} of $M$ is an injective object $I$ of $A$, together with a monomorphism $M\to I$, such that if $N$ is a non-zero subobject of $I$, then $M\cap N\neq 0$.
+\end{definition}
+
+\begin{theorem}\label{thm:2.7.1}
+[5, Ch.\ II, Thm.\ 2]. If $A$ is an abelian category with generators and exact direct limits, then every object has an injective hull.
+\end{theorem}
+
+\textbf{Examples.}
+The category of modules over a commutative ring has generators and exact direct limits, hence has injective hulls.
+
+The category $\operatorname{Mod}(X)$ of $\sO_X$-modules on an arbitrary prescheme $X$ has generators and exact direct limits, hence has injective hulls.
+
+\begin{definition}
+[5, Ch.\ II, \S4]. An object of an abelian category $A$ is \emph{noetherian} if every ascending chain of subobjects is stationary. An abelian category $A$ is \emph{locally noetherian} if it has exact direct limits, and has a family of generators consisting of noetherian objects of $A$.
+\end{definition}
+
+\textbf{Examples.}
+The category of modules over a noetherian ring is locally noetherian --- the ring itself is a noetherian generator for the category.
+
+The category $\Qco(X)$ of quasi-coherent sheaves on a noetherian prescheme $X$ is locally noetherian, with the coherent sheaves forming a family of noetherian generators. This example was studied by Gabriel [5, Ch.\ VI].
+
+\begin{proposition}\label{prop:2.7.2}
+[5, Ch.\ IV, Prop.\ 6]. Any direct sum of injective objects in a locally noetherian category is injective.
+\end{proposition}
+
+\begin{theorem}\label{thm:2.7.3}
+[5, Ch.\ IV, Thm.\ 2]. Let $A$ be a locally noetherian category. Then every injective object $I$ of $A$ is isomorphic to a direct sum $\bigoplus_{j\in J} I_j$ of indecomposable injectives $I_j$. Furthermore, if $\bigoplus_{k\in K} I_k$ is a second such decomposition, then there is a bijection $h\colon J\to K$ such that $I_j\cong I_{h(j)}$ for each $j$.
+\end{theorem}
+
+\begin{proposition}\label{prop:2.7.4}
+[13]. Let $A$ be a noetherian ring. Then the indecomposable injective $A$-modules are precisely the injective hulls $I(\mathfrak{p})$ of $k(\mathfrak{p})$ over $A$, where $\mathfrak{p}$ ranges over the prime ideals of $A$.
+\end{proposition}
+
+We also have information about the structure of one of these injective hulls [Matlis, ibid.]:
+
+\begin{proposition}\label{prop:2.7.5}
+Let $A$ be a noetherian ring, let $\mathfrak{p}$ be a prime ideal of $A$, and let $I$ be an injective hull of the residue field $k(\mathfrak{p})$ of $\mathfrak{p}$. Then one can write $I$ as a direct limit of the submodules
+\[
+0 \subseteq E^1 \subseteq E^2 \subseteq \cdots
+\]
+where $E^i = \Hom_A(A/\mathfrak{p}^i A, I)$ is an Artin module over the local ring $A_{\mathfrak{p}}$, and where, for each $i$,
+\[
+\dim_{k(\mathfrak{p})}(E^{i+1}/E^i) = \dim_{k(\mathfrak{p})}((\mathfrak{p}^i/\mathfrak{p}^{i+1})\otimes_A k(\mathfrak{p})).
+\]
+\end{proposition}
+
+Now we apply these results to locally noetherian preschemes, giving first a special case.
+
+\begin{definition}
+Let $X$ be a prescheme, $x$ a point of $X$, and $M$ an $\sO_{X,x}$-module. Then we define $i_x(M)$ to be the sheaf $i_x(\widetilde{M})$ on $X$, where $i\colon \operatorname{Spec}\sO_{X,x}\to X$ is the natural inclusion, and $\widetilde{M}$ is the sheaf on $\operatorname{Spec}\sO_{X,x}$ associated to $M$.
+\end{definition}
+
+\textbf{Remark.}
+We will be particularly interested in the case where $\operatorname{Supp}M$ is just the closed point $x$ of $\operatorname{Spec}\sO_{x,X}$. In that case $\Gamma(U,i_x(M))=M$ if $x\in U$, and $0$ otherwise, i.e., it is a simple sheaf on the closed subset $\overline{\{x\}}$ of $X$. Moreover, for any $\sO_X$-module $F$, we have
+\[
+\Hom_X(F, i_x(M)) = \Hom_{\operatorname{Spec}\sO_{X,x}}(i^*(F), \widetilde{M}) = \Hom_{\sO_{X,x}}(F_x, M)
+\]
+where $F_x$ is the stalk of $F$ at $x$.
+
+\begin{proposition}\label{prop:2.7.6}
+Let $X$ be a locally noetherian prescheme, let $x$ be a point of $X$, and let $I$ be an injective hull of $k(x)$ over the local ring $\sO_{x,X}$ of $x$. Then $i_x(I)$ is a (quasi-coherent) injective $\sO_X$-module.
+\end{proposition}
+
+\begin{proof}
+By Proposition~7.5 above, $I$ has support at the closed point of $\operatorname{Spec}\sO_{X,x}$. Therefore, if $F\subseteq G$ are two $\sO_X$-modules, and $\phi\colon F\to i_x(I)$ is a homomorphism of sheaves, $\phi$ gives a map $F_x\to I$, which extends to a map $G_x\to I$ since $I$ is an injective $\sO_{X,x}$-module. But by the Remark above, this gives a map of $G$ to $i_x(I)$ extending $\phi$, so $i_x(I)$ is an injective $\sO_X$-module.
+\end{proof}
+
+\begin{lemma}\label{lem:2.7.7}
+Let $X$ be a noetherian prescheme, and let $\sG\subseteq\sO_X$ be a sheaf of ideals (not necessarily quasi-coherent). Then there are a finite number of open subsets $U_i\subseteq X$, and a finite number of sections $s_{ij}\in\Gamma(U_i,\sG)$ for each $i$, such that at each point $x\in X$, the sections $s_{ij}$, for those $i$ such that $x\in U_i$, generate the stalk $\sG_x$ as an $\sO_{X,x}$-module.
+\end{lemma}
+
+\begin{proof}
+Since $X$ can be covered by a finite number of open affines, we may as well assume $X$ is affine, equal to $\operatorname{Spec}A$ for a suitable noetherian ring $A$.
+
+Let $x\in X$. For each open affine neighborhood $U$ of $x$ of the form $X_f=\operatorname{Spec}A_f$ for $f\in A$, consider the ideal $\mathfrak{a}(U)=\rho^{-1}\Gamma(U,\sG)$ of $A$, where
+\[
+\rho\colon A = \Gamma(X,\sO_X) \longrightarrow \Gamma(U,\sO_X)
+\]
+is the natural restriction. Clearly a smaller neighborhood gives a larger ideal. Hence by the a.c.c.\ in $A$, there is such a neighborhood $U$ of $x$ giving a maximal $\mathfrak{a}(U_x)=\mathfrak{a}_x$. Hence, since the rings $\Gamma(U,\sO_X)$ are localizations of $A$, we have for every such open neighborhood $U\subseteq U_x$ of $x$ that
+\[
+\Gamma(U,\sG) = \mathfrak{a}_x \otimes_A \Gamma(U,\sO_X) = \Gamma(U_x,\sG) \otimes_{\Gamma(U_x,\sO_X)} \Gamma(U,\sO_X). \tag{1}
+\]
+
+Now if $x'$ is a specialization of $x$ in $U_x$, i.e., $x'\in\overline{\{x\}}\cap U_x$, then every neighborhood of $x'$ contains $x$. So by (1) we see that the stalk $\sG_x$ can be generated by sections $s_i\in\Gamma(U_x,\sG)$, which, being an ideal in a noetherian ring, has a finite number of generators. (Recall that open sets of the form $X_f$ form a base for the topology of $X$.) Thus we have established the following result:
+
+$(*)$ For each point $x\in X$, one can find an open affine neighborhood $U_x$ of $x$, and a finite number of sections $s_i\in\Gamma(U_x,\sG)$, such that for every $x'\in\overline{\{x\}}\cap U_x$, the $s_i$ generate the stalk $\sG_{x'}$.
+
+Now we prove the statement of the Lemma. By quasi-compacity, we can find an open subset $U$ of $X$ (possibly empty) which is maximal with the property that the lemma is true for $\sG|_U$. Suppose that $U\neq X$. Let $x$ be the generic point of an irreducible component of $X-U$, and choose a neighborhood $U_x$ with the property $(*)$ above, and also so small that it does not meet any other irreducible component of $X-U$. Then every point of $U\cup U_x$ lies either in $U$ or in $\overline{\{x\}}\cap U_x$, so that the lemma is also true for $\sG|_{U\cup U_x}$. We conclude that $U=X$, which proves the Lemma.
+\end{proof}
+
+\begin{theorem}\label{thm:2.7.8}
+Let $X$ be a locally noetherian prescheme. Then the category $\operatorname{Mod}(X)$ of all $\sO_X$-modules is a locally noetherian category.
+\end{theorem}
+
+\begin{proof}
+$\operatorname{Mod}(X)$ clearly has exact direct limits. We must provide it with a family of noetherian generators. I claim the sheaves $\sO_U$, where $U$ is a noetherian open affine of $X$, and $\sO_U$ is the sheaf $\sO_X$ on $U$ and zero outside, will do. They clearly form a family of generators. To see that $\sO_U$ is noetherian, let $\sG_1\subseteq\sG_2\subseteq\cdots$ be an increasing sequence of subsheaves. We may assume $X=U$ is noetherian. Let $\sG=\bigcup\sG_k$. Then by the Lemma, there are a finite number of open sets $U_i$ and sections $s_{ij}\in\Gamma(U_i,\sG)$ which generate the stalk of $\sG$ at each point. For each $s_{ij}$, we can cover $U_i$ with a finite number of open sets $U_{ij\ell}$ such that each $s_{ij}|_{U_{ij\ell}}$ comes from a section of a suitable $\sG_{k(ij\ell)}$ over $U_{ij\ell}$. Doing this for all the $s_{ij}$, and taking $k=\max(k(ij\ell))$, we find that all the $s_{ij}$ come from sections of $\sG_k$. Hence $\sG_k=\sG$, and so our sequence is stationary.
+\end{proof}
+
+\begin{corollary}\label{cor:2.7.9}
+Let $X$ be a locally noetherian prescheme. Then any direct sum of injective $\sO_X$-modules is injective.
+\end{corollary}
+
+\begin{corollary}\label{cor:2.7.10}
+Let $X$ be a locally noetherian prescheme. Then any injective $\sO_X$-module can be written uniquely as a direct sum of indecomposable injective $\sO_X$-modules.
+\end{corollary}
+
+\begin{definition}
+Let $X$ be a locally noetherian prescheme, let $x\in X$, and let $x'$ be a specialization of $x$, i.e., $x'\in\overline{\{x\}}$. Let $I$ be an injective hull of $k(x)$ over the local ring $\sO_{X,x}$. We define $J(x,x')$ to be the restriction of the sheaf $i_x(I)$ to the closed subset $\overline{\{x'\}}$ of $\overline{\{x\}}$, as in [G, II~Thm.~2.9.1]. If $x=x'$, we write simply $J(x)$ for $J(x,x)=i_x(I)$. Note that $J(x,x')$ is an indecomposable injective $\sO_X$-module.
+\end{definition}
+
+\begin{theorem}\label{thm:2.7.11}
+Let $X$ be a locally noetherian prescheme. Then the indecomposable injective $\sO_X$-modules are precisely the sheaves $J(x,x')$ defined above, for every pair of points $x$ specializing to $x'$ of $X$.
+\end{theorem}
+
+\begin{lemma}\label{lem:2.7.12}
+Let $X$ be a locally noetherian prescheme, and let $I$ be an injective $\sO_X$-module. Then the stalk $I_x$ of $I$ at each point $x\in X$ is an injective module over the local ring $\sO_{X,x}$ of $x$.
+\end{lemma}
+
+\begin{proof}
+Since $\sO_{X,x}$ is a noetherian ring, it is sufficient to show that whenever $M\subseteq N$ is an inclusion of $\sO_{X,x}$-modules of finite type, and $\phi\colon M\to I_x$ is a map, then $\phi$ extends to $N$. We can find coherent sheaves $\overline{M}\subseteq\overline{N}$ on $X$, with stalks $M$ and $N$ at $x$ [EGA~I~9.4.8], and we can find a map of $\overline{M}$ to $I$ in a suitable neighborhood $\overline{U}$ of $x$, extending $\phi$, since $\overline{M}$ is a sheaf of finite presentation [EGA~0~5.2.6]. This gives a map of $\overline{M}_U$ to $I$. Now since $I$ is injective, this extends to a map of $\overline{N}_U$ to $I$, whose stalk at $x$ extends $\phi$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~7.11]
+Let $I$ be an indecomposable injective $\sO_X$-module. We define $\operatorname{Supp}(I)$ to be the set of points $x\in X$ such that the stalk $I_x$ is non-zero. Let $x'\in\operatorname{Supp}(I)$ be a maximal point (i.e., one which is not a specialization of any other point in $\operatorname{Supp}(I)$). Then by the lemma, the stalk $I_{x'}$ is an injective $\sO_{X,x'}$-module. Let $I_0$ be an indecomposable injective direct summand of $I_{x'}$. Then by Proposition~7.4, $I_0$ is of the form $I(\mathfrak{p})$ for some prime ideal $\mathfrak{p}$ of $\sO_{x'}$. Let $\mathfrak{p}$ correspond to the point $x\in X$. Then $i_x(I(\mathfrak{p}))=J(x)$, using the notation above. Furthermore, there is a natural inclusion of $\sO_Z$ in $J(x)$, where $Z=\overline{\{x\}}$. Since the stalk $J(x)_{x'}=I_0$ is mapped into $I_{x'}$, we have a map $\sO_{Z,x'}\to I_{x'}$, and hence can find a map $\phi\colon\sO_Z\to I$ extending it in a suitable neighborhood $U$ of $x'$. Let $Z'=\overline{\{x'\}}$. Then the image of $\phi$ has support in $Z'$, since $x'$ was chosen maximal in $\operatorname{Supp}(I)$, and by construction, $\phi$ is injective at $x'$. Now applying Lemma~7.7 to the kernel of $\phi$, we see that $\phi$ factors through $\sO_{Z,Z'}$, the restriction of $\sO_Z$ to the closed subset $Z'$, to give a map $\psi\colon\sO_{Z,Z'}\to I$ (defined on $U$), and that by shrinking $U$ a bit, we may assume that $\psi$ is injective on $U$. In other words, we have an injection of sheaves on $X$,
+\[
+\psi_U\colon \sO_{Z,Z',U} \longrightarrow I
+\]
+where $\sO_{Z,Z',U}$ is the restriction of $\sO_{Z,Z'}$ to the open set $U$.
+
+Now it is easily seen that $J(x,x')$ is an injective hull of $\sO_{Z,Z',U}$, so $\psi_U$ extends to give a map $J(x,x')\to I$, which is necessarily an inclusion since $\psi_U$ is. Now $J(x,x')$ being injective, is a direct summand, so must be equal to $I$ since $I$ was indecomposable.
+\end{proof}
+
+\begin{corollary}\label{cor:2.7.13}
+Let $X$ be a locally noetherian prescheme. Then every injective $\sO_X$-module is uniquely a direct sum of injectives $J(x,x')$ defined above.
+\end{corollary}
+
+\begin{corollary}\label{cor:2.7.14}
+Let $A$ be a noetherian ring, let $I$ be an injective $A$-module, and let $X=\operatorname{Spec}A$. Then $\widetilde{I}$ is an injective $\sO_X$-module.
+\end{corollary}
+
+\begin{proof}
+Follows from Theorem~7.3, Propositions~7.4 and~7.6, and Corollary~7.9.
+\end{proof}
+
+\begin{corollary}\label{cor:2.7.15}
+Let $A$ be a noetherian ring, let $M$ be an $A$-module of finite type, and let $N$ be any $A$-module. Then
+\[
+\underline{\operatorname{Ext}}_X^i(\widetilde{M},\widetilde{N}) = \operatorname{Ext}_A^i(M,N)^{\sim}
+\]
+for all $i$, where $X=\operatorname{Spec}A$.
+\end{corollary}
+
+\begin{proof}
+Since $M$ is of finite type,
+\[
+\underline{\Hom}_X(\widetilde{M},\widetilde{N}) = \Hom_A(M,N)^{\sim}
+\]
+for any $N$. Take an injective resolution $I^\bullet$ of $N$. Then $\widetilde{I}{}^\bullet$ is an injective resolution of $\widetilde{N}$ by the previous Corollary. Since $\widetilde{\;}$ is an exact functor, we have the result.
+\end{proof}
+
+\begin{lemma}\label{lem:2.7.16}
+Let $X$ be a prescheme, and let $F$ be an $\sO_X$-module. Then $F$ is injective in $\operatorname{Mod}(X)$ if and only if there is an open cover $\{U_\alpha\}$ of $X$ such that for each $\alpha$, $F|_{U_\alpha}$ is injective in the category $\operatorname{Mod}(U_\alpha)$.
+\end{lemma}
+
+\begin{proof}
+If $F$ is injective, then $F$ restricted to any open set is injective. Indeed, given $G'\subseteq G$ on $U$ and a map $G'\to F|_U$, we deduce a map $G'^X\to F$, where $G'^X$ is the sheaf $G'$ extended by zero outside $U$. This extends to a map $G^X\to F$, hence $G\to F|_U$.
+
+On the other hand, to test whether $F$ is injective, it is enough, by Zorn's lemma, to show that for every sheaf $G$ in a family of generators of the category, and for every map $\phi\colon G'\to F$ of a subsheaf $G'$ of $G$ to $F$, $\phi$ extends to $G$. Since the sheaves $\sO_U$ (which is $\sO_X$ on $U$ and $0$ outside), for $U$ arbitrarily small, form a family of generators of $\operatorname{Mod}(X)$, we see that the question of injectivity is local, as required.
+\end{proof}
+
+\begin{proposition}\label{prop:2.7.17}
+Let $X$ be a locally noetherian prescheme, and let $F$ be a quasi-coherent $\sO_X$-module. Then the following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] $F$ is an injective $\sO_X$-module.
+\item[(ii)] $F$ is isomorphic to a direct sum of sheaves $J(x)$ for various $x\in X$.
+\item[(iii)] For every $x\in X$, the stalk $F_x$ of $F$ at $x$ is an injective $\sO_{X,x}$-module.
+\item[(iv)] For all coherent sheaves $G$ on $X$, $\operatorname{Ext}^1(G,F)=0$.
+\item[(v)] There is an open cover $\{U_\alpha\}$ of $X$ such that $F|_{U_\alpha}$ is an injective $\sO_{U_\alpha}$-module for all $\alpha$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) $\Longrightarrow$ (ii) We know by Corollary~7.13 that $F$ is isomorphic to a direct sum of $J(x,x')$. Since $F$ is quasi-coherent, each $J(x,x')$ must be also. But $J(x,x')$ is quasi-coherent if and only if $x=x'$, i.e., $J(x,x')=J(x)$.
+
+(ii) $\Longrightarrow$ (iii) Clear.
+
+(iii) $\Longrightarrow$ (iv) Since $G$ is coherent, $\operatorname{Ext}$ commutes with passage to stalks, and all the stalks are zero.
+
+(iv) $\Longrightarrow$ (v) On a noetherian affine $U=\operatorname{Spec}A$ of $X$, $\operatorname{Ext}^1(G,F)|_U=\operatorname{Ext}^1_A(M,N)^{\sim}$ where $G=\widetilde{M}$ and $F=\widetilde{N}$. The result then follows from [EGA~I~9.4.8], Corollary~7.14, and the well-known fact that on a noetherian ring, $N$ is injective if and only if $\operatorname{Ext}^1_A(M,N)=0$ for all $A$-modules $M$ of finite type.
+
+(v) $\Longrightarrow$ (i) by the lemma.
+\end{proof}
+
+\begin{theorem}\label{thm:2.7.18}
+Let $X$ be a locally noetherian prescheme. Then every quasi-coherent $\sO_X$-module $F$ can be embedded in a quasi-coherent, injective $\sO_X$-module $I$.
+\end{theorem}
+
+\begin{proof}
+Indeed, we will show that the injective hull $I$ of a quasi-coherent sheaf $F$ is quasi-coherent. Let $I$ be written as a direct sum of sheaves $J(x,x')$, by Corollary~7.13. For each such $J(x,x')$, since $I$ is an injective hull of $F$, there is a neighborhood $U$ of $x'$, and a section $s\in J(x,x')(U)$ which is also a section of $F(U)$. By shrinking $U$ if necessary, we may assume that the support of $s$ is just $U\cap Z'$, where $Z'=\overline{\{x'\}}$. Since $s$ is a section of a quasi-coherent sheaf $F$, it must be annihilated by some power of the ideal $\sO_{Z'}$ of $Z'$. This implies $x=x'$, for if $x\neq x'$, no section of $J(x,x')$ is annihilated by any power of $\sO_{Z'}$. Thus $J(x,x')=J(x)$ is quasi-coherent, and so $I$ is quasi-coherent.
+\end{proof}
+
+\begin{corollary}\label{cor:2.7.19}
+Let $X$ be a locally noetherian prescheme. Then the natural functor
+\[
+\DD^+(\Qco(X)) \longrightarrow \DD_{\mathrm{qc}}^+(X)
+\]
+is an equivalence of categories.
+\end{corollary}
+
+\begin{proof}
+(Cf.\ \S1 for notations.) Follows from [I.4.8].
+\end{proof}
+
+As an application, we give the following result on complexes of finite injective dimension.
+
+\begin{proposition}\label{prop:2.7.20}
+Let $X$ be a locally noetherian prescheme, let $A=\operatorname{Mod}(X)$, and let $F^\bullet\in\operatorname{Ob}\KK_{\mathrm{qc}}^+(A)$. Then the equivalent conditions (i), (ii), and (iii) of [I.7.6] are also equivalent to the following:
+\begin{enumerate}
+\item[(i)${}_{\mathrm{qc}}$] $F^\bullet$ admits a quasi-isomorphism $F^\bullet\to I^\bullet$ into a bounded complex of quasi-coherent injective $\sO_X$-modules.
+\item[(ii)${}_{\mathrm{qc}}$] The functor $\DerR\underline{\Hom}^\bullet(\cdot,F^\bullet)$ from $\DD(A)^\bullet$ to $\DD(A)$ is way-out left.
+\item[(iii)${}_{\mathrm{qc}}$] There is an integer $n_0$ such that $\underline{\operatorname{Ext}}^i(G,F^\bullet)=0$ for all $G\in\operatorname{Mod}(X)$ and all $i>n_0$.
+\item[(iii)${}_{\mathrm{c}}$] There is an integer $n_0$ such that $\underline{\operatorname{Ext}}^i(G,F^\bullet)=0$ for all $G\in\Coh(X)$ and all $i>n_0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i)${}_{\mathrm{qc}}$ $\Rightarrow$ (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (iii)${}_{\mathrm{c}}$ are all easy as before. It remains only to prove (iii)${}_{\mathrm{c}}$ $\Rightarrow$ (i)${}_{\mathrm{qc}}$. This is similar to the proof of (iii) $\Rightarrow$ (i) in loc.\ cit.\ using Proposition~7.17(iv) and Theorem~7.18 above.
+\end{proof}
+
+\begin{example}
+If $X$ is a locally noetherian prescheme, the category $\Qco(X)$ of quasi-coherent sheaves on $X$ may not be locally noetherian. Thus we do not know the structure of injectives in that category, and we do not know whether every injective object of $\Qco(X)$ is injective in $\operatorname{Mod}(X)$.
+
+Here is the example. Let $X_1$ be the projective plane, let $E_1$ be a line in $X_1$, and let $x_1$ be a closed point of $E_1$. Having defined $X_n, E_n, x_n$, define $X_{n+1}$ to be $X_n$ blown up at the point $x_n$, let $E_{n+1}$ be the exceptional curve, and let $x_{n+1}$ be a closed point of $E_{n+1}$. Define
+\[
+X = \bigcup_{n=1}^{\infty} (X_n - x_n),
+\]
+where we glue $X_n-x_n$ to the open subset $X_{n+1}-E_{n+1}$ of $X_{n+1}-x_{n+1}$. Then $X$ is an integral, locally noetherian scheme.
+
+However, $\Qco(X)$ is not a locally noetherian category. Indeed, let $\mathfrak{I}$ be a non-zero sheaf of ideals of $\sO_X$, and let $F$ be a noetherian generator of the category which admits a map into $\sO_X$ not factoring through $\mathfrak{I}$. Then the image of $F$ must be a noetherian non-zero ideal $\sG$ of $\sO_X$.
+
+For each $k=1,2,\dots$, let $Y_k$ be a closed subset of $X$,
+\[
+Y_k = \bigcup_{n=k}^{\infty} (E_n - x_n).
+\]
+Then $Y_1 \supset Y_2 \supset \cdots$. Let $\sJ_k$ be the sheaf of ideals of $Y_k$. Then $\sG\sJ_1 \subset \sG\sJ_2 \subset \cdots$ which is a contradiction to the statement $\sG$ is noetherian.
+
+We conclude that the category $\Qco(X)$ does not have a family of noetherian generators.
+\end{example}
+
+\textbf{Remark.}
+We do not know if the analogue of Corollary~7.19 is true for unbounded complexes, i.e., whether the natural functor
+\[
+\DD(\Qco(X)) \longrightarrow \DD_{\mathrm{qc}}(X)
+\]
+is an equivalence of categories. However, we conjecture it to be true when $X$ is a \emph{regular} noetherian scheme of finite Krull dimension, because in that case the category $\operatorname{Mod}(X)$ has finite injective dimension.
