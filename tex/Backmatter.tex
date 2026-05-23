@@ -1,6 +1,5 @@
 \backmatter
 
-\addcontentsline{toc}{chapter}{Index of Definitions}
 \chapter{Index of Definitions}
 \noindent
 \begin{longtable}{l l}
@@ -74,7 +73,6 @@
 	$Z/Z^{\prime}$-skeleton & 1.7 \\
 \end{longtable}
 
-\addcontentsline{toc}{chapter}{Index of Notations}
 \chapter{Index of Notations}
 Of course there is the usual collection of variable notations: $A, B$ for abelian categories or rings, functors or sheaves, $X,Y$ for preschemes, $x,y$ for points of them, $f,g$ for morphisms of preschemes, $\phi$ for morphisms of functors on sheaves, etc.
 
@@ -252,8 +250,302 @@ In the list of stable notations below, we have distinguished five categories: La
 \printbibliography[title={Bibliography}]
 \appendix
 \chapter{Cohomologie à Support Propre, et Construction du Foncteur $f^!$}
-by P. Deligne
+\markboth{Cohomologie \`a Support Propre}{Cohomologie \`a Support Propre}
+par P.\ Deligne\footnote{Ceci est une version compl\'et\'ee d'une lettre de P.\ Deligne \`a R.\ Hartshorne (lettre du 3 Mars 1966). Les notes de bas de page ont \'et\'e ajout\'ees par le copiste.}
+
+Verdier a montr\'e que dans le cas topologique, le formalisme de la dualit\'e de Poincar\'e se ramenait \`a des probl\`emes locaux en haut (voir [1]). Pour transposer sa construction au cadre sch\'ematique, il faut disposer d'une th\'eorie de la cohomologie ``\`a support propre'' pour les faisceaux coh\'erents.
+
+Sauf mention explicite du contraire, tous les pr\'esch\'emas consid\'er\'es sont noeth\'eriens et les pr\'efaisceaux quasi-coh\'erents.
+
+\section*{n\textdegree{} 1. Le sorite des pro-objets.}
+
+\begin{proposition}[1]
+Soit $\mathcal{C}$ une $\mathbb{U}$-cat\'egorie\footnote{$\mathbb{U}$ d\'esigne un univers fix\'e dans toute la suite.} o\`u existent les limites inductives finies. Soit $h$ un foncteur $\mathcal{C}^{\circ} \to (\text{ens})$. Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $h$ est limite inductive, selon un petit\footnote{``petit'' = ``$\in \mathbb{U}$''.} ensemble ordonn\'e filtrant, de foncteurs repr\'esentables.
+\item[(ii)] $h$ est limite inductive, selon une petite cat\'egorie filtrante, de foncteurs repr\'esentables.
+\item[(iii)] $h$ transforme $\varprojlim$ finies en $\varinjlim$ finies, et il existe un petit ensemble d'objets tel que tout \'el\'ement d'un $h(X)$ se factorise par l'un d'eux.
+\end{enumerate}
+\end{proposition}
+
+Les implications (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) sont triviales et (iii) $\Rightarrow$ (ii) standard ($h$ est limite des $h_F$ selon la cat\'egorie des $(F, \alpha)$ pour $\alpha \in h(F)$ et $F$ dans la sous-cat\'egorie de $\mathcal{C}$ stable par $\varprojlim$ finie engendr\'ee par le petit ensemble donn\'e). Reste \`a prouver que (ii) $\Rightarrow$ (i). Si $\mathcal{L}$ et $\mathcal{M}$ sont deux cat\'egories filtrantes, un foncteur $F: \mathcal{L} \to \mathcal{M}$ est dit cofinal si $\varinjlim h_{F(L)}$ est le foncteur final. Pour tout $G: \mathcal{M} \to \mathcal{M}$, on a alors $\varinjlim G = \varinjlim G \circ F$.
+
+Lemme. Pour toute petite cat\'egorie filtrante $\mathcal{L}$, il existe un foncteur cofinal d'un petit ensemble ordonn\'e filtrant dans $\mathcal{L}$.
+
+La premi\`ere projection: $\mathcal{L} \times \mathbb{N} \longrightarrow \mathcal{L}$, est un foncteur cofinal ($\mathbb{N}$ muni de l'ordre naturel); ceci permet de se ramener \`a supposer que $\operatorname{Ob}\mathcal{L}$, pr\'eordonn\'e par $\Hom(X,Y) \neq \emptyset$, n'a pas de plus grand \'el\'ement. On ordonne par inclusion l'ensemble $E$ des sous-cat\'egories finies de $\mathcal{L}$ ayant un seul objet final (fini signifie d'ensemble de fl\`eches fini). On d\'efinit un foncteur de $E$ dans $\mathcal{L}$ en associant \`a chacune de ces cat\'egories son objet final. Sous les hypoth\`eses faites, $E$ est filtrant et ce foncteur cofinal.
+
+Les foncteurs v\'erifiant les conditions \'equivalentes de la proposition 1 sont les \emph{Ind-objets} de $\mathcal{C}$. Ils forment une sous-cat\'egorie pleine $\operatorname{Ind}\mathcal{C}$ de $\underline{\Hom}(\mathcal{C}^{\circ}, (\text{Ens}))$, stable par limite inductive. $\mathcal{C} \longmapsto \operatorname{Ind}\mathcal{C}$ est un foncteur $(\text{cat}) \to (\text{cat})$. Si les limites inductives filtrantes existent dans $\mathcal{C}$, pour tout $h \in \operatorname{Ind}\mathcal{C}$, le foncteur $X \longrightarrow \Hom(h, h_{\overline{X}})$ est corepr\'esentable, d'o\`u un foncteur, not\'e $\varinjlim$, de $\operatorname{Ind}\mathcal{C}$ dans $\mathcal{C}$. En particulier, on a toujours un foncteur $\operatorname{Ind}\operatorname{Ind}\mathcal{C} \longrightarrow \operatorname{Ind}\mathcal{C}$, et tout foncteur $\mathcal{C} \longrightarrow \operatorname{Ind}\mathcal{C}$ se prolonge en un foncteur $\operatorname{Ind}\mathcal{C} \longrightarrow \operatorname{Ind}\mathcal{C}$. Dans $\operatorname{Ind}\mathcal{C}$, les limites inductives filtrantes sont exactes, et seront not\'ees ``$\varinjlim$''; en particulier, identifiant $\mathcal{C}$ \`a une sous-cat\'egorie pleine de $\operatorname{Ind}\mathcal{C}$, si $(X_i)_{i \in I}$ est un syst\`eme inductif filtrant dans $\mathcal{C}$, $\varinjlim_{i \in I} X_i = \varinjlim_{i \in I} X_i$.
+
+Pour qu'un foncteur sur $\operatorname{Ind}\mathcal{C}$ soit repr\'esentable, il faut et suffit qu'il transforme $\varprojlim$ finies en $\varprojlim$ finies, $\varinjlim$ filtrantes en $\varinjlim$ filtrantes et que sa restriction \`a $\mathcal{C}$ satisfasse \`a la condition de petitesse de la prop.\ 1 (iii) (en effet, la proposition 1 montre alors que sa restriction \`a $\mathcal{C}$ est un Ind-objet, auquel il est partout \'egal vu la condition sur les limites).
+
+Ce qui pr\'ec\`ede, sauf la prop.\ 1 (iii) et l'assertion pr\'ec\'edente reste vrai en utilisant partout des limites de suites (ou d\'enombrables, c'est la m\^eme chose).
+
+On d\'efinit par dualit\'e la cat\'egorie $\operatorname{pro}\mathcal{C}$ des pro-objets (sous-cat\'egorie pleine de $\underline{\Hom}(\mathcal{C}, (\text{Ens}))^{\circ}$).
+
+\begin{proposition}[2]
+Soit $X$ un pr\'esch\'ema quasi-compact quasi-s\'epar\'e (non n\'ecessairement noeth\'erien). La cat\'egorie des faisceaux quasi-coh\'erents sur $X$ est \'equivalente \`a la cat\'egorie des Ind-objets de la cat\'egorie des faisceaux quasi-coh\'erents de pr\'esentation finie sur $X$.
+\end{proposition}
+
+La fl\`eche est ``$\varinjlim$'' $\mathcal{F}_i \mapsto \varinjlim \mathcal{F}_i$. Si $\mathcal{F}_i$ est de p.f.\ (pr\'esentation finie), pour tout syst\`eme inductif filtrant $(\mathcal{G}_i)_{i \in I}$, $\mathcal{F}_i \mapsto \varinjlim \mathcal{G}_i = \varinjlim \mathcal{F}_i$ (par un recollement fini qui commute \`a $\varinjlim$, on se ram\`ene au cas affine). Le foncteur pr\'ec\'edent est donc pleinement fid\`ele. Son image est stable par limites inductives filtrantes et sommes finies. Il suffit de prouver que pour tout $\mathcal{F}$ quasi-coh\'erent, $\mathcal{F}$ sera limite d'images de faisceaux de p.f. et chacune d'elles quotient d'un faisceau de p.f.\ par une limite de sous-faisceaux de type fini.
+
+Soit sur un voisinage quasi-compact $U$ de $x$ une fl\`eche $f: \mathcal{C} \longrightarrow \mathcal{F}$, $\mathcal{C}$ de p.f., $s$ dans l'image. Il suffit de prolonger $\mathcal{C}$ et $f$ \`a $X$ entier, et, proc\'edant pas \`a pas, il suffit de savoir prolonger \`a $U \cup V$ si $V$ est affine, ce qui revient \`a effectuer un prolongement de $U \cap V$ \`a $V$:
+
+\begin{lemma}
+Soit $\mathcal{C}$ un faisceau de p.f.\ sur un ouvert quasi-compact $U$ d'un sch\'ema affine $X$, $\mathcal{F}$ un faisceau sur $X$ et $f$ une fl\`eche de $\mathcal{C}$ dans $\mathcal{F}|_U$. Il est possible de prolonger $\mathcal{C}$ et $f$ en $\overline{\mathcal{C}}$ et $\overline{f}$, d\'efinis sur $X$ ($\overline{\mathcal{C}}$ \'etant de p.f.).
+\end{lemma}
+
+Soit $\iota$ l'inclusion de $U$ dans $X$ et $\mathcal{C}_1$ le produit fibr\'e de $\iota_*\mathcal{C}$ et $\mathcal{F}$ sur $\iota_*\iota^*\mathcal{F}$. $\mathcal{C}_1$ prolonge $\mathcal{C}$ et s'envoie dans $\mathcal{F}$. Si on repr\'esente $\mathcal{C}_1$ comme limite de ses sous-faisceaux de type fini, comme $U$ est quasi-compact et $\mathcal{C}$ de p.f., l'un d'eux prolonge d\'ej\`a $\mathcal{C}$. Si on repr\'esente ce dernier comme quotient de $\mathcal{O}^n$ par une limite de sous-faisceaux de type fini de $\mathcal{O}^n$, on voit de m\^eme qu'on peut remplacer $\mathcal{C}_1$ par un faisceau de p.f.
+
+\begin{corollary}[1]
+Pour qu'un foncteur contravariant additif $F: (\text{q coh}) \to \Ab$ soit repr\'esentable, il faut et suffit qu'il soit exact \`a gauche et transforme $\varinjlim$ filtrante en $\varinjlim$ filtrante.
+\end{corollary}
+
+\begin{corollary}[2]
+Tout faisceau de p.f.\ d\'efini sur un ouvert quasi-compact $U$ de $X$ se prolonge en un faisceau de p.f.\ sur $X$.
+\end{corollary}
+
+Soit $\mathcal{A}$ une cat\'egorie ab\'elienne. On aura \`a travailler de fa\c{c}on essentielle dans $\operatorname{pro}\mathbb{D}^b\mathcal{A}$, sous-cat\'egorie pleine de $\operatorname{pro}\mathbb{D}(\mathcal{A})$ form\'ee des ``$\varprojlim$'' $K_i$ o\`u la cohomologie de $K$ est uniform\'ement born\'ee avec $i$. $\mathbb{H}^p$ se prolonge en un foncteur $\operatorname{pro}\mathbb{D}(\mathcal{A}) \longrightarrow \operatorname{pro}\mathcal{A}$.
+
+\begin{proposition}[3]
+Les foncteurs $\mathbb{H}^p$ forment un syst\`eme conservatif\footnote{i.e.\ si $u$ est une fl\`eche telle que les $\mathbb{H}^p(u)$ soient inversibles, $u$ est inversible.} de foncteurs sur $\operatorname{pro}\mathbb{D}^b\mathcal{A}$.
+\end{proposition}
+
+Soit $f: K \to L$ une fl\`eche de $\operatorname{pro}\mathbb{D}^b\mathcal{A}$ telle que les $\mathbb{H}^p(K) \to \mathbb{H}^p(L)$ soient des isomorphismes (dans $\operatorname{pro}\mathcal{A}$). Il s'agit de v\'erifier que pour tout $M$ dans $\mathbb{D}^b(\mathcal{A})$, $\Hom(K,M) \longleftarrow \Hom(L,M)$ est un isomorphisme. Posons $K = \text{``$\varprojlim$''} K_{\kappa}$. On dispose d'une suite spectrale convergente
+\[
+\varinjlim \Ext^{p}(\mathbb{H}^{q}K,M) \implies \varinjlim \Ext^{p+q}(K,M) = \Hom(K[-p-q], M).
+\]
+Cette suite spectrale reste d'ailleurs vraie pour $M \in \mathbb{D}(\mathcal{A})$. La proposition r\'esulte aussit\^ot de l'existence de ces suites.
+
+\section*{n\textdegree{} 2. Lemmes fondamentaux.}
+
+Rappelons que les pr\'esch\'emas consid\'er\'es sont noeth\'eriens.
+
+\begin{proposition}[4]
+(Th\'eor\`eme de dualit\'e pour une immersion ouverte). Soient $U$ un ouvert de $X$, $j$ la fl\`eche d'inclusion, $\mathcal{J}$ un id\'eal d\'efinissant le ferm\'e compl\'ementaire, $\mathcal{F}$ un faisceau coh\'erent sur $U$ et $\mathcal{G}$ quasi-coh\'erent sur $X$. Soit $\overline{\mathcal{F}}$ un prolongement coh\'erent de $\mathcal{F}$. On a
+\[
+\Hom_{U}(\mathcal{F}, j^{*}\mathcal{G}) = \Hom_{X}(\text{``$\varinjlim$''} \mathcal{J}^{n}\overline{\mathcal{F}}, \mathcal{G}).
+\]
+\footnote{Cette formule est \'evidemment bien connue, cf.\ p.\ ex.\ la th\`ese de P.\ Gabriel.}
+\end{proposition}
+
+La fl\`eche $\varinjlim \Hom_X(\mathcal{J}^{n}\overline{\mathcal{F}},\mathcal{G}) \longrightarrow \Hom_U(\mathcal{F},\mathcal{G})$ est injective: si l'image par $f$ de $\mathcal{J}^{n}\overline{\mathcal{F}}$ dans $\mathcal{G}$ a son support dans le compl\'ementaire de $U$, elle est annul\'ee par une puissance de $\mathcal{J}$, soit $\mathcal{J}^{k}$, et l'image de $\mathcal{J}^{n+k}\overline{\mathcal{F}}$ est nulle.
+
+Supposons maintenant $X$ affine et soit $f \in \Hom_U(\mathcal{F},\mathcal{G})$. Pour $k$ assez grand, toute section $s$ de $\mathcal{J}^{k}\overline{\mathcal{F}}$ sur $X$ a une image (sur $U$) qui se prolonge en une section de $\mathcal{G}$ sur $X$. Rempla\c{c}ant $\overline{\mathcal{F}}$ par $\mathcal{J}^{k}\overline{\mathcal{F}}$, on peut supposer disposer d'un diagramme
+\[
+\begin{tikzcd}
+0 \ar[r] & R \ar[r] \ar[d,dashed] & \mathcal{O}^{n} \ar[r] \ar[d,dashed] & \mathcal{J} \ar[r] \ar[d,dashed] & 0 \\
+0 \ar[r] & R_1 \ar[r] & \mathcal{O}^{n} \ar[r] & \mathcal{J}
+\end{tikzcd}
+\]
+o\`u les fl\`eches pointill\'ees sont d\'efinies sur $U$. Pour $\ell$ assez grand, en vertu de Krull et du fait que $R/R \cap R_1$ est concentr\'e hors de $U$, on a $R \cap \mathcal{J}^{\ell} \cdot \mathcal{O}^{n} \subset R_1$, ce qui permet de prolonger $f$ en $\overline{f}: \mathcal{J}^{\ell}\overline{\mathcal{F}} \to \mathcal{G}$.
+
+Dans le cas g\'en\'eral, soient $U_i$ un recouvrement affine fini de $X$ et $U_{ijk}$ des recouvrements affins finis des $U_{ij} = U_i \cap U_j$. Les $\varprojlim$ commutent aux produits finis, d'o\`u:
+\[
+0 \longrightarrow \Hom_{U}(\mathcal{F}, j^{*}\mathcal{G}) \longrightarrow \prod_{i} \Hom_{U_i}(\mathcal{F}, j^{*}\mathcal{G}) \rightrightarrows \prod_{i,j,k} \Hom_{U_{ijk}}(\mathcal{F}, j^{*}\mathcal{G})
+\]
+\[
+\uparrow \qquad \uparrow \qquad \uparrow
+\]
+\[
+0 \longrightarrow \varinjlim \Hom_{X}(\mathcal{J}^{n}\overline{\mathcal{F}},\mathcal{G}) \longrightarrow \prod_{i} \varinjlim \Hom_{U_i}(\dots) \rightrightarrows \prod_{i,j,k} \varinjlim \Hom_{U_{ijk}}(\dots)
+\]
+ce qui ach\`eve la d\'emonstration.
+
+La proposition 4 donne une formule explicite pour le foncteur $j_{!}: (\text{coh sur } U) \to \operatorname{pro}(\text{coh sur } X)$.
+
+\begin{proposition}[5]
+(Ind\'ependance de la compactification). Soient $j: U \hookrightarrow X$ une immersion ouverte, $f: X \to S$ un morphisme propre. Soit $\mathcal{J}$ un faisceau d'id\'eaux d\'efinissant $X \setminus U$, et soit $\mathcal{I} = f_{*}\mathcal{J}$. Si $\mathcal{I}$ est coh\'erent sur $S$, on a
+\begin{enumerate}
+\item[(i)] si $k > 0$, le syst\`eme projectif $R^{k}f_{*}\mathcal{J}^{n}\mathcal{F}$ est essentiellement nul (i.e.\ d\'efinit le pro-objet nul)
+\item[(ii)] si $k = 0$, pour $n$ assez grand, $f_{*}\mathcal{J}^{n+1}\mathcal{F} = \mathcal{I} \cdot f_{*}\mathcal{J}^{n}\mathcal{F}$.
+\end{enumerate}
+\end{proposition}
+
+En effet, $\bigoplus_{n=0}^{\infty} R^{k}f_{*}\mathcal{J}^{n}\mathcal{F}$ est un $\bigoplus \mathcal{I}^{n}$-module de type fini (EGA III); donc pour $n$ assez grand, $\mathcal{I} \otimes R^{k}f_{*}\mathcal{J}^{n}\mathcal{F} \longrightarrow R^{k}f_{*}\mathcal{J}^{n+1}\mathcal{F}$ est surjectif; (ii) en r\'esulte. Si $k > 0$, $R^{k}f_{*}$ est nul sur $U$; il existe $N$ tel que $\mathcal{I}^{N}R^{k}f_{*}\mathcal{J}^{n}\mathcal{F}$ soit nul (quel que soit $n$). Le diagramme
+\[
+\begin{tikzcd}[row sep=small]
+\mathcal{I}^{p} \otimes R^{k}f_{*}\mathcal{J}^{n}\mathcal{F} \ar[r] \ar[d] & R^{k}f_{*}\mathcal{J}^{n+p}\mathcal{F} \ar[r] & 0 \quad (\text{si } n \ge n_0) \\
+\mathcal{I}^{p} \cdot R^{k}f_{*}\mathcal{J}^{n}\mathcal{F} \ar[r] & R^{k}f_{*}\mathcal{J}^{n}\mathcal{F}
+\end{tikzcd}
+\]
+prouve que pour $N$ assez grand et $k > 0$,
+\[
+R^{k}f_{*}\mathcal{J}^{n+N}\mathcal{F} \longrightarrow R^{k}f_{*}\mathcal{J}^{n}\mathcal{F}
+\]
+est nul, soit (i).
+
+\section*{n\textdegree{} 3. D\'efinition de $Rf_{!}$.}
+
+Un morphisme $f$ (resp.\ un couple de morphismes composables, resp.\ un triple \dots) sera dit \emph{compactifiable} si on peut respectivement trouver des diagrammes commutatifs
+\[
+\begin{tikzcd}
+X \ar[r,"j"] \ar[dr,"f"'] & \overline{X} \ar[d,"\overline{f}"] \\
+& S
+\end{tikzcd}
+\]
+o\`u les fl\`eches horizontales sont des immersions ouvertes et les fl\`eches obliques sont propres. Tout morphisme compactifiable est s\'epar\'e de type fini, et Nagata affirme dans [2] que sa d\'emonstration prouve la r\'eciproque pour les sch\'emas noeth\'eriens int\`egres, mais les hypoth\`eses qu'il fait sur la base ne sont pas claires.\footnote{Mumford aurait v\'erifi\'e via la d\'emonstration de Nagata que tout morphisme s\'epar\'e de type fini des sch\'emas noeth\'eriens est compactifiable.}
+
+On se propose, pour tout $f$ compactifiable, de d\'efinir $Rf_{!}: \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(X) \longrightarrow \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(S)$. Rappelons que la cat\'egorie $\mathbb{D}_{\operatorname{coh}}^{b}(S)$, cat\'egorie d\'eriv\'ee born\'ee de la cat\'egorie des faisceaux coh\'erents sur $S$, est sous-cat\'egorie pleine de la cat\'egorie d\'eriv\'ee de celle de tous les faisceaux (non n\'ecessairement quasi-coh\'erents) sur $S$, l'image essentielle \'etant form\'ee des complexes \`a cohomologie coh\'erente et born\'ee.
+
+Si $f$ est propre, on dispose de $\operatorname{R}f_{*}\colon \mathbb{D}_{\operatorname{coh}}^{b}(X) \longrightarrow \mathbb{D}_{\operatorname{coh}}^{b}(S)$, de dimension finie, qui induit $\operatorname{R}f_{!}: \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(X) \longrightarrow \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(S)$. Si $f$ est une immersion ouverte, $f_{!}: (\text{coh sur } X) \longrightarrow \operatorname{pro}(\text{coh sur } S)$ induit $\mathbb{D}^{b}(\text{coh sur } X) \longrightarrow \mathbb{D}^{b}\operatorname{pro}(\text{coh sur } S)$ qui s'envoie dans $\operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(S)$, et cette fl\`eche se prolonge en $\operatorname{R}f_{!}: \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(X) \longrightarrow \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(S)$. Si on prolonge le complexe coh\'erent $K$ sur $X$ en $\overline{K}$ sur $S$, son image est ``$\varinjlim$'' $\mathcal{J}^{n}\overline{K}$, o\`u $\mathcal{J}$ d\'efinit $S \setminus X$.
+
+Pour un compos\'e $f = gh$ ($g$ propre, $h$ immersion ouverte) on prend $\operatorname{R}f_{!} = \operatorname{R}g_{!}\operatorname{R}h_{!}$. Il faut v\'erifier:
+
+\subsection*{Ind\'ependance de la compactification.}
+
+Consid\'erons un diagramme commutatif
+\[
+\begin{tikzcd}
+& X' \ar[dl,"j'"'] \ar[dr,"j''"] & \\
+X \ar[dr,"\overline{f}"'] & & \overline{X}'' \ar[dl,"\overline{f}''"] \\
+& S &
+\end{tikzcd}
+\]
+o\`u $j'$ et $j''$ sont des immersions ouvertes, $\overline{f}$ et $\overline{f}''$ propres. Il faut v\'erifier que $\operatorname{R}\overline{f}_{*}\operatorname{R}j'_{!} = \operatorname{R}\overline{f}''_{*}\operatorname{R}j''_{!}$, soit encore, puisque $\operatorname{R}(\overline{f}g)_{*} = \operatorname{R}\overline{f}_{*}\operatorname{R}g_{*}$, que $\operatorname{R}j''_{!} = \operatorname{R}g_{*}\operatorname{R}j'_{!}$. On se ram\`ene \`a supposer $X$ dense dans $X'$, pour \^etre dans les conditions de la proposition 5. Soit $K$ un complexe coh\'erent born\'e sur $X$, prolong\'e en $\overline{K}$ sur $X'$. $g_{*}\overline{K}$ prolonge $K$ sur $X''$, et on a une fl\`eche
+\[
+g_{*}\mathcal{J}^{n}\overline{K} \longrightarrow \operatorname{R}g_{*}\mathcal{J}^{n}\overline{K} \tag{1}
+\]
+o\`u $\mathcal{J}$ d\'esigne un faisceau d'id\'eaux qui d\'efinit $X'\setminus X$. La prop.\ 5 (ii) montre que $\mathcal{J}^{n}_{\!\mathcal{I}}K = \varinjlim g_{*}\mathcal{I}^{n}\!\cdot\!\overline{K}$. Par passage \`a la ``$\varinjlim$'', on trouve ``$\varinjlim$'' $R^{p}g_{*}\mathcal{J}^{n}\overline{K}^{q} \implies$ ``$\varinjlim$'' $R^{p+q}g_{*}\mathcal{J}^{n}\overline{K}$, la proposition 5 (i) montre que cette suite spectrale d\'eg\'en\`ere, et il r\'esulte de la prop.\ 3 que la fl\`eche d\'eduite de (1) par passage \`a la ``$\varinjlim$'' est un isomorphisme, d'o\`u la formule voulue.
+
+\subsection*{Il reste \`a v\'erifier}
+
+\begin{enumerate}
+\item[(a)] pour tout diagramme, on a une compatibilit\'e
+\[
+\operatorname{R}f_{!} \operatorname{R}g_{!} K \cong \operatorname{R}(fg)_{!}K.
+\]
+Comme deux compactifications peuvent toujours \^etre coiff\'ees par une troisi\`eme (par exemple $X' \times_S X''$), ceci suffit \`a prouver l'ind\'ependance de l'arbitraire.
+
+\item[(b)] pour tout couple compactifiable, une identification $\operatorname{R}(fg)_{!} = \operatorname{R}f_{!}\operatorname{R}g_{!}$.
+
+\item[(c)] pour tout triple compactifiable, une compatibilit\'e.
+\end{enumerate}
+
+On aurait alors prouv\'e
+
+\begin{theorem}[1]
+Pour $f: X \longrightarrow Y$ compactifiable, $K \in \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(X)$, $L \in \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(Y)$ posons $\Hom_{f}(K,L) = \Hom_{Y}(\operatorname{R}f_{!}K,L)$. Modulo des questions de compactifiabilit\'e, on fait ainsi des cat\'egories $\operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(X)$ une cat\'egorie cofibr\'ee sur les pr\'esch\'emas noeth\'eriens (les fl\`eches \'etant compactifiables \dots).
+\end{theorem}
+
+\section*{n\textdegree{} 4. D\'efinition de $Rf^{!}$.}
+
+Il r\'esulte d'un tapis g\'en\'eral de Verdier [1] que le foncteur $\operatorname{R}f_{*}: \mathbb{D}(X) \longrightarrow \mathbb{D}(S)$ a un adjoint \`a \emph{droite} $\mathbb{D}^{+}(S) \longrightarrow \mathbb{D}^{+}(X)$; il ne m\'erite un nom, soit $\operatorname{R}f^{!}$, que pour $f$ propre, et sa d\'efinition ne se pr\^ete pas directement au calcul.
+
+Il faut tout d'abord expliciter un proc\'ed\'e de calcul de $\operatorname{R}f_{*}$ au niveau des complexes, du type $\operatorname{R}f_{*}K = f_{*}C^{*}(K)$ o\`u $C^{*}$ est une r\'esolution acyclique finie d\'ependant de fa\c{c}on fonctorielle, exacte, et compatible avec les limites inductives filtrantes de l'objet auquel on l'applique. \`A ce moment, pour tout injectif $I$ sur $S$, $\Hom(f_{*}C^{p}(\frac{1}{2}), I)$ est exact en quasi-coh\'erent sur $X$, et transforme $\varinjlim$ filtrantes en $\varprojlim$ filtrantes; il est donc repr\'esentable par un objet de $\operatorname{Ind}(\text{q coh } X)$.
+
+Voici comment d\'efinir une telle r\'esolution:
+\begin{enumerate}
+\item[1)] Si $S$ est s\'epar\'e: on prend un recouvrement fini de $X$ par des ouverts affines sur $S$ (par exemple affines) et $\operatorname{R}f_{*}K = f_{*}\check{C}(\mathfrak{U},K)$ (complexe de \v{C}ech altern\'e).
+
+\item[2)] Sinon: les r\'esolutions flasques canoniques ont ici deux d\'efauts: (a) $f_{*}C^{*}$ n'est plus quasi-coh\'erent; cela ne porte pas \`a cons\'equence tant que, comme ici, les injectifs quasi-coh\'erents sont injectifs en tant que faisceaux. (b) $C^{*}$ ne commute pas aux limites inductives filtrantes. Il est facile de corriger ce d\'efaut: on repr\'esente quasi-coh\'erent comme $\mathcal{F} = \varinjlim \mathcal{F}_i$ ($\mathcal{F}_i$ de pr\'esentation finie) et on pose $C^{**}\mathcal{F} = \varinjlim C^{*}\mathcal{F}_i$. Cela ne d\'epend pas de l'arbitraire.
+\end{enumerate}
+
+Pour une immersion ouverte, on prendra $\operatorname{R}f^{!}K = f^{*}K$. Pour un morphisme compos\'e $f = gh$ ($g$ propre, $h$ immersion ouverte), on prendra $\operatorname{R}f^{!} = \operatorname{R}g^{!}\operatorname{R}h^{!}$. Mettant bout \`a bout la proposition 4 et ce qui pr\'ec\`ede, on trouve
+
+\begin{theorem}[2]
+(Dualit\'e) Soit $f: X \longrightarrow S$ compactifiable, $f = gh$. Les foncteurs $\operatorname{R}f_{!}: \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(X) \longrightarrow \operatorname{pro}\mathbb{D}_{\operatorname{coh}}^{b}(S)$ et $\operatorname{R}f^{!}: \mathbb{D}^{+}(S) \longrightarrow \mathbb{D}^{+}(X)$ sont ``adjoints'' l'un de l'autre.
+\end{theorem}
+
+Il faudrait v\'erifier l'ind\'ependance de la compactification et un sorite de compatibilit\'es et d'identifications analogue au cas de $\operatorname{R}f_{!}$. Des cas particuliers du formulaire r\'esultent de la formule d'adjonction (unicit\'e d'un vrai adjoint \dots).
+
+On pourra dans le cas g\'en\'eral s'appuyer sur la proposition suivante:
+
+\begin{proposition}[6]
+Soit $f: X \longrightarrow S$ compactifiable et $L \in \mathbb{D}_{\operatorname{qc}}^{+}(S)$. La fibre en $x \in X$ de $\mathcal{H}^{p}\operatorname{R}f^{!}L$ est donn\'ee par
+\[
+(\mathcal{H}^{p}\operatorname{R}f^{!}L)_{x} = \varinjlim_{x \in U} \Hom_{S}^{p}(\operatorname{R}f_{!}(U,\mathcal{O}_{U}), L).
+\]
+\end{proposition}
+
+On peut supposer $X$ propre et $L$ donn\'e comme complexe de faisceaux injectifs quasi-coh\'erents. Soient $U$ un ouvert affine de $X$ et $\mathcal{J}$ un id\'eal qui d\'efinit $X\setminus U$.
+\begin{align*}
+(\mathcal{H}^{p}\operatorname{R}f^{!}L)(U) &= \operatorname{H}^{p}(\operatorname{R}f^{!}L(U)) = \operatorname{H}^{p}\Hom_{\mathcal{O}_{U}}(\mathcal{O}_{U},\operatorname{R}f^{!}L) \\
+&= \operatorname{H}^{p}\varinjlim \Hom_{X}(\mathcal{J}^{n}, \operatorname{R}f^{!}L) = \varinjlim \Hom_{S}^{p}(\operatorname{R}f_{*}\mathcal{J}^{n}, L) \\
+&= \Hom_{S}^{p}(\operatorname{R}f_{!}(U,\mathcal{O}_{U}), L).
+\end{align*}
+La proposition en r\'esulte.
+
+On supposera admis pour $\operatorname{R}f^{!}$ un formalisme de variance analogue \`a celui du th\'eor\`eme 1 pour $\operatorname{R}f_{!}$.
+
+Si on veut rendre plus explicite la d\'efinition de $\operatorname{R}f^{!}$ dans le cas propre, on peut remarquer que si $\mathcal{F}$ quasi-coh\'erent repr\'esente un foncteur $F$, pour tout ouvert $U$ et $\mathcal{J}$ d\'efinissant $X\setminus U$, on a $\mathcal{F}(U) = \varinjlim \Hom(\mathcal{J}^{n}, \mathcal{F}) = \varinjlim F(\mathcal{J}^{n})$.
+
+\section*{n\textdegree{} 5. Calcul de $\operatorname{R}f^{!}$.}
+
+Pour un morphisme fini, $\operatorname{R}f^{!}$ est ce qu'on veut; pour le voir, il suffit de prendre pour foncteur r\'esolvant, dans le calcul de $\operatorname{R}f_{*}$, l'identit\'e. Pour l'espace projectif, l'unicit\'e d'un adjoint ne laisse pas le choix (on utilise le fait qu'on a la formule d'adjonction pour $\operatorname{R}f^{!} = \operatorname{R}f_{*}: \mathbb{D}(X) \to \mathbb{D}(S)$), on reviendra sur la fl\`eche. Pour une immersion ouverte, $\operatorname{R}f^{!} = \operatorname{R}f^{*}$. Pour tout ouvert quasi-projectif $U$ de $X$ au-dessus de $S$, on peut donc calculer la restriction \`a $U$ de $\operatorname{R}f^{!}$. En particulier, si on peut v\'erifier localement que $\mathcal{R}^{q}f^{!}K = 0$ pour $q \neq p$, on conna\^it $\operatorname{R}f^{!}K$, puisqu'un objet de la cat\'egorie d\'eriv\'ee n'ayant qu'un faisceau de cohomologie non nul est d\'etermin\'e par ce faisceau. Rappelons un cas important o\`u cette condition est v\'erifi\'ee, avec $K = \mathcal{O}$.
+
+\begin{proposition}[7]
+Soit $f: X \to Y$, compactifiable. Supposons que localement (sur $X$ et $Y$) on puisse trouver un diagramme
+\[
+X \xrightarrow{g} Z \xrightarrow{h} Y
+\]
+o\`u $g$ et $h$ sont localement intersection compl\`ete de dimension relative $d'$ et $d''$, et soit $d = d' - d''$. Alors $\operatorname{R}f^{!}\mathcal{O}$ est r\'eduit \`a un seul faisceau de cohomologie, situ\'e en degr\'e $-d$, qui est inversible.
+\end{proposition}
+
+En effet, $\operatorname{R}f^{!}\mathcal{O} = \operatorname{R}g^{!}\operatorname{R}h^{!}\mathcal{O}$, on sait que $\operatorname{R}h^{!}\mathcal{O}$ et $\operatorname{R}g^{!}$ sont du type indiqu\'e, situ\'es en degr\'e $-d'$ et $-d''$, par des calculs locaux dans l'espace projectif; tout \'etant local, on peut supposer $\operatorname{R}^{-d''}h^{!}\mathcal{O}$ isomorphe \`a $\mathcal{O}$, et l'assertion en r\'esulte.
+
+Pour passer de l\`a \`a des complexes plus g\'en\'eraux, il faudrait au pr\'ealable d\'emontrer des formules du type $\operatorname{R}f^{!}(K \overset{L}{\otimes} L) = \operatorname{R}f^{!}(K) \overset{L}{\otimes} \operatorname{L}f^{*}L$. Seule la d\'efinition de la fl\`eche pose un probl\`eme, l'isomorphie \'etant un probl\`eme local. Il faut bien s\^ur des restrictions de degr\'e. Je n'ai rien v\'erifi\'e en d\'etail de ce qui suit.
+
+\subsection*{1\`ere m\'ethode pour d\'efinir la fl\`eche.}
+
+Supposons $K$ et $L$ dans $\mathbb{D}_{\operatorname{coh}}^{b}(S)$ (et pas seulement quasi-coh\'erents), et en outre que
+\begin{enumerate}
+\item[(a)] $\operatorname{R}f^{!}K$ est \`a degr\'e born\'e (il est automatiquement coh\'erent, c'est un probl\`eme local)
+\item[(b)] $K \otimes L$ est \`a degr\'e born\'e
+\item[(c)] $\operatorname{R}f^{!}K \otimes \operatorname{L}f^{*}L$ est \`a degr\'e born\'e.
+\end{enumerate}
+
+Pour d\'efinir $\operatorname{R}f^{!}K \overset{L}{\otimes} \operatorname{L}f^{*}L \longrightarrow \operatorname{R}f^{!}(K \overset{L}{\otimes} L)$, il suffit par dualit\'e de d\'efinir $\operatorname{R}f_{!}(\operatorname{R}f^{!}K \overset{L}{\otimes} \operatorname{L}f^{*}L) \longrightarrow K \overset{L}{\otimes} L$, et par K\"unneth $\operatorname{R}f_{!}(\operatorname{R}f^{!}K \overset{L}{\otimes} \operatorname{L}f^{*}L) = \operatorname{R}f_{!}\operatorname{R}f^{!}K \overset{L}{\otimes} L$; la fl\`eche cherch\'ee est induite par la fl\`eche d'adjonction $\operatorname{R}f_{!}\operatorname{R}f^{!}K \longrightarrow K$.
+
+\subsection*{2\`eme m\'ethode.}
+
+On suppose $f$ compactifiable, plat et localement d'intersection compl\`ete relative. On a alors $\operatorname{R}f^{!}\mathcal{O} = \omega[d]$, $\omega$ \'etant inversible. D\'esignons par $\operatorname{R}f_{!}$ un proc\'ed\'e de calcul de $\operatorname{R}f_{!}$ au niveau des complexes (c-\`a-d un tel proc\'ed\'e pour un compactifi\'e $\overline{f}: \overline{X} \to S$ de $f$), qu'on suppose du type d\'ecrit au n\textdegree{} 4, et tel que $C^{p}$ soit nul pour $p > d$ (ce qui peut s'obtenir par tronquage). On a alors une fl\`eche $\operatorname{R}^{d}\overline{f}_{*} = [-d] \longrightarrow \operatorname{R}f_{*} =$ pour tout complexe $\mathcal{F}$ sur $X$:
+\[
+\Hom_{S}(\operatorname{R}f_{*}\mathcal{F}, I) \longrightarrow \Hom_{S}(\operatorname{R}^{d}\overline{f}_{*}\mathcal{F}[-d], I)
+\]
+pour tout complexe $I$ sur $S$. Soit $I$ un injectif. $\operatorname{R}^{d}\overline{f}_{*}\mathcal{F}[-d]$ est exact \`a droite en $\mathcal{F}$, le foncteur en $\mathcal{F}$ \`a droite de la fl\`eche est donc repr\'esentable: on d\'efinit $I_1$ par
+\[
+\Hom_{S}(\operatorname{R}^{d}f_{*}\mathcal{F}, I) = \Hom_{\overline{X}}(\mathcal{F}, I_1) \text{ et } \operatorname{R}f_{1}^{!}I = I_1[d].
+\]
+Ce qui pr\'ec\`ede d\'efinit
+\[
+\operatorname{R}f^{!}I \longrightarrow \operatorname{R}f_{1}^{!}I
+\]
+et pour un complexe d'injectifs, $\operatorname{R}f_{1}^{!}$ se d\'efinit terme \`a terme. Il reste \`a \'evaluer $\operatorname{R}f_{1}^{!}I$ sur des ouverts affines, soit $U$, de $X$; c'est donn\'e par $\varinjlim \Hom(\operatorname{R}^{d}f_{!}\mathcal{J}^{n}, I)$. Ce probl\`eme \'etant local en haut, il est facile de montrer par des m\'ethodes projectives que le dual de ``$\varinjlim$'' $\operatorname{R}^{d}f_{!}\mathcal{J}^{n} = \operatorname{R}^{d}f_{!}(U, \mathcal{O})$, un Ind-objet, est $f_{*}(U, \omega)$, repr\'esent\'e comme limite de ses sous-modules de sections ayant un p\^ole d'ordre au plus $n$ hors de $U$ ($n \to \infty$).
+
+Ceci donne $\operatorname{R}f_{1}^{!}I = \omega \otimes f^{*}I[d]$, et la formule g\'en\'erale $\operatorname{R}f_{1}^{!}K = f^{*}K \otimes \omega[d]$.
+
+\section*{Bibliographie (pour l'Appendice)}
+\begin{enumerate}
+\item[{[1]}] J.L.\ Verdier, S\'eminaire Bourbaki, Novembre 65, expos\'e 300.
+\item[{[2]}] M.\ Nagata, Imbedding of an abstract variety in a complete variety. Journal of Math.\ of Kyoto University, vol.\ 2, n\textdegree{} 1, 1962.
+\end{enumerate}
 
 \clearpage
 \addcontentsline{toc}{chapter}{Errata}
 \chapter*{Errata}
+\markboth{Errata}{Errata}
+
+\begin{itemize}
+\item Page 10, line 1: read ``see Appendix'' instead of ``unpublished''.
+\item Page 85, Proposition 1.1: For the case of $\Qco(X)$, one needs the hypothesis ``$X$ quasi-separated''.
+\item Page 88, line 5: read ``proper'' instead of ``of finite type''.
+\item Page 120, Ch II \S7: It has recently come to my attention that S.\ Kleiman has independently arrived at the results of [II 7.8] and [II 7.11] (unpublished).
+\item Page 137, line 5: refer to [EGA IV \S16].
+\item Page 144, line 4: read ``invertible sheaf shifted $n$ places to the left, where $n = \operatorname{rel.\ dim} X/Y$'' instead of ``invertible sheaf''.
+\item Page 185, line 9: observe that the condition ``ff finite'' is a consequence of the other conditions.
+\item Page 190, line 7: read ``a unique isomorphism'' instead of ``an isomorphim''.
+\item Page 199: add at bottom: ``Furthermore, the residue symbol is uniquely characterized by the properties (R0), (R1), (R2), (R5), (R6), and (R7).''
+\item Page 249, line 8: ``is'' instead of ``in''.
+\item Page 254, line 8: ``$\mathbb{Z}$'' instead of ``$\mathbb{Q}$''.
+\item Page 288, Theorem 8.3: One must assume also that the fibres of $f$ are of bounded dimension, so that $f_{*}(\operatorname{R}^{\bullet})$ will be in $\mathbb{D}^{*}$.
+\item Page 297, line 7: read ``strengthens'' instead of ``generalizes''.
+\item Page 298, line 7: insert ``shifted'' after ``invertible sheaf''.
+\item Page 301, line 5: ``not'' instead of ``now''.
+\item Page 301, Problem 2: Giraud [6] provides us with an element of
+\[
+H^{2}(X, \mathbb{G}_{m})
+\]
+(cohomology in the Zariski topology), whose vanishing is a necessary and sufficient condition for the global existence of a dualizing complex, supposed to exist locally. On the other hand, it is easy enough to construct a noetherian scheme of finite Krull dimension, which has a dualizing complex locally, but none globally, due to the lack of a global codimension function.
+\item Page 373, line 1: change reference to [EGA V].
+\item Page 403, last line: read ``Publ.\ Math.\ I.H.E.S.\ n\textdegree{} 29''.
+\end{itemize}
