@@ -57,6 +57,10 @@
 \newcommand{\Qco}{\operatorname{Qco}}
 \newcommand{\Res}{\operatorname{Res}}
 \newcommand{\Hom}{\operatorname{Hom}}
+% Semantic Hom notation: distinguish global groups from internal sheaf Hom.
+\newcommand{\sheafHom}{\mathop{\mathscr{H}\!om}\nolimits}
+\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\RsheafHom}{\mathop{\mathrm{R}\mathscr{H}\!om}\nolimits}
 \newcommand{\Tor}{\operatorname{Tor}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\D}{\mathcal{D}}
@@ -69,6 +73,9 @@
     backref=true,        % Optional: Add "Cited on page X" links
 ]{biblatex}
 \addbibresource{references.bib} % Your BibTeX file name
+\usepackage[hidelinks]{hyperref}
+% Keep original book locators while linking to stable semantic labels.
+\newcommand{\bookref}[2]{\hyperref[#1]{\textup{[#2]}}}
 
 \begin{document}
 
@@ -106,6 +113,7 @@ I would like to take this opportunity to thank all those people who have helped 
 % Main Matter (Sample Content)
 % --------------------------
 \mainmatter
+\renewcommand{\thechapter}{\Roman{chapter}}
 \include{chapter1}
 \include{chapter2}
 \include{chapter3}
