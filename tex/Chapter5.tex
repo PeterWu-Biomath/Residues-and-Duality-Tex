@@ -1,845 +1,680 @@
 
-\chapter{Dualizing Complexes and Local Duality}
+\chapter{Local Cohomology}
 
-\section{Introduction}\label{sec:5.0}
+This chapter consists for a great part in definitions, which generalize those of the Local Cohomology lecture notes [LC]. Notable new material is the spectral sequence of a filtered topological space, and the Cousin complex of a sheaf.
 
-In this chapter we discuss dualizing complexes on a locally noetherian prescheme $X$. A dualizing complex is a complex $R^\bullet\in\DD^+(X)$ such that the functor
+\section{Local cohomology groups, sheaves, and complexes}
+
+Throughout this section, $X$ will be an arbitrary topological space, and $F$ a sheaf of abelian groups on $X$. There are three ways in which one can vary the basic definition of the cohomology of $F$ with supports in a closed subset $Z$ of $X$: one can replace $Z$ by a family of supports; one can define a relative local cohomology if $Z'\subseteq Z$ are two closed subsets; and one can make everything local by sheafifying. Therefore we will present the definitions in the form of a theme and variations, to allow for all possible combinations of the generalizations suggested above.
+
+We state our results mostly in terms of the cohomology groups, and leave to the reader the appropriate statements in terms of the derived category. When $X$ is an arbitrary topological space, we work in the derived category $\DD(\Ab(X))$ of the category of abelian sheaves on $X$. If $X$ is a prescheme, we work in the derived category $\DD(X)=\DD(\operatorname{Mod}(X))$ of the category of $\sO_X$-modules. All the derived functors considered in this chapter are compatible in the two cases with the natural functor
 \[
-\underline{D}\colon M^{\bullet}\longmapsto \DerR\underline{\Hom}^\bullet(M^{\bullet},R^{\bullet})
+\DD^+(X)\longrightarrow \DD^+(\Ab(X)),
 \]
-induces an auto-duality of the category $\DD_{\mathrm{c}}^{\mathrm{b}}(X)$ consisting of those bounded complexes in $\DD^+(X)$ which have coherent cohomology. We will show that a large class of preschemes admits dualizing complexes, and that they are almost uniquely determined.
+since any injective $\sO_X$-module is flasque, and flasque sheaves are acyclic for the functors considered (Motif C below).
 
-The notion of dualizing complex will allow us to write the duality theorem in a new way. For example, let $X$ be projective $n$-space over a field $k$. Then $R^\bullet=\omega[n]$ (where $\omega=\omega_{X/k}$ is the sheaf of relative $n$-differentials [III \S1]) is a dualizing complex for $X$, and $k$ is a dualizing complex for $k$. We have a canonical isomorphism $\DerR f_*(\omega[n])\cong k$ [III 3.4], and hence, for any complex $F^\bullet\in\DD^b_{\mathrm{c}}(X)$, a homomorphism
+\medskip\noindent\textbf{Theme.}
+Let $Z$ be a closed subset of $X$. Define $\Gamma_Z(X,F)$ to be the group consisting of those global sections of $F$ whose support lies in $Z$. Define $H_Z^i(X,F)$ to be the $i$th right derived functor of $\Gamma_Z$ (which is a left-exact functor), and define $\DerR\Gamma_Z$ to be the right derived functor on the derived category $\DD^+(\Ab(X))$. These are called the \emph{local cohomology groups} of $F$ with supports in $Z$. They have the following properties:
+
+\medskip\noindent\textbf{Motif A.} If
 \[
-\Theta\colon\ \DerR f_* \underline{D}_X(F^\bullet)\longrightarrow \underline{D}_k(\DerR f_*(F^\bullet)),
+0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow 0
 \]
-where $\underline{D}_X$ and $\underline{D}_k$ are the dualizing functors on $X$ and on $k$, respectively. The duality theorem [III 5.1] says that $\Theta$ is an isomorphism, i.e., that the dualizing functors on $X$ and on $k$ commute with $\DerR f_*$.
-
-In the latter part of the chapter we discuss the local duality theorem, as in [LC \S2,4,6] or [SGA 62, expos\'e 2,4]. The proof of the duality theorem given here is different, however.
-
-The reader will see that the existence of a dualizing complex on a locally noetherian prescheme $X$ implies that $X$ has finite Krull dimension. Hence we will give a more general notion, that of a pointwise dualizing complex, to cover the case of infinite Krull dimension.
-
-For convenience we defer the question of existence of dualizing complexes until the end of the chapter (section~10).
-
-\section{Example: duality for abelian groups}\label{sec:5.1}
-
-Let $X=\operatorname{Spec}\mathbb{Z}$. Then the category of quasi-coherent sheaves on $X$ is isomorphic to the category $(\Ab)$ of abelian groups. We know that $\mathbb{Q}/\mathbb{Z}$ gives a good duality for finite abelian groups, i.e., that the functor $\operatorname{Hom}(\cdot,\mathbb{Q}/\mathbb{Z})$ is an exact contravariant functor, which, when applied twice to a finite abelian group, gives that group back again. Similarly, the group $\mathbb{Q}$ gives a good notion of duality for finitely generated free abelian groups. Combining the two, we consider the complex
-\[
-\mathbb{Q}\longrightarrow \mathbb{Q}/\mathbb{Z}
-\]
-and work in the derived category $\DD_{\mathrm{c}}^{\mathrm{b}}(\Ab)$, consisting of those bounded complexes in $\DD^{+}(\Ab)$ which have finitely generated cohomology. ($\mathrm{c}$ is for ``coherent'', which means ``finitely generated'' in our case.) Since the complex above is an injective resolution of $\mathbb{Z}$, hence isomorphic to $\mathbb{Z}$ in the derived category, we arrive at the following proposition.
-
-\begin{proposition}\label{prop:5.1.1}
-The functor
-\[
-D\colon M^{\bullet}\longmapsto \DerR\underline{\Hom}^\bullet(M^{\bullet},\mathbb{Z})
-\]
-is a contravariant $\partial$-functor from $\DD_{\mathrm{c}}^{\mathrm{b}}(\Ab)$ into itself, and there is a natural functorial isomorphism
-\[
-\eta\colon \id_{\DD_{\mathrm{c}}^{\mathrm{b}}(\Ab)}\xrightarrow{\sim} DD.
-\]
-\end{proposition}
-
+is a short exact sequence of abelian sheaves on $X$, then there is a long exact sequence of groups
+\begin{align*}
+0\longrightarrow &\Gamma_Z(X,F')\longrightarrow \Gamma_Z(X,F)\longrightarrow \Gamma_Z(X,F'')\longrightarrow\\
+&H^1_Z(X,F')\longrightarrow H^1_Z(X,F)\longrightarrow H^1_Z(X,F'')\longrightarrow\cdots.
+\end{align*}
 \begin{proof}
-Since the cohomology of $D(M^{\bullet})$ is $\operatorname{Ext}^{i}(M^{\bullet},\mathbb{Z})$, if $M^{\bullet}\in\DD^{b}_{\mathrm{c}}(\Ab)$, then so is $D(M^{\bullet})$. The natural functorial homomorphism $\eta$ is defined in Lemma~1.2 below. To show that it is an isomorphism, by taking a free resolution of $M^{\bullet}$ and applying the lemma on way-out functors [I.7.1], we reduce to the case $M^{\bullet}=\mathbb{Z}^{r}$ for some $r$. Since the functors in question are additive, one reduces to the case $M^{\bullet}=\mathbb{Z}$, and to complete the proof, one need only observe that $\operatorname{Ext}^{i}(\mathbb{Z},\mathbb{Z})=\mathbb{Z}$ if $i=0$, and $0$ otherwise.
+This is the same as to say that $\Gamma_Z$ is left exact, and so is equal to $H^0(\DerR\Gamma_Z)$, which it is.
 \end{proof}
 
-\begin{lemma}\label{lem:5.1.2}
-Let $X$ be a prescheme, let $R^\bullet\in\DD^+(X)$ and let $F^\bullet\in\DD(X)$. Then there is a natural functorial homomorphism
-\[
-\eta\colon F^\bullet\longrightarrow \DerR\underline{\Hom}^\bullet(\DerR\underline{\Hom}^\bullet(F^\bullet,R^\bullet),R^\bullet).
-\]
-\end{lemma}
-
+\medskip\noindent\textbf{Motif B.} There is a long exact sequence
+\begin{align*}
+0\longrightarrow& \Gamma_Z(X,F)\longrightarrow \Gamma(X,F)\longrightarrow \Gamma(X-Z,F)\longrightarrow\\
+&H^1_Z(X,F)\longrightarrow H^1(X,F)\longrightarrow H^1(X-Z,F)\longrightarrow H^2_Z(X,F)\longrightarrow\cdots.
+\end{align*}
 \begin{proof}
-Replacing $R^\bullet$ by an injective resolution, we can erase the $\DerR$. As usual, we need only define $\eta$ on objects of $\DD(X)$, i.e., complexes. Given an index $p$, and a section $s\in F^{p}(U)$ over an open set $U$ in $X$, we must define, for each $q$, a homomorphism of sheaves
+For any sheaf $F$ one has an exact sequence
 \[
-\underline{\Hom}^{q}(F^\bullet,R^\bullet)_U\longrightarrow R_U^{p+q},
+0\longrightarrow \Gamma_Z(X,F)\longrightarrow \Gamma(X,F)\longrightarrow \Gamma(X-Z,F),
 \]
-where the subscript $U$ denotes restriction of sheaves to $U$. Given a homomorphism $f\in\underline{\Hom}^{q}(F^\bullet,R^\bullet)_U(V)$ defined on an open set $V\subseteq U$, we send it to the section $f(s_V)\in R^{p+q}(V)$, where $s_V$ is the section $s$, restricted to $V$. One checks that this indeed does define a morphism of complexes, and that it is functorial in $F^\bullet$.
-\end{proof}
-
-\section{Dualizing complexes}\label{sec:5.2}
-
-Throughout this section, $X$ will denote a locally noetherian prescheme. We will consider complexes $R^\bullet\in\DD^+(X)$ which have coherent cohomology and finite injective dimension, i.e., $R^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$ (see [I.7.6] and [II.7.20]). Note that if $X$ is quasi-compact, then the condition of finite injective dimension on a complex $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ can be checked locally (e.g., by [II 7.20(iii)]). Note also that such a complex $R^\bullet$ is quasi-isomorphic to a bounded complex of quasi-coherent injective sheaves on $X$ [II 7.20(i)${}_{\mathrm{qc}}$], and hence (using [II 3.3]) the functor
+and if $F$ is flasque (in particular if $F$ is injective) one can write a zero on the right. Thus if $I^\bullet$ is an injective resolution of $F$, we have an exact sequence of complexes
 \[
-\underline{D}\colon F^{\bullet}\longmapsto \DerR\underline{\Hom}^{\bullet}(F^{\bullet}, R^{\bullet})
+0\longrightarrow \Gamma_Z(X,I^\bullet)\longrightarrow \Gamma(X,I^\bullet)\longrightarrow \Gamma(X-Z,I^\bullet)\longrightarrow 0
 \]
-sends $\DD_{\mathrm{c}}^{b}(X)$ into itself, and interchanges $\DD_{\mathrm{c}}^{+}(X)$ and $\DD_{\mathrm{c}}^{-}(X)$.
-
-\begin{definition}
-Let $R^\bullet\in\DD^+(X)$. We say that a complex $F^\bullet\in\DD(X)$ is \emph{reflexive} (with respect to $R^\bullet$) if the natural map
+which gives rise to a distinguished triangle in $\DD^+(\Ab)$, 
 \[
-\eta\colon F^{\bullet}\longrightarrow \DerR\underline{\Hom}^{\bullet}(\DerR\underline{\Hom}^{\bullet}(F^{\bullet}, R^{\bullet}), R^{\bullet})
-\]
-of Lemma~1.2 is an isomorphism.
-\end{definition}
-
-\begin{proposition}\label{prop:5.2.1}
-Let $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$. Then the following conditions are equivalent:
-\begin{itemize}
-\item[(i)] Every $F^\bullet\in\DD_{\mathrm{c}}(X)$ is reflexive (with respect to $R^\bullet$).
-\item[(ii)] Every $F^\bullet\in\DD_{\mathrm{c}}^b(X)$ is reflexive.
-\item[(iii)] Every coherent sheaf on $X$ is reflexive.
-\item[(iv)] The structure sheaf $\sO_X$ is reflexive.
-\end{itemize}
-\end{proposition}
-
-\begin{proof}
-Clearly (i) $\Longrightarrow$ (ii) $\Longrightarrow$ (iv). To prove (iv) $\Longrightarrow$ (i) we note that the question is local on $X$. Hence we may assume that $X$ is affine. Then every coherent sheaf on $X$ is the quotient of a free sheaf $\sO_X^r$; the functors in question are additive, so the result follows from the Lemma on Way-Out Functors [I.7.1 (ii) and (iv)], taking into account [II 7.20(ii)] which implies that $\DerR\underline{\Hom}^\bullet$ is way-out in both directions.
-\end{proof}
-
-\begin{definition}
-Let $X$ be a locally noetherian prescheme. A complex $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$ satisfying the equivalent conditions of the proposition is called a \emph{dualizing complex} for $X$.
-\end{definition}
-
-\begin{definition}
-The \emph{Krull dimension} of a locally noetherian prescheme $X$ is the largest $n$ (or $+\infty$) for which there is a chain $Z_0<Z_1<\cdots<Z_n$ of closed irreducible subsets $Z_i$ of $X$. It is also the sup of the dimensions of the local rings of $X$.
-\end{definition}
-
-\begin{example}\label{ex:5.2.2}
-Let $X$ be a regular prescheme of finite Krull dimension. (A \emph{regular prescheme} is a prescheme $X$ such that all the local rings $\sO_{X,x}$ of points of $X$ are regular local rings.) Then the structure sheaf $\sO_X$ is a dualizing complex for $X$.
-
-Indeed, condition (iv) of the proposition is trivial, because $\underline{\operatorname{Ext}}^{i}(\sO_X,\sO_X)=\sO_X$ for $i=0$, and $0$ otherwise. Clearly $\sO_X\in\DD_{\mathrm{c}}^{+}(X)$. To show that $\sO_X$ has finite injective dimension, we use condition $(\mathrm{iii})_{\mathrm{c}}$ of [I.7.20]. Let $n_0$ be the Krull dimension of $X$. Then for every coherent sheaf $F$ on $X$, $\underline{\operatorname{Ext}}^{i}(F,\sO_X)=0$ for $i>n_0$, because $\underline{\operatorname{Ext}}^{i}$ commutes with taking stalks, and the local rings $\sO_{X,x}$ all have cohomological dimension $\leq n_0$, since they are regular local rings [14 (28.2)].
-\end{example}
-
-\begin{corollary}\label{cor:5.2.3}
-Let $R^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$. Then $R^\bullet$ is dualizing if and only if for every $x\in X$, $R_x^\bullet$ is dualizing on the local scheme $\operatorname{Spec}\sO_{X,x}$. Furthermore, it is sufficient to take the closed points $x\in X$.
-\end{corollary}
-
-\begin{proof}
-For $x\in X$, we see that the stalk $R_x^\bullet$ has finite injective dimension in $\DD^+_{\mathrm{c}}(\operatorname{Spec}\sO_{X,x})$ by using [II 7.20 (i)${}_{\mathrm{qc}}$] and [II.7.17 (iii)]. Thus the result follows from condition (iv) of the Proposition.
-\end{proof}
-
-\begin{proposition}\label{prop:5.2.4}
-Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes, and let $R^\bullet$ be a dualizing complex on $Y$. Then $f^{\flat}R^\bullet$ is a dualizing complex on $X$ (cf.\ [III \S6]).
-\end{proposition}
-
-\begin{proof}
-We may assume that $R^\bullet$ is a bounded complex of quasi-coherent injective sheaves on $Y$. Then
-\[
-f^{\flat}(R^{\bullet}) = \underline{\Hom}_{Y}(f_{*}\sO_{X},R^{\bullet})^{\sim},
-\]
-which is a bounded complex of quasi-coherent injectives on $X$. Hence $f^{\flat}(R^{\bullet})\in\DD^{b}_{\mathrm{c}}(X)_{\mathrm{fid}}$. To see that $f^{\flat}(R^{\bullet})$ is dualizing, we apply condition (iv) of the previous proposition, and consider the map
-\[
-\eta\colon \sO_{X}\longrightarrow \DerR\underline{\Hom}_{X}^{\bullet}(\DerR\underline{\Hom}_{X}^{\bullet}(\sO_{X}, f^{\flat}(R^{\bullet})), f^{\flat}(R^{\bullet})).
-\]
-Applying $\DerR f_*$ to this map, and using duality for a finite morphism [III 6.7] twice, we see that $\DerR f_*(\eta)$ is an isomorphism. But we are dealing with quasi-coherent sheaves, and $f_*$ is faithful, so $\eta$ is an isomorphism.
-\end{proof}
-
-\begin{remark}
-\begin{enumerate}
-\item We will see later that if $f$ is a smooth morphism, then $f^{\sharp}$ of a dualizing complex is dualizing (Theorem~8.3 below).
-\item This result, joined with the example above, shows that any closed subscheme of a regular prescheme of finite Krull dimension admits a dualizing complex.
-\end{enumerate}
-\end{remark}
-
-\begin{proposition}\label{prop:5.2.5}
-A complex $R^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$ is dualizing if and only if for every closed point $x\in X$, the sheaf $k(x)$, consisting of the residue field $k(x)$ at the point $x$ and zero elsewhere, is reflexive.
-\end{proposition}
-
-\begin{proof}
-1) Using Corollary~2.3, we reduce to the case where $X$ is the spectrum of a local noetherian ring $A$, with residue field $k$. The assumption is then that $k$ is reflexive, and we wish to show for every $A$-module of finite type $M$ (in particular, for $M=A$), that $M$ is reflexive on $X$.
-
-2) Using induction on the length, we show first that every $A$-module $M$ of finite length is reflexive. Indeed, for $\operatorname{length}M=1$, we have assumed it. For $\operatorname{length}M>1$, one can write a short exact sequence
-\[
-0\longrightarrow M'\longrightarrow M\longrightarrow M''\longrightarrow 0
-\]
-where $M'$ and $M''$ have length $<\operatorname{length}M$. Then by the induction hypothesis $M'$ and $M''$ are reflexive, and by long exact sequences ($DD$ is a $\partial$-functor!) and the five-lemma, $M$ is reflexive.
-
-3) Now we show that any module of finite type $M$ is reflexive, using induction on the dimension of $M$. If $\dim M=0$, then $M$ has finite length, and $M$ is reflexive by 2) above. Let $M$ be a module of finite type. Let $M'$ be the submodule of elements with support $\mathfrak{m}$, where $\mathfrak{m}$ is the maximal ideal of $A$. Then $M'$ has finite length, so it is sufficient to consider $M/M'$. In other words, we have reduced to the case $\operatorname{Ass}M\cap\{\mathfrak{m}\}=\emptyset$.
-
-Let $t\in\mathfrak{m}$ be an element which is not a zero-divisor in $M$, so that we have an exact sequence
-\[
-0\longrightarrow M\xrightarrow{t} M\longrightarrow M/tM\longrightarrow 0.
-\]
-Now $\dim M/tM<\dim M$, so by the induction hypothesis $M/tM$ is reflexive. Therefore, for each $i\neq0$, we have an exact sequence
-\[
-H^{i}(DD(M))\xrightarrow{t}H^{i}(DD(M))\longrightarrow 0.
-\]
-Now these $H^{i}$ are $A$-modules of finite type, and $t\in\mathfrak{m}$, so by Nakayama's lemma, $H^{i}(DD(M))=0$ for $i\neq0$.
-
-Consider the commutative diagram
-\[
-\begin{tikzcd}
-0\ar[r] & M \ar[r,"t"] \ar[d] & M \ar[r] \ar[d,"\alpha"] & M/tM \ar[r] \ar[d,"\cong"] & 0\\
-0\ar[r] & H^0(DD(M)) \ar[r,"t"] & H^0(DD(M)) \ar[r] & H^0(DD(M/tM)) \ar[r] & 0
+\begin{tikzcd}[row sep=2cm, column sep=2cm]
+	\DerR\Gamma_Z(F^\bullet) \arrow[r]& \DerR\Gamma(F^\bullet) \arrow[d] \\
+	& \DerR\Gamma(X-Z, F^\bullet|_{X-Z}) \arrow[lu]
 \end{tikzcd}
 \]
-with exact rows. A diagram chase shows that
-\[
-H^{0}(DD(M))=\alpha(M)+tH^{0}(DD(M)),
-\]
-so by Nakayama's Lemma, $\alpha$ is surjective. To show that $\alpha$ is injective, let $x\in M$. Choose $n$ so large that $x\notin t^nM$, and draw the same diagram as above, but with $t^n$ in place of $t$. Then $x$ does not become $0$ in $M/t^nM$, and $M/t^nM\cong H^0(DD(M/t^nM))$, so $\alpha(x)\neq0$.
-
-Thus $M$ is reflexive. Taking $M=A$, we find that $R^\bullet$ is a dualizing complex. q.e.d.
+Taking cohomology gives the result.
 \end{proof}
 
-\begin{proposition}\label{prop:5.2.6}
-Let $X$ be a locally noetherian prescheme, let $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$ be a dualizing complex, and let $D$ be the functor $\DerR\underline{\Hom}^\bullet(\cdot,R^\bullet)$. Then
-\begin{enumerate}
-\item[a)] A complex $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)$ has finite Tor-dimension [II 4.2] if and only if $D(G^\bullet)$ has finite injective dimension.
-\item[b)] There is a functorial isomorphism
-\[
-D(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)) \xrightarrow{\sim} F^\bullet\otimes D(G^\bullet)
-\]
-for $F^\bullet\in\DD_{\mathrm{c}}^-(X)$ and $G^\bullet\in\DD^+(X)$, or for $F^\bullet\in\DD_{\mathrm{c}}(X)$ and $G^\bullet\in\DD^+(X)_{\mathrm{fid}}$.
-\item[c)] There is a functorial isomorphism
-\[
-D(F^{\bullet}\otimes G^{\bullet}) \xrightarrow{\sim} \DerR\underline{\Hom}^{\bullet}(F^{\bullet}, D(G^{\bullet}))
-\]
-for $F^\bullet$ and $G^\bullet\in\DD_{\mathrm{c}}(X)$, or for $F^\bullet\in\DD_{\mathrm{c}}(X)$ and $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)_{\mathrm{fTd}}$.
-\end{enumerate}
-\end{proposition}
-
+\medskip\noindent\textbf{Motif C.} For $F$ flasque, and $i>0$, $H_Z^i(X,F)=0$.
 \begin{proof}
-The natural map of sheaves
-\[
-F\otimes\underline{\Hom}(G,R)\longrightarrow \underline{\Hom}(\underline{\Hom}(F,G),R)
-\]
-gives rise to a morphism of functors on the derived category,
-\[
-\tag{*}
-F^\bullet\otimes \DerR\underline{\Hom}^\bullet(G^\bullet,R^\bullet)\longrightarrow \DerR\underline{\Hom}^\bullet(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet),R^\bullet),
-\]
-provided either
+This follows from Motif B, and the fact that $H^i(X,F)=H^i(X-Z,F)=0$ for $i>0$, and $\Gamma(X,F)\to\Gamma(X-Z,F)$ is surjective for $F$ flasque.
+\end{proof}
+\begin{remark}
+In fact, $F$ is flasque $\iff$ for every closed subspace $Z$ of $X$, $H_Z^1(X,F)=0$ [LC, 1.10].
+\end{remark}
+
+\medskip\noindent\textbf{Variation 1.}
+\begin{definition}
+A \emph{family of supports} on a topological space $X$ is a set $\varphi$ of closed subsets of $X$ such that
 \begin{itemize}
-\item[1)] $F^\bullet\in\DD^{-}(X)$, $G^\bullet\in\DD^{+}(X)$ and $R^\bullet\in\DD^{+}(X)_{\mathrm{fid}}$, or
-\item[2)] $F^\bullet\in\DD(X)$, $G^\bullet,R^\bullet\in\DD^+(X)$, and $D(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$.
+\item[(a)] if $Z\in\varphi$, and $Z'$ is a closed subset of $Z$, then $Z'\in\varphi$, and
+\item[(b)] if $Z_1,Z_2\in\varphi$, then $Z_1\cup Z_2\in\varphi$.
 \end{itemize}
-If under the set of conditions 1), we assume furthermore that $F^\bullet\in\DD^-_{\mathrm{c}}(X)$, then by [I.7.1], the morphism $(*)$ is an isomorphism. Indeed, we reduce to the case $F=\sO_X$, which is trivial. Taking the inverse isomorphism gives b) under the first set of hypotheses. As a corollary, we see that if $G^\bullet\in\DD^+(X)$ has finite injective dimension, then $D(G^\bullet)$ has finite Tor-dimension. Indeed, by the Remark following [II 4.2] it is enough to show that there is an integer $n_0$ such that $\underline{\operatorname{Tor}}_i(F,G^\bullet)=0$ for all $i>n_0$ and all coherent sheaves $F$ on $X$, and this follows from b). Thus we have established one half of a). Now if $G^\bullet\in\DD^+(X)_{\mathrm{fid}}$, then as just remarked, $D(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$, so by 2) and [I.7.1] again, we obtain the isomorphism b) under the second set of conditions.
+\end{definition}
 
-For statement c), let $F^\bullet,G^\bullet\in\DD^-_{\mathrm{c}}(X)$, apply b) to $F^\bullet$ and $D(G^\bullet)$, and apply $D$ to the resulting isomorphism. Then since $D^2=\id$ on $\DD^-_{\mathrm{c}}(X)$, we have the required isomorphism under the first set of conditions. As a corollary we deduce (using [II 7.20 ${(\underline{\mathrm{iii}})}_{\mathrm{c}}$]) that if $G^\bullet\in\DD^{\mathrm{b}}_{\mathrm{c}}(X)$ has finite Tor-dimension, then $D(G^\bullet)$ has finite injective dimension. This gives the other half of a), and applying $D$ to the second half of b) gives the second half of c).
-\end{proof}
+Now let $\varphi$ be a family of supports, and define $\Gamma_\varphi(X,F)$ to be the group of global sections of $F$ whose support is in $\varphi$. Define $\DerR\Gamma_\varphi(X,F)$ and $H^i_\varphi(X,F)$ to be the right derived functors.
 
-\section{Uniqueness of the dualizing complex}\label{sec:5.3}
+\medskip\noindent\textbf{Motif A.} Repeat as above, with $Z$ replaced by $\varphi$.
 
-\begin{theorem}\label{thm:5.3.1}
-Let $X$ be a connected, locally noetherian prescheme, and let $R^\bullet$ be a dualizing complex on $X$. Let $R^{\prime\bullet}\in\DD_{\mathrm{c}}^+(X)$ be any other complex. Then $R^{\prime\bullet}$ is a dualizing complex if and only if there exists an invertible sheaf $L$ on $X$, and an integer $n$, such that
+\medskip\noindent\textbf{Motif D.}
 \[
-R^{\prime\bullet}\cong R^\bullet\otimes L[n].
+H_{\varphi}^{i}(X,F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi}}\,H_{Z}^{i}(X,F).
 \]
-Furthermore, $L$ and $n$ are determined uniquely to within isomorphism.
-\end{theorem}
-
 \begin{proof}
-1) Observe that such an $R^{\prime\bullet}$ is a dualizing complex. Indeed, we may assume that $R^\bullet$ is a bounded complex of quasi-coherent injectives. Then $R^\bullet\otimes L[n]$ is also a bounded complex of injectives, since the property of being injective is local [II 7.16], and $L$ is locally free. $R^{\prime\bullet}$ is dualizing by Corollary~2.3.
+It is true for $i=0$, and direct limits commute with cohomology of complexes.
+\end{proof}
 
-2) Observe that $L$ and $n$ are uniquely determined by the identity $L[n]\cong \DerR\underline{\Hom}^\bullet(R^\bullet,R^{\prime\bullet})$.
-
-3) Now we show the existence of $L$ and $n$, assuming that $R^{\prime\bullet}$ is a dualizing complex. Let $D$ and $D'$ be the dualizing functors corresponding to $R^\bullet$ and $R^{\prime\bullet}$. Define
-\[
-L^\bullet = D'D(\sO_X) = \DerR\underline{\Hom}^\bullet(R^\bullet,R^{\prime\bullet}).
-\]
-We will prove that $L^\bullet$ is isomorphic, in $\DD^+(X)$, to a complex of the form $L[n]$, where $L$ is an invertible sheaf, and that $R^{\prime\bullet}\cong R^{\bullet}\otimes L^{\bullet}$.
-
-\begin{lemma}\label{lem:5.3.2}
-There is a natural functorial isomorphism, for all $M^{\bullet}\in\DD_{\mathrm{c}}^{-}(X)$,
-\[
-M^{\bullet}\otimes L^{\bullet}\xrightarrow{\sim} D'D(M^{\bullet}).
-\]
-(Note that this tensor product makes sense since $L^\bullet\in\DD^-_{\mathrm{c}}(X)$, cf. [II \S4].)
-\end{lemma}
-
+\medskip\noindent\textbf{Motif C.} For $F$ flasque, and $i>0$, $H_{\varphi}^{i}(X,F)=0$.
 \begin{proof}
-As in Lemma~1.2 above, one defines a functorial homomorphism
-\[
-M^{\bullet}\otimes \DerR\underline{\Hom}^{\bullet}(R^{\bullet},R^{\prime\bullet})\xrightarrow{} \DerR\underline{\Hom}^{\bullet}(\DerR\underline{\Hom}^{\bullet}(M^{\bullet},R^{\bullet}),R^{\prime\bullet}).
-\]
-Since it is an isomorphism for $M^{\bullet}=\sO_X$, by the lemma on way-out functors, it is an isomorphism for all $M^{\bullet}\in\DD_{\mathrm{c}}^{-}(X)$.
+Follows from Motif D, and Motif C above.
 \end{proof}
 
-We now define $L^\bullet = D'D(\sO_X)$, and use the lemma to deduce that
+\medskip\noindent\textbf{Variation 2.}
+Let $Z'\subseteq Z$ be closed subsets of $X$. Define $\Gamma_{Z/Z'}(X,F)$ to be $\Gamma_Z(X,F)/\Gamma_{Z'}(X,F)$. Define $\DerR\Gamma_{Z/Z'}$ and $H^i_{Z/Z'}$ to be the right derived functors. Note that in general $\Gamma_{Z/Z'}$ is not left exact, so that $\Gamma_{Z/Z'}\neq H^0_{Z/Z'}$.
+
+\medskip\noindent\textbf{Motif A.} Repeat with $H^0$ in place of $\Gamma$, and $Z/Z'$ in place of $Z$.
+
+\medskip\noindent\textbf{Motif B.} There is a long exact sequence
+\begin{align*}
+0\longrightarrow &\Gamma_{Z'}(X,F)\longrightarrow \Gamma_Z(X,F)\longrightarrow H_{Z/Z'}^0(X,F)\longrightarrow\\
+&H_{Z'}^1(X,F)\longrightarrow H_Z^1(X,F)\longrightarrow H_{Z/Z'}^1(X,F)\longrightarrow\\
+&H_{Z'}^2(X,F)\longrightarrow\cdots.
+\end{align*}
+
+\medskip\noindent\textbf{Motif C.} Repeat.
+
+\medskip\noindent\textbf{Variation 3.}
+Let $Z$ be a closed subset of $X$. Define $\underline{\Gamma}_Z(F)$ to be the sheaf whose sections over an open set $U$ are the elements of $\Gamma_{Z\cap U}(U,F|_U)$. Define $\DerR\underline{\Gamma}_Z(F)$ and $\underline{H}_Z^i(F)$ to be the right derived functors, which are now complexes of sheaves, resp.\ sheaves on $X$.
+
+\medskip\noindent\textbf{Motif A.} Repeat with underlines.
+
+\medskip\noindent\textbf{Motif B.} There is a four-term exact sequence
 \[
-L^\bullet \otimes L^{\prime\bullet} = D'D(L^{\prime\bullet}) = D'DDD'(\sO_X) = \sO_X
+0\longrightarrow \underline{\Gamma}_Z(F)\longrightarrow F\longrightarrow j_*(F|_{X-Z})\longrightarrow \underline{H}^1_Z(F)\longrightarrow 0
 \]
-where $L^{\prime\bullet}=DD'(\sO_X)$.
+where $j\colon X-Z\to X$ is the inclusion, and there are isomorphisms for $i>0$,
+\[
+R^i j_*(F|_{X-Z}) \xrightarrow{\sim} \underline{H}_Z^{i+1}(F).
+\]
 
-\begin{lemma}\label{lem:5.3.3}
-Let $X$ be a connected locally noetherian prescheme, and let $L^\bullet,L^{\prime\bullet}\in\DD_{\mathrm{c}}^{-}(X)$ be such that $L^\bullet\underline{\underline{\otimes}} L^{\prime\bullet}\cong\sO_X$. Then $L^\bullet=L[n]$ for some invertible sheaf $L$, and $L^{\prime\bullet}=L^{\vee}[-n]$.
-\end{lemma}
-
+\medskip\noindent\textbf{Motif C.} For $F$ flasque and $i>0$, $\underline{H}_Z^{i}(F)=0$.
 \begin{proof}
-Since $X$ is connected, we reduce immediately to the case where $X$ is the spectrum of a local noetherian ring $A$, and we wish to show that $L^\bullet=\sO_X[n]$ for some $n$. Let $p$ be the largest integer such that $H^p(L^\bullet)\neq0$, and let $q$ be the largest integer such that $H^q(L^{\prime\bullet})\neq0$. Then one sees easily that $p+q$ is the largest integer for which $H^n(L^\bullet\otimes L^{\prime\bullet})\neq0$, and $H^{p+q}(L^\bullet\otimes L^{\prime\bullet})=H^p(L^\bullet)\otimes H^q(L^{\prime\bullet})$. Therefore $p+q=0$, and $H^p(L^\bullet)\otimes H^q(L^{\prime\bullet})=\sO_X$. It follows, by a simple lemma on modules of finite type over a local noetherian ring [cf.\ EGA, Ch.\ 0, 5.4.3], that $H^p(L^\bullet)\cong H^q(L^{\prime\bullet})\cong\sO_X$. Now since $\sO_X$ is locally free, one shows that $L^\bullet = L_1^\bullet\oplus\sO_X[-p]$, where $L_1^\bullet$ has cohomology only in dimensions $<p$. Similarly, $L^{\prime\bullet}=L_1^{\prime\bullet}\oplus\sO_X[p]$. Thus from $L^\bullet\otimes L^{\prime\bullet}\cong\sO_X$ we deduce
+One sees easily that for any $F$ and for any $i$, $\underline{H}^{i}_Z(F)$ is the sheaf associated to the presheaf
 \[
-L_{1}^{\bullet}[p]\oplus L_{1}^{\prime\bullet}[-p]\oplus (L_{1}^{\bullet}\otimes L_{1}^{\prime\bullet}) = 0
+U\longmapsto H_{Z\cap U}^{i}(U,F|_U).
 \]
-from which it follows that $L_1^\bullet$ and $L_1^{\prime\bullet}$ are $0$ in $\DD_{\mathrm{c}}(X)$, so that $L^\bullet\cong\sO_X[-p]$, and $L^{\prime\bullet}\cong\sO_X[p]$, as required.
+Now since the restriction of a flasque sheaf to an open subset is flasque, the result follows from Motif C above.
 \end{proof}
 
-This proves the lemma, so we have only to show that $R^{\prime\bullet} = R^\bullet\otimes L^{\bullet}$. Indeed, $R^\bullet\in\DD^b_{\mathrm{c}}(X)$, so applying Lemma~3.2,
+\medskip\noindent\textbf{Motif E.} There is a spectral sequence
 \[
-R^{\bullet}\otimes L^{\bullet} = D'D(R^{\bullet}) = D'(\sO_X) = R^{\prime\bullet}
+E_2^{pq}=H^p(X, \underline{H}_Z^q(F))\implies E^n=H_Z^n(X,F),
 \]
-q.e.d.
-\end{proof}
-
-We now give an application of the uniqueness theorem.
-
-\begin{proposition}\label{prop:5.3.4}
-Let $A$ be a noetherian local ring with residue field $k$, and let $R^\bullet\in\DD^+_{\mathrm{c}}(A)$. Then $R^\bullet$ is dualizing if and only if there is an integer $d$ such that
-\[
-\operatorname{Ext}^{i}(k,R^{\bullet}) = \begin{cases} 0 & \text{for } i\neq d \\ k & \text{for } i = d. \end{cases}
-\]
-(Here we write $\DD^+(A)$ for the derived category of the category of $A$-modules. The subscript $\mathrm{c}$ denotes complexes whose cohomology modules are of finite type. We carry over the definitions and results of the previous sections to this case. (Cf.\ [II.7.19] which ensures that we will not get into trouble.))
-\end{proposition}
-
+or equivalently, in terms of the derived categories, $\DerR\Gamma_Z = \DerR\Gamma\cdot \DerR\underline{\Gamma}_Z$.
 \begin{proof}
-First suppose that $R^\bullet$ is dualizing, and let $j\colon\operatorname{Spec}k\longrightarrow\operatorname{Spec}A$ be the inclusion. Then by Proposition~2.4,
-\[
-j^{\flat}(R^{\bullet}) = \DerR\underline{\Hom}^{\bullet}(k,R^{\bullet})
-\]
-is a dualizing complex on $k$. But $k$ itself is a dualizing complex on $k$, so by the Uniqueness Theorem above, $j^{\flat}(R^{\bullet})\cong k[-d]$ for some $d$. This $d$ will do.
-
-For the converse, it is clear that $k$ is reflexive, so by Proposition~2.5 we have only to show that $R^\bullet$ has finite injective dimension. Indeed, we will show by induction on $r=\dim M$, for any $A$-module $M$ of finite type, that
-\[
-\operatorname{Ext}^{i}(M,R^{\bullet}) = 0 \qquad\text{for } i\notin[d-r,d].
-\]
-Indeed, for $\dim M=0$, $M$ is of finite length, and our statement follows from the case $M=k$ by induction on the length of $M$.
-
-For $\dim M=r>0$, we induct as in the proof of Proposition~2.5. First we may assume that $M\notin\operatorname{Ass}M$, where $\mathfrak{m}$ is the maximal ideal of $A$. Then choosing $t\in\mathfrak{m}$ with $t$ a non-zero-divisor in $M$, we have
-\[
-0\longrightarrow M\xrightarrow{t} M\longrightarrow M/tM\longrightarrow 0
-\]
-and $\dim M/tM<r$. Then for $i\notin[d-r+1,d]$ we have $\operatorname{Ext}^i(M/tM,R^\bullet)=0$, hence for $i\notin[d-r,d]$ we have from the long exact sequence of $\operatorname{Ext}$'s,
-\[
-\operatorname{Ext}^{i}(M,R^{\bullet})\xrightarrow{t}\operatorname{Ext}^{i}(M,R^{\bullet})\longrightarrow 0.
-\]
-It follows by Nakayama's lemma that $\operatorname{Ext}^{i}(M,R^{\bullet})=0$. q.e.d.
+Referring to [I.5.4], we need only show that $\underline{\Gamma}_Z$ takes injectives into $\Gamma$-acyclic objects. Indeed, any injective is flasque, and $\underline{\Gamma}_Z$ of a flasque is flasque, and any flasque is $\Gamma$-acyclic.
 \end{proof}
 
-\begin{corollary}\label{cor:5.3.5}
-Let $A$ be a noetherian local ring, and let $R^\bullet\in\DD^+_{\mathrm{c}}(A)$. Then $R^\bullet$ is dualizing on $A$ if and only if $R^\bullet\otimes_{A}\widehat{A}$ is dualizing on the completion $\widehat{A}$ of $A$.
-\end{corollary}
+\medskip\noindent\textbf{Variation 4.}
+Combining variations 1 and 2, let $\psi\subseteq\varphi$ be two families of supports. Define $\Gamma_{\varphi/\psi}(X,F)$ and its derived functors $\DerR\Gamma_{\varphi/\psi}(X,F)$ and $H^i_{\varphi/\psi}(X,F)$.
 
-\begin{proof}
-Clearly $R^\bullet\otimes_{A}\widehat{A}\in\DD_{\widehat{\mathrm{c}}}^{+}(\widehat{A})$. Furthermore,
+\medskip\noindent\textbf{Motif A.} Repeat.
+
+\medskip\noindent\textbf{Motif B.} Repeat.
+
+\medskip\noindent\textbf{Motif C.} Repeat.
+
+\medskip\noindent\textbf{Motif D.}
 \[
-\operatorname{Ext}_{\widehat{A}}^{i}(k, R^{\bullet}\otimes_{A}\widehat{A}) = \operatorname{Ext}_{A}^{i}(k, R^{\bullet})\otimes_{A}\widehat{A}
+H_{\varphi/\psi}^{i}(X,F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi \\ Z'\in\psi\\ Z'\subseteq Z}}\,H_{Z/Z'}^{i}(X,F).
 \]
-for all $i$. Thus the ``only if'' implication is clear. For the ``if'' implication, note that the functor $\otimes_{A}\widehat{A}$ is faithfully flat, so if $M$ is a non-zero $A$-module, then $M\otimes_{A}\widehat{A}$ is non-zero. Furthermore, if $M$ is an $A$-module, such that $M\otimes_{A}\widehat{A}\cong k$, then $M\cong k$. (Indeed, map $M$ to $k$ via the natural map $M\to M\otimes_{A}\widehat{A}$. This map becomes an isomorphism upon tensoring with $\widehat{A}$, hence was an isomorphism). The result thus follows from the proposition.
-\end{proof}
 
-\section{Local cohomology on a prescheme}\label{sec:5.4}
+\medskip\noindent\textbf{Variation 5.}
+Combining variations 1 and 3 leads us to a
 
-Let $X$ be a prescheme, $Y$ a closed subset, and $F$ a sheaf of $\sO_X$-modules. We interpret the local cohomology groups $H_Y^i(F)$ in terms of $\operatorname{Ext}$'s.
-
-For each $n\geq 1$, let $Y_n$ be the subscheme of $X$ defined by the sheaf of ideals $\sJ_Y^{\,n}$, where $\sJ_Y$ is the sheaf of ideals of some scheme structure on $Y$. Then for each $n$ we have a natural map
-\[
-\operatorname{Hom}_{\sO_X}(\sO_{Y_n}, F)\longrightarrow \Gamma_Y(F),
-\]
-since an element of the first group is given by a global section of $F$ which is annihilated by $\sJ_Y^{\,n}$, and hence has support on $Y$. Taking the direct limit as $n$ varies, we deduce a map
-\[
-\varinjlim_n \operatorname{Hom}(\sO_{Y_n}, F)\longrightarrow \Gamma_{Y}(F).
-\]
-Taking derived functors, we deduce a map of functors from $\DD^{+}(X)$ to $\DD^{+}(\Ab)$
-\begin{equation}\tag{*}
-\DerR\varinjlim \operatorname{Hom}(\sO_{Y_n}, F^{\bullet})\longrightarrow \DerR\Gamma_{Y}(F^{\bullet}).
-\end{equation}
-
-\begin{theorem}\label{thm:5.4.1}
-If $X$ is a noetherian prescheme, and $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$, i.e., the complex $F^\bullet$ has quasi-coherent cohomology (cf.\ [II \S17]), then $(*)$ is an isomorphism.
-\end{theorem}
+\begin{definition}
+A \emph{sheaf of families of supports} on a topological space $X$ is a sheaf of sets $\underline{\varphi}$, such that for every open set $U$, $\underline{\varphi}(U)$ is a family of supports on $U$, and such that for $V\subseteq U$ the restriction map $\underline{\varphi}(U)\to\underline{\varphi}(V)$ is given by $Z\in\underline{\varphi}(U)$ goes to $Z\cap V\in\underline{\varphi}(V)$.
+\end{definition}
 
 \begin{remark}
 \begin{enumerate}
-\item Since there are enough flasque $\sO_X$-modules, $\DerR\Gamma_Y(F^\bullet)$ is the same as if one had calculated it in the category $\DD^+(\Ab(X))$.
-\item The derived category does not have direct limits, so we cannot write $\varinjlim_n\DerR\operatorname{Hom}(\sO_{Y_n}, F^\bullet)$, as one is tempted to. However, upon descending from the derived category this difficulty disappears, and we have the Corollary below.
+\item If $\varphi$ is a family of supports on $X$, we can define a sheaf of families of supports $\widetilde{\varphi}$ on $X$ by taking the sheaf associated to the presheaf
+\[
+U\longmapsto \{Z\cap U\mid Z\in\varphi\}.
+\]
+\item If $\underline{\varphi}$ is a sheaf of families of supports on $X$, we can define a family of supports $\Gamma(\underline{\varphi})$ on $X$ by $\Gamma(\underline{\varphi})=\underline{\varphi}(X)$.
+\item Note that in general, the operations $\Gamma$ and $\sim$ are not inverses to each other. For example, if $\varphi$ is the family of compact subsets of a locally compact Hausdorff space, then $\widetilde{\varphi}$ is the maximal sheaf of families of supports, and $\Gamma(\widetilde{\varphi})$ is the maximal family of supports. But if $X$ is not compact, $\varphi\neq\Gamma(\widetilde{\varphi})$.
+\item Conversely, let $f\colon X\to Y$ be a morphism of finite type of locally noetherian preschemes. Let $p$ be an integer, and let $\underline{\varphi}$ be the sheaf of families of supports on $X$ given by $\underline{\varphi}(U)=$ the set of (relatively) closed subsets $Z$ of $U$ such that for every $y\in f(U)$, $Z\cap X_y$ is of codimension $\geq p$ in the fibre $X_y$. Then in general $\Gamma(\underline{\varphi})^{\sim}$ is different from $\underline{\varphi}$. (For a specific example, let $Y=\operatorname{Spec}k[x,y]$, let $X=\mathbb{P}^1_Y$ and let $p=1$. Then if $Z\subseteq X$ is obtained by blowing up the origin of $Y$, $Z$ is locally in $\varphi$ except over the origin of $Y$, but $Z\notin \Gamma(\underline{\varphi})$.)
+\item For another example of a family of supports, let $Z$ be a subset of the topological space $X$, stable under specialization (e.g., $Z=\{x\in X\text{ of codimension }\geq p\}$ for some $p$. By the codimension of a point $x$ in a topological space $X$, we mean the largest integer $n$, or $+\infty$, such that there exists a sequence $x_0,x_1,x_2,\cdots,x_n=x$ of points of $X$ where for each $i$, $x_i\to x_{i+1}$ is a proper specialization, i.e., $x_{i+1}\in\overline{\{x_i\}}$ and $x_i\neq x_{i+1}$). Then the set of subsets of finite unions of closures of points of $Z$ is a family of supports $\varphi$. One can also consider the associated sheaf of families of supports $\widetilde{\varphi}$. If $X$ is locally noetherian (as a topological space) and if every closed irreducible subset of $X$ has a unique generic point, then there is a $1$-$1$ correspondence between subsets of $X$, stable under specialization, and families of supports $\varphi$, such that $\varphi=\Gamma(\widetilde{\varphi})$. In these cases we will write $\Gamma_Z$ for $\Gamma_{\varphi}$, $H_Z^i$ for $H_{\varphi}^i$, $\underline{\Gamma}_Z$ for $\underline{\Gamma}_{\widetilde{\varphi}}$, etc.
 \end{enumerate}
 \end{remark}
 
-\begin{corollary}\label{cor:5.4.2}
-Under the hypotheses of the theorem, the map induced on cohomology,
-\[
-\varinjlim_n \operatorname{Ext}^{i}(\sO_{Y_{n}}, F^{\bullet})\longrightarrow H_{Y}^{i}(F^{\bullet})
-\]
-is an isomorphism, for all $i$.
-\end{corollary}
+Now let $\underline{\varphi}$ be a sheaf of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}}(F)$ to be the sheaf whose sections on an open set $U$ are $\Gamma_{\underline{\varphi}(U)}(U,F|_U)$. Define $\DerR\underline{\Gamma}_{\underline{\varphi}}(F)$ and $\underline{H}^{\underline{i}}_{\underline{\varphi}}(F)$ to be the right derived functors.
 
+\medskip\noindent\textbf{Motif A.} Repeat.
+
+\medskip\noindent\textbf{Motif C.} Repeat.
+
+\medskip\noindent\textbf{Motif D.} If $\underline{\varphi}$ is a sheaf of families of supports of global nature (i.e., such that $\underline{\varphi}=\Gamma(\underline{\varphi})^{\sim}$), then
+\[
+\underline{H}_{\varphi}^{i}(F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi(X)}}\,\underline{H}_{Z}^{i}(F).
+\]
+
+\medskip\noindent\textbf{Motif E.} There is a spectral sequence
+\[
+E_2^{pq}=H^p(X, \underline{H}_{\underline{\varphi}}^q(F))\implies E^n=H_{\Gamma(\underline{\varphi})}^n(X, F),
+\]
+or, in terms of the derived categories, $\DerR\Gamma_{\Gamma(\underline{\varphi})} = \DerR\Gamma\cdot \DerR\underline{\Gamma}_{\underline{\varphi}}$.
+
+\medskip\noindent\textbf{Variation 6.}
+Combining variations 2 and 3, let $Z'\subseteq Z$ be closed subsets of $X$. Define $\underline{\Gamma}_{Z/Z'}$, $\DerR\underline{\Gamma}_{Z/Z'}$, and $\underline{H}^i_{Z/Z'}$. Repeat Motifs A, B, C, and E.
+
+\medskip\noindent\textbf{Variation 7.}
+Combining variations 1, 2, and 3, let $\underline{\psi}\subseteq\underline{\varphi}$ be two sheaves of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, $\DerR\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, and $\underline{H}_{\underline{\varphi}/\underline{\psi}}^{i}$. Repeat Motifs A, B, C, D, and E.
+
+\medskip\noindent\textbf{Variation 8.}
+In this case we define a purely punctual invariant. Let $x$ be a point of $X$ and define $\Gamma_x(F)$ to be the subgroup of the stalk $F_x$ consisting of elements $\overline{s}$ which have a representative $s$ in a suitable neighborhood $U$ of $x$, whose support is $\overline{\{x\}}\cap U$. Define the right derived functors $\DerR\Gamma_x(F)$ and $H_x^{i}(F)$. Note that $H_x^{i}(F)=\underline{H}_Z^{i}(F)_x$, where $Z=\overline{\{x\}}$, and the subscript $x$ denotes the stalk. Repeat Motifs A and C.
+
+\medskip\noindent\textbf{Motif F.} Assume that $X$ is a locally noetherian topological space and that every closed irreducible subset of $X$ has a unique generic point. Let $Z'\subseteq Z$ be two subsets of $X$, stable under specialization, and such that every $x\in Z-Z'$ is maximal in $Z$ (i.e., if $x\in Z$ and $x\to x'$ is a non-trivial specialization, then $x'\in Z'$). Let $F^\bullet\in\DD^+(\Ab(X))$ be a complex of sheaves. Then there is a canonical functorial isomorphism
+\[
+\underline{H}_{Z/Z'}^{i}(F^\bullet) \xrightarrow{\sim} \coprod_{x\in Z-Z'} i_x(H_x^{i}(F^\bullet)),
+\]
+where for any group $G$, $i_x(G)$ is the constant sheaf $G$ on $\overline{\{x\}}$, and $0$ elsewhere. (By abuse of notation we write $Z$, $Z'$ instead of the sheaves of families of supports they define as in Remark 5 of Variation 5 above.)
 \begin{proof}
-If $X$ is noetherian, and $F$ quasi-coherent, then the map
+Since both sides are derived functors, it will be sufficient to establish a canonical functorial isomorphism for a single sheaf $F\in\Ab(X)$
 \[
-\varinjlim_n\operatorname{Hom}(\sO_{Y_{n}}, F)\longrightarrow \Gamma_{Y}(F)
+\underline{\Gamma}_{Z/Z'}(F)\xrightarrow{\sim} \coprod_{x\in Z-Z'} i_x(\Gamma_x(F)).
 \]
-is an isomorphism, since every section of $F$ with support on $Y$ will be annihilated by some power of $\sJ_Y$. Therefore, by the lemma on Way-Out Functors [I.7.1], the morphism of derived functors $(*)$ is an isomorphism for $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$.
-
-For the Corollary, just observe that taking cohomology of complexes commutes with direct limits.
+For an open set $U$ we define a map
+\[
+\Gamma_{Z\cap U}(U,F|_U)\longrightarrow \coprod_{x\in (Z-Z')\cap U} \Gamma_x(F)
+\]
+by sending a section into its germ at each stalk. Only finitely many are non-zero, because the support of any section $s$ is a finite union $\overline{\{z_1\}}\cup\cdots\cup\overline{\{z_n\}}$ with $z_i\in Z$ (since $X$ is locally noetherian!) and because each $x\in Z-Z'$ is maximal in $Z$. A section $s$ goes to zero if and only if it is in $\Gamma_{Z'\cap U}(U,F|_U)$. Thus we have defined an inclusion of sheaves above. Finally, we see that it is surjective, because every germ $\overline{s}\in\Gamma_x(F)$ comes from a section $s$ of $F$ in a suitable neighborhood $U$, with support $\overline{\{x\}}\cap U$.
 \end{proof}
 
-\begin{corollary}\label{cor:5.4.3}
-If $X$ is locally noetherian, and $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$, then the analogous maps
+\medskip\noindent\textbf{Coda.}
+
+Having made all these generalizations of the notion of local cohomology, we are practically back where we started:
+
+\medskip\noindent\textbf{Motif G.} (The Spectral Sequence of a Filtered Topological Space). Let
 \[
-\DerR\varinjlim \underline{\operatorname{Hom}}(\sO_{Y_n}, F^\bullet)\longrightarrow \DerR\underline{\Gamma}_{Y}(F^\bullet)
+X = \underline{\varphi}^0 \supseteq \underline{\varphi}^1 \supseteq \cdots
 \]
-and
+be a filtration of $X$ by sheaves of families of supports, and let $F^\bullet$ be a complex of abelian sheaves on $X$ bounded below. Then there is a spectral sequence
 \[
-\varinjlim_n \underline{\operatorname{Ext}}^{i}(\sO_{Y_{n}}, F^{\bullet})\longrightarrow \underline{H}_{Y}^{i}(F^{\bullet})
+E_1^{pq}=H^{p+q}_{\varphi^p/\varphi^{p+1}}(F^\bullet)\implies E^n=H^n(F^\bullet),
+\]
+which is biregular [EGA $O_{\mathrm{III}}$ \S11] if the filtration is finite, i.e., $\underline{\varphi}^n=\emptyset$ for some $n$. Or, in terms of the derived category, there is a diagram of distinguished triangles (shown in the convergent case)
+\[
+\begin{tikzcd}[row sep=1cm, column sep=0.3cm]
+	& \DerR\underline{\Gamma}_{\underline{\varphi}^{n-1}/\underline{\varphi}^n} \arrow[dl] & & \dots & & \DerR\underline{\Gamma}_{\underline{\varphi}^0/\underline{\varphi}^1} \arrow[dl] & \\
+	0 = \DerR\underline{\Gamma}_{\underline{\varphi}^n} \arrow[rr] & & \DerR\underline{\Gamma}_{\underline{\varphi}^{n-1}} \arrow[ul] \arrow[r] & \dots \arrow[r] & \DerR\underline{\Gamma}_{\underline{\varphi}^1} \arrow[rr] & & \DerR\underline{\Gamma}_{\underline{\varphi}^0} = F^\bullet \arrow[ul]
+\end{tikzcd}
+\]
+\begin{proof}
+This is just the spectral sequence of a filtered complex [M, Ch.\ XV]. Take an injective resolution $I^\bullet$ of $F^\bullet$. Then $I^\bullet$ is filtered
+\[
+I^\bullet = \underline{\Gamma}_{\varphi^0}(I^\bullet)\supset \underline{\Gamma}_{\varphi^1}(I^\bullet)\supset \cdots \supset \underline{\Gamma}_{\varphi^n}(I^\bullet)=0,
+\]
+and the quotients are $\underline{\Gamma}_{\varphi^i/\varphi^{i+1}}(I^\bullet)$.
+\end{proof}
+
+\section{Depth and the Cousin complex}\label{sec:4.2}
+
+Throughout this section, $X$ will denote a locally noetherian topological space in which every closed irreducible subset has a unique generic point.
+
+\begin{definition}
+Let $F^\bullet$ be a complex of sheaves of abelian groups (bounded below) on $X$ and $\underline{\varphi}$ a sheaf of families of supports. Then the \emph{$\underline{\varphi}$-depth} of $F^\bullet$ is the largest integer $n$ (or $+\infty$) such that $\underline{H}^{\mathbf{i}}_{\underline{\varphi}}(F^\bullet)=0$ for all $\mathbf{i}<\mathbf{n}$.
+\end{definition}
+
+\begin{remark}
+If $X$ is a locally noetherian prescheme, $\varphi$ the family of subsets of a closed subset $Z$ of $X$, and $F$ a coherent sheaf, then this definition of depth coincides with the usual definition of the $Z$-depth of $F$ [LC.3.8].
+\end{remark}
+
+\begin{proposition}\label{prop:4.2.1}
+Let $Z'\subseteq Z$ be subsets of (the locally noetherian topological space) $X$, stable under specialization, and such that every $x\in Z-Z'$ is maximal (with respect to specialization) in $Z$. Let $F$ be an abelian sheaf on $X$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] The natural maps
+\[
+F\longleftarrow \underline{\Gamma}_{Z}(F)\longrightarrow \underline{H}_{Z/Z'}^{0}(F)
 \]
 are isomorphisms.
-\end{corollary}
+\item[(ii)] There is an isomorphism
+\[
+F\cong \coprod_{x\in Z-Z'} i_x(M_x)
+\]
+for suitable choice of abelian groups $M_x$. (Recall that for any abelian group $M$, $i_x(M)$ is the constant sheaf $M$ on $\overline{\{x\}}$, and $0$ elsewhere.)
+\item[(iii)] $F$ has supports in $Z$, $Z'$-depth $\geq 1$, and is flasque.
+\item[(iv)] $F$ has supports in $Z$, and $Z'$-depth $\geq 2$.
+\end{enumerate}
+\end{proposition}
 
 \begin{proof}
-By definition of the derived category, it is sufficient to prove the second. This follows from Corollary~4.2, since $\underline{\operatorname{Ext}}$ and $\underline{H}_{Y}$ are sheaves associated to presheaves given by $\operatorname{Ext}$ and $H_{Y}$.
+(i) $\Longrightarrow$ (ii) follows immediately from Motif F of Variation~8 above.
+
+(ii) $\Longrightarrow$ (iii) Condition (ii) implies that $F$ has supports in $Z$, and that $\Gamma_{Z'}(F)=0$, i.e., $Z'$-depth $F\geq 1$. $F$ is flasque because it is a direct sum of sheaves $i_x(M)$, each of which is a constant sheaf on an irreducible space, hence flasque.
+
+(iii) $\Longrightarrow$ (iv) Since $F$ is flasque, $\underline{H}_{Z'}^{i}(F)=0$ for all $i>0$, by Motif C. But $\underline{H}_{Z'}^{0}(F)=0$ since $F$ has $Z'$-depth $\geq 1$, so $F$ has $Z'$-depth $+\infty > 2$.
+
+(iv) $\Longrightarrow$ (i) $\underline{\Gamma}_Z(F)\to F$ is an isomorphism since $F$ has supports in $Z$. Now by Motif B there is an exact sequence
+\[
+0\longrightarrow \underline{\Gamma}_{Z'}(F)\longrightarrow \underline{\Gamma}_{Z}(F)\longrightarrow \underline{H}_{Z/Z'}^{0}(F)\longrightarrow \underline{H}_{Z'}^{1}(F)\longrightarrow\cdots
+\]
+Since $Z'$-depth $F\geq 2$, the two outside terms are zero, so the middle is an isomorphism.
 \end{proof}
 
-\section{Dualizing functors on a local noetherian ring}\label{sec:5.5}
-
-In this section we recall without proof the definition and some properties of dualizing functors on a local noetherian ring $A$, with maximal ideal $\mathfrak{m}$. For proofs, see [LC, \S4].
-
-\begin{proposition}\label{prop:5.5.1}
-Let $I$ be an injective hull of the residue field $k$ of $A$, and denote by $T$ the functor $\operatorname{Hom}(\cdot,I)$. Then for every $A$-module $M$ of finite length, the natural map
-\[
-M\longrightarrow T T(M)
-\]
-is an isomorphism.
-\end{proposition}
-
 \begin{definition}
-A contravariant additive functor $T$ from the category $\mathcal{C}_f$ of $A$-modules of finite length into itself is called a \emph{dualizing functor for $A$ at $\mathfrak{m}$} if there exists an injective hull $I$ of $k$ and an isomorphism of functors $T\cong\operatorname{Hom}(\cdot, I)$.
+If $F$ satisfies the equivalent conditions above, we say $F$ \emph{lies on the $Z/Z'$-skeleton} of $X$.
 \end{definition}
 
-\begin{proposition}\label{prop:5.5.2}
-A contravariant additive functor $T$ from $\mathcal{C}_f$ into itself is a dualizing functor if and only if it is exact, and $T(k)\cong k$. In that case one can take $I=\varinjlim_n T(A/\mathfrak{m}^n)$, and then there is a canonical isomorphism $T\cong\operatorname{Hom}(\cdot, I)$.
-\end{proposition}
+We now come to the Cousin complex, but prove a lemma first.
 
-\begin{proposition}\label{prop:5.5.3}
-If $I$ is an injective hull of $k$, then the functor $\operatorname{Hom}(\cdot,I)$ gives an anti-isomorphism of the category (dcc) of $A$-modules with descending chain condition (we call them $A$-modules of co-finite type) and the category (acc) of modules of finite type over the completion of $A$.
-\end{proposition}
-
-\section{Local duality}\label{sec:5.6}
-
-Throughout this section we let $A$ be a noetherian local ring, with maximal ideal $\mathfrak{m}$, and residue field $k$, and let $R^\bullet$ be a dualizing complex on $X=\operatorname{Spec}A$ (cf.\ \S2). Recall Proposition~3.4 which gives a necessary and sufficient condition for a complex $R^\bullet\in\DD^+_{\mathrm{c}}(A)$ to be dualizing.
-
-\begin{definition}
-We say that the dualizing complex $R^\bullet$ is \emph{normalized} if the integer $d$ of Proposition~3.4 is zero.
-\end{definition}
-
-\begin{remark}
-Since the translate of a dualizing complex is again one, we can normalize by translation.
-\end{remark}
-
-\begin{proposition}\label{prop:5.6.1}
-If $R^\bullet$ is normalized, then $\DerR\Gamma_x(R^\bullet)$, where $x$ is the closed point of $\operatorname{Spec}A$, is isomorphic in the derived category to an injective hull $I$ of $k$.
-\end{proposition}
-
-\begin{proof}
-The cohomology of $\DerR\Gamma_x(R^\bullet)$ is
+\begin{lemma}\label{lem:4.2.2}
+Let $Z'\subseteq Z$ be as in the previous proposition, and let $F$ be a sheaf on $X$ with supports in $Z$. Then there is a unique (up to unique isomorphism) $Z'$-isomorphism
 \[
-H_{x}^{i}(R^{\bullet})\cong \varinjlim_n\operatorname{Ext}^{i}(A/\mathfrak{m}^{n},R^{\bullet})
+\alpha\colon F\longrightarrow G
 \]
-by Corollary~4.2 above. On the other hand, we saw from the proof of Proposition~3.4 that $\operatorname{Ext}^{i}(M,R^\bullet)=0$ for $i\neq0$ and all $M$ of finite length. Furthermore, by Proposition~5.2, the functor $\operatorname{Ext}^{0}(\cdot,R^\bullet)$ is a dualizing functor, and corresponds to the injective hull of $k$ given by
-\[
-I = \varinjlim_n \operatorname{Ext}^{0}(A/\mathfrak{m}^{n}, R^{\bullet}).
-\]
-So we see that $H_{x}^{i}(R^\bullet)=0$ for $i\neq0$, and $H_{x}^{0}(R^\bullet)=I$. Therefore $\DerR\Gamma_x(R^\bullet)\cong I$ in the derived category [I.4.3].
-\end{proof}
-
-Now let $M$ be an $A$-module. Then there is a natural homomorphism
-\[
-\Gamma_x(M)\longrightarrow \operatorname{Hom}(\operatorname{Hom}(M,R^{\bullet}), \Gamma_x(R^{\bullet})).
-\]
-This gives rise to a morphism of functors on $\DD^+(A)$,
-\[
-\DerR\Gamma_x(M^{\bullet})\longrightarrow \DerR\underline{\Hom}(\DerR\underline{\Hom}(M^{\bullet}, R^{\bullet}), \DerR\Gamma_x(R^{\bullet})),
-\]
-since we can take $R^\bullet$ to be an injective complex, in which case $\DerR\Gamma_x(R^\bullet)=\Gamma_x(R^\bullet)$ is also injective. Indeed, whenever $J$ is an injective $A$-module, and $Y$ a closed subset of $\operatorname{Spec}A$, then $\Gamma_Y(J)$ is injective (cf.\ [II \S7] for the structure of injective $A$-modules). We now assume (without loss of generality) that $R^\bullet$ is normalized, and so, by the Proposition, have a morphism of functors
-\[
-\Theta\colon\ \DerR\Gamma_x(M^{\bullet})\longrightarrow \operatorname{Hom}(\DerR\underline{\Hom}(M^{\bullet},R^{\bullet}), I).
-\]
-(Following the usual conventions, we do not write $\DerR$ before a functor which is already exact.)
-
-\begin{theorem}[Local Duality]\label{thm:5.6.2}
-Let $A$ be a local noetherian ring, let $R^\bullet$ be a normalized dualizing complex, let $I$ be the corresponding injective hull of $k$, and let $M^\bullet\in\DD^+_{\mathrm{c}}(A)$ (i.e., the cohomology modules of $M^\bullet$ are of finite type). Then $\Theta$ as defined above is an isomorphism.
-\end{theorem}
-
-\begin{corollary}\label{cor:5.6.3}
-With $A$, $R^\bullet$, $I$ as above, let $M$ be a module of finite type. Then the homomorphisms
-\[
-\Theta^{i}\colon H_{x}^{i}(M)\longrightarrow \operatorname{Hom}(\operatorname{Ext}^{-i}(M,R^{\bullet}), I)
-\]
-induced by $\Theta$ are isomorphisms.
-\end{corollary}
-
-\begin{proof}
-Using the Lemma on Way-out Functors [I.7.1] one sees that the Corollary is equivalent to the theorem. To prove the Corollary, note that $\Theta^{i}$ is an isomorphism for $M=k$, because $H_{x}^{i}(k)=0$ for $i\neq0$, and $H_{x}^{0}(k)=k$; note also that for all $M$ of finite type, both sides are modules with support at $x$. Thus we are reduced to proving the following
-
-\begin{lemma}\label{lem:5.6.4}
-Let $\Theta^{i}\colon S^{i}\to T^{i}$ be a morphism of covariant cohomological functors on the category of modules over a noetherian ring $A$. Assume
-\begin{itemize}
-\item[(i)] for every maximal ideal $\mathfrak{m}\subseteq A$, $\Theta^{i}(A/\mathfrak{m})$ is an isomorphism, and
-\item[(ii)] for every non-maximal prime ideal $\mathfrak{p}\subseteq A$, $S^{i}(A/\mathfrak{p})$ and $T^{i}(A/\mathfrak{p})$ have support $<\operatorname{Supp}A/\mathfrak{p}$.
-\end{itemize}
-Then $\Theta^{i}(M)$ is an isomorphism for every $A$-module $M$ of finite type.
+of $F$ into a sheaf $G$ which lies on the $Z/Z'$-skeleton. (By \emph{$Z'$-isomorphism} we mean a homomorphism of sheaves whose kernel and cokernel have supports in $Z'$.)
 \end{lemma}
 
 \begin{proof}
-By assumption, $\Theta^{i}(A/\mathfrak{m})$ is an isomorphism for every maximal ideal $\mathfrak{m}$. If $M$ is any module of finite type, then $M$ admits a finite filtration each of whose quotients is of the form $A/\mathfrak{p}$ with $\mathfrak{p}$ prime. Thus by the $5$-lemma we reduce to the case $M=A/\mathfrak{p}$ with $\mathfrak{p}$ not maximal. By noetherian induction, we may assume that $\Theta^{i}(M')$ is an isomorphism for every $M'$ of finite type with $\operatorname{support}<\operatorname{Supp}(A/\mathfrak{p})$.
+(1) To show the existence of $\alpha$, we take $G=\underline{H}_{Z/Z'}^{0}(F)$, and let $\alpha$ be the natural map of $F=\underline{\Gamma}_Z(F)$ into $G$. Then from the exact sequence of Motif B we see that $\alpha$ is a $Z'$-isomorphism, and from Motif F we see that $G$ lies on the $Z/Z'$-skeleton.
 
-Now for each $f\in M=A/\mathfrak{p}$, $f\neq0$, we consider the exact sequence
-\[
-0\longrightarrow M\xrightarrow{f} M\longrightarrow M/fM\longrightarrow 0,
-\]
-and apply the functors $S^{i}$, $T^{i}$ to it, splitting it as follows
+(2) To see that $\alpha$ is unique up to isomorphism, let $\beta\colon F\to G'$ be another such $Z'$-isomorphism. Applying the functor $\underline{H}_{Z/Z'}^{0}$ (which takes $Z'$-isomorphisms into isomorphisms) we get a commutative diagram
 \[
 \begin{tikzcd}
-	% Top Row
-	0 \arrow[r] & K_f \arrow[r] \arrow[d, "\alpha"] & S^i(M) \arrow[r, "f"] \arrow[d, "\beta"] & S^i(M) \arrow[r] \arrow[d] & \dots \\
-	% Bottom Row
-	0 \arrow[r] & L_f \arrow[r] & T^i(M) \arrow[r, "f"] & T^i(M) \arrow[r] & \dots
+F \arrow[r, "\beta"] \arrow[d, "\alpha"'] & G \arrow[d, "\operatorname{Id}"] \\
+G \arrow[r, "\gamma"] & G'
 \end{tikzcd}
+\]
+where $\gamma=\underline{H}_{Z/Z'}^{0}(\beta)$ is an isomorphism.
+
+(3) To show that the isomorphism $\gamma$ is unique, let $\delta\colon G\to G'$ be any other homomorphism which gives a commutative diagram. 
+\[
+\begin{tikzcd}
+	F \arrow[r, "\alpha"] \arrow[d, "\beta"'] & G \arrow[dl, "\delta"] \\
+	G'
+\end{tikzcd}
+\]
+Then applying the functor $\underline{H}_{Z/Z'}^{0}$, we obtain a commutative diagram
+\[
+\begin{tikzcd}
+	G \arrow[r, "\operatorname{Id}"] \arrow[d, "\gamma"'] & G \arrow[dl, "\delta"] \\
+	G'
+\end{tikzcd}
+\]
+and since $\underline{H}_{Z/Z'}^{0}(G)=G$ and $\underline{H}_{Z/Z'}^{0}(G')=G'$ (by Motif F), we see that $\delta=\gamma$.
+\end{proof}
+
+\begin{proposition}\label{prop:4.2.3}
+Let $X=Z^0\supseteq Z^1\supseteq\cdots$ be a filtration of $X$ by subsets $Z^p$ stable under specialization, and such that for each $p$, each $x\in Z^p-Z^{p+1}$ is maximal in $Z^p$. Let $F$ be an abelian sheaf on $X$. Then there is a unique (up to unique isomorphism of complexes) augmented complex
+\[
+\begin{tikzcd}[row sep=1.2cm, column sep=1.2cm]
+	& F \arrow[d] & & \\
+	0 \arrow[r] & C^0 \arrow[r] & C^1 \arrow[r] & \dots
+\end{tikzcd}
+\]
+with the following properties:
+\begin{itemize}
+\item[(a)] For each $p\geq 0$, $C^p$ lies on the $Z^p/Z^{p+1}$-skeleton.
+\item[(b)] For each $p>0$, $H^p(C^\bullet)$ has supports in $Z^{p+2}$.
+\item[(c)] The map $F\to H^{0}(C^\bullet)$ has kernel with supports in $Z^{1}$, and cokernel with supports in $Z^{2}$.
+\end{itemize}
+Furthermore, $C^\bullet$ depends functorially on $F$.
+\end{proposition}
+
+\begin{proof}
+We prove by induction on $p$, that there exists a unique (up to unique isomorphism of complexes) augmented complex
+\[
+\begin{tikzcd}[row sep=1.2cm, column sep=1.2cm]
+	& F \arrow[d] & & \\
+	0 \arrow[r] & C^0 \arrow[r] & C^1 \arrow[r] & \dots \arrow[r] & C^p
+\end{tikzcd}
+\]
+with all the properties above, except that instead of saying $H^p(C^\bullet)$ has supports in $Z^{p+2}$, we say that $C^p/\operatorname{Im} C^{p-1}$ has supports in $Z^{p+1}$ (or, if $p=0$, instead of saying that the cokernel of $F\to H^0(C^\bullet)$ has supports in $Z^2$, we say that $C^0/\operatorname{Im} F$ has supports in $Z^1$).
+
+\emph{Case $p=0$.} This is precisely the statement of the Lemma, with $Z=Z^0$ and $Z'=Z^1$.
+
+\emph{Induction Step.} Suppose the statement proven for $p$, and take a complex $C^\bullet$ as above, defined in degrees $\leq p$. Apply the Lemma to $C^p/\operatorname{Im} C^{p-1}$ with $Z=Z^{p+1}$ and $Z'=Z^{p+2}$, and let $C^{p+1}$ be the sheaf $G$ thus obtained. Now since
+\[
+C^p/\operatorname{Im} C^{p-1}\longrightarrow C^{p+1}
+\]
+is a $Z^{p+2}$-isomorphism, its kernel, $H^p(C^\bullet)$ and its cokernel, $C^{p+1}/\operatorname{Im} C^p$, have supports in $Z^{p+2}$. Furthermore, $C^{p+1}$ lies on the $Z^{p+1}/Z^{p+2}$-skeleton, so we have a complex with the required properties. To show that it is unique up to unique isomorphism, let $C'^\bullet$ be another such augmented complex, defined in degrees $\leq p+1$. Leaving off $C'^{p+1}$, we have a complex satisfying the conditions of the induction hypothesis, therefore there is a unique isomorphism of augmented complexes $C^\bullet\to C'^\bullet$ defined in degrees $\leq p$. Thus there is a unique isomorphism
+\[
+C^p/\operatorname{Im} C^{p-1}\longrightarrow C'^p/\operatorname{Im} C'^{p-1}.
+\]
+Now again by the Lemma, this extends to a unique isomorphism of $C^{p+1}\longrightarrow C'^{p+1}$.
+\end{proof}
+
+\begin{definition}
+The complex of the above proposition is called the \emph{Cousin complex} of $F$ (with respect to the filtration $Z^\bullet$).
+\end{definition}
+
+\begin{example}
+\begin{enumerate}
+\item[(1)] If $F$ has supports in $Z^1$, then its Cousin complex is the zero complex.
+\item[(2)] If $F$ is flasque, then its Cousin complex is given by $C^0=F/\underline{\Gamma}_{Z^1}(F)$, $C^p=0$ for $p>0$.
+\end{enumerate}
+\end{example}
+
+\begin{lemma}\label{lem:4.2.4}
+Under the hypotheses of Proposition~2.3, $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i>p$.
+\end{lemma}
+
+\begin{proof}
+Using Motif F, we have only to show that for all $x\in Z^p-Z^{p+1}$, $H_x^{i}(F)=0$. But this group can be calculated as the $i$th derived functor of $\Gamma_x$ on the topological space $X_{(x)}$ consisting of all generizations of $x$ (i.e., points $x'$ which specialize to $x$). Indeed, it can be calculated by flasque sheaves (Motif C), and the restriction of a flasque sheaf to $X_{(x)}$ is flasque. Now since $x\notin Z^{p+1}$, the space $X_{(x)}$ has combinatorial dimension $\geq p$, and so $H_x^{i}(F)=0$ for $i>p$ [G, II, 4.15.2], or [LC 1.12].
+\end{proof}
+
+\begin{proposition}\label{prop:4.2.5}
+Let $X=Z^0\supseteq Z^1\supseteq\cdots$ and $F$ be as in Proposition~2.3, and assume furthermore that the filtration is separated (i.e., $\bigcap Z^n=\emptyset$). Then the natural map
+\[
+\alpha\colon F\longrightarrow \underline{H}_{Z^{0}/Z^{1}}^{0}(F)
+\]
+makes the complex
+\[
+0\longrightarrow \underline{H}_{Z^{0}/Z^{1}}^{0}(F)\xrightarrow{d_1^{00}} \underline{H}_{Z^{1}/Z^{2}}^{1}(F)\xrightarrow{d_1^{10}} \underline{H}_{Z^{2}/Z^{3}}^{2}(F)\longrightarrow\cdots
+\]
+of $E_1^{p0}$ terms of the spectral sequence of Motif G into a Cousin complex for $F$.
+\end{proposition}
+
+\begin{proof}
+We must check first that $\alpha$ gives an augmentation (i.e., $d_1^{00}\cdot\alpha=0$), and then that the properties (a), (b), and (c) of Proposition~2.3 hold. These properties can be checked at each point separately. Thus for an $x\in X$, we can replace $X$ by the space $X_{(x)}$ of generizations of $x$, which has finite combinatorial dimension (since the filtration $Z^\bullet$ is separated). In other words, we may assume that the filtration $Z^\bullet$ is finite. We will check only property (b) which is the hardest.
+
+Given $p>0$, we wish to show that $H^p$ of the complex above, which is nothing but $E_2^{p0}$ of the spectral sequence of Motif G, has supports in $Z^{p+2}$. We show, by descending induction on $r$, that $E_r^{p0}$ has supports in $Z^{p+r}$ for each $r>1$. For $r$ large enough, $E_r^{p0}=E_{\infty}^{p0}=0$, since the abutment of the spectral sequence, $E^n$, is $0$ for $n\neq 0$.
+
+Now let $r>1$ be given. Then $E_r^{p-r,r-1}=0$, since $E_r^{pq}=0$ for $q>0$ by the Lemma. Therefore we have an exact sequence
+\[
+0\longrightarrow E_{r+1}^{p0}\longrightarrow E_r^{p0}\xrightarrow{d_r^{p0}} E_r^{p+r,-r+1}.
+\]
+By the induction hypothesis, $E_{r+1}^{p0}$ has supports in $Z^{p+r+1}$; and $E_1^{p+r,-r+1}= \underline{H}_{Z^{p+r}/Z^{p+r+1}}^{p+1}(F)$, has supports in $Z^{p+r}$. Thus $E_r^{p0}$ has supports in $Z^{p+r}$, and in particular, $E_2^{p0}$ has supports in $Z^{p+2}$.
+\end{proof}
+
+Now we ask when the Cousin complex is a resolution of $F$.
+
+\begin{proposition}\label{prop:4.2.6}
+Under the hypotheses of Proposition~2.5, the following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] $\underline{H}_{Z^p}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
+\item[(ii)] $Z^{p}$-depth $F\geq p$ for all $p$.
+\item[(iii)] $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
+\item[(iv)] The Cousin complex of $F$ is a (flasque) resolution of $F$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) $\Longrightarrow$ (ii) by definition of depth. (ii) $\Longrightarrow$ (iii). They are zero for $i>p$ by Lemma~2.4. For $i<p$ we use the exact sequence
+\[
+\underline{H}_{Z^{p}}^{i}(F)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)\longrightarrow \underline{H}_{Z^{p+1}}^{i+1}(F).
+\]
+
+(iii) $\Longrightarrow$ (iv). The condition is pointwise, so as before we can assume the filtration $Z^\bullet$ is finite. Then the spectral sequence of Motif G degenerates: $E_1^{pq}=0$ for $q\neq 0$. That means that the complex $E_1^{p0}$ (which by the previous proposition is the Cousin complex) is a resolution of $F$.
+
+(iv) $\Longrightarrow$ (i). Let $C^\bullet$ be the Cousin complex. Since it is a flasque resolution of $F$, we may use it to calculate cohomology: $\underline{H}_{Z^p}^{i}=H^i(\underline{\Gamma}_{Z^p}(C^\bullet))$. Since $C^p$ lies on the $Z^p/Z^{p+1}$-skeleton for all $p$, $\underline{\Gamma}_{Z^p}(C^\bullet)$ is the truncated complex $(C^i)_{i\geq p}$. Clearly it has cohomology only in degree $p$, since the original $C^\bullet$ was exact.
+\end{proof}
+
+\begin{definition}
+If the equivalent conditions of the proposition are satisfied, we say that $F$ is \emph{Cohen-Macaulay} (with respect to the filtration $Z^\bullet$).
+\end{definition}
+
+\begin{remark}
+If $X$ is a locally noetherian prescheme, and $Z^p$ the set of points of codimension $\geq p$ (i.e., points $x\in X$ with $\dim\sO_{x,X}\geq p$), and $F$ a coherent sheaf on $X$ with support $X$, then this notion coincides with the usual definition. Indeed, using condition (iii) and Motif F, $F$ is Cohen-Macaulay if and only if for each $x\in X$, $\operatorname{depth}F_x\geq\dim\sO_{x,X}$, which is the usual definition.
+\end{remark}
+
+\begin{example}
+Let $X$ be a non-singular locally noetherian scheme, let $Z^\bullet$ be the filtration by codimension as above, and let $F=\sO_X$. Then $F$ is Cohen-Macaulay (usual sense) [ZS vol.\ II, App.\ 6], so the Cousin complex gives a flasque resolution of $\sO_X$. Furthermore, the $p$th component of this complex is isomorphic to $\underline{H}_{Z^p/Z^{p+1}}^{p}(\sO_X)$ which by Motif F is isomorphic to
+\[
+\coprod_{\operatorname{codim} x = p} i_x(H_x^{p}(\sO_x)).
+\]
+Now for $x$ of codimension $p$, we know [LC.4.13] that $H_x^p(\sO_X)$ is an injective hull over the local ring $\sO_x$ of its residue field $k(x)$. Thus our Cousin complex is in fact an injective resolution of $\sO_X$, and its component in degree $p$ is isomorphic to a direct sum of sheaves $J(x)$ (see definition in [II \S7]) where $x$ is a point of codimension $p$.
+
+This is an example of the notion of residual complex, which will be studied in more detail in Chapter~VI.
+\end{example}
+
+\section{Generalization to Complexes}\label{sec:4.3}
+
+In this section we generalize the results of the previous section to complexes. In particular, we will discuss Cohen-Macaulay complexes, Gorenstein complexes, and their relations to Cousin complexes.
+
+Throughout this section, $X$ will be a locally noetherian topological space in which every irreducible closed subset has a unique generic point. We will denote by $\DD^+(X)$ either $\DD^+(\Ab(X))$, the derived category of the category of abelian sheaves on $X$, or $\DD^+(\operatorname{Mod}(X))$ if $X$ is a locally noetherian prescheme. The results are valid in both cases.
+
+We will consider filtrations $Z^\bullet=(Z^p)_{p\in\mathbb{Z}}$ on $X$, and will always suppose the following conditions satisfied:
+\begin{enumerate}
+\item[(1)] Each $Z^p$ is a subset of $X$, stable under specialization, and
+\[
+\cdots\supseteq Z^{p-1}\supseteq Z^p\supseteq Z^{p+1}\supseteq\cdots.
+\]
+\item[(2)] Each $x\in Z^{p}-Z^{p+1}$ is maximal in $Z^{p}$ (i.e., $x$ is not a proper specialization of any other $x'\in Z^{p}$).
+\item[(3)] The filtration is strictly exhaustive, i.e., $X=Z^p$ for some $p\in\mathbb{Z}$.
+\item[(4)] The filtration is separated, i.e., $\bigcap Z^p=\emptyset$.
+\end{enumerate}
+
+\begin{definition}
+A \emph{Cousin complex} on $X$, with respect to the filtration $Z^\bullet$, is a complex of sheaves $G^\bullet$, such that for each $p$, $G^p$ lies on the $Z^p/Z^{p+1}$-skeleton of $X$. (Cf.\ definition following Proposition~2.1.) Note that a Cousin complex is necessarily flasque, and bounded below. We denote by $\Coz(Z^\bullet;X)$ the category of Cousin complexes and morphisms of complexes. It is an additive category.
+\end{definition}
+
+\begin{example}
+The Cousin complex of a sheaf $F$ (as in Proposition~2.3 above) is a Cousin complex.
+\end{example}
+
+\begin{definition}
+Let $F^\bullet\in\DD^+(X)$. Then we denote by $E(F^\bullet)$ the complex
+\[
+\cdots\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\xrightarrow{d_1^{p0}} \underline{H}_{Z^{p+1}/Z^{p+2}}^{p+1}(F^\bullet)\longrightarrow\cdots
+\]
+of $E_1^{p0}$ terms of the spectral sequence of Motif G. We observe by Motif F that the $p$th term $E^p(F^\bullet)$ lies on the $Z^p/Z^{p+1}$-skeleton of $X$, and so $E(F^\bullet)$ is a Cousin complex. (Note that even if $F^\bullet\in\DD^b(X)$, the complex $E(F^\bullet)$ need not be bounded above.)
+\end{definition}
+
+\begin{proposition}\label{prop:4.3.1}
+Let $F^\bullet\in\DD^b(X)$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item[(i)]
+\begin{enumerate}
+\item[a)] $\underline{H}_{Z^p}^{i}(F^\bullet)=0$ for $i<p$, and
+\item[b)] the map
+\[
+\underline{H}_{Z^p}^{i}(F^\bullet)\longrightarrow H^{i}(F^\bullet)
+\]
+is surjective for $i=p$ and bijective for $i>p$.
+\end{enumerate}
+\item[(ii)] $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)=0$ for $i\neq p$.
+\item[(iii)] There is an isomorphism $\varphi\colon F^\bullet\to QE(F^\bullet)$ in $\DD^+(X)$, where $Q$ is the functor sending a complex to its image in $\DD^+(X)$ [I \S3].
+\end{enumerate}
+Furthermore, the isomorphism in (iii) can be chosen so that the isomorphisms $H^{i}(\varphi)\colon H^{i}(F^\bullet)\to H^{i}(E(F^\bullet))$ are inverse to the isomorphisms $\epsilon_{i}\colon H^{i}(E(F^\bullet))\to H^{i}(F^\bullet)$ determined by the degenerate spectral sequence of Motif G.
+\end{proposition}
+
+\begin{remark}
+One should beware, however, that the isomorphism $\varphi$ is not in general unique, and so is not functorial.
+\end{remark}
+
+\begin{proof}
+(i) $\Longrightarrow$ (ii). This follows immediately from the exact sequences
+\[
+\underline{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i+1}(F^\bullet)\longrightarrow \underline{H}_{Z^{p+1}}^{i+1}(F^\bullet)
+\]
+of Motif B.
+
+(ii) $\Longrightarrow$ (i). Condition (i) can be checked pointwise, so as in \S2 above, we may assume that the filtration $Z^\bullet$ is finite.
+\begin{itemize}
+\item[a)] For $i<p$, the exact sequence of Motif B shows us that
+\[
+\underline{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)
+\]
+is bijective. Therefore by iteration,
+\[
+\underline{H}_{Z^{p+r}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)
+\]
+is bijective for any $r\geq 0$. But for $r$ large enough, $Z^{p+r}=\emptyset$, so $\underline{H}_{Z^{p}}^{i}(F^\bullet)=0$.
+\end{itemize}
+Part b) is proved similarly.
+
+(i) + (ii) $\Longrightarrow$ (iii). Since $F^\bullet\in\DD^b(X)$, we can find an $i_0$ such that $H^{i}(F^\bullet)=0$ for $i\geq i_0$. By condition (ii), the spectral sequence of Motif G degenerates, so checking pointwise, we see that $H^{i}(E(F^\bullet))=0$ for $i\geq i_0$ also.
+
+We will construct, by descending induction on $p$, an isomorphism in $\DD^+(X)$ of $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ with the truncation $Q(\tau_{\geq p}E(F^\bullet))$ of $QE(F^\bullet)$ in degrees $\geq p$ (see [I \S7] for notation). Then, since the filtration is strictly exhaustive, we have
+\[
+F^\bullet = \DerR\underline{\Gamma}_{Z^p}(F^\bullet)\quad\text{and}\quad QE(F^\bullet)=Q(\tau_{\geq p}E(F^\bullet))
+\]
+for $p$ small enough, which will give us the isomorphism $\varphi$.
+
+For $p$ large enough (say $p\geq i_0$), $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ has a unique non-zero cohomology group. Indeed,
+\[
+\underline{H}_{Z^{p}}^{i}(F^\bullet)=0\quad\text{for }i<p
 \]
 and
 \[
-\begin{tikzcd}
-	% Top Row
-	\dots \arrow[r] & S^{i-1}(M) \arrow[r] \arrow[d, "\gamma"'] & S^{i-1}(M/fM) \arrow[r] \arrow[d, "\delta"'] & K_f \arrow[r] \arrow[d, "\alpha"'] & 0 \\
-	% Bottom Row
-	\dots \arrow[r] & T^{i-1}(M) \arrow[r] & T^{i-1}(M/fM) \arrow[r] & L_f \arrow[r] & 0
+\underline{H}_{Z^{p}}^{i}(F^\bullet)=H^{i}(F^\bullet)=0\quad\text{for } i>p \quad\text{by (i) b)},
+\]
+since $p\geq i_0$. Furthermore, there is an exact sequence
+\begin{equation}\tag{1}
+0\longrightarrow \underline{H}_{Z^{p}}^{p}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\longrightarrow \underline{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow 0
+\end{equation}
+from Motif B.
+
+At the same time, for $p\geq i_0$, $\tau_{\geq p}E(F^\bullet)$ has a unique non-zero cohomology group. Indeed, $H^{i}=0$ for $i<p$ since the complex is zero in those degrees. $H^{i}=0$ for $i>p$, since $p\geq i_0$ (see above). Finally since this is a truncated complex, and $H^{p+1}(E(F^\bullet))=0$, there is an exact sequence
+\begin{equation}\tag{2}
+0\longrightarrow H^{p}(\tau_{\geq p}E(F^\bullet))\longrightarrow E^{p}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet).
+\end{equation}
+
+Now comparing (1) and (2), and using the definition of the complex $E(F^\bullet)$, and noting that
+\[
+\underline{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet)
+\]
+is injective, we see that
+\[
+\underline{H}_{Z^{p}}^{p}(F^\bullet)\cong H^{p}(\tau_{\geq p}E(F^\bullet)).
+\]
+Hence there is an isomorphism [I.4.3]
+\[
+\varphi_p\colon \DerR\underline{\Gamma}_{Z^p}(F^\bullet)\xrightarrow{\sim} Q(\tau_{\geq p}E(F^\bullet))
+\]
+in $\DD^+(X)$.
+
+We continue the induction as follows. In terms of the derived category, the spectral sequence of Motif G is expressed as a diagram of distinguished triangles
+
+\[
+\begin{tikzcd}[row sep=1.0cm, column sep=-0.2cm]
+	\dots & & \DerR \underline{\Gamma}_{Z^p/Z^{p+1}}(F^\bullet) \arrow[dl] & & \DerR \underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet) \arrow[dl] & & \dots \\
+	\dots \arrow[r] &\DerR \underline{\Gamma}_{Z^{p+1}}(F^\bullet) \arrow[rr] & & \DerR \underline{\Gamma}_{Z^p}(F^\bullet) \arrow[ul] \arrow[rr] & & \DerR \underline{\Gamma}_{Z^{p-1}}(F^\bullet) \arrow[ul] \arrow[r] & \dots .
 \end{tikzcd}
 \]
-Now by our induction hypothesis, $\delta$ is an isomorphism, so $\alpha$ is surjective. Since $\operatorname{Supp}S^{i}(M)<\operatorname{Supp}M$ by our assumption (ii), each element of $S^{i}(M)$ is annihilated by some non-zero $f\in M$. Thus $S^{i}(M)=\bigcup K_f$ as $f$ ranges over the non-zero elements of $M$. Similarly $T^{i}(M)=\bigcup L_f$. Therefore $\beta$ is surjective. This is true for each $i$, so also $\gamma$ is surjective. But that implies $\alpha$ is injective, so $\alpha$ is an isomorphism. Then, as above, $\beta$ is also an isomorphism.
-\end{proof}
+So suppose by induction we have an isomorphism $\varphi_p$ of $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ with $Q(\tau_{\geq p}E(F^\bullet))$, for any $p$. By (ii), $\DerR\underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet)$ has a single non-zero cohomology group, so there is an isomorphism $\psi$ of it in the derived category with the complex consisting of that single sheaf, in the right place [I.4.3], namely $Q(E(F^\bullet)^{p-1}[-p+1])$. Thus we have a commutative diagram of distinguished triangles.
+\[
+\begin{tikzcd}[row sep=1.5cm, column sep=0.5cm]
+	& \DerR \underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet) \arrow[dl] & \\
+	\DerR \underline{\Gamma}_{Z^p}(F^\bullet) \arrow[rr] \arrow[dd, "\varphi_p"'] & & \DerR \underline{\Gamma}_{Z^{p-1}}(F^\bullet) \arrow[ul] \arrow[dd, "\varphi_{p-1}", dotted] \\
+	& Q(E(F^\bullet)^{p-1}[-p+1]) \arrow[dl] \arrow[uu, <-, crossing over, "\psi"' near end] & \\
+	Q(\tau_{\ge p} E(F^\bullet)) \arrow[rr] & & Q(\tau_{\ge p-1} E(F^\bullet)) \arrow[ul]
+\end{tikzcd}
+\]
+By the axiom (TR3) of triangulated categories, we deduce an isomorphism on the third side of the triangle, which allows us to continue the induction. For $p$ small enough, $\varphi_p$ gives the required isomorphism $\varphi$. Furthermore, by choosing the isomorphisms $\psi$ to be the obvious ones, we get the further condition on the $H^{i}(\varphi)$.
+
+(iii) $\Longrightarrow$ (ii). We can use the (flasque) complex $E(F^\bullet)$ to calculate cohomology, by Motif C. Then $\underline{\Gamma}_{Z^p/Z^{p+1}}(E(F^\bullet))=E^{p}(F^\bullet)$, whence the result.
 \end{proof}
 
-\begin{corollary}\label{cor:5.6.5}
-For $M$ of finite type, the modules $H_x^{i}(M)$ are of co-finite type (see Proposition~5.3), and we have a functorial isomorphism
+\begin{definition}
+If $F^\bullet\in\DD^b(X)$ satisfies the equivalent conditions of the Proposition, we say that $F^\bullet$ is \emph{Cohen-Macaulay} with respect to the filtration $Z^\bullet$. If $F$ is a single sheaf, this is the same as the notion of the previous section (Proposition~2.6).
+\end{definition}
+
+\begin{lemma}\label{lem:4.3.2}
+Let $F^\bullet,G^\bullet\in\Coz(Z^\bullet;X)$. Then
+\begin{enumerate}
+\item[a)] If $f,g$ are two morphisms of $F^\bullet$ into $G^\bullet$ such that $H^{i}(f)$, $H^{i}(g)\colon H^{i}(F^\bullet)\to H^{i}(G^\bullet)$ are the same map for each $i$, then $f=g$.
+\item[b)] If $\overline{f}\colon Q(F^\bullet)\to Q(G^\bullet)$ is a morphism in $\DD^+(X)$, and if $G^\bullet$ is a complex of injective sheaves, then $\overline{f}$ is represented by an actual morphism of complexes $f\colon F^\bullet\to G^\bullet$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+a) By considering $f-g$, we reduce to showing that if $f\colon F^\bullet\to G^\bullet$ induces the zero map on cohomology, then $f$ is the zero map itself. We may assume by translation that $X=Z^0$. Then since $H^0(F^\bullet)\subseteq F^0$, and $H^0(f)$ is the zero map, the map
 \[
-\operatorname{Ext}^{i}(M,R^{\bullet})^{\wedge}\longrightarrow \operatorname{Hom}(H_{x}^{-i}(M), I)
+f^0\colon F^0\longrightarrow G^0
 \]
-of $\hat{A}$-modules.
+passes to the quotient to give a map $\overline{f}^0\colon B^1(F^\bullet)\to G^0$. But $B^1(F^\bullet)$ has supports in $Z^1$, and $G^0$ has $Z^1$-depth $\geq 1$, i.e., $\underline{\Gamma}_{Z^1}(G^0)=0$, so there are no non-zero maps of $B^1(F^\bullet)$ into $G^0$. We conclude that $\overline{f}^0$, and hence also $f^0$, is the zero map.
+
+Thus $f^1$ maps $Z^1(F^\bullet)$ into $0$, hence gives a map $\overline{f}^1\colon B^2(F^\bullet)\to G^1$. Proceeding as above we show that $f^p$ is the zero map for all $p$.
+
+b) This follows directly from [I.4.5] or [I.4.7], and is included only as a reminder.
+\end{proof}
+
+\begin{corollary}\label{cor:4.3.3}
+Let $F^\bullet,G^\bullet\in\Coz(Z^\bullet;X)$. If $f\colon F^\bullet\to G^\bullet$ is a morphism of complexes which induces an isomorphism on the cohomology sheaves, and if $F^\bullet$ is an injective complex, then $f$ is an isomorphism of complexes.
 \end{corollary}
 
-\begin{proof}
-Apply the functor $\operatorname{Hom}(\cdot,I)$ to the isomorphism $\Theta^{i}$, and use the fact that for any $A$-module of finite type $M$, this functor applied twice gives the completion $\widehat{M}$ [LC p.\ 61].
-\end{proof}
-
-\begin{remark}
-If $A$ is a regular local ring, then $A$ itself is a dualizing complex for $A$ (see Example~2.2), and we recover the old local duality theorem [LC 6.3]. This is also true more generally for Gorenstein local rings (Theorem~9.1 below).
-\end{remark}
-
-\section{Application to dualizing complexes}\label{sec:5.7}
-
-Let $X$ be a locally noetherian prescheme, and let $R^\bullet$ be a dualizing complex on $X$. Then for each point $x\in X$, $R_x^\bullet$ is a dualizing complex for the local ring $\sO_{X,x}$ (Corollary~2.3). Thus by Proposition~3.4 we can find an integer $d(x)$ such that
-\[
-\operatorname{Ext}_{\sO_{X,x}}^{i}(k(x), R_{x}^{\bullet}) = \begin{cases} 0 & \text{for } i\neq d(x) \\ k(x) & \text{for } i = d(x). \end{cases}
-\]
-
-\begin{proposition}\label{prop:5.7.1}
-With the hypotheses above, if $x\rightsquigarrow y$ is an immediate specialization, then
-\[
-d(y)=d(x)+1.
-\]
-\end{proposition}
-
-\begin{proof}
-Since the question is local around $y$, we may assume that $X=\operatorname{Spec}\sO_{Y,y}$. Let $Z$ be the reduced induced subscheme structure on $\overline{\{x\}}$, and let $j\colon Z\to X$ be the inclusion. Then $j^{\flat}R^{\bullet}$ is dualizing on $Z$ by Proposition~2.4, and for any $\sO_Z$-module $F$ we have
-\[
-\operatorname{Ext}_{\sO_Z}^{i}(F, j^{\flat}R^{\bullet}) = \operatorname{Ext}_{\sO_X}^{i}(j_{*}F, R^{\bullet})
-\]
-by duality for $j$ [III 6.7]. Thus $d(x),d(y)$ are the same if calculated on $Z$ with $j^{\flat}R^{\bullet}$, and so we reduce to the case $X=Z$ integral local of dimension $1$, with generic point $x$ and closed point $y$.
-
-By translating, we may assume that $R^\bullet$ is normalized, i.e., $d(y)=0$. To calculate $d(x)$ we consider $\operatorname{Ext}_{k(x)}^{i}(k(x),R_x^{\bullet})=\operatorname{Ext}_{A}^{i}(A,R^{\bullet})\otimes_{A} k(x)$, where $X=\operatorname{Spec}A$. Now by the local duality theorem, $\operatorname{Ext}_{A}^{i}(A,R^{\bullet})$ is dual to $H_{y}^{-i}(A)$. Since $A$ is a domain, $H_{y}^{0}(A)=0$. For $p\neq0,1$, $H_{y}^{p}(A)=0$ since $A$ is of dimension $1$ [LC 1.12]. Thus $\operatorname{Ext}^{i}(A,R^{\bullet})=0$ for $i\neq-1$, and so $d(x)=-1$, as required.
-\end{proof}
-
 \begin{definition}
-An integer-valued function $d$ on a prescheme $X$ with the property of the proposition will be called a \emph{codimension function} on $X$.
-\end{definition}
-
-\begin{definition}
-A prescheme $X$ is \emph{catenary} if whenever $Z\subseteq Z'$ are irreducible closed subsets of $X$, then every maximal chain
-\[
-Z=Z_0<Z_1<\cdots<Z_n=Z'
-\]
-of irreducible closed subsets between $Z$ and $Z'$ has the same length $n$.
-\end{definition}
-
-\begin{corollary}\label{cor:5.7.2}
-A locally noetherian prescheme $X$ which admits a dualizing complex is catenary, and has finite Krull dimension.
-\end{corollary}
-
-\begin{proof}
-Indeed, the existence of a codimension function $d$ on $X$ implies that $X$ is catenary. On the other hand, since $R^\bullet$ is quasi-isomorphic to a bounded complex of injective sheaves, the function $d$ is bounded in both directions, so $X$ has finite Krull dimension.
-\end{proof}
-
-\begin{definition}
-Let $X$ be a locally noetherian prescheme, and let $R^\bullet$ be a dualizing complex on $X$. We define the \emph{filtration} $Z^\bullet$ associated to $R^\bullet$ by
-\[
-Z^{p} = \{x\in X\mid d(x)>p\}
-\]
-for each $p$. Then by virtue of the previous proposition and corollary, $Z^\bullet$ is a finite filtration of $X$, and each $x\in Z^{p}-Z^{p+1}$ is maximal.
-\end{definition}
-
-\begin{proposition}\label{prop:5.7.3}
-Let $X$ be a locally noetherian prescheme, let $R^\bullet$ be a dualizing complex on $X$, and let $Z^\bullet$ be the associated filtration. Then $R^\bullet$ is Gorenstein with respect to $Z^\bullet$ (cf.\ [IV \S3]). Moreover, for each $x\in X$, the injective hull $J(x)$ of $k(x)$ over $\sO_{X,x}$ occurs exactly once as a direct summand of the (injective) complex $E(R^\bullet)$.
-\end{proposition}
-
-\begin{proof}
-Using condition (ii) of [IV 3.1] and [IV.1.F], it is sufficient to show that
-\[
-H_{x}^{i}(R^{\bullet}) = \begin{cases} 0 & \text{for } i\neq d(x) \\ J(x) & \text{for } i = d(x). \end{cases}
-\]
-But this follows from Proposition~6.1 above.
-\end{proof}
-
-\section{Pointwise dualizing complexes and $f^{\sharp}$}\label{sec:5.8}
-
-In this section we give a generalization of the notion of dualizing complex, which may exist on a locally noetherian prescheme of infinite Krull dimension. We apply this notion to show that $f^{\sharp}$ of a dualizing complex is dualizing, where $f$ is a smooth morphism. Throughout this section, $X$ will denote a locally noetherian prescheme.
-
-\begin{definition}
-A complex $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ has \emph{pointwise finite injective dimension} (pfid) if for every $x\in X$, $R_x^\bullet\in\DD_{\mathrm{c}}^+(\Spec\sO_{X,x})$ has finite injective dimension.
-\end{definition}
-
-\begin{proposition}\label{prop:5.8.1}
-Let $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ have pointwise finite injective dimension. Then conditions (i)--(iv) of Proposition~2.1 are equivalent.
-\end{proposition}
-
-\begin{proof}
-The same as loc.\ cit.\ since one can check reflexivity pointwise.
-\end{proof}
-
-\begin{definition}
-A complex $R^\bullet\in\DD^+_{\mathrm{c}}(X)$ with pfid is \emph{pointwise dualizing} if it satisfies the equivalent conditions of the proposition.
+A complex $F^\bullet\in\DD^b(X)$ is \emph{Gorenstein} with respect to the filtration $Z^\bullet$ if it is Cohen-Macaulay, and if $H_x^{i}(F^\bullet)$ is either zero or injective for each $i\in\mathbb{Z}$, $x\in X$. We denote the (additive) subcategory of $\DD^b(X)$ of Gorenstein complexes by $\DD^b(X)_{\mathrm{Gor}(Z^\bullet)}$.
 \end{definition}
 
 \begin{remark}
 \begin{enumerate}
-\item Since fid implies pfid, we see that any dualizing complex is pointwise dualizing.
-\item If $X=\Spec A$ where $A$ is a local ring, then $\text{fid}\iff\text{pfid}$, so a complex is dualizing if and only if it is pointwise dualizing.
-\item We say a complex $F^\bullet\in\DD(X)$ is \emph{pointwise bounded below} if for every $x\in X$, $F_x^\bullet\in\DD^+(\Spec\sO_{X,x})$, and we write $F^\bullet\in\DD^{\mathrm{p}+}(X)$. Similarly we define $\DD^{\mathrm{p}-}(X)$ and $\DD^{\mathrm{pb}}(X)$. These are full subcategories of $\DD(X)$ (cf.\ [I \S\S4,5]). Now if $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ is pointwise dualizing, then the functor $\DerR\underline{\Hom}^\bullet(\cdot,R^\bullet)$ gives an anti-isomorphism of $\DD^{\mathrm{p}-}$ and $\DD^{\mathrm{p}+}$, and an auto-anti-isomorphism of $\DD^{\mathrm{pb}}(X)$.
-\item If $R^\bullet$ is a pointwise dualizing complex on $X$, we can define as in \S7 the associated codimension function $d\colon X\to\mathbb{Z}$, and the associated filtration $Z^\bullet$. Proposition~7.1 holds in this case, so the filtration $Z^\bullet$ satisfies the conditions of [IV \S3], in particular, it is separated. Thus we see as in Corollary~7.2 that $X$ is catenary.
-\item If $R^\bullet$ is pointwise dualizing on $X$, and if $R^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)$, then $R^\bullet$ is Gorenstein with respect to the filtration $Z^\bullet$ (cf.\ Proposition~7.3). The boundedness hypothesis is necessary for [IV 3.1].
+\item If $X$ is the spectrum of a local noetherian ring $A$, and if $Z^\bullet$ is the filtration by codimension, and if $F^\bullet=A$, then this is the usual notion of a Gorenstein ring [LC 4.14 and Exercise~2 ff].
+\item If $F^\bullet$ is Gorenstein, then $E(F^\bullet)$ is an injective Cousin complex, by Motif F.
 \end{enumerate}
 \end{remark}
 
 \begin{example}
-If $X$ is a regular prescheme, then $\sO_X$ is a pointwise dualizing complex for $X$. Indeed, for each $x\in X$, $\Spec\sO_{X,x}$ is a regular prescheme of finite Krull dimension, so we apply Example~2.2 above.
+We will see in Chapter~V that a dualizing complex on a prescheme is Gorenstein with respect to the corresponding filtration by codimension.
 \end{example}
 
-\begin{proposition}\label{prop:5.8.2}
-Let $R^\bullet\in\DD_{\mathrm{c}}^{+}(X)$ be pointwise dualizing, and assume that $X$ is noetherian and of finite Krull dimension. Then $R^\bullet$ has finite injective dimension and so is dualizing (by Proposition~2.3).
+\begin{proposition}\label{prop:4.3.4}
+The functor
+\[
+E\colon \DD^b(X)_{\mathrm{Gor}(Z^\bullet)}\longrightarrow \operatorname{Icz}(Z^\bullet,X)
+\]
+is an equivalence of categories of the category of Gorenstein complexes with the (additive) category $\operatorname{Icz}(Z^\bullet,X)$ of injective Cousin complexes. Furthermore, the natural functor $Q$ is an inverse to $E$.
 \end{proposition}
 
 \begin{proof}
-Since $X$ is noetherian and of finite Krull dimension, the codimension function $d$ associated to $R^\bullet$ is bounded. But we saw in the proof of Proposition~3.4 that for every $x\in X$, and every module $M$ of finite type over $\sO_{X,x}$,
+We must construct isomorphisms of functors
 \[
-\operatorname{Ext}_{\sO_{X,x}}^{i}(M, R_{x}^{\bullet}) = 0 \qquad\text{for } i\notin[d(x)-\dim M, d(x)].
+\varphi\colon 1\longrightarrow QE
 \]
-Thus in particular for every coherent sheaf $F$ on $X$,
+and
 \[
-\underline{\operatorname{Ext}}_{X}^{i}(F,R^{\bullet}) = 0 \qquad\text{for } i > \sup_{x\in X} d(x),
+\psi\colon 1\longrightarrow EQ
 \]
-and so $R^\bullet$ has finite injective dimension [II 7.20 $(\underline{\mathrm{iii}})_{\mathrm{c}}$].
-\end{proof}
-
-\begin{theorem}\label{thm:5.8.3}
-Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes, and let $R^{\bullet}\in\DD^{+}_{\mathrm{c}}(Y)$ be pointwise dualizing. Then $f^{\sharp}(R^{\bullet})$ (cf.\ [III \S2]) is pointwise dualizing on $X$. If furthermore $Y$ is noetherian, $f$ of finite type, and $R^{\bullet}$ dualizing, then $f^{\sharp}(R^{\bullet})$ is also dualizing.
-\end{theorem}
-
-\begin{proof}
-For the first statement, the question is local on $X$ and $Y$, so we reduce immediately to the case $Y=\Spec A$, with $A$ a local ring, and $X$ of finite type, affine over $Y$. Then $X$ admits a closed immersion into a suitable affine space $\mathbf{A}_{Y}^{n}$, so using [III 8.4] and Proposition~2.4 (which is valid also for ``pointwise dualizing''), we reduce to the case $X=\mathbf{A}_{Y}^{n}$.
-
-\medskip\noindent\textit{Case 1.} $A$ is a regular local ring. Then $R^\bullet$ is dualizing, since $A$ is local, and by uniqueness (Theorem~3.1) we may assume, after shifting if necessary, that $R^\bullet\cong A$. Then $f^{\sharp}(R^\bullet)\cong\omega_{X/Y}=\Omega_{X/Y}^{n}$, which is locally free of rank one, and hence pointwise dualizing (Example~2.2, since $X$ is regular if $Y$ is).
-
-\medskip\noindent\textit{Case 2.} $A$ is a quotient of a regular local ring $A'$. Let $Y'=\Spec A'$. Then $X$ is obtained from the morphism $\mathbf{A}_{Y'}^{n}\to Y'$ by the base extension $Y\to Y'$, and we reduce to the previous case by means of [III.6.4], Proposition~2.4, of the uniqueness (Theorem~3.1) on $Y$.
-
-\medskip\noindent\textit{General case.} $A$ is an arbitrary noetherian local ring.
-
-Let $\widehat{A}$ be the completion of $A$, and let $Y'=\Spec\widehat{A}$. We make the base extension $u\colon Y'\to Y$, and then $u^{*}(R^\bullet)$ is dualizing on $Y'$ by Corollary~3.5. But $\widehat{A}$ is a quotient of a regular local ring by Cohen's structure theorem [14,(31.1)], so $f'^{\sharp}(u^{*}(R^\bullet))$ is dualizing on $X' = X\times_{Y} Y'$, by Case 2. Now for any point $x\in X$, the completion $\widehat{\sO}_{X,x}$ of its local ring is also the completion of the ring $\sO_{X,x}\otimes_{A}\widehat{A}$, which is the semilocal ring of the points of $X'$ lying over $x$, and so applying Corollary~3.5 once in each direction, and [III 2.1] we see that $f^{\sharp}(R^\bullet)$ is pointwise dualizing on $X$.
-
-Now if $Y$ is noetherian, $f$ of finite type, and $R^\bullet$ dualizing, then $Y$ has finite Krull dimension by Corollary~7.2, hence $X$ has finite Krull dimension, and so $f^{\sharp}(R^\bullet)$ is dualizing by Proposition~8.2.
-\end{proof}
-
-\begin{corollary}\label{cor:5.8.4}
-Under the hypotheses of the theorem, let $d_{Y}$ and $d_{X}$ be the codimension functions associated with the pointwise dualizing complexes $R^{\bullet}$ and $f^{\sharp}(R^{\bullet})$, respectively. Then for each $x\in X$,
+on the two categories. To construct $\varphi$, we choose, for each Gorenstein complex $F^\bullet\in\DD^b(X)$, an isomorphism
 \[
-d_{X}(x) = d_{Y}(y) + \operatorname{tr.d.} k(x)/k(y)
+\varphi(F^\bullet)\colon F^\bullet\longrightarrow QE(F^\bullet)
 \]
-where $y=f(x)$.
-\end{corollary}
+as in Proposition~3.1 (iii) such that
+\[
+H^{i}(\varphi(F^\bullet))\colon H^{i}(F^\bullet)\longrightarrow H^{i}(E(F^\bullet))
+\]
+is inverse to the map derived from the spectral sequence. I claim the collection of morphisms $\{\varphi(F^\bullet)\}$ is an isomorphism of functors
+\[
+\varphi\colon 1\longrightarrow QE
+\]
+as required. Indeed, let $f\colon F^\bullet\to G^\bullet$ be a morphism of Gorenstein complexes in $\DD^b(X)$. Then we have a diagram
+\[
+\begin{tikzcd}
+F^\bullet \arrow[r, "\varphi(F^\bullet)"] \arrow[d, "f"'] & QE(F^\bullet) \arrow[d, "QE(f)"] \\
+G^\bullet \arrow[r, "\varphi(G^\bullet)"] & QE(G^\bullet)
+\end{tikzcd}
+\]
+where $\varphi(F^\bullet),\varphi(G^\bullet)$ are isomorphisms in the derived category. To show this diagram is commutative, we must show that $QE(f)=\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ in $\DD^+(X)$. Now by the lemma, part b), $\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ is represented by an actual morphism of complexes
+\[
+g\colon E(F^\bullet)\longrightarrow E(G^\bullet).
+\]
+Since $E$ is a functor, our condition on $H^{i}(\varphi(F^\bullet))$ and $H^{i}(\varphi(G^\bullet))$ shows that $E(f)$ and $g$ have the same effect on cohomology. Hence by the lemma, part a), they are equal. Thus $\varphi$ is functorial, as required.
 
-\begin{proof}
-Chasing through the reductions above (and noting that this formula holds trivially for a finite morphism and $f^{\flat}(R^{\bullet})$), we reduce to the case $Y=\Spec A$, $A$ a regular local ring, $R^\bullet=A$, and $X=\mathbf{A}_{Y}^{n}$. Then $f^{\sharp}(R^\bullet)=\omega_{X/Y}$, which is locally free of rank one, so for any $x\in X$ we have $d_X(x)=\dim\sO_{X,x}$, and for any $y\in Y$, $d_Y(y)=\dim\sO_{Y,y}$ [LC \S4]. Our formula is then the usual dimension formula for a local homomorphism of local rings (cf.\ [EGA $\mathrm{O}_{\mathrm{IV}}$ 17.3.3]).
+For $\psi$, one need only note that if $F^\bullet\in\Coz(Z^\bullet,X)$, then $EQ(F^\bullet)=F^\bullet$ in an obvious way.
 \end{proof}
 
 \begin{remark}
-Using Proposition~2.4, the result of the theorem can be extended to show that for any embeddable morphism $f$ of noetherian preschemes [III \S8], $f^{!}$ takes dualizing complexes to dualizing complexes. The formula of the Corollary also extends to this case.
-\end{remark}
-
-\begin{proposition}\label{prop:5.8.5}
-Let $f\colon X\to Y$ be an embeddable morphism of locally noetherian preschemes, let $R^\bullet\in\DD^+_{\mathrm{c}}(Y)$ be a dualizing complex on $Y$, and let $D$ denote the functor $\DerR\underline{\Hom}^\bullet_{Y}(\cdot, R^\bullet)$ or $\DerR\underline{\Hom}^\bullet_{X}(\cdot, f^{!}R^\bullet)$ (the one meant will be clear from the context). Then there is a functorial isomorphism
-\[
-f^{!}(F^{\bullet}) \cong D(\DerL f^{*}(D(F^{\bullet})))
-\]
-for all $F^\bullet\in\DD_{\mathrm{c}}^{+}(Y)$.
-\end{proposition}
-
-\begin{proof}
-Apply [III 8.8, 7)] to $D(F^\bullet)$ and $R^\bullet$.
-\end{proof}
-
-\begin{corollary}\label{cor:5.8.6}
-Under the hypotheses of the proposition, assume furthermore that $f$ is flat, of finite type, and that $Y$ is noetherian. Then there is a functorial isomorphism
-\[
-f^{!}(F^{\bullet}\otimes G^{\bullet}) \xrightarrow{\sim} f^{!}(F^{\bullet}) \otimes f^{!}(G^{\bullet})
-\]
-for $F^\bullet\in\DD_{\mathrm{c}}^{+}(Y)$ and $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(Y)_{\mathrm{fTd}}$.
-\end{corollary}
-
-\begin{proof}
-Note first that Theorem~8.3 and the Remark following apply to show that $f^{!}(R^\bullet)$ is dualizing on $X$. The result now follows from the Proposition, using [II 5.8] and Proposition~2.6 above.
-\end{proof}
-
-\section{Gorenstein preschemes}\label{sec:5.9}
-
-\begin{theorem}\label{thm:5.9.1}
-Let $A$ be a noetherian local ring. Then the following conditions are equivalent:
-\begin{itemize}
-\item[(i)] $A$ is a dualizing complex for itself.
-\item[(ii)] $A$ has a finite injective resolution.
-\item[(iii)] $A$ is Cohen-Macaulay, and whenever $x_1,\dots,x_n$ is a maximal $A$-sequence, then the ideal $(x_1,\dots,x_n)$ is irreducible.
-\item[(iv)] There is an integer $d$ such that
-\[
-\operatorname{Ext}^{i}(k,A) = \begin{cases} 0 & \text{for } i\neq d \\ k & \text{for } i = d \end{cases}
-\]
-where $k$ is the residue field of $A$.
-\item[(v)] $A$ is Gorenstein with respect to a suitable filtration $Z^{\bullet}$ of $\Spec A$ (cf.\ [IV \S3]).
-\item[(vi)] There is an integer $d$ such that
-\[
-H_{x}^{i}(A) = \begin{cases} 0 & \text{for } i\neq d \\ \text{is injective} & \text{for } i = d \end{cases}
-\]
-where $x$ is the closed point of $\Spec A$.
-\end{itemize}
-\end{theorem}
-
-\begin{proof}
-(i) $\Longrightarrow$ (ii) By definition of dualizing complex.
-
-\noindent (ii) $\Longleftrightarrow$ (iii) $\Longleftrightarrow$ (iv) Proved by Bass [2, Theorem 4.1]. This article, incidentally, is a good summary of all previous occurrences of Gorenstein rings in the literature.
-
-\noindent (iv) $\Longrightarrow$ (i) This is Proposition~3.4 above.
-
-\noindent (i) $\Longrightarrow$ (v) This is Proposition~7.3 above.
-
-\noindent (v) $\Longrightarrow$ (vi) By [IV 3.4], $E(A)$ is an injective resolution of $A$, and furthermore, for each $p\in\mathbb{Z}$, $E^{p}(A)$ is a direct sum of constant (injective) sheaves on subspaces $\overline{\{y\}}$ of $\Spec A$ with $y\in Z^{p}-Z^{p+1}$. We can calculate $H_{x}^{i}(A)$ as $H^{i}(\Gamma_{x}(E(A)))$. But $\Gamma_{x}(E(A))$ by what we have just seen, consists of a single injective sheaf in some degree (say $d$), since $x$ is a minimal point of $\Spec A$.
-
-\noindent (vi) $\Longrightarrow$ (iii) First note by [LC 6.4, part 4] that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion [LC 5.9].) Therefore $A$ is Cohen-Macaulay [LC 3.10]. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, and let $N=(x_1,\dots,x_n)$. Then $H_{x}^{n}(A)$ is an essential extension of $A/N$ [11, proof of Prop.\ 2], and so is irreducible, since $A/N$ is a simple $A$-module, and hence irreducible. We conclude that $H_{x}^{n}(A)$ is an irreducible injective $A$-module with support at $x$, and so is an injective hull of $k$ [II 7.4].
-
-Now for any $A$-module $M$,
-\[
-\operatorname{Hom}(k,M) = \operatorname{Hom}(k, \Gamma_{x}(M)).
-\]
-Furthermore, the functor $\Gamma_{x}$ takes injectives into injectives, so we have a spectral sequence of derived functors, which degenerates in this case to give
-\[
-\operatorname{Ext}^{i}(k,A) = \operatorname{Hom}(k, H_{x}^{n}(A)) = \begin{cases} 0 & i\neq n \\ k & i = n. \end{cases}
-\]
-\end{proof}
-
-\begin{definition}
-A local noetherian ring satisfying the equivalent conditions of the theorem is called a (local) \emph{Gorenstein ring}.
-\end{definition}
-
-\begin{remark}
-For a local ring, regular $\Longrightarrow$ complete intersection $\Longrightarrow$ Gorenstein $\Longrightarrow$ Cohen-Macaulay, and these implications are all strict [2].
-\end{remark}
-
-\begin{definition}
-A prescheme is \emph{Gorenstein} if all of its local rings are Gorenstein local rings.
-\end{definition}
-
-\begin{corollary}\label{cor:5.9.2}
-A localization of a Gorenstein local ring is Gorenstein.
-\end{corollary}
-
-\begin{proof}
-Follows from condition (i) of the Theorem, and Corollary~2.3 above.
-\end{proof}
-
-\begin{proposition}\label{prop:5.9.3}
-Let $f\colon X\to\Spec k$ be an embeddable morphism, where $k$ is a field. Then $X$ is Gorenstein if and only if $f^{!}(k)$ is isomorphic, in $\DD^+(X)$, to an invertible sheaf on $X$.
-\end{proposition}
-
-\begin{proof}
-Indeed, by the remark at the end of the last section, $f^{!}(k)$ is a dualizing complex on $X$. But $X$ is Gorenstein if and only if $\sO_X$ is a dualizing complex on $X$. So the result follows from the uniqueness of the dualizing complex (Theorem~3.1 above).
-\end{proof}
-
-\begin{corollary}\label{cor:5.9.4}
-Let $X$ be a Gorenstein prescheme of finite type over a field $k$, and let $k\subseteq K$ be a field extension. Then $X\otimes_k K$ is also Gorenstein.
-\end{corollary}
-
-\begin{proof}
-The question is local on $X$, and $f^{!}$ is compatible with flat base extension [III 8.7, 5)].
-\end{proof}
-
-\begin{corollary}\label{cor:5.9.5}
-Let $K,L$ be extension fields of a field $k$, and assume that one of them is finitely generated. Then $K\otimes_k L$ is a Gorenstein ring (i.e., every localization of it is a local Gorenstein ring).
-\end{corollary}
-
-\begin{proof}
-Similar to the above. One can also give a direct proof, by induction on the number of generators. This generalizes [EGA IV 6.7.1.1] which says that $K\otimes_k L$ is Cohen-Macaulay.
-\end{proof}
-
-\begin{proposition}\label{prop:5.9.6}
-Let $f\colon X\to Y$ be a flat morphism of locally noetherian preschemes, with $Y$ Gorenstein (but no finiteness assumption on $f$). Then $X$ is Gorenstein if and only if all the fibres $X_{y}$, for $y\in Y$, are Gorenstein preschemes.
-\end{proposition}
-
-\begin{proof}
-The question is local, so we reduce to the following: let $A\to B$ be a local homomorphism of local rings, with $A$ Gorenstein, and $B$ flat over $A$. Then $B$ is Gorenstein if and only if $B/\mathfrak{m}_A B$ is Gorenstein.
-
-To prove this, we use condition (iv) of Theorem~9.1. By flatness,
-\[
-\operatorname{Ext}_{B}^{i}(B/\mathfrak{m}_A B, B) = \begin{cases} 0 & \text{for } i\neq d \\ B/\mathfrak{m}_A B & \text{for } i = d \end{cases}
-\]
-for a suitable $d$. Thus the spectral sequence of $\operatorname{Ext}$'s for the change of ring from $B$ to $B/\mathfrak{m}_A B$ degenerates, and we have
-\[
-\operatorname{Ext}_{B}^{i}(k_B, B) \cong \operatorname{Ext}_{B/\mathfrak{m}_A B}^{i-d}(k_B, B/\mathfrak{m}_A B)
-\]
-for each $i$, whence the result.
-\end{proof}
-
-\begin{remark}\label{rem:5.9.7}
-Let $f\colon X\to Y$ be a flat morphism of finite type of locally noetherian preschemes. Show that $f^{!}(\sO_Y)$ (which is defined locally on $X$) is isomorphic in $\DD^+(X)$ to an invertible sheaf if and only if all the fibres $X_y$ of $f$, for $y\in Y$, are Gorenstein preschemes. Also show that $f^{!}(\sO_Y)$ has a unique non-zero cohomology sheaf, which is flat over $Y$, if and only if all the fibres of $f$ are Cohen-Macaulay preschemes. Such morphisms are called \emph{Gorenstein morphisms} (resp.\ \emph{Cohen-Macaulay morphisms}).
-
-Compare [EGA IV 6.3 and 6.7] for statements analogous to Corollary~9.5 and Proposition~9.6 for Cohen-Macaulay.
-\end{remark}
-
-\section{Existence of Dualizing Complexes}\label{sec:5.10}
-
-We now draw together the experience gained in this chapter to make some remarks about the existence of a dualizing complex on a locally noetherian prescheme $X$.
-
-(We leave the analogous discussion for pointwise dualizing complexes to the reader.)
-
-\medskip\noindent\textbf{Sufficient conditions.}
-\begin{enumerate}
-\item If $X$ is Gorenstein and of finite Krull dimension, then $\sO_X$ is a dualizing complex for $X$. In particular, any regular prescheme of finite Krull dimension has a dualizing complex.
-\item If $f\colon X\to Y$ is a finite morphism and $Y$ admits a dualizing complex, then $X$ admits a dualizing complex (Proposition~2.4).
-\item In particular, any prescheme of finite type over a field $k$ admits a dualizing complex.
-\item If $X$ is the spectrum of a complete local ring $A$, then $X$ admits a dualizing complex. Indeed, $A$ is a quotient of a regular local ring by the Cohen structure theorem [14, (31.1)].
-\end{enumerate}
-
-\medskip\noindent\textbf{Necessary conditions.}
-\begin{enumerate}
-\item If $X$ admits a dualizing complex, then $X$ has finite Krull dimension (Corollary~7.2).
-\item If $X$ admits a dualizing complex, then $X$ is catenary (in fact universally catenary since any prescheme of finite type over $X$ admits a dualizing complex, at least locally).
-\item More precisely, $X$ admits a codimension function $d$.
-\item If $A$ is a local noetherian ring admitting a dualizing complex, and if $\mathfrak{p}\subseteq A$ is a prime ideal, then $\widehat{A}\otimes_{\widehat{A}} k(\mathfrak{p})$ is a Gorenstein ring. This follows from the following
-\end{enumerate}
-
-\begin{proposition}\label{prop:5.10.1}
-If $A$ is a local noetherian domain, with quotient field $K$, which admits a dualizing complex, then $\widehat{A}\otimes_A K$ is a Gorenstein ring.
-\end{proposition}
-
-\begin{proof}
-Let $R^\bullet$ be a dualizing complex on $A$. Then $R^\bullet\otimes_A\widehat{A}$ is dualizing on $\widehat{A}$ by Corollary~3.5, and so by localization, $(R^\bullet\otimes_A\widehat{A})\otimes_A K$ is dualizing on $\widehat{A}\otimes_A K$. But $R^\bullet\otimes_A K$ is dualizing on $K$, so by Theorem~3.1 we may assume $R^\bullet\otimes_A K\cong K$ after translating if necessary. But $(R^\bullet\otimes_A\widehat{A})\otimes_A K \cong (R^\bullet\otimes_A K)\otimes_K (\widehat{A}\otimes_A K)$ so $\widehat{A}\otimes_A K$ is a dualizing complex for itself, and we are done (Theorem~9.1 (i)).
-\end{proof}
-
-\begin{example}
-There are local noetherian domains of dimension $3$ which are not catenary, and local noetherian domains of dimension $2$ which are not universally catenary, and which therefore have no dualizing complexes [14, Appendix A1, Ex.\ 2].
-\end{example}
-
-\begin{remark}
-\textbf{Problems.}
-\begin{enumerate}
-\item We do not know if $\widehat{A}\otimes_{\widehat{A}} K$ is a Gorenstein ring, even if $A$ is a local domain of dimension $1$, hence we do not know whether every local domain of dimension $1$ admits a dualizing complex.
-\item If $X$ is noetherian and of finite Krull dimension, and if it admits a dualizing complex locally, and if it admits a codimension function $d$, we do not know whether $X$ admits a dualizing complex globally.
-\end{enumerate}
+This Proposition will be used in an essential way in Chapter~VI in the construction of residual complexes from dualizing complexes.
 \end{remark}

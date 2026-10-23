@@ -1,942 +1,1526 @@
-\chapter{Application to Preschemes}
+\chapter{The Derived Category}
 
-In this chapter we will discuss the various categories of sheaves we plan to use in the sequel, their derived categories, various functors between them, and relations among these functors. In \S7 we give the structure of injective sheaves of $\sO_X$-modules on a locally noetherian prescheme $X$.
+% The original chapter begins with section 0; section 1 follows below.
+\setcounter{section}{-1}
+\section{Introduction}\label{sec:1.0}
+Let $\mathcal{A}$ and $\mathcal{B}$ be abelian categories, and let $F\colon \mathcal{A}\to\mathcal{B}$ be a functor. Our purpose is to define, functorially for each $X\in\operatorname{Ob}\mathcal{A}$, a complex $\RR F(X)$, whose cohomology groups are the right derived functors of $F$ acting on $X$, $\RR^iF(X)$. In general, we will define $\RR F(X^\bullet)$ for any complex $X^\bullet$ of objects of $\mathcal{A}$.
 
-\section{Categories of sheaves}
+More precisely, $\RR F$ will be a functor from the derived category $\DD(\mathcal{A})$ of $\mathcal{A}$ to the derived category $\DD(\mathcal{B})$ of $\mathcal{B}$.
 
-Let $(X,\sO_X)$ be a prescheme. We will denote by $\operatorname{Mod}(X)$ the category of sheaves of $\sO_X$-modules, and we will denote its derived category by $\DD(X)=\DD(\operatorname{Mod}(X))$.
+The derived category $\DD(\mathcal{A})$ is obtained as follows: one first considers the category $\KK(\mathcal{A})$, whose objects are complexes of elements of $\mathcal{A}$, and whose morphisms are homotopy equivalence classes of morphisms of complexes. The category $\DD(\mathcal{A})$ is obtained by ``localizing'' $\KK(\mathcal{A})$ so that every morphism in $\KK(\mathcal{A})$ which induces an isomorphism on cohomology becomes an isomorphism in $\DD(\mathcal{A})$. This process of localization will be explained in general below.
 
-We will consider the thick subcategories of $\operatorname{Mod}(X)$ consisting of the quasi-coherent sheaves, denoted by $\Qco(X)$, and the coherent sheaves, denoted by $\Coh(X)$. (Cf.\ [EGA~O, \S5] for definitions and the fact that these are thick subcategories.) We will write $\DD_{\mathrm{qc}}(X)$ for $\DD_{\Qco(X)}(\operatorname{Mod}(X))$ and $\DD_{\mathrm{c}}(X)$ for $\DD_{\Coh(X)}(\operatorname{Mod}(X))$, using the notation of [I.4]. Similarly $\DD_{\mathrm{qc}}^+(X)$ etc.
+Although $\mathcal{A}$ and $\mathcal{B}$ above are assumed to be abelian categories, the categories $\KK(\mathcal{A})$, $\DD(\mathcal{A})$, etc., are in general not abelian. However, they can be given a structure which carries enough information for our purposes, namely a structure of triangulated category. Thus we will be led to study triangulated categories.
 
-\begin{proposition}\label{prop:2.1.1}
-There are enough injectives in the categories $\operatorname{Mod}(X)$ and $\Qco(X)$.
-\end{proposition}
-
-\begin{proof}
-This is well known, e.g., [T, 1.10.1], or, for $\operatorname{Mod}(X)$, [G, II~7.1.1].
-\end{proof}
-
-\begin{proposition}\label{prop:2.1.2}
-Every sheaf of $\sO_X$-modules is a quotient of a flat $\sO_X$-module.
-\end{proposition}
-
-\begin{proof}
-If $U$ is an open subset of $X$, we denote by $\sO_{X,U}$ the sheaf which is $\sO_X$ on $U$ and $0$ outside [G, II~Thm.~2.9.1]. Then $\sO_{X,U}$ is a flat $\sO_X$-module, and any direct sum of these is also flat. If $\sF$ is any sheaf of $\sO_X$-modules, let $s_i\in\Gamma(U_i,\sF)$ be a set of generators of $\sF$ as an $\sO_X$-module. Then $\sF$ is a quotient of $\bigoplus_i \sO_{X,U_i}$, by sending $1\in\Gamma(U_i,\sO_{X,U_i})$ to $s_i$.
-\end{proof}
-
-\section{The derived functors of $f_*$ and $\Gamma$}
-
-Let $f\colon X\to Y$ be a morphism of preschemes. Then the functor $f_*$ sends $\operatorname{Mod}(X)$ to $\operatorname{Mod}(Y)$. Since the first of these categories has enough injectives, we have a derived functor
-\[
-\DerR^+f_*\colon \DD^+(X) \longrightarrow \DD^+(Y).
-\]
-
-There are two cases in which we can define $\DerR f_*$ for unbounded complexes. If $X$ is noetherian of finite Krull dimension $n$, then $H^i(X,\sF)=0$ for $i>n$ and every sheaf $\sF$ of abelian groups on $X$ [T~3.6.5]. Note that if $\sF$ is an $\sO_X$-module, then its cohomology as an $\sO_X$-module is the same as its cohomology as an abelian sheaf [EGA~0\textsubscript{III}~12.1.1]. Therefore we have $\RR^if_*(\sF)=0$ for $i>n$, since this sheaf is the sheaf associated to the presheaf $V\mapsto H^i(f^{-1}(V),\sF)$. Thus $f_*$ has finite cohomological dimension on $\operatorname{Mod}(X)$, and using [I.5.3($\gamma$)] we can define
-\[
-\DerR f_*\colon \DD(X) \longrightarrow \DD(Y).
-\]
-
-On the other hand, if $f_*$ has finite cohomological dimension on $\Qco(X)$, we can define
-\[
-\DerR f_*\colon \DD(\Qco(X)) \longrightarrow \DD(\Qco(Y)).
-\]
-This will be the case if
+\section{Triangulated Categories}
+\subsection{Definition}
+A triangulated category is an additive category $\mathcal{C}$, together with
 \begin{enumerate}
-\item[a)] $f$ is separated, quasi-compact, and $Y$ is quasi-compact, by [EGA~III~1.4.12], or
-\item[b)] if $X,Y$ are locally noetherian, $f$ is of finite type, and the fibres of $f$ are of bounded dimension (use [EGA~III~4.1.5] and [T~3.6.5]).
+	\item[a)] an automorphism $T\colon \mathcal{C}\to\mathcal{C}$ called the \emph{translation functor}, and
+	\item[b)] a collection of sextuples $(X,Y,Z,u,v,w)$, called the \emph{triangles} of $\mathcal{C}$,
+\end{enumerate}
+where in each sextuple $X,Y,Z\in\operatorname{Ob}\mathcal{C}$ and
+\[
+u\colon X\to Y,\quad v\colon Y\to Z,\quad w\colon Z\to T(X)
+\]
+are morphisms. A triangle is usually written
+\[
+\begin{tikzcd}
+	X \arrow[r, "u"] & Y \arrow[d, "v"] \\
+	& Z \arrow[ul, "w"]
+\end{tikzcd}
+\]
+
+
+A morphism of triangles
+\[
+(X,Y,Z,u,v,w)\to(X',Y',Z',u',v',w')
+\]
+is a commutative diagram
+\[
+\begin{CD}
+	X @>u>> Y @>v>> Z @>w>> T(X) \\
+	@VfVV @VgVV @VhVV @VT(f)VV \\
+	X' @>u'>> Y' @>v'>> Z' @>w'>> T(X')
+\end{CD}
+\]
+
+This data is subject to the following axioms:
+
+\begin{enumerate}
+	\item[\textbf{(TR1)}]
+	\begin{enumerate}
+		\item Every sextuple isomorphic to a triangle is a triangle.
+		\item Every morphism $u\colon X\to Y$ can be embedded in a triangle.
+		\item The sextuple $(X,X,0,\operatorname{id}_X,0,0)$ is a triangle.
+	\end{enumerate}
+	
+	\item[\textbf{(TR2)}]
+	$(X,Y,Z,u,v,w)$ is a triangle if and only if $(Y,Z,T(X),v,w,-T(u))$ is a triangle.
+	
+	\item[\textbf{(TR3)}]
+	Given two triangles $(X,Y,Z,u,v,w)$ and $(X',Y',Z',u',v',w')$, and morphisms $f\colon X\to X'$, $g\colon Y\to Y'$ such that $u'f=gu$, there exists a morphism $h\colon Z\to Z'$ (not necessarily unique) so that $(f,g,h)$ is a morphism of triangles.
+	
+	\item[\textbf{(TR4)}] (The octahedral axiom.)\\
+	\begin{center}
+	\begin{tikzcd}
+		& Y' \arrow[dr, dashed, "g"] & \\
+		Z' \arrow[ur, dashed, "f"] \arrow[d] & & X' \arrow[ll, "T(j)i"] \arrow[d] \\
+		X \arrow[rr, "vu"] \arrow[dr, "u"'] \arrow[uur, "j" near start] & & Z \arrow[u] \arrow[dl, "v"'] \arrow[uul, "i" near start] \\
+		& Y \arrow[uul] \arrow[uur] & 
+	\end{tikzcd}
+	\end{center}
+	
+	Suppose given triangles
+	\[
+	\begin{gathered}
+		(X,Y,Z',u,j,\cdot),\\
+		(Y,Z,X',v,\cdot,i),\\
+		(X,Z,Y',vu,\cdot,\cdot)
+	\end{gathered}
+	\]
+	Then there exist morphisms $f\colon Z'\to Y'$ and $g\colon Y'\to X'$ such that
+	\[
+	(Z',Y',X',f,g,T(j)i)
+	\]
+	is a triangle, and the two other faces of the octahedron with $f,g$ as edges, are commutative diagrams.
 \end{enumerate}
 
-We will often make statements in only one of these two contexts, and will let the reader make the necessary modifications for the other. We will also write $\DerR f_*$ instead of $\DerR^+f_*$, when no confusion can arise.
-
-\begin{proposition}\label{prop:2.2.1}
-If $f\colon X\to Y$ is separated and quasi-compact, then $\DerR f_*$ takes $\DD_{\mathrm{qc}}^+(X)$ into $\DD_{\mathrm{qc}}^+(Y)$. If, furthermore, $X$ is noetherian of finite Krull dimension, $\DerR f_*$ takes $\DD_{\mathrm{qc}}(X)$ into $\DD_{\mathrm{qc}}(Y)$.
-\end{proposition}
-
-\begin{proof}
-By [EGA~III~1.4.10], if $\sF$ is quasi-coherent on $X$, then all the $\RR^if_*(\sF)$ are quasi-coherent sheaves on $Y$. In other words, $\RR^if_*(\sF)\in\DD_{\mathrm{qc}}^+(Y)$. But $\DerR f_*$ is a way-out functor, so the result follows from [I.7.3].
-\end{proof}
-
-\begin{proposition}\label{prop:2.2.2}
-If $f\colon X\to Y$ is a proper morphism, and $Y$ is locally noetherian, then $\DerR f_*$ sends $\DD_{\mathrm{c}}^+(X)$ into $\DD_{\mathrm{c}}^+(Y)$. If, furthermore, $X$ is noetherian of finite Krull dimension, $\DerR f_*$ takes $\DD_{\mathrm{c}}(X)$ into $\DD_{\mathrm{c}}(Y)$.
-\end{proposition}
-
-\begin{proof}
-Same as the previous proposition, using [EGA~III~3.2.1].
-\end{proof}
-
-If $X$ is a prescheme, the global section functor $\Gamma$ has a right derived functor
-\[
-\DerR^+\Gamma\colon \DD^+(X) \longrightarrow \DD(\Ab).
-\]
-As above, we can extend the domain of definition of $\DerR\Gamma$ to $\DD(X)$ if $X$ is noetherian of finite Krull dimension.
-\section{The derived functor of $\underline{\Hom}^\bullet$}
-
-Let $X$ be a prescheme, and let $F^\bullet,G^\bullet\in\KK(\operatorname{Mod}(X))$. Then we define $\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\in\KK(\operatorname{Mod}(X))$ as in [I.6] by
-\[
-\underline{\Hom}{}^n(F^\bullet,G^\bullet) = \prod_{p\in\mathbb{Z}} \underline{\Hom}_{\operatorname{Mod}(X)}(F^p, G^{p+n})
-\]
-and
-\[
-d^n = d_F + (-1)^{n+1} d_G.
-\]
-Then $\underline{\Hom}^\bullet$ is a bi-$\partial$-functor
-\[
-\underline{\Hom}^\bullet\colon \KK(\operatorname{Mod}(X))^\bullet \times \KK(\operatorname{Mod}(X)) \longrightarrow \KK(\operatorname{Mod}(X)).
-\]
-
-\begin{lemma}\label{lem:2.3.1}
-Let $F^\bullet$ be a complex of $\sO_X$-modules, and let $G^\bullet$ be a complex of injective $\sO_X$-modules, bounded below. Assume that either $F^\bullet$ or $G^\bullet$ is acyclic. Then $\underline{\Hom}^\bullet(F^\bullet,G^\bullet)$ is acyclic.
-\end{lemma}
-
-\begin{proof}
-It is enough to show for each open subset $U$ of $X$ that
-$\Gamma(U,\underline{\Hom}^\bullet(F^\bullet,G^\bullet)) = \Hom^\bullet(F^\bullet|_U, G^\bullet|_U)$ is acyclic. But this follows from [I.6.2] applied to the abelian category of $\sO_U$-modules, since if $G$ is an injective $\sO_X$-module, then $G|_U$ is an injective $\sO_X$-module.
-\end{proof}
-
-Using this Lemma, we can follow the method of [I.6] and obtain a derived functor
-\[
-\DerR\underline{\Hom}^\bullet\colon \DD(X)^\bullet \times \DD^+(X) \longrightarrow \DD(X)
-\]
-(more precisely $\DerR_{\mathrm{I}}\DerR_{\mathrm{II}}\underline{\Hom}^\bullet$).
-
-\textbf{Exercise.}
-Suppose that $X$ is locally noetherian, and that every coherent $\sO_X$-module is a quotient of a locally free $\sO_X$-module of finite rank (e.g.\ $X$ quasi-projective over a field). Show then that
-\[
-\DerR_{\mathrm{II}}\DerR_{\mathrm{I}}\underline{\Hom}^\bullet\colon \DD_{\mathrm{c}}^-(X)^\bullet \times \DD(X) \longrightarrow \DD(X)
-\]
-exists.
-
-\medskip
-
-\textbf{Problem.}
-Without the hypotheses of the Exercise, study sheaves on $X$ which are acyclic for $\underline{\Hom}$ in the first variable. Find out whether there are enough of them, and hence whether $\DerR_{\mathrm{I}}\underline{\Hom}^\bullet$ exists.
+\begin{definition}
+	An additive functor $F\colon \mathcal{C}\to\mathcal{C}'$ from one triangulated category to another is called a \emph{(covariant) $\partial$-functor} if it commutes with the translation functor and takes triangles into triangles. A contravariant $\partial$-functor takes triangles into triangles with the arrows reversed and sends the translation functor into its inverse.
+\end{definition}
 
 \begin{definition}
-If $F^\bullet\in\DD(X)$ and $G^\bullet\in\DD^+(X)$, we define the \emph{local hyperext}
+	An additive functor $H\colon \mathcal{C}\to\mathcal{A}$ from a triangulated category to an abelian category is called a \emph{covariant cohomological functor} if whenever $(X,Y,Z,u,v,w)$ is a triangle, the long sequence
+	\[
+	\cdots\to H(T^iX)\to H(T^iY)\to H(T^iZ)\to H(T^{i+1}X)\to\cdots
+	\]
+	is exact (the morphisms being $H(T^iu)$, etc.). If $H$ is a cohomological functor, we often write $H^i(X)$ for $H(T^iX)$, $i\in\mathbb{Z}$. One defines a contravariant cohomological functor by reversing the arrows.
+\end{definition}
+
+\begin{proposition}\label{prop:1.1}
+	\begin{enumerate}
+		\item[a)] The composition of any two consecutive morphisms in a triangle is zero.
+		\item[b)] If $\mathcal{C}$ is a triangulated category and $M$ an object of $\mathcal{C}$, then $\Hom_{\mathcal{C}}(M,\cdot)$ and $\Hom_{\mathcal{C}}(\cdot,M)$ are cohomological functors on $\mathcal{C}$.
+		\item[c)] If in the situation of (TR3) $f$ and $g$ are isomorphisms, then $h$ is also an isomorphism.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	a) Let $(X,Y,Z,u,v,w)$ be a triangle. By (TR2) it is sufficient to show that $vu=0$, Also by (TR2), $(Y,Z,T(X),v,w,-T(u))$ is a triangle. By (TR1), $(Z,Z,0,\operatorname{id}_Z,0,0)$ is a triangle. We apply (TR3) to the maps $v\colon Y\to Z$ and $\operatorname{id}_Z\colon Z\to Z$, and conclude that there is a map $h:T(X)\rightarrow 0$ giving a morphism of triangles. It follows that $T(v)(-T(u))=0$, or, since $T$ is an automorphism, $vu=0$.
+	
+	b) Let $M\in \Ob(\mathcal{C})$, and let $(X,Y,Z,u,v,w)$ be a triangle. To show $\Hom_{\mathcal{C}}(M,\cdot)$ is a cohomological functor, it suffices by (TR2) to show the sequence
+	\[
+	\Hom_{\mathcal{C}}(M,X)\to\Hom_{\mathcal{C}}(M,Y)\to\Hom_{\mathcal{C}}(M,Z)
+	\]
+	is exact. By a) we know the composition is zero. Now suppose given $g\in\Hom_{\mathcal{C}}(M,Y)$ such that $vg\in \Hom_{\mathcal{C}}(M,Z)$ is zero. We apply (TR3) to the triangles $(M,M,0,\operatorname{id}_M,0,0)$ and $(X,Y,Z,u,v,w)$ and the map $g\colon M\to Y$ to conclude there exists $f\colon M\to X$ such that $uf=g$.
+	
+	A similar proof shows that $\Hom_{\mathcal{C}}(\cdot,M)$ is a contravariant cohomological functor.
+	
+	c) In the situation of (TR3) suppose that $f$ and $g$ are isomorphisms. We apply the cohomological functor $\Hom_{\mathcal{C}}(Z', \cdot)$ to the whole situation, and obtain an exact commutative diagram
+	
+	\[
+\resizebox{.9\hsize}{!}	{	$ 
+	\begin{CD}
+		\Hom(Z',X) @>>> \Hom(Z',Y) @>>> \Hom(Z',Z) @>>> \Hom(Z',T(X)) @>>> \Hom(Z',T(Y)) \\
+		@V{f_*}VV @V{g_*}VV @V{h_*}VV @V{T(f)_*}VV @V{T(g)_*}VV \\
+		\Hom(Z',X') @>>> \Hom(Z',Y') @>>> \Hom(Z',Z') @>>> \Hom(Z',T(X')) @>>> \Hom(Z',T(Y'))
+	\end{CD}
+	$
+	}\]
+	
+	where $f_* = \Hom(Z', f)$ etc. Now since $f$ and $g$ are isomorphisms in $\mathcal{C}$, it follows that $f_*, g_*, T(f)_*$, and $T(g)_*$ are isomorphisms of abelian groups. Hence by the five-lemma, $h_*$ is an isomorphism. We conclude that there exists a $\varphi \in \Hom_{\mathcal{C}}(Z',Z)$ such that $h_*(\varphi) = h\varphi$ is $\operatorname{id}_{Z'} \in \Hom(Z',Z')$.
+	
+	Similarly using the cohomological functor $\Hom_{\mathcal{C}}(\cdot, Z)$ we find there is a $\psi \in \Hom(Z',Z)$ such that $\psi h = \operatorname{id}_{Z'}$. It follows that $\varphi = \psi$ and $h$ is an isomorphism.
+	
+\end{proof}
+
+\section{$\KK(\mathcal{A})$ is triangulated}
+Let $\mathcal{A}$ be an abelian category. A \emph{complex} of objects of $\mathcal{A}$ is a collection $X^\bullet=(X^n)_{n\in\mathbb{Z}}$ of objects of $\mathcal{A}$ together with maps $d^n\colon X^n\to X^{n+1}$ such that $d^{n+1}d^n=0$ for all $n\in\mathbb{Z}$.
+
+A morphism $f$ of complexes $X^\bullet\to Y^\bullet$ is a collection of maps $f^n\colon X^n\to Y^n$ which commute with differentials:
 \[
-\underline{\operatorname{Ext}}^i(F^\bullet,G^\bullet) = H^i\big(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\big).
+f^{n+1}d_X^n = d_Y^n f^n
+\]
+for all $n$.
+
+Two maps $f,g\colon X^\bullet\to Y^\bullet$ are \emph{homotopic} if there exists a collection of maps $k=(k^n)$, $k^n\colon X^n\to X^{n-1}$ (not necessarily commuting with $d$) such that
+\[
+f^n - g^n = d_Y^{n-1}k^n + k^{n+1}d_X^n
+\]
+for all $n$. Homotopy is an equivalence relation, and compositions of homotopic maps are homotopic.
+
+We define $\KK(\mathcal{A})$ to be the category whose objects are complexes of objects of $\mathcal{A}$, and whose morphisms are homotopy equivalence classes of morphisms of complexes. A complex $X^\bullet$ is \emph{bounded below} if $X^n=0$ for $n\ll0$. We denote by $\KK^+(\mathcal{A})$ the full subcategory of $\KK(\mathcal{A})$ of complexes bounded below. Similarly we define $\KK^-(\mathcal{A})$ (bounded above) and $\KK^b(\mathcal{A})$ (bounded on both sides).
+
+We now define a triangulated structure on $\KK(\mathcal{A})$ (resp.\ $\KK^+(\mathcal{A})$, etc.). Let $T$ be the left shift functor with sign change:
+\[
+T(X^\bullet)^p = X^{p+1},\qquad d_{T(X)} = -d_X.
+\]
+We often write $X^\bullet[1]$ instead of $T(X^\bullet)$, and $X^\bullet[n]$ instead of $T^n(X^\bullet)$. If $u\colon X^\bullet\to Y^\bullet$ is any morphism, consider its \emph{mapping cone} $Z^\bullet$ of $u$, defined as the complex
+\[
+Z^\bullet = T(X^\bullet)\oplus Y^\bullet
+\]
+with differential
+\[
+d_Z = \begin{pmatrix} T(d_X) & T(u) \\ 0 & d_Y \end{pmatrix}.
+\]
+There are natural morphisms
+\[
+v\colon Y^\bullet\to Z^\bullet,\qquad w\colon Z^\bullet\to T(X^\bullet).
+\]
+
+We define a triangle in $\KK(\mathcal{A})$ to be any sextuple isomorphic to one obtained from a morphism $u$ by this construction.
+
+All axioms (TR1)--(TR4) are easily verified, once one notes that the mapping cone of the identity map $\operatorname{id}_{X^\bullet}$ is homotopic to $0$. Indeed, the the mapping cone is 
+$T(X^\bullet)\oplus X^\bullet$ as described above, matrix
+\[
+k = \begin{pmatrix} 0 & 0 \\ \operatorname{id}_X & 0 \end{pmatrix}
+\]
+is a homotopy operator. 
+
+\begin{definition}
+	We define $H$ to be the functor from $\KK(\mathcal{A})$ to $\mathcal{A}$ which sends a complex $X^\bullet$ to its $0^\text{th}$ cohomology:
+	\[
+	H(X^\bullet) = \ker d^0 \big/ \operatorname{im} d^{-1}.
+	\]
+	This is indeed a functor, since homotopic maps induce the same map on cohomology. We write $H^i = H\circ T^i$ for any $i\in\mathbb{Z}$.
+\end{definition}
+
+Observe that $H$ is a cohomological functor from $\KK(\mathcal{A})$ to $\mathcal{A}$. Indeed, it suffices to check the long exact sequence for triangles coming from mapping cones, which is straightforward.
+
+\section{Localization of categories}
+
+\begin{definition}
+Let $\mathcal{C}$ be a category. A collection $S$ of morphisms of $\mathcal{C}$ is called a \emph{multiplicative system} if it satisfies the following axioms (FR1)--(FR3):
+\begin{enumerate}
+\item[(FR1)] If $f,g\in S$ and the composite $fg$ exists, then $fg\in S$. For any $X\in\operatorname{Ob}\mathcal{C}$, $\operatorname{id}_X\in S$.
+
+\item[(FR2)] Any diagram
+\[
+X\xrightarrow{u} Y \xleftarrow{s} Z,\quad s\in S
+\]
+can be completed to a commutative diagram
+\[
+\begin{CD}
+W @>v>> Z\\
+@VtVV @VsVV\\
+X @>u>> Y
+\end{CD}
+\]
+with $t\in S$. The analogous statement holds with all arrows reversed.
+
+\item[(FR3)] Let $f,g\colon X\to Y$ be morphisms in $\mathcal{C}$. The following are equivalent:
+\begin{enumerate}
+\item[(i)] There exists $s\colon Y\to Y'$ in $S$ such that $sf = sg$;
+\item[(ii)] There exists $t\colon X'\to X$ in $S$ such that $ft = gt$.
+\end{enumerate}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Let $\mathcal{C}$ be a category and $S$ a collection of morphisms in $\mathcal{C}$. The \emph{localization of $\mathcal{C}$ with respect to $S$} is a category $\mathcal{C}_S$ together with a functor $Q\colon\mathcal{C}\to\mathcal{C}_S$ such that:
+\begin{enumerate}
+\item[(a)] $Q(s)$ is an isomorphism for every $s\in S$;
+\item[(b)] Any functor $F\colon\mathcal{C}\to\mathcal{D}$ sending each $s\in S$ to an isomorphism factors uniquely through $Q$.
+\end{enumerate}
+\end{definition}
+\textbf{Remark.}
+	One can show that such a localization exists without 
+	hypotheses on $S$, but we will not need this result. 
+
+\begin{proposition}\label{prop:1.3.1}
+Let $\mathcal{C}$ be a category and $S$ a multiplicative system in $\mathcal{C}$. The localization $\mathcal{C}_S$ may be constructed as follows:
+$\operatorname{Ob}\mathcal{C}_S = \operatorname{Ob}\mathcal{C}$, and for all $X,Y\in\operatorname{Ob}\mathcal{C}$,
+\[
+\Hom_{\mathcal{C}_S}(X,Y) = \varinjlim_{I_X} \Hom_{\mathcal{C}}(X',Y),
+\]
+where $I_X$ is the category whose objects are morphisms $s\colon X'\to X$ in $S$, and morphisms are commutative diagrams:
+\[
+\begin{tikzcd}
+	X'' \arrow[dr, "s2"] \arrow[r, "f"] & X' \arrow[d, "s1"] \\
+	& X
+\end{tikzcd}
+\]
+
+Furthermore, if $\mathcal{C}$ is an additive category,, then $\mathcal{C}_S$ is also additive.
+\end{proposition}
+
+\begin{proof}
+First observe, using (FR1), (FR2), and (FR3) that the category \(I_X\) satisfies the axioms L1, L2, L3 of [GT, Ch. I, §1], and hence behaves as well as an inductive system for taking limits. Thus a morphism of \(X\) to \(Y\) in \(C_S\) is represented by a diagram
+\[
+\begin{tikzcd}
+	& X' \arrow[ld, "s"'] \arrow[rd, "a"] & \\
+	X & & Y
+\end{tikzcd}
+\]
+with \(s \in S\). This diagram defines the same morphism as another one with \(t \in S\)
+\[
+\begin{tikzcd}
+	& X'' \arrow[ld, "t"'] \arrow[rd, "b"] & \\
+	X & & Y
+\end{tikzcd}
+\]
+if and only if there is a morphism \(u: X''' \longrightarrow X\) in \(S\) and morphisms \(f: X''' \longrightarrow X'\) and \(g: X''' \longrightarrow X''\) such that \(sf = u = tg\) and \(af = bg\).
+
+To compose morphisms
+\[
+\begin{tikzcd}
+	& X' \arrow[ld, "s"'] \arrow[rd, "a"] & \\
+	X & & Y
+\end{tikzcd}
+\quad \text{and} \quad
+\begin{tikzcd}
+	& Y' \arrow[ld, "t"'] \arrow[rd, "b"] & \\
+	Y & & Z
+\end{tikzcd}
+\]
+we use (FR2) to find a commutative diagram
+\[
+\begin{tikzcd}
+	& & X'' \arrow[ld, "t'"'] \arrow[rd, "c"] & & \\
+	& X' \arrow[ld, "s"'] \arrow[rd, "a"] & & Y' \arrow[ld, "t"'] \arrow[rd, "b"] & \\
+	X & & Y & & Z
+\end{tikzcd}
+\]
+with \(t' \in S\), and then take \(X''\), \(st'\), \(bc\) to be the composition. One verifies easily that the resulting morphism of \(X\) to \(Z\) is independent of the representatives of the morphisms of \(X\) to \(Y\) and \(Y\) to \(Z\) chosen, and is also independent of the commutative diagram chosen.
+
+One can also verify easily that the functor \(Q: C \longrightarrow C_S\) has the properties required and that \(C_S\) is additive if \(C\) is (again using L1, L2, L3 to show that the \(\varinjlim\) is a group).
+
+\end{proof}
+
+\begin{definition}
+Let $\mathcal{C}$ be a triangulated category and $S$ a multiplicative system in $\mathcal{C}$. We say $S$ is \emph{compatible with the triangulation} if:
+\begin{enumerate}
+\item[(FR4)] $s\in S \implies T(s)\in S$, where $T$ is the translation functor;
+\item[(FR5)] Axiom (TR3) holds with the extra condition: if $f,g\in S$ are the given morphisms of triangles, then  $h\in S$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}\label{prop:1.3.2}
+If $\mathcal{C}$ is triangulated and $S$ a multiplicative system compatible with triangulation, then $\mathcal{C}_S$ has a unique structure of triangulated category such 
+that $Q$ is a $\partial$-functor, and $Q$ has the universal property b) 
+above for $\partial$-functors into triangulated categories. 
+\end{proposition}
+
+\begin{proof}
+	Left to the reader. It helps to observe that one can also calculate $\Hom_{C_S}(X,Y)$ as
+	\[
+	\varinjlim_{J_Y} \Hom_C(X,Y')
+	\]
+	where $J_Y$ is the category whose objects are morphisms $s: Y \longrightarrow Y'$ in $S$, and whose maps are commutative diagrams
+	\[
+	\begin{tikzcd}
+		& Y \arrow[ld, "s_1"'] \arrow[rd, "s_2"] & \\
+		Y' \arrow[rr, "f"] & & Y''
+	\end{tikzcd}
+	.
+	\]
+\end{proof}
+
+\begin{proposition}\label{prop:1.3.3}
+Let $\mathcal{C}$ be a category, $S$ a multiplicative system in $\mathcal{C}$, and $\mathcal{D}\subseteq\mathcal{C}$ a full subcategory (i.e. $X,Y\in \Ob D$ implies $\Hom_C(X,Y)=\Hom_D(X,Y)$) such that $S\cap\mathcal{D}$ is a multiplicative system in $\mathcal{D}$. Assume furthermore 
+that one of the following two conditions holds:
+\begin{enumerate}
+\item[(i)] For every $s\colon X'\to X$ in $S$ with $X\in\operatorname{Ob}\mathcal{D}$, there exists $f\colon X''\to X'$ with $X''\in\operatorname{Ob}\mathcal{D}$ and $sf\in S$;
+\item[(ii)] The same with all arrows reversed.
+\end{enumerate}
+Then the natural functor
+\[
+\mathcal{D}_{S\cap\mathcal{D}} \to \mathcal{C}_S
+\]
+is fully faithful, i.e. $\mathcal{D}_{S\cap\mathcal{D}}$ can be identified with a full subcategory of $\mathcal{C}_S$.
+\end{proposition}
+
+\begin{proposition}\label{prop:1.3.4}
+Let $\mathcal{C}$ be a category, $S$ a multiplicative system, $Q\colon\mathcal{C}\to\mathcal{C}_S$ the localization functor. Let $\mathcal{D}$ be any category, and $F,G\colon\mathcal{C}_S\to\mathcal{D}$ functors. Then the natural restriction map
+\[
+\alpha\colon \Hom(F,G) \to \Hom(FQ,GQ)
+\]
+between functor morphism sets is bijective.
+\end{proposition}
+
+\begin{proof}
+To give a morphism of functors \(F \longrightarrow G\) means to give for each \(X \in \operatorname{Ob} C_S\), a morphism \(F(X) \longrightarrow G(X)\), such that if \(X \longrightarrow Y\) is a morphism, then
+\[
+\begin{tikzcd}
+	F(X) \arrow[r] \arrow[d] & F(Y) \arrow[d] \\
+	G(X) \arrow[r] & G(Y)
+\end{tikzcd}
+\]
+is a commutative diagram. Thus, since \(\operatorname{Ob} C = \operatorname{Ob} C_S\), the map \(\alpha\) is injective. To show \(\alpha\) surjective, suppose given a morphism \(FQ \longrightarrow GQ\). Then we have a morphism \(F(X) \longrightarrow G(X)\) for each \(X \in \operatorname{Ob} C = \operatorname{Ob} C_S\), and commutative diagrams for morphisms \(X \longrightarrow Y\) in \(C\). A morphism in \(C_S\) is represented by a diagram
+\[
+\begin{tikzcd}
+	& X' \arrow[ld, "s"'] \arrow[rd, "f"] & \\
+	X & & Y
+\end{tikzcd}
+\]
+of morphisms in \(C\), with \(s \in S\). But for \(s \in S\), \(F(s)\) and \(G(s)\) are isomorphisms, so we get the required commutative diagram.
+
+\end{proof}
+
+\section{Quasi-isomorphisms and the derived category}
+
+Let $\mathcal{A}$ be an abelian category, and let $\KK(\mathcal{A})$ be the triangulated category of complexes up to homotopy introduced in \S2. A morphism $f\colon X^\bullet\to Y^\bullet$ in $\KK(\mathcal{A})$ is called a \emph{quasi-isomorphism} if it induces an isomorphism on all cohomology groups. Denote by $\operatorname{Qis}$ the collection of all quasi-isomorphisms in $\KK(\mathcal{A})$.
+
+\begin{proposition}
+	$\operatorname{Qis}$
+is a multiplicative system in $\KK(\mathcal{A})$. 
+
+\end{proposition}
+\begin{proof}
+
+This is a consequence of the following more general proposition
+\end{proof}
+\begin{proposition}\label{prop:1.4.2}
+Let $\mathcal{C}$ be a triangulated category, $\mathcal{A}$ an abelian category, and $H\colon\mathcal{C}\to\mathcal{A}$ a cohomological functor. Let $S$ be the class of morphisms $s\in\mathcal{C}$ such that $H(T^i(s))$ is an isomorphism for all $i\in\mathbb{Z}$. Then $S$ is a multiplicative system in $\mathcal{C}$ and is compatible with the triangulation.
+\end{proposition}
+
+\begin{proof}
+We verify axioms (FR1)--(FR5). Axioms (FR1) and (FR4) are trivial. Axiom (FR5) follows from the long exact sequence of a cohomological functor and the five-lemma.
+
+To prove (FR2), let a diagram is given:
+\[
+X\xrightarrow{u} Y \xleftarrow{s} Z
+\]
+with $s\in S$, Complete \(s\) to a triangle \((Z,Y,N,s,f,g)\). Complete \(fu\) to a triangle \((W,X,N,t,fu,h)\). Then \((u, \mathrm{id}_N)\) is a map of two sides of the second triangle into the first, so there is a map \(v: W \longrightarrow Z\) giving a morphism of triangles.
+\[
+\begin{tikzcd}
+	W \arrow[rr, "v"] \arrow[dd, "t"] & & Z \arrow[dd, "s"]  & \\
+	& N \arrow[ul, "h"] \arrow[rr, "\mathrm{id}_N\quad\quad"] & & N \arrow[ul, "g"'] \\
+	X \arrow[rr, "u"] \arrow[ur, "fu"'] & & Y \arrow[ru, "f"] &
+\end{tikzcd}
+\]
+Now \(sv = ut\), so it remains to prove \(t \in S\). Indeed, since \(s \in S\), we have \(H(T^i(N)) = 0\) for all \(i \in \mathbb{Z}\) by the long exact sequence of the first triangle. Applying this to the long exact sequence of the second triangle, we find \(H(T^i(t))\) is an isomorphism for all \(i \in \mathbb{Z}\).
+
+The opposed statement of (FR2) is proved similarly.
+
+To prove (FR3), we consider the morphism \(f-g\), and reduce to showing the following two properties equivalent (where \(f: X \longrightarrow Y\) is a morphism):
+
+\begin{enumerate}
+\item  There exists an $s\colon Y\to Y'\in S$ such that $ sf=0$
+\item  There exists an $t\colon X'\to X\in S$ such that $ ft=0$
+\end{enumerate}
+Suppose (i) holds.
+\[
+\begin{tikzcd}[row sep=2em, column sep=2.5em]
+	X' \arrow[d, "t"'] & Z \arrow[l, "w"'] \arrow[d, "v"] \\
+	X \arrow[r, "f"'] \arrow[ru, "g"]  & Y \arrow[r, "s"']  & Y' \arrow[lu, "u"']
+\end{tikzcd}
+\]
+By (TR1) and (TR2) we can find a triangle \((Z,Y,Y',v,s,u)\) for suitable \(Z\). Now \(sf = 0\), so by Proposition 1.1 b), there is a map \(g: X \longrightarrow Z\) such that \(f = vg\). Again by (TR1) and (TR2) we can find a triangle \((X',X,Z,t,g,w)\) for suitable \(X'\). By the same Proposition applied to this second triangle, the existence of \(v\) implies that \(ft = 0\). We need only show that \(t \in S\). Since \(s \in S\), \(H(T^i(Z)) = 0\) for all \(i \in \mathbb{Z}\), by the long exact sequence of cohomology. In turn, this implies that \(t \in S\).
+
+The implication (ii)\(\implies\)(i) is analogous.
+\end{proof}
+
+\begin{definition}
+The \emph{derived category} of $\mathcal{A}$ is
+\[
+\DD(\mathcal{A}) := \KK(\mathcal{A})_{\operatorname{Qis}}.
+\]
+Similarly define
+\[
+\DD^+(\mathcal{A})=\KK^+(\mathcal{A})_{\operatorname{Qis}},\quad
+\DD^-(\mathcal{A})=\KK^-(\mathcal{A})_{\operatorname{Qis}},\quad
+\DD^b(\mathcal{A})=\KK^b(\mathcal{A})_{\operatorname{Qis}}.
+\]
+By Proposition 1.3.3, these are full subcategories of $\DD(\mathcal{A})$, and
+\[
+\DD^+(\mathcal{A})\cap \DD^-(\mathcal{A}) = \DD^b(\mathcal{A}).
 \]
 \end{definition}
 
-\begin{lemma}
-	Let 
-	$X$ 
-	be a locally noetherian prescheme. Let $\sF$ be a coherent $\sO_X$-module, and let $\sG$ be a coherent (resp.\ quasi-coherent) $\sO_X$-module. Then for all $i\ge 0$, $\underline{\operatorname{Ext}}^i(\sF,\sG)$ is coherent (resp.\ quasi-coherent).
+\begin{definition}
+Let $\mathcal{A}$ be abelian, and $\mathcal{A}'\subset\mathcal{A}$ a \emph{thick} full abelian subcategory (closed under extensions in $\mathcal{A}$). Define $\KK_{\mathcal{A}'}(\mathcal{A})$ to be the full subcategory of $\KK(\mathcal{A})$ consisting of complexes $X^\bullet$ whose cohomology objects $H^i(X^\bullet)$ lie in $\mathcal{A}'$. Since $\mathcal{A}'$ is thick, $\KK_{\mathcal{A}'}(\mathcal{A})$ is a triangulated subcategory of $\KK(\mathcal{A})$.
+
+Define
+\[
+\DD_{\mathcal{A}'}(\mathcal{A}) := \KK_{\mathcal{A}'}(\mathcal{A})_{\operatorname{Qis}}.
+\]
+By Proposition 1.3.3, $\DD_{\mathcal{A}'}(\mathcal{A})$ is the full subcategory of $\DD(\mathcal{A})$ of complexes with all cohomology in $\mathcal{A}'$. One defines similarly $\KK_{\mathcal{A}'}^+(\mathcal{A}), \DD_{\mathcal{A}'}^+(\mathcal{A})$, etc., for bounded-below complexes.
+\end{definition}
+
+\textbf{Example.} To help understand the category $\DD(\mathcal{A})$, let us ask: when does a morphism of complexes $f\colon X^\to Y$ give the zero map in $\DD(\mathcal{A})$? The condition is:
+
+$(*)$ There exists an $s\colon Y\to Y'$ in $\operatorname{Qis}$ such that $sf$ is homotopic to zero (or, equivalently, there exists a $t\colon X'\to X$ in $\operatorname{Qis}$ such that $ft$ is homotopic to zero).
+
+\begin{enumerate}
+\item[1.] Of course, if $f\sim 0$ ($f$ homotopic to zero), then $f$ satisfies $(*)$. The converse is false. For example, take X to be the complex
+\[
+0\to\mathbb{Z}\xrightarrow{2}\mathbb{Z}\to\mathbb{Z}/2\mathbb{Z}\to 0,
+\]
+and $f$ to be the identity $\operatorname{id}_{X}\colon X\to X$. Let $g\colon X\to 0$ be the zero map. Then $g\in\operatorname{Qis}$, and $gf=0$, but $f$ is not homotopic to zero, as one sees easily.
+
+\item[2.] If $f$ satisfies $(*)$, then $f$ induces the zero map on cohomology, but the converse is false. For example take $f\colon X\to Y$ as follows:
+\[
+\begin{tikzcd}
+\cdots \arrow[r] & 0 \arrow[r] \arrow[d] & \mathbb{Z} \arrow[r, "2"] \arrow[d, "1"] & \mathbb{Z} \arrow[r] \arrow[d,"2"] & 0 \arrow[r] \arrow[d] & \cdots \\
+\cdots \arrow[r] & 0 \arrow[r] & \mathbb{Z} \arrow[r, "1"] & \mathbb{Z}/3\mathbb{Z} \arrow[r] & 0 \arrow[r] & \cdots
+\end{tikzcd}
+\]
+Now $f$ induces the zero map on cohomology, but there does not exist $t\colon X'\to X$ in $\operatorname{Qis}$ such that $ft\sim 0$. (The reader can supply the proof as follows: take a cycle $x\in X'$ such that $t(x)$ generates the single cohomology group $\mathbb{Z}/2\mathbb{Z}$ of $X$. If $k$ is a homotopy operator for $ft$, show that $2k(x)=1$, which is impossible.)
+\end{enumerate}
+
+So for two maps $f,g\colon X\to Y$ of complexes, we see that the following implications are all strict:
+\[
+\begin{aligned}
+f=g
+&\;\Longrightarrow\; f\text{ homotopic to }g \\
+&\;\Longrightarrow\; f\text{ and }g\text{ give the same morphism in }\DD(\mathcal{A}) \\
+&\;\Longrightarrow\; f\text{ and }g\text{ give the same map on cohomology}.
+\end{aligned}
+\]
+
+\begin{proposition}\label{prop:1.4.3}
+The functor $\mathcal{A}\to\DD(\mathcal{A})$ which sends each object $X$ of $\mathcal{A}$ into the complex consisting of $X$ in degree $0$, and $0$ elsewhere, gives an equivalence of the category $\mathcal{A}$ with the full subcategory of $\DD(\mathcal{A})$ consisting of those complexes $X^\bullet$ such that $H^i(X^\bullet)=0$ for $i\neq 0$.
+\end{proposition}
+
+We now prove three lemmas, which give an alternative description of $\DD^+(\mathcal{A})$ when $\mathcal{A}$ has enough injectives.
+
+\begin{lemma}\label{lem:1.4.4}
+Let $\mathcal{A}$ be abelian, $f\colon Z^\bullet\to I^\bullet$ a morphism of complexes. Assume:
+\begin{enumerate}
+\item[(1)] $Z^\bullet$ is acyclic;
+\item[(2)] Each $I^p$ is injective in $\mathcal{A}$;
+\item[(3)] $I^\bullet$ is bounded below.
+\end{enumerate}
+Then $f$ is homotopic to zero.
+\end{lemma}
+\begin{proof}
+	Well known (and easy).
+\end{proof}
+\begin{lemma}\label{lem:1.4.5}
+Let $\mathcal{A}$ be abelian, $s\colon I^\bullet\to Y^\bullet$ a morphism of complexes. Assume:
+\begin{enumerate}
+\item[(1)] $s$ induces an isomorphism on cohomology;
+\item[(2)] Each $I^p$ is injective;
+\item[(3)] $I^\bullet$ is bounded below.
+\end{enumerate}
+Then $s$ admits a homotopy inverse.
 \end{lemma}
 
 \begin{proof}
-The coherent case is [EGA~0\textsubscript{III}~12.3.3], and the quasi-coherent case is proved similarly.
-\end{proof}
-
-\begin{proposition}\label{prop:2.3.3}
-Let $X$ be a locally noetherian prescheme. Let $F^\bullet\in\DD_{\mathrm{c}}(X)$ and $G^\bullet\in\DD_{\mathrm{c}}^+(X)$ (resp.\ $\DD_{\mathrm{qc}}^+(X)$). Assume either
-\begin{enumerate}
-\item[a)] $F^\bullet\in\DD_{\mathrm{c}}(X)$, or
-\item[b)] $G^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$ (cf.\ [I.7]).
-\end{enumerate}
-Then $\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\in\DD_{\mathrm{c}}(X)$ (resp.\ $\DD_{\mathrm{qc}}(X)$).
-\end{proposition}
-
-\begin{proof}
-This follows from the lemma and [I.7.3] applied twice. The details are left to the reader.
-\end{proof}
-\section{The derived functors of $\otimes$ and $f^*$}
-
-Let $X$ be a prescheme, and let $F^\bullet,G^\bullet\in\KK(\operatorname{Mod}(X))$. Then we define the tensor product $F^\bullet\otimes G^\bullet$ to be the simple complex associated to the double complex $(F^p\otimes G^q)$, i.e.,
+Suppose given $s\colon I^\bullet\to Y^\bullet$ as above. Let $Z^\bullet = T(I^\bullet)\oplus Y^\bullet$ be the mapping cone of $s$. Then $Z^\bullet$ is acyclic, and so the triangular morphism $v\colon Z^\bullet\to T(I^\bullet)$ satisfies the conditions of Lemma 1.4.4, and so is homotopic to zero. Let us call the homotopy operator
 \[
-(F^\bullet\otimes G^\bullet)^n = \bigoplus_{p+q=n} F^p\otimes G^q
+(k,t)\colon T(I^\bullet)\oplus Y^\bullet \longrightarrow I^\bullet.
+\]
+Then we have the equation
+\[
+v = (\operatorname{id}_{I^\bullet},0) = (k,t)d_Z + d_{I^\bullet}(k,t).
+\]
+Separating the components, we find
+\[
+\operatorname{id}_{T(I^\bullet)} = dk + kd + ts
 \]
 and
 \[
-d = d_F + (-1)^n d_G.
+dt - td = 0.
 \]
-Homotopies carry over to the tensor product, so we have a functor
+Thus $t\colon Y^\bullet\to I^\bullet$ is a morphism of complexes, and $\operatorname{id}_{I^\bullet}$ is homotopic to $ts$, so $t$ is a homotopy inverse of $s$.
+\end{proof}
+
+\begin{lemma}\label{lem:1.4.6}
+Let $\mathcal{A}$ be an abelian category.
+\begin{enumerate}
+\item[1)] Let $P\subseteq\operatorname{Ob}\mathcal{A}$ and assume:
+\begin{enumerate}
+\item[(i)] Every object of $\mathcal{A}$ admits an injection into an element of $P$.
+\end{enumerate}
+Then every complex $X^\bullet\in\KK^+(\mathcal{A})$ admits a quasi-isomorphism into a bounded-below complex $I^\bullet$ of objects of $P$.
+
+\item[2)] Assume further that $P$ satisfies:
+\begin{enumerate}
+\item[(ii)] If $0\to X\to Y\to Z\to 0$ is exact and $X\in P$, then $Y\in P\iff Z\in P$;
+\item[(iii)] There exists a positive integer $n$ such that for any exact sequence
 \[
-\otimes\colon \KK(\operatorname{Mod}(X)) \times \KK(\operatorname{Mod}(X)) \longrightarrow \KK(\operatorname{Mod}(X)).
+X^0\to X^1\to\cdots\to X^{n-1}\to X^n\to 0,
+\]
+if $X^0,\dots,X^{n-1}\in P$ then $X^n\in P$.
+\end{enumerate}
+Then every $X^\bullet\in\KK(\mathcal{A})$ admits a quasi-isomorphism into a complex $I^\bullet$ of objects of $P$.
+
+\item[3)] Let $\mathcal{A}'$ be a thick subcategory of $\mathcal{A}$, and suppose $\mathcal{A}'$ has enough $\mathcal{A}$-injectives. Then every $X^\bullet\in\KK_{\mathcal{A}'}^+(\mathcal{A})$ admits a quasi-isomorphism into a bounded-below complex $I^\bullet$ of $\mathcal{A}$-injective objects of $\mathcal{A}'$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}[Proof of 1)]
+We may assume $X^p=0$ for $p<0$. Embed $X^0\hookrightarrow I^0$ with $I^0\in P$. Having defined $I^0,I^1,\dots,I^p$, choose $I^{p+1}\in P$ containing
+\[
+I^p\big/\operatorname{im}I^{p-1}\;\oplus\;X^{p+1},
+\]
+and define differentials $I^p\to I^{p+1}$ and morphisms $X^{p+1}\to I^{p+1}$ canonically. One verifies $X^\bullet\to I^\bullet$ is a quasi-isomorphism, Note that in this construction all the maps $X^p\to I^p$ is injective.
+\end{proof}
+
+\begin{proof}[Proof of 2)]
+Let $X^\bullet$ be any complex. For a fixed integer $i_0$, by 1), we can find a quasi- 
+isomorphism of the truncated complex 
+\[
+0\to 0\to X^{i_0}\to X^{i_0+1}\to\cdots
+\]
+ into a complex $I^\bullet$ of objects of $P$, with each $X^i\to I^i$ injective. Define $X_0^\bullet$ by
+\[
+\cdots\to X^{i_0-2}\to X^{i_0-1}\to I^{i_0}\to I^{i_0+1}\to\cdots.
+\]
+Then $X^\bullet\to X_0^\bullet$ is a quasi-isomorphism, $X_0^i\in P$ for $i\ge i_0$, and each $X^i\to X_0^i$ is injective.
+
+Suppose given a complex $X_1^\bullet$ with $X_1^i\in P$ for $i\ge i_1$, and let $i_2<i_1$. Then we will construct a quasi-isomorphism $X_1^\bullet\to X_2^\bullet$ such that $X_2^i\in P$ for $i\ge i_2$, and $X_1^i=X_2^i$ for $i\ge i_1+n$. (Here $n$ is the integer of condition (iii) above.) Indeed, by the first step above, we can find a quasi-isomorphism $X_1^\bullet\to X'^\bullet$ such that $X'^i\in P$ for $i\ge i_2$, and each $X_1^i\to X'^i$ is injective. Let $Y^i=\operatorname{coker}(X_1^i\to X'^i)$. Then $Y^\bullet$ is an acyclic complex, and $Y^i\in P$ for $i\ge i_1$, by condition (ii) above. Hence $B^i(Y^\bullet)\in P$ for $i\ge i_1+n$, by condition (iii). Now define $X_2^\bullet$ by
+\[
+X_2^i=
+\begin{cases}
+X'^i & \text{for } i < i_1+n,\\[2pt]
+B^i(X'^\bullet) \oplus_{X_1^{i-1}} X_1^i & \text{for } i = i_1+n,\\[2pt]
+X_1^i & \text{for } i > i_1+n.
+\end{cases}
+\]
+One sees easily that $X_1^\bullet\to X_2^\bullet$ is a quasi-isomorphism. It follows from (ii) and the exact sequence
+\[
+0 \longrightarrow X_1^i \longrightarrow B^i(X'^\bullet) \oplus_{X_1^{i-1}} X_1^i \longrightarrow B^i(Y^\bullet) \longrightarrow 0
+\]
+that the middle term is in $P$, for $i\ge i_1+n$, so $X_2^\bullet$ is as required.
+
+Now, given a complex $X^\bullet\in\KK(\mathcal{A})$, choose a sequence of integers $i_0>i_1>i_2>\cdots$ tending to $-\infty$. Choose $X_0^\bullet$ for $i_0$ as in the first step, and choose $X_1^\bullet,X_2^\bullet,\dots$ for $i_1,i_2,\dots$ successively as in the second step. Then we have quasi-isomorphisms
+\[
+X^\bullet \longrightarrow X_0^\bullet \longrightarrow X_1^\bullet \longrightarrow X_2^\bullet \longrightarrow \cdots,
+\]
+and for each $i$, the sequence $X^i\to X_0^i\to X_1^i\to\cdots$ is eventually constant, and eventually in $P$. Hence $I^\bullet = \varinjlim X_r^\bullet$ is the required complex of objects of $P$.
+\end{proof}
+
+\begin{proof}[Proof of 3)]
+We may assume $X^i=0$ for $i<0$. Embed $H^0(X^\bullet)$ in $I^0$, an $\mathcal{A}$-injective of $\mathcal{A}'$, which is possible since $H^0(X^\bullet)\in\operatorname{Ob}\mathcal{A}'$. Extend this to a map $f^0\colon X^0\to I^0$, which is possible since $I^0$ is $\mathcal{A}$-injective.
+
+Having defined $I^0,I^1,\dots,I^p$ and $f^i\colon X^i\to I^i$ for $i=0,\dots,p$, choose $I^{p+1}$ to be an $\mathcal{A}$-injective of $\mathcal{A}'$ containing
+\[
+I^p\big/\operatorname{im}I^{p-1} \oplus_{X^p} Z^{p+1}(X^\bullet). \tag{*}
 \]
 
-\begin{lemma}\label{lem:2.4.1}
-Let $F^\bullet$ be a complex of $\sO_X$-modules, and let $G^\bullet$ be a complex of flat $\sO_X$-modules, bounded above. Assume that either
+We must check that this latter is in $\mathcal{A}'$. Indeed, $\mathcal{A}'$ is a thick subcategory, so it is sufficient to note that $I^p/\operatorname{im}I^{p-1}\in\mathcal{A}'$ (one shows by induction that $B^i(I^\bullet)$ and $Z^i(I^\bullet)$ are in $\mathcal{A}'$ for all $i$), and that the quotient of $(*)$ by $I^p/\operatorname{im}I^{p-1}$ is $H^{p+1}(X^\bullet)$, which is in $\mathcal{A}'$ by hypothesis. Extend the natural map $Z^{p+1}(X^\bullet)\to I^{p+1}$ to a map $f^{p+1}\colon X^{p+1}\to I^{p+1}$. One checks easily that the resulting map $f\colon X^\bullet\to I^\bullet$ is a quasi-isomorphism, as required.
+\end{proof}
+
+\begin{proposition}\label{prop:1.4.7}
+Let $\mathcal{A}$ be abelian, and let $\mathcal{I}$ be the additive subcategory of injective objects of $\mathcal{A}$. The natural functor
+\[
+\alpha\colon \KK^+(\mathcal{I})\to \DD^+(\mathcal{A})
+\]
+is fully faithful. (Note that the results of section 3 carry over to additive subcategories of abelian categories.) Furthermore, if $\mathcal{A}$ has enough injectives (i.e., if every object of $\mathcal{A}$ admits an injection into an injective object), then $\alpha$ is an equivalence of categories.
+\end{proposition}
+
+\begin{proof}
+We note that $\operatorname{Qis}\cap\KK^+(\mathcal{I})$ is a multiplicative system in $\KK^+(\mathcal{I})$, by Proposition 1.4.2, and we observe by Lemma 1.4.5 that condition (ii) of Proposition 1.3.3 is satisfied for $\KK^+(\mathcal{I})\subseteq\KK^+(\mathcal{A})$ and $\operatorname{Qis}$. Hence the natural functor
+\[
+\DD^+(\mathcal{I}) \longrightarrow \DD^+(\mathcal{A})
+\]
+is fully faithful. But on the other hand, Lemma 1.4.5 shows also that every quasi-isomorphism in $\KK^+(\mathcal{I})$ is an isomorphism, hence $\KK^+(\mathcal{I}) = \DD^+(\mathcal{I})$.
+
+Now if $\mathcal{A}$ has enough injectives, applying Lemma 1.4.6 in the case $\mathcal{A}=\mathcal{B}$ and $P = {}$the injective objects, we see that every object of $\DD^+(\mathcal{A})$ is isomorphic to an object in $\KK^+(\mathcal{I})$, so $\alpha$ is an equivalence of categories.
+\end{proof}
+
+\begin{proposition}\label{prop:1.4.8}
+Let $\mathcal{A}$ be abelian, $\mathcal{A}'\subseteq\mathcal{A}$ a thick abelian subcategory. Assume $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, i.e~ every object of $A'$ can be injected into an 
+$A$-injective object of $A'$. Then the natural functor
+\[
+\DD^+(\mathcal{A}') \to \DD_{\mathcal{A}'}^+(\mathcal{A})
+\]
+is an equivalence of categories.
+\end{proposition}
+
+\begin{proof}
+We apply Proposition 1.3.3 to the inclusion $\KK^+(\mathcal{A}')\hookrightarrow\KK^+(\mathcal{A})$. Clearly $\operatorname{Qis}$ is a multiplicative system in each. If $X^\bullet\to Y^\bullet$ is a quasi-isomorphism with $X^\bullet\in\KK^+(\mathcal{A}')$, then $Y^\bullet$ has cohomology in $\mathcal{A}'$, and so by Lemma 1.4.6 admits a quasi-isomorphism $Y^\bullet\to I^\bullet$ with $I^\bullet\in\KK^+(\mathcal{A}')$, each $I^p$ injective in $\mathcal{A}$. Hence condition (ii) is satisfied, and so the functor
+\[
+\DD^+(\mathcal{A}') \longrightarrow \DD^+(\mathcal{A})
+\]
+is fully faithful. The same Lemma 1.4.6 also shows that the image is $\DD_{\mathcal{A}'}^+(\mathcal{A})$.
+\end{proof}
+
+\textbf{Exercise.} We leave to the reader the analogous statements of the last five results in the case of projective objects of $\mathcal{A}$ and $\DD^-(\mathcal{A})$.
+
+\section{Derived functors}
+
+We will treat only the question of \emph{right derived covariant functors}, leaving the reader to make the obvious modifications for left derived covariant functors, and right and left derived contravariant functors.
+
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, and let $F\colon\KK(\mathcal{A})\to\KK(\mathcal{B})$ be a $\partial$-functor (cf.\ \S1). Such is the case, for example, if we are given an additive functor $F\colon\mathcal{A}\to\mathcal{B}$. It extends to $\KK(\mathcal{A})$.
+
+In general, $F$ will not take quasi-isomorphisms into quasi-isomorphisms -- to say that it does is to say that it localizes 
+and gives rise to a functor from  $\DD(\mathcal{A})\to\DD(\mathcal{B})$. That will be the 
+case, for example, if F is an exact functor.
+
+Thus we are led to ask if there is a functor from $\DD(\mathcal{A})$ to $\DD(\mathcal{B})$ which is at least close to $F$, and this gives rise to the notion of derived functor below. Before giving the definition we generalize slightly.
+
+\begin{definition}
+Let $\mathcal{A}$ be abelian, and let $\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})$ be a triangulated subcategory. By Proposition 1.4.2, $\KK^*(\mathcal{A})\cap\operatorname{Qis}$ is a multiplicative system in $\KK^*(\mathcal{A})$.
+
+We say $\KK^*(\mathcal{A})$ is a \emph{localizing subcategory} of $\KK(\mathcal{A})$ if the natural functor
+\[
+\KK^*(\mathcal{A})_{\KK^*(\mathcal{A})\cap\operatorname{Qis}}
+\;\to\;
+\KK(\mathcal{A})_{\operatorname{Qis}} = \DD(\mathcal{A})
+\]
+is fully faithful. In this case we write $\DD^*(\mathcal{A})$ for the $\KK^*(\mathcal{A})_{\KK^*(\mathcal{A})\cap\operatorname{Qis}}$.
+\end{definition}
+
+\textbf{Examples.}
 \begin{enumerate}
-\item[a)] $G^\bullet$ is acyclic, or
-\item[b)] $F^\bullet$ is acyclic,
+\item The intersection of any family of localizing subcategories is localizing.
+\item $\KK^+(\mathcal{A}),\KK^-(\mathcal{A}),\KK^b(\mathcal{A})$ are localizing subcategories of $\KK(\mathcal{A})$ (cf.\ \S4).
+\item If $\mathcal{A}'\subseteq\mathcal{A}$ is a thick subcategory, then $\KK_{\mathcal{A}'}(\mathcal{A}),\KK_{\mathcal{A}'}^+(\mathcal{A}),\KK_{\mathcal{A}'}^-(\mathcal{A}),\KK_{\mathcal{A}'}^b(\mathcal{A})$ are localizing subcategories of $\KK(\mathcal{A})$ (cf.\ \S4).
+\item The complexes of finite injective dimension form a localizing subcategory $\KK^+(\mathcal{A})_{\mathrm{fid}}\subseteq\KK(\mathcal{A})$ (cf.\ Corollary 1.7.7).
 \end{enumerate}
-and assume also that either
+
+\begin{definition}
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, $\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})$ a localizing subcategory, and
+\[
+F\colon\KK^*(\mathcal{A})\to\KK(\mathcal{B})
+\]
+a $\partial$-functor.
+
+Denote by $Q$ the localization functor $\KK^*(\mathcal{A})\to\DD^*(\mathcal{A})$ (resp.\ $\KK(\mathcal{B})\to\DD(\mathcal{B})$). The \emph{right derived functor} of $F$ is a  $\partial$-functor
+\[
+\DerR^*F\colon\DD^*(\mathcal{A})\to\DD(\mathcal{B})
+\]
+together with a functor morphism
+\[
+\xi\colon Q\circ F \;\to\; \DerR^*F\circ Q
+\]
+of functors $\KK^*(\mathcal{A})\to\DD(\mathcal{B})$, satisfying the following universal property:
+
+If $G\colon\DD^*(\mathcal{A})\to\DD(\mathcal{B})$ is a $\partial$-functor and any functor morphism
+\[
+\zeta\colon Q\circ F \;\to\; G\circ Q,
+\]
+there exists a unique functor morphism
+\[
+\eta\colon \DerR^*F \to G
+\]
+such that
+\[
+\zeta = (\eta\circ Q)\circ \xi.
+\]
+\end{definition}
+
+\textbf{Remarks.}
 \begin{enumerate}
-\item[1)] $F^\bullet$ is bounded above, or
-\item[2)] $G^\bullet$ is bounded in both directions.
+\item If $\DerR^*F$ exists, it is unique up to unique isomorphism of functors.
+\item For standard localizing subcategories $\KK^+(\mathcal{A}),\KK^-(\mathcal{A}),\KK_{\mathcal{A}'}(\mathcal{A})$, we write
+\[
+\DerR^+F,\quad \DerR^-F,\quad \DerR_{\mathcal{A}'}F
+\]
+respectively; when no confusion arises, we write simply $\DerR F$.
+
+\item We will write \(\RR^i F\) for \(H^i(\DerR F)\), and it will follow from the results below that if \(F\) comes from a left-exact functor \(F: A \longrightarrow B\), and if \(A\) has enough injectives, then these are the usual derived functors of \(F\).
+
+\item If \(\varphi: F \longrightarrow G\) is a morphism of functors from \(K^*(A)\) to \(K(B)\), and if \(\DerR F\) and \(\DerR G\) both exist, then there is a unique morphism of functors
+\[
+\DerR \varphi: \DerR F \longrightarrow \DerR G
+\]
+compatible with the \(\xi\)'s. This follows immediately from the definition.
+\item Let $\KK^{**}(\mathcal{A})\subseteq\KK^*(\mathcal{A})$ be localizing subcategories, if $F\colon\KK^*(\mathcal{A})\to\KK(\mathcal{B})$ is a $\partial$-functor. and if $\DerR^*F$ and $\DerR^{**}(F|_{\KK^{**}(\mathcal{A})})$ exist, there is a natural functor morphism
+\[
+\DerR^{**}\big(F|_{\KK^{**}(\mathcal{A})}\big)
+\;\to\;
+\DerR^*F\big|_{\DD^{**}(\mathcal{A})}.
+\]
+We do not know if this is an isomorphism in general, but it holds in all our intended applications (cf.\ Corollary 1.5.3).
 \end{enumerate}
-Then $F^\bullet\otimes G^\bullet$ is acyclic.
+
+\begin{theorem}[Existence of Derived Functors]\label{thm:1.5.1}
+Let $\mathcal{A},\mathcal{B},\KK^*(\mathcal{A}),F$ be as above. Suppose there exists a triangulated subcategory $\mathcal{L}\subseteq\KK^*(\mathcal{A})$ such that:
+\begin{enumerate}
+\item[(1)] Every object of $\KK^*(\mathcal{A})$ admits a quasi-isomorphism into some object of $\mathcal{L}$;
+\item[(2)] For every acyclic complex $I^\bullet\in\operatorname{Ob}\mathcal{L}$ (i.e.\ $H^i(I^\bullet)=0$ for all $i$), the complex $F(I^\bullet)$ is also acyclic.
+\end{enumerate}
+Then the right derived functor $(\DerR^*F,\xi)$ exists. Furthermore, for any $I^\bullet\in\operatorname{Ob}\mathcal{L}$, the map
+\[
+\xi(I^\bullet)\colon Q\circ F(I^\bullet) \to \DerR^*F\circ Q(I^\bullet)
+\]
+is an isomorphism in $\DD(\mathcal{B})$.
+\end{theorem}
+
+\begin{proof}
+First, the restriction $F|_{\mathcal{L}}$ sends quasi-isomorphisms to quasi-isomorphisms. Indeed, let $s\colon I_1^\bullet\to I_2^\bullet$ be a quasi-isomorphism in $\mathcal{L}$; complete $s$ to a triangle in $\KK^*(\mathcal{A})$, and let $J^\bullet$ be
+the third side of that triangle. Then $J^\bullet$  is acyclic, so $F(J^\bullet)$ is acyclic. Hence $F(s)$ is a quasi-isomorphism.
+
+Thus $F$ passes to the quotient to give a functor 
+\[
+\overline{F}\colon\mathcal{L}_{\operatorname{Qis}} \to \DD(\mathcal{B})
+\]
+satisfying $\overline{F}\circ Q = Q\circ F$ on $\mathcal{L}$ (we denote as usual by $Q$
+the morphism from a category to its localization).
+
+Second, by the condition of Proposition 1.3.3, (ii) are satisfied for $\mathcal{L},\KK^*(\mathcal{A}),\operatorname{Qis}$, and so the natural functor
+\[
+T\colon\mathcal{L}_{\operatorname{Qis}} \to \DD^*(\mathcal{A})
+\]
+is an equivalence of categories, using 1) above. Let $U$ be a quasi-inverse of $T$, i.e. a functor $U\colon\DD^*(\mathcal{A})\to\mathcal{L}_{\operatorname{Qis}}$ with functorial isomorphisms
+\[
+\alpha\colon \operatorname{id}_{\mathcal{L}_{\operatorname{Qis}}} \to U\circ T,\qquad
+\beta\colon \operatorname{id}_{\DD^*(\mathcal{A})} \to T\circ U.
+\]
+
+Define
+\[
+\DerR^*F := \overline{F}\circ U.
+\]
+
+We now define the functor morphism
+\[
+\xi\colon Q\circ F \to \DerR^*F\circ Q = \overline{F}\circ U\circ Q
+\]
+as follows. Given $X^\bullet\in\operatorname{Ob}\KK^*(\mathcal{A})$, choose $I^\bullet\in\operatorname{Ob}\mathcal{L}$ such that $Q(I^\bullet)\cong U\circ Q(X^\bullet)$ in $\DD^*(\mathcal{A})$.
+
+We have an isomorphism in $\DD^*(\mathcal{A})$,
+\[
+\beta\big(Q(X^\bullet)\big)\colon Q(X^\bullet) \stackrel{\sim}{\longrightarrow}
+T\circ U\big(Q(X^\bullet)\big) = T\big(Q(I^\bullet)\big).
+\]
+This isomorphism may be represented by a diagram in $\KK^*(\mathcal{A})$
+\[
+X^\bullet \xrightarrow{t} Y^\bullet \xleftarrow{s} I^\bullet
+\quad \quad \quad \quad (*)\]
+with $s,t\in\operatorname{Qis}$ and $Y^\bullet\in\operatorname{Ob}\KK^*(\mathcal{A})$. Furthermore by hypothesis (1), we may assume $Y^\bullet\in\operatorname{Ob}\mathcal{L}$. Applying the functor $F$, we obtain a diagram in $\KK(\mathcal{B})$:
+\[
+F(X^\bullet) \xrightarrow{F(t)} F(Y^\bullet)\xleftarrow{F(s)}  F(I^\bullet).
+\]
+As observed previously, $F(s)$ is also a quasi-isomorphisms.
+
+This induces a morphism in $\DD(\mathcal{B})$:
+\[
+\xi(X^\bullet)\colon Q\circ F(X^\bullet)
+\to Q\circ F(I^\bullet)
+= \overline{F}\circ Q(I^\bullet)
+= \overline{F}\circ U\circ Q(X^\bullet)
+= \DerR^*F\circ Q(X^\bullet).
+\]
+
+One can now check without difficulty that $\xi(X^\bullet)$  does not depend on 
+the choice of the diagram (*) above, that $\xi$ defines a functor morphism $Q\circ F\to \DerR^*F\circ Q$, and that the pair $(\DerR^*F,\xi)$ satisfies the universal property of the right derived functor.
+
+If $X^\bullet\in\operatorname{Ob}\mathcal{L}$, then $F(t)$ is also a quasi-isomorphism in the construction above, so $\xi(X^\bullet)$ is an isomorphism in $\DD(\mathcal{B})$, as required.
+\end{proof}
+
+\begin{proposition}\label{prop:1.5.2}
+Let $\mathcal{A},\mathcal{B},\KK^*(\mathcal{A}),F$ be as above, and let $\KK^{**}(\mathcal{A})\subseteq\KK^*(\mathcal{A})$ be another localizing subcategory of $\KK(\mathcal{A})$. Suppose there exists a triangulated subcategory $\mathcal{L}\subseteq\KK^*(\mathcal{A})$ satisfying hypotheses (1),(2) of Theorem 1.5.1, and such that $\mathcal{L}\cap\KK^{**}(\mathcal{A})$ satisfies hypothesis (1) for $\KK^{**}(\mathcal{A})$.
+Then  $\DerR^*F$ and $\DerR^{**}\big(F|_{\KK^{**}(\mathcal{A})}\big)$ both exist, and the natural morphism
+\[
+\DerR^{**}\big(F|_{\KK^{**}(\mathcal{A})}\big)
+\;\to\;
+\DerR^*F\big|_{\DD^{**}(\mathcal{A})}
+\]
+is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+Existence follows immediately from Theorem 1.5.1. For the isomorphism, any object of $\DD^{**}(\mathcal{A})$ is isomorphic to one coming from an object of $\mathcal{L}$, we may assume that $X'' =  Q(I^\bullet)$ for some $I^\bullet\in\Ob \mathcal{L}\cap\KK^{**}(\mathcal{A})$. The claim then follows from the final assertion of Theorem 1.5.1.
+\end{proof}
+
+\begin{corollary}\label{cor:1.5.3}
+\emph{$\alpha$)} Let $\mathcal{A},\mathcal{B}$ be abelian categories, $F\colon\KK^+(\mathcal{A})\to\KK(\mathcal{B})$ a $\partial$-functor (e.g., induced by an additive functor $F_0\colon\mathcal{A}\to\mathcal{B}$). If $\mathcal{A}$ has enough injectives, then $\DerR^+F$ exists.
+
+\emph{$\beta$)} Let $\mathcal{A},\mathcal{B}$ be abelian categories, $F\colon\mathcal{A}\to\mathcal{B}$ additive. Suppose there exists an subset $P\subseteq\operatorname{Ob}\mathcal{A}$ satisfying (i),(ii) of Lemma 1.4.6, and:
+\begin{enumerate}
+\item[(iv)] $F$ sends short exact sequences in $\mathcal{A}$ to short exact sequences in $\mathcal{B}$.
+\end{enumerate}
+Then $\DerR^+F$ exists (we also denote by $F$ its extension to a $\partial$-functor $\KK^+(\mathcal{A})\to\KK^+(\mathcal{B})$).
+
+\emph{$\gamma$)} Let $\mathcal{A},\mathcal{B}$ be abelian categories, $F\colon\mathcal{A}\to\mathcal{B}$ additive. Assume:
+\begin{enumerate}
+\item[(a)] The hypotheses of $\beta$ hold;
+\item[(b)] $F$ has finite cohomological dimension: there exists $n>0$ such that $\RR^iF(Y)=0$ for all $Y\in\operatorname{Ob}\mathcal{A}$ and all $i>n$.
+\end{enumerate}
+Then $\DerR F$ exists on all of $\DD(\mathcal{A})$, and its restriction to $\DD^+(\mathcal{A})$ coincides with $\DerR^+F$.
+\end{corollary}
+
+\textbf{Remark.} Case $\alpha$ is a special case of $\beta$: if $\mathcal{A}$ has enough injectives, the class of injective objects satisfies (i),(ii),(iv) for any additive $F$.
+
+\begin{proof}
+\emph{$\alpha$)} Let $\mathcal{L}\subseteq\KK^+(\mathcal{A})$ be the triangulated subcategory of bounded-below injective complexes. By Lemma 1.4.6(1), every object of $\KK^+(\mathcal{A})$ admits a quasi-isomorphism into an object of $\mathcal{L}$. By Lemma 1.4.5, every quasi-isomorphism in $\mathcal{L}$ is an isomorphism, so acyclic objects of $\mathcal{L}$ are zero in $\KK(\mathcal{A})$. Thus condition (2) of Theorem 1.5.1 holds for any $\partial$-functor $F$, so $\DerR^+F$ exists.
+
+\emph{$\beta$)} Take $\mathcal{L}\subseteq\KK^+(\mathcal{A})$ to be the triangulated 
+subcategory of complexes of objects of $P$ (Note $\mathcal{L}$ is a 
+triangulated subcategory because $P$ is stable under direct sums 
+by (ii).). Condition (1) holds of the theorem is satisfied as above. For (2), let $Z^\bullet\in\mathcal{L}$ be acyclic; using (ii) repeatedly, all kernels $\ker d_Z^p$ lie in $P$. By (iv), $F$ preserves exactness, so $F(Z^\bullet)$ is acyclic.
+
+\emph{$\gamma$)} Let $P'$ be the collection of $F$-acyclic objects of $\mathcal{A}$ ($\RR^iF(X)=0,\forall i>0$). Then $P'$ satisfies (i),(ii),(iii) of Lemma 1.4.6. Let $\mathcal{L}\subseteq\KK(\mathcal{A})$ be complexes of objects of $P'$. By Lemma 1.4.6 and the argument for $\beta$, the hypotheses of Theorem 1.5.1 are satisfied, so $\DerR F$ exists.
+
+By Proposition 1.5.2, the restriction of $\DerR F$ to $\DD^+(\mathcal{A})$ is isomorphic to $\DerR^+F$.
+\end{proof}
+
+\begin{proposition}\label{prop:1.5.4}
+Let $\mathcal{A},\mathcal{B},\mathcal{C}$ be abelian categories, $\KK^*(\mathcal{A})\subseteq\KK(\mathcal{A})$, $\KK^\dagger(\mathcal{B})\subseteq\KK(\mathcal{B})$ localizing subcategories, and let
+\[
+F\colon\KK^*(\mathcal{A})\to\KK(\mathcal{B}),\qquad
+G\colon\KK^\dagger(\mathcal{B})\to\KK(\mathcal{C})
+\]
+be $\partial$-functors.
+
+\emph{a)} Assume $F(\KK^*(\mathcal{A}))\subseteq\KK^\dagger(\mathcal{B})$, that $\DerR^*F,\DerR^\dagger G,\DerR^*(G\circ F)$ exist, and $\DerR^*F(\DD^*(\mathcal{A}))\subseteq\DD^\dagger(\mathcal{B})$. Then there exists a unique functor morphism
+\[
+\zeta\colon \DerR^*(G\circ F) \to \DerR^\dagger G\circ \DerR^*F
+\]
+so the the diagram is commutative.
+\[
+\begin{tikzcd}
+	Q \cdot G \cdot F \arrow[rr, "\xi_G"] \arrow[dd, "\xi_{G \cdot F}"'] & & \DerR^+ G \cdot Q \cdot F \arrow[dd, "\xi_F"] \\
+	\\
+	\DerR^*(G \cdot F) \cdot Q \arrow[rr, "\zeta \cdot Q"] & & \DerR^+ G \cdot \DerR^* F \cdot Q
+\end{tikzcd}
+\]
+\emph{b)} Suppose there exist triangulated subcategories $\mathcal{L}\subseteq\KK^*(\mathcal{A})$, $\MM\subseteq\KK^\dagger(\mathcal{B})$ satisfying Theorem 1.5.1's hypotheses for $F,G$ respectively, and $F(\mathcal{L})\subseteq\MM$. Then the hypotheses of (a) hold, and the canonical morphism $\zeta$ is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+Straightforward
+\end{proof}
+
+\textbf{Remarks.}
+\begin{enumerate}
+\item If $F,G,H$ are three consecutive functors, 
+then there is a commutative diagram of $\zeta$s (provided they all 
+exist):
+\[
+\begin{tikzcd}
+	\DerR(H \cdot G \cdot F)
+	\arrow[rr, "\xi_{G \cdot F, H}"]
+	\arrow[dd, "\zeta_{F, H \cdot G}"']
+	& &
+	\DerR H \cdot \DerR(G \cdot F)
+	\arrow[dd, "\zeta_{F, G}"] \\
+	\\
+	\DerR(H \cdot G) \cdot \DerR F
+	\arrow[rr]
+	& &
+	\DerR H \cdot \DerR G \cdot \DerR F
+\end{tikzcd}
+\]
+\item This proposition shows the convenience of derived 
+functors in the context of derived categories. What used to be 
+a 
+spectral sequence becomes now simply a composition of functors. 
+(And of course one can recover the old spectral sequence from 
+this proposition by taking cohomology and using the spectral 
+sequence of a double complex.)
+\end{enumerate}
+\begin{corollary}
+	 Left to the reader: Illustrate the Proposition in the style of Corollary 5.3.
+\end{corollary}
+\begin{proposition}\label{prop:1.5.6}
+Let $\mathcal{A}$ be an abelian category, let $\mathcal{A}'$ be a thick abelian subcategory, let $\mathcal{B}$ be another abelian category, and let $F\colon\KK^+(\mathcal{A})\to\KK^+(\mathcal{B})$ be a $\partial$-functor. Suppose that $\DerR^+F$ and $\DerR^+\big(F|_{\mathcal{A}'}\big)$ both exist. Then there is a natural morphism
+\[
+\zeta\colon \DerR^+\big(F|_{\mathcal{A}'}\big) \longrightarrow \varphi\circ \DerR^+F
+\]
+of functors from $\DD^+(\mathcal{A}')$ to $\DD(\mathcal{B})$, where
+\[
+\varphi\colon\DD^+(\mathcal{A}')\longrightarrow\DD^+(\mathcal{A})
+\]
+is the natural functor. If furthermore $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, and $\mathcal{A}$ has enough injectives, then $\zeta$ is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+The existence of $\zeta$ follows from the definition of the derived functor. If $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, and $\mathcal{A}$ has enough injectives, then we can use $\mathcal{A}$-injectives to calculate both functors above, by Corollary 1.5.3 $\alpha$, and so $\zeta$ is an isomorphism. (Recall by Proposition 1.4.8 that $\varphi$ is an equivalence of categories in that case.)
+\end{proof}
+
+\section{Examples. $\operatorname{Ext}$ and $\DerR\Hom$}
+
+\begin{definition}
+Let $\mathcal{A}$ be an abelian category, and let $X^\bullet,Y^\bullet\in\DD(\mathcal{A})$.
+Define the \emph{$i$th hyperext groups} by
+\[
+\operatorname{Ext}^i\big(X^\bullet,Y^\bullet\big)
+= \Hom_{\DD(\mathcal{A})}\big(X^\bullet, T^i(Y^\bullet)\big).
+\]
+\end{definition}
+
+\textbf{Remarks.}
+\begin{enumerate}
+\item If $X^\bullet,Y^\bullet\in\DD^+(\mathcal{A})$, then $\operatorname{Ext}^i$ computed in $\DD^+(\mathcal{A})$
+agrees with the above, since $\DD^+(\mathcal{A})$ is a full subcategory of $\DD(\mathcal{A})$.
+
+\item This gives in particular a definition of  $\operatorname{Ext}^i(X,Y)$ for any $X,Y\in\mathcal{A}$.
+We shall see that if $\mathcal{A}$ has enough injectives, this coincides with the classical
+definition of Ext groups.
+\end{enumerate}
+
+\begin{proposition}\label{prop:1.6.1}
+Let
+\[
+0 \to X^\bullet \to Y^\bullet \to Z^\bullet \to 0
+\]
+be a short exact sequence of complexes over $\mathcal{A}$, and let $V^\bullet$ be another complex.
+Then we have long exact sequences
+\[
+\cdots \to \operatorname{Ext}^i(V^\bullet,X^\bullet)
+\to \operatorname{Ext}^i(V^\bullet,Y^\bullet)
+\to \operatorname{Ext}^i(V^\bullet,Z^\bullet)
+\to \operatorname{Ext}^{i+1}(V^\bullet,X^\bullet)
+\to \cdots
+\]
+and
+\[
+\cdots \to \operatorname{Ext}^i(Z^\bullet,V^\bullet)
+\to \operatorname{Ext}^i(Y^\bullet,V^\bullet)
+\to \operatorname{Ext}^i(X^\bullet,V^\bullet)
+\to \operatorname{Ext}^{i+1}(Z^\bullet,V^\bullet)
+\to \cdots
+\]
+\end{proposition}
+
+\begin{proof}
+Let $W^\bullet$ be the third side of a triangle on $X^\bullet \to Y^\bullet$.
+\[
+\begin{tikzcd}
+	& & W^\bullet \arrow[ld] \arrow[rd, dashed, "g"] & \\
+	0 \arrow[r] & X^\bullet \arrow[r] & Y^\bullet \arrow[u] \arrow[r] & Z^\bullet \arrow[r] & 0
+\end{tikzcd}
+\]
+Then by Proposition 1.1(b), there is a morphism of complexes $g\colon W^\bullet \to Z^\bullet$. Using the long exact sequence of cohomology of the short exact sequence, and of the triangle, and using the five-lemma, we see that $g$ is a quasi-isomorphism, i.e., an isomorphism in $\DD(\mathcal{A})$. Hence we may replace $Z^\bullet$ by $W^\bullet$ in the conclusion, which then follows from the same proposition.
+\end{proof}
+
+\textbf{Remark.}
+It follows from the proof that any short exact sequence of complexes
+\[
+0 \to X^\bullet \to Y^\bullet \to Z^\bullet \to 0
+\]
+determines a morphism $Z^\bullet\to T(X^\bullet)$ in $\DD(\mathcal{A})$, making $X^\bullet,Y^\bullet,Z^\bullet$
+into a triangle.
+
+Now we will define a functor whose cohomology gives the  $\operatorname{Ext}$ groups.
+
+\begin{definition}
+For complexes $X^\bullet,Y^\bullet$ over $\mathcal{A}$, define the complex
+$\Hom^\bullet(X^\bullet,Y^\bullet)$ by
+\[
+\Hom^n\big(X^\bullet,Y^\bullet\big)
+= \prod_{p\in\mathbb{Z}} \Hom_{\mathcal{A}}\big(X^p,Y^{p+n}\big),
+\]
+with differential
+\[
+d^n = \prod_{p\in\mathbb{Z}} \big(d_X^{p-1} + (-1)^{n+1}d_Y^{p+n}\big).
+\]
+
+Notice under this definition the $n$-cycles of $\Hom^\bullet(X^\bullet,Y^\bullet)$ correspond bijectively
+to morphisms $X^\bullet\to T^n(Y^\bullet)$ of complexes.
+The $n$-boundaries correspond to morphisms homotopic to zero.
+In other words
+\[
+H^n\big(\Hom^\bullet(X^\bullet,Y^\bullet)\big)
+\cong \Hom_{\KK(\mathcal{A})}\big(X^\bullet, T^n(Y^\bullet)\big).
+\]
+
+Clearly $\Hom^\bullet$ is a bi-$\partial$-functor
+\[
+\Hom^\bullet\colon\KK(\mathcal{A})^\circ \times \KK(\mathcal{A}) \to \KK(\mathbf{Ab}).
+\]
+\end{definition}
+
+If $\mathcal{A}$ has enough injectives, we can calculate its derived   functors.
+
+\begin{lemma}\label{lem:1.6.2}
+Let $X^\bullet\in\KK(\mathcal{A})$ be a complex, $Y^\bullet\in\KK^+(\mathcal{A})$ be a complex of injectives.
+Assume either
+\begin{enumerate}
+\item[(a)] $Y^\bullet$ is acyclic, or
+\item[(b)] $X^\bullet$ is acyclic.
+\end{enumerate}
+Then $\Hom^\bullet(X^\bullet,Y^\bullet)$ is acyclic.
 \end{lemma}
 
 \begin{proof}
-Let $K^{\bullet\bullet}$ be the double complex $K^{pq}=F^p\otimes G^q$. Then there are spectral sequences [EGA~0\textsubscript{III}~11.3.2]
+By the remark above, one has only to check that any morphism of $X^\bullet$ to $T^n(Y^\bullet)$ is homotopic to zero, or, since $T^n(Y^\bullet)$ also satisfies the hypotheses of the lemma, it is enough to show that any morphism of $X^\bullet$ to $Y^\bullet$ is homotopic to zero.
+In case (a), $Y^\bullet$ is split exact, and it is easy to construct the homotopy (left to reader).
+In case (b) the result follows from Lemma~\ref{lem:1.4.4}.
+\end{proof}
+
+Suppose $\mathcal{A}$ has enough injectives, and let $\mathcal{L}\subseteq\KK^+(\mathcal{A})$ be the triangulated
+subcategory of bounded-below injective complexes.
+By Lemma 1.6.2(a), for fixed $X^\bullet\in\KK(\mathcal{A})$, the functor
+\[
+\Hom^\bullet(X^\bullet,\,\cdot\,)\colon\KK^+(\mathcal{A})\to\KK(\mathbf{Ab})
+\]
+satisfies the hypotheses of Theorem 1.5.1, hence admits a right derived functor.
+This is functorial in $X^\bullet$, giving a bi-$\partial$-functor
+\[
+\DerR_\mathrm{II}\Hom^\bullet
+\colon\KK(\mathcal{A})^\circ \times \DD^+(\mathcal{A}) \to \DD(\mathbf{Ab}).
+\]
+
+Now using the lemma, part b), we see that this functor is "exa
+in the first variable, i.e., takes acyclic complexes into acyc
+complexes, and hence passes to the quotient, giving a trivial
+derived functor
+\[
+\DerR_\mathrm{I}\DerR_\mathrm{II}\Hom^\bullet: \quad D(A)^\circ \times D^+(A) \longrightarrow D(\mathbf{Ab}).
+\]
+(We will denote this functor by $\DerR\Hom^\bullet$ when no confusion can
+
+Suppose on the other hand that $A$ has enough projectives
+by the usual process of "reversing the arrows" we see that the
+also a functor
+\[
+\DerR_\mathrm{II}\DerR_\mathrm{I}\Hom^\bullet: \quad D^-(A)^\circ \times D(A) \longrightarrow D(A) .
+\]
+Now if $A$ has enough injectives and enough projectives, then
+functors $\DerR_\mathrm{I}\DerR_\mathrm{II}\Hom^\bullet$ and $\DerR_\mathrm{II}\DerR_\mathrm{I}\Hom^\bullet$ are defined on $D^-(A)^\circ \times D^+$
+
+and are canonically isomorphic, as we see by the lemma below.
+Thus we are justified in using the ambiguous notation $\DerR\Hom^\bullet$.
+
+
+\begin{lemma}\label{lem:1.6.3}
+Let $\mathcal{A},\mathcal{B},\mathcal{C}$ be abelian categories,
+\[
+T\colon\KK^*(\mathcal{A})\times\KK^\dagger(\mathcal{B})\to\KK(\mathcal{C})
+\]
+a bi-$\partial$-functor.
+Suppose that the derived functors $\DerR_\mathrm{I}\DerR_\mathrm{II}T$ and $\DerR_\mathrm{II}\DerR_\mathrm{I}T$ both exists, (where the subscripts $\mathrm{I},\,\mathrm{II}$ denote the derived functor in the first 
+or second variable, respectively). Then there is a unique isomorphism 
+between them compatible with the morphisms $\xi_1:T\rightarrow\DerR_\mathrm{I}\DerR_\mathrm{II}T$ and $\xi_2:T\rightarrow\DerR_\mathrm{II}\DerR_\mathrm{I}T$
+\end{lemma}
+
+\begin{proof}
+Immediate from the universal property of derived functors.
+\end{proof}
+
+\begin{theorem}[Yoneda]\label{thm:1.6.4}
+Let $\mathcal{A}$ have enough injectives.
+For all $X^\bullet\in\DD(\mathcal{A})$, $Y^\bullet\in\DD^+(\mathcal{A})$,
+\[
+H^i\big(\DerR\Hom^\bullet(X^\bullet,Y^\bullet)\big)
+= \operatorname{Ext}^i\big(X^\bullet,Y^\bullet\big).
+\]
+\end{theorem}
+
+\begin{corollary}\label{cor:1.6.5}
+If $\mathcal{A}$ has enough injectives, the derived-category definition of $\operatorname{Ext}^i(X,Y)$
+coincides with the classical $\Ext$ groups for all $X,Y\in\mathcal{A}$.
+\end{corollary}
+
+\begin{proof}[Proof of Corollary 1.6.5]
+Take an injective resolution $I^\bullet$ of $Y$. Then
+\[
+\operatorname{Ext}^i(X,Y) = H^i\big(\Hom^\bullet(X,I^\bullet)\big),
+\]
+which is the standard definition.
+\end{proof}
+
+\begin{proof}[Proof of Theorem 1.6.4]
+Choose a quasi-isomorphism $s\colon Y^\bullet\to I^\bullet$ with $I^\bullet$ a bounded-below injective complex. Then
+\[
+\operatorname{Ext}^i(X^\bullet,Y^\bullet)
+= \operatorname{Ext}^i(X^\bullet,I^\bullet)
+= \Hom_{\DD(\mathcal{A})}\big(X^\bullet,T^i(I^\bullet)\big).
+\]
+By Lemma 1.4.5, one sees that every morphism in $\DD(\mathcal{A)}$ of 
+a complex $X"$ to a complex of injectives bounded below, say $T^i(I^\bullet)$, 
+is represented by an actual morphism of complexes. Hence the above 
+is equal to
+\[
+\begin{aligned}
+\Hom_{\DD(\mathcal{A})}\big(X^\bullet,T^i(I^\bullet)\big)
+&= \Hom_{\KK(\mathcal{A})}\big(X^\bullet,T^i(I^\bullet)\big) \\
+&= H^i\big(\Hom^\bullet(X^\bullet,I^\bullet)\big) \\
+&= H^i\big(\DerR\Hom^\bullet(X^\bullet,Y^\bullet)\big).
+\end{aligned}
+\]
+\end{proof}
+
+\section{Way-out functors and Isomorphisms}
+
+\begin{definition}
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, and let $F\colon\DD(\mathcal{A})\to\DD(\mathcal{B})$ be a (covariant) $\partial$-functor.
+We say $F$ is \emph{way-out (right)} if for every $n_1\in\mathbb{Z}$, there exists $n_2\in\mathbb{Z}$ such that
+for any complex $X^\bullet\in\DD(\mathcal{A})$ satisfying $H^i(X^\bullet)=0$ for all $i<n_2$,
+we have $H^i(F(X^\bullet))=0$ for all $i<n_1$.
+
+One defines \emph{way-out left} and \emph{way-out in both directions} similarly.
+For a contravariant $\partial$-functor $F\colon\DD(\mathcal{A})\to\DD(\mathcal{B})$,
+the definition of way-out right is the same, except reversing the inequality to $i>n_2$.
+\end{definition}
+
+\textbf{Examples.}
+\begin{enumerate}
+\item If $F_0\colon\mathcal{A}\to\mathcal{B}$ is additive and satisfies the hypotheses of Corollary 1.5.3($\alpha$) or ($\beta$),
+then $\DerR^+F$ is way-out right.
+If $F_0$ satisfies ($\gamma$), then $\DerR F$ is way-out in both directions.
+
+\item For unbounded $X^\bullet\in\DD(\mathcal{A})$, the functor
+$\DerR\Hom(X^\bullet,\,Y^\bullet\,)$ for  $Y^\bullet \in \Ob \DD^+(\mathcal{A})$
+is generally not way-out in $Y^\bullet$.
+\end{enumerate}
+
+\begin{proposition}[Lemma on Way-out Functors]\label{prop:1.7.1}
+Let $\mathcal{A},\mathcal{B}$ be abelian categories, $\mathcal{A}'\subseteq\mathcal{A}$ a thick subcategory.
+Let $F,G$  be $\partial$-functors from $\DD_{\mathcal{A}'}^+(\mathcal{A})$ or $\DD_{\mathcal{A}'}(\mathcal{A})$ to $\DD(\mathcal{B})$,
+and $\eta\colon F\to G$ a morphism of functors.
+\begin{enumerate}
+\item[(i)] If $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$,
+then $\eta(X^\bullet)$ is an isomorphism for all $X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})$.
+
+\item[(ii)] If $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$,
+and $F,G$ are way-out right,
+then $\eta(X^\bullet)$ is an isomorphism for all $X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})$.
+
+\item[(iii)] If $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$,
+and $F,G$ are way-out in both directions,
+then $\eta(X^\bullet)$ is an isomorphism for all $X^\bullet\in\DD_{\mathcal{A}'}(\mathcal{A})$.
+
+\item[(iv)] Let $P\subseteq\operatorname{Ob}\mathcal{A}'$ be such that every object of $\mathcal{A}'$ embeds into an object of $P$.
+If $\eta(X)$ is an isomorphism for all $X\in P$, and $F,G$ are way-out right,
+then $\eta(X)$ is an isomorphism for all $X\in\operatorname{Ob}\mathcal{A}'$.
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Let $X^\bullet$ be a complex over abelian category $\mathcal{A}$, $n\in\mathbb{Z}$.
+Define truncation functors:
 \begin{align*}
-''E_2^{pq} &= H_{\mathrm{I}}^p H_{\mathrm{II}}^q(K^{\bullet\bullet}) \Longrightarrow E^n = H^n(F^\bullet\otimes G^\bullet)
-\intertext{and}
-''E_2^{pq} &= H_{\mathrm{II}}^p H_{\mathrm{I}}^q(K^{\bullet\bullet}) \Longrightarrow E^n = H^n(F^\bullet\otimes G^\bullet).
+\tau_{>n}(X^\bullet)&\colon \cdots\to 0\to X^{n+1}\to X^{n+2}\to\cdots,\\
+\tau_{\le n}(X^\bullet)&\colon \cdots\to X^{n-1}\to X^n\to 0\to\cdots,\\
+\sigma_{>n}(X^\bullet)&\colon \cdots\to 0\to \operatorname{im}d^n\to X^{n+1}\to X^{n+2}\to\cdots,\\
+\sigma_{\le n}(X^\bullet)&\colon \cdots\to X^{n-1}\to \ker d^n\to 0\to\cdots.
 \end{align*}
-Our hypotheses 1) or 2) imply that these spectral sequences are biregular. In case a), one shows that $B^q(G^\bullet)=Z^q(G^\bullet)$ is flat for each $q$, and so $F^p\otimes G^\bullet$ is acyclic for each $p$. This implies that $'E_2^{pq}=0$ for all $p,q$, and hence $E^n=0$, and $F^\bullet\otimes G^\bullet$ is acyclic. In case b), $F^\bullet\otimes G^q$ is acyclic for each $q$, since $G^q$ is flat, and so $''E_2^{pq}=0$ for each $p,q$. Hence again $E^n=0$, and $F^\bullet\otimes G^\bullet$ is acyclic.
-\end{proof}
 
-Now let $F^\bullet\in\KK^-(\operatorname{Mod}(X))$, and let $\mathcal{L}\subseteq\KK^-(\operatorname{Mod}(X))$ be the triangulated subcategory of complexes of flat $\sO_X$-modules. Then by Proposition~2.1.2 and the lemma, part a1), $\mathcal{L}$ satisfies the hypotheses of [I.5.1] for the functor
-\[
-F^\bullet\otimes\cdot\colon \KK^-(\operatorname{Mod}(X)) \longrightarrow \KK(\operatorname{Mod}(X)),
-\]
-and hence
-\[
-\DerL_{\mathrm{II}}\otimes\colon \KK^-(\operatorname{Mod}(X)) \times \DD^-(X) \longrightarrow \DD(X)
-\]
-exists. (It is clearly functorial in $F^\bullet$.)
+There are natural morphisms inducing short exact sequences of complexes:
+\begin{align}
+0 &\to \tau_{>n}(X^\bullet) \to X^\bullet \to \tau_{\le n}(X^\bullet) \to 0,\\
+0 &\to \sigma_{\le n}(X^\bullet) \to X^\bullet \to \sigma_{>n}(X^\bullet) \to 0.
+\end{align}
 
-By the lemma, part b1), this functor is exact in the first variable, hence passes to the quotient to give
+The $\sigma$-truncations satisfy:
 \[
-\DerL_{\mathrm{I}}\DerL_{\mathrm{II}}\otimes\colon \DD(X) \times \DD^-(X) \longrightarrow \DD(X).
-\]
-Of course we can derive $\otimes$ in the first variable first, then in the second variable, and by [I.6.3] we get the same result. We will therefore use the ambiguous notation $F^\bullet \underline{\underline{\otimes}} G^\bullet$ for $\DerL_{\mathrm{I}}\DerL_{\mathrm{II}}\otimes(F^\bullet,G^\bullet)$.
-
-\begin{definition}
-If $F^\bullet,G^\bullet\in\DD^-(X)$, we define the \emph{local hyperTor}
-\[
-\underline{\operatorname{Tor}}_i(F^\bullet,G^\bullet) = H^{-i}(F^\bullet\underline{\underline{\otimes}} G^\bullet).
+H^i\big(\sigma_{>n}(X^\bullet)\big)
+=
+\begin{cases}
+H^i(X^\bullet) & i>n,\\
+0 & i\le n;
+\end{cases}
+\qquad
+H^i\big(\sigma_{\le n}(X^\bullet)\big)
+=
+\begin{cases}
+H^i(X^\bullet) & i\le n,\\
+0 & i>n.
+\end{cases}
 \]
 \end{definition}
 
-\begin{proposition}\label{prop:2.4.2}
-Let $X$ be a prescheme, and let $F^\bullet\in\operatorname{Ob}\KK^b(\operatorname{Mod}(X))$. Then the following conditions are equivalent:
+\begin{lemma}\label{lem:1.7.2}
+For any complex $X^\bullet$ over $\mathcal{A}$, there exist triangles in $\DD(\mathcal{A})$:
+
+(3)
+\[
+\begin{tikzcd}
+	& \tau_{>n}(X^\bullet) \arrow[ld] & \\
+	\tau_{\geq n}(X^\bullet) \arrow[rr] & & X^n\arrow[lu]
+\end{tikzcd}
+\]
+
+\vspace{2em}
+
+(4)
+\[
+\begin{tikzcd}
+	& \sigma_{>n}(X^\bullet) \arrow[ld] & \\
+	H^n(X^\bullet) \arrow[rr] & & \sigma_{\geq n}(X^\bullet) \arrow[lu]
+\end{tikzcd}
+\]
+\end{lemma}
+
+\begin{proof}
+Triangle (3) comes from the short exact sequence
+\[
+0\to\tau_{>n}(X^\bullet)\to\tau_{\ge n}(X^\bullet)\to X^n\to 0.
+\]
+
+For the second, define
+$\sigma_{\ge n}'(X^\bullet)$ by
+\[
+\cdots\to 0\to X^n/\operatorname{im}d^{n-1}\to X^{n+1}\to\cdots.
+\]
+There is a quasi-isomorphism $\sigma_{\ge n}(X^\bullet)\to\sigma_{\ge n}'(X^\bullet)$,
+and an exact sequence
+\[
+0\to H^n(X^\bullet)\to\sigma_{\ge n}'(X^\bullet)\to\sigma_{>n}(X^\bullet)\to 0.
+\]
+This induces the required triangle in $\DD(\mathcal{A})$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition 1.7.1]
+(i) Let $X^\bullet\in\operatorname{Ob}\DD_{\mathcal{A}'}^b(\mathcal{A})$. We prove, by descending induction on $n$, that
+\[
+\eta\big(\sigma_{>n}(X^\bullet)\big): F(\sigma_{>n}(X^\bullet))\to G(\sigma_{>n}(X^\bullet))
+\]
+is an isomorphism for all $n$. If $n$ is large enough, then $\sigma_{>n}(X^\bullet)$ has zero cohomology, since $X^\bullet$ has bounded cohomology. Hence it is the zero object of $\DD(\mathcal{A})$, and $\eta$ of it is an isomorphism. The induction step follows from the hypotheses and Proposition 1.1(c), applied to the triangle (4) above. Now for $n$ small enough, the natural map $X^\bullet\to\sigma_{>n}(X^\bullet)$ is a quasi-isomorphism, hence an isomorphism in $\DD(\mathcal{A})$, and we are done.
+
+(ii) Let $X^\bullet\in\operatorname{Ob}\DD_{\mathcal{A}'}^+(\mathcal{A})$. To show $\eta(X^\bullet)$ is an isomorphism, it is sufficient to show that
+\[
+H^j(\eta(X^\bullet)): H^j(F(X^\bullet))\to H^j(G(X^\bullet))
+\]
+is an isomorphism for all $j\in\mathbb{Z}$. Given $j$, let $n_1\ge j+2$, and choose $n_2$ as in the definition of way-out functors, to work for $F$ and $G$ both. From the exact sequence (2) above, we have a triangle in $\DD(\mathcal{A})$.
+\[
+\begin{tikzcd}
+	& \tau_{>n_2}(X^\bullet) \arrow[ld] & \\
+	\tau_{\geq n_2}(X^\bullet) \arrow[rr] & & X^\bullet\arrow[lu]
+\end{tikzcd}
+\]
+ Since
+\[
+H^i(\sigma_{>n_2}(X^\bullet))=0 \quad\text{for } i\le n_2,
+\]
+we have
+\[
+H^i\big(F(\sigma_{>n_2}(X^\bullet))\big) = 0 = H^i\big(G(\sigma_{>n_2}(X^\bullet))\big)
+\]
+for $i<n_1$, in particular for $i=j,j+1$. Therefore from the long exact sequence of cohomology we get isomorphisms
+\begin{align*}
+H^j\big(F(\sigma_{\le n_2}(X^\bullet))\big) &\stackrel{\sim}{\longrightarrow} H^j\big(F(X^\bullet)\big),\\
+H^j\big(G(\sigma_{\le n_2}(X^\bullet))\big) &\stackrel{\sim}{\longrightarrow} H^j\big(G(X^\bullet)\big).
+\end{align*}
+But $\sigma_{\le n_2}(X^\bullet)\in\DD_{\mathcal{A}'}^b(\mathcal{A})$, so $\eta$ is an isomorphism on it by what we have just proved. Hence $H^j(\eta(X^\bullet))$ is an isomorphism, as required.
+
+(iii) Given $X^\bullet\in\DD_{\mathcal{A}'}(\mathcal{A})$, we treat first $\sigma_{\le 0}(X^\bullet)$ and $\sigma_{>0}(X^\bullet)$ by case (ii), then glue the results by a triangle deduced from the exact sequence (2).
+
+(iv) Given $X\in\operatorname{Ob}\mathcal{A}'$, we can find by Lemma 1.4.6 a resolution $I^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})$ of $X$, with each $I^p\in P$. Thus it is sufficient to show that $\eta(I^\bullet)$ is an isomorphism. This follows by applying the technique of (i) and (ii), but using the functors $\tau$ instead of $\sigma$.
+\end{proof}
+
+\begin{proposition}\label{prop:1.7.2}
+Let $\mathcal{A}$, $\mathcal{B}$ be abelian categories, and let $\mathcal{A}'\subseteq\mathcal{A}$, $\mathcal{B}'\subseteq\mathcal{B}$ be thick abelian subcategories,
+$F$ be a $\partial$-functor from $\DD_{\mathcal{A}'}^+(\mathcal{A})$ or $\DD_{\mathcal{A}'}(\mathcal{A})$ to $\DD(\mathcal{B})$,.
 \begin{enumerate}
-\item[(i)] There is a quasi-isomorphism $s\colon G^\bullet\to F^\bullet$ where $G^\bullet$ is a bounded complex of flat $\sO_X$-modules.
-\item[(ii)] The functor $F^\bullet\underline{\underline{\otimes}}\cdot$ from $\DD^-(X)$ to $\DD(X)$ is way-out right (and hence way-out in both directions).
-\item[(iii)] There is an $n_0$ such that $\underline{\operatorname{Tor}}_i(F^\bullet,\sG)=0$ for all $\sO_X$-modules $\sG$, and all $i>n_0$.
+\item[(i)] If $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in\operatorname{Ob}\mathcal{A}'$,
+then $F(X^\bullet)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X^\bullet\in\DD_{\mathcal{A}'}^b(\mathcal{A})$.
+
+\item[(ii)] If $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in\operatorname{Ob}\mathcal{A}'$
+and $F$ is way-out right,
+then $F(X^\bullet)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X^\bullet\in\DD_{\mathcal{A}'}^+(\mathcal{A})$.
+
+\item[(iii)] As in (ii) if $F$ is way-out in both directions, then $F(X^\bullet)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X^\bullet\in\DD_{\mathcal{A}'}(\mathcal{A})$.
+
+\item[(iv)] Let $P\subseteq\operatorname{Ob}\mathcal{A}'$ such that every object of $\mathcal{A}'$ embeds into $P$.
+If $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in P$ and $F$ is way-out right,
+then $F(X)\in\DD_{\mathcal{B}'}(\mathcal{B})$ for all $X\in\operatorname{Ob}\mathcal{A}'$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-The proof is entirely analogous to the proof of [I.7.6] and will be left to the reader. Important points are 1) an $\sO_X$-module $F$ is flat if and only if $\underline{\operatorname{Tor}}_1(F,\sG)=0$ for all $\sO_X$-modules $\sG$, 2) if $Z\to B\to 0$ is a surjection of $\sO_X$-modules with $Z\neq B$, then there exists an $\sO_X$-module $\sG$ (for example $\sG=\sO_X$) such that $Z\otimes\sG\neq B\otimes\sG$, and 3) the analogue of [I.4.5] for flat modules fails. Instead, we use the commutative diagram
-
-\[
-\begin{tikzcd}
-F'^\bullet \arrow[r] \arrow[d] & F^\bullet \arrow[d] \\
-\sigma_{\ge n}(F'^\bullet) \arrow[r] & \sigma_{\ge n}(F^\bullet)
-\end{tikzcd}
-\]
-where $F'^\bullet$ is a (not necessarily bounded) flat resolution of $F^\bullet$. Since $F^\bullet$ itself is a bounded complex, for $n$ small enough, $\sigma_{\ge n}(F^\bullet)$ is equal to $F^\bullet$. Hence $\sigma_{\ge n}(F'^\bullet)\to F^\bullet$ is the required quasi-isomorphism.
+The proof is analogous to that of the previous 
+proposition, and will be left to the reader. 
 \end{proof}
 
-\textbf{Remark.}
-We see from the proof that it is sufficient in (iii) to consider only quasi-coherent sheaves $\sG$. Indeed, it is sufficient to consider only the sheaves $\sO_X$, and $k(x)$ for every point $x\in X$. Similarly, in (ii) it is sufficient to consider the restriction of the functor $F^\bullet\underline{\underline{\otimes}}\cdot$ to $\DD_{\mathrm{qc}}^-(X)$.
+\begin{proposition}\label{prop:1.7.4}
+Let $\mathcal{A}$ have enough injectives, $F\colon\mathcal{A}\to\mathcal{B}$ additive of cohomological dimension $\le n$.
+Let $P\subseteq\operatorname{Ob}\mathcal{A}$ be all $X$ with $\RR^iF(X)=0$ for $i\ne n$.
+Assume every object of $\mathcal{A}$ is a quotient of an object in $P$.
+Set $G=\RR^nF$. Then $\DerR F,\DerL G$ exist, and there is a functorial isomorphism
+\[
+\psi\colon \DerR F \stackrel{\sim}{\to} \DerL G[-n],
+\]
+where $[-n]$ denotes shifting right by $n$ degrees.
+\end{proposition}
+
+\begin{proof}
+$\DerR F$ exists by Corollary~\ref{cor:1.5.3}.
+To see that $\DerL G$ exists, we apply Theorem~\ref{thm:1.5.1} with the arrows reversed.
+By hypothesis $P$ satisfies condition (i)$^*$ of Lemma~\ref{lem:1.4.6} (where $*$ denotes reversal of arrows), and one sees easily from the definition of $P$ that it satisfies also (ii)$^*$, (iii)$^*$, and (iv)$^*$ of Corollary~\ref{cor:1.5.3}.
+Therefore, if we let $\mathcal{L}\subseteq\KK(\mathcal{A})$ be the triangulated subcategory consisting of complexes of elements of $P$, we see as in the proof of Corollary~\ref{cor:1.5.3}($\gamma$) that the hypotheses 1)$^*$ and 2)$^*$ = 2) of the theorem are satisfied, and so $\DerL G$ exists.
+
+To define the morphism $\psi$, we observe, as in the proof of Theorem~\ref{thm:1.5.1}, that $\mathcal{L}_{\operatorname{Qis}}\to\DD(\mathcal{A})$ is an equivalence of categories, so it will be sufficient to define $\psi$ on $\mathcal{L}_{\operatorname{Qis}}$. Or, using Proposition~\ref{prop:1.3.4}, it will be sufficient to define $\psi$ on $\mathcal{L}$ itself.
+In other words, for every complex $X^\bullet$ of objects of $P$ we must give a morphism in $\DD(\mathcal{B})$,
+\[
+\psi(X^\bullet)\colon \DerR F(X^\bullet)\to \DerL G(X^\bullet)[-n],
+\]
+such that whenever $f\colon X^\bullet\to Y^\bullet$ is a morphism of such complexes, there is the usual commutative diagram
+$\DerL G(f)\cdot\psi(X^\bullet)=\psi(Y^\bullet)\cdot\DerR F(f)$.
+
 
 \begin{definition}
-If $F^\bullet\in\operatorname{Ob}\KK^b(\operatorname{Mod}(X))$ satisfies the equivalent conditions of the Proposition, we say that $F^\bullet$ has \emph{finite Tor-dimension}. These complexes form a localizing subcategory of $\KK(\operatorname{Mod}(X))$, which we denote by $\KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$. The corresponding subcategory of $\DD(X)$ is denoted by $\DD^b(X)_{\mathrm{fTd}}$.
+Let $\mathcal{A}$ be an abelian category, $X^\bullet$ a complex of objects of $\mathcal{A}$. We refer to [M, Ch.~IV, \S4] for the definition of double complexes, maps and homotopies of double complexes, and injective resolutions of complexes. We recall the following facts.
+ A \emph{(right) Cartan--Eilenberg resolution} of $X^\bullet$ is a double complex $C^{\cdot\cdot}$ of injective objects of $\mathcal{A}$, with $C^{p,q}=0$ if $p<0$, together with an augmentation morphism $\epsilon\colon X^\bullet\to C^{\bullet,0}$ such that for every $p\in\mathbb{Z}$, the induced maps
+\[
+B^p(\epsilon)\colon B^p(X^\bullet) \to B^p_{\mathrm{I}}(C^{\cdot\cdot}),\qquad
+H^p(\epsilon)\colon H^p(X^\bullet) \to H^p_{\mathrm{I}}(C^{\cdot\cdot})
+\]
+are injective resolutions in the usual sense (cf.\ [M, Ch.~XVII, \S1] where this is called an injective resolution of $X^\bullet$).
 \end{definition}
 
-\begin{proof}[Proof of the localizing property]
-Cf.\ [I.7.7].
+\begin{lemma}\label{lem:1.7.5}
+\leavevmode
+\begin{enumerate}
+\item[a)] If $\mathcal{A}$ has enough injectives, every complex $X^\bullet$ of objects of $\mathcal{A}$ has a Cartan--Eilenberg resolution.
+\item[b)] If $f\colon X^\bullet\to Y^\bullet$ is a morphism of complexes, and $C^{\cdot\cdot},D^{\cdot\cdot}$ are Cartan--Eilenberg resolutions of $X^\bullet,Y^\bullet$, then there exists a map $F\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ of double complexes lying over $f$.
+\item[c)] If $f,g\colon X^\bullet\to Y^\bullet$ are homotopic maps, and $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are maps of Cartan-Eilenberg resolutions lying over $f,g$, then $F$ is homotopic to $G$.
+\item[d)] If $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are homotopic maps of double complexes, then $s(F),s(G)\colon s(C^{\cdot\cdot})\to s(D^{\cdot\cdot})$ are homotopic maps of the associated simple complexes.
+\item[e)] If $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are homotopic maps of double complexes, and $\sigma^{\mathrm{II}}_{\le n}$ denotes truncation with respect to the second differential $\mathrm{d}_2$, then the restrictions of $F$ and $G$ to maps $\sigma^{\mathrm{II}}_{\le n}(C^{\cdot\cdot})\to\sigma^{\mathrm{II}}_{\le n}(D^{\cdot\cdot})$ are homotopic.
+\item[f)] If $\epsilon\colon X^\bullet\to C^{\cdot\cdot}$ augments $X^\bullet$ to a double complex $C^{\cdot\cdot}$ with $C^{p,q}=0$ for $q<0$ and $q>n_0$ (for suitable $n_0$), and such that for each $p$ the map $X^p\to C^{p,\bullet}$ is a resolution, then the natural map $X^\bullet\to s(C^{\cdot\cdot})$ into the associated simple complex is a quasi-isomorphism.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}[Proof of Lemma 1.7.5]
+Parts a), b), and c) are in [M, Ch.~XVII, Prop.\ 1.2]. Part d) is in [M, Ch.~IV, \S4]. Part e) is easy. Part f) follows either from the spectral sequence of a double complex [EGA~0\textsubscript{III}~11.3.3(ii)] or by a direct calculation.
 \end{proof}
 
-Now let $F^\bullet\in\operatorname{Ob}\KK(\operatorname{Mod}(X))$, and consider the functor $F^\bullet\otimes\cdot\colon \KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}\to\KK(\operatorname{Mod}(X))$.
+\textit{Proof of Proposition 1.7.4, continued.}
+Given $X^\bullet\in\operatorname{Ob}\mathcal{L}$, choose a Cartan--Eilenberg resolution $C^{\cdot\cdot}$ of $X^\bullet$ (exists by Lemma 1.7.5 a)). Define $C'^{\cdot\cdot} = \sigma^{\mathrm{II}}_{\le n}(C^{\cdot\cdot})$; explicitly
+\[
+C'^{p,q}=
+\begin{cases}
+C^{p,q} & q<n,\\
+\ker d_2^{p,n} & q=n,\\
+0 & q>n.
+\end{cases}
+\]
 
-Let $\mathcal{L}\subseteq\KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$ be the subcategory of complexes of flat modules. Then by Proposition~\ref{prop:2.4.2} and Lemma~\ref{lem:2.4.1}, part a2), $\mathcal{L}$ satisfies the hypotheses of [I.5.1] for this functor. Hence we can take the left derived functor in the second variable, and obtain
+For each $p\in\mathbb{Z}$, we have an exact sequence
 \[
-\DerL_{\mathrm{II}}\otimes\colon \KK(\operatorname{Mod}(X)) \times \DD^b(X)_{\mathrm{fTd}} \longrightarrow \DD(X).
+0\to X^p\to C'^{p,0}\to C'^{p,1}\to\cdots\to C'^{p,n-1}\to C'^{p,n}\to 0.
 \]
-By Lemma~\ref{lem:2.4.1}, part b2), this gives rise to a functor
+The terms $C'^{p,0},\dots,C'^{p,n-1}$ are injective and $X^p\in P$ implies $C'^{p,n}$ is $F$-acyclic. Hence this resolution may be used to calculate $\DerR F(X^p)$ (see end of Theorem 1.5.1), giving an isomorphism
 \[
-\DerL_{\mathrm{I}}\DerL_{\mathrm{II}}\otimes\colon \DD(X) \times \DD^b(X)_{\mathrm{fTd}} \longrightarrow \DD(X)
+\varphi(t^p)\colon G(X^p)=\RR^nF(X^p) \stackrel{\sim}{\longrightarrow} F(C'^{p,n})\big/\operatorname{im}F(C'^{p,n-1}),
 \]
-which we will also denote by $\underline{\underline{\otimes}}$.
+where $t^p$ is the quasi-isomorphism $X^p\to C^{p,\bullet}$. This may be used to construct a map
+\[
+\alpha^p\colon F(C^{p,\bullet})\to G(X^p),
+\]
+whence a map of double complexes
+\[
+\alpha\colon F(C'^{\cdot\cdot})\to G(X^\bullet),
+\]
+where $G(X^\bullet)$ is concentrated in the $n$-th row.
+
+Passing to the associated simple complexes we obtain
+\[
+s(\alpha)\colon F\big(s(C'^{\cdot\cdot})\big)\to G(X^\bullet)[-n].
+\]
+Now $u\colon X^\bullet\to s(C'^{\cdot\cdot})$ is a quasi-isomorphism into a complex of $F$-acyclic objects, by Lemma 1.7.5(f), so there is an isomorphism
+\[
+\varphi(u)\colon \DerR F(X^\bullet) \stackrel{\sim}{\longrightarrow} F\big(s(C'^{\cdot\cdot})\big).
+\]
+Since $X^\bullet$ consists of $G$-acyclic objects, there is an isomorphism
+\[
+\varphi(\operatorname{id}_{X^\bullet})\colon G(X^\bullet) \stackrel{\sim}{\longrightarrow} \DerL G(X^\bullet).
+\]
+Composing, we define
+\[
+\psi(X^\bullet)\colon \DerR F(X^\bullet) \longrightarrow \DerL G(X^\bullet)[-n].
+\]
+
+I do not care whether  $\psi(X^\bullet)$ is dependent of the choice of the Cartan--Eilenberg resolution $C^{\cdot\cdot}$. It will be sufficient to verify that whenever $f\colon X^\bullet\to Y^\bullet$ is a morphism of complexes in $\mathcal{L}$, then $\psi(X^\bullet)$ and $\psi(Y^\bullet)$ defined as above, fit into a commutative diagram. This is not hard to show using the results of the lemma above, and can safely be left to the reader.
+
+Thus we have a morphism of functors $\psi\colon \DerR F \to \DerL G[-n]$.
+
+To show that $\psi$ is an isomorphism, we note that $\DerR F$ and $\DerL G$ are way-out in both directions, and so, by the lemma on way-out functors (Proposition~\ref{prop:1.7.1}), we reduce to showing $\psi(X)$ is an isomorphism for any $X\in P$. But that is clear from the construction.
+\end{proof}
+
+\begin{proposition}\label{prop:1.7.6}
+Let $\mathcal{A}$ have enough injectives, $X^\bullet\in\KK^+(\mathcal{A})$. The following are equivalent:
+\begin{enumerate}
+\item[(i)] $X^\bullet$ admits a quasi-isomorphism $X^\bullet\rightarrow I^\bullet$ into a bounded complex of injective objects of $\mathcal{A}$.
+\item[(ii)] The functor $\DerR\Hom(\,\cdot\,,X^\bullet)\colon\DD(\mathcal{A})^\circ\to\DD(\mathbf{Ab})$ is way-out left (hence way-out both ways).
+\item[(iii)] There exists $n_0\in\mathbb{Z}$ such that $\operatorname{Ext}^i(Y,X^\bullet)=0$ for all $Y\in\operatorname{Ob}\mathcal{A}$ and all $i>n_0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$(i)\Rightarrow(ii)$: We may assume that $X^\bullet$ is a bounded 
+complex of injectives, and calculate $F(Y^\bullet)$ as $\Hom(Y^\bullet,X^\bullet)$. Then 
+it is clear that F is way-out in both directions. 
+
+
+$(ii)\Rightarrow(iii)$: Since $F$ is way-out left, choose $n_0$ such that whenever
+$Y^\bullet\in\DD(\mathcal{A})$ and $H^i(Y^\bullet)=0$ for $i<n_0$, then $H^i(F(Y^\bullet))=0$
+for $i>0$. Then this $n_0$ will do. Indeed, let $Y\in\operatorname{Ob}\mathcal{A}$,
+and let $Y'^\bullet$ be the complex $T^{-n_0}(Y)$. Then $H^i(Y'^\bullet)=0$ for
+$i<n_0$, so $H^i(F(Y'^\bullet))=0$ for $i>0$. But
+$H^i(F(Y'^\bullet)) = H^i(F(T^{-n_0}Y)) = H^{i+n_0}(F(Y))$.
+This says $\operatorname{Ext}^j(Y,X^\bullet)=0$ for $j>n_0$, as required.
 
 \medskip
 
-\textbf{Problem.}
-Does the functor
+$(iii)\Rightarrow(i)$: Let $X^\bullet$ satisfy condition (iii) for $n_0$. Since
+$\mathcal{A}$ has enough injectives, we can find an injective resolution of
+$X^\bullet$ (Lemma~\ref{lem:1.4.6}), i.e., a quasi-isomorphism
+$s\colon X^\bullet\to X'^\bullet$ where $X'^\bullet$ is a bounded-below complex
+of injective objects of $\mathcal{A}$.
+
+I claim that $H^i(X'^\bullet)=0$ for all $i>n_0$. Suppose to the contrary
+that $H^m(X'^\bullet)\neq 0$ for some $m>n_0$. Then from the exact sequence
 \[
-\otimes\colon \KK(\operatorname{Mod}(X)) \times \KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}} \longrightarrow \KK(\operatorname{Mod}(X))
+0 \to B^m(X'^\bullet) \to Z^m(X'^\bullet) \to H^m(X'^\bullet) \to 0
 \]
-admit a left derived functor in the first variable? Given $G^\bullet\in\operatorname{Ob}\KK^b(\operatorname{Mod}(X))_{\mathrm{fTd}}$, does there exist a subcategory $\mathcal{L}\subseteq\KK(\operatorname{Mod}(X))$ satisfying the hypotheses of [I.5.1] for $\cdot\otimes G^\bullet$?
+we see that the first inclusion is strict. Hence there exists a
+$Y\in\operatorname{Ob}\mathcal{A}$ (e.g., $Y=Z^m(X'^\bullet)$) such that the inclusion
+\[
+\Hom(Y, B^m(X'^\bullet)) \to \Hom(Y, Z^m(X'^\bullet))
+\]
+is strict. However, there is a commutative diagram
+\[
+\begin{CD}
+\Hom(Y,B^m(X'^\bullet)) @>>> \Hom(Y,Z^m(X'^\bullet)) \\
+@VVV @VV{\cong}V \\
+B^m\big(\Hom^\bullet(Y,X'^\bullet)\big) @>>> Z^m\big(\Hom^\bullet(Y,X'^\bullet)\big)
+\end{CD}
+\]
+with an isomorphism on the right since $\Hom$ is left exact.
+But by hypothesis $\operatorname{Ext}^m(Y,X^\bullet) = H^m(\Hom^\bullet(Y,X'^\bullet)) = 0$,
+so the arrow on top is an isomorphism, which gives a contradiction.
+Hence $H^i(X'^\bullet)=0$ for $i>n_0$, as claimed.
 
-\begin{proposition}\label{prop:2.4.4}
-Let $X$ be a prescheme (resp.\ a locally noetherian prescheme), and let $F^\bullet\in\DD_{\mathrm{qc}}(X)$ (resp.\ $\DD_{\mathrm{c}}(X)$) and let $G^\bullet\in\DD_{\mathrm{qc}}(X)$ (resp.\ $\DD_{\mathrm{c}}(X)$). Assume either
-\begin{enumerate}
-\item[a)] $F^\bullet\in\DD^-(X)$, or
-\item[b)] $G^\bullet\in\DD^b(X)_{\mathrm{fTd}}$.
-\end{enumerate}
-Then $F^\bullet\underline{\underline{\otimes}} G^\bullet\in\DD_{\mathrm{qc}}(X)$ (resp.\ $\DD_{\mathrm{c}}(X)$).
-\end{proposition}
+It follows that the map
+\[
+i\colon \sigma_{\le n}(X'^\bullet) \to X'^\bullet
+\]
+is a quasi-isomorphism for any $n\ge n_0$ (using the notation introduced
+earlier in this section). Now I claim that
+$Z^{n+1}(X'^\bullet)=B^{n+1}(X'^\bullet)$ is injective for any $n\ge n_0$.
+This will show that $\sigma_{\le n+1}(X'^\bullet)$ is a bounded complex of
+injectives.
 
-\begin{proof}
-Using [I.7.3] as before, it is enough to show that if $\sF,\sG$ are quasi-coherent (resp.\ coherent) $\sO_X$-modules, then $\underline{\operatorname{Tor}}_i(\sF,\sG)$ is quasi-coherent (resp.\ coherent) for all $i\ge 0$. The question is local on $X$, so we may assume $X$ affine. Then $\sF$ has a resolution by quasi-coherent (resp.\ coherent) $\sO_X$-modules, namely direct sums (resp.\ finite direct sums) of copies of $\sO_X$. We can use this resolution to calculate the $\underline{\operatorname{Tor}}_i(\sF,\sG)$.
+Consider the exact sequence of complexes
+\[
+0 \to \sigma_{\le n}(X'^\bullet) \to \tau_{\le n}(X'^\bullet) \to B^{n+1}(X'^\bullet)[-n] \to 0
+\]
+for $n\ge n_0$. We will show that $B^{n+1}=B^{n+1}(X'^\bullet)$ is injective by
+showing that $\operatorname{Ext}^1(Y,B^{n+1})=0$ for all $Y\in\operatorname{Ob}\mathcal{A}$.
+For any $Y$, we have
+\[
+\operatorname{Ext}^1(Y,B^{n+1}) = \operatorname{Ext}^{\,n+1}\big(Y,B^{n+1}[-n]\big)
+\]
+and there is an exact sequence
+\[
+\cdots \to \operatorname{Ext}^{n+1}\big(Y,\tau_{\le n}(X'^\bullet)\big)
+\to \operatorname{Ext}^{n+1}\big(Y,B^{n+1}[-n]\big)
+\to \operatorname{Ext}^{n+2}\big(Y,\sigma_{\le n}(X'^\bullet)\big) \to \cdots
+\]
+The group on the left is zero since $\tau_{\le n}(X'^\bullet)$ is an injective
+complex which stops in degree $n$. The group on the right is zero by
+our hypothesis and the fact that $\sigma_{\le n}(X'^\bullet)$ is isomorphic to
+$X'^\bullet$ in $\DD^+(\mathcal{A})$. Hence the middle group is zero.
+
+Now for $n\ge n_0$ we have seen that $\sigma_{\le n}(X'^\bullet)$ is a bounded
+complex of injectives, and that the map
+\[
+i\colon \sigma_{\le n}(X'^\bullet) \to X'^\bullet
+\]
+is a quasi-isomorphism. By Lemma~\ref{lem:1.4.5}, $i$ has a homotopy inverse,
+say $f$. Therefore the composition
+\[
+fs\colon X^\bullet \to \sigma_{\le n}(X'^\bullet)
+\]
+gives the required quasi-isomorphism of $X^\bullet$ into a bounded complex
+of injectives.
 \end{proof}
 
-Suppose now that $f\colon X\to Y$ is a morphism of preschemes. Then we have
-\[
-f^*\colon \operatorname{Mod}(Y) \longrightarrow \operatorname{Mod}(X)
-\]
-and we can take its left-derived functor
-\[
-\DerL f^*\colon \DD^-(Y) \longrightarrow \DD^-(X)
-\]
-since there are enough flat $\sO_Y$-modules, and they are $f^*$-acyclic. If $f^*$ has finite cohomological dimension on $\operatorname{Mod}(Y)$, then we say $f$ has finite Tor-dimension, and we can extend the domain of definition of $\DerL f^*$ to
-\[
-\DerL f^*\colon \DD(Y) \longrightarrow \DD(X).
-\]
+\begin{definition}
+If $X^\bullet\in\KK^+(\mathcal{A})$ satisfies the equivalent conditions of Proposition 1.7.6, we say $X^\bullet$ has \emph{finite injective dimension}.
+\end{definition}
 
-\begin{proposition}\label{prop:2.4.5}
-Let $f\colon X\to Y$ be a morphism of preschemes (resp.\ locally noetherian preschemes). Then $\DerL f^*$ takes $\DD_{\mathrm{qc}}^-(Y)$ (resp.\ $\DD_{\mathrm{c}}^-(Y)$) into $\DD_{\mathrm{qc}}^-(X)$ (resp.\ $\DD_{\mathrm{c}}^-(X)$). If $f$ is of finite Tor-dimension, the same is true for unbounded complexes.
-\end{proposition}
-
-\begin{proof}
-Left to reader.
-\end{proof}
-\section{Relations among the derived functors}
-
-In this section we will make a list of various natural homomorphisms and isomorphisms among the derived functors discussed in the previous sections.
-
-\begin{proposition}\label{prop:2.5.1}
-Let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms of preschemes. Then there is a natural isomorphism
-\[
-\zeta^+\colon \DerR^+(g_*\cdot f_*) \xrightarrow{\sim} \DerR^+g_*\cdot \DerR^+f_*
-\]
-of functors from $\DD^+(X)$ to $\DD^+(Z)$.
-
-Suppose furthermore that $X$ and $Y$ are noetherian of finite Krull dimension. Then there is a natural isomorphism
-\[
-\zeta\colon \DerR(g_*\cdot f_*) \xrightarrow{\sim} \DerR g_*\cdot \DerR f_*
-\]
-of functors from $\DD(X)$ to $\DD(Z)$.
-\end{proposition}
-
-\begin{proof}
-We use [I.5.4b]. For the first statement, let $\mathcal{L}\subseteq\KK^+(\operatorname{Mod}(X))$ be the complexes of injective sheaves, and let $\mathcal{M}\subseteq\KK^+(\operatorname{Mod}(Y))$ be the complexes of $g_*$-acyclic sheaves. Then $f_*(\mathcal{L})\subseteq\mathcal{M}$ (indeed, $f_*$ of an injective sheaf is flasque [EGA~0\textsubscript{III}~12.2.4] and a flasque sheaf is $g_*$-acyclic [EGA~0\textsubscript{III}~12.2.1]). Then the hypotheses are satisfied, so we have $\zeta^+$.
-
-For the second statement, let $\mathcal{L}\subseteq\KK(\operatorname{Mod}(X))$ be the complexes of sheaves which are $f_*$-acyclic and $g_*f_*$-acyclic. Let $\mathcal{M}\subseteq\KK(\operatorname{Mod}(Y))$ be the complexes of $g_*$-acyclic sheaves. Then by the first statement of the proposition we see that $f_*(\mathcal{L})\subseteq\mathcal{M}$. Indeed, if $F$ is both $f_*$-acyclic and $g_*f_*$-acyclic, then $\DerR f_*(F)\cong f_*(F)$, so for $i>0$, $\RR^ig_*(f_*F)\cong\RR^i(g_*f_*)(F)=0$, and $f_*F$ is $g_*$-acyclic. On the other hand, one sees easily that the collection $P$ of sheaves on $X$ which are $f_*$-acyclic and $g_*f_*$-acyclic satisfies (i) and (ii) of [I.4.6], so $\mathcal{L}$ and $\mathcal{M}$ satisfy the hypotheses of [I.5.1], and we have the isomorphism $\zeta$ by [I.5.4b].
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.2}
-Let $f\colon X\to Y$ be a morphism of preschemes. Then there is a natural isomorphism
-\[
-\zeta^+\colon \DerR^+\Gamma(X,\cdot) \xrightarrow{\sim} \DerR^+\Gamma(Y,\DerR f_*(\cdot))
-\]
-of functors from $\DD^+(X)$ to $\DD^+(\Ab)$.
-
-If furthermore $X$ and $Y$ are noetherian of finite Krull dimension, then there is a natural isomorphism
-\[
-\zeta\colon \DerR\Gamma(X,\cdot) \xrightarrow{\sim} \DerR\Gamma(Y,\DerR f_*(\cdot))
-\]
-of functors from $\DD(X)$ to $\DD(\Ab)$.
-\end{proposition}
-
-\begin{proof}
-Similar to proof of the previous proposition.
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.3}
-Let $X$ be a prescheme. Then there is a natural isomorphism
-\[
-\DerR\Hom^\bullet(F^\bullet,G^\bullet) \xrightarrow{\sim} \DerR\Gamma(X,\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet))
-\]
-of bi-functors from $\DD^-(X)^\bullet\times\DD^+(X)$ to $\DD(\Ab)$.
-\end{proposition}
-
-\begin{proof}
-Use [I.5.4]. Note that for any two sheaves $F$ and $G$, $\Hom(F,G)=\Gamma(\underline{\Hom}(F,G))$. Also note that if $G$ is injective, then $\underline{\Hom}(F,G)$ is flasque [G, II~7.3.2], and hence $\Gamma$-acyclic.
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.4}
-Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of preschemes. Then there is a natural isomorphism
-\[
-\zeta^-\colon \DerL^-(f^*\cdot g^*) \xrightarrow{\sim} \DerL^-f^*\cdot \DerL^-g^*
-\]
-of functors from $\DD^-(Z)$ to $\DD^-(X)$.
-
-If furthermore $f$ and $g$ have finite Tor-dimension (see \S4) then so does $g\circ f$, and there is a natural isomorphism
-\[
-\zeta\colon \DerL(g\circ f)^* \xrightarrow{\sim} \DerL f^*\cdot \DerL g^*
-\]
-of functors from $\DD(Z)$ to $\DD(X)$.
-\end{proposition}
-
-\begin{proof}
-Left to reader. (Note that $g^*$ takes flat $\sO_Z$-modules into flat $\sO_Y$-modules.)
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.5}
-Let $f\colon X\to Y$ be a morphism of preschemes, with $X$ noetherian of finite Krull dimension. Then there is a natural functorial homomorphism
-\[
-\DerR f_* \DerR\underline{\Hom}^\bullet_X(F^\bullet,G^\bullet) \longrightarrow \DerR\underline{\Hom}^\bullet_Y(\DerR f_*F^\bullet,\DerR f_*G^\bullet)
-\]
-for $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD^+(X)$.
-\end{proposition}
-
-\begin{proof}
-Note first that our hypotheses on $f$, $Y$, $F^\bullet$, and $G^\bullet$ ensure that both objects above are defined (cf.\ \S2 and \S3 above). We wish to define a morphism between two functors from $\DD^-(X)^\bullet\times\DD^+(X)$ to $\DD(Y)$. Let $\mathcal{L}\subseteq\KK^-(\operatorname{Mod}(X))$ be the complexes of $f_*$-acyclic objects, and let $\mathcal{M}\subseteq\KK^+(\operatorname{Mod}(X))$ be the complexes of injective objects. Then, as we have seen before ([I, \S5] and \S2 above) the natural functors
-\[
-\mathcal{L}_{\mathrm{qis}} \longrightarrow \DD^-(X)
-\]
-and
-\[
-\mathcal{M}_{\mathrm{qis}} \longrightarrow \DD^+(X)
-\]
-are equivalences of categories. Hence it will be sufficient to define a morphism between the extensions of our functors to functors from $\mathcal{L}_{\mathrm{qis}}{}^\bullet\times\mathcal{M}_{\mathrm{qis}}{}^\bullet$ to $\DD(Y)$. But now, using [I.3.4] applied to the triangulated categories $\mathcal{L}$ and $\mathcal{M}$, we see that it is enough to define a morphism of functors
-\[
-\DerR f_* \DerR\underline{\Hom}_X^\bullet(QF^\bullet, QG^\bullet) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(\DerR f_*QF^\bullet, \DerR f_*QG^\bullet)
-\]
-(where $Q$ denotes the localization functor from $\mathcal{L}$ to $\mathcal{L}_{\mathrm{qis}}$ or $\mathcal{M}$ to $\mathcal{M}_{\mathrm{qis}}$) for $F^\bullet\in\mathcal{L}$ and $G^\bullet\in\mathcal{M}$.
-
-We now make explicit the morphisms $\xi$ between a functor and its derived functor (cf.\ definition of derived functor, [I.5]) and obtain the following diagram:
-\[
-\begin{tikzcd}[row sep=large, column sep=large]
-	Qf_* \underline{\Hom}^\bullet(F^\bullet, G^\bullet)
-	\arrow[r, "\xi_{f_*}"', "(1)"]
-	\arrow[d, "\varphi"']
-	& \DerR f_*\, Q\underline{\Hom}^\bullet(F^\bullet, G^\bullet)
-	\arrow[d, "(2)", "\xi_{\underline{\Hom}^\bullet}"'] \\
-	Q\underline{\Hom}^\bullet(f_*F^\bullet, f_*G^\bullet)
-	\arrow[d, "(3)", "\xi_{\underline{\Hom}^\bullet}"']
-	& \DerR f_* \DerR\underline{\Hom}^\bullet(QF^\bullet, QG^\bullet)
-	\arrow[dd, dotted, "\psi"'] \\
-	\DerR\underline{\Hom}^\bullet(Qf_*F^\bullet, Qf_*G^\bullet)
-	\arrow[d, "(4)", "\xi_{f_*}"']
-	& \\
-	\DerR\underline{\Hom}^\bullet(Qf_*F^\bullet, \DerR f_*QG^\bullet)
-	\arrow[r, "(5)", "\xi_{f_*}"']
-	& \DerR\underline{\Hom}^\bullet(\DerR f_*QF^\bullet, \DerR f_*QG^\bullet)
-\end{tikzcd}
-\]
-Here $\varphi$ is deduced from the well-known natural map
-\[
-f_* \underline{\Hom}_X(F,G) \longrightarrow \underline{\Hom}_Y(f_*F,f_*G)
-\]
-for any two sheaves of $\sO_X$-modules $F,G$. Now we use the last statement of [I.5.1] to deduce that certain of the $\xi$'s are isomorphisms.
-
-\begin{enumerate}
-\item[(1)] Since $G^\bullet$ is made of injective sheaves, $\underline{\Hom}^\bullet(F^\bullet,G^\bullet)$ is made of flasque sheaves [G, II~7.3.2] (note only finite products are involved since $F^\bullet\in\KK^-$ and $G^\bullet\in\KK^+$). But flasque sheaves are $f_*$-acyclic, so they can be used to calculate $\DerR f_*$, and hence the map $\xi_{f_*}$ denoted by (1) above is an isomorphism.
-\item[(2)] $G^\bullet$ is injective (or more precisely ``$\mathcal{M}$ satisfies the hypotheses of [I.5.1] for $\underline{\Hom}^\bullet(F^\bullet,\cdot)$'') and so $\xi_{\underline{\Hom}^\bullet}$ is an isomorphism.
-\item[(3)] We can say nothing here.
-\item[(4)] $G^\bullet$ is injective, so $\xi_{f_*}$ is an isomorphism.
-\item[(5)] $F^\bullet$ is made of $f_*$-acyclic sheaves, so $\xi_{f_*}$ here is an isomorphism.
-\end{enumerate}
-
-Therefore, since (1), (2), (4), and (5) are isomorphisms, there is a unique
-\[
-\psi\colon \DerR f_* \DerR\underline{\Hom}^\bullet(QF^\bullet,QG^\bullet) \longrightarrow \DerR\underline{\Hom}^\bullet(\DerR f_*QF^\bullet, \DerR f_*QG^\bullet)
-\]
-making the diagram commutative. This is the desired morphism of functors.
-\end{proof}
-
-\textbf{Remark.}
-We have given the above proof in some detail to show the method. Faced with a similar situation in the sequel, we will say simply ``we may assume $F^\bullet$ is made of $f_*$-acyclic objects, and $G^\bullet$ of injective objects'', and then we will drop all $Q$'s, and write ``$=$'' for any $\xi$ which is an isomorphism. In other words, we use the convention that we may erase the $\DerR$ before a functor applied to an argument for which $\xi$ is an isomorphism. So if $F^\bullet$ is a complex of $f_*$-acyclic objects, we will write $\DerR f_*(F^\bullet)=f_*F^\bullet$.
-
-\begin{proposition}[Projection formula]\label{prop:2.5.6}
-Let $f\colon X\to Y$ be a quasi-compact morphism of noetherian preschemes, of finite Krull dimension. Then there is a natural functorial isomorphism
-\[
-\DerR f_*(F^\bullet) \underline{\underline{\otimes}}_Y G^\bullet \xrightarrow{\sim} \DerR f_*(F^\bullet \underline{\underline{\otimes}}_X \DerL f^*G^\bullet)
-\]
-for $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^-(Y)$.
-\end{proposition}
-
-\begin{proof}
-Note first that both sides are defined. To define the morphism, we may assume that $F^\bullet$ is a complex of $f_*$-acyclic sheaves, and that $G^\bullet$ is a complex of $\sO_Y$-flat sheaves. Then we get the morphism by composing the usual projection formula for sheaves with suitable $\xi$'s:
-\[
-f_*(F^\bullet)\otimes_Y G^\bullet \xrightarrow{\sim} f_*(F^\bullet\otimes_X f^*G^\bullet) \xrightarrow{\xi} \DerR f_*(F^\bullet\otimes_X f^*G^\bullet)
-\]
-using the conventions of the remark above.
-
-To show it is an isomorphism, we must show for each $i$ that the map of sheaves
-\[
-H^i\big(\DerR f_*(F^\bullet)\underline{\underline{\otimes}}_Y G^\bullet\big) \longrightarrow H^i\big(\DerR f_*(F^\bullet\underline{\underline{\otimes}}_X \DerL f^*G^\bullet)\big)
-\]
-is an isomorphism. But this question is local on $Y$. Furthermore, the functors involved are all compatible with localization on $Y$, so we may assume $Y$ affine. Now, going back to the original morphism, note that both sides are way-out left functors in $G^\bullet$. Note also that every quasi-coherent $\sO_Y$-module is a quotient of a free $\sO_Y$-module, since $Y$ is affine. Hence, using the Lemma on Way-Out Functors [I.7.1 (ii) and (iv), dual statement], we reduce to the case where $G^\bullet$ is reduced to a single sheaf $G$, which is a free $\sO_Y$-module. But now $X$, $Y$, and $f$ are quasi-compact, so everything commutes with infinite direct sums, and we reduce to the case $G=\sO_Y$. (The noetherian hypothesis ensures that $\RR^if_*$ commutes with direct sums, cf.\ [T~3.6.2] and [G, II~\S4.12].) Then we have $\DerR f_*(F^\bullet)$ on each side and we are done.
-\end{proof}
-
-\textbf{Remark.}
-Again we have given a proof in some detail to show the method. In the sequel, we may leave many of these details to the reader.
-
-\begin{corollary}\label{cor:2.5.7}
-Let $f,X,Y$ be as in the Proposition, and assume that $f$ has finite Tor-dimension. Let $F^\bullet\in\DD^b(X)$ have finite Tor-dimension (see Definition~4.3 above). Then $\DerR f_*F^\bullet\in\DD^b(Y)$ also has finite Tor-dimension.
+\begin{corollary}\label{cor:1.7.7}
+The complexes of finite injective dimension form a triangulated localizing subcategory of $\KK(\mathcal{A})$.
 \end{corollary}
 
 \begin{proof}
-We use condition (ii) of Proposition~4.2. Since $f$ has finite Tor-dimension, the functor on $\DD_{\mathrm{qc}}^-(Y)$
-\[
-G^\bullet \longmapsto \DerL f^*G^\bullet
-\]
-is way-out right. Since $F^\bullet$ also has finite Tor-dimension,
-\[
-G^\bullet \longmapsto F^\bullet \underline{\underline{\otimes}}_X \DerL f^*G^\bullet
-\]
-is way-out right, and so
-\[
-G^\bullet \longmapsto \DerR f_*(F^\bullet \underline{\underline{\otimes}}_X \DerL f^*G^\bullet)
-\]
-is way-out right. By the Proposition, this implies that the functor
-\[
-G^\bullet \longmapsto \DerR f_*(F^\bullet) \underline{\underline{\otimes}}_Y G^\bullet
-\]
-is way-out right (for $G^\bullet\in\DD_{\mathrm{qc}}^-(Y)$). But this implies that $\DerR f_*(F^\bullet)$ has finite Tor-dimension (using the Remark following Proposition~4.2).
+The fact that they form a triangulated subcategory follows e.g.\ from condition (iii) of Proposition~\ref{prop:1.7.6} and the long exact sequence of $\operatorname{Ext}$. We see that the subcategory is localizing by applying Proposition~\ref{prop:1.3.3}(i), since anything in $\KK^+(\mathcal{A})$ quasi-isomorphic to an element of the subcategory is already in the subcategory, and $\KK^+(\mathcal{A})$ is a localizing subcategory of $\KK(\mathcal{A})$.
 \end{proof}
-
-\textbf{Problem.}
-Let $f,X,Y$ be as in the Proposition, and assume that $f$ has finite Tor-dimension. Then the functors $\DerR f_*(F^\bullet)\underline{\underline{\otimes}}_Y G^\bullet$ and $\DerR f_*(F^\bullet\underline{\underline{\otimes}}_X \DerL f^* G^\bullet)$ are both defined for $F^\bullet\in\DD^b(X)_{\mathrm{fTd}}$, and $G^\bullet\in\DD_{\mathrm{qc}}(Y)$, using the result of the Corollary. Are they isomorphic? The problem is to define a morphism between them, since once we have a morphism, it is easy to prove that it is an isomorphism, using the lemma on way-out functors.
-
-\begin{proposition}\label{prop:2.5.8}
-Let $f\colon X\to Y$ be a flat morphism of preschemes. Then there is a natural functorial homomorphism
-\[
-f^* \DerR\underline{\Hom}^\bullet_Y(F^\bullet,G^\bullet) \longrightarrow \DerR\underline{\Hom}^\bullet_X(f^*F^\bullet,f^*G^\bullet)
-\]
-for $F^\bullet\in\DD(Y)$ and $G^\bullet\in\DD^+(Y)$. If furthermore $Y$ is locally noetherian, and $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$, it is an isomorphism. (We write $f^*$ instead of $\DerL f^*$ since it is an exact functor.)
-\end{proposition}
-
-\begin{proof}
-To define the map, we may assume $G^\bullet$ is a complex of injective sheaves, and then use the natural map of sheaves
-\[
-f^*\underline{\Hom}_Y(F,G) \longrightarrow \underline{\Hom}_X(f^*F,f^*G).
-\]
-To show the isomorphism, we may assume that $Y$ is affine, and then we reduce to the case $F=\sO_Y$ by the lemma on way-out functors.
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.9}
-Let $f\colon X\to Y$ be a morphism of preschemes. Then there is a natural functorial isomorphism
-\[
-\DerL f^*(F^\bullet) \underline{\underline{\otimes}}_X \DerL f^*(G^\bullet) \xrightarrow{\sim} \DerL f^*(F^\bullet\underline{\underline{\otimes}}_Y G^\bullet)
-\]
-for $F^\bullet,G^\bullet\in\DD^-(Y)$.
-\end{proposition}
-
-\begin{proof}
-Left to reader.
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.10}
-Let $f\colon X\to Y$ be a morphism of noetherian preschemes of finite Krull dimension. Then there is a natural functorial homomorphism
-\[
-\rho\colon F^\bullet \longrightarrow \DerR f_* \DerL f^*F^\bullet
-\]
-for $F^\bullet\in\DD^-(Y)$, which gives rise by Proposition~5.5 to a natural functorial homomorphism
-\[
-\tau \colon \DerR f_* \DerR\underline{\Hom}_X^\bullet(\DerL f^* F^\bullet, G^\bullet) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(F^\bullet, \DerR f_* G^\bullet)
-\]
-for $F^\bullet\in\DD^-(Y)$ and $G^\bullet\in\DD^+(X)$.
-
-If furthermore $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$, then $\tau$ is an isomorphism.
-\end{proposition}
-
-\begin{proof}
-To define $\rho$, we may assume $F^\bullet$ is a complex of flat $\sO_Y$-modules, compose the natural map $F^\bullet\to f_*f^*F^\bullet$ with $\xi_{f_*}$. To check that $\tau$ is an isomorphism, we may assume $Y$ affine, and then reduce to the case $F^\bullet=\sO_Y$. Then $\DerL f^*F^\bullet=\sO_X$, and we have simply $\DerR f_*G^\bullet$ on each side.
-\end{proof}
-
-\begin{corollary}\label{cor:2.5.11}
-Under the hypotheses of the Proposition, we have
-\[
-\Hom_{\DD(X)}(\DerL f^*F^\bullet,G^\bullet) \xrightarrow{\sim} \Hom_{\DD(Y)}(F^\bullet,\DerR f_*G^\bullet)
-\]
-in other words, $\DerL f^*$ and $\DerR f_*$ are adjoint functors from $\DD_{\mathrm{c}}^-(Y)$ to $\DD_{\mathrm{c}}^-(X)$ and $\DD^+(X)$ to $\DD^+(Y)$, respectively.
-\end{corollary}
-
-\begin{proof}
-Apply $H^0\DerR\Gamma$ to both sides of the isomorphism $\tau$ of the Proposition, and use Propositions~5.2, 5.3, and [I.6.4].
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.12}
-Let $f\colon X\to Y$ be a morphism of finite type of noetherian preschemes of finite Krull dimension. Let $u\colon Y'\to Y$ be a flat morphism, let $X'=X\times_Y Y'$, and let $v\colon X'\to X$ and $g\colon X'\to Y'$ be the projections, as shown:
-
-\[
-\begin{tikzcd}
-	X' \arrow[r, "v"] \arrow[d, "g"'] & X \arrow[d, "f"] \\
-	Y' \arrow[r, "u"] & Y
-\end{tikzcd}
-\]
-
-Then there is a natural functorial isomorphism
-\[
-u^* \DerR f_*F^\bullet \xrightarrow{\sim} \DerR g_* v^*F^\bullet
-\]
-for $F^\bullet\in\DD_{\mathrm{qc}}(X)$.
-\end{proposition}
-
-\begin{proof}
-To define the morphism, we may assume $F^\bullet$ is a complex of $f_*$-acyclic sheaves, and use the natural map $u^*f_*F^\bullet\to g_*v^*F^\bullet$ followed by $\xi_{g_*}$. Both sides are way-out in both directions, so to prove the isomorphism we reduce by the lemma on way-out functors to the case of a single quasi-coherent sheaf $F$ on $Y$. Then we must show that for each $i$,
-\[
-H^i(u^*\DerR f_*F) \xrightarrow{\sim} H^i(\DerR g_* v^*F).
-\]
-This is [EGA~III~1.4.15]. (Recall that the proof uses \v{C}ech cohomology, hence the quasi-coherence hypothesis.)
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.13}
-Let $X$ be a prescheme. Then there are natural functorial isomorphisms
-\[
-F^\bullet\underline{\underline{\otimes}} G^\bullet \xrightarrow{\sim} G^\bullet\underline{\underline{\otimes}} F^\bullet
-\]
-and
-\[
-F^\bullet\underline{\underline{\otimes}} (G^\bullet\underline{\underline{\otimes}} H^\bullet) \xrightarrow{\sim} (F^\bullet\underline{\underline{\otimes}} G^\bullet)\underline{\underline{\otimes}} H^\bullet
-\]
-for all $F^\bullet,G^\bullet,H^\bullet\in\DD^-(X)$.
-\end{proposition}
-
-\begin{proof}
-Left to reader.
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.14}
-Let $X$ be a prescheme. Then there is a natural functorial homomorphism
-\[
-\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\underline{\underline{\otimes}} H^\bullet \longrightarrow \DerR\underline{\Hom}^\bullet(F^\bullet, G^\bullet\underline{\underline{\otimes}} H^\bullet)
-\]
-for $F^\bullet\in\DD(X)$, $G^\bullet\in\DD^+(X)$, and $H^\bullet\in\DD^b(X)_{\mathrm{fTd}}$. If furthermore $X$ is locally noetherian, and $F^\bullet\in\DD_{\mathrm{c}}^-(X)$, then it is an isomorphism.
-\end{proposition}
-
-\begin{proof}
-Left to reader.
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.15}
-Let $X$ be a locally noetherian prescheme, and assume that every coherent sheaf on $X$ is a quotient of a locally free sheaf of finite rank (lffr). Then there is a natural functorial isomorphism
-\[
-\DerR\underline{\Hom}^\bullet(F^\bullet, \DerR\underline{\Hom}^\bullet(G^\bullet, H^\bullet)) \xrightarrow{\sim} \DerR\underline{\Hom}^\bullet(F^\bullet\underline{\underline{\otimes}} G^\bullet, H^\bullet)
-\]
-for $F^\bullet,G^\bullet\in\DD_{\mathrm{c}}^-(X)$, and $H^\bullet\in\DD^+(X)$.
-\end{proposition}
-
-\begin{proof}
-To define the morphism, we use the result of the exercise in \S3 above. We take resolutions of $F^\bullet$ and $G^\bullet$ by lffr's, and use them to calculate $\DerR\underline{\Hom}^\bullet$. Note that any lffr is flat, and so if $F^\bullet,G^\bullet$ are complexes of lffr's, then $F^\bullet\underline{\underline{\otimes}} G^\bullet=F^\bullet\otimes G^\bullet$, which is also a complex of lffr's. For the isomorphism, we use the lemma on way-out functors and reduce to the case $F^\bullet=\sO_X$.
-\end{proof}
-
-\begin{proposition}\label{prop:2.5.16}
-Let $X$ be a prescheme, and let $L^\bullet$ be a bounded complex of locally free sheaves of finite rank. Let $L^{\bullet\vee}=\underline{\Hom}^\bullet(L^\bullet,\sO_X)$. Then there are natural functorial isomorphisms
-\[
-\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)\underline{\underline{\otimes}} L^\bullet \xrightarrow{\sim} \DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet\underline{\underline{\otimes}} L^\bullet) \cong \DerR\underline{\Hom}^\bullet(F^\bullet\underline{\underline{\otimes}} L^{\bullet\vee},G^\bullet)
-\]
-for all $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD^+(X)$.
-\end{proposition}
-
-\begin{proof}
-Easy once one notes that the corresponding formulae hold for sheaves, and if $G$ is an injective sheaf, and $L$ a lffr, then $G\otimes L$ is injective.
-\end{proof}
-
-\section{Compatibilities among the relations of \S5}
-
-In situations involving three or more derived functors, there may be different ways of composing the homomorphisms and isomorphisms of \S5 to obtain a homomorphism or isomorphism of functors. One would like to know that the result is independent of any choices. We give three examples.
-
-\begin{enumerate}
-\item Let $f\colon X\to Y$, $g\colon Y\to Z$, and $h\colon Z\to W$ be three morphisms of preschemes. Then by Proposition~5.1 there are isomorphisms
-\[
-\begin{tikzcd}
-\DerR^+(h_*g_*f_*) \arrow[r, "\sim"] \arrow[d, "\sim"'] & \DerR^+h_* \DerR^+(g_*f_*) \arrow[d, "\sim"] \\
-\DerR^+(h_*g_*)\DerR^+(f_*) \arrow[r, "\sim"] & \DerR^+h_* \DerR^+g_* \DerR^+f_*
-\end{tikzcd}
-\]
-We would like to know that this diagram is commutative.
-
-\item Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of noetherian preschemes of finite Krull dimension. Then there are functorial homomorphisms
-\[
-\begin{tikzcd}[row sep=large, column sep=8em]
-	\DerR(g_* f_*) \DerR \underline{\mathrm{Hom}}_X^\bullet(F^\bullet, G^\bullet) 
-	\arrow[r, "\sim"] 
-	\arrow[dd]
-	& \DerR g_* \DerR f_* \DerR \underline{\mathrm{Hom}}_X^\bullet(F^\bullet, G^\bullet) 
-	\arrow[d] \\
-	% Middle row for the right-hand side
-	& \DerR g_* \DerR \underline{\mathrm{Hom}}_Y^\bullet(\DerR f_* F^\bullet, \DerR f_* G^\bullet) 
-	\arrow[d] \\
-	\DerR \underline{\mathrm{Hom}}_Z^\bullet(\DerR(g_* f_*) F^\bullet, \DerR(g_* f_*) G^\bullet) 
-	\arrow[r, "\sim"]
-	& \DerR \underline{\mathrm{Hom}}_Z^\bullet(\DerR g_* \DerR f_* F^\bullet, \DerR g_* \DerR f_* G^\bullet)
-\end{tikzcd}
-\]
-for $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD^+(X)$. Here the horizontal arrows are deduced from Proposition~5.1, and the vertical arrows from Proposition~5.5, and we have tacitly included in the left-hand vertical arrow a double use of the natural isomorphism $g_*f_*\cong(gf)_*$. We would like to know that this diagram is commutative.
-
-\item Let $X$ be a prescheme. Then there are functorial isomorphisms
-\[
-\begin{tikzcd}[row sep=large, column sep=5em]
-	F^\bullet \underline{\underline{\otimes}} (G^\bullet \underline{\underline{\otimes}} (H^\bullet \underline{\underline{\otimes}} I^\bullet)) 
-	\arrow[r, "\sim"] 
-	\arrow[dd] 
-	& F^\bullet \underline{\underline{\otimes}} ((G^\bullet \underline{\underline{\otimes}} H^\bullet) \underline{\underline{\otimes}} I^\bullet) 
-	\arrow[d, "\wr"] \\
-	& (F^\bullet \underline{\underline{\otimes}} (G^\bullet \underline{\underline{\otimes}} H^\bullet)) \underline{\underline{\otimes}} I^\bullet 
-	\arrow[d, "\wr"] \\
-	(F^\bullet \underline{\underline{\otimes}} G^\bullet) \underline{\underline{\otimes}} (H^\bullet \underline{\underline{\otimes}} I^\bullet) 
-	\arrow[r, "\sim"] 
-	& ((F^\bullet \underline{\underline{\otimes}} G^\bullet) \underline{\underline{\otimes}} H^\bullet) \underline{\underline{\otimes}} I^\bullet
-\end{tikzcd}
-\]
-for $F^\bullet, G^\bullet, H^\bullet, I^\bullet\in\DD^-(X)$, by Proposition~5.13. We would like to know that this diagram is commutative.
-\end{enumerate}
-
-In the first example, the commutativity follows from the Remark after [I.5.4]. In the second and third examples, we note that the homomorphisms and isomorphisms referred to are uniquely determined by the corresponding natural maps for sheaves, and by the condition that they commute with the relevant morphisms $\xi$ which occur in the definition of the derived functor. The required commutativities then follow from the analogous results for sheaves, which we may assume known.
-
-Now these examples are only three of many more similar compatibilities which will come immediately to the reader's mind. I could make a big list, and in principle could prove each one on the list. However, I would be sure to need some more later, and already the list of ones I can think of off-hand is too cumbersome to write down. And since the chore of inventing these diagrams and checking their commutativity is almost mechanical, the reader would not want to read them, nor I write them. It would be comforting to know that such a list existed, or to have a meta-theorem saying that any such diagram one would dream up is commutative. However, both of these possibilities seem of an order of complexity too great to treat in these notes.
-
-Unfortunately, I will have to use many of these compatibilities in an essential way in what is to follow. Perhaps for each theorem in the sequel one could make a list of exactly which compatibilities are needed, and verify them, but even that is too clumsy at this stage. So I must ask the reader's indulgence. I believe in the truth of the theorems stated, and I hope to convince him of their truth also. But I have not verified every commutative diagram which is necessary for a rigorous proof, and I do not suppose that any reader will have the patience to do so either.
-
-In particular, I believe that all reasonable compatibilities one could imagine between the ``natural'' homomorphisms and isomorphisms of \S5 are true, and so in the sequel I will write simply ``$=$'' instead of naming the isomorphism (provided, of course, the relevant hypotheses are satisfied). However, in later chapters we will deal with more homomorphisms and isomorphisms, where the compatibilities one can imagine are not always obvious, and may even be false (e.g., where there is a question of sign). Hence I will name those isomorphisms and list (in principle) the compatibilities we will need, and keep track of them.
-
-For a completely satisfactory treatment of this question of ``natural'' isomorphisms and their compatibilities, we must await future developments. Mac Lane [12 pp.\ 14,15] refers to the problem in the context of the associativity of the tensor product, where he says that he does not know even a finite number of diagrams such as the one in example 3 above, which together imply that all such diagrams involving associativities are commutative. Perhaps the language of fibred categories [SGA 60--61, expos\'e VI] or the techniques of [Giraud, thesis] will supply what is needed.
-
-\section{Injective sheaves on a locally noetherian prescheme}
-
-In this section we give the structure of the injective objects in the category $\operatorname{Mod}(X)$ of all $\sO_X$-modules on a locally noetherian prescheme $X$. We show in particular that every quasi-coherent $\sO_X$-module can be embedded in a quasi-coherent injective $\sO_X$-module, and hence that the natural functor
-\[
-\DD^+(\Qco(X)) \longrightarrow \DD_{\mathrm{qc}}^+(X)
-\]
-is an equivalence of categories.
-
-We use results of Gabriel [5], which in turn were inspired from results of Matlis [13] in the case of noetherian rings.
 
 \begin{definition}
-Let $A$ be an abelian category, and let $M$ be an object of $A$. An \emph{injective hull} of $M$ is an injective object $I$ of $A$, together with a monomorphism $M\to I$, such that if $N$ is a non-zero subobject of $I$, then $M\cap N\neq 0$.
-\end{definition}
-
-\begin{theorem}\label{thm:2.7.1}
-[5, Ch.\ II, Thm.\ 2]. If $A$ is an abelian category with generators and exact direct limits, then every object has an injective hull.
-\end{theorem}
-
-\textbf{Examples.}
-The category of modules over a commutative ring has generators and exact direct limits, hence has injective hulls.
-
-The category $\operatorname{Mod}(X)$ of $\sO_X$-modules on an arbitrary prescheme $X$ has generators and exact direct limits, hence has injective hulls.
-
-\begin{definition}
-[5, Ch.\ II, \S4]. An object of an abelian category $A$ is \emph{noetherian} if every ascending chain of subobjects is stationary. An abelian category $A$ is \emph{locally noetherian} if it has exact direct limits, and has a family of generators consisting of noetherian objects of $A$.
-\end{definition}
-
-\textbf{Examples.}
-The category of modules over a noetherian ring is locally noetherian --- the ring itself is a noetherian generator for the category.
-
-The category $\Qco(X)$ of quasi-coherent sheaves on a noetherian prescheme $X$ is locally noetherian, with the coherent sheaves forming a family of noetherian generators. This example was studied by Gabriel [5, Ch.\ VI].
-
-\begin{proposition}\label{prop:2.7.2}
-[5, Ch.\ IV, Prop.\ 6]. Any direct sum of injective objects in a locally noetherian category is injective.
-\end{proposition}
-
-\begin{theorem}\label{thm:2.7.3}
-[5, Ch.\ IV, Thm.\ 2]. Let $A$ be a locally noetherian category. Then every injective object $I$ of $A$ is isomorphic to a direct sum $\bigoplus_{j\in J} I_j$ of indecomposable injectives $I_j$. Furthermore, if $\bigoplus_{k\in K} I_k$ is a second such decomposition, then there is a bijection $h\colon J\to K$ such that $I_j\cong I_{h(j)}$ for each $j$.
-\end{theorem}
-
-\begin{proposition}\label{prop:2.7.4}
-[13]. Let $A$ be a noetherian ring. Then the indecomposable injective $A$-modules are precisely the injective hulls $I(\mathfrak{p})$ of $k(\mathfrak{p})$ over $A$, where $\mathfrak{p}$ ranges over the prime ideals of $A$.
-\end{proposition}
-
-We also have information about the structure of one of these injective hulls [Matlis, ibid.]:
-
-\begin{proposition}\label{prop:2.7.5}
-Let $A$ be a noetherian ring, let $\mathfrak{p}$ be a prime ideal of $A$, and let $I$ be an injective hull of the residue field $k(\mathfrak{p})$ of $\mathfrak{p}$. Then one can write $I$ as a direct limit of the submodules
-\[
-0 \subseteq E^1 \subseteq E^2 \subseteq \cdots
-\]
-where $E^i = \Hom_A(A/\mathfrak{p}^i A, I)$ is an Artin module over the local ring $A_{\mathfrak{p}}$, and where, for each $i$,
-\[
-\dim_{k(\mathfrak{p})}(E^{i+1}/E^i) = \dim_{k(\mathfrak{p})}((\mathfrak{p}^i/\mathfrak{p}^{i+1})\otimes_A k(\mathfrak{p})).
-\]
-\end{proposition}
-
-Now we apply these results to locally noetherian preschemes, giving first a special case.
-
-\begin{definition}
-Let $X$ be a prescheme, $x$ a point of $X$, and $M$ an $\sO_{X,x}$-module. Then we define $i_x(M)$ to be the sheaf $i_x(\widetilde{M})$ on $X$, where $i\colon \operatorname{Spec}\sO_{X,x}\to X$ is the natural inclusion, and $\widetilde{M}$ is the sheaf on $\operatorname{Spec}\sO_{X,x}$ associated to $M$.
+Denote by $\KK^+(\mathcal{A})_{\mathrm{fid}}$ the full subcategory of $\KK^+(\mathcal{A})$ consisting of complexes of finite injective dimension. The corresponding derived subcategory is $\DD^+(\mathcal{A})_{\mathrm{fid}}$.
 \end{definition}
 
 \textbf{Remark.}
-We will be particularly interested in the case where $\operatorname{Supp}M$ is just the closed point $x$ of $\operatorname{Spec}\sO_{x,X}$. In that case $\Gamma(U,i_x(M))=M$ if $x\in U$, and $0$ otherwise, i.e., it is a simple sheaf on the closed subset $\overline{\{x\}}$ of $X$. Moreover, for any $\sO_X$-module $F$, we have
-\[
-\Hom_X(F, i_x(M)) = \Hom_{\operatorname{Spec}\sO_{X,x}}(i^*(F), \widetilde{M}) = \Hom_{\sO_{X,x}}(F_x, M)
-\]
-where $F_x$ is the stalk of $F$ at $x$.
-
-\begin{proposition}\label{prop:2.7.6}
-Let $X$ be a locally noetherian prescheme, let $x$ be a point of $X$, and let $I$ be an injective hull of $k(x)$ over the local ring $\sO_{x,X}$ of $x$. Then $i_x(I)$ is a (quasi-coherent) injective $\sO_X$-module.
-\end{proposition}
-
-\begin{proof}
-By Proposition~7.5 above, $I$ has support at the closed point of $\operatorname{Spec}\sO_{X,x}$. Therefore, if $F\subseteq G$ are two $\sO_X$-modules, and $\phi\colon F\to i_x(I)$ is a homomorphism of sheaves, $\phi$ gives a map $F_x\to I$, which extends to a map $G_x\to I$ since $I$ is an injective $\sO_{X,x}$-module. But by the Remark above, this gives a map of $G$ to $i_x(I)$ extending $\phi$, so $i_x(I)$ is an injective $\sO_X$-module.
-\end{proof}
-
-\begin{lemma}\label{lem:2.7.7}
-Let $X$ be a noetherian prescheme, and let $\sG\subseteq\sO_X$ be a sheaf of ideals (not necessarily quasi-coherent). Then there are a finite number of open subsets $U_i\subseteq X$, and a finite number of sections $s_{ij}\in\Gamma(U_i,\sG)$ for each $i$, such that at each point $x\in X$, the sections $s_{ij}$, for those $i$ such that $x\in U_i$, generate the stalk $\sG_x$ as an $\sO_{X,x}$-module.
-\end{lemma}
-
-\begin{proof}
-Since $X$ can be covered by a finite number of open affines, we may as well assume $X$ is affine, equal to $\operatorname{Spec}A$ for a suitable noetherian ring $A$.
-
-Let $x\in X$. For each open affine neighborhood $U$ of $x$ of the form $X_f=\operatorname{Spec}A_f$ for $f\in A$, consider the ideal $\mathfrak{a}(U)=\rho^{-1}\Gamma(U,\sG)$ of $A$, where
-\[
-\rho\colon A = \Gamma(X,\sO_X) \longrightarrow \Gamma(U,\sO_X)
-\]
-is the natural restriction. Clearly a smaller neighborhood gives a larger ideal. Hence by the a.c.c.\ in $A$, there is such a neighborhood $U$ of $x$ giving a maximal $\mathfrak{a}(U_x)=\mathfrak{a}_x$. Hence, since the rings $\Gamma(U,\sO_X)$ are localizations of $A$, we have for every such open neighborhood $U\subseteq U_x$ of $x$ that
-\[
-\Gamma(U,\sG) = \mathfrak{a}_x \otimes_A \Gamma(U,\sO_X) = \Gamma(U_x,\sG) \otimes_{\Gamma(U_x,\sO_X)} \Gamma(U,\sO_X). \tag{1}
-\]
-
-Now if $x'$ is a specialization of $x$ in $U_x$, i.e., $x'\in\overline{\{x\}}\cap U_x$, then every neighborhood of $x'$ contains $x$. So by (1) we see that the stalk $\sG_x$ can be generated by sections $s_i\in\Gamma(U_x,\sG)$, which, being an ideal in a noetherian ring, has a finite number of generators. (Recall that open sets of the form $X_f$ form a base for the topology of $X$.) Thus we have established the following result:
-
-$(*)$ For each point $x\in X$, one can find an open affine neighborhood $U_x$ of $x$, and a finite number of sections $s_i\in\Gamma(U_x,\sG)$, such that for every $x'\in\overline{\{x\}}\cap U_x$, the $s_i$ generate the stalk $\sG_{x'}$.
-
-Now we prove the statement of the Lemma. By quasi-compacity, we can find an open subset $U$ of $X$ (possibly empty) which is maximal with the property that the lemma is true for $\sG|_U$. Suppose that $U\neq X$. Let $x$ be the generic point of an irreducible component of $X-U$, and choose a neighborhood $U_x$ with the property $(*)$ above, and also so small that it does not meet any other irreducible component of $X-U$. Then every point of $U\cup U_x$ lies either in $U$ or in $\overline{\{x\}}\cap U_x$, so that the lemma is also true for $\sG|_{U\cup U_x}$. We conclude that $U=X$, which proves the Lemma.
-\end{proof}
-
-\begin{theorem}\label{thm:2.7.8}
-Let $X$ be a locally noetherian prescheme. Then the category $\operatorname{Mod}(X)$ of all $\sO_X$-modules is a locally noetherian category.
-\end{theorem}
-
-\begin{proof}
-$\operatorname{Mod}(X)$ clearly has exact direct limits. We must provide it with a family of noetherian generators. I claim the sheaves $\sO_U$, where $U$ is a noetherian open affine of $X$, and $\sO_U$ is the sheaf $\sO_X$ on $U$ and zero outside, will do. They clearly form a family of generators. To see that $\sO_U$ is noetherian, let $\sG_1\subseteq\sG_2\subseteq\cdots$ be an increasing sequence of subsheaves. We may assume $X=U$ is noetherian. Let $\sG=\bigcup\sG_k$. Then by the Lemma, there are a finite number of open sets $U_i$ and sections $s_{ij}\in\Gamma(U_i,\sG)$ which generate the stalk of $\sG$ at each point. For each $s_{ij}$, we can cover $U_i$ with a finite number of open sets $U_{ij\ell}$ such that each $s_{ij}|_{U_{ij\ell}}$ comes from a section of a suitable $\sG_{k(ij\ell)}$ over $U_{ij\ell}$. Doing this for all the $s_{ij}$, and taking $k=\max(k(ij\ell))$, we find that all the $s_{ij}$ come from sections of $\sG_k$. Hence $\sG_k=\sG$, and so our sequence is stationary.
-\end{proof}
-
-\begin{corollary}\label{cor:2.7.9}
-Let $X$ be a locally noetherian prescheme. Then any direct sum of injective $\sO_X$-modules is injective.
-\end{corollary}
-
-\begin{corollary}\label{cor:2.7.10}
-Let $X$ be a locally noetherian prescheme. Then any injective $\sO_X$-module can be written uniquely as a direct sum of indecomposable injective $\sO_X$-modules.
-\end{corollary}
-
-\begin{definition}
-Let $X$ be a locally noetherian prescheme, let $x\in X$, and let $x'$ be a specialization of $x$, i.e., $x'\in\overline{\{x\}}$. Let $I$ be an injective hull of $k(x)$ over the local ring $\sO_{X,x}$. We define $J(x,x')$ to be the restriction of the sheaf $i_x(I)$ to the closed subset $\overline{\{x'\}}$ of $\overline{\{x\}}$, as in [G, II~Thm.~2.9.1]. If $x=x'$, we write simply $J(x)$ for $J(x,x)=i_x(I)$. Note that $J(x,x')$ is an indecomposable injective $\sO_X$-module.
-\end{definition}
-
-\begin{theorem}\label{thm:2.7.11}
-Let $X$ be a locally noetherian prescheme. Then the indecomposable injective $\sO_X$-modules are precisely the sheaves $J(x,x')$ defined above, for every pair of points $x$ specializing to $x'$ of $X$.
-\end{theorem}
-
-\begin{lemma}\label{lem:2.7.12}
-Let $X$ be a locally noetherian prescheme, and let $I$ be an injective $\sO_X$-module. Then the stalk $I_x$ of $I$ at each point $x\in X$ is an injective module over the local ring $\sO_{X,x}$ of $x$.
-\end{lemma}
-
-\begin{proof}
-Since $\sO_{X,x}$ is a noetherian ring, it is sufficient to show that whenever $M\subseteq N$ is an inclusion of $\sO_{X,x}$-modules of finite type, and $\phi\colon M\to I_x$ is a map, then $\phi$ extends to $N$. We can find coherent sheaves $\overline{M}\subseteq\overline{N}$ on $X$, with stalks $M$ and $N$ at $x$ [EGA~I~9.4.8], and we can find a map of $\overline{M}$ to $I$ in a suitable neighborhood $\overline{U}$ of $x$, extending $\phi$, since $\overline{M}$ is a sheaf of finite presentation [EGA~0~5.2.6]. This gives a map of $\overline{M}_U$ to $I$. Now since $I$ is injective, this extends to a map of $\overline{N}_U$ to $I$, whose stalk at $x$ extends $\phi$.
-\end{proof}
-
-\begin{proof}[Proof of Theorem~7.11]
-Let $I$ be an indecomposable injective $\sO_X$-module. We define $\operatorname{Supp}(I)$ to be the set of points $x\in X$ such that the stalk $I_x$ is non-zero. Let $x'\in\operatorname{Supp}(I)$ be a maximal point (i.e., one which is not a specialization of any other point in $\operatorname{Supp}(I)$). Then by the lemma, the stalk $I_{x'}$ is an injective $\sO_{X,x'}$-module. Let $I_0$ be an indecomposable injective direct summand of $I_{x'}$. Then by Proposition~7.4, $I_0$ is of the form $I(\mathfrak{p})$ for some prime ideal $\mathfrak{p}$ of $\sO_{x'}$. Let $\mathfrak{p}$ correspond to the point $x\in X$. Then $i_x(I(\mathfrak{p}))=J(x)$, using the notation above. Furthermore, there is a natural inclusion of $\sO_Z$ in $J(x)$, where $Z=\overline{\{x\}}$. Since the stalk $J(x)_{x'}=I_0$ is mapped into $I_{x'}$, we have a map $\sO_{Z,x'}\to I_{x'}$, and hence can find a map $\phi\colon\sO_Z\to I$ extending it in a suitable neighborhood $U$ of $x'$. Let $Z'=\overline{\{x'\}}$. Then the image of $\phi$ has support in $Z'$, since $x'$ was chosen maximal in $\operatorname{Supp}(I)$, and by construction, $\phi$ is injective at $x'$. Now applying Lemma~7.7 to the kernel of $\phi$, we see that $\phi$ factors through $\sO_{Z,Z'}$, the restriction of $\sO_Z$ to the closed subset $Z'$, to give a map $\psi\colon\sO_{Z,Z'}\to I$ (defined on $U$), and that by shrinking $U$ a bit, we may assume that $\psi$ is injective on $U$. In other words, we have an injection of sheaves on $X$,
-\[
-\psi_U\colon \sO_{Z,Z',U} \longrightarrow I
-\]
-where $\sO_{Z,Z',U}$ is the restriction of $\sO_{Z,Z'}$ to the open set $U$.
-
-Now it is easily seen that $J(x,x')$ is an injective hull of $\sO_{Z,Z',U}$, so $\psi_U$ extends to give a map $J(x,x')\to I$, which is necessarily an inclusion since $\psi_U$ is. Now $J(x,x')$ being injective, is a direct summand, so must be equal to $I$ since $I$ was indecomposable.
-\end{proof}
-
-\begin{corollary}\label{cor:2.7.13}
-Let $X$ be a locally noetherian prescheme. Then every injective $\sO_X$-module is uniquely a direct sum of injectives $J(x,x')$ defined above.
-\end{corollary}
-
-\begin{corollary}\label{cor:2.7.14}
-Let $A$ be a noetherian ring, let $I$ be an injective $A$-module, and let $X=\operatorname{Spec}A$. Then $\widetilde{I}$ is an injective $\sO_X$-module.
-\end{corollary}
-
-\begin{proof}
-Follows from Theorem~7.3, Propositions~7.4 and~7.6, and Corollary~7.9.
-\end{proof}
-
-\begin{corollary}\label{cor:2.7.15}
-Let $A$ be a noetherian ring, let $M$ be an $A$-module of finite type, and let $N$ be any $A$-module. Then
-\[
-\underline{\operatorname{Ext}}_X^i(\widetilde{M},\widetilde{N}) = \operatorname{Ext}_A^i(M,N)^{\sim}
-\]
-for all $i$, where $X=\operatorname{Spec}A$.
-\end{corollary}
-
-\begin{proof}
-Since $M$ is of finite type,
-\[
-\underline{\Hom}_X(\widetilde{M},\widetilde{N}) = \Hom_A(M,N)^{\sim}
-\]
-for any $N$. Take an injective resolution $I^\bullet$ of $N$. Then $\widetilde{I}{}^\bullet$ is an injective resolution of $\widetilde{N}$ by the previous Corollary. Since $\widetilde{\;}$ is an exact functor, we have the result.
-\end{proof}
-
-\begin{lemma}\label{lem:2.7.16}
-Let $X$ be a prescheme, and let $F$ be an $\sO_X$-module. Then $F$ is injective in $\operatorname{Mod}(X)$ if and only if there is an open cover $\{U_\alpha\}$ of $X$ such that for each $\alpha$, $F|_{U_\alpha}$ is injective in the category $\operatorname{Mod}(U_\alpha)$.
-\end{lemma}
-
-\begin{proof}
-If $F$ is injective, then $F$ restricted to any open set is injective. Indeed, given $G'\subseteq G$ on $U$ and a map $G'\to F|_U$, we deduce a map $G'^X\to F$, where $G'^X$ is the sheaf $G'$ extended by zero outside $U$. This extends to a map $G^X\to F$, hence $G\to F|_U$.
-
-On the other hand, to test whether $F$ is injective, it is enough, by Zorn's lemma, to show that for every sheaf $G$ in a family of generators of the category, and for every map $\phi\colon G'\to F$ of a subsheaf $G'$ of $G$ to $F$, $\phi$ extends to $G$. Since the sheaves $\sO_U$ (which is $\sO_X$ on $U$ and $0$ outside), for $U$ arbitrarily small, form a family of generators of $\operatorname{Mod}(X)$, we see that the question of injectivity is local, as required.
-\end{proof}
-
-\begin{proposition}\label{prop:2.7.17}
-Let $X$ be a locally noetherian prescheme, and let $F$ be a quasi-coherent $\sO_X$-module. Then the following conditions are equivalent:
-\begin{enumerate}
-\item[(i)] $F$ is an injective $\sO_X$-module.
-\item[(ii)] $F$ is isomorphic to a direct sum of sheaves $J(x)$ for various $x\in X$.
-\item[(iii)] For every $x\in X$, the stalk $F_x$ of $F$ at $x$ is an injective $\sO_{X,x}$-module.
-\item[(iv)] For all coherent sheaves $G$ on $X$, $\operatorname{Ext}^1(G,F)=0$.
-\item[(v)] There is an open cover $\{U_\alpha\}$ of $X$ such that $F|_{U_\alpha}$ is an injective $\sO_{U_\alpha}$-module for all $\alpha$.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-(i) $\Longrightarrow$ (ii) We know by Corollary~7.13 that $F$ is isomorphic to a direct sum of $J(x,x')$. Since $F$ is quasi-coherent, each $J(x,x')$ must be also. But $J(x,x')$ is quasi-coherent if and only if $x=x'$, i.e., $J(x,x')=J(x)$.
-
-(ii) $\Longrightarrow$ (iii) Clear.
-
-(iii) $\Longrightarrow$ (iv) Since $G$ is coherent, $\operatorname{Ext}$ commutes with passage to stalks, and all the stalks are zero.
-
-(iv) $\Longrightarrow$ (v) On a noetherian affine $U=\operatorname{Spec}A$ of $X$, $\operatorname{Ext}^1(G,F)|_U=\operatorname{Ext}^1_A(M,N)^{\sim}$ where $G=\widetilde{M}$ and $F=\widetilde{N}$. The result then follows from [EGA~I~9.4.8], Corollary~7.14, and the well-known fact that on a noetherian ring, $N$ is injective if and only if $\operatorname{Ext}^1_A(M,N)=0$ for all $A$-modules $M$ of finite type.
-
-(v) $\Longrightarrow$ (i) by the lemma.
-\end{proof}
-
-\begin{theorem}\label{thm:2.7.18}
-Let $X$ be a locally noetherian prescheme. Then every quasi-coherent $\sO_X$-module $F$ can be embedded in a quasi-coherent, injective $\sO_X$-module $I$.
-\end{theorem}
-
-\begin{proof}
-Indeed, we will show that the injective hull $I$ of a quasi-coherent sheaf $F$ is quasi-coherent. Let $I$ be written as a direct sum of sheaves $J(x,x')$, by Corollary~7.13. For each such $J(x,x')$, since $I$ is an injective hull of $F$, there is a neighborhood $U$ of $x'$, and a section $s\in J(x,x')(U)$ which is also a section of $F(U)$. By shrinking $U$ if necessary, we may assume that the support of $s$ is just $U\cap Z'$, where $Z'=\overline{\{x'\}}$. Since $s$ is a section of a quasi-coherent sheaf $F$, it must be annihilated by some power of the ideal $\sO_{Z'}$ of $Z'$. This implies $x=x'$, for if $x\neq x'$, no section of $J(x,x')$ is annihilated by any power of $\sO_{Z'}$. Thus $J(x,x')=J(x)$ is quasi-coherent, and so $I$ is quasi-coherent.
-\end{proof}
-
-\begin{corollary}\label{cor:2.7.19}
-Let $X$ be a locally noetherian prescheme. Then the natural functor
-\[
-\DD^+(\Qco(X)) \longrightarrow \DD_{\mathrm{qc}}^+(X)
-\]
-is an equivalence of categories.
-\end{corollary}
-
-\begin{proof}
-(Cf.\ \S1 for notations.) Follows from [I.4.8].
-\end{proof}
-
-As an application, we give the following result on complexes of finite injective dimension.
-
-\begin{proposition}\label{prop:2.7.20}
-Let $X$ be a locally noetherian prescheme, let $A=\operatorname{Mod}(X)$, and let $F^\bullet\in\operatorname{Ob}\KK_{\mathrm{qc}}^+(A)$. Then the equivalent conditions (i), (ii), and (iii) of [I.7.6] are also equivalent to the following:
-\begin{enumerate}
-\item[(i)${}_{\mathrm{qc}}$] $F^\bullet$ admits a quasi-isomorphism $F^\bullet\to I^\bullet$ into a bounded complex of quasi-coherent injective $\sO_X$-modules.
-\item[(ii)${}_{\mathrm{qc}}$] The functor $\DerR\underline{\Hom}^\bullet(\cdot,F^\bullet)$ from $\DD(A)^\bullet$ to $\DD(A)$ is way-out left.
-\item[(iii)${}_{\mathrm{qc}}$] There is an integer $n_0$ such that $\underline{\operatorname{Ext}}^i(G,F^\bullet)=0$ for all $G\in\operatorname{Mod}(X)$ and all $i>n_0$.
-\item[(iii)${}_{\mathrm{c}}$] There is an integer $n_0$ such that $\underline{\operatorname{Ext}}^i(G,F^\bullet)=0$ for all $G\in\Coh(X)$ and all $i>n_0$.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-(i)${}_{\mathrm{qc}}$ $\Rightarrow$ (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (iii)${}_{\mathrm{c}}$ are all easy as before. It remains only to prove (iii)${}_{\mathrm{c}}$ $\Rightarrow$ (i)${}_{\mathrm{qc}}$. This is similar to the proof of (iii) $\Rightarrow$ (i) in loc.\ cit.\ using Proposition~7.17(iv) and Theorem~7.18 above.
-\end{proof}
-
-\begin{example}
-If $X$ is a locally noetherian prescheme, the category $\Qco(X)$ of quasi-coherent sheaves on $X$ may not be locally noetherian. Thus we do not know the structure of injectives in that category, and we do not know whether every injective object of $\Qco(X)$ is injective in $\operatorname{Mod}(X)$.
-
-Here is the example. Let $X_1$ be the projective plane, let $E_1$ be a line in $X_1$, and let $x_1$ be a closed point of $E_1$. Having defined $X_n, E_n, x_n$, define $X_{n+1}$ to be $X_n$ blown up at the point $x_n$, let $E_{n+1}$ be the exceptional curve, and let $x_{n+1}$ be a closed point of $E_{n+1}$. Define
-\[
-X = \bigcup_{n=1}^{\infty} (X_n - x_n),
-\]
-where we glue $X_n-x_n$ to the open subset $X_{n+1}-E_{n+1}$ of $X_{n+1}-x_{n+1}$. Then $X$ is an integral, locally noetherian scheme.
-
-However, $\Qco(X)$ is not a locally noetherian category. Indeed, let $\mathfrak{I}$ be a non-zero sheaf of ideals of $\sO_X$, and let $F$ be a noetherian generator of the category which admits a map into $\sO_X$ not factoring through $\mathfrak{I}$. Then the image of $F$ must be a noetherian non-zero ideal $\sG$ of $\sO_X$.
-
-For each $k=1,2,\dots$, let $Y_k$ be a closed subset of $X$,
-\[
-Y_k = \bigcup_{n=k}^{\infty} (E_n - x_n).
-\]
-Then $Y_1 \supset Y_2 \supset \cdots$. Let $\sJ_k$ be the sheaf of ideals of $Y_k$. Then $\sG\sJ_1 \subset \sG\sJ_2 \subset \cdots$ which is a contradiction to the statement $\sG$ is noetherian.
-
-We conclude that the category $\Qco(X)$ does not have a family of noetherian generators.
-\end{example}
-
-\textbf{Remark.}
-We do not know if the analogue of Corollary~7.19 is true for unbounded complexes, i.e., whether the natural functor
-\[
-\DD(\Qco(X)) \longrightarrow \DD_{\mathrm{qc}}(X)
-\]
-is an equivalence of categories. However, we conjecture it to be true when $X$ is a \emph{regular} noetherian scheme of finite Krull dimension, because in that case the category $\operatorname{Mod}(X)$ has finite injective dimension.
+These subcategories are essentially different from the subcategories of the form $\KK_{\mathcal{A}'}(\mathcal{A})$ and $\DD_{\mathcal{A}'}(\mathcal{A})$ we have considered before, because they cannot be characterized by putting conditions on the cohomology objects $H^i(X^\bullet)$.

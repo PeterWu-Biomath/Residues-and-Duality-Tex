@@ -1,680 +1,1542 @@
 
-\chapter{Local Cohomology}
+\chapter{Duality for Projective Morphisms}
+\section{Differentials}
 
-This chapter consists for a great part in definitions, which generalize those of the Local Cohomology lecture notes [LC]. Notable new material is the spectral sequence of a filtered topological space, and the Cousin complex of a sheaf.
-
-\section{Local cohomology groups, sheaves, and complexes}
-
-Throughout this section, $X$ will be an arbitrary topological space, and $F$ a sheaf of abelian groups on $X$. There are three ways in which one can vary the basic definition of the cohomology of $F$ with supports in a closed subset $Z$ of $X$: one can replace $Z$ by a family of supports; one can define a relative local cohomology if $Z'\subseteq Z$ are two closed subsets; and one can make everything local by sheafifying. Therefore we will present the definitions in the form of a theme and variations, to allow for all possible combinations of the generalizations suggested above.
-
-We state our results mostly in terms of the cohomology groups, and leave to the reader the appropriate statements in terms of the derived category. When $X$ is an arbitrary topological space, we work in the derived category $\DD(\Ab(X))$ of the category of abelian sheaves on $X$. If $X$ is a prescheme, we work in the derived category $\DD(X)=\DD(\operatorname{Mod}(X))$ of the category of $\sO_X$-modules. All the derived functors considered in this chapter are compatible in the two cases with the natural functor
-\[
-\DD^+(X)\longrightarrow \DD^+(\Ab(X)),
-\]
-since any injective $\sO_X$-module is flasque, and flasque sheaves are acyclic for the functors considered (Motif C below).
-
-\medskip\noindent\textbf{Theme.}
-Let $Z$ be a closed subset of $X$. Define $\Gamma_Z(X,F)$ to be the group consisting of those global sections of $F$ whose support lies in $Z$. Define $H_Z^i(X,F)$ to be the $i$th right derived functor of $\Gamma_Z$ (which is a left-exact functor), and define $\DerR\Gamma_Z$ to be the right derived functor on the derived category $\DD^+(\Ab(X))$. These are called the \emph{local cohomology groups} of $F$ with supports in $Z$. They have the following properties:
-
-\medskip\noindent\textbf{Motif A.} If
-\[
-0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow 0
-\]
-is a short exact sequence of abelian sheaves on $X$, then there is a long exact sequence of groups
-\begin{align*}
-0\longrightarrow &\Gamma_Z(X,F')\longrightarrow \Gamma_Z(X,F)\longrightarrow \Gamma_Z(X,F'')\longrightarrow\\
-&H^1_Z(X,F')\longrightarrow H^1_Z(X,F)\longrightarrow H^1_Z(X,F'')\longrightarrow\cdots.
-\end{align*}
-\begin{proof}
-This is the same as to say that $\Gamma_Z$ is left exact, and so is equal to $H^0(\DerR\Gamma_Z)$, which it is.
-\end{proof}
-
-\medskip\noindent\textbf{Motif B.} There is a long exact sequence
-\begin{align*}
-0\longrightarrow& \Gamma_Z(X,F)\longrightarrow \Gamma(X,F)\longrightarrow \Gamma(X-Z,F)\longrightarrow\\
-&H^1_Z(X,F)\longrightarrow H^1(X,F)\longrightarrow H^1(X-Z,F)\longrightarrow H^2_Z(X,F)\longrightarrow\cdots.
-\end{align*}
-\begin{proof}
-For any sheaf $F$ one has an exact sequence
-\[
-0\longrightarrow \Gamma_Z(X,F)\longrightarrow \Gamma(X,F)\longrightarrow \Gamma(X-Z,F),
-\]
-and if $F$ is flasque (in particular if $F$ is injective) one can write a zero on the right. Thus if $I^\bullet$ is an injective resolution of $F$, we have an exact sequence of complexes
-\[
-0\longrightarrow \Gamma_Z(X,I^\bullet)\longrightarrow \Gamma(X,I^\bullet)\longrightarrow \Gamma(X-Z,I^\bullet)\longrightarrow 0
-\]
-which gives rise to a distinguished triangle in $\DD^+(\Ab)$, 
-\[
-\begin{tikzcd}[row sep=2cm, column sep=2cm]
-	\DerR\Gamma_Z(F^\bullet) \arrow[r]& \DerR\Gamma(F^\bullet) \arrow[d] \\
-	& \DerR\Gamma(X-Z, F^\bullet|_{X-Z}) \arrow[lu]
-\end{tikzcd}
-\]
-Taking cohomology gives the result.
-\end{proof}
-
-\medskip\noindent\textbf{Motif C.} For $F$ flasque, and $i>0$, $H_Z^i(X,F)=0$.
-\begin{proof}
-This follows from Motif B, and the fact that $H^i(X,F)=H^i(X-Z,F)=0$ for $i>0$, and $\Gamma(X,F)\to\Gamma(X-Z,F)$ is surjective for $F$ flasque.
-\end{proof}
-\begin{remark}
-In fact, $F$ is flasque $\iff$ for every closed subspace $Z$ of $X$, $H_Z^1(X,F)=0$ [LC, 1.10].
-\end{remark}
-
-\medskip\noindent\textbf{Variation 1.}
-\begin{definition}
-A \emph{family of supports} on a topological space $X$ is a set $\varphi$ of closed subsets of $X$ such that
-\begin{itemize}
-\item[(a)] if $Z\in\varphi$, and $Z'$ is a closed subset of $Z$, then $Z'\in\varphi$, and
-\item[(b)] if $Z_1,Z_2\in\varphi$, then $Z_1\cup Z_2\in\varphi$.
-\end{itemize}
-\end{definition}
-
-Now let $\varphi$ be a family of supports, and define $\Gamma_\varphi(X,F)$ to be the group of global sections of $F$ whose support is in $\varphi$. Define $\DerR\Gamma_\varphi(X,F)$ and $H^i_\varphi(X,F)$ to be the right derived functors.
-
-\medskip\noindent\textbf{Motif A.} Repeat as above, with $Z$ replaced by $\varphi$.
-
-\medskip\noindent\textbf{Motif D.}
-\[
-H_{\varphi}^{i}(X,F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi}}\,H_{Z}^{i}(X,F).
-\]
-\begin{proof}
-It is true for $i=0$, and direct limits commute with cohomology of complexes.
-\end{proof}
-
-\medskip\noindent\textbf{Motif C.} For $F$ flasque, and $i>0$, $H_{\varphi}^{i}(X,F)=0$.
-\begin{proof}
-Follows from Motif D, and Motif C above.
-\end{proof}
-
-\medskip\noindent\textbf{Variation 2.}
-Let $Z'\subseteq Z$ be closed subsets of $X$. Define $\Gamma_{Z/Z'}(X,F)$ to be $\Gamma_Z(X,F)/\Gamma_{Z'}(X,F)$. Define $\DerR\Gamma_{Z/Z'}$ and $H^i_{Z/Z'}$ to be the right derived functors. Note that in general $\Gamma_{Z/Z'}$ is not left exact, so that $\Gamma_{Z/Z'}\neq H^0_{Z/Z'}$.
-
-\medskip\noindent\textbf{Motif A.} Repeat with $H^0$ in place of $\Gamma$, and $Z/Z'$ in place of $Z$.
-
-\medskip\noindent\textbf{Motif B.} There is a long exact sequence
-\begin{align*}
-0\longrightarrow &\Gamma_{Z'}(X,F)\longrightarrow \Gamma_Z(X,F)\longrightarrow H_{Z/Z'}^0(X,F)\longrightarrow\\
-&H_{Z'}^1(X,F)\longrightarrow H_Z^1(X,F)\longrightarrow H_{Z/Z'}^1(X,F)\longrightarrow\\
-&H_{Z'}^2(X,F)\longrightarrow\cdots.
-\end{align*}
-
-\medskip\noindent\textbf{Motif C.} Repeat.
-
-\medskip\noindent\textbf{Variation 3.}
-Let $Z$ be a closed subset of $X$. Define $\underline{\Gamma}_Z(F)$ to be the sheaf whose sections over an open set $U$ are the elements of $\Gamma_{Z\cap U}(U,F|_U)$. Define $\DerR\underline{\Gamma}_Z(F)$ and $\underline{H}_Z^i(F)$ to be the right derived functors, which are now complexes of sheaves, resp.\ sheaves on $X$.
-
-\medskip\noindent\textbf{Motif A.} Repeat with underlines.
-
-\medskip\noindent\textbf{Motif B.} There is a four-term exact sequence
-\[
-0\longrightarrow \underline{\Gamma}_Z(F)\longrightarrow F\longrightarrow j_*(F|_{X-Z})\longrightarrow \underline{H}^1_Z(F)\longrightarrow 0
-\]
-where $j\colon X-Z\to X$ is the inclusion, and there are isomorphisms for $i>0$,
-\[
-R^i j_*(F|_{X-Z}) \xrightarrow{\sim} \underline{H}_Z^{i+1}(F).
-\]
-
-\medskip\noindent\textbf{Motif C.} For $F$ flasque and $i>0$, $\underline{H}_Z^{i}(F)=0$.
-\begin{proof}
-One sees easily that for any $F$ and for any $i$, $\underline{H}^{i}_Z(F)$ is the sheaf associated to the presheaf
-\[
-U\longmapsto H_{Z\cap U}^{i}(U,F|_U).
-\]
-Now since the restriction of a flasque sheaf to an open subset is flasque, the result follows from Motif C above.
-\end{proof}
-
-\medskip\noindent\textbf{Motif E.} There is a spectral sequence
-\[
-E_2^{pq}=H^p(X, \underline{H}_Z^q(F))\implies E^n=H_Z^n(X,F),
-\]
-or equivalently, in terms of the derived categories, $\DerR\Gamma_Z = \DerR\Gamma\cdot \DerR\underline{\Gamma}_Z$.
-\begin{proof}
-Referring to [I.5.4], we need only show that $\underline{\Gamma}_Z$ takes injectives into $\Gamma$-acyclic objects. Indeed, any injective is flasque, and $\underline{\Gamma}_Z$ of a flasque is flasque, and any flasque is $\Gamma$-acyclic.
-\end{proof}
-
-\medskip\noindent\textbf{Variation 4.}
-Combining variations 1 and 2, let $\psi\subseteq\varphi$ be two families of supports. Define $\Gamma_{\varphi/\psi}(X,F)$ and its derived functors $\DerR\Gamma_{\varphi/\psi}(X,F)$ and $H^i_{\varphi/\psi}(X,F)$.
-
-\medskip\noindent\textbf{Motif A.} Repeat.
-
-\medskip\noindent\textbf{Motif B.} Repeat.
-
-\medskip\noindent\textbf{Motif C.} Repeat.
-
-\medskip\noindent\textbf{Motif D.}
-\[
-H_{\varphi/\psi}^{i}(X,F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi \\ Z'\in\psi\\ Z'\subseteq Z}}\,H_{Z/Z'}^{i}(X,F).
-\]
-
-\medskip\noindent\textbf{Variation 5.}
-Combining variations 1 and 3 leads us to a
+In this section we recall some facts on relative differentials which we will need in the sequel. These results will surely be in [EGA] eventually, but for the moment the best reference seems to be [SGA 60--61, expos\'e II].
 
 \begin{definition}
-A \emph{sheaf of families of supports} on a topological space $X$ is a sheaf of sets $\underline{\varphi}$, such that for every open set $U$, $\underline{\varphi}(U)$ is a family of supports on $U$, and such that for $V\subseteq U$ the restriction map $\underline{\varphi}(U)\to\underline{\varphi}(V)$ is given by $Z\in\underline{\varphi}(U)$ goes to $Z\cap V\in\underline{\varphi}(V)$.
+If $A\to B$ is a morphism of rings, and $M$ a $B$-module, we define $\operatorname{Der}_A(B,M)$ to be the $A$-module of derivations of $B$ into $M$ over $A$. We define $\Omega^1_{B/A}$, the module of relative one-differentials of $B$ over $A$, to be the $B$-module representing the functor
+\[
+M \longmapsto \operatorname{Der}_A(B,M).
+\]
+
+In other words, there is a derivation $d\colon B\to\Omega^1_{B/A}$ given, such that for any $B$-module $M$, the natural map
+\[
+\operatorname{Hom}_B(\Omega^1_{B/A}, M) \longrightarrow \operatorname{Der}_A(B,M)
+\]
+is an isomorphism.
 \end{definition}
 
-\begin{remark}
+If $f\colon X\to Y$ is a morphism of preschemes, we define $\Omega^1_{X/Y}$, the sheaf of relative one-differentials of $X$ over $Y$, by considering open affines in $X$ and $Y$, and glueing the corresponding modules $\Omega^1_{B/A}$.
+
+\begin{definition}
+[EGA~IV~6.8.1] A morphism $f\colon X\to Y$ of preschemes is \emph{smooth} if it is flat, locally of finite presentation, and for every $y\in Y$, the fibre $f^{-1}(y)$ is locally noetherian, and \emph{geometrically regular} (i.e., ``absolutely non-singular'').
+\end{definition}
+
+\textbf{Examples.}
 \begin{enumerate}
-\item If $\varphi$ is a family of supports on $X$, we can define a sheaf of families of supports $\widetilde{\varphi}$ on $X$ by taking the sheaf associated to the presheaf
-\[
-U\longmapsto \{Z\cap U\mid Z\in\varphi\}.
-\]
-\item If $\underline{\varphi}$ is a sheaf of families of supports on $X$, we can define a family of supports $\Gamma(\underline{\varphi})$ on $X$ by $\Gamma(\underline{\varphi})=\underline{\varphi}(X)$.
-\item Note that in general, the operations $\Gamma$ and $\sim$ are not inverses to each other. For example, if $\varphi$ is the family of compact subsets of a locally compact Hausdorff space, then $\widetilde{\varphi}$ is the maximal sheaf of families of supports, and $\Gamma(\widetilde{\varphi})$ is the maximal family of supports. But if $X$ is not compact, $\varphi\neq\Gamma(\widetilde{\varphi})$.
-\item Conversely, let $f\colon X\to Y$ be a morphism of finite type of locally noetherian preschemes. Let $p$ be an integer, and let $\underline{\varphi}$ be the sheaf of families of supports on $X$ given by $\underline{\varphi}(U)=$ the set of (relatively) closed subsets $Z$ of $U$ such that for every $y\in f(U)$, $Z\cap X_y$ is of codimension $\geq p$ in the fibre $X_y$. Then in general $\Gamma(\underline{\varphi})^{\sim}$ is different from $\underline{\varphi}$. (For a specific example, let $Y=\operatorname{Spec}k[x,y]$, let $X=\mathbb{P}^1_Y$ and let $p=1$. Then if $Z\subseteq X$ is obtained by blowing up the origin of $Y$, $Z$ is locally in $\varphi$ except over the origin of $Y$, but $Z\notin \Gamma(\underline{\varphi})$.)
-\item For another example of a family of supports, let $Z$ be a subset of the topological space $X$, stable under specialization (e.g., $Z=\{x\in X\text{ of codimension }\geq p\}$ for some $p$. By the codimension of a point $x$ in a topological space $X$, we mean the largest integer $n$, or $+\infty$, such that there exists a sequence $x_0,x_1,x_2,\cdots,x_n=x$ of points of $X$ where for each $i$, $x_i\to x_{i+1}$ is a proper specialization, i.e., $x_{i+1}\in\overline{\{x_i\}}$ and $x_i\neq x_{i+1}$). Then the set of subsets of finite unions of closures of points of $Z$ is a family of supports $\varphi$. One can also consider the associated sheaf of families of supports $\widetilde{\varphi}$. If $X$ is locally noetherian (as a topological space) and if every closed irreducible subset of $X$ has a unique generic point, then there is a $1$-$1$ correspondence between subsets of $X$, stable under specialization, and families of supports $\varphi$, such that $\varphi=\Gamma(\widetilde{\varphi})$. In these cases we will write $\Gamma_Z$ for $\Gamma_{\varphi}$, $H_Z^i$ for $H_{\varphi}^i$, $\underline{\Gamma}_Z$ for $\underline{\Gamma}_{\widetilde{\varphi}}$, etc.
+\item An open immersion is smooth.
+\item A composition of smooth morphisms is smooth.
+\item Smooth morphisms are stable under base extensions.
+\item A prescheme $X$ over a field $k$ is smooth $\iff$ it is locally noetherian and geometrically regular.
 \end{enumerate}
-\end{remark}
 
-Now let $\underline{\varphi}$ be a sheaf of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}}(F)$ to be the sheaf whose sections on an open set $U$ are $\Gamma_{\underline{\varphi}(U)}(U,F|_U)$. Define $\DerR\underline{\Gamma}_{\underline{\varphi}}(F)$ and $\underline{H}^{\underline{i}}_{\underline{\varphi}}(F)$ to be the right derived functors.
-
-\medskip\noindent\textbf{Motif A.} Repeat.
-
-\medskip\noindent\textbf{Motif C.} Repeat.
-
-\medskip\noindent\textbf{Motif D.} If $\underline{\varphi}$ is a sheaf of families of supports of global nature (i.e., such that $\underline{\varphi}=\Gamma(\underline{\varphi})^{\sim}$), then
+\begin{proposition}\label{prop:3.1.1}
+[SGA 60--61, II.4.3] Let $f\colon X\to Y$ be a smooth morphism of preschemes over another prescheme $S$. Then $\Omega^1_{X/Y}$ is locally free (of rank $n=$ relative dimension of $X$ over $Y$), and there is an exact sequence
 \[
-\underline{H}_{\varphi}^{i}(F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi(X)}}\,\underline{H}_{Z}^{i}(F).
+0 \longrightarrow f^*(\Omega^1_{Y/S}) \longrightarrow \Omega^1_{X/S} \longrightarrow \Omega^1_{X/Y} \longrightarrow 0.
 \]
-
-\medskip\noindent\textbf{Motif E.} There is a spectral sequence
-\[
-E_2^{pq}=H^p(X, \underline{H}_{\underline{\varphi}}^q(F))\implies E^n=H_{\Gamma(\underline{\varphi})}^n(X, F),
-\]
-or, in terms of the derived categories, $\DerR\Gamma_{\Gamma(\underline{\varphi})} = \DerR\Gamma\cdot \DerR\underline{\Gamma}_{\underline{\varphi}}$.
-
-\medskip\noindent\textbf{Variation 6.}
-Combining variations 2 and 3, let $Z'\subseteq Z$ be closed subsets of $X$. Define $\underline{\Gamma}_{Z/Z'}$, $\DerR\underline{\Gamma}_{Z/Z'}$, and $\underline{H}^i_{Z/Z'}$. Repeat Motifs A, B, C, and E.
-
-\medskip\noindent\textbf{Variation 7.}
-Combining variations 1, 2, and 3, let $\underline{\psi}\subseteq\underline{\varphi}$ be two sheaves of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, $\DerR\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, and $\underline{H}_{\underline{\varphi}/\underline{\psi}}^{i}$. Repeat Motifs A, B, C, D, and E.
-
-\medskip\noindent\textbf{Variation 8.}
-In this case we define a purely punctual invariant. Let $x$ be a point of $X$ and define $\Gamma_x(F)$ to be the subgroup of the stalk $F_x$ consisting of elements $\overline{s}$ which have a representative $s$ in a suitable neighborhood $U$ of $x$, whose support is $\overline{\{x\}}\cap U$. Define the right derived functors $\DerR\Gamma_x(F)$ and $H_x^{i}(F)$. Note that $H_x^{i}(F)=\underline{H}_Z^{i}(F)_x$, where $Z=\overline{\{x\}}$, and the subscript $x$ denotes the stalk. Repeat Motifs A and C.
-
-\medskip\noindent\textbf{Motif F.} Assume that $X$ is a locally noetherian topological space and that every closed irreducible subset of $X$ has a unique generic point. Let $Z'\subseteq Z$ be two subsets of $X$, stable under specialization, and such that every $x\in Z-Z'$ is maximal in $Z$ (i.e., if $x\in Z$ and $x\to x'$ is a non-trivial specialization, then $x'\in Z'$). Let $F^\bullet\in\DD^+(\Ab(X))$ be a complex of sheaves. Then there is a canonical functorial isomorphism
-\[
-\underline{H}_{Z/Z'}^{i}(F^\bullet) \xrightarrow{\sim} \coprod_{x\in Z-Z'} i_x(H_x^{i}(F^\bullet)),
-\]
-where for any group $G$, $i_x(G)$ is the constant sheaf $G$ on $\overline{\{x\}}$, and $0$ elsewhere. (By abuse of notation we write $Z$, $Z'$ instead of the sheaves of families of supports they define as in Remark 5 of Variation 5 above.)
-\begin{proof}
-Since both sides are derived functors, it will be sufficient to establish a canonical functorial isomorphism for a single sheaf $F\in\Ab(X)$
-\[
-\underline{\Gamma}_{Z/Z'}(F)\xrightarrow{\sim} \coprod_{x\in Z-Z'} i_x(\Gamma_x(F)).
-\]
-For an open set $U$ we define a map
-\[
-\Gamma_{Z\cap U}(U,F|_U)\longrightarrow \coprod_{x\in (Z-Z')\cap U} \Gamma_x(F)
-\]
-by sending a section into its germ at each stalk. Only finitely many are non-zero, because the support of any section $s$ is a finite union $\overline{\{z_1\}}\cup\cdots\cup\overline{\{z_n\}}$ with $z_i\in Z$ (since $X$ is locally noetherian!) and because each $x\in Z-Z'$ is maximal in $Z$. A section $s$ goes to zero if and only if it is in $\Gamma_{Z'\cap U}(U,F|_U)$. Thus we have defined an inclusion of sheaves above. Finally, we see that it is surjective, because every germ $\overline{s}\in\Gamma_x(F)$ comes from a section $s$ of $F$ in a suitable neighborhood $U$, with support $\overline{\{x\}}\cap U$.
-\end{proof}
-
-\medskip\noindent\textbf{Coda.}
-
-Having made all these generalizations of the notion of local cohomology, we are practically back where we started:
-
-\medskip\noindent\textbf{Motif G.} (The Spectral Sequence of a Filtered Topological Space). Let
-\[
-X = \underline{\varphi}^0 \supseteq \underline{\varphi}^1 \supseteq \cdots
-\]
-be a filtration of $X$ by sheaves of families of supports, and let $F^\bullet$ be a complex of abelian sheaves on $X$ bounded below. Then there is a spectral sequence
-\[
-E_1^{pq}=H^{p+q}_{\varphi^p/\varphi^{p+1}}(F^\bullet)\implies E^n=H^n(F^\bullet),
-\]
-which is biregular [EGA $O_{\mathrm{III}}$ \S11] if the filtration is finite, i.e., $\underline{\varphi}^n=\emptyset$ for some $n$. Or, in terms of the derived category, there is a diagram of distinguished triangles (shown in the convergent case)
-\[
-\begin{tikzcd}[row sep=1cm, column sep=0.3cm]
-	& \DerR\underline{\Gamma}_{\underline{\varphi}^{n-1}/\underline{\varphi}^n} \arrow[dl] & & \dots & & \DerR\underline{\Gamma}_{\underline{\varphi}^0/\underline{\varphi}^1} \arrow[dl] & \\
-	0 = \DerR\underline{\Gamma}_{\underline{\varphi}^n} \arrow[rr] & & \DerR\underline{\Gamma}_{\underline{\varphi}^{n-1}} \arrow[ul] \arrow[r] & \dots \arrow[r] & \DerR\underline{\Gamma}_{\underline{\varphi}^1} \arrow[rr] & & \DerR\underline{\Gamma}_{\underline{\varphi}^0} = F^\bullet \arrow[ul]
-\end{tikzcd}
-\]
-\begin{proof}
-This is just the spectral sequence of a filtered complex [M, Ch.\ XV]. Take an injective resolution $I^\bullet$ of $F^\bullet$. Then $I^\bullet$ is filtered
-\[
-I^\bullet = \underline{\Gamma}_{\varphi^0}(I^\bullet)\supset \underline{\Gamma}_{\varphi^1}(I^\bullet)\supset \cdots \supset \underline{\Gamma}_{\varphi^n}(I^\bullet)=0,
-\]
-and the quotients are $\underline{\Gamma}_{\varphi^i/\varphi^{i+1}}(I^\bullet)$.
-\end{proof}
-
-\section{Depth and the Cousin complex}\label{sec:4.2}
-
-Throughout this section, $X$ will denote a locally noetherian topological space in which every closed irreducible subset has a unique generic point.
-
-\begin{definition}
-Let $F^\bullet$ be a complex of sheaves of abelian groups (bounded below) on $X$ and $\underline{\varphi}$ a sheaf of families of supports. Then the \emph{$\underline{\varphi}$-depth} of $F^\bullet$ is the largest integer $n$ (or $+\infty$) such that $\underline{H}^{\mathbf{i}}_{\underline{\varphi}}(F^\bullet)=0$ for all $\mathbf{i}<\mathbf{n}$.
-\end{definition}
-
-\begin{remark}
-If $X$ is a locally noetherian prescheme, $\varphi$ the family of subsets of a closed subset $Z$ of $X$, and $F$ a coherent sheaf, then this definition of depth coincides with the usual definition of the $Z$-depth of $F$ [LC.3.8].
-\end{remark}
-
-\begin{proposition}\label{prop:4.2.1}
-Let $Z'\subseteq Z$ be subsets of (the locally noetherian topological space) $X$, stable under specialization, and such that every $x\in Z-Z'$ is maximal (with respect to specialization) in $Z$. Let $F$ be an abelian sheaf on $X$. Then the following conditions are equivalent:
-\begin{enumerate}
-\item[(i)] The natural maps
-\[
-F\longleftarrow \underline{\Gamma}_{Z}(F)\longrightarrow \underline{H}_{Z/Z'}^{0}(F)
-\]
-are isomorphisms.
-\item[(ii)] There is an isomorphism
-\[
-F\cong \coprod_{x\in Z-Z'} i_x(M_x)
-\]
-for suitable choice of abelian groups $M_x$. (Recall that for any abelian group $M$, $i_x(M)$ is the constant sheaf $M$ on $\overline{\{x\}}$, and $0$ elsewhere.)
-\item[(iii)] $F$ has supports in $Z$, $Z'$-depth $\geq 1$, and is flasque.
-\item[(iv)] $F$ has supports in $Z$, and $Z'$-depth $\geq 2$.
-\end{enumerate}
 \end{proposition}
 
-\begin{proof}
-(i) $\Longrightarrow$ (ii) follows immediately from Motif F of Variation~8 above.
-
-(ii) $\Longrightarrow$ (iii) Condition (ii) implies that $F$ has supports in $Z$, and that $\Gamma_{Z'}(F)=0$, i.e., $Z'$-depth $F\geq 1$. $F$ is flasque because it is a direct sum of sheaves $i_x(M)$, each of which is a constant sheaf on an irreducible space, hence flasque.
-
-(iii) $\Longrightarrow$ (iv) Since $F$ is flasque, $\underline{H}_{Z'}^{i}(F)=0$ for all $i>0$, by Motif C. But $\underline{H}_{Z'}^{0}(F)=0$ since $F$ has $Z'$-depth $\geq 1$, so $F$ has $Z'$-depth $+\infty > 2$.
-
-(iv) $\Longrightarrow$ (i) $\underline{\Gamma}_Z(F)\to F$ is an isomorphism since $F$ has supports in $Z$. Now by Motif B there is an exact sequence
-\[
-0\longrightarrow \underline{\Gamma}_{Z'}(F)\longrightarrow \underline{\Gamma}_{Z}(F)\longrightarrow \underline{H}_{Z/Z'}^{0}(F)\longrightarrow \underline{H}_{Z'}^{1}(F)\longrightarrow\cdots
-\]
-Since $Z'$-depth $F\geq 2$, the two outside terms are zero, so the middle is an isomorphism.
-\end{proof}
-
 \begin{definition}
-If $F$ satisfies the equivalent conditions above, we say $F$ \emph{lies on the $Z/Z'$-skeleton} of $X$.
+A closed subscheme $Y$ of a prescheme $X$ is \emph{locally a complete intersection} if every point $y\in Y$ has a neighborhood $U$ such that in $U$, the ideal $\sJ_Y$ of $Y$ is generated by an $\sO_X$-sequence, i.e., a collection of sections $s_1,\dots,s_r$ such that $s_1$ is a non-zero divisor in $\sO_X$, and for each $i=2,\dots,r$, $s_i$ is a non-zero divisor in $\sO_X/(s_1,\dots,s_{i-1})$.
 \end{definition}
 
-We now come to the Cousin complex, but prove a lemma first.
-
-\begin{lemma}\label{lem:4.2.2}
-Let $Z'\subseteq Z$ be as in the previous proposition, and let $F$ be a sheaf on $X$ with supports in $Z$. Then there is a unique (up to unique isomorphism) $Z'$-isomorphism
+\begin{proposition}\label{prop:3.1.2}
+[SGA 60--61 II.4.10] Let $X$ be a locally noetherian prescheme, smooth over a locally noetherian prescheme $S$, and let $Y$ be a closed subprescheme of $X$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] $Y$ is smooth over $S$.
+\item[(ii)] $\Omega^1_{Y/S}$ is locally free, and the sequence
 \[
-\alpha\colon F\longrightarrow G
+0 \longrightarrow J/J^2 \longrightarrow i^*\Omega^1_{X/S} \longrightarrow \Omega^1_{Y/S} \longrightarrow 0
 \]
-of $F$ into a sheaf $G$ which lies on the $Z/Z'$-skeleton. (By \emph{$Z'$-isomorphism} we mean a homomorphism of sheaves whose kernel and cokernel have supports in $Z'$.)
+is exact, where $J$ is the sheaf of ideals of $Y$, and $i\colon Y\to X$ the immersion.
+\end{enumerate}
+Furthermore, in that case $Y$ is locally a complete intersection in $X$.
+\end{proposition}
+
+\begin{definition}
+Let $X$ be a prescheme, and let
+\[
+(*)\qquad 0 \longrightarrow E' \longrightarrow E \longrightarrow E'' \longrightarrow 0
+\]
+be an exact sequence of locally free sheaves of ranks $r$, $r+s$, and $s$, respectively. Then we define an isomorphism
+\[
+\varphi(*)\colon \Lambda^{r+s}E \longrightarrow \Lambda^r E' \otimes \Lambda^s E''
+\]
+as follows. Choose a basis $e_1,\dots,e_{r+s}$ of $E$ locally such that $e_1,\dots,e_r$ form a basis of $E'$, and the images $\bar{e}_{r+1},\dots,\bar{e}_{r+s}$ form a basis of $E''$. Then map
+\[
+e_1\wedge\cdots\wedge e_{r+s} \longmapsto (e_1\wedge\cdots\wedge e_r)\otimes(\bar{e}_{r+1}\wedge\cdots\wedge\bar{e}_{r+s}).
+\]
+\end{definition}
+
+\textbf{Remark.}
+We have made a choice here, and it is emphatically not true that all imaginable compatibilities of these isomorphisms $\varphi(*)$ hold. For example, if $(\check{*})$ is the dual exact sequence to $(*)$, then $\varphi(\check{*})$ and $\varphi(*)^{\vee}$ commute only to within a factor of $(-1)^{rs}$.
+
+\begin{lemma}\label{lem:3.1.3}
+Let $0\subseteq E_1\subseteq E_2\subseteq E$ be locally free sheaves on a prescheme $X$. Then the four exact sequences 
+\[
+\begin{tikzcd}[row sep=1.5em, column sep=2.5em]
+	0 \arrow[r] & E_1 \arrow[r] & E_2 \arrow[r] & E_2/E_1 \arrow[r] & 0 \\
+	0 \arrow[r] & E_1 \arrow[r] & E \arrow[r] & E/E_1 \arrow[r] & 0 \\
+	0 \arrow[r] & E_2 \arrow[r] & E \arrow[r] & E/E_2 \arrow[r] & 0 \\
+	0 \arrow[r] & E_2/E_1 \arrow[r] & E/E_1 \arrow[r] & E/E_2 \arrow[r] & 0
+\end{tikzcd}
+\]
+
+ give rise to a commutative diagram of isomorphisms $\varphi$ among their highest exterior powers.
 \end{lemma}
 
 \begin{proof}
-(1) To show the existence of $\alpha$, we take $G=\underline{H}_{Z/Z'}^{0}(F)$, and let $\alpha$ be the natural map of $F=\underline{\Gamma}_Z(F)$ into $G$. Then from the exact sequence of Motif B we see that $\alpha$ is a $Z'$-isomorphism, and from Motif F we see that $G$ lies on the $Z/Z'$-skeleton.
-
-(2) To see that $\alpha$ is unique up to isomorphism, let $\beta\colon F\to G'$ be another such $Z'$-isomorphism. Applying the functor $\underline{H}_{Z/Z'}^{0}$ (which takes $Z'$-isomorphisms into isomorphisms) we get a commutative diagram
-\[
-\begin{tikzcd}
-F \arrow[r, "\beta"] \arrow[d, "\alpha"'] & G \arrow[d, "\operatorname{Id}"] \\
-G \arrow[r, "\gamma"] & G'
-\end{tikzcd}
-\]
-where $\gamma=\underline{H}_{Z/Z'}^{0}(\beta)$ is an isomorphism.
-
-(3) To show that the isomorphism $\gamma$ is unique, let $\delta\colon G\to G'$ be any other homomorphism which gives a commutative diagram. 
-\[
-\begin{tikzcd}
-	F \arrow[r, "\alpha"] \arrow[d, "\beta"'] & G \arrow[dl, "\delta"] \\
-	G'
-\end{tikzcd}
-\]
-Then applying the functor $\underline{H}_{Z/Z'}^{0}$, we obtain a commutative diagram
-\[
-\begin{tikzcd}
-	G \arrow[r, "\operatorname{Id}"] \arrow[d, "\gamma"'] & G \arrow[dl, "\delta"] \\
-	G'
-\end{tikzcd}
-\]
-and since $\underline{H}_{Z/Z'}^{0}(G)=G$ and $\underline{H}_{Z/Z'}^{0}(G')=G'$ (by Motif F), we see that $\delta=\gamma$.
-\end{proof}
-
-\begin{proposition}\label{prop:4.2.3}
-Let $X=Z^0\supseteq Z^1\supseteq\cdots$ be a filtration of $X$ by subsets $Z^p$ stable under specialization, and such that for each $p$, each $x\in Z^p-Z^{p+1}$ is maximal in $Z^p$. Let $F$ be an abelian sheaf on $X$. Then there is a unique (up to unique isomorphism of complexes) augmented complex
-\[
-\begin{tikzcd}[row sep=1.2cm, column sep=1.2cm]
-	& F \arrow[d] & & \\
-	0 \arrow[r] & C^0 \arrow[r] & C^1 \arrow[r] & \dots
-\end{tikzcd}
-\]
-with the following properties:
-\begin{itemize}
-\item[(a)] For each $p\geq 0$, $C^p$ lies on the $Z^p/Z^{p+1}$-skeleton.
-\item[(b)] For each $p>0$, $H^p(C^\bullet)$ has supports in $Z^{p+2}$.
-\item[(c)] The map $F\to H^{0}(C^\bullet)$ has kernel with supports in $Z^{1}$, and cokernel with supports in $Z^{2}$.
-\end{itemize}
-Furthermore, $C^\bullet$ depends functorially on $F$.
-\end{proposition}
-
-\begin{proof}
-We prove by induction on $p$, that there exists a unique (up to unique isomorphism of complexes) augmented complex
-\[
-\begin{tikzcd}[row sep=1.2cm, column sep=1.2cm]
-	& F \arrow[d] & & \\
-	0 \arrow[r] & C^0 \arrow[r] & C^1 \arrow[r] & \dots \arrow[r] & C^p
-\end{tikzcd}
-\]
-with all the properties above, except that instead of saying $H^p(C^\bullet)$ has supports in $Z^{p+2}$, we say that $C^p/\operatorname{Im} C^{p-1}$ has supports in $Z^{p+1}$ (or, if $p=0$, instead of saying that the cokernel of $F\to H^0(C^\bullet)$ has supports in $Z^2$, we say that $C^0/\operatorname{Im} F$ has supports in $Z^1$).
-
-\emph{Case $p=0$.} This is precisely the statement of the Lemma, with $Z=Z^0$ and $Z'=Z^1$.
-
-\emph{Induction Step.} Suppose the statement proven for $p$, and take a complex $C^\bullet$ as above, defined in degrees $\leq p$. Apply the Lemma to $C^p/\operatorname{Im} C^{p-1}$ with $Z=Z^{p+1}$ and $Z'=Z^{p+2}$, and let $C^{p+1}$ be the sheaf $G$ thus obtained. Now since
-\[
-C^p/\operatorname{Im} C^{p-1}\longrightarrow C^{p+1}
-\]
-is a $Z^{p+2}$-isomorphism, its kernel, $H^p(C^\bullet)$ and its cokernel, $C^{p+1}/\operatorname{Im} C^p$, have supports in $Z^{p+2}$. Furthermore, $C^{p+1}$ lies on the $Z^{p+1}/Z^{p+2}$-skeleton, so we have a complex with the required properties. To show that it is unique up to unique isomorphism, let $C'^\bullet$ be another such augmented complex, defined in degrees $\leq p+1$. Leaving off $C'^{p+1}$, we have a complex satisfying the conditions of the induction hypothesis, therefore there is a unique isomorphism of augmented complexes $C^\bullet\to C'^\bullet$ defined in degrees $\leq p$. Thus there is a unique isomorphism
-\[
-C^p/\operatorname{Im} C^{p-1}\longrightarrow C'^p/\operatorname{Im} C'^{p-1}.
-\]
-Now again by the Lemma, this extends to a unique isomorphism of $C^{p+1}\longrightarrow C'^{p+1}$.
+Left to reader.
 \end{proof}
 
 \begin{definition}
-The complex of the above proposition is called the \emph{Cousin complex} of $F$ (with respect to the filtration $Z^\bullet$).
+\begin{enumerate}
+\item[a)] Let $f\colon X\to Y$ be a smooth morphism of relative dimension $n$. Then we define $w_{X/Y}=\Lambda^n\Omega^1_{X/Y}$. Note by Proposition~1.1 that $w_{X/Y}$ is a locally free sheaf of rank one.
+\item[b)] Let $f\colon X\to Y$ be a closed immersion which is locally a complete intersection of codimension $n$ (i.e., locally defined by $n$ equations), and let $J$ be the sheaf of ideals of $X$. Then we define $w_{X/Y}=(\Lambda^n(J/J^2))^{\vee}$, where $\vee$ denotes dual. Note that $J/J^2$ is locally free of rank $n$ on $X$, so that $w_{X/Y}$ is a locally free sheaf of rank one on $Y$.
+\end{enumerate}
 \end{definition}
 
-\begin{example}
+\textbf{Remarks.}
 \begin{enumerate}
-\item[(1)] If $F$ has supports in $Z^1$, then its Cousin complex is the zero complex.
-\item[(2)] If $F$ is flasque, then its Cousin complex is given by $C^0=F/\underline{\Gamma}_{Z^1}(F)$, $C^p=0$ for $p>0$.
+\item Note if $f\colon X\to Y$ is smooth and a closed immersion, then it is locally an isomorphism, so the two definitions coincide.
+\item If $f\colon X\to Y$ is either smooth, or a locally complete intersection, and if $Y'\to Y$ is a base change, and $X'=X\times_Y Y'$, then $\operatorname{pr}_1^*(\omega_{X/Y})=\omega_{X'/Y'}$. This follows from the fact that differentials and ideals of subschemes are compatible with base extension.
 \end{enumerate}
-\end{example}
 
-\begin{lemma}\label{lem:4.2.4}
-Under the hypotheses of Proposition~2.3, $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i>p$.
+\begin{lemma}\label{lem:3.1.4}
+Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be morphisms of preschemes, with $g$ smooth. Let $\Gamma\colon X\to X\times_Z Y$ be the graph morphism. Then $\Gamma$ is locally a complete intersection, and $w_{X/X\times_Z Y}=f^*w_{Y/Z}$.
 \end{lemma}
 
 \begin{proof}
-Using Motif F, we have only to show that for all $x\in Z^p-Z^{p+1}$, $H_x^{i}(F)=0$. But this group can be calculated as the $i$th derived functor of $\Gamma_x$ on the topological space $X_{(x)}$ consisting of all generizations of $x$ (i.e., points $x'$ which specialize to $x$). Indeed, it can be calculated by flasque sheaves (Motif C), and the restriction of a flasque sheaf to $X_{(x)}$ is flasque. Now since $x\notin Z^{p+1}$, the space $X_{(x)}$ has combinatorial dimension $\geq p$, and so $H_x^{i}(F)=0$ for $i>p$ [G, II, 4.15.2], or [LC 1.12].
+We apply Proposition~1.2 to $W=X\times_Z Y$, $X$, and the section $\Gamma$. Note that $p_1\colon W\to X$ is smooth by base extension from $g$, hence $\Gamma$ is a local complete intersection, and $J/J^2\cong\Gamma^*\Omega^1_{W/X}$. Therefore $w_{X/W}=\Gamma^*w_{W/X}$. But again by base extension, $w_{W/X}=p_2^*w_{Y/Z}$, and $f=p_2\Gamma$, so $w_{X/W}=f^*w_{Y/Z}$ as required.
 \end{proof}
 
-\begin{proposition}\label{prop:4.2.5}
-Let $X=Z^0\supseteq Z^1\supseteq\cdots$ and $F$ be as in Proposition~2.3, and assume furthermore that the filtration is separated (i.e., $\bigcap Z^n=\emptyset$). Then the natural map
+\begin{definition}\label{def:3.1.5}
+Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be morphisms of locally noetherian preschemes, and suppose that $f,g$, and $gf$ is each either smooth or a local complete intersection. Then we define an isomorphism
 \[
-\alpha\colon F\longrightarrow \underline{H}_{Z^{0}/Z^{1}}^{0}(F)
+\zeta_{f,g}\colon \omega_{X/Z} \xrightarrow{\sim} f^*\omega_{Y/Z}\otimes\omega_{X/Y}.
 \]
-makes the complex
+There are four cases to consider.
+
+\begin{enumerate}
+\item[a)] $f,g$, and $gf$ are all smooth. Then we take $\zeta$ to be $\varphi$ of the exact sequence of Proposition~1.1.
+\item[b)] $f,g$, and $gf$ are all local complete intersections. If $J$ is the ideal of $Y$ in $Z$, and $K$ is the ideal of $X$ in $Y$, then we have an exact sequence on $X$:
 \[
-0\longrightarrow \underline{H}_{Z^{0}/Z^{1}}^{0}(F)\xrightarrow{d_1^{00}} \underline{H}_{Z^{1}/Z^{2}}^{1}(F)\xrightarrow{d_1^{10}} \underline{H}_{Z^{2}/Z^{3}}^{2}(F)\longrightarrow\cdots
+0 \longrightarrow f^*(J/J^2) \longrightarrow K/K^2 \longrightarrow (K/J)/(K/J)^2 \longrightarrow 0.
 \]
-of $E_1^{p0}$ terms of the spectral sequence of Motif G into a Cousin complex for $F$.
+We take $\varphi$ of this exact sequence, then dualize, and take the inverse isomorphism to be $\zeta$.
+\item[c)] $f$ is a local complete intersection, with $g$ and $gf$ smooth. We take $\varphi$ of the exact sequence of Proposition~1.2, tensor with $\omega_{X/Y}$, and take the inverse to get $\zeta$.
+\item[d)] $f$ and $gf$ local complete intersections, and $g$ smooth.
+\[
+\begin{tikzcd}
+	X \times_Z Y
+	\arrow[r, "p_2"]
+	\arrow[d, shift right, "p_1"']
+	& Y
+	\arrow[d, "g"] \\
+	X
+	\arrow[ur, "f"]
+	\arrow[r, "gf"']
+	\arrow[u, shift right, "\Gamma"']
+	& Z
+\end{tikzcd}
+\] Then by the lemma above, $\Gamma$ is a local complete intersection, and we can use b) above applied to $\Gamma$ and $p_2$ to obtain
+\[
+\zeta_{\Gamma,p_2}\colon \omega_{X/Y} \xrightarrow{\sim} \Gamma^*\omega_{X\times_Z Y/Y}\otimes\omega_{X/X\times_Z Y}.
+\]
+Now by base extension, $\omega_{X\times_Z Y/Y}=p_1^*\omega_{X/Z}$, and by the lemma, $\omega_{X/X\times_Z Y}=f^*\omega_{Y/Z}^{\vee}$. Transposing and taking the inverse, we obtain $\zeta_{f,g}\colon\omega_{X/Z}\xrightarrow{\sim} f^*\omega_{Y/Z}\otimes\omega_{X/Y}$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}\label{prop:3.1.6}
+Let $X\xrightarrow{f} Y\xrightarrow{g} Z\xrightarrow{h} W$ be three morphisms of locally noetherian preschemes, and suppose that each of the morphisms $f,g,h,gf,hg,hgf$ is either smooth or a local complete intersection. Then the isomorphisms $\zeta$ give a commutative diagram
+\[
+\zeta_{h,g}\,\zeta_{f,hg} = \zeta_{f,g}\,\zeta_{gf,h}.
+\]
 \end{proposition}
 
 \begin{proof}
-We must check first that $\alpha$ gives an augmentation (i.e., $d_1^{00}\cdot\alpha=0$), and then that the properties (a), (b), and (c) of Proposition~2.3 hold. These properties can be checked at each point separately. Thus for an $x\in X$, we can replace $X$ by the space $X_{(x)}$ of generizations of $x$, which has finite combinatorial dimension (since the filtration $Z^\bullet$ is separated). In other words, we may assume that the filtration $Z^\bullet$ is finite. We will check only property (b) which is the hardest.
-
-Given $p>0$, we wish to show that $H^p$ of the complex above, which is nothing but $E_2^{p0}$ of the spectral sequence of Motif G, has supports in $Z^{p+2}$. We show, by descending induction on $r$, that $E_r^{p0}$ has supports in $Z^{p+r}$ for each $r>1$. For $r$ large enough, $E_r^{p0}=E_{\infty}^{p0}=0$, since the abutment of the spectral sequence, $E^n$, is $0$ for $n\neq 0$.
-
-Now let $r>1$ be given. Then $E_r^{p-r,r-1}=0$, since $E_r^{pq}=0$ for $q>0$ by the Lemma. Therefore we have an exact sequence
-\[
-0\longrightarrow E_{r+1}^{p0}\longrightarrow E_r^{p0}\xrightarrow{d_r^{p0}} E_r^{p+r,-r+1}.
-\]
-By the induction hypothesis, $E_{r+1}^{p0}$ has supports in $Z^{p+r+1}$; and $E_1^{p+r,-r+1}= \underline{H}_{Z^{p+r}/Z^{p+r+1}}^{p+1}(F)$, has supports in $Z^{p+r}$. Thus $E_r^{p0}$ has supports in $Z^{p+r}$, and in particular, $E_2^{p0}$ has supports in $Z^{p+2}$.
+Use Lemma~1.3.
 \end{proof}
 
-Now we ask when the Cousin complex is a resolution of $F$.
-
-\begin{proposition}\label{prop:4.2.6}
-Under the hypotheses of Proposition~2.5, the following conditions are equivalent:
-\begin{enumerate}
-\item[(i)] $\underline{H}_{Z^p}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
-\item[(ii)] $Z^{p}$-depth $F\geq p$ for all $p$.
-\item[(iii)] $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
-\item[(iv)] The Cousin complex of $F$ is a (flasque) resolution of $F$.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-(i) $\Longrightarrow$ (ii) by definition of depth. (ii) $\Longrightarrow$ (iii). They are zero for $i>p$ by Lemma~2.4. For $i<p$ we use the exact sequence
+\textbf{Remark.}
+The reader will realize later that the proper context for the notion of $w_{X/Y}$ just studied is that of a Gorenstein morphism, and we will leave him to elaborate on the following indications. A morphism $f\colon X\to Y$ of locally noetherian preschemes is called \emph{Gorenstein} if it is locally of finite type, has finite Tor-dimension, and if $f^!(\sO_Y)$ is isomorphic in $\DD^+(X)$ to an invertible sheaf. Then we call that invertible sheaf $\omega_{X/Y}$, and prove that
 \[
-\underline{H}_{Z^{p}}^{i}(F)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)\longrightarrow \underline{H}_{Z^{p+1}}^{i+1}(F).
+f^!(F^\bullet) = \DerL f^*(F^\bullet)\otimes\omega_{X/Y}
+\]
+for all $F^\bullet\in\DD_{\mathrm{qc}}^+(Y)$.
+
+Smooth morphisms, and locally complete intersection morphisms are Gorenstein, and in those two cases the sheaf $\omega_{X/Y}$ is the one we have already defined. Furthermore, if $f\colon X\to Y$ and $g\colon Y\to Z$ are Gorenstein, so is $gf$, and there is an isomorphism
+\[
+\zeta_{f,g}\colon \omega_{X/Z} \xrightarrow{\sim} f^*\omega_{Y/Z}\otimes\omega_{X/Y}.
 \]
 
-(iii) $\Longrightarrow$ (iv). The condition is pointwise, so as before we can assume the filtration $Z^\bullet$ is finite. Then the spectral sequence of Motif G degenerates: $E_1^{pq}=0$ for $q\neq 0$. That means that the complex $E_1^{p0}$ (which by the previous proposition is the Cousin complex) is a resolution of $F$.
+For a composition of three Gorenstein morphisms, there is a commutative diagram as in the Proposition.
 
-(iv) $\Longrightarrow$ (i). Let $C^\bullet$ be the Cousin complex. Since it is a flasque resolution of $F$, we may use it to calculate cohomology: $\underline{H}_{Z^p}^{i}=H^i(\underline{\Gamma}_{Z^p}(C^\bullet))$. Since $C^p$ lies on the $Z^p/Z^{p+1}$-skeleton for all $p$, $\underline{\Gamma}_{Z^p}(C^\bullet)$ is the truncated complex $(C^i)_{i\geq p}$. Clearly it has cohomology only in degree $p$, since the original $C^\bullet$ was exact.
-\end{proof}
+\section{$f^\sharp$ for a smooth morphism $f$}
 
 \begin{definition}
-If the equivalent conditions of the proposition are satisfied, we say that $F$ is \emph{Cohen-Macaulay} (with respect to the filtration $Z^\bullet$).
+Let $f\colon X\to Y$ be a smooth morphism of preschemes. Then we define a functor
+\[
+f^{\sharp}\colon \DD(Y) \longrightarrow \DD(X)
+\]
+by
+\[
+f^{\sharp}(G^\bullet) = f^*(G^\bullet)\otimes\omega_{X/Y}[n],
+\]
+where $[n]$ means ``shift $n$ places to the left''. Observe that $f$ is flat, so $f^*=\DerL f^*$ is defined on all of $\DD(Y)$, and $\omega_{X/Y}$ is an invertible sheaf on $X$, hence is an element of $\DD(X)_{\mathrm{fTd}}$, so that the tensor product is defined [II \S4].
 \end{definition}
 
-\begin{remark}
-If $X$ is a locally noetherian prescheme, and $Z^p$ the set of points of codimension $\geq p$ (i.e., points $x\in X$ with $\dim\sO_{x,X}\geq p$), and $F$ a coherent sheaf on $X$ with support $X$, then this notion coincides with the usual definition. Indeed, using condition (iii) and Motif F, $F$ is Cohen-Macaulay if and only if for each $x\in X$, $\operatorname{depth}F_x\geq\dim\sO_{x,X}$, which is the usual definition.
-\end{remark}
-
-\begin{example}
-Let $X$ be a non-singular locally noetherian scheme, let $Z^\bullet$ be the filtration by codimension as above, and let $F=\sO_X$. Then $F$ is Cohen-Macaulay (usual sense) [ZS vol.\ II, App.\ 6], so the Cousin complex gives a flasque resolution of $\sO_X$. Furthermore, the $p$th component of this complex is isomorphic to $\underline{H}_{Z^p/Z^{p+1}}^{p}(\sO_X)$ which by Motif F is isomorphic to
+\begin{proposition}\label{prop:3.2.1}
+Let $f\colon X\to Y$ be a smooth morphism, let $u\colon Y'\to Y$ be a morphism of finite Tor-dimension, and let $X'=X\times_Y Y'$. 
 \[
-\coprod_{\operatorname{codim} x = p} i_x(H_x^{p}(\sO_x)).
-\]
-Now for $x$ of codimension $p$, we know [LC.4.13] that $H_x^p(\sO_X)$ is an injective hull over the local ring $\sO_x$ of its residue field $k(x)$. Thus our Cousin complex is in fact an injective resolution of $\sO_X$, and its component in degree $p$ is isomorphic to a direct sum of sheaves $J(x)$ (see definition in [II \S7]) where $x$ is a point of codimension $p$.
-
-This is an example of the notion of residual complex, which will be studied in more detail in Chapter~VI.
-\end{example}
-
-\section{Generalization to Complexes}\label{sec:4.3}
-
-In this section we generalize the results of the previous section to complexes. In particular, we will discuss Cohen-Macaulay complexes, Gorenstein complexes, and their relations to Cousin complexes.
-
-Throughout this section, $X$ will be a locally noetherian topological space in which every irreducible closed subset has a unique generic point. We will denote by $\DD^+(X)$ either $\DD^+(\Ab(X))$, the derived category of the category of abelian sheaves on $X$, or $\DD^+(\operatorname{Mod}(X))$ if $X$ is a locally noetherian prescheme. The results are valid in both cases.
-
-We will consider filtrations $Z^\bullet=(Z^p)_{p\in\mathbb{Z}}$ on $X$, and will always suppose the following conditions satisfied:
-\begin{enumerate}
-\item[(1)] Each $Z^p$ is a subset of $X$, stable under specialization, and
-\[
-\cdots\supseteq Z^{p-1}\supseteq Z^p\supseteq Z^{p+1}\supseteq\cdots.
-\]
-\item[(2)] Each $x\in Z^{p}-Z^{p+1}$ is maximal in $Z^{p}$ (i.e., $x$ is not a proper specialization of any other $x'\in Z^{p}$).
-\item[(3)] The filtration is strictly exhaustive, i.e., $X=Z^p$ for some $p\in\mathbb{Z}$.
-\item[(4)] The filtration is separated, i.e., $\bigcap Z^p=\emptyset$.
-\end{enumerate}
-
-\begin{definition}
-A \emph{Cousin complex} on $X$, with respect to the filtration $Z^\bullet$, is a complex of sheaves $G^\bullet$, such that for each $p$, $G^p$ lies on the $Z^p/Z^{p+1}$-skeleton of $X$. (Cf.\ definition following Proposition~2.1.) Note that a Cousin complex is necessarily flasque, and bounded below. We denote by $\Coz(Z^\bullet;X)$ the category of Cousin complexes and morphisms of complexes. It is an additive category.
-\end{definition}
-
-\begin{example}
-The Cousin complex of a sheaf $F$ (as in Proposition~2.3 above) is a Cousin complex.
-\end{example}
-
-\begin{definition}
-Let $F^\bullet\in\DD^+(X)$. Then we denote by $E(F^\bullet)$ the complex
-\[
-\cdots\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\xrightarrow{d_1^{p0}} \underline{H}_{Z^{p+1}/Z^{p+2}}^{p+1}(F^\bullet)\longrightarrow\cdots
-\]
-of $E_1^{p0}$ terms of the spectral sequence of Motif G. We observe by Motif F that the $p$th term $E^p(F^\bullet)$ lies on the $Z^p/Z^{p+1}$-skeleton of $X$, and so $E(F^\bullet)$ is a Cousin complex. (Note that even if $F^\bullet\in\DD^b(X)$, the complex $E(F^\bullet)$ need not be bounded above.)
-\end{definition}
-
-\begin{proposition}\label{prop:4.3.1}
-Let $F^\bullet\in\DD^b(X)$. Then the following conditions are equivalent:
-\begin{enumerate}
-\item[(i)]
-\begin{enumerate}
-\item[a)] $\underline{H}_{Z^p}^{i}(F^\bullet)=0$ for $i<p$, and
-\item[b)] the map
-\[
-\underline{H}_{Z^p}^{i}(F^\bullet)\longrightarrow H^{i}(F^\bullet)
-\]
-is surjective for $i=p$ and bijective for $i>p$.
-\end{enumerate}
-\item[(ii)] $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)=0$ for $i\neq p$.
-\item[(iii)] There is an isomorphism $\varphi\colon F^\bullet\to QE(F^\bullet)$ in $\DD^+(X)$, where $Q$ is the functor sending a complex to its image in $\DD^+(X)$ [I \S3].
-\end{enumerate}
-Furthermore, the isomorphism in (iii) can be chosen so that the isomorphisms $H^{i}(\varphi)\colon H^{i}(F^\bullet)\to H^{i}(E(F^\bullet))$ are inverse to the isomorphisms $\epsilon_{i}\colon H^{i}(E(F^\bullet))\to H^{i}(F^\bullet)$ determined by the degenerate spectral sequence of Motif G.
-\end{proposition}
-
-\begin{remark}
-One should beware, however, that the isomorphism $\varphi$ is not in general unique, and so is not functorial.
-\end{remark}
-
-\begin{proof}
-(i) $\Longrightarrow$ (ii). This follows immediately from the exact sequences
-\[
-\underline{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i+1}(F^\bullet)\longrightarrow \underline{H}_{Z^{p+1}}^{i+1}(F^\bullet)
-\]
-of Motif B.
-
-(ii) $\Longrightarrow$ (i). Condition (i) can be checked pointwise, so as in \S2 above, we may assume that the filtration $Z^\bullet$ is finite.
-\begin{itemize}
-\item[a)] For $i<p$, the exact sequence of Motif B shows us that
-\[
-\underline{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)
-\]
-is bijective. Therefore by iteration,
-\[
-\underline{H}_{Z^{p+r}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)
-\]
-is bijective for any $r\geq 0$. But for $r$ large enough, $Z^{p+r}=\emptyset$, so $\underline{H}_{Z^{p}}^{i}(F^\bullet)=0$.
-\end{itemize}
-Part b) is proved similarly.
-
-(i) + (ii) $\Longrightarrow$ (iii). Since $F^\bullet\in\DD^b(X)$, we can find an $i_0$ such that $H^{i}(F^\bullet)=0$ for $i\geq i_0$. By condition (ii), the spectral sequence of Motif G degenerates, so checking pointwise, we see that $H^{i}(E(F^\bullet))=0$ for $i\geq i_0$ also.
-
-We will construct, by descending induction on $p$, an isomorphism in $\DD^+(X)$ of $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ with the truncation $Q(\tau_{\geq p}E(F^\bullet))$ of $QE(F^\bullet)$ in degrees $\geq p$ (see [I \S7] for notation). Then, since the filtration is strictly exhaustive, we have
-\[
-F^\bullet = \DerR\underline{\Gamma}_{Z^p}(F^\bullet)\quad\text{and}\quad QE(F^\bullet)=Q(\tau_{\geq p}E(F^\bullet))
-\]
-for $p$ small enough, which will give us the isomorphism $\varphi$.
-
-For $p$ large enough (say $p\geq i_0$), $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ has a unique non-zero cohomology group. Indeed,
-\[
-\underline{H}_{Z^{p}}^{i}(F^\bullet)=0\quad\text{for }i<p
-\]
-and
-\[
-\underline{H}_{Z^{p}}^{i}(F^\bullet)=H^{i}(F^\bullet)=0\quad\text{for } i>p \quad\text{by (i) b)},
-\]
-since $p\geq i_0$. Furthermore, there is an exact sequence
-\begin{equation}\tag{1}
-0\longrightarrow \underline{H}_{Z^{p}}^{p}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\longrightarrow \underline{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow 0
-\end{equation}
-from Motif B.
-
-At the same time, for $p\geq i_0$, $\tau_{\geq p}E(F^\bullet)$ has a unique non-zero cohomology group. Indeed, $H^{i}=0$ for $i<p$ since the complex is zero in those degrees. $H^{i}=0$ for $i>p$, since $p\geq i_0$ (see above). Finally since this is a truncated complex, and $H^{p+1}(E(F^\bullet))=0$, there is an exact sequence
-\begin{equation}\tag{2}
-0\longrightarrow H^{p}(\tau_{\geq p}E(F^\bullet))\longrightarrow E^{p}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet).
-\end{equation}
-
-Now comparing (1) and (2), and using the definition of the complex $E(F^\bullet)$, and noting that
-\[
-\underline{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet)
-\]
-is injective, we see that
-\[
-\underline{H}_{Z^{p}}^{p}(F^\bullet)\cong H^{p}(\tau_{\geq p}E(F^\bullet)).
-\]
-Hence there is an isomorphism [I.4.3]
-\[
-\varphi_p\colon \DerR\underline{\Gamma}_{Z^p}(F^\bullet)\xrightarrow{\sim} Q(\tau_{\geq p}E(F^\bullet))
-\]
-in $\DD^+(X)$.
-
-We continue the induction as follows. In terms of the derived category, the spectral sequence of Motif G is expressed as a diagram of distinguished triangles
-
-\[
-\begin{tikzcd}[row sep=1.0cm, column sep=-0.2cm]
-	\dots & & \DerR \underline{\Gamma}_{Z^p/Z^{p+1}}(F^\bullet) \arrow[dl] & & \DerR \underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet) \arrow[dl] & & \dots \\
-	\dots \arrow[r] &\DerR \underline{\Gamma}_{Z^{p+1}}(F^\bullet) \arrow[rr] & & \DerR \underline{\Gamma}_{Z^p}(F^\bullet) \arrow[ul] \arrow[rr] & & \DerR \underline{\Gamma}_{Z^{p-1}}(F^\bullet) \arrow[ul] \arrow[r] & \dots .
+\begin{tikzcd}
+	X' \arrow[r, "v"] \arrow[d, "g"'] & X \arrow[d, "f"] \\
+	Y' \arrow[r, "u"'] & Y
 \end{tikzcd}
 \]
-So suppose by induction we have an isomorphism $\varphi_p$ of $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ with $Q(\tau_{\geq p}E(F^\bullet))$, for any $p$. By (ii), $\DerR\underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet)$ has a single non-zero cohomology group, so there is an isomorphism $\psi$ of it in the derived category with the complex consisting of that single sheaf, in the right place [I.4.3], namely $Q(E(F^\bullet)^{p-1}[-p+1])$. Thus we have a commutative diagram of distinguished triangles.
+Then there is a natural isomorphism
 \[
-\begin{tikzcd}[row sep=1.5cm, column sep=0.5cm]
-	& \DerR \underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet) \arrow[dl] & \\
-	\DerR \underline{\Gamma}_{Z^p}(F^\bullet) \arrow[rr] \arrow[dd, "\varphi_p"'] & & \DerR \underline{\Gamma}_{Z^{p-1}}(F^\bullet) \arrow[ul] \arrow[dd, "\varphi_{p-1}", dotted] \\
-	& Q(E(F^\bullet)^{p-1}[-p+1]) \arrow[dl] \arrow[uu, <-, crossing over, "\psi"' near end] & \\
-	Q(\tau_{\ge p} E(F^\bullet)) \arrow[rr] & & Q(\tau_{\ge p-1} E(F^\bullet)) \arrow[ul]
-\end{tikzcd}
+(\DerL v^*)f^{\sharp} = g^{\sharp}\DerL u^*
 \]
-By the axiom (TR3) of triangulated categories, we deduce an isomorphism on the third side of the triangle, which allows us to continue the induction. For $p$ small enough, $\varphi_p$ gives the required isomorphism $\varphi$. Furthermore, by choosing the isomorphisms $\psi$ to be the obvious ones, we get the further condition on the $H^{i}(\varphi)$.
-
-(iii) $\Longrightarrow$ (ii). We can use the (flasque) complex $E(F^\bullet)$ to calculate cohomology, by Motif C. Then $\underline{\Gamma}_{Z^p/Z^{p+1}}(E(F^\bullet))=E^{p}(F^\bullet)$, whence the result.
-\end{proof}
-
-\begin{definition}
-If $F^\bullet\in\DD^b(X)$ satisfies the equivalent conditions of the Proposition, we say that $F^\bullet$ is \emph{Cohen-Macaulay} with respect to the filtration $Z^\bullet$. If $F$ is a single sheaf, this is the same as the notion of the previous section (Proposition~2.6).
-\end{definition}
-
-\begin{lemma}\label{lem:4.3.2}
-Let $F^\bullet,G^\bullet\in\Coz(Z^\bullet;X)$. Then
-\begin{enumerate}
-\item[a)] If $f,g$ are two morphisms of $F^\bullet$ into $G^\bullet$ such that $H^{i}(f)$, $H^{i}(g)\colon H^{i}(F^\bullet)\to H^{i}(G^\bullet)$ are the same map for each $i$, then $f=g$.
-\item[b)] If $\overline{f}\colon Q(F^\bullet)\to Q(G^\bullet)$ is a morphism in $\DD^+(X)$, and if $G^\bullet$ is a complex of injective sheaves, then $\overline{f}$ is represented by an actual morphism of complexes $f\colon F^\bullet\to G^\bullet$.
-\end{enumerate}
-\end{lemma}
+of functors from $\DD(Y)$ to $\DD(X')$.
+\end{proposition}
 
 \begin{proof}
-a) By considering $f-g$, we reduce to showing that if $f\colon F^\bullet\to G^\bullet$ induces the zero map on cohomology, then $f$ is the zero map itself. We may assume by translation that $X=Z^0$. Then since $H^0(F^\bullet)\subseteq F^0$, and $H^0(f)$ is the zero map, the map
-\[
-f^0\colon F^0\longrightarrow G^0
-\]
-passes to the quotient to give a map $\overline{f}^0\colon B^1(F^\bullet)\to G^0$. But $B^1(F^\bullet)$ has supports in $Z^1$, and $G^0$ has $Z^1$-depth $\geq 1$, i.e., $\underline{\Gamma}_{Z^1}(G^0)=0$, so there are no non-zero maps of $B^1(F^\bullet)$ into $G^0$. We conclude that $\overline{f}^0$, and hence also $f^0$, is the zero map.
-
-Thus $f^1$ maps $Z^1(F^\bullet)$ into $0$, hence gives a map $\overline{f}^1\colon B^2(F^\bullet)\to G^1$. Proceeding as above we show that $f^p$ is the zero map for all $p$.
-
-b) This follows directly from [I.4.5] or [I.4.7], and is included only as a reminder.
+This follows from [II.5.4] and [II.5.9] modified to include the case of finite Tor-dimension, and the compatibility of $\omega_{X/Y}$ with base extension [\S1 above].
 \end{proof}
 
-\begin{corollary}\label{cor:4.3.3}
-Let $F^\bullet,G^\bullet\in\Coz(Z^\bullet;X)$. If $f\colon F^\bullet\to G^\bullet$ is a morphism of complexes which induces an isomorphism on the cohomology sheaves, and if $F^\bullet$ is an injective complex, then $f$ is an isomorphism of complexes.
+\textbf{Remark.}
+Following the conventions of [II \S6], we write ``$=$'' instead of naming the isomorphism and keeping track of it. However, in the following Proposition we do not write ``$=$'', because the isomorphism depends on a choice of sign made in \S1 above. In general, we will write ``$=$'' below when there can be no doubt about the isomorphism being compatible with all previous ones, and we will name those isomorphisms where there may be a question of sign, or of choice of coordinates, etc.
+
+\begin{proposition}\label{prop:3.2.2}
+Let $f\colon X\to Y$ and $g\colon Y\to Z$ be two smooth morphisms. Then there is an isomorphism
+\[
+\zeta_{f,g}\colon (gf)^{\sharp} \xrightarrow{\sim} f^{\sharp}g^{\sharp}
+\]
+of functors from $\DD(Z)$ to $\DD(X)$. Furthermore, for a composition of three smooth morphisms the isomorphisms $\zeta$ give a commutative diagram.
+\end{proposition}
+
+\begin{proof}
+We define $\zeta_{f,g}$ using the $\zeta$ of Definition~1.5 above, and the isomorphisms [II.5.4] and [II.5.9]. The compatibility then follows from Proposition~1.6.
+\end{proof}
+
+\begin{proposition}\label{prop:3.2.3}
+Let $f\colon X\to Y$ be a smooth morphism. Then $f^{\sharp}$ takes $\DD_{\mathrm{qc}}(Y)$ to $\DD_{\mathrm{qc}}(X)$, and, if $X$ and $Y$ are locally noetherian, it takes $\DD_{\mathrm{c}}(Y)$ to $\DD_{\mathrm{c}}(X)$.
+\end{proposition}
+
+\begin{proof}
+Obvious.
+\end{proof}
+
+\begin{proposition}\label{prop:3.2.4}
+Let $f\colon X\to Y$ be a smooth morphism.
+\begin{enumerate}
+\item[a)] There is a functorial isomorphism
+\[
+f^{\sharp}(F^\bullet\underline{\underline{\otimes}} G^\bullet) \xrightarrow{\sim} f^{\sharp}(F^\bullet)\underline{\underline{\otimes}}  f^*(G^\bullet)
+\]
+provided either $F^\bullet,G^\bullet\in\DD^-(Y)$, or one of $F^\bullet,G^\bullet$ is in $\DD^b(Y)_{\mathrm{fTd}}$, and the other is in $\DD(Y)$.
+\item[b)] There is a functorial homomorphism
+\[
+f^{\sharp}(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)) \longrightarrow \DerR\underline{\Hom}^\bullet(f^{\sharp}F^\bullet, f^{\sharp}G^\bullet)
+\]
+for $F^\bullet\in\DD(Y)$ and $G^\bullet\in\DD^+(Y)$. It is an isomorphism if $Y$ is locally noetherian, and $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Left to reader. (Use [II.5.8], [II.5.9], [II.5.13], and [II.5.16].)
+\end{proof}
+
+\section{Recall of the explicit calculations}
+
+In this section we recall the calculations of the cohomology of projective space, as done in [EGA~III \S1]. First we must define the \v{C}ech resolution of a sheaf, and we follow [G, II \S5].
+
+Let $X$ be a prescheme, let $\mathcal{U}=(U_i)$ be a family of open sets of $X$, and let $F$ be an $\sO_X$-module. Then we define the \v{C}ech complex of $F$, $C^\bullet(\mathcal{U},F)$, as follows.
+
+For each $p\ge 0$, and for each $(p+1)$-tuple of indices $i_0<\cdots<i_p$ let $U_{i_0,\dots,i_p}=U_{i_0}\cap\cdots\cap U_{i_p}$. Define the sheaf $C^p(\mathcal{U},F)$ by giving its sections on an open set $V$ as follows:
+\[
+C^p(\mathcal{U},F)(V) = \prod_{i_0<\cdots<i_p} F(V\cap U_{i_0,\dots,i_p}).
+\]
+
+One checks easily that this is a sheaf. In fact, it is the product, over all $i_0<\cdots<i_p$, of the sheaves $i_*(F|_{U_{i_0,\dots,i_p}})$, where $i\colon U_{i_0,\dots,i_p}\to X$ is the inclusion. If
+\[
+\alpha \in C^p(\mathcal{U},F)(V)
+\]
+is a section, we represent it by its components,
+\[
+\alpha = \prod_{i_0,\dots,i_p} \alpha_{i_0,\dots,i_p}
+\]
+with
+\[
+\alpha_{i_0,\dots,i_p} \in F(V\cap U_{i_0,\dots,i_p}).
+\]
+
+We define the boundary map
+\[
+d\colon C^p(\mathcal{U},F) \longrightarrow C^{p+1}(\mathcal{U},F)
+\]
+as follows. If $\alpha\in C^p(\mathcal{U},F)(V)$ is a section, as above, then the components of $d\alpha$ are given by
+\[
+(d\alpha)_{i_0,\dots,i_{p+1}} = \sum_{j=0}^{p+1} (-1)^j \rho_j \alpha_{i_0,\dots,\widehat{i_j},\dots,i_{p+1}}
+\]
+where $\rho_j$ is the appropriate restriction map on sections of $F$.
+
+Finally, we define an augmentation
+\[
+\epsilon\colon F \longrightarrow C^0(\mathcal{U},F)
+\]
+by sending a section $\alpha\in F(V)$ to the product of its restrictions $\alpha_i\in F(V\cap U_i)$.
+
+\begin{proposition}\label{prop:3.3.1}
+[G, II.5.2.1] Suppose that $\mathcal{U}$ is a covering of $X$. Then the augmentation $\epsilon$ gives a quasi-isomorphism of $F$ to the \v{C}ech complex $C^\bullet(\mathcal{U},F)$ of $F$ (i.e., it is a ``resolution'' of $F$, in the old language).
+\end{proposition}
+
+\begin{proposition}\label{prop:3.3.2}
+Let $f\colon X\to Y$ be a separated morphism of preschemes, let $\mathcal{U}=(U_i)$ be a family of open subsets of $X$ such that $f|_{U_i}$ is an affine morphism for each $i$, and let $F$ be a quasi-coherent $\sO_X$-module. Then the sheaves $C^p(\mathcal{U},F)$ are $f_*$-acyclic.
+\end{proposition}
+
+\begin{proof}
+Since a product of $f_*$-acyclic sheaves is $f_*$-acyclic, we need only show that if $U$ is an open subset of $X$ such that $f|_U$ is an affine morphism, and if $i\colon U\to X$ is the inclusion, then $i_*(F|_U)$ is $f_*$-acyclic. Now since $f$ is separated, and $f|_U$ is affine, it follows that $i$ is an affine morphism. On the other hand, since $F$ is quasi-coherent, $F|_U$ is acyclic for the affine morphisms $i$ and $fi$, by [EGA~III~1.3.2]. Hence by the spectral sequence of derived functors [II.5.1], $i_*(F|_U)$ is $f_*$-acyclic.
+\end{proof}
+
+\begin{corollary}\label{cor:3.3.3}
+Let $f\colon X\to Y$ be a separated morphism of preschemes, let $\mathcal{U}=(U_i)$ be an open cover of $X$ such that $f|_{U_i}$ is an affine morphism for each $i$, and let $F$ be a quasi-coherent sheaf on $X$. Then the natural maps
+\[
+f_*(C^\bullet(\mathcal{U},F)) \xrightarrow{\xi} \DerR f_*(C^\bullet(\mathcal{U},F)) \xleftarrow{\DerR f_*(\epsilon)} \DerR f_*(F)
+\]
+are isomorphisms in $\DD(Y)$. (Here $\xi$ is the canonical map in the definition of the derived functor, cf.\ [I.5].)
 \end{corollary}
 
-\begin{definition}
-A complex $F^\bullet\in\DD^b(X)$ is \emph{Gorenstein} with respect to the filtration $Z^\bullet$ if it is Cohen-Macaulay, and if $H_x^{i}(F^\bullet)$ is either zero or injective for each $i\in\mathbb{Z}$, $x\in X$. We denote the (additive) subcategory of $\DD^b(X)$ of Gorenstein complexes by $\DD^b(X)_{\mathrm{Gor}(Z^\bullet)}$.
-\end{definition}
+\begin{proof}
+Follows from the two previous results and from [I.5.1] and [I.5.3($\beta$)].
+\end{proof}
 
-\begin{remark}
-\begin{enumerate}
-\item If $X$ is the spectrum of a local noetherian ring $A$, and if $Z^\bullet$ is the filtration by codimension, and if $F^\bullet=A$, then this is the usual notion of a Gorenstein ring [LC 4.14 and Exercise~2 ff].
-\item If $F^\bullet$ is Gorenstein, then $E(F^\bullet)$ is an injective Cousin complex, by Motif F.
-\end{enumerate}
-\end{remark}
+Now we will apply these results to projective space. Let $Y$ be a prescheme, and let $X=\mathbb{P}^n_Y$ be the $n$-dimensional projective space over $Y$, i.e., $X=\underline{\operatorname{Proj}}\,\sO_Y[T_0,\dots,T_n]$ where the $T_i$ are indeterminates. For each $i$, let $U_i=X_{T_i}$, the place where $T_i\neq 0$. Then $\mathcal{U}=(U_i)$ is a finite open cover of $X$, and $f|_{U_i}$ is an affine morphism for each $i$, where $f\colon X\to Y$ is the projection. Indeed, $U_i\cong\mathbb{A}^n_Y$, affine $n$-space.
 
-\begin{example}
-We will see in Chapter~V that a dualizing complex on a prescheme is Gorenstein with respect to the corresponding filtration by codimension.
-\end{example}
+On $U_0$ we fix a set of inhomogeneous coordinates 
 
-\begin{proposition}\label{prop:4.3.4}
-The functor
-\[
-E\colon \DD^b(X)_{\mathrm{Gor}(Z^\bullet)}\longrightarrow \operatorname{Icz}(Z^\bullet,X)
+\[t_i=T_i/T_0,\, i=1,\dots,n.
 \]
-is an equivalence of categories of the category of Gorenstein complexes with the (additive) category $\operatorname{Icz}(Z^\bullet,X)$ of injective Cousin complexes. Furthermore, the natural functor $Q$ is an inverse to $E$.
+Let $\omega=\omega_{X/Y}$ be the relative $n$-differential forms on $X$ over $Y$. (It is well known that one can find an isomorphism $\omega\cong\sO_X(-n-1)$, but we will not use this isomorphism, because of its non-intrinsic nature.) Then
+\[
+\tau = dt_1\wedge\cdots\wedge dt_n
+\]
+is a generating section of $\omega|_{U_0}$, since $\Omega^1_{U_0/Y}$ is free of rank $n$, and generated by $dt_1,\dots,dt_n$. Since $\omega(n+1)\cong\sO_X$, $\tau$ extends to a global section
+\[
+\tau \in \Gamma(X,\omega(n+1))
+\]
+which we will also call $\tau$.
+
+Multiplication by $T_0\cdots T_n$ gives a map from $\omega$ to $\omega(n+1)$, which is an isomorphism on $U_{0,\dots,n}$, so we can consider the section
+\[
+\tau/T_0\cdots T_n \in \omega(U_{0,\dots,n}).
+\]
+
+This section is an $n$-cocycle in the complex $f_*(C^\bullet(\mathcal{U},\omega))$, and so using Corollary~3.3 above, defines an element
+\[
+\overline{\tau} \in \Gamma(Y,R^n f_*(\omega)).
+\]
+
+\begin{theorem}\label{thm:3.3.4}
+[EGA~III~2.1.12] Let $Y$ be a prescheme, let $X=\mathbb{P}^n_Y$, let $f$ be the projection, and let $\omega=\omega_{X/Y}$ be the relative $n$-differentials. Then $R^n f_*(\omega)$ is an invertible sheaf on $Y$, and $\overline{\tau}$ is a generating section, hence it defines an isomorphism
+\[
+\gamma\colon R^n f_*(\omega) \xrightarrow{\sim} \sO_Y
+\]
+by sending $\overline{\tau}$ to $1$. Furthermore,
+\[
+R^i f_*(\sO_X(m)) = 0 = R^{n-i}f_*(\omega(-m))
+\]
+for $0<i<n$, $m\in\mathbb{Z}$, and for $i=0$, $m<0$, and the cup-product
+\[
+f_*(\sO_X(m)) \times R^n f_*(\omega(-m)) \longrightarrow R^n f_*(\omega)
+\]
+is a perfect pairing of locally free sheaves for all $m\ge 0$.
+\end{theorem}
+
+\textbf{Remarks.}
+\begin{enumerate}
+\item Note that the isomorphism $\gamma$ we have constructed above is compatible with arbitrary base extension, since everything in the construction is flat over $Y$.
+\item It is natural to ask whether the isomorphism $\gamma$ is stable under automorphisms of the projective space, and we will see later (Corollary~10.2) that indeed it is.
+\end{enumerate}
+\section{The trace map for projective space}
+
+In this section we define the trace isomorphism
+\[
+\operatorname{Trp}_f \colon \DerR f_* f^{\sharp}(G^\bullet) \xrightarrow{\sim} G^\bullet
+\]
+for $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$, where $Y$ is a locally noetherian prescheme, and $f\colon\mathbb{P}^n_Y\to Y$ is the projection. The definition uses the results of [II.7] on locally noetherian preschemes. Without using these results, we can define the trace map only for $G^\bullet\in\DD_{\mathrm{qc}}^b(Y)$.
+
+\begin{lemma}\label{lem:3.4.1}
+Let $Y$ be a locally noetherian prescheme, let $X=\mathbb{P}_Y^n$, and let $f\colon X\to Y$ be the projection. Then every quasi-coherent sheaf $F$ on $X$ is a quotient of a sheaf of the form
+\[
+L = \bigoplus f^*(G_i)(-m_i)
+\]
+where the $G_i$ are quasi-coherent sheaves on $Y$, and the $m_i>0$ are integers.
+\end{lemma}
+
+\begin{proof}
+Since $F$ is the direct limit of its coherent subsheaves, we may assume that $F$ itself is coherent. For each $m>0$ we have a natural map
+\[
+f^*f_*(F(m)) \longrightarrow F(m),
+\]
+and we know from Serre's theorem [EGA~III~2.2.1] that for each noetherian open subset $V\subseteq Y$, the restriction of this map to $f^{-1}(V)$ is surjective for large enough $m$. Hence the map
+\[
+\bigoplus_{m>0} f^*f_*(F(m))(-m) \longrightarrow F
+\]
+is surjective on all of $X$, so we are done.
+\end{proof}
+
+\begin{lemma}\label{lem:3.4.2}
+For any sheaf $L$ on $X$ of the form of the previous lemma, $R^i f_*(L)=0$ for $i\neq n$.
+\end{lemma}
+
+\begin{proof}
+It is sufficient to show that for $G$ quasi-coherent on $Y$, and $m>0$, $R^i f_*(f^*(G)(-m))=0$ for $i\neq n$. The question is local on $Y$, so we may assume $Y$ quasi-compact, and use the projection formula [II.5.6] (note $f^*(G)(-m)=f^*(G)\otimes\sO_X(-m)$):
+\[
+\DerR f_*(f^*(G)(-m)) \xrightarrow{\sim} \DerR f_*(\sO_X(-m))\otimes G.
+\]
+But $R^i f_*(\sO_X(-m))=0$ for $i\neq n$ by the explicit calculations (Theorem~3.4), and $R^n f_*(\sO_X(-m))$ is locally free on $Y$, so there is only one non-zero sheaf on the right, and we are done.
+\end{proof}
+
+\begin{proposition}\label{prop:3.4.3}
+Let $Y$ be a locally noetherian prescheme, let $X=\mathbb{P}^n_Y$, and let $f\colon X\to Y$ be the projection. Then there is a functorial isomorphism
+\[
+\operatorname{Trp}_f \colon \DerR f_* f^{\sharp}(G^\bullet) \xrightarrow{\sim} G^\bullet
+\]
+for $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$.
 \end{proposition}
 
 \begin{proof}
-We must construct isomorphisms of functors
+Since $X$ and $Y$ are locally noetherian, we reduce to constructing a similar isomorphism for $G^\bullet\in\DD^+(\Qco(Y))$, where
 \[
-\varphi\colon 1\longrightarrow QE
+\DerR f_*\colon \DD(\Qco(X)) \longrightarrow \DD(\Qco(Y))
 \]
-and
-\[
-\psi\colon 1\longrightarrow EQ
-\]
-on the two categories. To construct $\varphi$, we choose, for each Gorenstein complex $F^\bullet\in\DD^b(X)$, an isomorphism
-\[
-\varphi(F^\bullet)\colon F^\bullet\longrightarrow QE(F^\bullet)
-\]
-as in Proposition~3.1 (iii) such that
-\[
-H^{i}(\varphi(F^\bullet))\colon H^{i}(F^\bullet)\longrightarrow H^{i}(E(F^\bullet))
-\]
-is inverse to the map derived from the spectral sequence. I claim the collection of morphisms $\{\varphi(F^\bullet)\}$ is an isomorphism of functors
-\[
-\varphi\colon 1\longrightarrow QE
-\]
-as required. Indeed, let $f\colon F^\bullet\to G^\bullet$ be a morphism of Gorenstein complexes in $\DD^b(X)$. Then we have a diagram
-\[
-\begin{tikzcd}
-F^\bullet \arrow[r, "\varphi(F^\bullet)"] \arrow[d, "f"'] & QE(F^\bullet) \arrow[d, "QE(f)"] \\
-G^\bullet \arrow[r, "\varphi(G^\bullet)"] & QE(G^\bullet)
-\end{tikzcd}
-\]
-where $\varphi(F^\bullet),\varphi(G^\bullet)$ are isomorphisms in the derived category. To show this diagram is commutative, we must show that $QE(f)=\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ in $\DD^+(X)$. Now by the lemma, part b), $\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ is represented by an actual morphism of complexes
-\[
-g\colon E(F^\bullet)\longrightarrow E(G^\bullet).
-\]
-Since $E$ is a functor, our condition on $H^{i}(\varphi(F^\bullet))$ and $H^{i}(\varphi(G^\bullet))$ shows that $E(f)$ and $g$ have the same effect on cohomology. Hence by the lemma, part a), they are equal. Thus $\varphi$ is functorial, as required.
+and \[f^{\sharp}\colon \DD(\Qco(Y))\to\DD(\Qco(X))\].
 
-For $\psi$, one need only note that if $F^\bullet\in\Coz(Z^\bullet,X)$, then $EQ(F^\bullet)=F^\bullet$ in an obvious way.
+(We use here [II.7.19] which says that $\DD^+(\Qco(Y))\to\DD_{\mathrm{qc}}^+(Y)$ is an equivalence of categories, and [I.5.6] which says that taking derived functors is compatible with this isomorphism. Note that $\DerR f_*$ is defined on all of $\DD(\Qco(X))$ since $f_*$ is of finite cohomological dimension on $\Qco(X)$.)
+
+In fact, we will construct an isomorphism
+\[
+\operatorname{Trp}_f\colon \DerR f_* f^{\sharp}(G^\bullet) \xrightarrow{\sim} G^\bullet
+\]
+for all $G^\bullet\in\DD(\Qco(Y))$.
+
+We apply [I.7.4] to the categories $A=\Qco(X)$ and $B=\Qco(Y)$, and to the functor $F=f_*$. Now $f_*$ has cohomological dimension $n$ on $\Qco(X)$. Let $P\subseteq\operatorname{Ob}\Qco(X)$ be the collection of sheaves of the form $L$ of Lemma~4.1. Then by the two lemmas, $P$ satisfies the hypotheses of loc.\ cit.\ and we conclude that $\DerL(R^n f_*)$ exists, and there is an isomorphism
+\[
+\psi\colon \DerR f_* \xrightarrow{\sim} \DerL(R^n f_*)[-n]
+\]
+of functors from $\DD(\Qco(X))$ to $\DD(\Qco(Y))$.
+
+We apply $\psi$ to $f^{\sharp}(G^\bullet)$ for $G^\bullet\in\KK(\Qco(Y))$, which gives an isomorphism
+\begin{align*}
+\DerR f_* f^{\sharp}(G^\bullet) &= \DerR f_* (f^*(G^\bullet)\otimes\omega[n]) \\
+&\xrightarrow{\sim} \DerL(R^n f_*)(f^*(G^\bullet)\otimes\omega).
+\end{align*}
+
+Now each sheaf $f^*(G^p)\otimes\omega$ is in $P$ (since $\omega\cong\sO_X(-n-1)$), hence is $R^n f_*$-acyclic, so the expression on the right is just
+\[
+R^n f_*(f^*(G^\bullet)\otimes\omega).
+\]
+
+But for each $p$, the projection formula gives us an isomorphism
+\[
+R^n f_*(f^*(G^p)\otimes\omega) \xrightarrow{\sim} R^n f_*(\omega)\otimes G^p,
+\]
+and composing with the isomorphism $\gamma$ of Theorem~3.4, this becomes $G^p$. Composing all these isomorphisms we have the required isomorphism
+\[
+\operatorname{Trp}_f \colon \DerR f_* f^{\sharp}(G^\bullet) \longrightarrow G^\bullet.
+\]
 \end{proof}
 
-\begin{remark}
-This Proposition will be used in an essential way in Chapter~VI in the construction of residual complexes from dualizing complexes.
-\end{remark}
+\textbf{Remarks.}
+\begin{enumerate}
+\item Remember that the isomorphism $\operatorname{Trp}_f$ we have just defined depends on the isomorphism $\gamma$ of Theorem~3.4, and so depends apparently on the projective coordinates.
+\item If one does not wish to use [II.7.19] and [I.7.4], one can define $\operatorname{Trp}_f$ for $G^\bullet\in\DD_{\mathrm{qc}}^b(Y)$ simply by using the projection formula [II.5.6]. The following proposition shows that the two methods of constructing the trace map agree when both are defined.
+\end{enumerate}
+
+\begin{proposition}\label{prop:3.4.4}
+Let $f,X,Y$ be as in the previous proposition, let $F^\bullet,G^\bullet\in\DD_{\mathrm{qc}}^b(Y)$, and assume that one of $F^\bullet,G^\bullet$ has finite Tor-dimension. Then the following diagram is commutative:
+\[
+\begin{tikzcd}[row sep=large, column sep=6em]
+	F^\bullet \underline{\underline{\otimes}} \DerR f_* f^\sharp G^\bullet 
+	\arrow[r] 
+	\arrow[d, "{\operatorname{Trp}_f}"'] 
+	& \DerR f_* (f^* F^\bullet \underline{\underline{\otimes}} f^\sharp G^\bullet) 
+	\arrow[d] \\
+	F^\bullet \underline{\underline{\otimes}} G^\bullet 
+	& \DerR f_* f^\sharp (F^\bullet \underline{\underline{\otimes}} G^\bullet) 
+	\arrow[l]
+\end{tikzcd}
+\]
+where the upper horizontal arrow is the projection formula [II.5.6] and the left-hand vertical arrow is the isomorphism of Proposition~2.4a.
+\end{proposition}
+
+\begin{proof}
+The question is local on $Y$, so we may assume $Y$ affine. Then we can take a resolution of $F^\bullet$ by direct sums of copies of $\sO_Y$. Thus we may work entirely with quasi-coherent sheaves, and will prove the statement for $F^\bullet,G^\bullet\in\DD^-(\Qco(Y))$. Then the result follows easily from the definition of the morphisms involved, since if $C^\bullet$ is a Cartan--Eilenberg resolution of $f^*G^\bullet$, then $f^*F^\bullet\otimes C^\bullet$ is a Cartan--Eilenberg resolution of $f^*F^\bullet\otimes f^*G^\bullet$.
+\end{proof}
+
+\section{The duality theorem for projective space}
+
+The duality theorem for projective space now follows easily from what has gone before. At the same time it is a model of how the duality is defined in terms of the functor $f^{\sharp}$ and the isomorphism $\operatorname{Tr}_f$. When we have a satisfactory functorial theory of $f^!$ (which is $f^{\sharp}$ in the smooth case) and $\operatorname{Tr}_f$, we will prove the most general duality theorem by reducing to this case (Chapter VII).
+
+Let $Y$ be a noetherian prescheme of finite Krull dimension, let $X=\mathbb{P}^n_Y$, and let $f\colon X\to Y$ be the projection. We define the \emph{duality morphism}
+\[
+\underline{\Theta}_f\colon \DerR f_* \DerR\underline{\Hom}_X^\bullet(F^\bullet, f^{\sharp}G^\bullet) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(\DerR f_*F^\bullet, G^\bullet)
+\]
+for $F^\bullet\in\DD^-(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$ by composing the morphism of [II.5.5] with the trace morphism in the second variable (Proposition~4.3).
+
+Applying the functor $\DerR\Gamma(Y,\cdot)$ to both sides, and using [II.5.2] and [II.5.3] we obtain a global duality morphism
+\[
+\Theta_f \colon \DerR\operatorname{Hom}_X^\bullet(F^\bullet, f^{\sharp}G^\bullet) \longrightarrow \DerR\operatorname{Hom}_Y^\bullet(\DerR f_*F^\bullet, G^\bullet)
+\]
+and taking the cohomology of this, we get morphisms
+\[
+\theta_f^i \colon \operatorname{Ext}_X^i(F^\bullet,f^{\sharp}G^\bullet) \longrightarrow \operatorname{Ext}_Y^i(\DerR f_*F^\bullet,G^\bullet).
+\]
+
+\begin{theorem}\label{thm:3.5.1}
+Let $Y$ be a noetherian prescheme of finite Krull dimension, and let $X=\mathbb{P}^n_Y$. Then the duality morphisms $\underline{\Theta}_f$, $\Theta_f$, and $\theta_f^i$ are isomorphisms for all $F^\bullet\in\DD_{\mathrm{qc}}^-(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$.
+\end{theorem}
+
+\begin{proof}
+Clearly it is sufficient to show that $\underline{\Theta}_f$ is an isomorphism. The question is local on $Y$, so we may assume that $Y$ is affine. Then every quasi-coherent sheaf on $Y$ is a quotient of a direct sum of copies of $\sO_Y$, hence, as in Lemma~4.1, every quasi-coherent $\sO_X$-module is a quotient of a direct sum of copies of $\sO_X(-m)$ for various $m$. We can take $m$ large, and using any isomorphism $\omega\cong\sO_X(-n-1)$ we see that any quasi-coherent sheaf $F$ on $X$ is a quotient of a sheaf of the form
+\[
+L = \bigoplus \omega(-m_i)
+\]
+for certain integers $m_i>0$.
+
+The functors in question are way-out right in both variables, so by the Lemma on Way-out Functors [I.7.1], we reduce to the case $F^\bullet=L$ of the form above, and $G^\bullet=G$, a single injective quasi-coherent sheaf. Furthermore, $\DerR\underline{\Hom}^\bullet$ transforms direct sums in the first variable to direct products, so we reduce to the case $F^\bullet=\omega(-m)$ for $m>0$. Thus we have to prove that the map
+\[
+\underline{\Theta}_f \colon \DerR f_* \DerR\underline{\Hom}_X^\bullet(\omega(-m), f^*(G)\otimes\omega[n]) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(\DerR f_*(\omega(-m)), G)
+\]
+is an isomorphism. By [II.5.16] and the projection formula, the complex on the left becomes
+\[
+\DerR f_*(\sO_X(m))\otimes G[n] = f_*(\sO_X(m))\otimes G[n]
+\]
+since $m>0$ and $R^i f_*(\sO_X(m))=0$ for $i>0$ (Theorem~3.4). On the other hand, $R^i f_*(\omega(-m))=0$ for $i\neq n$, so the complex on the right becomes
+\[
+\underline{\Hom}_Y(R^n f_*(\omega(-m)), \sO_Y)\otimes G[n],
+\]
+using again [II.5.16] and the fact that $R^n f_*(\omega(-m))$ is a locally free sheaf of finite rank on $Y$.
+
+Now $\underline{\Theta}_f$ is the map deduced from the cup-product
+\[
+f_*(\sO_X(m)) \times R^n f_*(\omega(-m)) \longrightarrow R^n f_*(\omega),
+\]
+and so it is an isomorphism by Theorem~3.4. \textsc{q.e.d.}
+\end{proof}
+
+\begin{corollary}\label{cor:3.5.2}
+Let $A$ be a noetherian ring, let $X=\mathbb{P}_A^n$, let $I$ be an $A$-module, and let $F^\bullet\in\DD_{\mathrm{qc}}^-(X)$. Assume either that $I$ is injective, or that $H^i(X,F^\bullet)$ is projective for all $i$. Then there is a canonical isomorphism
+\[
+\operatorname{Hom}_A(H^i(X,F^\bullet), I) \cong \operatorname{Ext}_{\sO_X}^{\,n-i}(F^\bullet, \omega\otimes_A I).
+\]
+\end{corollary}
+
+\textbf{Remark.}
+When $A$ is a field, $I=A$, and $F^\bullet$ is a complex consisting of a single sheaf, one recovers the duality theorem of Serre for projective space over a field.
+
+\section{Duality for a finite morphism}
+
+Throughout this section we will let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes. We will define a functor $f^{\flat}$ and a morphism of functors $\operatorname{Trf}_f\colon \DerR f_* f^{\flat}\to 1$, with the same formal properties as the $f^{\sharp}$ and $\operatorname{Trp}_f$ of \S2,4 above. Then we prove a duality theorem similar to the one of \S5. This duality theorem is much more elementary than the preceding one, but it is important to set it in the right functorial context.
+
+The reader will notice that the locally noetherian hypothesis is not needed for the definition of $f^{\flat}$, but it is needed for the functorial properties, and the trace map. This suggests that our definition is not the ``right'' one in the non-noetherian case. On the other hand, we show by an example that the quasi-coherent hypotheses on the sheaves are indeed necessary for a duality theorem.
+
+Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes. Let $\overline{f}$ be the morphism of ringed spaces $(X,\sO_X)\to(Y,f_*\sO_X)$, and let $\operatorname{Mod}(f_*\sO_X)$ be the category of sheaves of $f_*\sO_X$-modules on $Y$. Then $\overline{f}$ is a flat morphism, and we will consider the functors
+\[
+\overline{f}_*\colon \operatorname{Mod}(X) \longrightarrow \operatorname{Mod}(f_*\sO_X)
+\]
+\[
+\overline{f}^*\colon \operatorname{Mod}(f_*\sO_X) \longrightarrow \operatorname{Mod}(X).
+\]
+
+Then $\overline{f}^*$ is exact, since $\overline{f}$ is flat, and the two functors are adjoint [EGA~0, 4.4], i.e., there is a natural map
+\[
+\tau\colon 1 \longrightarrow \overline{f}_*\,\overline{f}^*
+\]
+of functors from $\operatorname{Mod}(f_*\sO_X)$ into itself, such that the resulting map
+\[
+\operatorname{Hom}_{\sO_X}(\overline{f}^*G, F) \longrightarrow \operatorname{Hom}_{f_*\sO_X}(G, \overline{f}_*F)
+\]
+is an isomorphism for $F\in\operatorname{Mod}(X)$ and $G\in\operatorname{Mod}(f_*\sO_X)$.
+
+\begin{definition}
+Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes. Then we define
+\[
+f^{\flat}\colon \DD^+(Y) \longrightarrow \DD^+(X)
+\]
+by
+\[
+f^{\flat} = \overline{f}^*\bigl(\DerR\underline{\Hom}_{\sO_Y}(f_*\sO_X, \cdot)\bigr).
+\]
+
+(Note that $\DerR\underline{\Hom}_{\sO_Y}(f_*\sO_X,\cdot)$ is considered as a functor from $\DD^+(Y)$ to $\DD^+(\operatorname{Mod}(f_*\sO_X))$, and that $\overline{f}^*$ is exact.)
+
+If $f$ has finite Tor-dimension [II \S4], then $f_*\sO_X$ has finite Tor-dimension in the category $\operatorname{Mod}(Y)$, since $f^*=\overline{f}^*\cdot(-\otimes_{f_*\sO_X}\sO_Y)$. On the other hand, $f_*\sO_X$ is coherent, so locally it has a finite resolution by locally free sheaves of finite rank. We conclude that the functor $\underline{\Hom}_Y(f_*\sO_X,\cdot)$ has finite cohomological dimension, and so in that case we can define
+\[
+f^{\flat}\colon \DD(Y) \longrightarrow \DD(X)
+\]
+by the same formula as above.
+\end{definition}
+
+\begin{proposition}\label{prop:3.6.1}
+Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes (resp.\ with finite Tor-dimension). Then $f^{\flat}$ takes $\DD_{\mathrm{qc}}^+(Y)$ to $\DD_{\mathrm{qc}}^+(X)$ and $\DD_{\mathrm{c}}^+(Y)$ to $\DD_{\mathrm{c}}^+(X)$ (resp.\ $\DD_{\mathrm{qc}}(Y)$ to $\DD_{\mathrm{qc}}(X)$ and $\DD_{\mathrm{c}}(Y)$ to $\DD_{\mathrm{c}}(X)$).
+\end{proposition}
+
+\begin{proof}
+Follows from [I.7.3], [II.3.2], and the fact that $\overline{f}^*$ takes quasi-coherent sheaves to quasi-coherent sheaves, and coherent sheaves to coherent sheaves.
+\end{proof}
+
+\begin{proposition}\label{prop:3.6.2}
+Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be two finite morphisms of locally noetherian preschemes (resp.\ with finite Tor-dimension). Then there is a natural morphism
+\[
+(gf)^{\flat} \longrightarrow f^{\flat}g^{\flat}
+\]
+of functors from $\DD^+(Z)$ to $\DD^+(X)$ (resp.\ $\DD(Z)$ to $\DD(X)$). Furthermore, this map is an isomorphism for all $G^\bullet\in\DD_{\mathrm{qc}}^+(Z)$ (resp.\ $\DD_{\mathrm{qc}}(Z)$).
+\end{proposition}
+
+\begin{proof}
+We use the isomorphism of sheaves $g_*\sO_Y\otimes_{g_*\sO_Z}^\mathbf{L} \sO_Z \cong f_*\sO_X$ (which holds since $f,g$ are finite) together with the adjunction. This gives by [I.5.4] the morphism of functors
+\[
+(gf)^{\flat} \longrightarrow f^{\flat}g^{\flat}.
+\]
+
+To show it is an isomorphism for $G^\bullet\in\DD_{\mathrm{qc}}^+(Z)$ (resp.\ $\DD_{\mathrm{qc}}(Z)$) we use [I.7.1] and [II.7.18] to reduce to the case where $G^\bullet$ is a single quasi-coherent injective $\sO_Z$-module. Then $\overline{g}^*\,\underline{\Hom}_{\sO_Z}(g_*\sO_Y,G)$ is a quasi-coherent injective $\sO_Y$-module (since for a morphism of rings $A\to B$, if $I$ is an injective $A$-module, then $\operatorname{Hom}_A(B,I)$ is an injective $B$-module), so we reduce to the isomorphism of sheaves mentioned above, by [II.7.14] and [II.7.16].
+\end{proof}
+
+\begin{proposition}\label{prop:3.6.3}
+Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes (resp.\ with finite Tor-dimension), and let $u\colon Y'\to Y$ be a flat morphism with $Y'$ locally noetherian. Let $X'=X\times_Y Y'$, and let $v,g$ be the projections. 
+\[
+\begin{tikzcd}
+	X' \arrow[r, "v"] \arrow[d, "g"'] & X \arrow[d, "f"] \\
+	Y' \arrow[r, "u"] & Y
+\end{tikzcd}
+\]
+Then there is a natural functorial isomorphism
+\[
+v^*f^{\flat}(G^\bullet) \xrightarrow{\sim} g^{\flat}u^*(G^\bullet)
+\]
+for $G^\bullet\in\DD^+(Y)$ (resp.\ $G^\bullet\in\DD(Y)$).
+\end{proposition}
+
+\begin{proof}
+Use [II.5.8]. Details left to reader.
+\end{proof}
+
+\begin{corollary}\label{cor:3.6.4}
+With the hypotheses of the Proposition, assume furthermore that $u$ (and hence also $v$) is a smooth morphism. Then there is a natural functorial isomorphism
+\[
+v^{\sharp}f^{\flat}(G^\bullet) \xrightarrow{\sim} g^{\flat}u^{\sharp}(G^\bullet)
+\]
+for $G^\bullet\in\DD^+(Y)$ (resp.\ $G^\bullet\in\DD(Y)$). Moreover, under composition of two such Cartesian diagrams, this isomorphism is compatible with the isomorphisms of Propositions~2.2 and~6.2.
+\end{corollary}
+
+\begin{proof}
+Follows immediately from the Proposition and the fact that $\omega_{Y'/Y}$ is compatible with arbitrary base extension.
+\end{proof}
+
+\begin{proposition}\label{prop:3.6.5}
+Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes (resp.\ with finite Tor-dimension). Then there is a functorial morphism
+\[
+\operatorname{Trf}_f \colon \DerR f_* f^{\flat}(G^\bullet) \longrightarrow G^\bullet
+\]
+for $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$ (resp.\ $G^\bullet\in\DD_{\mathrm{qc}}(Y)$).
+\end{proposition}
+
+\begin{proof}
+Consider the natural map, for $G\in\operatorname{Mod}(Y)$,
+\[
+\tau\colon \underline{\Hom}_{\sO_Y}(f_*\sO_X,G) \longrightarrow \overline{f}_*\,\overline{f}^*\,\underline{\Hom}_{\sO_Y}(f_*\sO_X,G).
+\]
+This gives rise to a functorial morphism [I.5.4]
+\[
+\DerR\tau \colon \DerR\underline{\Hom}_{\sO_Y}(f_*\sO_X, G^\bullet) \longrightarrow \DerR f_* f^{\flat}(G^\bullet)
+\]
+for $G^\bullet\in\DD^+(Y)$ (resp.\ $\DD(Y)$). I claim $\DerR\tau$ is an isomorphism for $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$ (resp.\ $\DD_{\mathrm{qc}}(Y)$). Indeed, using [I.7.3] we reduce to the case where $G^\bullet=G$ is a single quasi-coherent injective $\sO_Y$-module. In that case $\tau$ is an isomorphism [EGA~II~1.4.3] since $f$ is an affine morphism, and $f^{\flat}(G)$ is injective (as we saw above) so we are done.
+
+Now composing $(\DerR\tau)^{-1}$ with the natural map
+\[
+\DerR\underline{\Hom}_{\sO_Y}(f_*\sO_X,G^\bullet) \longrightarrow G^\bullet
+\]
+derived from the map
+\[
+\underline{\Hom}_{\sO_Y}(f_*\sO_X,G) \longrightarrow G,
+\]
+``evaluation at one'', gives $\operatorname{Trf}_f$.
+\end{proof}
+
+\begin{proposition}\label{prop:3.6.6}
+\begin{enumerate}
+\item Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be a composition of two finite morphisms as in 6.2 above. Then there is a commutative diagram of functors on $\DD_{\mathrm{qc}}^+(Z)$ (resp.\ $\DD_{\mathrm{qc}}(Z)$).
+\[
+\begin{tikzcd}[row sep=large, column sep=6em]
+	\DerR (gf)_* (gf)^\flat
+	\arrow[r, "{\operatorname{Trf}_{gf}}"]
+	\arrow[d, "\approx"']
+	& 1
+	\arrow[d, "{\operatorname{Trf}_g}"] \\
+	\DerR g_* \DerR f_* f^\flat g^\flat
+	\arrow[r, "{\operatorname{Trf}_f}"]
+	& \DerR g_* g^\flat
+\end{tikzcd}
+\]
+\item Let $u\colon Y'\to Y$ be a flat base extension, as in 6.3 above. Then there is a commutative diagram of functors on $\DD_{\mathrm{qc}}^+(Y)$ (resp.\ $\DD_{\mathrm{qc}}(Y)$). The left vertical arrow is [II.5.12].
+\[
+\begin{tikzcd}[row sep=large, column sep=6em]
+	u^* \DerR f_* f^\flat
+	\arrow[r, "{\operatorname{Trf}_f}"]
+	\arrow[d, "\approx"']
+	& u^* \arrow[d, "{\operatorname{Trf}_g}"] \\
+	\DerR g_* v^* f^\flat
+	\arrow[r, "\approx"]
+	& \DerR g_* g^\flat u^*
+\end{tikzcd}
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Left to reader.
+\end{proof}
+
+\begin{theorem}[Duality]\label{thm:3.6.7}
+Let $f\colon X\to Y$ be a finite morphism of noetherian preschemes of finite Krull dimension. Then the duality morphism
+\[
+\underline{\Theta}_f\colon \DerR f_* \DerR\underline{\Hom}_X^\bullet(F^\bullet, f^{\flat}G^\bullet) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(\DerR f_*F^\bullet, G^\bullet)
+\]
+defined by composing [II.5.5] with $\operatorname{Trf}_f$, is an isomorphism for $F^\bullet\in\DD_{\mathrm{qc}}^-(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$.
+\end{theorem}
+
+\begin{proof}
+Making the usual reductions, we arrive at the following well-known statement: let $A\to B$ be a homomorphism of rings, let $M$ be a $B$-module and let $N$ be an $A$-module. Then the natural map
+\[
+\operatorname{Hom}_B(M, \operatorname{Hom}_A(B,N)) \longrightarrow \operatorname{Hom}_A(M,N)
+\]
+is an isomorphism.
+\end{proof}
+
+\begin{example}
+One cannot expect a duality theorem for non-quasi-coherent sheaves, even for a finite \'etale morphism of integral noetherian schemes. Let $Y$ be a non-singular curve over a field $k$, algebraically closed, and let $X$ be a double covering of $Y$.
+\begin{center}
+
+\begin{tikzpicture}[scale=1.5]
+	% Curve X
+	\draw[thick] (2.5, 1.5) .. controls (-0.5, 1) and (-1, -0.5) .. (2.5, -0.4);
+	\node at (0, 1.1) {\large $X$};
+	
+	% Line Y
+	\draw[thick] (-0.8, -1.5) -- (2.5, -1.5);
+	\node at (-0.4, -1.2) {\large $Y$};
+	
+	% Dashed vertical fiber
+	\draw[dashed] (0.5, 1.6) -- (0.5, -1.8);
+	
+	% Intersection points and labels
+	\fill (0.5, 0.85) circle (1.2pt) node[below right] {$x_1$};
+	\fill (0.5, -0.2) circle (1.2pt) node[above right] {$x_2$};
+	\fill (0.5, -1.5) circle (1.2pt) node[above right] {$y$};
+	
+	% Arrow for the projection map f
+	\draw[->, thick] (1.4, -0.7) -- (1.4, -1.3) node[midway, right] {$f$};
+\end{tikzpicture}
+	
+\end{center}
+Let $y\in Y$ be a closed point, and let $x_1,x_2$ be the two points lying over $y$. Let $K(X)$ and $K(Y)$ be the function fields of $X$ and $Y$, respectively. Let $G$ be the sheaf $K(Y)$, concentrated at the point $y$. Then $G$ is a (non-quasi-coherent) indecomposable injective $\sO_Y$-module [II.7.11]. One sees easily that $f^{\flat}(G)$ is the sheaf on $X$ consisting of two copies of $K(X)$, one concentrated at $x_1$, and one concentrated at $x_2$. It is the direct sum of two indecomposable injective $\sO_X$-modules.
+
+Now let $F=\sO_X$. Then we have
+\[
+f_*\underline{\Hom}_X(F, f^{\flat}G) = 2K(X) \text{ concentrated at } y
+\]
+\[
+\underline{\Hom}_Y(f_*F,G) = K(X) \text{ concentrated at } y.
+\]
+
+Thus the duality morphism $\underline{\Theta}_f$ cannot be an isomorphism.
+\end{example}
+
+\textbf{Remark 6.8.}
+Let $f\colon X\to Y$ be a closed immersion of preschemes (not necessarily locally noetherian) (resp.\ with $X$ a locally complete intersection in $Y$ [\S1]). Then we can improve on the results of this section as follows.
+
+We can define
+\[
+f^{\flat}\colon \DD^+(Y)\longrightarrow \DD^+(X) \qquad (\text{resp.\ } f^{\flat}\colon \DD(Y)\longrightarrow \DD(X))
+\]
+by the same formula as above, noting that if $X$ is a local complete intersection, then the functor $\underline{\Hom}_{\sO_Y}(f_*\sO_X,\cdot)$ has finite cohomological dimension.
+
+As in Proposition~6.2, there is a natural map
+\[
+(gf)^{\flat} \longrightarrow f^{\flat}g^{\flat}
+\]
+which is defined and is an isomorphism on $\DD^+(Z)$ (resp.\ $\DD(Z)$). One need only note that $\overline{f}^*$ and $\overline{g}^*$ are the identity maps, so the reduction to the quasi-coherent case is unnecessary.
+
+The trace map of Proposition~6.5,
+\[
+\operatorname{Trf}_f \colon \DerR f_* f^{\flat}(G^\bullet) \longrightarrow G^\bullet,
+\]
+is defined for $G^\bullet\in\DD^+(Y)$ (resp.\ $\DD(Y)$) since the morphism $\tau$ of the proof is the identity.
+
+The compatibilities of Proposition~6.6 carry over to this more general case. (Here one needs to note that the quasi-coherence assumption in [II.5.12] is unnecessary if $f$ is a closed immersion, because then $f_*$ is an exact functor on $\operatorname{Mod}(X)$.)
+
+Finally, the duality of Theorem~6.7 is valid for $F^\bullet\in\DD(X)$ and $G^\bullet\in\DD^+(Y)$. Indeed, we may assume that $G^\bullet$ is a complex of injective $\sO_Y$-modules. Then $f^{\flat}G^\bullet$ is also a complex of injectives; $f_*$ is exact, so we have to show that
+\[
+f_*\underline{\Hom}_X^\bullet(F^\bullet, f^{\flat}G^\bullet) \xrightarrow{\sim} \underline{\Hom}_Y^\bullet(f_*F^\bullet, G^\bullet)
+\]
+is an isomorphism. It is true for each $F^p$, $G^q$ separately, and hence is true for the complexes. (Note we do not use the Lemma on Way-out Functors this time.)
+
+\begin{proposition}\label{prop:3.6.9}
+Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes. Then
+\begin{enumerate}
+\item[a)] There is a functorial isomorphism
+\[
+f^{\flat}(F^\bullet)\otimes\DerL f^*(G^\bullet) \xrightarrow{\sim} f^{\flat}(F^\bullet\underline{\underline{\otimes}} G^\bullet)
+\]
+for $F^\bullet\in\DD^+(Y)$, $G^\bullet\in\DD^b(Y)_{\mathrm{fTd}}$.
+\item[b)] There is a functorial isomorphism
+\[
+\DerR\underline{\Hom}^\bullet(\DerL f^*F^\bullet, f^{\flat}G^\bullet) \xrightarrow{\sim} f^{\flat}(\DerR\underline{\Hom}^\bullet(F^\bullet, G^\bullet))
+\]
+for $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$ and $G^\bullet\in\DD_{\mathrm{c}}^+(Y)$.
+\item[c)] There is a commutative diagram (for $F^\bullet\in\DD_{\mathrm{qc}}^b(Y)$ and $G^\bullet\in\DD_{\mathrm{qc}}^b(Y)_{\mathrm{fTd}}$):
+\[
+\begin{tikzcd}[row sep=large, column sep=6em]
+	F^\bullet \underline{\underline{\otimes}} \DerR f_* f^\flat G^\bullet
+	\arrow[r, "{[\text{II}.5.6]}"]
+	\arrow[d, "{\operatorname{Trf}_f}"']
+	& \DerR f_* (\DerL f^* F^\bullet \underline{\underline{\otimes}} f^\flat G^\bullet)
+	\arrow[d, "\text{a)}"] \\
+	F^\bullet \underline{\underline{\otimes}} G^\bullet
+	& \DerR f_* f^\flat (F^\bullet \underline{\underline{\otimes}} G^\bullet)
+	\arrow[l, "{\operatorname{Trf}_f}"]
+\end{tikzcd}
+\]
+
+\item[d)] There is a commutative diagram (for $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$ and $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$)
+
+\[
+\begin{tikzcd}[row sep=large, column sep=6em]
+	\DerR f_*(\DerR\underline{\Hom}_X^\bullet(\DerL f^*F^\bullet, f^\flat G^\bullet))
+	\arrow[r, "\text{b)}"]
+	\arrow[d, "{[\text{II}.5.10]}"']
+	& \DerR f_* f^\flat \DerR\underline{\Hom}_Y^\bullet(F^\bullet, G^\bullet)
+	\arrow[d, "{\operatorname{Trf}_f}"] \\
+	\DerR\underline{\Hom}_Y^\bullet(F^\bullet, \DerR f_* f^\flat G^\bullet)
+	\arrow[r, "{\operatorname{Trf}_f}"]
+	& \DerR\underline{\Hom}_Y^\bullet(F^\bullet, G^\bullet)
+\end{tikzcd}
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Left to reader.
+\end{proof}
+\section{The fundamental local isomorphism}
+
+We have seen two different contexts in which we could define a functor $f^!$ giving rise to a duality theorem: the case of a finite morphism and the case of a projective space morphism. (We called them $f^{\flat}$ and $f^{\sharp}$, respectively, to avoid confusion.) In this section we give a local isomorphism which will be the key link relating these two different procedures in the definition of the functor $f^!$ for a general morphism of preschemes.
+
+Let $X=\operatorname{Spec}A$ be an affine scheme, and let $\underline{f}=(f_1,\dots,f_n)$ be an $A$-sequence, that is, $f_1,\dots,f_n$ are elements of $A$; $f_1$ is a non-zero divisor in $A$, and for each $i=2,\dots,n$, $f_i$ is a non-zero divisor in the quotient ring $A/(f_1,\dots,f_{i-1})$. Let $J$ be the sheaf of ideals on $X$ generated by $f_1,\dots,f_n$, and let $F$ be any sheaf of $\sO_X$-modules.
+
+We define the Koszul complex $K_\bullet(\underline{f})$ as follows (cf.\ [EGA~III~1.1] where the sign convention is different):
+\[
+K_p(\underline{f}) = \bigwedge\nolimits^p (\sO_X^n) \qquad p=0,\dots,n.
+\]
+
+If $e_1,\dots,e_n$ is the usual basis of $\sO_X^n$, then
+\[
+d_p\colon K_p(\underline{f}) \longrightarrow K_{p-1}(\underline{f})
+\]
+is defined by
+\[
+d_p(e_{i_1}\wedge\cdots\wedge e_{i_p}) = \sum_{j=1}^p (-1)^j f_{i_j} e_{i_1}\wedge\cdots\wedge\widehat{e_{i_j}}\wedge\cdots\wedge e_{i_p}.
+\]
+
+For any sheaf $F\in\operatorname{Mod}(X)$ we define
+\[
+K^\bullet(\underline{f};F) = \underline{\Hom}_{\sO_X}(K_\bullet(\underline{f}), F).
+\]
+
+Then a section
+\[
+\alpha \in \Gamma(K^p(\underline{f};F))
+\]
+is determined by giving its values
+\[
+\alpha_{i_1,\dots,i_p} = \alpha(e_{i_1}\wedge\cdots\wedge e_{i_p}) \in \Gamma(X,F),
+\]
+and the boundary operator is given by
+\[
+(d\alpha)_{i_1,\dots,i_{p+1}} = \sum_{j=1}^{p+1} (-1)^j f_{i_j} \alpha_{i_1,\dots,\widehat{i_j},\dots,i_{p+1}}.
+\]
+
+We denote the cohomology of $K^\bullet(\underline{f};F)$ by $H^i(\underline{f};F)$.
+
+Recall [EGA~III~1.1] that for $(f_1,\dots,f_n)$ an $A$-sequence, $K_\bullet(\underline{f})$ is a resolution of $\sO_X/J$ by locally free $\sO_X$-modules by means of the augmentation $\epsilon\colon K_0(\underline{f})=\sO_X\to\sO_X/J$. Hence the maps
+\[
+\DerR\underline{\Hom}_X^\bullet(\sO_X/J,F) \xleftarrow{\sim} \underline{\Hom}_{\sO_X}^\bullet(K_\bullet(\underline{f}),F) = K^\bullet(\underline{f};F)
+\]
+are isomorphisms, and we deduce isomorphisms
+\[
+\psi^i\colon \underline{\operatorname{Ext}}_X^i(\sO_X/J,F) \xrightarrow{\sim} H^i(\underline{f};F)
+\]
+for $i=0,\dots,n$. We define now a map
+\[
+\phi_{\underline{f}} \colon \underline{\operatorname{Ext}}^n_X(\sO_X/J,F) \longrightarrow F/JF
+\]
+by composing $\psi^n$ with the map of $H^n(\underline{f};F)\to F/JF$ defined by sending $\alpha\in K^n(\underline{f};F)$ to $\alpha_{1,\dots,n}\in\Gamma(X,F)$. Then $\phi_{\underline{f}}$ is an isomorphism. More generally, one shows using the Koszul complex [EGA~III~1.1] that there are isomorphisms
+\[
+\underline{\operatorname{Ext}}^i_X(\sO_X/J,F) \cong \underline{\operatorname{Tor}}_{n-i}^X(\sO_X/J,F) \tag{1}
+\]
+for all $i=0,\dots,n$. We have made explicit the case $i=n$, noting that $\underline{\operatorname{Tor}}_0^X(\sO_X/J,F)=F\otimes\sO_X/J=F/JF$.
+
+\begin{lemma}\label{lem:3.7.1}
+Let $X=\operatorname{Spec}A$ be an affine scheme; let $\underline{f}=(f_1,\dots,f_n)$ and $\underline{g}=(g_1,\dots,g_n)$ be two $A$-sequences generating the same ideal $J$, and let $g_i=\sum c_{ij}f_j$ with $c_{ij}\in A$. Let $F$ be a sheaf of $\sO_X$-modules. Then there is a commutative diagram
+\[
+\begin{tikzcd}
+\underline{\operatorname{Ext}}^n_X(\sO_X/J,F) \arrow[r, "\phi_{\underline{f}}"] \arrow[d, "\cong"'] & F/JF \arrow[d, "\det(c_{ij})"] \\
+\underline{\operatorname{Ext}}^n_X(\sO_X/J,F) \arrow[r, "\phi_{\underline{g}}"] & F/JF
+\end{tikzcd}
+\]
+\end{lemma}
+
+\begin{proof}
+One has only to note that there is an isomorphism $\bigwedge\underline{c}$ of $K_\bullet(\underline{g})$ into $K_\bullet(\underline{f})$ which is given in the $p$th degree by $\bigwedge^p(c_{ij})$. In particular its action on the $n$th degree is $\det(c_{ij})$. The result follows immediately.
+\end{proof}
+
+\begin{proposition}[Fundamental Local Isomorphism]\label{prop:3.7.2}
+Let $i\colon Y\to X$ be a closed immersion of preschemes, where $Y$ is locally a complete intersection in $X$ of codimension $n$, and let $F$ be a sheaf on $X$. Then there is a natural functorial isomorphism
+\[
+\varphi \colon \underline{\operatorname{Ext}}^n_X(\sO_Y, F) \xrightarrow{\sim} F\otimes_{\sO_X}\omega_{Y/X}
+\]
+(cf.\ \S1 for definition of $\omega_{Y/X}$). Furthermore, if $F$ is $i^*$-acyclic, then
+\[
+\underline{\operatorname{Ext}}_{\sO_X}^j(\sO_Y, F)=0 \qquad \text{for } j\neq n.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $J$ be the ideal of $Y$ in $X$. Since $\bigwedge^n J/J^2$ is locally free of rank one on $Y$, we have
+\[
+F\otimes_{\sO_X}\omega_{Y/X} = \underline{\Hom}_{\sO_Y}\bigl(\bigwedge\nolimits^n J/J^2,\, F/JF\bigr),
+\]
+and this latter is locally isomorphic to $F/JF$ (non-canonically). Thus we can define an isomorphism $\varphi$ locally by the condition that $\varphi$ followed by evaluation at $f_1\wedge\cdots\wedge f_n$ (where $\underline{f}=(f_1,\dots,f_n)$ is an $\sO_X$-sequence generating $J$ locally) be $\phi_{\underline{f}}$. When one changes basis of $J$, $\bigwedge^n J/J^2$ changes according to the determinant of the transformation. Therefore by the Lemma we see that the definition of $\varphi$ is independent of the basis chosen, and hence the local definitions glue together to give a global $\varphi$.
+
+To say $F$ is $i^*$-acyclic is to say that
+\[
+\underline{\operatorname{Tor}}_j^{\sO_X}(\sO_Y,F) = 0 \qquad \text{for } j\neq 0.
+\]
+By the isomorphisms (1) above we see that this is equivalent to the condition on the $\underline{\operatorname{Ext}}$'s of the Proposition.
+\end{proof}
+
+\begin{corollary}\label{cor:3.7.3}
+Let $i\colon Y\to X$ and $\omega_{Y/X}$ be as in the proposition. Then there is a natural functorial isomorphism, for all $F^\bullet\in\DD(X)$,
+\[
+\eta_i \colon i^{\flat}(F^\bullet) \longrightarrow \DerL i^*(F^\bullet)\otimes\omega_{Y/X}[-n].
+\]
+\end{corollary}
+
+\begin{proof}
+(Note that we write $\otimes$ on the right, not $\underline{\underline{\otimes}}$, because $\omega_{Y/X}$ is locally free on $Y$ and so tensoring by it is an exact functor.) In the first place, if $F^\bullet$ is reduced to a single sheaf $F$, which is $i^*$-acyclic, then on the left we have the single sheaf $\underline{\operatorname{Ext}}_X^n(\sO_Y,F)$ in degree $n$, by the Proposition, and on the right we have $F\otimes_{\sO_X}\sO_Y\otimes_Y\omega_{X/Y}[-n]$ which is isomorphic to it by the isomorphism $\varphi$ of the Proposition.
+
+In the second place, $i^*$ is a functor of finite cohomological dimension, because its derived functors are the $\underline{\operatorname{Tor}}_j^{\sO_X}(\sO_Y,\cdot)$, and $\sO_Y$ locally has a flat resolution of length $n$, namely the Koszul complex mentioned above. Therefore every $F^\bullet\in\DD(X)$ admits a (left)-resolution by $i^*$-acyclic $\sO_X$-modules.
+
+We are thus in a position to apply [I.7.4]. Let $A=\operatorname{Mod}(X)$, $B=\operatorname{Mod}(Y)$, let $F$ be the functor $i^*\,\underline{\Hom}_X(i_*\sO_Y,\cdot)$, and let $P$ be the $i^*$-acyclic $\sO_X$-modules. Then $G=R^nF$ is isomorphic to $i^*(\cdot)\otimes_Y\omega_{Y/X}$ by the Proposition, and every element of $P$ is $G$-acyclic also by the Proposition. Hence there is a functorial isomorphism
+\[
+\DerR F \xrightarrow{\sim} \DerL G[-n]
+\]
+which is just what we want.
+\end{proof}
+
+\begin{proposition}\label{prop:3.7.4}
+\begin{enumerate}
+\item[a)] If $Z\xrightarrow{j} Y\xrightarrow{i} X$ are two closed immersions which are locally complete intersections of codimensions $m,n$ respectively, and if $F^\bullet\in\DD(X)$, then there is a commutative diagram
+\[
+\begin{tikzcd}[row sep=1.2cm, column sep=2cm]
+	(ij)^\flat(F^\bullet) \arrow[r, "\eta_{ij}"] \arrow[d, "\alpha"'] 
+	& \DerL (ij)^*(F^\bullet) \otimes_Z \omega_{Z/X}[-m-n] \arrow[dd, "\beta"] \\
+	j^\flat i^\flat(F^\bullet) \arrow[d, "\eta_i"'] 
+	& \\
+	j^\flat(\DerL i^*(F^\bullet) \otimes_Y \omega_{Y/X}[-n]) \arrow[r, "\eta_j"'] 
+	& \DerL j^*(\DerL i^*(F^\bullet) \otimes_Y \omega_{Y/X}[-n]) \otimes_Z \omega_{Z/Y}[-m]
+\end{tikzcd}
+\]
+where $\alpha$ is the isomorphism of Proposition 6.2, and $\beta$ is 
+obtained by composing the isomorphism $\zeta_{i,j}$ of Definition 1.5 
+with the isomorphisms of [II 5.4], [II 5.9], and [II 5.13].
+
+\item[b)] If $i\colon Y\to X$ is a locally complete intersection of codimension $n$, and if $f\colon X'\to X$ is a flat morphism.
+\[
+\begin{tikzcd}
+	Y' \arrow[r, "j"] \arrow[d, "g"'] & X' \arrow[d, "f"] \\
+	Y \arrow[r, "i"] & X
+\end{tikzcd}
+\]
+then letting $Y'$ be the fibred product, we have a commutative diagram for $F^\bullet\in\DD(X)$
+\[
+\begin{tikzcd}
+g^*i^{\flat}(F^\bullet) \arrow[r, "\eta_i"] \arrow[d, "\alpha"'] & g^*\bigl(\DerL i^*(F^\bullet)\otimes_Y\omega_{Y/X}[-n]\bigr) \arrow[d, "\beta"] \\
+j^{\flat}f^*(F^\bullet) \arrow[r, "\eta_j"] & \DerL j^*\bigl(f^*F^\bullet\bigr)\otimes_{Y'}\omega_{Y'/X'}[-n]
+\end{tikzcd}
+\]
+where again $\alpha$ and $\beta$ are composed of the usual identifications.
+\end{enumerate}
+\end{proposition}
+
+\section{$f^!$ for embeddable morphisms}
+
+In this section we use the fundamental local isomorphism to relate the functors $f^{\sharp}$ and $f^{\flat}$ defined above, and to define a functor $f^!$ for morphisms which can be factored into a finite morphism followed by a smooth morphism. The main result of this section is only provisional, but it is a model for the stronger results we will obtain in Chapter VII after developing the local techniques.
+
+\begin{lemma}\label{lem:3.8.1}
+Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes, and let $i\colon Y\to X$ be a section of $f$. Then there is a functorial isomorphism
+\[
+\psi_{i,f}\colon G^\bullet \xrightarrow{\sim} i^{\flat}f^{\sharp}G^\bullet
+\]
+for all $G^\bullet\in\DD(Y)$.
+\end{lemma}
+
+\begin{proof}
+We first note by Proposition~1.2 that $i$ is a local complete intersection morphism. Hence for any $G^\bullet\in\DD(Y)$ we have
+\[
+i^{\flat}f^{\sharp}G^\bullet = i^{\flat}(f^*G^\bullet\otimes\omega_{X/Y}[n])
+\]
+by definition of $f^{\sharp}$, which is isomorphic by the fundamental local isomorphism $\eta_i$ of Corollary~7.3 to
+\[
+\DerL i^*(f^*G^\bullet\otimes\omega_{X/Y}[n])\otimes\omega_{Y/X}[-n].
+\]
+
+Using [II.5.9] and [II.5.4] this becomes
+\[
+G^\bullet \otimes i^*\omega_{X/Y}\otimes\omega_{Y/X},
+\]
+which finally by the isomorphism $\zeta_{i,f}$ of Definition~1.5 is isomorphic to $G^\bullet$. We compose all these isomorphisms to obtain $\psi_{i,f}$.
+\end{proof}
+
+\begin{proposition}[Residue Isomorphism]\label{prop:3.8.2}
+Let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms of locally noetherian preschemes, with $f$ finite, $g$ smooth, and $gf$ finite. Then there is a functorial isomorphism
+\[
+\psi_{f,g}\colon (gf)^{\flat} \xrightarrow{\sim} f^{\flat}g^{\sharp}
+\]
+defined on $\DD_{\mathrm{qc}}^+(Z)$.
+\end{proposition}
+
+\begin{proof}
+We consider the fibred product $X\times_Z Y$, with projections $p_1$ and $p_2$, and let $i$ be the graph morphism of $f$. 
+\[
+\begin{tikzcd}[row sep=3em, column sep=3em]
+	& X \times_Z Y \arrow[dl, "p_1"', shift right] \arrow[dr, "p_2"] & \\
+	X \arrow[ur, "i"', shift right] \arrow[rr, "f"'] \arrow[dr, "gf"'] & & Y \arrow[dl, "g"] \\
+	& Z &
+\end{tikzcd}
+\]
+Then $p_1$ is smooth by base extension from $g$, so $i$ and $p_1$ satisfy the hypotheses of the Lemma. Thus
+\[
+(gf)^{\flat} \xrightarrow{\sim} i^{\flat} p_1^{\sharp} (gf)^{\flat}
+\]
+by $\psi_{i,p_1}$ of the lemma. This in turn is isomorphic to $i^{\flat} p_2^{\sharp} g^{\flat}$ by Corollary~6.4, which is isomorphic finally to $f^{\flat}g^{\sharp}$ by Proposition~6.2.
+\end{proof}
+
+\textbf{Remarks.}
+This isomorphism, in the case where $f$ is a closed immersion, was first discovered by Grothendieck using a much more complicated procedure. The present proof is due to Cartier, as interpreted by Mumford. This isomorphism will be used in defining the trace map for residual complexes in Chapter VI, an important preliminary to the residue theorem.
+
+\begin{corollary}\label{cor:3.8.3}
+Let $f\colon X\to Y$ be a morphism of locally noetherian preschemes which is both finite and smooth. Then there is an isomorphism
+\[
+\psi_f \colon f^{\flat} \xrightarrow{\sim} f^{\sharp}
+\]
+defined on $\DD_{\mathrm{qc}}^+(Y)$.
+\end{corollary}
+
+\begin{proof}
+Let $f$ be the identity in the proposition.
+\end{proof}
+
+\textbf{Remark.}
+We will leave to the reader the verification that this map is the same as the one deduced from the classical trace map $f_*\sO_X\to\sO_Y$.
+
+\begin{proposition}\label{prop:3.8.4}
+Let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms of locally noetherian preschemes, with $f$ finite, $g$ smooth, and $gf$ smooth. Then there is a functorial isomorphism
+\[
+\psi_{f,g}\colon (gf)^{\sharp} \xrightarrow{\sim} f^{\flat}g^{\sharp}
+\]
+defined on $\DD_{\mathrm{qc}}^+(Z)$.
+\end{proposition}
+
+\begin{proof}
+Considering $X\times_Z Y$ and using the notation of the proof of Proposition~8.2, we have
+\[
+(gf)^{\sharp} \xrightarrow{\sim} i^{\flat} p_1^{\sharp} (gf)^{\sharp} \xrightarrow{\sim} i^{\flat} p_2^{\sharp} g^{\sharp} \xrightarrow{\sim} f^{\flat} g^{\sharp},
+\]
+where the isomorphisms are those of Lemma~8.1, Proposition~2.2 (twice), and Proposition~8.2, respectively.
+\end{proof}
+
+\begin{corollary}\label{cor:3.8.5}
+With the same hypotheses as the Proposition, there is a natural map
+\[
+\operatorname{Tr}_f \colon f_*\,\omega_{X/Z} \longrightarrow \omega_{Y/Z}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply the isomorphism of the Proposition to $\sO_Z$, and use the trace map of Proposition~6.5.
+\end{proof}
+
+\textbf{Remark.}
+In case $Z$ is the spectrum of a field, $X,Y$ irreducible, and $K(X)/K(Y)$ a separable extension, this trace map coincides with the classical one [3, Ch.\ VI \S2]. It has the obvious functorial properties: compatibility with composition and flat base extension. It is a non-trivial map, and deserves to be studied more closely.
+
+\begin{proposition}\label{prop:3.8.6}
+\begin{enumerate}
+\item[a)] The isomorphisms $\psi_{f,g}$ of Propositions~8.2 and~8.4 are compatible with the isomorphisms of Propositions~2.1 and~6.3 under a flat base extension.
+\item[b)] If $X\xrightarrow{f} Y\xrightarrow{g} Z\xrightarrow{h} W$ are three morphisms, and if each pair $(f,g)$, $(f,hg)$, $(gf,h)$, $(g,h)$ satisfies the hypotheses of one of Propositions~2.2, 6.2, 8.2, or~8.4, then there is a commutative diagram of the corresponding isomorphisms.
+\item[c)] If
+\[
+\begin{tikzcd}
+	& Q \arrow[r, "l"] \arrow[dd, "g"] & P \arrow[dd, "f"] \\
+	X \arrow[ur, "k"] \arrow[dr, "i"] & & \\
+	& Y \arrow[r, "j"] & Z
+\end{tikzcd}
+\]
+are morphisms with $Q = P \times_Z Y$, f smooth, j,k, and i finite, then
+there is a commutative diagram
+\begin{center}
+	189
+\end{center}
+\[
+\begin{tikzcd}
+	(ji)^\flat \arrow[r] \arrow[d] & (lk)^\flat f^\# \arrow[dr] & \\
+	i^\flat j^\flat \arrow[r] & k^\flat g^\# j^\flat \arrow[r] & k^\flat l^\flat f^\#
+\end{tikzcd}
+\]
+using the isomorphisms of Propositions 6.2, 6.4, and 8.2.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Left to the patient reader.
+\end{proof}
+
+\begin{definition}
+Let $S$ be a fixed prescheme. We say a morphism $f\colon X\to Y$ in the category of preschemes over $S$ is \emph{embeddable} (or $S$-embeddable), if there exists a smooth prescheme $P$ over $S$ and a finite morphism $i\colon X\to P_Y=P\times_S Y$ such that $f=p_2i$. Unless otherwise specified, embeddable will usually mean over $\operatorname{Spec}\mathbb{Z}$.
+\end{definition}
+
+\textbf{Examples.}
+A projective morphism $f\colon X\to Y$ where $Y$ is quasi-compact and admits an ample sheaf is embeddable (for any $S$). Indeed, $f$ can be factored through some $\mathbb{P}_Y^N$ [EGA~II~5.5.4 (ii)]. Any finite morphism is embeddable, by taking $P=S$. Any morphism of finite type of affine schemes is embeddable in some affine space. Note that any composition of embeddable morphisms is embeddable (!) and that embeddable morphisms are stable under base extension.
+
+\begin{theorem}[$f^!$ for embeddable morphisms]\label{thm:3.8.7}
+We fix a base prescheme $S$, and consider the category $\mathrm{Lno}(S)$ of locally noetherian preschemes over $S$. Then there exists a theory of $f^!$ for embeddable morphisms in $\mathrm{Lno}(S)$ consisting of the data 1) to 5) below, subject to the conditions VAR 1 -- VAR 6. Furthermore this theory is unique in the sense that if 1')--5') is another set of such data satisfying VAR 1 -- VAR 6, then there is an isomorphism of the functors 1) and 1') compatible with the isomorphisms 2)--5) and 2')--5').
+
+\begin{enumerate}
+\item For every embeddable morphism $f\colon X\to Y$ in $\mathrm{Lno}(S)$, a functor
+\[
+f^!\colon \DD_{\mathrm{qc}}^+(Y) \longrightarrow \DD_{\mathrm{qc}}^+(X).
+\]
+\item For every composition $X\xrightarrow{f} Y\xrightarrow{g} Z$ of embeddable morphisms, an isomorphism of functors
+\[
+c_{f,g}\colon (gf)^! \longrightarrow f^!g^!.
+\]
+\item For every finite morphism $f$, an isomorphism $d_f\colon f^!\xrightarrow{\sim} f^{\flat}$.
+\item For every smooth embeddable morphism $f$, an isomorphism $e_f\colon f^!\xrightarrow{\sim} f^{\sharp}$.
+\item For every embeddable morphism $f\colon X\to Y$, and for every flat base extension $u\colon Y'\to Y$, an isomorphism
+\[
+b_{u,f}\colon v^*f^! \longrightarrow g^!u^*
+\]
+(where $v$ and $g$ are the two projections of $X'=X\times_Y Y'$).
+\end{enumerate}
+
+VAR 1). $c_{f,\id}=c_{\id,f}=1$, and there is a commutative diagram of four $c$'s for a composition of three embeddable morphisms.
+
+VAR 2). For a composition of two finite morphisms $f,g$, compatibility of $c_{f,g}$ with the isomorphism of Proposition~6.2 via $d_f$ and $d_g$.
+
+VAR 3). Ditto for a composition of smooth morphisms, using Proposition~2.2, $e_f$ and $e_g$.
+
+VAR 4). For a Cartesian square of embeddable morphisms as in Corollary~6.4, compatibility of that isomorphism with $c_{v,f}$ and $c_{g,u}$ via $d_f$, $d_g$, $e_u$ and $e_v$.
+
+VAR 5). For a composition of two embeddable morphisms $f,g$ satisfying the hypotheses of Proposition~8.2 or~8.4, compatibility of $c_{f,g}$ with $\psi_{f,g}$ via the appropriate $d$'s and $e$'s.
+
+VAR 6). For a flat base extension of a finite or smooth embeddable morphism, compatibility of $b_{u,f}$ with the isomorphism of Proposition~2.1 or~6.3.
+\end{theorem}
+
+\begin{proof}
+We will give only a sketch, since a similar but more difficult theorem is proved in some detail in Chapter VI.
+
+To define $f^!$ one chooses an $f$-embedding $i\colon X\to P_Y$, and defines $f^!=i^{\flat}p_2^{\sharp}$. The product of two embeddings is again one, so one shows that $f^!$ is independent of the embedding chosen by using Propositions~8.2 and~8.6b. To define $c_{f,g}$ for a composition, one notes that given embeddings of $f$ and $g$, say $i\colon X\to P_Y$ and $j\colon Y\to Q_Z$, then
+\[
+(j\times_S P)i\colon X \longrightarrow (P\times_S Q)_Z
+\]
+is an embedding of $gf$, and one can define $c_{f,g}$ using the isomorphisms of Corollary~6.4. Of course $c_{f,g}$ is independent of the embeddings chosen \dots\ One defines $d_f$ and $e_f$ using Propositions~8.2 and~8.4, and $b_{u,f}$ using Proposition~8.6a.
+
+Checking the properties VAR 1 -- VAR 6 requires many commutative diagrams, but no imagination. The uniqueness is tedious but straightforward. By the way, the reader will note that 5) and VAR 6 are not needed for the uniqueness statement.
+\end{proof}
+
+\textbf{Remarks.}
+One of the main goals of these notes is to obtain a theory of $f^!$, such as the one given in this theorem, for arbitrary morphisms of finite type of locally noetherian preschemes.
+
+The obvious difficulty is that the derived category is not a local object. That is to say, if $X$ is a prescheme, then the presheaf $U\mapsto\DD_{\mathrm{qc}}^+(U)$ is not a sheaf of categories on $X$. One can give a cover of $X$ by open subsets $U_i$, and complexes $F_i^\bullet\in\DD_{\mathrm{qc}}^+(U_i)$ and isomorphisms $\phi_{ij}\colon F_i^\bullet|_{U_{ij}}\to F_j^\bullet|_{U_{ij}}$ in $\DD_{\mathrm{qc}}^+(U_{ij})$ which are compatible in $\DD_{\mathrm{qc}}^+(U_{ijk})$, but where there does not exist a complex $F^\bullet\in\DD_{\mathrm{qc}}^+(X)$ whose restriction to $U_i$ is $F_i^\bullet$. Even worse, given two complexes $F^\bullet,G^\bullet\in\DD_{\mathrm{qc}}^+(X)$, and isomorphisms $\phi_i\colon F^\bullet|_{U_i}\to G^\bullet|_{U_i}$ such that $\phi_i|_{U_{ij}}=\phi_j|_{U_{ij}}$ in $\DD_{\mathrm{qc}}^+(U_{ij})$, the $\phi_i$ may not glue into a global isomorphism $\phi\colon F^\bullet\to G^\bullet$.
+
+Thus although every morphism of finite type is \emph{locally} embeddable, we cannot glue the local functors $f^!$ into a global one.
+
+To overcome this difficulty, we study in Chapter VI the notion of residual complex. These are actual complexes, and hence can be glued. We develop a formalism of $f^!$ for residual complexes similar to the one given here, expanding from the two easy cases of finite and smooth morphisms. Then after proving the duality theorem we can recover a theory of $f^!$ for arbitrary complexes, but only under the additional hypotheses that our schemes be noetherian of finite Krull dimension, and admit a residual complex (e.g., anything of finite type over a regular scheme of finite Krull dimension), and that our complexes have coherent cohomology.
+
+\begin{proposition}\label{prop:3.8.8}
+Let $f\colon X\to Y$ be an embeddable morphism of locally noetherian preschemes. Then
+\begin{enumerate}
+\item[6)] There is a functorial isomorphism
+\[
+f^!(F^\bullet)\underline{\underline{\otimes}}\DerL f^*(G^\bullet) \xrightarrow{\sim} f^!(F^\bullet\underline{\underline{\otimes}} G^\bullet)
+\]
+for $F^\bullet\in\DD_{\mathrm{qc}}^+(Y)$ and $G^\bullet\in\DD_{\mathrm{qc}}^b(Y)_{\mathrm{fTd}}$.
+\item[7)] There is a functorial isomorphism
+\[
+\DerR\underline{\Hom}^\bullet(\DerL f^*(F^\bullet), f^!(G^\bullet)) \xrightarrow{\sim} f^!(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet))
+\]
+for $F^\bullet\in\DD_{\mathrm{c}}^-(Y)$ and $G^\bullet\in\DD_{\mathrm{c}}^+(Y)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Left to reader. (Factor $f$ into a finite morphism followed by a smooth morphism, and use Propositions~2.4 and~6.9.)
+\end{proof}
+
+\textbf{Remark.}
+We would like to have an isomorphism such as 6) above when $f$ is flat, $F^\bullet\in\DD_{\mathrm{qc}}^b(Y)_{\mathrm{fTd}}$, and $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$. Both sides make sense in that case, but we do not know how to define a map between them, and hence cannot construct the isomorphism. However, if $Y$ admits a dualizing complex, we can get a result of this kind for complexes with coherent cohomology [V 8.6].\footnote{See Chapter V, \S8.6.}
+
+\section{The residue symbol}
+
+This section will not be used in the sequel, and so may be omitted at a first reading. In it we define the residue symbol $\operatorname{Res}\bigl[\begin{smallmatrix} w \\ t_1,\dots,t_n \end{smallmatrix}\bigr]$ which is a generalization of the classical notion of residue. For $X$ a non-singular curve over a field $k$, $\omega$ a regular differential form on $X$, and $t$ a function with an isolated zero at a point $P$, $\operatorname{Res}\bigl[\begin{smallmatrix} \omega \\ t \end{smallmatrix}\bigr]$ is just the ordinary residue, at $P$, of the differential form $\omega/t$. Since we will not use these results later, we leave their proofs to the reader.
+
+Let $f\colon X\to Y$ be a smooth morphism of relative dimension $n$. Let $t_1,\dots,t_n\in\Gamma(X,\sO_X)$ be functions such that the closed subscheme $Z$ of $X$ defined by the ideal $I=(t_1,\dots,t_n)$ is finite and hence flat [EGA~IV~\S11] over $Y$. Let $w\in\Gamma(X,\omega_{X/Y})$ be a global $n$-differential form on $X$ relative to $Y$. Under these conditions the residue symbol
+\[
+\operatorname{Res}_{X/Y}\begin{bmatrix} w \\ t_1,\dots,t_n \end{bmatrix} \in \Gamma(Y,\sO_Y)
+\]
+can be defined as follows. Let $i\colon Z\to X$ be the inclusion of $Z$ in $X$, and let $g=fi$. Then by the residue isomorphism $\psi_{i,f}$ of Proposition~8.2 we have an isomorphism
+\begin{align*}
+g^{\flat}(\sO_Y) &\xrightarrow{\sim} i^{\flat}f^{\sharp}(\sO_Y) = i^{\flat}(\omega_{X/Y}[n]) \\
+&\xrightarrow{\sim} i^*(\omega_{X/Y})\otimes\omega_{Z/X} \\
+&= \underline{\Hom}_{\sO_Z}\bigl(\Lambda^n I/I^2,\, i^*\omega_{X/Y}\bigr),
+\end{align*}
+where the second arrow is given by the fundamental local isomorphism $\eta_i$ of Corollary~7.3. (Note that our hypotheses imply that $Z$ is locally a complete intersection in $X$. Indeed, $Z$ is a local complete intersection in $Z\times_Y X$, by Proposition~1.2, and is defined by $p_2^*(t_1,\dots,t_n)$, hence this is an $\sO_{Z\times_Y X}$-sequence [ZS, vol.\ II, App.\ 6, Thm.\ 2]. But now by faithfully flat descent, $t_1,\dots,t_n$ is an $\sO_X$-sequence.) Now $\Lambda^n I/I^2$ is locally free of rank $1$ on $Z$, so $\overline{t}_1\wedge\cdots\wedge\overline{t}_n$ is a basis for it. By sending this element into the global section $\overline{w}$ of $i^*\omega_{X/Y}$ obtained from $w$, we obtain via the isomorphisms above, a global section of $g^{\flat}(\sO_Y)$. Applying $g_*$ we get a global section of
+\[
+g_*g^{\flat}(\sO_Y) = \DerR\underline{\Hom}_{\sO_Y}(g_*\sO_Z,\sO_Y).
+\]
+But since $Z$ is flat over $Y$, $g_*\sO_Z$ is locally free, and so we can erase the $\DerR$. Applying our global section to the unit section of $g_*\sO_Z$, we obtain a global section of $\sO_Y$, which is by definition
+\[
+\operatorname{Res}_{X/Y}\begin{bmatrix} w \\ t_1,\dots,t_n \end{bmatrix}.
+\]
+
+The residue symbol has the following properties (we assume every time we write a residue symbol that the conditions for its existence are satisfied):
+
+\begin{enumerate}
+\item[(R0)] It is $\sO_Y$-linear in $\omega$.
+\item[(R1)] Let $s_i=\sum_j c_{ij}t_j$. Then
+\[
+\operatorname{Res}\begin{bmatrix} w \\ s_1,\dots,s_n \end{bmatrix} = \det(c_{ij})\operatorname{Res}\begin{bmatrix} w \\ t_1,\dots,t_n \end{bmatrix}.
+\]
+In particular, the symbol is alternating in $t_1,\dots,t_n$.
+\item[(R2)] \emph{Localization.} It is stable under \'etale localization on $Y$.
+\item[(R3)] \emph{Restriction.} Let $X'$ be a complete intersection in $X$, also smooth over $Y$, defined by functions $s_1,\dots,s_p$ in $\Gamma(X,\sO_X)$.
+\[
+\begin{tikzcd}[row sep=1.5cm, column sep=1.5cm]
+	& X \arrow[d] \\
+	X' \arrow[ur, "i"] \arrow[r] & Y
+\end{tikzcd}
+\]
+Let $t_1,\dots,t_n$ be in $\Gamma(X,\sO_X)$, where $X$ is of relative dimension $n+p$, and let $t_1',\dots,t_n'$ be their restrictions to $X'$. Let $w\in\Gamma(X,\Omega_{X/Y}^n)$. Then
+\[
+\operatorname{Res}_{X'/Y}\begin{bmatrix} i^*w \\ t_1',\dots,t_n' \end{bmatrix} = \operatorname{Res}_{X/Y}\begin{bmatrix} w\wedge ds_1\wedge\cdots\wedge ds_p \\ t_1,\dots,t_n,s_1,\dots,s_p \end{bmatrix}.
+\]
+\item[(R4)] \emph{Transitivity.} Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be two smooth morphisms, of relative dimensions $n,p$ respectively. Let $t_1,\dots,t_n\in\Gamma(X,\sO_X)$, $w'\in\Gamma(X,\omega_{X/Y})$; $s_1,\dots,s_p\in\Gamma(Y,\sO_Y)$, $w\in\Gamma(Y,\omega_{Y/Z})$, and let $s_1',\dots,s_p'$ be the compositions of $s_i$ with $f$. Then
+\[
+\operatorname{Res}_{X/Z}\begin{bmatrix} w\wedge w' \\ t_1,\dots,t_n,s_1',\dots,s_p' \end{bmatrix} = \operatorname{Res}_{Y/Z}\begin{bmatrix} w\cdot\operatorname{Res}_{X/Y}\bigl[\begin{smallmatrix} w' \\ t_1,\dots,t_n \end{smallmatrix}\bigr] \\ s_1,\dots,s_p \end{bmatrix}.
+\]
+\item[(R5)] \emph{Base change.} Formation of the residue symbol commutes with base change.
+\item[(R6)] \emph{Trace formula (Normalization).} Let $t_1,\dots,t_n$ and $\varphi$ be in $\Gamma(X,\sO_X)$. Then
+\[
+\operatorname{Res}\begin{bmatrix} \varphi\,dt_1\wedge\cdots\wedge dt_n \\ t_1,\dots,t_n \end{bmatrix} = \operatorname{Tr}_{Z/Y}(\varphi|_Z).
+\]
+In particular, for $\varphi=1$, one has
+\[
+\operatorname{Res}\begin{bmatrix} dt_1\wedge\cdots\wedge dt_n \\ t_1,\dots,t_n \end{bmatrix} = \operatorname{rank}(Z/Y)\cdot 1_Y.
+\]
+\item[(R7)] \emph{Intersection formula.} For any collection of integers $k_1,\dots,k_n>0$, not all equal to one,
+\[
+\operatorname{Res}\begin{bmatrix} dt_1\wedge\cdots\wedge dt_n \\ t_1^{k_1},\dots,t_n^{k_n} \end{bmatrix} = 0.
+\]
+\item[(R8)] \emph{Duality.} If $w\in\Gamma\bigl(\sum t_i\,\omega_{X/Y}\bigr)$, then
+\[
+\operatorname{Res}\begin{bmatrix} w \\ t_1,\dots,t_n \end{bmatrix} = 0
+\]
+and conversely if $\operatorname{Res}\bigl[\begin{smallmatrix} fw \\ t_1,\dots,t_n \end{smallmatrix}\bigr]=0$ for all $f\in\Gamma(X,\sO_X)$, then $w\in\Gamma\bigl(\sum t_i\,\omega_{X/Y}\bigr)$.
+\item[(R9)] \emph{Exterior differentiation.} For $t_1,\dots,t_n\in\Gamma(X,\sO_X)$, and $w\in\Gamma(X,\Omega_{X/Y}^{n-1})$ and for $k_1,\dots,k_n>0$ we have
+\[
+\operatorname{Res}\begin{bmatrix} w \\ t_1^{k_1},\dots,t_n^{k_n} \end{bmatrix} = \sum_i k_i \operatorname{Res}\begin{bmatrix} w \\ t_1^{k_1},\dots,t_i^{k_i+1},\dots,t_n^{k_n} \end{bmatrix}.
+\]
+\item[(R10)] \emph{Residue Formula.} Let $g\colon X'\to X$ be a finite morphism where $X',X$ are both smooth over $Y$. Let $w'\in\Gamma(X',\omega_{X'/Y})$ and let $t_1,\dots,t_n\in\Gamma(X,\sO)$. Let $t_1',\dots,t_n'$ be their compositions with $g$. Then
+\[
+\operatorname{Res}_{X'/Y}\begin{bmatrix} w' \\ t_1',\dots,t_n' \end{bmatrix} = \operatorname{Res}_{X/Y}\begin{bmatrix} \operatorname{Tr}_g(w') \\ t_1,\dots,t_n \end{bmatrix},
+\]
+where $\operatorname{Tr}_g$ is the map of Corollary~8.5.
+\end{enumerate}
+\section{Trace for projective morphisms}
+
+In this section we show that in the situation of the Residue isomorphism (Proposition~8.2) if $g$ is a projective space morphism, then our trace morphisms $\operatorname{Trf}$ for finite morphisms and $\operatorname{Trp}$ for projective space morphisms are compatible. This allows us to expand from these two cases to arrive at a theory of the trace map for any projectively embeddable morphism. This result, like the one of \S8, is only provisional, because we want eventually a theory of trace for an arbitrary proper morphism. This will come in Chapter VII.
+
+\begin{proposition}\label{prop:3.10.1}
+Let $Y$ be a locally noetherian prescheme, let $X=\mathbb{P}^n_Y$, let $f$ be the projection, and let $s\colon Y\to X$ be a section of $f$. Then for every $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$, the composition of maps
+\[
+G^\bullet \xrightarrow{\psi_{s,f}} \DerR s_* s^{\flat} f^{\sharp} G^\bullet \xrightarrow{\operatorname{Trf}_s} \DerR f_* f^{\sharp} G^\bullet \xrightarrow{\operatorname{Trp}_f} G^\bullet
+\]
+is the identity. (The maps are those of Lemma~8.1, Proposition~6.5, and Proposition~4.3, respectively.)
+\end{proposition}
+
+\begin{proof}
+1) We note that both $\psi_{s,f}$ and $\operatorname{Trp}_f$ are calculated by using a Cartan--Eilenberg resolution of $f^{\sharp}(G^\bullet)=f^*(G^\bullet)\otimes\omega_{X/Y}[n]$. We can use the same resolution for each, and thus reduce to the case where $G$ is a single quasi-coherent sheaf on $Y$. Then $f^*(G)\otimes\omega_{X/Y}$ is $\underline{\operatorname{Ext}}^n(s_*\sO_Y,\cdot)$-acyclic, and $R^n f_*$-acyclic, so we have to show that the composition
+\[
+G \longrightarrow f_* \underline{\operatorname{Ext}}^n_X(s_*\sO_Y, f^*G\otimes\omega_{X/Y}) \longrightarrow R^n f_*(f^*G\otimes\omega_{X/Y}) \longrightarrow G
+\]
+is the identity.
+
+2) Noting that the functors above are all right exact in $G$, and commute with direct sums, and noting that the question is local on $Y$, we may assume that $Y$ is affine, and thus reduce to the case $G=\sO_Y$. Thus we must show that the composition
+\[
+\sO_Y \xrightarrow{\alpha} f_* \underline{\operatorname{Ext}}^n_X(s_*\sO_Y, \omega_{X/Y}) \xrightarrow{\beta} R^n f_*(\omega_{X/Y}) \xrightarrow{\gamma} \sO_Y
+\]
+is the identity.
+
+3) In other words, from the section $s$ of $\mathbb{P}^n_Y$, we have obtained a map of $\sO_Y$ into itself, i.e., a section $\delta(s)\in\Gamma(Y,\sO_Y)$, and our problem is to show $\delta(s)=1$. Since everything in the composition of morphisms in 2) above is flat over $Y$, this construction is stable under arbitrary base change.
+
+Now our given section $s$ can be obtained from the diagonal section $\Delta\colon \mathbb{P}^n\to\mathbb{P}^n\times\mathbb{P}^n$ of projective space over $\operatorname{Spec}\mathbb{Z}$ into its product with itself by the base extension $p_2 s\colon Y\to\mathbb{P}^n$.
+
+Thus $\delta(s)=(p_2 s)^*\delta(\Delta)$ and we reduce to showing that $\delta(\Delta)=1$. Now $\delta(\Delta)$ is an integer, since $\Gamma(\sO_{\mathbb{P}^n})=\mathbb{Z}$. To find out what integer, it is sufficient to make the base extension at some closed point, say $T_1=\cdots=T_n=0$ of $\mathbb{P}^n$, consider $Y=\operatorname{Spec}\mathbb{Z}$, $s=$ the section of $\mathbb{P}^n_Y$ given by $T_1=\cdots=T_n=0$, and show that $\delta(s)=1$ in that case.
+
+4) We show more generally that for any prescheme $Y$, if $s$ is the section $T_1=\cdots=T_n=0$ of $\mathbb{P}_Y^n$, then $\delta(s)=1$. This is a formidable exercise in explicit calculations, of which we will give a mere outline.
+
+Recalling the notation of \S3, we calculate $\gamma$ (which is the $\gamma$ of Theorem~3.4) by means of the cover $\mathcal{U}=(U_i)$ of $X$, the section $\tau=dt_1\wedge\cdots\wedge dt_n$ of $\omega_{X/Y}|_{U_0}$, and the $n$-cocycle $\tau/T_0\cdots T_n$ of the \v{C}ech complex $f_*(C^\bullet(\mathcal{U};\omega_{X/Y}))$.
+
+To calculate $\alpha$, we use the notation of \S7, and the Koszul complex $K^\bullet(\underline{t};\omega_{X/Y})$ where $t_1,\dots,t_n$ are the local coordinates $T_1/T_0,\dots,T_n/T_0$ on $U_0$. The map $\alpha$ is obtained by composing the fundamental local isomorphism $\eta_i$ of Proposition~7.2 with the isomorphism $\zeta_{s,f}$ of Definition~1.5. Recalling that the map $J/J^2\to i^*\Omega^1_{X/S}$ of Proposition~1.2 is defined by sending $t\in J$ to $dt$, we see that $\alpha(1)$ is the cocycle
+\[
+\alpha(1) \in K^n(\underline{t}; \omega_{X/Y})
+\]
+given by
+\[
+e_1\wedge\cdots\wedge e_n \longmapsto \tau.
+\]
+
+Finally, we calculate $\beta$ by means of the morphism of complexes
+\[
+K^\bullet(t_1,\dots,t_n;\omega) \longrightarrow C^\bullet(\mathcal{U},\omega)
+\]
+defined by sending a $p$-cochain
+\[
+\bigl\{e_{i_1}\wedge\cdots\wedge e_{i_p} \xrightarrow{f_{i_1,\dots,i_p}} dt_1\wedge\cdots\wedge dt_n\bigr\}
+\]
+(where $f_{i_1,\dots,i_p}\in\Gamma(U_0,\sO_X)$) to the $p$-cochain
+\[
+\Bigl\{\frac{T_0^{p-n-1}f_{i_1,\dots,i_p}}{T_{i_1}\cdots T_{i_p}} \in \Gamma(U_{0,i_1,\dots,i_p},\omega),\text{ and } 0\in\Gamma(U_{j_0,j_1,\dots,j_p},\omega) \text{ when all } j_i\neq 0
+ \Bigr\}.
+\]
+Then $\beta$ applied to the cocycle
+\[
+e_1\wedge\cdots\wedge e_n \longmapsto dt_1\wedge\cdots\wedge dt_n
+\]
+gives
+\[
+\tau/T_0\cdots T_n \in \Gamma(U_{0,\dots,n},\omega)
+\]
+as required.
+\end{proof}
+
+\begin{corollary}\label{cor:3.10.2}
+The isomorphism $\gamma$ of Theorem~3.4 is compatible with an automorphism of the projective space, i.e., it is ``independent of the choice of homogeneous coordinates''.
+\end{corollary}
+
+\begin{proof}
+Indeed, $\psi_{s,f}$ and $\operatorname{Trf}_s$ do not depend on a choice of coordinates, hence $\operatorname{Trp}_f$ does not either.
+\end{proof}
+
+\textbf{Remark.}
+This shows that for any locally free sheaf $E$ of rank $n+1$ on a prescheme $Y$, we can define an isomorphism
+\[
+\gamma\colon R^n f_*(\omega) \xrightarrow{\sim} \sO_Y
+\]
+where $X=\mathbb{P}(E)$, and $\omega=\omega_{X/Y}$. We can define $\operatorname{Trp}_f$ for the projection $f\colon X\to Y$ as in \S4, and get a duality theorem as in \S5 for this morphism.
+
+\begin{proposition}\label{prop:3.10.3}
+Let $u\colon X\to Y$ be a finite morphism of locally noetherian preschemes, let $f$ be the projection of projective $n$-space over $Y$, and fill in a Cartesian diagram as shown:
+\[
+\begin{tikzcd}
+\mathbb{P}_X^n \arrow[r, "v"] \arrow[d, "g"'] & \mathbb{P}_Y^n \arrow[d, "f"] \\
+X \arrow[r, "u"'] & Y
+\end{tikzcd}
+\]
+Then there is a commutative diagram of morphisms of functors on $\DD_{\mathrm{qc}}^+(Y)$,
+\[
+\begin{tikzcd}[row sep=1.5cm, column sep=2cm]
+	\DerR u_* \DerR g_* g^\# u^\flat \arrow[r, "\operatorname{Tr} p_g"] \arrow[d, "\alpha"'] 
+	& \DerR u_* u^\flat \arrow[dr, "\operatorname{Tr} f_u"] & \\
+	\DerR f_* \DerR v_* v^\flat f^\# \arrow[r, "\operatorname{Tr} f_v"'] 
+	& \DerR f_* f^\# \arrow[r, "\operatorname{Tr} p_f"'] 
+	& 1~
+\end{tikzcd}
+\],
+where $\alpha$ is composed of [II.5.1] and Corollary~6.4.
+\end{proposition}
+
+\begin{proof}
+Left to reader. One follows through the definitions of the maps concerned. The only tricky point is to note that if $C^\bullet$ is a Cartan--Eilenberg resolution of $f^{\sharp}(G^\bullet)$, where $G^\bullet$ is a complex of quasi-coherent sheaves on $Y$, then $v^{\flat}(C^\bullet)$ is not necessarily a Cartan--Eilenberg resolution of $v^{\flat}f^{\sharp}(G^\bullet)$. However, one can find a Cartan--Eilenberg resolution $D^\bullet$ of this latter which dominates it (i.e., there is a map of double complexes $D^\bullet\to v^{\flat}(C^\bullet)$), which is good enough for the proof.
+\end{proof}
+
+\begin{proposition}\label{prop:3.10.4}
+Let $X$ and $Y$ be locally noetherian preschemes, and let $f$ be a finite morphism of $X$ into $\mathbb{P}^n_Y$. Let $g\colon \mathbb{P}^n_Y\to Y$ be the projection, and assume that $gf$ is finite. Then there is a commutative diagram of morphisms of functors on $\DD_{\mathrm{qc}}^+(Y)$,
+\[
+\begin{tikzcd}[row sep=1.5cm, column sep=1.5cm]
+	& \mathbb{P}^n_Y \arrow[d, "g"] \\
+	X \arrow[ur, "f"] \arrow[r, "gf"'] & Y
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}
+\DerR(gf)_* (gf)^{\flat} \arrow[r, "\operatorname{Trf}_{gf}"] \arrow[d, "\psi_{f,g}"'] & 1 \\
+\DerR g_* f_* f^{\flat} g^{\sharp} \arrow[r, "\operatorname{Trf}_f"] & \DerR g_* g^{\sharp} \arrow[u, "\operatorname{Trp}_g"']
+\end{tikzcd}
+\]
+where the vertical arrow on the left is [II.5.1] composed with the residue isomorphism $\psi_{f,g}$ of Proposition~8.2.
+\end{proposition}
+
+\begin{proof}
+Considering $\mathbb{P}_X^n=X\times_Y\mathbb{P}_Y^n$ as in the proof of Proposition~8.2, the result follows from Propositions~6.6, 10.1, and~10.3.
+\end{proof}
+
+\begin{definition}
+A morphism $f\colon X\to Y$ of preschemes is \emph{projectively embeddable} if $f$ can be factored $f=pg$ where $p\colon\mathbb{P}^n_Y\to Y$ is the projection of a suitable projective space over $Y$, and $g\colon X\to\mathbb{P}^n_Y$ is a finite morphism.
+\end{definition}
+
+\textbf{Example.}
+If $f\colon X\to Y$ is a projective morphism, where $Y$ is quasi-compact and has an ample sheaf, then $f$ is projectively embeddable [EGA~II~5.5.4 (ii)].
+
+\begin{theorem}[Trace for projectively embeddable morphisms]\label{thm:3.10.5}
+We consider the category (Lno) of locally noetherian preschemes. There is a unique theory of trace for projectively embeddable morphisms $f\colon X\to Y$ in (Lno), consisting of a morphism of functors $\operatorname{Tr}_f\colon \DerR f_* f^!\to 1$ on $\DD_{\mathrm{qc}}^+(Y)$ for each such morphism $f$, subject to the conditions TRA 1 -- TRA 4 below.
+
+TRA 1). For a composition $X\xrightarrow{f} Y\xrightarrow{g} Z$ of projectively embeddable morphisms, there is a commutative diagram
+\[
+\begin{tikzcd}
+\DerR(gf)_* (gf)^! \arrow[r, "\operatorname{Tr}_{gf}"] \arrow[d, "c_{f,g}"'] & 1 \\
+\DerR g_*\DerR f_* f^!g^! \arrow[r, "\operatorname{Tr}_f"] & \DerR g_* g^! \arrow[u, "\operatorname{Tr}_g"']
+\end{tikzcd}
+\]
+
+TRA 2). For a finite morphism $f\colon X\to Y$, $\operatorname{Tr}_f$ is compatible via $d_f$ with $\operatorname{Trf}_f$.
+
+TRA 3). For the projection $f\colon\mathbb{P}^n_Y\to Y$ of projective space, $\operatorname{Tr}_f$ is compatible, via $e_f$, with $\operatorname{Trp}_f$.
+
+TRA 4). For a projectively embeddable morphism $f\colon X\to Y$ and a flat base extension $u\colon Y'\to Y$, there is a commutative diagram.
+\[
+\begin{tikzcd}[row sep=1.5cm, column sep=2.5cm]
+	u^* \DerR f_* f^! \arrow[r, "\Tr_f"] \arrow[d, "{[\text{II}.5.12]}"'] 
+	& u^* \arrow[d, "\Tr_g"] \\
+	\DerR g_* v^* f^! \arrow[r, "b_{u,f}"'] 
+	& \DerR g_* g^! u^*~,
+\end{tikzcd}
+\]
+where $v$ and $g$ are the two projections of $X'=X\times_Y Y'$.
+\end{theorem}
+
+\begin{proof}
+Of course the notations $f^!$, $c_{f,g}$, $d_f$, $e_f$, and $b_{u,f}$ refer back to Theorem~8.7.
+
+To construct $\operatorname{Tr}_f$, one chooses a factorization $f=pg$ as in the definition of projectively embeddable morphism above, and defines $\operatorname{Tr}_f$ to be the composition of $c_{g,p}$, $d_g$, $e_p$, $\operatorname{Trf}_g$, and $\operatorname{Trp}_p$. To show that it is independent of the factorization, one observes that any two factorizations can be dominated by a third, and thus reduces to Proposition~10.4. The properties TRA 1 -- TRA 4 are all straightforward, but tedious.
+\end{proof}
+
+\textbf{Remarks.}
+The second main object of these notes is to obtain a theory of $\operatorname{Tr}$ similar to the above one for all proper morphisms $f$. It is not simply a question of localization, as for the theory of $f^!$, because a proper morphism is not locally projective.
+
+Therefore we resort to an entirely different technique for the construction of the general trace map. We forget entirely the projective case, and work purely from the trace of a finite morphism to define a trace map (which is a map of graded sheaves!) of residual complexes relative to a morphism of finite type. Then we will prove the residue theorem which says that for a proper morphism, the trace map is a morphism of complexes. Finally, after proving the duality theorem, we lift ourselves by our bootstraps, and obtain the general trace map (but under the restrictive hypotheses that our schemes be noetherian of finite Krull dimension admitting a dualizing complex, and that our complexes have coherent cohomology).
+
+\section{Duality for projective morphisms}
+
+Combining the results of \S\S8 and~10 we have a notion of $f^!$ and $\operatorname{Tr}$ for projectively embeddable morphisms, and we are in a position to prove the following duality theorem.
+
+\begin{theorem}[Duality for projectively embeddable morphisms]\label{thm:3.11.1}
+Let $f\colon X\to Y$ be a projectively embeddable morphism of noetherian preschemes of finite Krull dimension. Then the duality morphism
+\[
+\underline{\Theta}_f \colon \DerR f_* \DerR\underline{\Hom}_X^\bullet(F^\bullet, f^!G^\bullet) \longrightarrow \DerR\underline{\Hom}_Y^\bullet(\DerR f_*F^\bullet, G^\bullet),
+\]
+defined by composing [II.5.5] with $\operatorname{Tr}_f$ in the second place, is an isomorphism for all $F^\bullet\in\DD_{\mathrm{qc}}^-(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^+(Y)$.
+\end{theorem}
+
+\begin{proof}
+We factor $f$ into $pg$ with $g$ finite and $p\colon\mathbb{P}_Y^n\to Y$ the projection of a suitable projective space. Then using TRA 1 of Theorem~10.5, and [II \S6, ex.\ 2] we see that $\underline{\Theta}_f=\underline{\Theta}_g\,\underline{\Theta}_p$. Thus it is sufficient to show that $\underline{\Theta}_g$ and $\underline{\Theta}_p$ are isomorphisms. This follows from Theorems~5.1 and~6.7, using the compatibilities of Theorems~8.7 and~10.5.
+\end{proof}
+
+\textbf{Remarks.}
+\begin{enumerate}
+\item As in \S5, the variants $\Theta_f$ and $\theta_f^i$ are also isomorphisms.
+\item This result, like the ones of \S\S8 and~10, is provisional. We will prove a more general duality theorem for proper morphisms in Chapter VII.
+\item Taking global sections, and $H^0$ on each side, we have (using [I.6.4])
+\[
+\operatorname{Hom}_{\DD(X)}(F^\bullet,f^!G^\bullet) \xrightarrow{\sim} \operatorname{Hom}_{\DD(Y)}(\DerR f_*F^\bullet,G^\bullet).
+\]
+For $F^\bullet\in\DD_{\mathrm{qc}}^b(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^b(Y)$ this says that $f^!$ (and the map $\operatorname{Tr}_f\colon \DerR f_* f^!\to 1$) is a right adjoint of the functor $\DerR f_*$. Therefore the pair $(f^!,\operatorname{Tr}_f)$ is uniquely determined on $\DD_{\mathrm{qc}}^b(Y)$. It is conceivable, however, that there are non-isomorphic functors $f^!\colon\DD_{\mathrm{qc}}^+(Y)\to\DD_{\mathrm{qc}}^+(X)$ each of which gives a duality theorem.
+\end{enumerate}
+
+\begin{corollary}\label{cor:3.11.2}
+We consider smooth, projectively embeddable morphisms $f\colon X\to Y$ of locally noetherian preschemes. Then
+\begin{enumerate}
+\item[a)] For each such morphism $f$ of relative dimension $n$, there is a map
+\[
+\gamma_f \colon \RR^n f_*(\omega_{X/Y}) \longrightarrow \sO_Y.
+\]
+\item[b)] For each pair $f\colon X\to Y$ and $g\colon Y\to Z$ of such morphisms, of relative dimensions $n$ and $m$, respectively, there is a commutative diagram
+	\[
+	\begin{tikzcd}[row sep=1.5cm, column sep=2cm]
+		\RR^{n+m}(gf)_*(\omega_{X/Z}) \arrow[r, "\zeta_{f,g}"] \arrow[dd, "\gamma_{gf}"']
+		& \RR^m g_* \RR^n f_*(f^* \omega_{Y/Z} \otimes \omega_{X/Y}) \arrow[d, "\approx"] \\
+		& \RR^m g_*(\RR^n f_*(\omega_{X/Y}) \otimes \omega_{Y/Z}) \arrow[d, "\gamma_f"] \\
+		Z
+		& \RR^m g_*(\omega_{Y/Z}) \arrow[l, "\gamma_g"']
+	\end{tikzcd}
+	\]
+(Note that $\RR^n f_*$ is right exact on quasi-coherent sheaves, so the projection formula gives an isomorphism on the sheaf level.)
+\item[c)] $\gamma_f$ commutes with arbitrary base extension. (Note that $\RR^n f_*$ being right exact, commutes with arbitrary base extension.)
+\item[d)] For $f\colon\mathbb{P}^n_Y\to Y$, $\gamma_f$ is the map $\gamma$ of Theorem~3.4.
+\item[e)] For $f\colon X\to Y$ a finite smooth morphism,
+\[
+\gamma_f \colon f_*\sO_X \longrightarrow \sO_Y
+\]
+is the ordinary classical trace map.
+\item[f)] For $F$ quasi-coherent on $X$ and $G$ an injective quasi-coherent on $Y$, the duality map
+\[
+\theta_f^i \colon \operatorname{Ext}_X^i(F, f^*G\otimes\omega_{X/Y}) \longrightarrow \operatorname{Hom}_{\sO_Y}(\RR^{n-i}f_*(F), G)
+\]
+defined via $\gamma_f$, is an isomorphism.
+\item[g)] The map $\gamma_f$ is an isomorphism if and only if $f$ is surjective and has geometrically connected fibres.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+We obtain the map $\gamma_f$ by applying $\operatorname{Tr}_f$ to $G=\sO_Y$. Property b) follows immediately from TRA 1.
+
+To prove c), the question is local on $Y$, so we may assume $Y$ is affine. Then $f$ can be factored $f=pi$, where $i$ is a closed immersion, and $p\colon\mathbb{P}_Y^N\to Y$ is a projective space morphism. [EGA~II~5.5.4]. We can calculate $\gamma_f$ by considering the fundamental local isomorphism (Proposition~7.2) which gives
+\[
+\omega_{X/Y} \cong i^* \underline{\operatorname{Ext}}_{\sO_P}^{N-n}(i_*\sO_X, \omega_{P/Y}).
+\]
+Then there is a natural map
+\[
+\RR^n f_*(\omega_{X/Y}) \longrightarrow \RR^N p_*(\omega_{P/Y}),
+\]
+which followed by $\gamma_p$ gives $\gamma_f$. Everything in sight is flat over $Y$, and hence commutes with arbitrary base extension.
+
+d) follows from TRA 3.
+e) we will leave to the reader as an exercise.
+f) is a special case of the Theorem, and
+g) follows from [EGA~III~4.3.1], using f).
+\end{proof}
+
+\textbf{Remarks.}
+\begin{enumerate}
+\item Later we will prove this theorem for an arbitrary smooth proper morphism of locally noetherian preschemes.
+\item In case $Y=\operatorname{Spec}k$ with $k$ a field, $G=k$, $X$ is a smooth projective scheme $/k$ (i.e., ``absolutely non-singular projective variety''), and $F$ a coherent sheaf on $X$, the duality formula f) above reads
+\[
+\operatorname{Ext}_X^i(F, \omega_{X/Y}) \xrightarrow{\sim} H^{n-i}(X;F)^{\vee}
+\]
+where $\vee$ means the dual $k$-vector space.
+\end{enumerate}
