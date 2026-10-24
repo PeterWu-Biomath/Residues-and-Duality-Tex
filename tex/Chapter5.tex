@@ -1,5 +1,7 @@
 
 \chapter{Local Cohomology}
+\begingroup
+\setlength{\emergencystretch}{2em}
 
 This chapter consists for a great part in definitions, which generalize those of the Local Cohomology lecture notes \cite{LC}. Notable new material is the spectral sequence of a filtered topological space, and the Cousin complex of a sheaf.
 
@@ -222,7 +224,7 @@ be a filtration of $X$ by sheaves of families of supports, and let $F^\bullet$ b
 \[
 E_1^{pq}=\mathcal{H}^{p+q}_{\underline{\varphi}^p/\underline{\varphi}^{p+1}}(F^\bullet)\implies E^n=\mathcal{H}^n(F^\bullet),
 \]
-which is biregular \cite[\nopp $0_{\mathrm{III}}$, \S11]{EGA} if the filtration is finite, i.e., $\underline{\varphi}^n=\emptyset$ for some $n$. Or, in terms of the derived category, there is a diagram of distinguished triangles (shown in the convergent case)
+which is biregular \cite[\nopp $0_{\mathrm{III}}$, \S11]{EGA} if the filtration is finite, i.e., $\underline{\varphi}^n=\emptyset$ for some $n$. Or, in terms of the derived category, there is a diagram of distinguished triangles (shown in the convergent case).
 Writing
 \[
 A_p=\RR\underline{\Gamma}_{\underline{\varphi}^p}(F^\bullet),
@@ -248,20 +250,20 @@ and the quotients are $\underline{\Gamma}_{\underline{\varphi}^i/\underline{\var
 
 Throughout this section, $X$ will denote a locally noetherian topological space in which every closed irreducible subset has a unique generic point.
 
-\begin{definition}
-Let $F^\bullet$ be a complex of sheaves of abelian groups (bounded below) on $X$ and $\underline{\varphi}$ a sheaf of families of supports. Then the \emph{$\underline{\varphi}$-depth} of $F^\bullet$ is the largest integer $n$ (or $+\infty$) such that $\underline{H}^{\mathbf{i}}_{\underline{\varphi}}(F^\bullet)=0$ for all $\mathbf{i}<\mathbf{n}$.
-\end{definition}
+\begin{definition*}
+Let $F^\bullet$ be a complex of sheaves of abelian groups (bounded below) on $X$ and $\underline{\varphi}$ a sheaf of families of supports. Then the \emph{$\underline{\varphi}$-depth} of $F^\bullet$ is the largest integer $n$ (or $+\infty$) such that $\mathcal{H}^{i}_{\underline{\varphi}}(F^\bullet)=0$ for all $i<n$.
+\end{definition*}
 
-\begin{remark}
-If $X$ is a locally noetherian prescheme, $\varphi$ the family of subsets of a closed subset $Z$ of $X$, and $F$ a coherent sheaf, then this definition of depth coincides with the usual definition of the $Z$-depth of $F$ [LC.3.8].
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+If $X$ is a locally noetherian prescheme, $\varphi$ the family of closed subsets of a closed subset $Z$ of $X$, and $F$ a coherent sheaf, then this definition of depth coincides with the usual definition of the $Z$-depth of $F$ \cite[\nopp 3.8]{LC}.
+\par\medskip
 
-\begin{proposition}\label{prop:4.2.1}
+\begin{bookproposition}{2.1}\label{prop:4.2.1}
 Let $Z'\subseteq Z$ be subsets of (the locally noetherian topological space) $X$, stable under specialization, and such that every $x\in Z-Z'$ is maximal (with respect to specialization) in $Z$. Let $F$ be an abelian sheaf on $X$. Then the following conditions are equivalent:
 \begin{enumerate}
 \item[(i)] The natural maps
 \[
-F\longleftarrow \underline{\Gamma}_{Z}(F)\longrightarrow \underline{H}_{Z/Z'}^{0}(F)
+F\longleftarrow \underline{\Gamma}_{Z}(F)\longrightarrow \mathcal{H}_{Z/Z'}^{0}(F)
 \]
 are isomorphisms.
 \item[(ii)] There is an isomorphism
@@ -272,47 +274,47 @@ for suitable choice of abelian groups $M_x$. (Recall that for any abelian group 
 \item[(iii)] $F$ has supports in $Z$, $Z'$-depth $\geq 1$, and is flasque.
 \item[(iv)] $F$ has supports in $Z$, and $Z'$-depth $\geq 2$.
 \end{enumerate}
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
 (i) $\Longrightarrow$ (ii) follows immediately from Motif F of Variation~8 above.
 
-(ii) $\Longrightarrow$ (iii) Condition (ii) implies that $F$ has supports in $Z$, and that $\Gamma_{Z'}(F)=0$, i.e., $Z'$-depth $F\geq 1$. $F$ is flasque because it is a direct sum of sheaves $i_x(M)$, each of which is a constant sheaf on an irreducible space, hence flasque.
+(ii) $\Longrightarrow$ (iii) Condition (ii) implies that $F$ has supports in $Z$, and that $\underline{\Gamma}_{Z'}(F)=0$, i.e., $Z'$-depth $F\geq 1$. $F$ is flasque because it is a direct sum of sheaves $i_x(M)$, each of which is a constant sheaf on an irreducible space, hence flasque.
 
-(iii) $\Longrightarrow$ (iv) Since $F$ is flasque, $\underline{H}_{Z'}^{i}(F)=0$ for all $i>0$, by Motif C. But $\underline{H}_{Z'}^{0}(F)=0$ since $F$ has $Z'$-depth $\geq 1$, so $F$ has $Z'$-depth $+\infty > 2$.
+(iii) $\Longrightarrow$ (iv) Since $F$ is flasque, $\mathcal{H}_{Z'}^{i}(F)=0$ for all $i>0$, by Motif C. But $\mathcal{H}_{Z'}^{0}(F)=0$ since $F$ has $Z'$-depth $\geq 1$, so $F$ has $Z'$-depth $+\infty > 2$.
 
 (iv) $\Longrightarrow$ (i) $\underline{\Gamma}_Z(F)\to F$ is an isomorphism since $F$ has supports in $Z$. Now by Motif B there is an exact sequence
 \[
-0\longrightarrow \underline{\Gamma}_{Z'}(F)\longrightarrow \underline{\Gamma}_{Z}(F)\longrightarrow \underline{H}_{Z/Z'}^{0}(F)\longrightarrow \underline{H}_{Z'}^{1}(F)\longrightarrow\cdots
+0\longrightarrow \underline{\Gamma}_{Z'}(F)\longrightarrow \underline{\Gamma}_{Z}(F)\longrightarrow \mathcal{H}_{Z/Z'}^{0}(F)\longrightarrow \mathcal{H}_{Z'}^{1}(F)\longrightarrow\cdots
 \]
 Since $Z'$-depth $F\geq 2$, the two outside terms are zero, so the middle is an isomorphism.
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 If $F$ satisfies the equivalent conditions above, we say $F$ \emph{lies on the $Z/Z'$-skeleton} of $X$.
-\end{definition}
+\end{definition*}
 
 We now come to the Cousin complex, but prove a lemma first.
 
-\begin{lemma}\label{lem:4.2.2}
+\begin{booklemma}{2.2}\label{lem:4.2.2}
 Let $Z'\subseteq Z$ be as in the previous proposition, and let $F$ be a sheaf on $X$ with supports in $Z$. Then there is a unique (up to unique isomorphism) $Z'$-isomorphism
 \[
 \alpha\colon F\longrightarrow G
 \]
 of $F$ into a sheaf $G$ which lies on the $Z/Z'$-skeleton. (By \emph{$Z'$-isomorphism} we mean a homomorphism of sheaves whose kernel and cokernel have supports in $Z'$.)
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
-(1) To show the existence of $\alpha$, we take $G=\underline{H}_{Z/Z'}^{0}(F)$, and let $\alpha$ be the natural map of $F=\underline{\Gamma}_Z(F)$ into $G$. Then from the exact sequence of Motif B we see that $\alpha$ is a $Z'$-isomorphism, and from Motif F we see that $G$ lies on the $Z/Z'$-skeleton.
+(1) To show the existence of $\alpha$, we take $G=\mathcal{H}_{Z/Z'}^{0}(F)$, and let $\alpha$ be the natural map of $F=\underline{\Gamma}_Z(F)$ into $G$. Then from the exact sequence of Motif B we see that $\alpha$ is a $Z'$-isomorphism, and from Motif F we see that $G$ lies on the $Z/Z'$-skeleton.
 
-(2) To see that $\alpha$ is unique up to isomorphism, let $\beta\colon F\to G'$ be another such $Z'$-isomorphism. Applying the functor $\underline{H}_{Z/Z'}^{0}$ (which takes $Z'$-isomorphisms into isomorphisms) we get a commutative diagram
+(2) To see that $\alpha$ is unique up to isomorphism, let $\beta\colon F\to G'$ be another such $Z'$-isomorphism. Applying the functor $\mathcal{H}_{Z/Z'}^{0}$ (which takes $Z'$-isomorphisms into isomorphisms) we get a commutative diagram
 \[
 \begin{tikzcd}
-F \arrow[r, "\beta"] \arrow[d, "\alpha"'] & G \arrow[d, "\operatorname{Id}"] \\
+F \arrow[r, "\beta"] \arrow[d, "\alpha"'] & G' \arrow[d, "\operatorname{Id}"] \\
 G \arrow[r, "\gamma"] & G'
 \end{tikzcd}
 \]
-where $\gamma=\underline{H}_{Z/Z'}^{0}(\beta)$ is an isomorphism.
+where $\gamma=\mathcal{H}_{Z/Z'}^{0}(\beta)$ is an isomorphism.
 
 (3) To show that the isomorphism $\gamma$ is unique, let $\delta\colon G\to G'$ be any other homomorphism which gives a commutative diagram. 
 \[
@@ -321,17 +323,17 @@ where $\gamma=\underline{H}_{Z/Z'}^{0}(\beta)$ is an isomorphism.
 	G'
 \end{tikzcd}
 \]
-Then applying the functor $\underline{H}_{Z/Z'}^{0}$, we obtain a commutative diagram
+Then applying the functor $\mathcal{H}_{Z/Z'}^{0}$, we obtain a commutative diagram
 \[
 \begin{tikzcd}
 	G \arrow[r, "\operatorname{Id}"] \arrow[d, "\gamma"'] & G \arrow[dl, "\delta"] \\
 	G'
 \end{tikzcd}
 \]
-and since $\underline{H}_{Z/Z'}^{0}(G)=G$ and $\underline{H}_{Z/Z'}^{0}(G')=G'$ (by Motif F), we see that $\delta=\gamma$.
+and since $\mathcal{H}_{Z/Z'}^{0}(G)=G$ and $\mathcal{H}_{Z/Z'}^{0}(G')=G'$ (by Motif F), we see that $\delta=\gamma$.
 \end{proof}
 
-\begin{proposition}\label{prop:4.2.3}
+\begin{bookproposition}{2.3}\label{prop:4.2.3}
 Let $X=Z^0\supseteq Z^1\supseteq\cdots$ be a filtration of $X$ by subsets $Z^p$ stable under specialization, and such that for each $p$, each $x\in Z^p-Z^{p+1}$ is maximal in $Z^p$. Let $F$ be an abelian sheaf on $X$. Then there is a unique (up to unique isomorphism of complexes) augmented complex
 \[
 \begin{tikzcd}[row sep=1.2cm, column sep=1.2cm]
@@ -342,11 +344,11 @@ Let $X=Z^0\supseteq Z^1\supseteq\cdots$ be a filtration of $X$ by subsets $Z^p$ 
 with the following properties:
 \begin{itemize}
 \item[(a)] For each $p\geq 0$, $C^p$ lies on the $Z^p/Z^{p+1}$-skeleton.
-\item[(b)] For each $p>0$, $H^p(C^\bullet)$ has supports in $Z^{p+2}$.
-\item[(c)] The map $F\to H^{0}(C^\bullet)$ has kernel with supports in $Z^{1}$, and cokernel with supports in $Z^{2}$.
+\item[(b)] For each $p>0$, $\mathcal{H}^p(C^\bullet)$ has supports in $Z^{p+2}$.
+\item[(c)] The map $F\to \mathcal{H}^{0}(C^\bullet)$ has kernel with supports in $Z^{1}$, and cokernel with supports in $Z^{2}$.
 \end{itemize}
 Furthermore, $C^\bullet$ depends functorially on $F$.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
 We prove by induction on $p$, that there exists a unique (up to unique isomorphism of complexes) augmented complex
@@ -356,104 +358,104 @@ We prove by induction on $p$, that there exists a unique (up to unique isomorphi
 	0 \arrow[r] & C^0 \arrow[r] & C^1 \arrow[r] & \dots \arrow[r] & C^p
 \end{tikzcd}
 \]
-with all the properties above, except that instead of saying $H^p(C^\bullet)$ has supports in $Z^{p+2}$, we say that $C^p/\operatorname{Im} C^{p-1}$ has supports in $Z^{p+1}$ (or, if $p=0$, instead of saying that the cokernel of $F\to H^0(C^\bullet)$ has supports in $Z^2$, we say that $C^0/\operatorname{Im} F$ has supports in $Z^1$).
+with all the properties above, except that instead of saying $\mathcal{H}^p(C^\bullet)$ has supports in $Z^{p+2}$, we say that $C^p/\operatorname{Im} C^{p-1}$ has supports in $Z^{p+1}$ (or, if $p=0$, instead of saying that the cokernel of $F\to \mathcal{H}^0(C^\bullet)$ has supports in $Z^2$, we say that $C^0/\operatorname{Im} F$ has supports in $Z^1$).
 
-\emph{Case $p=0$.} This is precisely the statement of the Lemma, with $Z=Z^0$ and $Z'=Z^1$.
+\emph{Case $p=0$.} This is precisely the statement of Lemma~\ref{lem:4.2.2}, with $Z=Z^0$ and $Z'=Z^1$.
 
-\emph{Induction Step.} Suppose the statement proven for $p$, and take a complex $C^\bullet$ as above, defined in degrees $\leq p$. Apply the Lemma to $C^p/\operatorname{Im} C^{p-1}$ with $Z=Z^{p+1}$ and $Z'=Z^{p+2}$, and let $C^{p+1}$ be the sheaf $G$ thus obtained. Now since
+\emph{Induction Step.} Suppose the statement proven for $p$, and take a complex $C^\bullet$ as above, defined in degrees $\leq p$. Apply Lemma~\ref{lem:4.2.2} to $C^p/\operatorname{Im} C^{p-1}$ with $Z=Z^{p+1}$ and $Z'=Z^{p+2}$, and let $C^{p+1}$ be the sheaf $G$ thus obtained. Now since
 \[
 C^p/\operatorname{Im} C^{p-1}\longrightarrow C^{p+1}
 \]
-is a $Z^{p+2}$-isomorphism, its kernel, $H^p(C^\bullet)$ and its cokernel, $C^{p+1}/\operatorname{Im} C^p$, have supports in $Z^{p+2}$. Furthermore, $C^{p+1}$ lies on the $Z^{p+1}/Z^{p+2}$-skeleton, so we have a complex with the required properties. To show that it is unique up to unique isomorphism, let $C'^\bullet$ be another such augmented complex, defined in degrees $\leq p+1$. Leaving off $C'^{p+1}$, we have a complex satisfying the conditions of the induction hypothesis, therefore there is a unique isomorphism of augmented complexes $C^\bullet\to C'^\bullet$ defined in degrees $\leq p$. Thus there is a unique isomorphism
+is a $Z^{p+2}$-isomorphism, its kernel, $\mathcal{H}^p(C^\bullet)$ and its cokernel, $C^{p+1}/\operatorname{Im} C^p$, have supports in $Z^{p+2}$. Furthermore, $C^{p+1}$ lies on the $Z^{p+1}/Z^{p+2}$-skeleton, so we have a complex with the required properties. To show that it is unique up to unique isomorphism, let $C'^\bullet$ be another such augmented complex, defined in degrees $\leq p+1$. Leaving off $C'^{p+1}$, we have a complex satisfying the conditions of the induction hypothesis, therefore there is a unique isomorphism of augmented complexes $C^\bullet\to C'^\bullet$ defined in degrees $\leq p$. Thus there is a unique isomorphism
 \[
 C^p/\operatorname{Im} C^{p-1}\longrightarrow C'^p/\operatorname{Im} C'^{p-1}.
 \]
-Now again by the Lemma, this extends to a unique isomorphism of $C^{p+1}\longrightarrow C'^{p+1}$.
+Now again by Lemma~\ref{lem:4.2.2}, this extends to a unique isomorphism of $C^{p+1}\longrightarrow C'^{p+1}$.
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 The complex of the above proposition is called the \emph{Cousin complex} of $F$ (with respect to the filtration $Z^\bullet$).
-\end{definition}
+\end{definition*}
 
-\begin{example}
+\begin{example*}
 \begin{enumerate}
 \item[(1)] If $F$ has supports in $Z^1$, then its Cousin complex is the zero complex.
 \item[(2)] If $F$ is flasque, then its Cousin complex is given by $C^0=F/\underline{\Gamma}_{Z^1}(F)$, $C^p=0$ for $p>0$.
 \end{enumerate}
-\end{example}
+\end{example*}
 
-\begin{lemma}\label{lem:4.2.4}
-Under the hypotheses of Proposition~2.3, $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i>p$.
-\end{lemma}
+\begin{booklemma}{2.4}\label{lem:4.2.4}
+Under the hypotheses of Proposition~\ref{prop:4.2.3}, $\mathcal{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i>p$.
+\end{booklemma}
 
 \begin{proof}
-Using Motif F, we have only to show that for all $x\in Z^p-Z^{p+1}$, $H_x^{i}(F)=0$. But this group can be calculated as the $i$th derived functor of $\Gamma_x$ on the topological space $X_{(x)}$ consisting of all generizations of $x$ (i.e., points $x'$ which specialize to $x$). Indeed, it can be calculated by flasque sheaves (Motif C), and the restriction of a flasque sheaf to $X_{(x)}$ is flasque. Now since $x\notin Z^{p+1}$, the space $X_{(x)}$ has combinatorial dimension $\geq p$, and so $H_x^{i}(F)=0$ for $i>p$ [G, II, 4.15.2], or [LC 1.12].
+Using Motif F, we have only to show that for all $x\in Z^p-Z^{p+1}$, $H_x^{i}(F)=0$. But this group can be calculated as the $i$th derived functor of $\Gamma_x$ on the topological space $X_{(x)}$ consisting of all generizations of $x$ (i.e., points $x'$ which specialize to $x$). Indeed, it can be calculated by flasque sheaves (Motif C), and the restriction of a flasque sheaf to $X_{(x)}$ is flasque. Now since $x\notin Z^{p+1}$, the space $X_{(x)}$ has combinatorial dimension $\leq p$, and so $H_x^{i}(F)=0$ for $i>p$ \cite[\nopp II,~4.15.2]{G}, or \cite[\nopp 1.12]{LC}.
 \end{proof}
 
-\begin{proposition}\label{prop:4.2.5}
-Let $X=Z^0\supseteq Z^1\supseteq\cdots$ and $F$ be as in Proposition~2.3, and assume furthermore that the filtration is separated (i.e., $\bigcap Z^n=\emptyset$). Then the natural map
+\begin{bookproposition}{2.5}\label{prop:4.2.5}
+Let $X=Z^0\supseteq Z^1\supseteq\cdots$ and $F$ be as in Proposition~\ref{prop:4.2.3}, and assume furthermore that the filtration is separated (i.e., $\bigcap Z^n=\emptyset$). Then the natural map
 \[
-\alpha\colon F\longrightarrow \underline{H}_{Z^{0}/Z^{1}}^{0}(F)
+\alpha\colon F\longrightarrow \mathcal{H}_{Z^{0}/Z^{1}}^{0}(F)
 \]
 makes the complex
 \[
-0\longrightarrow \underline{H}_{Z^{0}/Z^{1}}^{0}(F)\xrightarrow{d_1^{00}} \underline{H}_{Z^{1}/Z^{2}}^{1}(F)\xrightarrow{d_1^{10}} \underline{H}_{Z^{2}/Z^{3}}^{2}(F)\longrightarrow\cdots
+0\longrightarrow \mathcal{H}_{Z^{0}/Z^{1}}^{0}(F)\xrightarrow{d_1^{00}} \mathcal{H}_{Z^{1}/Z^{2}}^{1}(F)\xrightarrow{d_1^{10}} \mathcal{H}_{Z^{2}/Z^{3}}^{2}(F)\longrightarrow\cdots
 \]
 of $E_1^{p0}$ terms of the spectral sequence of Motif G into a Cousin complex for $F$.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-We must check first that $\alpha$ gives an augmentation (i.e., $d_1^{00}\cdot\alpha=0$), and then that the properties (a), (b), and (c) of Proposition~2.3 hold. These properties can be checked at each point separately. Thus for an $x\in X$, we can replace $X$ by the space $X_{(x)}$ of generizations of $x$, which has finite combinatorial dimension (since the filtration $Z^\bullet$ is separated). In other words, we may assume that the filtration $Z^\bullet$ is finite. We will check only property (b) which is the hardest.
+We must check first that $\alpha$ gives an augmentation (i.e., $d_1^{00}\cdot\alpha=0$), and then that the properties (a), (b), and (c) of Proposition~\ref{prop:4.2.3} hold. These properties can be checked at each point separately. Thus for an $x\in X$, we can replace $X$ by the space $X_{(x)}$ of generizations of $x$, which has finite combinatorial dimension (since the filtration $Z^\bullet$ is separated). In other words, we may assume that the filtration $Z^\bullet$ is finite. To avoid boring the reader, we will check only property (b) which is the hardest.
 
-Given $p>0$, we wish to show that $H^p$ of the complex above, which is nothing but $E_2^{p0}$ of the spectral sequence of Motif G, has supports in $Z^{p+2}$. We show, by descending induction on $r$, that $E_r^{p0}$ has supports in $Z^{p+r}$ for each $r>1$. For $r$ large enough, $E_r^{p0}=E_{\infty}^{p0}=0$, since the abutment of the spectral sequence, $E^n$, is $0$ for $n\neq 0$.
+Given $p>0$, we wish to show that $\mathcal{H}^p$ of the complex above, which is nothing but $E_2^{p0}$ of the spectral sequence of Motif G, has supports in $Z^{p+2}$. We show, by descending induction on $r$, that $E_r^{p0}$ has supports in $Z^{p+r}$ for each $r>1$. For $r$ large enough, $E_r^{p0}=E_{\infty}^{p0}=0$, since the abutment of the spectral sequence, $E^n$, is $0$ for $n\neq 0$.
 
-Now let $r>1$ be given. Then $E_r^{p-r,r-1}=0$, since $E_r^{pq}=0$ for $q>0$ by the Lemma. Therefore we have an exact sequence
+Now let $r>1$ be given. Then $E_r^{p-r,r-1}=0$, since $E_r^{pq}=0$ for $q>0$ by Lemma~\ref{lem:4.2.4}. Therefore we have an exact sequence
 \[
 0\longrightarrow E_{r+1}^{p0}\longrightarrow E_r^{p0}\xrightarrow{d_r^{p0}} E_r^{p+r,-r+1}.
 \]
-By the induction hypothesis, $E_{r+1}^{p0}$ has supports in $Z^{p+r+1}$; and $E_1^{p+r,-r+1}= \underline{H}_{Z^{p+r}/Z^{p+r+1}}^{p+1}(F)$, has supports in $Z^{p+r}$. Thus $E_r^{p0}$ has supports in $Z^{p+r}$, and in particular, $E_2^{p0}$ has supports in $Z^{p+2}$.
+By the induction hypothesis, $E_{r+1}^{p0}$ has supports in $Z^{p+r+1}$; and $E_1^{p+r,-r+1}= \mathcal{H}_{Z^{p+r}/Z^{p+r+1}}^{p+1}(F)$, has supports in $Z^{p+r}$. Thus $E_r^{p0}$ has supports in $Z^{p+r}$, and in particular, $E_2^{p0}$ has supports in $Z^{p+2}$.
 \end{proof}
 
 Now we ask when the Cousin complex is a resolution of $F$.
 
-\begin{proposition}\label{prop:4.2.6}
-Under the hypotheses of Proposition~2.5, the following conditions are equivalent:
+\begin{bookproposition}{2.6}\label{prop:4.2.6}
+Under the hypotheses of Proposition~\ref{prop:4.2.5}, the following conditions are equivalent:
 \begin{enumerate}
-\item[(i)] $\underline{H}_{Z^p}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
+\item[(i)] $\mathcal{H}_{Z^p}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
 \item[(ii)] $Z^{p}$-depth $F\geq p$ for all $p$.
-\item[(iii)] $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
+\item[(iii)] $\mathcal{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
 \item[(iv)] The Cousin complex of $F$ is a (flasque) resolution of $F$.
 \end{enumerate}
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-(i) $\Longrightarrow$ (ii) by definition of depth. (ii) $\Longrightarrow$ (iii). They are zero for $i>p$ by Lemma~2.4. For $i<p$ we use the exact sequence
+(i) $\Longrightarrow$ (ii) by definition of depth. (ii) $\Longrightarrow$ (iii). They are zero for $i>p$ by Lemma~\ref{lem:4.2.4}. For $i<p$ we use the exact sequence
 \[
-\underline{H}_{Z^{p}}^{i}(F)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{i}(F)\longrightarrow \underline{H}_{Z^{p+1}}^{i+1}(F).
+\mathcal{H}_{Z^{p}}^{i}(F)\longrightarrow \mathcal{H}_{Z^{p}/Z^{p+1}}^{i}(F)\longrightarrow \mathcal{H}_{Z^{p+1}}^{i+1}(F).
 \]
 
 (iii) $\Longrightarrow$ (iv). The condition is pointwise, so as before we can assume the filtration $Z^\bullet$ is finite. Then the spectral sequence of Motif G degenerates: $E_1^{pq}=0$ for $q\neq 0$. That means that the complex $E_1^{p0}$ (which by the previous proposition is the Cousin complex) is a resolution of $F$.
 
-(iv) $\Longrightarrow$ (i). Let $C^\bullet$ be the Cousin complex. Since it is a flasque resolution of $F$, we may use it to calculate cohomology: $\underline{H}_{Z^p}^{i}=H^i(\underline{\Gamma}_{Z^p}(C^\bullet))$. Since $C^p$ lies on the $Z^p/Z^{p+1}$-skeleton for all $p$, $\underline{\Gamma}_{Z^p}(C^\bullet)$ is the truncated complex $(C^i)_{i\geq p}$. Clearly it has cohomology only in degree $p$, since the original $C^\bullet$ was exact.
+(iv) $\Longrightarrow$ (i). Let $C^\bullet$ be the Cousin complex. Since it is a flasque resolution of $F$, we may use it to calculate cohomology: $\mathcal{H}_{Z^p}^{i}(F)=\mathcal{H}^i(\underline{\Gamma}_{Z^p}(C^\bullet))$. Since $C^p$ lies on the $Z^p/Z^{p+1}$-skeleton for all $p$, $\underline{\Gamma}_{Z^p}(C^\bullet)$ is the truncated complex $(C^i)_{i\geq p}$. Clearly it has cohomology only in degree $p$, since the original $C^\bullet$ was exact.
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 If the equivalent conditions of the proposition are satisfied, we say that $F$ is \emph{Cohen-Macaulay} (with respect to the filtration $Z^\bullet$).
-\end{definition}
+\end{definition*}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remark.}
 If $X$ is a locally noetherian prescheme, and $Z^p$ the set of points of codimension $\geq p$ (i.e., points $x\in X$ with $\dim\sO_{x,X}\geq p$), and $F$ a coherent sheaf on $X$ with support $X$, then this notion coincides with the usual definition. Indeed, using condition (iii) and Motif F, $F$ is Cohen-Macaulay if and only if for each $x\in X$, $\operatorname{depth}F_x\geq\dim\sO_{x,X}$, which is the usual definition.
-\end{remark}
+\par\medskip
 
-\begin{example}
-Let $X$ be a non-singular locally noetherian scheme, let $Z^\bullet$ be the filtration by codimension as above, and let $F=\sO_X$. Then $F$ is Cohen-Macaulay (usual sense) [ZS vol.\ II, App.\ 6], so the Cousin complex gives a flasque resolution of $\sO_X$. Furthermore, the $p$th component of this complex is isomorphic to $\underline{H}_{Z^p/Z^{p+1}}^{p}(\sO_X)$ which by Motif F is isomorphic to
+\begin{example*}
+Let $X$ be a non-singular locally noetherian scheme, let $Z^\bullet$ be the filtration by codimension as above, and let $F=\sO_X$. Then $F$ is Cohen-Macaulay (usual sense) \cite[\nopp vol.~II, App.~6]{ZS}, so the Cousin complex gives a flasque resolution of $\sO_X$. Furthermore, the $p$th component of this complex is isomorphic to $\mathcal{H}_{Z^p/Z^{p+1}}^{p}(\sO_X)$ which by Motif F is isomorphic to
 \[
-\coprod_{\operatorname{codim} x = p} i_x(H_x^{p}(\sO_x)).
+\coprod_{\operatorname{codim} x = p} i_x(H_x^{p}(\sO_X)).
 \]
-Now for $x$ of codimension $p$, we know [LC.4.13] that $H_x^p(\sO_X)$ is an injective hull over the local ring $\sO_x$ of its residue field $k(x)$. Thus our Cousin complex is in fact an injective resolution of $\sO_X$, and its component in degree $p$ is isomorphic to a direct sum of sheaves $J(x)$ (see definition in [II \S7]) where $x$ is a point of codimension $p$.
+Now for $x$ of codimension $p$, we know \cite[\nopp 4.13]{LC} that $H_x^p(\sO_X)$ is an injective hull over the local ring $\sO_x$ of its residue field $k(x)$. Thus our Cousin complex is in fact an injective resolution of $\sO_X$, and its component in degree $p$ is isomorphic to a direct sum of sheaves $J(x)$ (see definition in \bookref{sec:2.7}{II,~\S7}) where $x$ is a point of codimension $p$.
 
 This is an example of the notion of residual complex, which will be studied in more detail in Chapter~VI.
-\end{example}
+\end{example*}
 
 \section{Generalization to Complexes}\label{sec:4.3}
 
@@ -472,142 +474,151 @@ We will consider filtrations $Z^\bullet=(Z^p)_{p\in\mathbb{Z}}$ on $X$, and will
 \item[(4)] The filtration is separated, i.e., $\bigcap Z^p=\emptyset$.
 \end{enumerate}
 
-\begin{definition}
-A \emph{Cousin complex} on $X$, with respect to the filtration $Z^\bullet$, is a complex of sheaves $G^\bullet$, such that for each $p$, $G^p$ lies on the $Z^p/Z^{p+1}$-skeleton of $X$. (Cf.\ definition following Proposition~2.1.) Note that a Cousin complex is necessarily flasque, and bounded below. We denote by $\Coz(Z^\bullet;X)$ the category of Cousin complexes and morphisms of complexes. It is an additive category.
-\end{definition}
+\begin{definition*}
+A \emph{Cousin complex} on $X$, with respect to the filtration $Z^\bullet$, is a complex of sheaves $G^\bullet$, such that for each $p$, $G^p$ lies on the $Z^p/Z^{p+1}$-skeleton of $X$. (Cf.\ definition following Proposition~\ref{prop:4.2.1}.) Note that a Cousin complex is necessarily flasque, and bounded below. We denote by $\Coz(Z^\bullet;X)$ the category of Cousin complexes and morphisms of complexes. It is an additive category.
+\end{definition*}
 
-\begin{example}
-The Cousin complex of a sheaf $F$ (as in Proposition~2.3 above) is a Cousin complex.
-\end{example}
+\begin{example*}
+The Cousin complex of a sheaf $F$ (as in Proposition~\ref{prop:4.2.3} above) is a Cousin complex.
+\end{example*}
 
-\begin{definition}
+\begin{definition*}
 Let $F^\bullet\in\DD^+(X)$. Then we denote by $E(F^\bullet)$ the complex
 \[
-\cdots\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\xrightarrow{d_1^{p0}} \underline{H}_{Z^{p+1}/Z^{p+2}}^{p+1}(F^\bullet)\longrightarrow\cdots
+\cdots\longrightarrow \mathcal{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\xrightarrow{d_1^{p0}} \mathcal{H}_{Z^{p+1}/Z^{p+2}}^{p+1}(F^\bullet)\longrightarrow\cdots
 \]
 of $E_1^{p0}$ terms of the spectral sequence of Motif G. We observe by Motif F that the $p$th term $E^p(F^\bullet)$ lies on the $Z^p/Z^{p+1}$-skeleton of $X$, and so $E(F^\bullet)$ is a Cousin complex. (Note that even if $F^\bullet\in\DD^b(X)$, the complex $E(F^\bullet)$ need not be bounded above.)
-\end{definition}
+\end{definition*}
 
-\begin{proposition}\label{prop:4.3.1}
+\begin{bookproposition}{3.1}\label{prop:4.3.1}
 Let $F^\bullet\in\DD^b(X)$. Then the following conditions are equivalent:
 \begin{enumerate}
 \item[(i)]
 \begin{enumerate}
-\item[a)] $\underline{H}_{Z^p}^{i}(F^\bullet)=0$ for $i<p$, and
+\item[a)] $\mathcal{H}_{Z^p}^{i}(F^\bullet)=0$ for $i<p$, and
 \item[b)] the map
 \[
-\underline{H}_{Z^p}^{i}(F^\bullet)\longrightarrow H^{i}(F^\bullet)
+\mathcal{H}_{Z^p}^{i}(F^\bullet)\longrightarrow \mathcal{H}^{i}(F^\bullet)
 \]
 is surjective for $i=p$ and bijective for $i>p$.
 \end{enumerate}
-\item[(ii)] $\underline{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)=0$ for $i\neq p$.
-\item[(iii)] There is an isomorphism $\varphi\colon F^\bullet\to QE(F^\bullet)$ in $\DD^+(X)$, where $Q$ is the functor sending a complex to its image in $\DD^+(X)$ [I \S3].
+\item[(ii)] $\mathcal{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)=0$ for $i\neq p$.
+\item[(iii)] There is an isomorphism $\varphi\colon F^\bullet\to QE(F^\bullet)$ in $\DD^+(X)$, where $Q$ is the functor sending a complex to its image in $\DD^+(X)$ \bookref{sec:1.3}{I,~\S3}.
 \end{enumerate}
-Furthermore, the isomorphism in (iii) can be chosen so that the isomorphisms $H^{i}(\varphi)\colon H^{i}(F^\bullet)\to H^{i}(E(F^\bullet))$ are inverse to the isomorphisms $\epsilon_{i}\colon H^{i}(E(F^\bullet))\to H^{i}(F^\bullet)$ determined by the degenerate spectral sequence of Motif G.
-\end{proposition}
+Furthermore, the isomorphism in (iii) can be chosen so that the isomorphisms $\mathcal{H}^{i}(\varphi)\colon \mathcal{H}^{i}(F^\bullet)\to \mathcal{H}^{i}(E(F^\bullet))$ are inverse to the isomorphisms $\epsilon_{i}\colon \mathcal{H}^{i}(E(F^\bullet))\to \mathcal{H}^{i}(F^\bullet)$ determined by the degenerate spectral sequence of Motif G.
+\end{bookproposition}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remark.}
 One should beware, however, that the isomorphism $\varphi$ is not in general unique, and so is not functorial.
-\end{remark}
+\par\medskip
 
 \begin{proof}
 (i) $\Longrightarrow$ (ii). This follows immediately from the exact sequences
 \[
-\underline{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i+1}(F^\bullet)\longrightarrow \underline{H}_{Z^{p+1}}^{i+1}(F^\bullet)
+\mathcal{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p}}^{i}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p}/Z^{p+1}}^{i}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p+1}}^{i+1}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p}}^{i+1}(F^\bullet)
 \]
 of Motif B.
 
-(ii) $\Longrightarrow$ (i). Condition (i) can be checked pointwise, so as in \S2 above, we may assume that the filtration $Z^\bullet$ is finite.
+(ii) $\Longrightarrow$ (i). Condition (i) can be checked pointwise, so as in \S\ref{sec:4.2} above, we may assume that the filtration $Z^\bullet$ is finite.
 \begin{itemize}
 \item[a)] For $i<p$, the exact sequence of Motif B shows us that
 \[
-\underline{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)
+\mathcal{H}_{Z^{p+1}}^{i}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p}}^{i}(F^\bullet)
 \]
 is bijective. Therefore by iteration,
 \[
-\underline{H}_{Z^{p+r}}^{i}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}}^{i}(F^\bullet)
+\mathcal{H}_{Z^{p+r}}^{i}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p}}^{i}(F^\bullet)
 \]
-is bijective for any $r\geq 0$. But for $r$ large enough, $Z^{p+r}=\emptyset$, so $\underline{H}_{Z^{p}}^{i}(F^\bullet)=0$.
+is bijective for any $r\geq 0$. But for $r$ large enough, $Z^{p+r}=\emptyset$, so $\mathcal{H}_{Z^{p}}^{i}(F^\bullet)=0$.
 \end{itemize}
 Part b) is proved similarly.
 
-(i) + (ii) $\Longrightarrow$ (iii). Since $F^\bullet\in\DD^b(X)$, we can find an $i_0$ such that $H^{i}(F^\bullet)=0$ for $i\geq i_0$. By condition (ii), the spectral sequence of Motif G degenerates, so checking pointwise, we see that $H^{i}(E(F^\bullet))=0$ for $i\geq i_0$ also.
+(i) + (ii) $\Longrightarrow$ (iii). Since $F^\bullet\in\DD^b(X)$, we can find an $i_0$ such that $\mathcal{H}^{i}(F^\bullet)=0$ for $i\geq i_0$. By condition (ii), the spectral sequence of Motif G degenerates, so checking pointwise, we see that $\mathcal{H}^{i}(E(F^\bullet))=0$ for $i\geq i_0$ also.
 
-We will construct, by descending induction on $p$, an isomorphism in $\DD^+(X)$ of $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ with the truncation $Q(\tau_{\geq p}E(F^\bullet))$ of $QE(F^\bullet)$ in degrees $\geq p$ (see [I \S7] for notation). Then, since the filtration is strictly exhaustive, we have
+We will construct, by descending induction on $p$, an isomorphism in $\DD^+(X)$ of $\RR\underline{\Gamma}_{Z^p}(F^\bullet)$ with the truncation $Q(\tau_{\geq p}E(F^\bullet))$ of $QE(F^\bullet)$ in degrees $\geq p$ (see \bookref{sec:1.7}{I,~\S7} for notation). Then, since the filtration is strictly exhaustive, we have
 \[
-F^\bullet = \DerR\underline{\Gamma}_{Z^p}(F^\bullet)\quad\text{and}\quad QE(F^\bullet)=Q(\tau_{\geq p}E(F^\bullet))
+F^\bullet = \RR\underline{\Gamma}_{Z^p}(F^\bullet)\quad\text{and}\quad QE(F^\bullet)=Q(\tau_{\geq p}E(F^\bullet))
 \]
 for $p$ small enough, which will give us the isomorphism $\varphi$.
 
-For $p$ large enough (say $p\geq i_0$), $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ has a unique non-zero cohomology group. Indeed,
+For $p$ large enough (say $p\geq i_0$), $\RR\underline{\Gamma}_{Z^p}(F^\bullet)$ has cohomology only in degree $p$. Indeed,
 \[
-\underline{H}_{Z^{p}}^{i}(F^\bullet)=0\quad\text{for }i<p
+\mathcal{H}_{Z^{p}}^{i}(F^\bullet)=0\quad\text{for }i<p
 \]
 and
 \[
-\underline{H}_{Z^{p}}^{i}(F^\bullet)=H^{i}(F^\bullet)=0\quad\text{for } i>p \quad\text{by (i) b)},
+\mathcal{H}_{Z^{p}}^{i}(F^\bullet)=\mathcal{H}^{i}(F^\bullet)=0\quad\text{for } i>p \quad\text{by (i) b)},
 \]
 since $p\geq i_0$. Furthermore, there is an exact sequence
-\begin{equation}\tag{1}
-0\longrightarrow \underline{H}_{Z^{p}}^{p}(F^\bullet)\longrightarrow \underline{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\longrightarrow \underline{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow 0
+\begin{equation}\tag{1}\label{eq:4.3.1}
+0\longrightarrow \mathcal{H}_{Z^{p}}^{p}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p}/Z^{p+1}}^{p}(F^\bullet)\longrightarrow \mathcal{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow 0
 \end{equation}
 from Motif B.
 
-At the same time, for $p\geq i_0$, $\tau_{\geq p}E(F^\bullet)$ has a unique non-zero cohomology group. Indeed, $H^{i}=0$ for $i<p$ since the complex is zero in those degrees. $H^{i}=0$ for $i>p$, since $p\geq i_0$ (see above). Finally since this is a truncated complex, and $H^{p+1}(E(F^\bullet))=0$, there is an exact sequence
-\begin{equation}\tag{2}
-0\longrightarrow H^{p}(\tau_{\geq p}E(F^\bullet))\longrightarrow E^{p}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet).
+At the same time, for $p\geq i_0$, $\tau_{\geq p}E(F^\bullet)$ has cohomology only in degree $p$. Indeed, $\mathcal{H}^{i}=0$ for $i<p$ since the complex is zero in those degrees. $\mathcal{H}^{i}=0$ for $i>p$, since $p\geq i_0$ (see above). Finally since this is a truncated complex, and $\mathcal{H}^{p+1}(E(F^\bullet))=0$, there is an exact sequence
+\begin{equation}\tag{2}\label{eq:4.3.2}
+0\longrightarrow \mathcal{H}^{p}(\tau_{\geq p}E(F^\bullet))\longrightarrow E^{p}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet).
 \end{equation}
 
-Now comparing (1) and (2), and using the definition of the complex $E(F^\bullet)$, and noting that
+Now comparing \eqref{eq:4.3.1} and \eqref{eq:4.3.2}, and using the definition of the complex $E(F^\bullet)$, and noting that
 \[
-\underline{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet)
+\mathcal{H}_{Z^{p+1}}^{p+1}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet)
 \]
 is injective, we see that
 \[
-\underline{H}_{Z^{p}}^{p}(F^\bullet)\cong H^{p}(\tau_{\geq p}E(F^\bullet)).
+\mathcal{H}_{Z^{p}}^{p}(F^\bullet)\cong \mathcal{H}^{p}(\tau_{\geq p}E(F^\bullet)).
 \]
-Hence there is an isomorphism [I.4.3]
+Hence there is an isomorphism \bookref{prop:1.4.3}{I,~4.3}
 \[
-\varphi_p\colon \DerR\underline{\Gamma}_{Z^p}(F^\bullet)\xrightarrow{\sim} Q(\tau_{\geq p}E(F^\bullet))
+\varphi_p\colon \RR\underline{\Gamma}_{Z^p}(F^\bullet)\xrightarrow{\sim} Q(\tau_{\geq p}E(F^\bullet))
 \]
 in $\DD^+(X)$.
 
-We continue the induction as follows. In terms of the derived category, the spectral sequence of Motif G is expressed as a diagram of distinguished triangles
+We continue the induction as follows. In terms of the derived category, the spectral sequence of Motif G is expressed as a diagram of distinguished triangles.
 
+Writing
 \[
-\begin{tikzcd}[row sep=1.0cm, column sep=-0.2cm]
-	\dots & & \DerR \underline{\Gamma}_{Z^p/Z^{p+1}}(F^\bullet) \arrow[dl] & & \DerR \underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet) \arrow[dl] & & \dots \\
-	\dots \arrow[r] &\DerR \underline{\Gamma}_{Z^{p+1}}(F^\bullet) \arrow[rr] & & \DerR \underline{\Gamma}_{Z^p}(F^\bullet) \arrow[ul] \arrow[rr] & & \DerR \underline{\Gamma}_{Z^{p-1}}(F^\bullet) \arrow[ul] \arrow[r] & \dots .
+A_p=\RR\underline{\Gamma}_{Z^p}(F^\bullet),\qquad
+B_p=\RR\underline{\Gamma}_{Z^p/Z^{p+1}}(F^\bullet),
+\]
+this tower is
+\[
+\begin{tikzcd}[row sep=large, column sep=small]
+ & & B_p \arrow[dl] & & B_{p-1} \arrow[dl] & & \\
+\cdots \arrow[r] & A_{p+1} \arrow[rr] & & A_p \arrow[ul] \arrow[rr]
+ & & A_{p-1} \arrow[ul] \arrow[r] & \cdots
 \end{tikzcd}
 \]
-So suppose by induction we have an isomorphism $\varphi_p$ of $\DerR\underline{\Gamma}_{Z^p}(F^\bullet)$ with $Q(\tau_{\geq p}E(F^\bullet))$, for any $p$. By (ii), $\DerR\underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet)$ has a single non-zero cohomology group, so there is an isomorphism $\psi$ of it in the derived category with the complex consisting of that single sheaf, in the right place [I.4.3], namely $Q(E(F^\bullet)^{p-1}[-p+1])$. Thus we have a commutative diagram of distinguished triangles.
+So suppose by induction we have an isomorphism $\varphi_p$ of $\RR\underline{\Gamma}_{Z^p}(F^\bullet)$ with $Q(\tau_{\geq p}E(F^\bullet))$, for any $p$. By (ii), $\RR\underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet)$ has a single non-zero cohomology group, so there is an isomorphism $\psi$ of it in the derived category with the complex consisting of that single sheaf, in the right place \bookref{prop:1.4.3}{I,~4.3}, namely $Q(E(F^\bullet)^{p-1}[-p+1])$. Thus we have a commutative diagram of distinguished triangles.
+Put $T_q=Q(\tau_{\geq q}E(F^\bullet))$ and
+$S_{p-1}=Q(E(F^\bullet)^{p-1}[-p+1])$. The diagram is
 \[
-\begin{tikzcd}[row sep=1.5cm, column sep=0.5cm]
-	& \DerR \underline{\Gamma}_{Z^{p-1}/Z^p}(F^\bullet) \arrow[dl] & \\
-	\DerR \underline{\Gamma}_{Z^p}(F^\bullet) \arrow[rr] \arrow[dd, "\varphi_p"'] & & \DerR \underline{\Gamma}_{Z^{p-1}}(F^\bullet) \arrow[ul] \arrow[dd, "\varphi_{p-1}", dotted] \\
-	& Q(E(F^\bullet)^{p-1}[-p+1]) \arrow[dl] \arrow[uu, <-, crossing over, "\psi"' near end] & \\
-	Q(\tau_{\ge p} E(F^\bullet)) \arrow[rr] & & Q(\tau_{\ge p-1} E(F^\bullet)) \arrow[ul]
+\begin{tikzcd}[row sep=large, column sep=large]
+ & B_{p-1} \arrow[dl] \arrow[dd, "\psi" near end, crossing over] & \\
+A_p \arrow[rr] \arrow[dd, "\varphi_p"'] & & A_{p-1} \arrow[ul] \arrow[dd, "\varphi_{p-1}", dotted] \\
+ & S_{p-1} \arrow[dl] & \\
+T_p \arrow[rr] & & T_{p-1} \arrow[ul]
 \end{tikzcd}
 \]
-By the axiom (TR3) of triangulated categories, we deduce an isomorphism on the third side of the triangle, which allows us to continue the induction. For $p$ small enough, $\varphi_p$ gives the required isomorphism $\varphi$. Furthermore, by choosing the isomorphisms $\psi$ to be the obvious ones, we get the further condition on the $H^{i}(\varphi)$.
+By the axiom (TR3) of triangulated categories, we deduce an isomorphism on the third side of the triangle, which allows us to continue the induction. For $p$ small enough, $\varphi_p$ gives the required isomorphism $\varphi$. Furthermore, by choosing the isomorphisms $\psi$ to be the obvious ones, we get the further condition on the $\mathcal{H}^{i}(\varphi)$.
 
 (iii) $\Longrightarrow$ (ii). We can use the (flasque) complex $E(F^\bullet)$ to calculate cohomology, by Motif C. Then $\underline{\Gamma}_{Z^p/Z^{p+1}}(E(F^\bullet))=E^{p}(F^\bullet)$, whence the result.
 \end{proof}
 
-\begin{definition}
-If $F^\bullet\in\DD^b(X)$ satisfies the equivalent conditions of the Proposition, we say that $F^\bullet$ is \emph{Cohen-Macaulay} with respect to the filtration $Z^\bullet$. If $F$ is a single sheaf, this is the same as the notion of the previous section (Proposition~2.6).
-\end{definition}
+\begin{definition*}
+If $F^\bullet\in\DD^b(X)$ satisfies the equivalent conditions of the Proposition, we say that $F^\bullet$ is \emph{Cohen-Macaulay} with respect to the filtration $Z^\bullet$. If $F$ is a single sheaf, this is the same as the notion of the previous section (Proposition~\ref{prop:4.2.6}).
+\end{definition*}
 
-\begin{lemma}\label{lem:4.3.2}
+\begin{booklemma}{3.2}\label{lem:4.3.2}
 Let $F^\bullet,G^\bullet\in\Coz(Z^\bullet;X)$. Then
 \begin{enumerate}
-\item[a)] If $f,g$ are two morphisms of $F^\bullet$ into $G^\bullet$ such that $H^{i}(f)$, $H^{i}(g)\colon H^{i}(F^\bullet)\to H^{i}(G^\bullet)$ are the same map for each $i$, then $f=g$.
+\item[a)] If $f,g$ are two morphisms of $F^\bullet$ into $G^\bullet$ such that $\mathcal{H}^{i}(f)$, $\mathcal{H}^{i}(g)\colon \mathcal{H}^{i}(F^\bullet)\to \mathcal{H}^{i}(G^\bullet)$ are the same map for each $i$, then $f=g$.
 \item[b)] If $\overline{f}\colon Q(F^\bullet)\to Q(G^\bullet)$ is a morphism in $\DD^+(X)$, and if $G^\bullet$ is a complex of injective sheaves, then $\overline{f}$ is represented by an actual morphism of complexes $f\colon F^\bullet\to G^\bullet$.
 \end{enumerate}
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
-a) By considering $f-g$, we reduce to showing that if $f\colon F^\bullet\to G^\bullet$ induces the zero map on cohomology, then $f$ is the zero map itself. We may assume by translation that $X=Z^0$. Then since $H^0(F^\bullet)\subseteq F^0$, and $H^0(f)$ is the zero map, the map
+a) By considering $f-g$, we reduce to showing that if $f\colon F^\bullet\to G^\bullet$ induces the zero map on cohomology, then $f$ is the zero map itself. We may assume by translation that $X=Z^0$. Then since $\mathcal{H}^0(F^\bullet)\subseteq F^0$, and $\mathcal{H}^0(f)$ is the zero map, the map
 \[
 f^0\colon F^0\longrightarrow G^0
 \]
@@ -615,35 +626,35 @@ passes to the quotient to give a map $\overline{f}^0\colon B^1(F^\bullet)\to G^0
 
 Thus $f^1$ maps $Z^1(F^\bullet)$ into $0$, hence gives a map $\overline{f}^1\colon B^2(F^\bullet)\to G^1$. Proceeding as above we show that $f^p$ is the zero map for all $p$.
 
-b) This follows directly from [I.4.5] or [I.4.7], and is included only as a reminder.
+b) This follows directly from \bookref{lem:1.4.5}{I,~4.5} or \bookref{prop:1.4.7}{I,~4.7}, and is included only as a reminder.
 \end{proof}
 
-\begin{corollary}\label{cor:4.3.3}
+\begin{bookcorollary}{3.3}\label{cor:4.3.3}
 Let $F^\bullet,G^\bullet\in\Coz(Z^\bullet;X)$. If $f\colon F^\bullet\to G^\bullet$ is a morphism of complexes which induces an isomorphism on the cohomology sheaves, and if $F^\bullet$ is an injective complex, then $f$ is an isomorphism of complexes.
-\end{corollary}
+\end{bookcorollary}
 
-\begin{definition}
+\begin{definition*}
 A complex $F^\bullet\in\DD^b(X)$ is \emph{Gorenstein} with respect to the filtration $Z^\bullet$ if it is Cohen-Macaulay, and if $H_x^{i}(F^\bullet)$ is either zero or injective for each $i\in\mathbb{Z}$, $x\in X$. We denote the (additive) subcategory of $\DD^b(X)$ of Gorenstein complexes by $\DD^b(X)_{\mathrm{Gor}(Z^\bullet)}$.
-\end{definition}
+\end{definition*}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remark.}
 \begin{enumerate}
-\item If $X$ is the spectrum of a local noetherian ring $A$, and if $Z^\bullet$ is the filtration by codimension, and if $F^\bullet=A$, then this is the usual notion of a Gorenstein ring [LC 4.14 and Exercise~2 ff].
+\item If $X$ is the spectrum of a local noetherian ring $A$, and if $Z^\bullet$ is the filtration by codimension, and if $F^\bullet=A$, then this is the usual notion of a Gorenstein ring \cite[\nopp 4.14 and Exercise~2 ff.]{LC}.
 \item If $F^\bullet$ is Gorenstein, then $E(F^\bullet)$ is an injective Cousin complex, by Motif F.
 \end{enumerate}
-\end{remark}
+\par\medskip
 
-\begin{example}
+\begin{example*}
 We will see in Chapter~V that a dualizing complex on a prescheme is Gorenstein with respect to the corresponding filtration by codimension.
-\end{example}
+\end{example*}
 
-\begin{proposition}\label{prop:4.3.4}
+\begin{bookproposition}{3.4}\label{prop:4.3.4}
 The functor
 \[
 E\colon \DD^b(X)_{\mathrm{Gor}(Z^\bullet)}\longrightarrow \operatorname{Icz}(Z^\bullet,X)
 \]
 is an equivalence of categories of the category of Gorenstein complexes with the (additive) category $\operatorname{Icz}(Z^\bullet,X)$ of injective Cousin complexes. Furthermore, the natural functor $Q$ is an inverse to $E$.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
 We must construct isomorphisms of functors
@@ -658,9 +669,9 @@ on the two categories. To construct $\varphi$, we choose, for each Gorenstein co
 \[
 \varphi(F^\bullet)\colon F^\bullet\longrightarrow QE(F^\bullet)
 \]
-as in Proposition~3.1 (iii) such that
+as in Proposition~\ref{prop:4.3.1}(iii) such that
 \[
-H^{i}(\varphi(F^\bullet))\colon H^{i}(F^\bullet)\longrightarrow H^{i}(E(F^\bullet))
+\mathcal{H}^{i}(\varphi(F^\bullet))\colon \mathcal{H}^{i}(F^\bullet)\longrightarrow \mathcal{H}^{i}(E(F^\bullet))
 \]
 is inverse to the map derived from the spectral sequence. I claim the collection of morphisms $\{\varphi(F^\bullet)\}$ is an isomorphism of functors
 \[
@@ -673,15 +684,17 @@ F^\bullet \arrow[r, "\varphi(F^\bullet)"] \arrow[d, "f"'] & QE(F^\bullet) \arrow
 G^\bullet \arrow[r, "\varphi(G^\bullet)"] & QE(G^\bullet)
 \end{tikzcd}
 \]
-where $\varphi(F^\bullet),\varphi(G^\bullet)$ are isomorphisms in the derived category. To show this diagram is commutative, we must show that $QE(f)=\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ in $\DD^+(X)$. Now by the lemma, part b), $\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ is represented by an actual morphism of complexes
+where $\varphi(F^\bullet),\varphi(G^\bullet)$ are isomorphisms in the derived category. To show this diagram is commutative, we must show that $QE(f)=\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ in $\DD^+(X)$. Now by Lemma~\ref{lem:4.3.2}(b), $\varphi(G^\bullet)f\varphi(F^\bullet)^{-1}$ is represented by an actual morphism of complexes
 \[
 g\colon E(F^\bullet)\longrightarrow E(G^\bullet).
 \]
-Since $E$ is a functor, our condition on $H^{i}(\varphi(F^\bullet))$ and $H^{i}(\varphi(G^\bullet))$ shows that $E(f)$ and $g$ have the same effect on cohomology. Hence by the lemma, part a), they are equal. Thus $\varphi$ is functorial, as required.
+Since $E$ is a functor, our condition on $\mathcal{H}^{i}(\varphi(F^\bullet))$ and $\mathcal{H}^{i}(\varphi(G^\bullet))$ shows that $E(f)$ and $g$ have the same effect on cohomology. Hence by Lemma~\ref{lem:4.3.2}(a), they are equal. Thus $\varphi$ is functorial, as required.
 
 For $\psi$, one need only note that if $F^\bullet\in\Coz(Z^\bullet,X)$, then $EQ(F^\bullet)=F^\bullet$ in an obvious way.
 \end{proof}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remark.}
 This Proposition will be used in an essential way in Chapter~VI in the construction of residual complexes from dualizing complexes.
-\end{remark}
+\par\medskip
+\par
+\endgroup
