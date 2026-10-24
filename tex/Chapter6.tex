@@ -341,144 +341,148 @@ since an element of the first group is given by a global section of $F$ which is
 \varinjlim_n \operatorname{Hom}(\sO_{Y_n}, F)\longrightarrow \Gamma_{Y}(F).
 \]
 Taking derived functors, we deduce a map of functors from $\DD^{+}(X)$ to $\DD^{+}(\Ab)$
-\begin{equation}\tag{*}
-\DerR\varinjlim \operatorname{Hom}(\sO_{Y_n}, F^{\bullet})\longrightarrow \DerR\Gamma_{Y}(F^{\bullet}).
+\begin{equation}\tag{*}\label{eq:5.4.support-comparison}
+\RR\varinjlim_n \operatorname{Hom}(\sO_{Y_n}, F^{\bullet})\longrightarrow \RR\Gamma_{Y}(F^{\bullet}).
 \end{equation}
 
-\begin{theorem}\label{thm:5.4.1}
-If $X$ is a noetherian prescheme, and $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$, i.e., the complex $F^\bullet$ has quasi-coherent cohomology (cf.\ [II \S17]), then $(*)$ is an isomorphism.
-\end{theorem}
+\begin{booktheorem}{4.1}\label{thm:5.4.1}
+If $X$ is a noetherian prescheme, and $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$, i.e., the complex $F^\bullet$ has quasi-coherent cohomology (cf.\ \bookref{sec:2.1}{II,~\S1}), then \eqref{eq:5.4.support-comparison} is an isomorphism.
+\end{booktheorem}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remarks.}
 \begin{enumerate}
-\item Since there are enough flasque $\sO_X$-modules, $\DerR\Gamma_Y(F^\bullet)$ is the same as if one had calculated it in the category $\DD^+(\Ab(X))$.
-\item The derived category does not have direct limits, so we cannot write $\varinjlim_n\DerR\operatorname{Hom}(\sO_{Y_n}, F^\bullet)$, as one is tempted to. However, upon descending from the derived category this difficulty disappears, and we have the Corollary below.
+\item Since there are enough flasque $\sO_X$-modules, $\RR\Gamma_Y(F^\bullet)$ is the same as if one had calculated it in the category $\DD^+(\Ab(X))$.
+\item The derived category does not have direct limits, so we cannot write
+\[
+\varinjlim_n\RHom(\sO_{Y_n}, F^\bullet),
+\]
+as one is tempted to. However, upon descending from the derived category this difficulty disappears, and we have the Corollary below.
 \end{enumerate}
-\end{remark}
+\par\medskip
 
-\begin{corollary}\label{cor:5.4.2}
+\begin{bookcorollary}{4.2}\label{cor:5.4.2}
 Under the hypotheses of the theorem, the map induced on cohomology,
 \[
 \varinjlim_n \operatorname{Ext}^{i}(\sO_{Y_{n}}, F^{\bullet})\longrightarrow H_{Y}^{i}(F^{\bullet})
 \]
 is an isomorphism, for all $i$.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
 If $X$ is noetherian, and $F$ quasi-coherent, then the map
 \[
 \varinjlim_n\operatorname{Hom}(\sO_{Y_{n}}, F)\longrightarrow \Gamma_{Y}(F)
 \]
-is an isomorphism, since every section of $F$ with support on $Y$ will be annihilated by some power of $\sJ_Y$. Therefore, by the lemma on Way-Out Functors [I.7.1], the morphism of derived functors $(*)$ is an isomorphism for $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$.
+is an isomorphism, since every section of $F$ with support on $Y$ will be annihilated by some power of $\sJ_Y$. Therefore, by the lemma on Way-Out Functors \bookref{prop:1.7.1}{I,~7.1}, the morphism of derived functors \eqref{eq:5.4.support-comparison} is an isomorphism for $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$.
 
 For the Corollary, just observe that taking cohomology of complexes commutes with direct limits.
 \end{proof}
 
-\begin{corollary}\label{cor:5.4.3}
+\begin{bookcorollary}{4.3}\label{cor:5.4.3}
 If $X$ is locally noetherian, and $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$, then the analogous maps
 \[
-\DerR\varinjlim \underline{\operatorname{Hom}}(\sO_{Y_n}, F^\bullet)\longrightarrow \DerR\underline{\Gamma}_{Y}(F^\bullet)
+\RR\varinjlim_n \sheafHom(\sO_{Y_n}, F^\bullet)\longrightarrow \RR\underline{\Gamma}_{Y}(F^\bullet)
 \]
 and
 \[
-\varinjlim_n \underline{\operatorname{Ext}}^{i}(\sO_{Y_{n}}, F^{\bullet})\longrightarrow \underline{H}_{Y}^{i}(F^{\bullet})
+\varinjlim_n \sheafExt^{i}(\sO_{Y_{n}}, F^{\bullet})\longrightarrow \mathcal{H}_{Y}^{i}(F^{\bullet})
 \]
 are isomorphisms.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-By definition of the derived category, it is sufficient to prove the second. This follows from Corollary~4.2, since $\underline{\operatorname{Ext}}$ and $\underline{H}_{Y}$ are sheaves associated to presheaves given by $\operatorname{Ext}$ and $H_{Y}$.
+By definition of the derived category, it is sufficient to prove the second. This follows from Corollary~\ref{cor:5.4.2}, since $\sheafExt$ and $\mathcal{H}_{Y}$ are sheaves associated to presheaves given by $\operatorname{Ext}$ and $H_{Y}$.
 \end{proof}
 
 \section{Dualizing functors on a local noetherian ring}\label{sec:5.5}
 
-In this section we recall without proof the definition and some properties of dualizing functors on a local noetherian ring $A$, with maximal ideal $\mathfrak{m}$. For proofs, see [LC, \S4].
+In this section we recall without proof the definition and some properties of dualizing functors on a local noetherian ring $A$, with maximal ideal $\mathfrak{m}$. For proofs, see \cite[\nopp \S4]{LC}.
 
-\begin{proposition}\label{prop:5.5.1}
+\begin{bookproposition}{5.1}\label{prop:5.5.1}
 Let $I$ be an injective hull of the residue field $k$ of $A$, and denote by $T$ the functor $\operatorname{Hom}(\cdot,I)$. Then for every $A$-module $M$ of finite length, the natural map
 \[
 M\longrightarrow T T(M)
 \]
 is an isomorphism.
-\end{proposition}
+\end{bookproposition}
 
-\begin{definition}
+\begin{definition*}
 A contravariant additive functor $T$ from the category $\mathcal{C}_f$ of $A$-modules of finite length into itself is called a \emph{dualizing functor for $A$ at $\mathfrak{m}$} if there exists an injective hull $I$ of $k$ and an isomorphism of functors $T\cong\operatorname{Hom}(\cdot, I)$.
-\end{definition}
+\end{definition*}
 
-\begin{proposition}\label{prop:5.5.2}
+\begin{bookproposition}{5.2}\label{prop:5.5.2}
 A contravariant additive functor $T$ from $\mathcal{C}_f$ into itself is a dualizing functor if and only if it is exact, and $T(k)\cong k$. In that case one can take $I=\varinjlim_n T(A/\mathfrak{m}^n)$, and then there is a canonical isomorphism $T\cong\operatorname{Hom}(\cdot, I)$.
-\end{proposition}
+\end{bookproposition}
 
-\begin{proposition}\label{prop:5.5.3}
+\begin{bookproposition}{5.3}\label{prop:5.5.3}
 If $I$ is an injective hull of $k$, then the functor $\operatorname{Hom}(\cdot,I)$ gives an anti-isomorphism of the category (dcc) of $A$-modules with descending chain condition (we call them $A$-modules of co-finite type) and the category (acc) of modules of finite type over the completion of $A$.
-\end{proposition}
+\end{bookproposition}
 
 \section{Local duality}\label{sec:5.6}
 
-Throughout this section we let $A$ be a noetherian local ring, with maximal ideal $\mathfrak{m}$, and residue field $k$, and let $R^\bullet$ be a dualizing complex on $X=\operatorname{Spec}A$ (cf.\ \S2). Recall Proposition~3.4 which gives a necessary and sufficient condition for a complex $R^\bullet\in\DD^+_{\mathrm{c}}(A)$ to be dualizing.
+Throughout this section we let $A$ be a noetherian local ring, with maximal ideal $\mathfrak{m}$, and residue field $k$, and let $R^\bullet$ be a dualizing complex on $X=\operatorname{Spec}A$ (cf.\ section~\hyperref[sec:5.2]{2}). Recall Proposition~\ref{prop:5.3.4} which gives a necessary and sufficient condition for a complex $R^\bullet\in\DD^+_{\mathrm{c}}(A)$ to be dualizing.
 
-\begin{definition}
-We say that the dualizing complex $R^\bullet$ is \emph{normalized} if the integer $d$ of Proposition~3.4 is zero.
-\end{definition}
+\begin{definition*}
+We say that the dualizing complex $R^\bullet$ is \emph{normalized} if the integer $d$ of Proposition~\ref{prop:5.3.4} is zero.
+\end{definition*}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remark.}
 Since the translate of a dualizing complex is again one, we can normalize by translation.
-\end{remark}
+\par\medskip
 
-\begin{proposition}\label{prop:5.6.1}
-If $R^\bullet$ is normalized, then $\DerR\Gamma_x(R^\bullet)$, where $x$ is the closed point of $\operatorname{Spec}A$, is isomorphic in the derived category to an injective hull $I$ of $k$.
-\end{proposition}
+\begin{bookproposition}{6.1}\label{prop:5.6.1}
+If $R^\bullet$ is normalized, then $\RR\Gamma_x(R^\bullet)$, where $x$ is the closed point of $\operatorname{Spec}A$, is isomorphic in the derived category to an injective hull $I$ of $k$.
+\end{bookproposition}
 
 \begin{proof}
-The cohomology of $\DerR\Gamma_x(R^\bullet)$ is
+The cohomology of $\RR\Gamma_x(R^\bullet)$ is
 \[
 H_{x}^{i}(R^{\bullet})\cong \varinjlim_n\operatorname{Ext}^{i}(A/\mathfrak{m}^{n},R^{\bullet})
 \]
-by Corollary~4.2 above. On the other hand, we saw from the proof of Proposition~3.4 that $\operatorname{Ext}^{i}(M,R^\bullet)=0$ for $i\neq0$ and all $M$ of finite length. Furthermore, by Proposition~5.2, the functor $\operatorname{Ext}^{0}(\cdot,R^\bullet)$ is a dualizing functor, and corresponds to the injective hull of $k$ given by
+by Corollary~\ref{cor:5.4.2} above. On the other hand, we saw from the proof of Proposition~\ref{prop:5.3.4} that $\operatorname{Ext}^{i}(M,R^\bullet)=0$ for $i\neq0$ and all $M$ of finite length. Furthermore, by Proposition~\ref{prop:5.5.2}, the functor $\operatorname{Ext}^{0}(\cdot,R^\bullet)$ is a dualizing functor, and corresponds to the injective hull of $k$ given by
 \[
 I = \varinjlim_n \operatorname{Ext}^{0}(A/\mathfrak{m}^{n}, R^{\bullet}).
 \]
-So we see that $H_{x}^{i}(R^\bullet)=0$ for $i\neq0$, and $H_{x}^{0}(R^\bullet)=I$. Therefore $\DerR\Gamma_x(R^\bullet)\cong I$ in the derived category [I.4.3].
+So we see that $H_{x}^{i}(R^\bullet)=0$ for $i\neq0$, and $H_{x}^{0}(R^\bullet)=I$. Therefore $\RR\Gamma_x(R^\bullet)\cong I$ in the derived category \bookref{prop:1.4.3}{I,~4.3}.
 \end{proof}
 
 Now let $M$ be an $A$-module. Then there is a natural homomorphism
 \[
-\Gamma_x(M)\longrightarrow \operatorname{Hom}(\operatorname{Hom}(M,R^{\bullet}), \Gamma_x(R^{\bullet})).
+\Gamma_x(M)\longrightarrow \operatorname{Hom}_A(\operatorname{Hom}_A(M,R^{\bullet}), \Gamma_x(R^{\bullet})).
 \]
 This gives rise to a morphism of functors on $\DD^+(A)$,
 \[
-\DerR\Gamma_x(M^{\bullet})\longrightarrow \DerR\underline{\Hom}(\DerR\underline{\Hom}(M^{\bullet}, R^{\bullet}), \DerR\Gamma_x(R^{\bullet})),
+\RR\Gamma_x(M^{\bullet})\longrightarrow \RHom_A(\RHom_A(M^{\bullet}, R^{\bullet}), \RR\Gamma_x(R^{\bullet})),
 \]
-since we can take $R^\bullet$ to be an injective complex, in which case $\DerR\Gamma_x(R^\bullet)=\Gamma_x(R^\bullet)$ is also injective. Indeed, whenever $J$ is an injective $A$-module, and $Y$ a closed subset of $\operatorname{Spec}A$, then $\Gamma_Y(J)$ is injective (cf.\ [II \S7] for the structure of injective $A$-modules). We now assume (without loss of generality) that $R^\bullet$ is normalized, and so, by the Proposition, have a morphism of functors
+since we can take $R^\bullet$ to be an injective complex, in which case $\RR\Gamma_x(R^\bullet)=\Gamma_x(R^\bullet)$ is also injective. Indeed, whenever $J$ is an injective $A$-module, and $Y$ a closed subset of $\operatorname{Spec}A$, then $\Gamma_Y(J)$ is injective (cf.\ \bookref{sec:2.7}{II,~\S7} for the structure of injective $A$-modules). We now assume (without loss of generality) that $R^\bullet$ is normalized, and so, by Proposition~\ref{prop:5.6.1}, have a morphism of functors
 \[
-\Theta\colon\ \DerR\Gamma_x(M^{\bullet})\longrightarrow \operatorname{Hom}(\DerR\underline{\Hom}(M^{\bullet},R^{\bullet}), I).
+\Theta\colon\ \RR\Gamma_x(M^{\bullet})\longrightarrow \operatorname{Hom}_A(\RHom_A(M^{\bullet},R^{\bullet}), I).
 \]
-(Following the usual conventions, we do not write $\DerR$ before a functor which is already exact.)
+(Following the usual conventions, we do not write $\RR$ before a functor which is already exact.)
 
-\begin{theorem}[Local Duality]\label{thm:5.6.2}
+\begin{booktheorem}[Local Duality]{6.2}\label{thm:5.6.2}
 Let $A$ be a local noetherian ring, let $R^\bullet$ be a normalized dualizing complex, let $I$ be the corresponding injective hull of $k$, and let $M^\bullet\in\DD^+_{\mathrm{c}}(A)$ (i.e., the cohomology modules of $M^\bullet$ are of finite type). Then $\Theta$ as defined above is an isomorphism.
-\end{theorem}
+\end{booktheorem}
 
-\begin{corollary}\label{cor:5.6.3}
+\begin{bookcorollary}{6.3}\label{cor:5.6.3}
 With $A$, $R^\bullet$, $I$ as above, let $M$ be a module of finite type. Then the homomorphisms
 \[
-\Theta^{i}\colon H_{x}^{i}(M)\longrightarrow \operatorname{Hom}(\operatorname{Ext}^{-i}(M,R^{\bullet}), I)
+\Theta^{i}\colon H_{x}^{i}(M)\longrightarrow \operatorname{Hom}_A(\operatorname{Ext}^{-i}(M,R^{\bullet}), I)
 \]
 induced by $\Theta$ are isomorphisms.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Using the Lemma on Way-out Functors [I.7.1] one sees that the Corollary is equivalent to the theorem. To prove the Corollary, note that $\Theta^{i}$ is an isomorphism for $M=k$, because $H_{x}^{i}(k)=0$ for $i\neq0$, and $H_{x}^{0}(k)=k$; note also that for all $M$ of finite type, both sides are modules with support at $x$. Thus we are reduced to proving the following
+Using the Lemma on Way-out Functors \bookref{prop:1.7.1}{I,~7.1} one sees that the Corollary is equivalent to the theorem. To prove the Corollary, note that $\Theta^{i}$ is an isomorphism for $M=k$, because $H_{x}^{i}(k)=0$ for $i\neq0$, and $H_{x}^{0}(k)=k$; note also that for all $M$ of finite type, both sides are modules with support at $x$. Thus we are reduced to proving the following
 
-\begin{lemma}\label{lem:5.6.4}
+\begin{booklemma}{6.4}\label{lem:5.6.4}
 Let $\Theta^{i}\colon S^{i}\to T^{i}$ be a morphism of covariant cohomological functors on the category of modules over a noetherian ring $A$. Assume
 \begin{itemize}
 \item[(i)] for every maximal ideal $\mathfrak{m}\subseteq A$, $\Theta^{i}(A/\mathfrak{m})$ is an isomorphism, and
 \item[(ii)] for every non-maximal prime ideal $\mathfrak{p}\subseteq A$, $S^{i}(A/\mathfrak{p})$ and $T^{i}(A/\mathfrak{p})$ have support $<\operatorname{Supp}A/\mathfrak{p}$.
 \end{itemize}
 Then $\Theta^{i}(M)$ is an isomorphism for every $A$-module $M$ of finite type.
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
 By assumption, $\Theta^{i}(A/\mathfrak{m})$ is an isomorphism for every maximal ideal $\mathfrak{m}$. If $M$ is any module of finite type, then $M$ admits a finite filtration each of whose quotients is of the form $A/\mathfrak{p}$ with $\mathfrak{p}$ prime. Thus by the $5$-lemma we reduce to the case $M=A/\mathfrak{p}$ with $\mathfrak{p}$ not maximal. By noetherian induction, we may assume that $\Theta^{i}(M')$ is an isomorphism for every $M'$ of finite type with $\operatorname{support}<\operatorname{Supp}(A/\mathfrak{p})$.
@@ -507,199 +511,206 @@ and
 \]
 Now by our induction hypothesis, $\delta$ is an isomorphism, so $\alpha$ is surjective. Since $\operatorname{Supp}S^{i}(M)<\operatorname{Supp}M$ by our assumption (ii), each element of $S^{i}(M)$ is annihilated by some non-zero $f\in M$. Thus $S^{i}(M)=\bigcup K_f$ as $f$ ranges over the non-zero elements of $M$. Similarly $T^{i}(M)=\bigcup L_f$. Therefore $\beta$ is surjective. This is true for each $i$, so also $\gamma$ is surjective. But that implies $\alpha$ is injective, so $\alpha$ is an isomorphism. Then, as above, $\beta$ is also an isomorphism.
 \end{proof}
+\renewcommand{\qedsymbol}{}
 \end{proof}
 
-\begin{corollary}\label{cor:5.6.5}
-For $M$ of finite type, the modules $H_x^{i}(M)$ are of co-finite type (see Proposition~5.3), and we have a functorial isomorphism
+\begin{bookcorollary}{6.5}\label{cor:5.6.5}
+For $M$ of finite type, the modules $H_x^{i}(M)$ are of co-finite type (see Proposition~\ref{prop:5.5.3}), and we have a functorial isomorphism
 \[
-\operatorname{Ext}^{i}(M,R^{\bullet})^{\wedge}\longrightarrow \operatorname{Hom}(H_{x}^{-i}(M), I)
+\operatorname{Ext}^{i}(M,R^{\bullet})^{\wedge}\longrightarrow \operatorname{Hom}_A(H_{x}^{-i}(M), I)
 \]
-of $\hat{A}$-modules.
-\end{corollary}
+of $\widehat{A}$-modules.
+\end{bookcorollary}
 
 \begin{proof}
-Apply the functor $\operatorname{Hom}(\cdot,I)$ to the isomorphism $\Theta^{i}$, and use the fact that for any $A$-module of finite type $M$, this functor applied twice gives the completion $\widehat{M}$ [LC p.\ 61].
+Apply the functor $\operatorname{Hom}_A(\cdot,I)$ to the isomorphism $\Theta^{i}$, and use the fact that for any $A$-module of finite type $M$, this functor applied twice gives the completion $\widehat{M}$ \cite[61]{LC}.
 \end{proof}
 
-\begin{remark}
-If $A$ is a regular local ring, then $A$ itself is a dualizing complex for $A$ (see Example~2.2), and we recover the old local duality theorem [LC 6.3]. This is also true more generally for Gorenstein local rings (Theorem~9.1 below).
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+If $A$ is a regular local ring, then $A$ itself is a dualizing complex for $A$ (see Example~\ref{ex:5.2.2}), and we recover the old local duality theorem \cite[\nopp 6.3]{LC}. This is also true more generally for Gorenstein local rings (Theorem~\hyperref[thm:5.9.1]{9.1} below).
+\par\medskip
 
 \section{Application to dualizing complexes}\label{sec:5.7}
 
-Let $X$ be a locally noetherian prescheme, and let $R^\bullet$ be a dualizing complex on $X$. Then for each point $x\in X$, $R_x^\bullet$ is a dualizing complex for the local ring $\sO_{X,x}$ (Corollary~2.3). Thus by Proposition~3.4 we can find an integer $d(x)$ such that
+Let $X$ be a locally noetherian prescheme, and let $R^\bullet$ be a dualizing complex on $X$. Then for each point $x\in X$, $R_x^\bullet$ is a dualizing complex for the local ring $\sO_{X,x}$ (Corollary~\ref{cor:5.2.3}). Thus by Proposition~\ref{prop:5.3.4} we can find an integer $d(x)$ such that
 \[
 \operatorname{Ext}_{\sO_{X,x}}^{i}(k(x), R_{x}^{\bullet}) = \begin{cases} 0 & \text{for } i\neq d(x) \\ k(x) & \text{for } i = d(x). \end{cases}
 \]
 
-\begin{proposition}\label{prop:5.7.1}
+\begin{bookproposition}{7.1}\label{prop:5.7.1}
 With the hypotheses above, if $x\rightsquigarrow y$ is an immediate specialization, then
 \[
 d(y)=d(x)+1.
 \]
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-Since the question is local around $y$, we may assume that $X=\operatorname{Spec}\sO_{Y,y}$. Let $Z$ be the reduced induced subscheme structure on $\overline{\{x\}}$, and let $j\colon Z\to X$ be the inclusion. Then $j^{\flat}R^{\bullet}$ is dualizing on $Z$ by Proposition~2.4, and for any $\sO_Z$-module $F$ we have
+Since the question is local around $y$, we may assume that $X=\operatorname{Spec}\sO_{X,y}$. Let $Z$ be the reduced induced subscheme structure on $\overline{\{x\}}$, and let $j\colon Z\to X$ be the inclusion. Then $j^{\flat}R^{\bullet}$ is dualizing on $Z$ by Proposition~\ref{prop:5.2.4}, and for any $\sO_Z$-module $F$ we have
 \[
 \operatorname{Ext}_{\sO_Z}^{i}(F, j^{\flat}R^{\bullet}) = \operatorname{Ext}_{\sO_X}^{i}(j_{*}F, R^{\bullet})
 \]
-by duality for $j$ [III 6.7]. Thus $d(x),d(y)$ are the same if calculated on $Z$ with $j^{\flat}R^{\bullet}$, and so we reduce to the case $X=Z$ integral local of dimension $1$, with generic point $x$ and closed point $y$.
+by duality for $j$ \bookref{thm:3.6.7}{III,~6.7}. Thus $d(x),d(y)$ are the same if calculated on $Z$ with $j^{\flat}R^{\bullet}$, and so we reduce to the case $X=Z$ integral local of dimension $1$, with generic point $x$ and closed point $y$.
 
-By translating, we may assume that $R^\bullet$ is normalized, i.e., $d(y)=0$. To calculate $d(x)$ we consider $\operatorname{Ext}_{k(x)}^{i}(k(x),R_x^{\bullet})=\operatorname{Ext}_{A}^{i}(A,R^{\bullet})\otimes_{A} k(x)$, where $X=\operatorname{Spec}A$. Now by the local duality theorem, $\operatorname{Ext}_{A}^{i}(A,R^{\bullet})$ is dual to $H_{y}^{-i}(A)$. Since $A$ is a domain, $H_{y}^{0}(A)=0$. For $p\neq0,1$, $H_{y}^{p}(A)=0$ since $A$ is of dimension $1$ [LC 1.12]. Thus $\operatorname{Ext}^{i}(A,R^{\bullet})=0$ for $i\neq-1$, and so $d(x)=-1$, as required.
+By translating, we may assume that $R^\bullet$ is normalized, i.e., $d(y)=0$. To calculate $d(x)$ we consider $\operatorname{Ext}_{k(x)}^{i}(k(x),R_x^{\bullet})=\operatorname{Ext}_{A}^{i}(A,R^{\bullet})\otimes_{A} k(x)$, where $X=\operatorname{Spec}A$. Now by the local duality theorem (Theorem~\ref{thm:5.6.2}), $\operatorname{Ext}_{A}^{i}(A,R^{\bullet})$ is dual to $H_{y}^{-i}(A)$. Since $A$ is a domain, $H_{y}^{0}(A)=0$. For $p\neq0,1$, $H_{y}^{p}(A)=0$ since $A$ is of dimension $1$ \cite[\nopp 1.12]{LC}. Thus $\operatorname{Ext}^{i}(A,R^{\bullet})=0$ for $i\neq-1$, and so $d(x)=-1$, as required.
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 An integer-valued function $d$ on a prescheme $X$ with the property of the proposition will be called a \emph{codimension function} on $X$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}
 A prescheme $X$ is \emph{catenary} if whenever $Z\subseteq Z'$ are irreducible closed subsets of $X$, then every maximal chain
 \[
 Z=Z_0<Z_1<\cdots<Z_n=Z'
 \]
 of irreducible closed subsets between $Z$ and $Z'$ has the same length $n$.
-\end{definition}
+\end{definition*}
 
-\begin{corollary}\label{cor:5.7.2}
+\begin{bookcorollary}{7.2}\label{cor:5.7.2}
 A locally noetherian prescheme $X$ which admits a dualizing complex is catenary, and has finite Krull dimension.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
 Indeed, the existence of a codimension function $d$ on $X$ implies that $X$ is catenary. On the other hand, since $R^\bullet$ is quasi-isomorphic to a bounded complex of injective sheaves, the function $d$ is bounded in both directions, so $X$ has finite Krull dimension.
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 Let $X$ be a locally noetherian prescheme, and let $R^\bullet$ be a dualizing complex on $X$. We define the \emph{filtration} $Z^\bullet$ associated to $R^\bullet$ by
 \[
-Z^{p} = \{x\in X\mid d(x)>p\}
+Z^{p} = \{x\in X\mid d(x)\geq p\}
 \]
 for each $p$. Then by virtue of the previous proposition and corollary, $Z^\bullet$ is a finite filtration of $X$, and each $x\in Z^{p}-Z^{p+1}$ is maximal.
-\end{definition}
+\end{definition*}
 
-\begin{proposition}\label{prop:5.7.3}
-Let $X$ be a locally noetherian prescheme, let $R^\bullet$ be a dualizing complex on $X$, and let $Z^\bullet$ be the associated filtration. Then $R^\bullet$ is Gorenstein with respect to $Z^\bullet$ (cf.\ [IV \S3]). Moreover, for each $x\in X$, the injective hull $J(x)$ of $k(x)$ over $\sO_{X,x}$ occurs exactly once as a direct summand of the (injective) complex $E(R^\bullet)$.
-\end{proposition}
+\begin{bookproposition}{7.3}\label{prop:5.7.3}
+Let $X$ be a locally noetherian prescheme, let $R^\bullet$ be a dualizing complex on $X$, and let $Z^\bullet$ be the associated filtration. Then $R^\bullet$ is Gorenstein with respect to $Z^\bullet$ (cf.\ \bookref{sec:4.3}{IV,~\S3}). Moreover, for each $x\in X$, the injective hull $J(x)$ of $k(x)$ over $\sO_{X,x}$ occurs exactly once as a direct summand of the (injective) complex $E(R^\bullet)$.
+\end{bookproposition}
 
 \begin{proof}
-Using condition (ii) of [IV 3.1] and [IV.1.F], it is sufficient to show that
+Using condition (ii) of \bookref{prop:4.3.1}{IV,~3.1} and \bookref{motif:4.1.F}{IV,~1.F}, it is sufficient to show that
 \[
 H_{x}^{i}(R^{\bullet}) = \begin{cases} 0 & \text{for } i\neq d(x) \\ J(x) & \text{for } i = d(x). \end{cases}
 \]
-But this follows from Proposition~6.1 above.
+But this follows from Proposition~\ref{prop:5.6.1} above.
 \end{proof}
 
 \section{Pointwise dualizing complexes and $f^{\sharp}$}\label{sec:5.8}
+\begingroup
+\setlength{\emergencystretch}{2em}
 
 In this section we give a generalization of the notion of dualizing complex, which may exist on a locally noetherian prescheme of infinite Krull dimension. We apply this notion to show that $f^{\sharp}$ of a dualizing complex is dualizing, where $f$ is a smooth morphism. Throughout this section, $X$ will denote a locally noetherian prescheme.
 
-\begin{definition}
+\begin{definition*}
 A complex $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ has \emph{pointwise finite injective dimension} (pfid) if for every $x\in X$, $R_x^\bullet\in\DD_{\mathrm{c}}^+(\Spec\sO_{X,x})$ has finite injective dimension.
-\end{definition}
+\end{definition*}
 
-\begin{proposition}\label{prop:5.8.1}
-Let $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ have pointwise finite injective dimension. Then conditions (i)--(iv) of Proposition~2.1 are equivalent.
-\end{proposition}
+\begin{bookproposition}{8.1}\label{prop:5.8.1}
+Let $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ have pointwise finite injective dimension. Then conditions (i)--(iv) of Proposition~\ref{prop:5.2.1} are equivalent.
+\end{bookproposition}
 
 \begin{proof}
 The same as loc.\ cit.\ since one can check reflexivity pointwise.
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 A complex $R^\bullet\in\DD^+_{\mathrm{c}}(X)$ with pfid is \emph{pointwise dualizing} if it satisfies the equivalent conditions of the proposition.
-\end{definition}
+\end{definition*}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remarks.}
 \begin{enumerate}
 \item Since fid implies pfid, we see that any dualizing complex is pointwise dualizing.
 \item If $X=\Spec A$ where $A$ is a local ring, then $\text{fid}\iff\text{pfid}$, so a complex is dualizing if and only if it is pointwise dualizing.
-\item We say a complex $F^\bullet\in\DD(X)$ is \emph{pointwise bounded below} if for every $x\in X$, $F_x^\bullet\in\DD^+(\Spec\sO_{X,x})$, and we write $F^\bullet\in\DD^{\mathrm{p}+}(X)$. Similarly we define $\DD^{\mathrm{p}-}(X)$ and $\DD^{\mathrm{pb}}(X)$. These are full subcategories of $\DD(X)$ (cf.\ [I \S\S4,5]). Now if $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ is pointwise dualizing, then the functor $\DerR\underline{\Hom}^\bullet(\cdot,R^\bullet)$ gives an anti-isomorphism of $\DD^{\mathrm{p}-}$ and $\DD^{\mathrm{p}+}$, and an auto-anti-isomorphism of $\DD^{\mathrm{pb}}(X)$.
-\item If $R^\bullet$ is a pointwise dualizing complex on $X$, we can define as in \S7 the associated codimension function $d\colon X\to\mathbb{Z}$, and the associated filtration $Z^\bullet$. Proposition~7.1 holds in this case, so the filtration $Z^\bullet$ satisfies the conditions of [IV \S3], in particular, it is separated. Thus we see as in Corollary~7.2 that $X$ is catenary.
-\item If $R^\bullet$ is pointwise dualizing on $X$, and if $R^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)$, then $R^\bullet$ is Gorenstein with respect to the filtration $Z^\bullet$ (cf.\ Proposition~7.3). The boundedness hypothesis is necessary for [IV 3.1].
+\item We say a complex $F^\bullet\in\DD(X)$ is \emph{pointwise bounded below} if for every $x\in X$, $F_x^\bullet\in\DD^+(\Spec\sO_{X,x})$, and we write $F^\bullet\in\DD^{\mathrm{p}+}(X)$. Similarly we define $\DD^{\mathrm{p}-}(X)$ and $\DD^{\mathrm{pb}}(X)$. These are full subcategories of $\DD(X)$ (cf.\ \bookref{sec:1.4}{I,~\S4}, \bookref{sec:1.5}{I,~\S5}). Now if $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ is pointwise dualizing, then the functor $\RsheafHom^\bullet(\cdot,R^\bullet)$ gives an anti-isomorphism of $\DD_{\mathrm{c}}^{\mathrm{p}-}(X)$ and $\DD_{\mathrm{c}}^{\mathrm{p}+}(X)$, and an auto-anti-isomorphism of $\DD_{\mathrm{c}}^{\mathrm{pb}}(X)$.
+\item If $R^\bullet$ is a pointwise dualizing complex on $X$, we can define as in section~\hyperref[sec:5.7]{7} the associated codimension function $d\colon X\to\mathbb{Z}$, and the associated filtration $Z^\bullet$. Proposition~\ref{prop:5.7.1} holds in this case, so the filtration $Z^\bullet$ satisfies the conditions of \bookref{sec:4.3}{IV,~\S3}, in particular, it is separated. Thus we see as in Corollary~\ref{cor:5.7.2} that $X$ is catenary.
+\item If $R^\bullet$ is pointwise dualizing on $X$, and if $R^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)$, then $R^\bullet$ is Gorenstein with respect to the filtration $Z^\bullet$ (cf.\ Proposition~\ref{prop:5.7.3}). The boundedness hypothesis is necessary for \bookref{prop:4.3.1}{IV,~3.1}.
 \end{enumerate}
-\end{remark}
+\par\medskip
 
-\begin{example}
-If $X$ is a regular prescheme, then $\sO_X$ is a pointwise dualizing complex for $X$. Indeed, for each $x\in X$, $\Spec\sO_{X,x}$ is a regular prescheme of finite Krull dimension, so we apply Example~2.2 above.
-\end{example}
+\begin{example*}
+If $X$ is a regular prescheme, then $\sO_X$ is a pointwise dualizing complex for $X$. Indeed, for each $x\in X$, $\Spec\sO_{X,x}$ is a regular prescheme of finite Krull dimension, so we apply Example~\ref{ex:5.2.2} above.
+\end{example*}
 
-\begin{proposition}\label{prop:5.8.2}
-Let $R^\bullet\in\DD_{\mathrm{c}}^{+}(X)$ be pointwise dualizing, and assume that $X$ is noetherian and of finite Krull dimension. Then $R^\bullet$ has finite injective dimension and so is dualizing (by Proposition~2.3).
-\end{proposition}
+\begin{bookproposition}{8.2}\label{prop:5.8.2}
+Let $R^\bullet\in\DD_{\mathrm{c}}^{+}(X)$ be pointwise dualizing, and assume that $X$ is noetherian and of finite Krull dimension. Then $R^\bullet$ has finite injective dimension and so is dualizing (by Corollary~\ref{cor:5.2.3}).
+\end{bookproposition}
 
 \begin{proof}
-Since $X$ is noetherian and of finite Krull dimension, the codimension function $d$ associated to $R^\bullet$ is bounded. But we saw in the proof of Proposition~3.4 that for every $x\in X$, and every module $M$ of finite type over $\sO_{X,x}$,
+Since $X$ is noetherian and of finite Krull dimension, the codimension function $d$ associated to $R^\bullet$ is bounded. But we saw in the proof of Proposition~\ref{prop:5.3.4} that for every $x\in X$, and every module $M$ of finite type over $\sO_{X,x}$,
 \[
 \operatorname{Ext}_{\sO_{X,x}}^{i}(M, R_{x}^{\bullet}) = 0 \qquad\text{for } i\notin[d(x)-\dim M, d(x)].
 \]
 Thus in particular for every coherent sheaf $F$ on $X$,
 \[
-\underline{\operatorname{Ext}}_{X}^{i}(F,R^{\bullet}) = 0 \qquad\text{for } i > \sup_{x\in X} d(x),
+\sheafExt_{X}^{i}(F,R^{\bullet}) = 0 \qquad\text{for } i > \sup_{x\in X} d(x),
 \]
-and so $R^\bullet$ has finite injective dimension [II 7.20 $(\underline{\mathrm{iii}})_{\mathrm{c}}$].
+and so $R^\bullet$ has finite injective dimension \bookref{prop:2.7.20}{II,~7.20 $(\underline{\mathrm{iii}})_{\mathrm{c}}$}.
 \end{proof}
 
-\begin{theorem}\label{thm:5.8.3}
-Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes, and let $R^{\bullet}\in\DD^{+}_{\mathrm{c}}(Y)$ be pointwise dualizing. Then $f^{\sharp}(R^{\bullet})$ (cf.\ [III \S2]) is pointwise dualizing on $X$. If furthermore $Y$ is noetherian, $f$ of finite type, and $R^{\bullet}$ dualizing, then $f^{\sharp}(R^{\bullet})$ is also dualizing.
-\end{theorem}
+\begin{booktheorem}{8.3}\label{thm:5.8.3}
+Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes, and let $R^{\bullet}\in\DD^{+}_{\mathrm{c}}(Y)$ be pointwise dualizing. Then $f^{\sharp}(R^{\bullet})$ (cf.\ \bookref{sec:3.2}{III,~\S2}) is pointwise dualizing on $X$. If furthermore $Y$ is noetherian, $f$ of finite type, and $R^{\bullet}$ dualizing, then $f^{\sharp}(R^{\bullet})$ is also dualizing.
+\end{booktheorem}
 
 \begin{proof}
-For the first statement, the question is local on $X$ and $Y$, so we reduce immediately to the case $Y=\Spec A$, with $A$ a local ring, and $X$ of finite type, affine over $Y$. Then $X$ admits a closed immersion into a suitable affine space $\mathbf{A}_{Y}^{n}$, so using [III 8.4] and Proposition~2.4 (which is valid also for ``pointwise dualizing''), we reduce to the case $X=\mathbf{A}_{Y}^{n}$.
+For the first statement, the question is local on $X$ and $Y$, so we reduce immediately to the case $Y=\Spec A$, with $A$ a local ring, and $X$ of finite type, affine over $Y$. Then $X$ admits a closed immersion into a suitable affine space $\mathbf{A}_{Y}^{n}$, so using \bookref{prop:3.8.4}{III,~8.4} and Proposition~\ref{prop:5.2.4} (which is valid also for ``pointwise dualizing''), we reduce to the case $X=\mathbf{A}_{Y}^{n}$.
 
-\medskip\noindent\textit{Case 1.} $A$ is a regular local ring. Then $R^\bullet$ is dualizing, since $A$ is local, and by uniqueness (Theorem~3.1) we may assume, after shifting if necessary, that $R^\bullet\cong A$. Then $f^{\sharp}(R^\bullet)\cong\omega_{X/Y}=\Omega_{X/Y}^{n}$, which is locally free of rank one, and hence pointwise dualizing (Example~2.2, since $X$ is regular if $Y$ is).
+\medskip\noindent\textit{Case 1.} $A$ is a regular local ring. Then $R^\bullet$ is dualizing, since $A$ is local, and by uniqueness (Theorem~\ref{thm:5.3.1}) we may assume, after shifting if necessary, that $R^\bullet\cong A$. Then $f^{\sharp}(R^\bullet)\cong\omega_{X/Y}[n]=\Omega_{X/Y}^{n}[n]$, which is a shift of a locally free sheaf of rank one, and hence pointwise dualizing (Example~\ref{ex:5.2.2}, since $X$ is regular if $Y$ is).
 
-\medskip\noindent\textit{Case 2.} $A$ is a quotient of a regular local ring $A'$. Let $Y'=\Spec A'$. Then $X$ is obtained from the morphism $\mathbf{A}_{Y'}^{n}\to Y'$ by the base extension $Y\to Y'$, and we reduce to the previous case by means of [III.6.4], Proposition~2.4, of the uniqueness (Theorem~3.1) on $Y$.
+\medskip\noindent\textit{Case 2.} $A$ is a quotient of a regular local ring $A'$. Let $Y'=\Spec A'$. Then $X$ is obtained from the morphism $\mathbf{A}_{Y'}^{n}\to Y'$ by the base extension $Y\to Y'$, and we reduce to the previous case by means of \bookref{cor:3.6.4}{III,~6.4}, Proposition~\ref{prop:5.2.4}, and the uniqueness (Theorem~\ref{thm:5.3.1}) on $Y$.
 
 \medskip\noindent\textit{General case.} $A$ is an arbitrary noetherian local ring.
 
-Let $\widehat{A}$ be the completion of $A$, and let $Y'=\Spec\widehat{A}$. We make the base extension $u\colon Y'\to Y$, and then $u^{*}(R^\bullet)$ is dualizing on $Y'$ by Corollary~3.5. But $\widehat{A}$ is a quotient of a regular local ring by Cohen's structure theorem [14,(31.1)], so $f'^{\sharp}(u^{*}(R^\bullet))$ is dualizing on $X' = X\times_{Y} Y'$, by Case 2. Now for any point $x\in X$, the completion $\widehat{\sO}_{X,x}$ of its local ring is also the completion of the ring $\sO_{X,x}\otimes_{A}\widehat{A}$, which is the semilocal ring of the points of $X'$ lying over $x$, and so applying Corollary~3.5 once in each direction, and [III 2.1] we see that $f^{\sharp}(R^\bullet)$ is pointwise dualizing on $X$.
+Let $\widehat{A}$ be the completion of $A$, and let $Y'=\Spec\widehat{A}$. We make the base extension $u\colon Y'\to Y$, and then $u^{*}(R^\bullet)$ is dualizing on $Y'$ by Corollary~\ref{cor:5.3.5}. But $\widehat{A}$ is a quotient of a regular local ring by Cohen's structure theorem \cite[\nopp (31.1)]{14}, so $f'^{\sharp}(u^{*}(R^\bullet))$ is dualizing on $X' = X\times_{Y} Y'$, by Case 2. Now for any point $x\in X$, the completion $\widehat{\sO}_{X,x}$ of its local ring is also the completion of the ring $\sO_{X,x}\otimes_{A}\widehat{A}$, which is the semilocal ring of the points of $X'$ lying over $x$, and so applying Corollary~\ref{cor:5.3.5} once in each direction, and \bookref{prop:3.2.1}{III,~2.1} we see that $f^{\sharp}(R^\bullet)$ is pointwise dualizing on $X$.
 
-Now if $Y$ is noetherian, $f$ of finite type, and $R^\bullet$ dualizing, then $Y$ has finite Krull dimension by Corollary~7.2, hence $X$ has finite Krull dimension, and so $f^{\sharp}(R^\bullet)$ is dualizing by Proposition~8.2.
+Now if $Y$ is noetherian, $f$ of finite type, and $R^\bullet$ dualizing, then $Y$ has finite Krull dimension by Corollary~\ref{cor:5.7.2}, hence $X$ has finite Krull dimension, and so $f^{\sharp}(R^\bullet)$ is dualizing by Proposition~\ref{prop:5.8.2}.
 \end{proof}
 
-\begin{corollary}\label{cor:5.8.4}
+\begin{bookcorollary}{8.4}\label{cor:5.8.4}
 Under the hypotheses of the theorem, let $d_{Y}$ and $d_{X}$ be the codimension functions associated with the pointwise dualizing complexes $R^{\bullet}$ and $f^{\sharp}(R^{\bullet})$, respectively. Then for each $x\in X$,
 \[
-d_{X}(x) = d_{Y}(y) + \operatorname{tr.d.} k(x)/k(y)
+d_{X}(x) = d_{Y}(y) - \operatorname{tr.d.} k(x)/k(y)
 \]
 where $y=f(x)$.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Chasing through the reductions above (and noting that this formula holds trivially for a finite morphism and $f^{\flat}(R^{\bullet})$), we reduce to the case $Y=\Spec A$, $A$ a regular local ring, $R^\bullet=A$, and $X=\mathbf{A}_{Y}^{n}$. Then $f^{\sharp}(R^\bullet)=\omega_{X/Y}$, which is locally free of rank one, so for any $x\in X$ we have $d_X(x)=\dim\sO_{X,x}$, and for any $y\in Y$, $d_Y(y)=\dim\sO_{Y,y}$ [LC \S4]. Our formula is then the usual dimension formula for a local homomorphism of local rings (cf.\ [EGA $\mathrm{O}_{\mathrm{IV}}$ 17.3.3]).
+Chasing through the reductions above (and noting that this formula holds trivially for a finite morphism and $f^{\flat}(R^{\bullet})$), we reduce to the case $Y=\Spec A$, $A$ a regular local ring, $R^\bullet=A$, and $X=\mathbf{A}_{Y}^{n}$. Then $f^{\sharp}(R^\bullet)=\omega_{X/Y}[n]$, a shift of a locally free sheaf of rank one, so for any $x\in X$ we have $d_X(x)=\dim\sO_{X,x}-n$, and for any $y\in Y$, $d_Y(y)=\dim\sO_{Y,y}$ \cite[\nopp \S4]{LC}. Our formula is then the usual dimension formula for a local homomorphism of local rings (cf.\ \cite[\nopp $0_{\mathrm{IV}}$,~17.3.3]{EGA}).
 \end{proof}
 
-\begin{remark}
-Using Proposition~2.4, the result of the theorem can be extended to show that for any embeddable morphism $f$ of noetherian preschemes [III \S8], $f^{!}$ takes dualizing complexes to dualizing complexes. The formula of the Corollary also extends to this case.
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+Using Proposition~\ref{prop:5.2.4}, the result of the theorem can be extended to show that for any embeddable morphism $f$ of noetherian preschemes \bookref{sec:3.8}{III,~\S8}, $f^{!}$ takes dualizing complexes to dualizing complexes. The formula of the Corollary also extends to this case.
+\par\medskip
 
-\begin{proposition}\label{prop:5.8.5}
-Let $f\colon X\to Y$ be an embeddable morphism of locally noetherian preschemes, let $R^\bullet\in\DD^+_{\mathrm{c}}(Y)$ be a dualizing complex on $Y$, and let $D$ denote the functor $\DerR\underline{\Hom}^\bullet_{Y}(\cdot, R^\bullet)$ or $\DerR\underline{\Hom}^\bullet_{X}(\cdot, f^{!}R^\bullet)$ (the one meant will be clear from the context). Then there is a functorial isomorphism
+\begin{bookproposition}{8.5}\label{prop:5.8.5}
+Let $f\colon X\to Y$ be an embeddable morphism of locally noetherian preschemes, let $R^\bullet\in\DD^+_{\mathrm{c}}(Y)$ be a dualizing complex on $Y$, and let $\mathscr{D}$ denote the functor $\RsheafHom^\bullet_{Y}(\cdot, R^\bullet)$ or $\RsheafHom^\bullet_{X}(\cdot, f^{!}R^\bullet)$ (the one meant will be clear from the context). Then there is a functorial isomorphism
 \[
-f^{!}(F^{\bullet}) \cong D(\DerL f^{*}(D(F^{\bullet})))
+f^{!}(F^{\bullet}) \cong \mathscr{D}(\LL f^{*}(\mathscr{D}(F^{\bullet})))
 \]
 for all $F^\bullet\in\DD_{\mathrm{c}}^{+}(Y)$.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-Apply [III 8.8, 7)] to $D(F^\bullet)$ and $R^\bullet$.
+Apply \bookref{prop:3.8.8}{III,~8.8(7)} to $\mathscr{D}(F^\bullet)$ and $R^\bullet$.
 \end{proof}
 
-\begin{corollary}\label{cor:5.8.6}
+\begin{bookcorollary}{8.6}\label{cor:5.8.6}
 Under the hypotheses of the proposition, assume furthermore that $f$ is flat, of finite type, and that $Y$ is noetherian. Then there is a functorial isomorphism
 \[
-f^{!}(F^{\bullet}\otimes G^{\bullet}) \xrightarrow{\sim} f^{!}(F^{\bullet}) \otimes f^{!}(G^{\bullet})
+f^{!}(F^{\bullet}\derivedtensor G^{\bullet}) \xrightarrow{\sim} f^{!}(F^{\bullet}) \derivedtensor f^{*}(G^{\bullet})
 \]
 for $F^\bullet\in\DD_{\mathrm{c}}^{+}(Y)$ and $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(Y)_{\mathrm{fTd}}$.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Note first that Theorem~8.3 and the Remark following apply to show that $f^{!}(R^\bullet)$ is dualizing on $X$. The result now follows from the Proposition, using [II 5.8] and Proposition~2.6 above.
+Note first that Theorem~\ref{thm:5.8.3} and the Remark following apply to show that $f^{!}(R^\bullet)$ is dualizing on $X$. The result now follows from the Proposition, using \bookref{prop:2.5.8}{II,~5.8} and Proposition~\ref{prop:5.2.6} above.
 \end{proof}
 
-\section{Gorenstein preschemes}\label{sec:5.9}
+\par\endgroup
 
-\begin{theorem}\label{thm:5.9.1}
+\section{Gorenstein preschemes}\label{sec:5.9}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+\begin{booktheorem}{9.1}\label{thm:5.9.1}
 Let $A$ be a noetherian local ring. Then the following conditions are equivalent:
 \begin{itemize}
 \item[(i)] $A$ is a dualizing complex for itself.
@@ -710,27 +721,27 @@ Let $A$ be a noetherian local ring. Then the following conditions are equivalent
 \operatorname{Ext}^{i}(k,A) = \begin{cases} 0 & \text{for } i\neq d \\ k & \text{for } i = d \end{cases}
 \]
 where $k$ is the residue field of $A$.
-\item[(v)] $A$ is Gorenstein with respect to a suitable filtration $Z^{\bullet}$ of $\Spec A$ (cf.\ [IV \S3]).
+\item[(v)] $A$ is Gorenstein with respect to a suitable filtration $Z^{\bullet}$ of $\Spec A$ (cf.\ \bookref{sec:4.3}{IV,~\S3}).
 \item[(vi)] There is an integer $d$ such that
 \[
 H_{x}^{i}(A) = \begin{cases} 0 & \text{for } i\neq d \\ \text{is injective} & \text{for } i = d \end{cases}
 \]
 where $x$ is the closed point of $\Spec A$.
 \end{itemize}
-\end{theorem}
+\end{booktheorem}
 
 \begin{proof}
 (i) $\Longrightarrow$ (ii) By definition of dualizing complex.
 
-\noindent (ii) $\Longleftrightarrow$ (iii) $\Longleftrightarrow$ (iv) Proved by Bass [2, Theorem 4.1]. This article, incidentally, is a good summary of all previous occurrences of Gorenstein rings in the literature.
+\noindent (ii) $\Longleftrightarrow$ (iii) $\Longleftrightarrow$ (iv) Proved by Bass \cite[\nopp Thm.~4.1]{2}. This article, incidentally, is a good summary of all previous occurrences of Gorenstein rings in the literature.
 
-\noindent (iv) $\Longrightarrow$ (i) This is Proposition~3.4 above.
+\noindent (iv) $\Longrightarrow$ (i) This is Proposition~\ref{prop:5.3.4} above.
 
-\noindent (i) $\Longrightarrow$ (v) This is Proposition~7.3 above.
+\noindent (i) $\Longrightarrow$ (v) This is Proposition~\ref{prop:5.7.3} above.
 
-\noindent (v) $\Longrightarrow$ (vi) By [IV 3.4], $E(A)$ is an injective resolution of $A$, and furthermore, for each $p\in\mathbb{Z}$, $E^{p}(A)$ is a direct sum of constant (injective) sheaves on subspaces $\overline{\{y\}}$ of $\Spec A$ with $y\in Z^{p}-Z^{p+1}$. We can calculate $H_{x}^{i}(A)$ as $H^{i}(\Gamma_{x}(E(A)))$. But $\Gamma_{x}(E(A))$ by what we have just seen, consists of a single injective sheaf in some degree (say $d$), since $x$ is a minimal point of $\Spec A$.
+\noindent (v) $\Longrightarrow$ (vi) By \bookref{prop:4.3.4}{IV,~3.4}, $E(A)$ is an injective resolution of $A$, and furthermore, for each $p\in\mathbb{Z}$, $E^{p}(A)$ is a direct sum of constant (injective) sheaves on subspaces $\overline{\{y\}}$ of $\Spec A$ with $y\in Z^{p}-Z^{p+1}$. We can calculate $H_{x}^{i}(A)$ as $H^{i}(\Gamma_{x}(E(A)))$. But $\Gamma_{x}(E(A))$ by what we have just seen, consists of a single injective sheaf in some degree (say $d$), since $x$ is a minimal point of $\Spec A$.
 
-\noindent (vi) $\Longrightarrow$ (iii) First note by [LC 6.4, part 4] that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion [LC 5.9].) Therefore $A$ is Cohen-Macaulay [LC 3.10]. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, and let $N=(x_1,\dots,x_n)$. Then $H_{x}^{n}(A)$ is an essential extension of $A/N$ [11, proof of Prop.\ 2], and so is irreducible, since $A/N$ is a simple $A$-module, and hence irreducible. We conclude that $H_{x}^{n}(A)$ is an irreducible injective $A$-module with support at $x$, and so is an injective hull of $k$ [II 7.4].
+\noindent (vi) $\Longrightarrow$ (iv) First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, and let $N=(x_1,\dots,x_n)$. Then $H_{x}^{n}(A)$ is an essential extension of $A/N$ \cite[\nopp proof of Prop.~2]{11}, and so is irreducible, since $A/N$ is a simple $A$-module, and hence irreducible. We conclude that $H_{x}^{n}(A)$ is an irreducible injective $A$-module with support at $x$, and so is an injective hull of $k$ \bookref{prop:2.7.4}{II,~7.4}.
 
 Now for any $A$-module $M$,
 \[
@@ -738,62 +749,62 @@ Now for any $A$-module $M$,
 \]
 Furthermore, the functor $\Gamma_{x}$ takes injectives into injectives, so we have a spectral sequence of derived functors, which degenerates in this case to give
 \[
-\operatorname{Ext}^{i}(k,A) = \operatorname{Hom}(k, H_{x}^{n}(A)) = \begin{cases} 0 & i\neq n \\ k & i = n. \end{cases}
+\operatorname{Ext}^{i}(k,A) \cong \operatorname{Hom}(k, H_{x}^{i}(A)) = \begin{cases} 0 & i\neq n \\ k & i = n. \end{cases}
 \]
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 A local noetherian ring satisfying the equivalent conditions of the theorem is called a (local) \emph{Gorenstein ring}.
-\end{definition}
+\end{definition*}
 
-\begin{remark}
-For a local ring, regular $\Longrightarrow$ complete intersection $\Longrightarrow$ Gorenstein $\Longrightarrow$ Cohen-Macaulay, and these implications are all strict [2].
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+For a local ring, regular $\Longrightarrow$ complete intersection $\Longrightarrow$ Gorenstein $\Longrightarrow$ Cohen-Macaulay, and these implications are all strict \cite{2}.
+\par\medskip
 
-\begin{definition}
+\begin{definition*}
 A prescheme is \emph{Gorenstein} if all of its local rings are Gorenstein local rings.
-\end{definition}
+\end{definition*}
 
-\begin{corollary}\label{cor:5.9.2}
+\begin{bookcorollary}{9.2}\label{cor:5.9.2}
 A localization of a Gorenstein local ring is Gorenstein.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Follows from condition (i) of the Theorem, and Corollary~2.3 above.
+Follows from condition (i) of the Theorem, and Corollary~\ref{cor:5.2.3} above.
 \end{proof}
 
-\begin{proposition}\label{prop:5.9.3}
-Let $f\colon X\to\Spec k$ be an embeddable morphism, where $k$ is a field. Then $X$ is Gorenstein if and only if $f^{!}(k)$ is isomorphic, in $\DD^+(X)$, to an invertible sheaf on $X$.
-\end{proposition}
+\begin{bookproposition}{9.3}\label{prop:5.9.3}
+Let $f\colon X\to\Spec k$ be an embeddable morphism, where $k$ is a field. Then $X$ is Gorenstein if and only if $f^{!}(k)$ is locally isomorphic in $\DD^+(X)$ to $L[n]$, where $L$ is an invertible sheaf and $n$ is an integer.
+\end{bookproposition}
 
 \begin{proof}
-Indeed, by the remark at the end of the last section, $f^{!}(k)$ is a dualizing complex on $X$. But $X$ is Gorenstein if and only if $\sO_X$ is a dualizing complex on $X$. So the result follows from the uniqueness of the dualizing complex (Theorem~3.1 above).
+Indeed, by the remark following Corollary~\ref{cor:5.8.4}, $f^{!}(k)$ is a dualizing complex on $X$. But $X$ is Gorenstein if and only if $\sO_X$ is a dualizing complex on $X$. So the result follows from the uniqueness of the dualizing complex (Theorem~\ref{thm:5.3.1} above).
 \end{proof}
 
-\begin{corollary}\label{cor:5.9.4}
+\begin{bookcorollary}{9.4}\label{cor:5.9.4}
 Let $X$ be a Gorenstein prescheme of finite type over a field $k$, and let $k\subseteq K$ be a field extension. Then $X\otimes_k K$ is also Gorenstein.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-The question is local on $X$, and $f^{!}$ is compatible with flat base extension [III 8.7, 5)].
+The question is local on $X$, and $f^{!}$ is compatible with flat base extension \bookref{thm:3.8.7}{III,~8.7(5)}.
 \end{proof}
 
-\begin{corollary}\label{cor:5.9.5}
+\begin{bookcorollary}{9.5}\label{cor:5.9.5}
 Let $K,L$ be extension fields of a field $k$, and assume that one of them is finitely generated. Then $K\otimes_k L$ is a Gorenstein ring (i.e., every localization of it is a local Gorenstein ring).
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Similar to the above. One can also give a direct proof, by induction on the number of generators. This generalizes [EGA IV 6.7.1.1] which says that $K\otimes_k L$ is Cohen-Macaulay.
+Similar to the above. One can also give a direct proof, by induction on the number of generators. This generalizes \cite[\nopp IV,~6.7.1.1]{EGA} which says that $K\otimes_k L$ is Cohen-Macaulay.
 \end{proof}
 
-\begin{proposition}\label{prop:5.9.6}
+\begin{bookproposition}{9.6}\label{prop:5.9.6}
 Let $f\colon X\to Y$ be a flat morphism of locally noetherian preschemes, with $Y$ Gorenstein (but no finiteness assumption on $f$). Then $X$ is Gorenstein if and only if all the fibres $X_{y}$, for $y\in Y$, are Gorenstein preschemes.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
 The question is local, so we reduce to the following: let $A\to B$ be a local homomorphism of local rings, with $A$ Gorenstein, and $B$ flat over $A$. Then $B$ is Gorenstein if and only if $B/\mathfrak{m}_A B$ is Gorenstein.
 
-To prove this, we use condition (iv) of Theorem~9.1. By flatness,
+To prove this, we use condition (iv) of Theorem~\ref{thm:5.9.1}. By flatness,
 \[
 \operatorname{Ext}_{B}^{i}(B/\mathfrak{m}_A B, B) = \begin{cases} 0 & \text{for } i\neq d \\ B/\mathfrak{m}_A B & \text{for } i = d \end{cases}
 \]
@@ -804,11 +815,13 @@ for a suitable $d$. Thus the spectral sequence of $\operatorname{Ext}$'s for the
 for each $i$, whence the result.
 \end{proof}
 
-\begin{remark}\label{rem:5.9.7}
-Let $f\colon X\to Y$ be a flat morphism of finite type of locally noetherian preschemes. Show that $f^{!}(\sO_Y)$ (which is defined locally on $X$) is isomorphic in $\DD^+(X)$ to an invertible sheaf if and only if all the fibres $X_y$ of $f$, for $y\in Y$, are Gorenstein preschemes. Also show that $f^{!}(\sO_Y)$ has a unique non-zero cohomology sheaf, which is flat over $Y$, if and only if all the fibres of $f$ are Cohen-Macaulay preschemes. Such morphisms are called \emph{Gorenstein morphisms} (resp.\ \emph{Cohen-Macaulay morphisms}).
+\begin{bookexercise}{9.7}\label{rem:5.9.7}
+Let $f\colon X\to Y$ be a flat morphism of finite type of locally noetherian preschemes. Show that $f^{!}(\sO_Y)$ (which is defined locally on $X$) is locally isomorphic in $\DD^+(X)$ to an invertible sheaf shifted by an integer if and only if all the fibres $X_y$ of $f$, for $y\in Y$, are Gorenstein preschemes. Also show that, locally on $X$, $f^{!}(\sO_Y)$ has a unique non-zero cohomology sheaf, which is flat over $Y$, if and only if all the fibres of $f$ are Cohen-Macaulay preschemes. Such morphisms are called \emph{Gorenstein morphisms} (resp.\ \emph{Cohen-Macaulay morphisms}).
 
-Compare [EGA IV 6.3 and 6.7] for statements analogous to Corollary~9.5 and Proposition~9.6 for Cohen-Macaulay.
-\end{remark}
+Compare \cite[\nopp IV,~6.3 and 6.7]{EGA} for statements analogous to Corollary~\ref{cor:5.9.5} and Proposition~\ref{prop:5.9.6} for Cohen-Macaulay.
+\end{bookexercise}
+
+\par\endgroup
 
 \section{Existence of Dualizing Complexes}\label{sec:5.10}
 
@@ -819,35 +832,34 @@ We now draw together the experience gained in this chapter to make some remarks 
 \medskip\noindent\textbf{Sufficient conditions.}
 \begin{enumerate}
 \item If $X$ is Gorenstein and of finite Krull dimension, then $\sO_X$ is a dualizing complex for $X$. In particular, any regular prescheme of finite Krull dimension has a dualizing complex.
-\item If $f\colon X\to Y$ is a finite morphism and $Y$ admits a dualizing complex, then $X$ admits a dualizing complex (Proposition~2.4).
+\item If $f\colon X\to Y$ is a morphism of finite type, with $Y$ noetherian, and if $Y$ admits a dualizing complex $R^\bullet$, we will see in the next chapter that $X$ admits a dualizing complex $f^{!}(R^\bullet)$. (If $f$ is embeddable this result follows from section~\hyperref[sec:5.8]{8} above.) Thus any noetherian prescheme of finite type over a Gorenstein prescheme of finite Krull dimension admits a dualizing complex.
 \item In particular, any prescheme of finite type over a field $k$ admits a dualizing complex.
-\item If $X$ is the spectrum of a complete local ring $A$, then $X$ admits a dualizing complex. Indeed, $A$ is a quotient of a regular local ring by the Cohen structure theorem [14, (31.1)].
+\item If $X$ is the spectrum of a complete local ring $A$, then $X$ admits a dualizing complex. Indeed, $A$ is a quotient of a regular local ring by the Cohen structure theorem \cite[\nopp (31.1)]{14}.
 \end{enumerate}
 
 \medskip\noindent\textbf{Necessary conditions.}
 \begin{enumerate}
-\item If $X$ admits a dualizing complex, then $X$ has finite Krull dimension (Corollary~7.2).
+\item If $X$ admits a dualizing complex, then $X$ has finite Krull dimension (Corollary~\ref{cor:5.7.2}).
 \item If $X$ admits a dualizing complex, then $X$ is catenary (in fact universally catenary since any prescheme of finite type over $X$ admits a dualizing complex, at least locally).
 \item More precisely, $X$ admits a codimension function $d$.
-\item If $A$ is a local noetherian ring admitting a dualizing complex, and if $\mathfrak{p}\subseteq A$ is a prime ideal, then $\widehat{A}\otimes_{\widehat{A}} k(\mathfrak{p})$ is a Gorenstein ring. This follows from the following
+\item If $A$ is a local noetherian ring admitting a dualizing complex, and if $\mathfrak{p}\subseteq A$ is a prime ideal, then $\widehat{A}\otimes_A k(\mathfrak{p})$ is a Gorenstein ring. This follows from the following
 \end{enumerate}
 
-\begin{proposition}\label{prop:5.10.1}
+\begin{bookproposition}{10.1}\label{prop:5.10.1}
 If $A$ is a local noetherian domain, with quotient field $K$, which admits a dualizing complex, then $\widehat{A}\otimes_A K$ is a Gorenstein ring.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-Let $R^\bullet$ be a dualizing complex on $A$. Then $R^\bullet\otimes_A\widehat{A}$ is dualizing on $\widehat{A}$ by Corollary~3.5, and so by localization, $(R^\bullet\otimes_A\widehat{A})\otimes_A K$ is dualizing on $\widehat{A}\otimes_A K$. But $R^\bullet\otimes_A K$ is dualizing on $K$, so by Theorem~3.1 we may assume $R^\bullet\otimes_A K\cong K$ after translating if necessary. But $(R^\bullet\otimes_A\widehat{A})\otimes_A K \cong (R^\bullet\otimes_A K)\otimes_K (\widehat{A}\otimes_A K)$ so $\widehat{A}\otimes_A K$ is a dualizing complex for itself, and we are done (Theorem~9.1 (i)).
+Let $R^\bullet$ be a dualizing complex on $A$. Then $R^\bullet\otimes_A\widehat{A}$ is dualizing on $\widehat{A}$ by Corollary~\ref{cor:5.3.5}, and so by localization, $(R^\bullet\otimes_A\widehat{A})\otimes_A K$ is dualizing on $\widehat{A}\otimes_A K$. But $R^\bullet\otimes_A K$ is dualizing on $K$, so by Theorem~\ref{thm:5.3.1} we may assume $R^\bullet\otimes_A K\cong K$ after translating if necessary. But $(R^\bullet\otimes_A\widehat{A})\otimes_A K \cong (R^\bullet\otimes_A K)\otimes_K (\widehat{A}\otimes_A K)$ so $\widehat{A}\otimes_A K$ is a dualizing complex for itself, and we are done (Theorem~\ref{thm:5.9.1} (i)).
 \end{proof}
 
-\begin{example}
-There are local noetherian domains of dimension $3$ which are not catenary, and local noetherian domains of dimension $2$ which are not universally catenary, and which therefore have no dualizing complexes [14, Appendix A1, Ex.\ 2].
-\end{example}
+\begin{example*}
+There are local noetherian domains of dimension $3$ which are not catenary, and local noetherian domains of dimension $2$ which are not universally catenary, and which therefore have no dualizing complexes \cite[\nopp App.~A1, Ex.~2]{14}.
+\end{example*}
 
-\begin{remark}
-\textbf{Problems.}
+\par\medskip\noindent\textbf{Problems.}
 \begin{enumerate}
-\item We do not know if $\widehat{A}\otimes_{\widehat{A}} K$ is a Gorenstein ring, even if $A$ is a local domain of dimension $1$, hence we do not know whether every local domain of dimension $1$ admits a dualizing complex.
+\item We do not know if $\widehat{A}\otimes_A K$ is a Gorenstein ring, even if $A$ is a local domain of dimension $1$, hence we do not know whether every local domain of dimension $1$ admits a dualizing complex.
 \item If $X$ is noetherian and of finite Krull dimension, and if it admits a dualizing complex locally, and if it admits a codimension function $d$, we do not know whether $X$ admits a dualizing complex globally.
 \end{enumerate}
-\end{remark}
+\par\medskip

@@ -28,12 +28,14 @@
 \newtheorem*{definition*}{Definition}
 \newtheorem*{example*}{Example}
 \newtheorem{definitioncorollary}{Definition and Corollary}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{exercise*}{Exercise}
 \theoremstyle{plain}
 \newenvironment{bookproposition}[2][]
   {\renewcommand{\theproposition}{#2}\begin{proposition}[#1]}
   {\end{proposition}}
-\newenvironment{booklemma}[1]
-  {\renewcommand{\thelemma}{#1}\begin{lemma}}
+\newenvironment{booklemma}[2][]
+  {\renewcommand{\thelemma}{#2}\begin{lemma}[#1]}
   {\end{lemma}}
 \newenvironment{booktheorem}[2][]
   {\renewcommand{\thetheorem}{#2}\begin{theorem}[#1]}
@@ -41,6 +43,9 @@
 \newenvironment{bookcorollary}[1]
   {\renewcommand{\thecorollary}{#1}\begin{corollary}}
   {\end{corollary}}
+\newenvironment{bookexercise}[1]
+  {\renewcommand{\theexercise}{#1}\begin{exercise}}
+  {\end{exercise}}
 \newenvironment{bookexample}[1]
   {\renewcommand{\theexample}{#1}\begin{example}}
   {\end{example}}

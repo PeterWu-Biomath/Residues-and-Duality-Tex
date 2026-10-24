@@ -1,13 +1,16 @@
 
 \chapter{Residual Complexes}
+\setcounter{section}{-1}
+\begingroup
+\setlength{\emergencystretch}{2em}
 
 \section{Introduction}\label{sec:6.0}
 
-In this chapter we return to the problem of constructing a functor $f^{!}$ for a morphism of finite type, which should reduce to $f^{\flat}$ for a finite morphism, and $f^{\sharp}$ for a smooth morphism. We ran into difficulty earlier [III \S8] because the derived category is not a local object — one cannot glue together elements of the derived category given locally. Now we overcome that difficulty in a special case by using residual complexes. The residual complex is a very special complex of quasi-coherent injective sheaves (see definition below) which is almost unique (it was called ``residue complex'' in the Edinburgh Congress talk [9]).
+In this chapter we return to the problem of constructing a functor $f^{!}$ for a morphism of finite type, which should reduce to $f^{\flat}$ for a finite morphism, and $f^{\sharp}$ for a smooth morphism. We ran into difficulty earlier \bookref{sec:3.8}{III,~\S8} because the derived category is not a local object — one cannot glue together elements of the derived category given locally. Now we overcome that difficulty in a special case by using residual complexes. The residual complex is a very special complex of quasi-coherent injective sheaves (see definition below) which is almost unique (it was called ``residue complex'' in the Edinburgh Congress talk \cite{9}).
 
 Modulo some technicalities arising from possibly infinite Krull dimension, this is how they work: To each dualizing complex $R^\bullet\in\DD^+_{\mathrm{c}}(X)$ is associated functorially a residual complex $K^\bullet = E(R^\bullet)$, and $Q(K^\bullet)$ (which is the image of the complex $K^\bullet$ in $\DD^+_{\mathrm{c}}(X)$) is isomorphic to $R^\bullet$ in $\DD^+_{\mathrm{c}}(X)$. Thus we will define $f^{!}$ locally for a residual complex $K^\bullet$ by
 \[
-f^{!}(K^\bullet) = E(f^{!}(Q(K^\bullet))).
+f^{!}(K^\bullet) = E(f^{!}(Q(K^\bullet))),
 \]
 where $f^{!}$ is the one we know for embeddable morphisms. Then since $f^{!}(K^\bullet)$ is an actual complex defined locally, we can glue to get a global $f^{!}(K^\bullet)$. We will give the statement and proof of the existence of $f^{!}$ in some detail, since this is an important step towards the general duality theorem. Later, after proving the duality theorem, we will pull ourselves up by our bootstraps to obtain a definition of $f^{!}$ for objects in the derived category $\DD_{\mathrm{c}}^{+}(X)$.
 
@@ -19,23 +22,23 @@ We will prove in the next chapter that if $f$ is a proper morphism, then $\Tr_f$
 
 \section{Residual Complexes}\label{sec:6.1}
 
-Throughout this section, $X$ will denote a locally noetherian prescheme. If $x$ is a point of $X$, and if $I$ is an injective hull of $k(x)$ over the local ring $\sO_{X,x}$, we will denote by $J(x)$ the quasi-coherent injective $\sO_X$-module, which is the constant sheaf $I$ on $\overline{\{x\}}$, and $0$ elsewhere (notation of [II \S7]).
+Throughout this section, $X$ will denote a locally noetherian prescheme. If $x$ is a point of $X$, and if $I$ is an injective hull of $k(x)$ over the local ring $\sO_{X,x}$, we will denote by $J(x)$ the quasi-coherent injective $\sO_X$-module, which is the constant sheaf $I$ on $\overline{\{x\}}$, and $0$ elsewhere (notation of \bookref{sec:2.7}{II,~\S7}).
 
-\begin{definition}
+\begin{definition*}
 A \emph{residual complex} on $X$ is a complex $K^\bullet$ of quasi-coherent injective $\sO_X$-modules, bounded below, with coherent cohomology sheaves, and such that there is an isomorphism
 \[
-\sum_{p\in\mathbb{Z}} K^{p} \cong \sum_{x\in X} J(x).
+\bigoplus_{p\in\mathbb{Z}} K^{p} \cong \bigoplus_{x\in X} J(x).
 \]
-\end{definition}
+\end{definition*}
 
-\begin{example}
-If $X$ is a regular prescheme, then the Cousin complex of the structure sheaf $\sO_X$ is a residual complex for $X$ (see example at end of [IV \S2]).
-\end{example}
+\begin{example*}
+If $X$ is a regular prescheme, then the Cousin complex of the structure sheaf $\sO_X$ is a residual complex for $X$ (see example at end of \bookref{sec:4.2}{IV,~\S2}).
+\end{example*}
 
-\begin{proposition}\label{prop:6.1.1}
+\begin{bookproposition}{1.1}\label{prop:6.1.1}
 \begin{enumerate}
 \item[a)] If $K^\bullet$ is a residual complex on $X$, then its image $Q(K^\bullet)\in\DD^+_{\mathrm{c}}(X)$ is a pointwise dualizing complex.
-\item[b)] If $R^\bullet\in\DD^+_{\mathrm{c}}(X)$ is a pointwise dualizing complex on $X$, then $E(R^\bullet)$ is a residual complex on $X$. (Here $E$ is the notation of [IV \S3], with respect to the filtration $Z^\bullet$ associated with $R^\bullet$ (cf.\ [V \S7] and [V \S8, Remark 4]).)
+\item[b)] If $R^\bullet\in\DD^+_{\mathrm{c}}(X)$ is a pointwise dualizing complex on $X$, then $E(R^\bullet)$ is a residual complex on $X$. (Here $E$ is the notation of \bookref{sec:4.3}{IV,~\S3}, with respect to the filtration $Z^\bullet$ associated with $R^\bullet$ (cf.\ \bookref{sec:5.7}{V,~\S7} and \bookref{sec:5.8}{V,~\S8, Remark~4}).)
 \item[c)] If $X$ admits a residual complex (or pointwise dualizing complex) with bounded cohomology, then there is a functorial isomorphism
 \[
 \varphi\colon R^{\bullet}\xrightarrow{\sim} QE(R^{\bullet})
@@ -46,10 +49,10 @@ E\colon \operatorname{Ptwdual}(X)\longrightarrow \operatorname{Res}(X)
 \]
 is an equivalence of the category of pointwise dualizing complexes of $\DD_{\mathrm{c}}^{+}(X)$ and the category of residual complexes (and morphisms of complexes). Its inverse is $Q$.
 \end{enumerate}
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-a) The question is local, so we may assume $X=\Spec A$, where $A$ is a noetherian local ring. By [V.3.4] we have only to check that there is an integer $d$ such that
+a) The question is local, so we may assume $X=\Spec A$, where $A$ is a noetherian local ring. By \bookref{prop:5.3.4}{V,~3.4} we have only to check that there is an integer $d$ such that
 \[
 \operatorname{Ext}^{i}(k,K^{\bullet}) = \begin{cases} 0 & \text{for } i\neq d \\ k & \text{for } i = d \end{cases}
 \]
@@ -62,39 +65,39 @@ where $k$ is the residue field of $A$. Since $k=k(x_0)$, where $x_0$ is the clos
 \]
 The result now follows from the definition of a residual complex.
 
-\noindent b) By the pointwise convergence of the spectral sequence [IV.1.G] we see that $H^{i}(R^{\bullet}) = H^{i}(E(R^{\bullet}))$ for all $i$, and hence $E(R^{\bullet})$ is a complex which is bounded below and has coherent cohomology. By [IV.1.F] the question of whether it is a residual complex is local, so we may assume $X$ is the spectrum of a local ring, in which case our result is [V.7.3].
+\noindent b) By the pointwise convergence of the spectral sequence \bookref{motif:4.1.G}{IV,~1.G} we see that $\mathcal{H}^{i}(R^{\bullet}) = \mathcal{H}^{i}(E(R^{\bullet}))$ for all $i$, and hence $E(R^{\bullet})$ is a complex which is bounded below and has coherent cohomology. By \bookref{motif:4.1.F}{IV,~1.F} the question of whether it is a residual complex is local, so we may assume $X$ is the spectrum of a local ring, in which case our result is \bookref{prop:5.7.3}{V,~7.3}.
 
-\noindent c) This follows from [V, \S8, Remark 5] and [IV.3.4].
+\noindent c) This follows from \bookref{sec:5.8}{V,~\S8, Remark~5} and \bookref{prop:4.3.4}{IV,~3.4}.
 \end{proof}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remarks.}
 \begin{enumerate}
 \item In particular, if $X$ admits a dualizing complex (and hence has finite Krull dimension), the functor
 \[
 E\colon \operatorname{Dual}(X)\longrightarrow \operatorname{Res}(X)
 \]
 is an equivalence of categories, with inverse $Q$.
-\item I expect that the statement c) is false without the boundedness assumption. That is, there may be two non-isomorphic pointwise dualizing complexes $R^\bullet$ and $R^{\prime\bullet}$ such that $E(R^\bullet)=E(R^{\prime\bullet})$. In particular, there may not be a uniqueness theorem similar to [V.3.1] for pointwise dualizing complexes.
-\item It follows from the proposition that $X$ admits a residual complex if and only if it admits a pointwise dualizing complex, so the remarks of [V \S10] apply.
+\item I expect that the statement c) is false without the boundedness assumption. That is, there may be two non-isomorphic pointwise dualizing complexes $R^\bullet$ and $R^{\prime\bullet}$ such that $E(R^\bullet)=E(R^{\prime\bullet})$. In particular, there may not be a uniqueness theorem similar to \bookref{thm:5.3.1}{V,~3.1} for pointwise dualizing complexes.
+\item It follows from the proposition that $X$ admits a residual complex if and only if it admits a pointwise dualizing complex, so the remarks of \bookref{sec:5.10}{V,~\S10} apply.
 \end{enumerate}
-\end{remark}
+\par\medskip
 
-\begin{remark}
-Show that there is a uniqueness theorem analogous to [V.3.1] for residual complexes, i.e., two residual complexes can differ only by shifting degrees and tensoring with an invertible sheaf. The touchy point is to show that if $K^{\bullet}, K^{\prime\bullet}$ are residual complexes, then $\operatorname{Hom}^{\bullet}(K^{\bullet}, K^{\prime\bullet})$ is a complex with coherent cohomology!
-\end{remark}
+\begin{exercise*}
+Show that there is a uniqueness theorem analogous to \bookref{thm:5.3.1}{V,~3.1} for residual complexes, i.e., two residual complexes can differ only by shifting degrees and tensoring with an invertible sheaf. The touchy point is to show that if $K^{\bullet}, K^{\prime\bullet}$ are residual complexes, then $\sheafHom^{\bullet}(K^{\bullet}, K^{\prime\bullet})$ is a complex with coherent cohomology!
+\end{exercise*}
 
 We now give two technical results which will be used in the following sections.
 
-\begin{lemma}\label{lem:6.1.2}
+\begin{booklemma}{1.2}\label{lem:6.1.2}
 Let $K^\bullet$ and $K^{\prime\bullet}$ be residual complexes on $X$. Then to give an isomorphism $\psi\colon K^\bullet\to K^{\prime\bullet}$ is equivalent to giving, for each $x\in X$, an isomorphism
 \[
 \psi_x\colon Q(K_x^\bullet)\longrightarrow Q(K_x^{\prime\bullet})
 \]
 in $\DD_{\mathrm{c}}^+(\Spec\sO_{X,x})$, such that whenever $x\rightsquigarrow y$ is a specialization, then $\psi_x$ is obtained from $\psi_y$ by localization.
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
-Clearly $\psi$ gives rise to a system $(\psi_x)_{x\in X}$ as described. Conversely, given the isomorphisms $\psi_x$, we first note that by c) of the Proposition above, $\psi_x$ comes from a unique isomorphism
+Clearly $\psi$ gives rise to a system $(\psi_x)_{x\in X}$ as described. Conversely, given the isomorphisms $\psi_x$, we first note that by Proposition~\ref{prop:6.1.1}(c), $\psi_x$ comes from a unique isomorphism
 \[
 \overline{\psi}_x\colon K_x^\bullet\longrightarrow K_x^{\prime\bullet}
 \]
@@ -105,7 +108,7 @@ of the actual residual complexes, and these $\overline{\psi}_x$ are compatible w
 for each $x\in X$, where $I(x)$ (resp.\ $I'(x)$) is the (unique) subsheaf of $K^\bullet$ (resp.\ $K^{\prime\bullet}$) isomorphic to $J(x)$, such that for an immediate specialization $x\rightsquigarrow y$, $\varphi_x$ and $\varphi_y$ are compatible with the boundary maps of the complexes $K^\bullet$ and $K^{\prime\bullet}$. But to give such a collection of isomorphisms $(\varphi_x)$ is to give an isomorphism $\psi\colon K^\bullet\to K^{\prime\bullet}$, so we are done.
 \end{proof}
 
-\begin{lemma}[Glueing Lemma]\label{lem:6.1.3}
+\begin{booklemma}[Glueing Lemma]{1.3}\label{lem:6.1.3}
 Let $(U_\nu)$ be an open cover of $X$, and let $K_\nu^\bullet$ be a residual complex on $U_\nu$, for each $\nu$. Suppose furthermore that for each pair of indices $\mu,\nu$ we are given an isomorphism
 \[
 \alpha_{\mu\nu}\colon K_{\nu}^{\bullet}\longrightarrow K_{\mu}^{\bullet}
@@ -114,71 +117,84 @@ of the restrictions of these complexes to $U_{\mu\nu}=U_{\mu}\cap U_{\nu}$, such
 \[
 \alpha_{\mu\nu}\alpha_{\nu\lambda}\alpha_{\lambda\mu}=1
 \]
-on $U_{\mu\nu\lambda}$. Suppose finally that the lower bound of the complexes $K_{\nu}$ can be chosen uniformly for all $\nu$. Then there exists a unique residual complex $K^{\bullet}$ on $X$, together with isomorphisms
+on $U_{\mu\nu\lambda}$, with $\alpha_{\nu\nu}=1$ and $\alpha_{\nu\mu}=\alpha_{\mu\nu}^{-1}$. Suppose finally that the lower bound of the complexes $K_{\nu}$ can be chosen uniformly for all $\nu$. Then there exists a residual complex, unique up to unique compatible isomorphism, $K^{\bullet}$ on $X$, together with isomorphisms
 \[
 \beta_{\nu}\colon K^{\bullet}|_{U_{\nu}}\longrightarrow K_{\nu}^{\bullet}
 \]
 for each $\nu$, which are compatible with $\alpha$ on $U_{\mu\nu}$.
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
-This is the usual situation for glueing, so it is clear that we can glue the complexes $K_{\nu}^{\bullet}$ into a global complex $K^{\bullet}$ on $X$, which is bounded below. It is also clear that $K^{\bullet}$ is a complex of quasi-coherent injective $\sO_X$-modules [II.7.16], and has coherent cohomology. Finally since the $J(x)$ are constant sheaves on irreducible subsets of $X$, we can glue together local isomorphisms to obtain a global isomorphism
+This is the usual situation for glueing, so it is clear that we can glue the complexes $K_{\nu}^{\bullet}$ into a global complex $K^{\bullet}$ on $X$, which is bounded below. It is also clear that $K^{\bullet}$ is a complex of quasi-coherent injective $\sO_X$-modules \bookref{lem:2.7.16}{II,~7.16}, and has coherent cohomology. Finally since the $J(x)$ are constant sheaves on irreducible subsets of $X$, we can glue together local isomorphisms to obtain a global isomorphism
 \[
-\sum_{p\in\mathbb{Z}} K^{p} \cong \sum_{x\in X} J(x).
+\bigoplus_{p\in\mathbb{Z}} K^{p} \cong \bigoplus_{x\in X} J(x).
 \]
 Hence $K^\bullet$ is a residual complex.
 \end{proof}
 
-\begin{remark}
-This lemma has the interesting consequence that one can glue dualizing complexes given locally in $\DD_{\mathrm{c}}^{+}(U_{\nu})$ into a global dualizing complex in $\DD_{\mathrm{c}}^{+}(X)$, whereas one cannot glue arbitrary objects of the derived category given locally (cf.\ remarks at end of [III \S8]).
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+This lemma has the interesting consequence that one can glue dualizing complexes given locally in $\DD_{\mathrm{c}}^{+}(U_{\nu})$ into a global dualizing complex in $\DD_{\mathrm{c}}^{+}(X)$, whereas one cannot glue arbitrary objects of the derived category given locally (cf.\ remarks at end of \bookref{sec:3.8}{III,~\S8}).
+\par\medskip
+
+\par\endgroup
 
 \section{Functorial properties}\label{sec:6.2}
+\begingroup
+\setlength{\emergencystretch}{2em}
 
-In this section we define a notion of $f^{!}$ for residual complexes in case $f$ is a finite or smooth morphism. To avoid confusion, we introduce new, temporary notation $f^{Y}$ and $f^{Z}$ for these functors. The letters $Y,Z$ are arbitrary symbols; they have nothing to do with schemes $Y,Z$, or with points thereof. We give four isomorphisms I--IV between these functors, and seven compatibilities (i)--(vii) which will be referred to in the next two sections.
+In this section we define a notion of $f^{!}$ for residual complexes in case $f$ is a finite or smooth morphism. To avoid confusion, we introduce new, temporary notation $f^{y}$ and $f^{z}$ for these functors. The letters $y,z$ are arbitrary symbols; they have nothing to do with schemes $Y,Z$, or with points thereof. We give four isomorphisms I--IV between these functors, and seven compatibilities (i)--(vii) which will be referred to in the next two sections.
 
 If $f\colon X\to Y$ is a \emph{finite} morphism of locally noetherian preschemes, we define a functor
 \[
-f^{Y}\colon \operatorname{Res}(Y)\longrightarrow \operatorname{Res}(X)
+f^{y}\colon \operatorname{Res}(Y)\longrightarrow \operatorname{Res}(X)
 \]
 on the category of residual complexes by
 \[
-f^{Y}(K^{\bullet}) = Ef^{\flat} Q(K^{\bullet}).
+f^{y}(K^{\bullet}) = Ef^{\flat} Q(K^{\bullet}).
 \]
-Note by Proposition~1.1a that $Q(K^\bullet)$ is a pointwise dualizing complex; by [V.2.4] $f^{\flat}Q(K^\bullet)$ is pointwise dualizing on $X$, and by Proposition~1.1b, $Ef^{\flat}Q(K^\bullet)$ is a residual complex on $X$.
+Note by Proposition~\ref{prop:6.1.1}(a) that $Q(K^\bullet)$ is a pointwise dualizing complex; by \bookref{prop:5.2.4}{V,~2.4} $f^{\flat}Q(K^\bullet)$ is pointwise dualizing on $X$, and by Proposition~\ref{prop:6.1.1}(b), $Ef^{\flat}Q(K^\bullet)$ is a residual complex on $X$.
 
 If $f\colon X\to Y$ and $g\colon Y\to Z$ are two finite morphisms of locally noetherian preschemes, we define an isomorphism
 \[
-(gf)^{Y} \xrightarrow{\sim} f^{Y}g^{Y} \tag{I}
+(gf)^{y} \xrightarrow{\sim} f^{y}g^{y} \tag{I}\label{eq:6.2.I}
 \]
-of functors from $\operatorname{Res}(Z)$ to $\operatorname{Res}(X)$ as follows. By Lemma~1.2 it will be enough to define this isomorphism in the scheme $\Spec(\sO_{X,x})$ for each $x\in X$, in a manner compatible with localization. A fortiori, it is enough to define the isomorphism after making a base extension $\Spec(\sO_{Z,z})\to Z$, for each point $z\in Z$, and thus we reduce to the case where $Z$ (and hence also $X$ and $Y$) are noetherian of finite Krull dimension. In that case pointwise dualizing complexes are dualizing, and we have a functorial isomorphism $\varphi\colon 1\to QE$ on the category of dualizing complexes on $Y$ (Proposition~1.1c). Now for a residual complex $K^\bullet$ on $Z$ we define our isomorphism as follows:
+of functors from $\operatorname{Res}(Z)$ to $\operatorname{Res}(X)$ as follows. By Lemma~\ref{lem:6.1.2} it will be enough to define this isomorphism in the scheme $\Spec(\sO_{X,x})$ for each $x\in X$, in a manner compatible with localization. A fortiori, it is enough to define the isomorphism after making a base extension $\Spec(\sO_{Z,z})\to Z$, for each point $z\in Z$, and thus we reduce to the case where $Z$ (and hence also $X$ and $Y$) are noetherian of finite Krull dimension. In that case pointwise dualizing complexes are dualizing, and we have a functorial isomorphism $\varphi\colon 1\to QE$ on the category of dualizing complexes on $Y$ (Proposition~\ref{prop:6.1.1}(c)). Now for a residual complex $K^\bullet$ on $Z$ we define our isomorphism as follows:
+Using the composition isomorphism \bookref{prop:3.6.2}{III,~6.2}, we set
 \[
-(gf)^{Y}K^{\bullet} \underset{\text{\scriptsize def.}}{=} E(gf)^{\flat}QK^{\bullet} \underset{\text{\scriptsize [III 6.2]}}\cong Ef^{\flat}g^{\flat}QK^{\bullet} \underset{\varphi}\cong Ef^{\flat}QE g^{\flat}QK \underset{\text{\scriptsize def.}}{=} f^{Y}g^{Y}(K^{\bullet}).
+\begin{aligned}
+(gf)^yK^\bullet
+ &= E(gf)^\flat QK^\bullet
+  \cong Ef^\flat g^\flat QK^\bullet \\
+ &\xrightarrow[\varphi]{\sim} Ef^\flat QE g^\flat QK^\bullet
+  = f^y g^y(K^\bullet).
+\end{aligned}
 \]
 
 We will use this same technique of reduction to the case of finite Krull dimension without explicit mention below. It enables us to carry over isomorphisms defined for dualizing complexes to residual complexes.
 
-For a composition of three finite morphisms, there is the usual commutative diagram (referred to as (i)) of the isomorphisms (I).
+\phantomsection\label{compat:6.2.i}
+For a composition of three finite morphisms, there is the usual commutative diagram (referred to as (i)) of the isomorphisms \eqref{eq:6.2.I}.
 
 For a \emph{smooth} morphism $f\colon X\to Y$ of locally noetherian preschemes we define a functor
 \[
-f^{Z}\colon \operatorname{Res}(Y)\longrightarrow \operatorname{Res}(X)
+f^{z}\colon \operatorname{Res}(Y)\longrightarrow \operatorname{Res}(X)
 \]
 by
 \[
-f^{Z}(K^\bullet) = Ef^{\sharp}Q(K^\bullet).
+f^{z}(K^\bullet) = Ef^{\sharp}Q(K^\bullet).
 \]
-This takes residual complexes into residual complexes by virtue of Proposition~1.1a,b, and [V.8.3].
+This takes residual complexes into residual complexes by virtue of Proposition~\ref{prop:6.1.1}(a),(b), and \bookref{thm:5.8.3}{V,~8.3}.
 
 For a composition of two smooth morphisms $f,g$, we define an isomorphism
 \[
-(gf)^{Z} \xrightarrow{\sim} f^{Z}g^{Z} \tag{II}
+(gf)^{z} \xrightarrow{\sim} f^{z}g^{z} \tag{II}\label{eq:6.2.II}
 \]
-using the above reduction to the case of finite Krull dimension, and carrying over the isomorphism [III 2.2].
+using the above reduction to the case of finite Krull dimension, and carrying over the isomorphism \bookref{prop:3.2.2}{III,~2.2}.
 
-For a composition of three smooth morphisms, there is a compatibility (referred to as (ii)) of the isomorphisms (II), which follows from the compatibility of [III 2.2].
+\phantomsection\label{compat:6.2.ii}
+For a composition of three smooth morphisms, there is a compatibility (referred to as (ii)) of the isomorphisms \eqref{eq:6.2.II}, which follows from the compatibility of \bookref{prop:3.2.2}{III,~2.2}.
 
-There are two other isomorphisms, expressing compatibilities between the functors $f^{Y}$ and $g^{Z}$: the Cartesian square, and the residue isomorphism. For the first, we suppose given a Cartesian diagram as shown:
+There are two other isomorphisms, expressing compatibilities between the functors $f^{y}$ and $g^{z}$: the Cartesian square, and the residue isomorphism. For the first, we suppose given a Cartesian diagram as shown:
 \[
 \begin{tikzcd}
 	W \arrow[r, "k"] \arrow[d, "h"'] & Y \arrow[d, "g"] \\
@@ -187,9 +203,9 @@ There are two other isomorphisms, expressing compatibilities between the functor
 \]
 (i.e., $W = X\times_Z Y$) with $f$ (and hence $k$) a finite morphism, and $g$ (and hence $h$) a smooth morphism. In that case there is an isomorphism
 \[
-h^{Z}f^{Y} \xrightarrow{\sim} k^{Y}g^{Z} \tag{III}
+h^{z}f^{y} \xrightarrow{\sim} k^{y}g^{z} \tag{III}\label{eq:6.2.III}
 \]
-obtained as above from the isomorphism of [III 6.4].
+obtained as above from the isomorphism of \bookref{cor:3.6.4}{III,~6.4}.
 
 If we have another Cartesian diagram as shown:
 \[
@@ -201,19 +217,20 @@ If we have another Cartesian diagram as shown:
 with $r$ also a finite morphism, then there is a commutative diagram of isomorphisms
 \[
 \begin{tikzcd}[row sep=2.5em, column sep=4em]
-	q^Z(fr)^Y
+	q^z(fr)^y
 	\arrow[r, "\text{III}"]
 	\arrow[d, "\text{I}"']
-	& (kp)^Y g^Z
+	& (kp)^y g^z
 	\arrow[dr, "\text{I}"] \\
-	q^Z r^Y f^Y
+	q^z r^y f^y
 	\arrow[r, "\text{III}"]
-	& p^Y h^Z f^Y
+	& p^y h^z f^y
 	\arrow[r, "\text{III}"]
-	& p^Y k^Y g^Z
+	& p^y k^y g^z
 \end{tikzcd}
-\tag{(iii)}
+\tag{iii}\label{eq:6.2.iii}
 \]
+\phantomsection\label{compat:6.2.iv}
 Also if we have another Cartesian diagram doubling the smooth side of the square, 
 \[
 \begin{tikzcd}
@@ -222,7 +239,7 @@ Also if we have another Cartesian diagram doubling the smooth side of the square
 	X \arrow[r, "f"'] & Z
 \end{tikzcd}
 \]
-i.e., with $r$ smooth, then there is a similar commutative diagram (iv) involving the isomorphisms (II) and (III). These two compatibilities follow from [III 6.4].
+i.e., with $r$ smooth, then there is a similar commutative diagram (iv) involving the isomorphisms \eqref{eq:6.2.II} and (III). These two compatibilities follow from \bookref{cor:3.6.4}{III,~6.4}.
 
 For the \emph{residue isomorphism}, we suppose that we have a finite morphism $f$ which is factored into $pi$, with $i$ a closed immersion, and $p$ smooth. 
 \[
@@ -234,9 +251,9 @@ For the \emph{residue isomorphism}, we suppose that we have a finite morphism $f
 \]
 Then there is an isomorphism
 \[
-f^{Y} \xrightarrow{\sim} i^{Y}p^{Z} \tag{IV}
+f^{y} \xrightarrow{\sim} i^{y}p^{z} \tag{IV}\label{eq:6.2.IV}
 \]
-obtained as above from that of [III 8.2].
+obtained as above from that of \bookref{prop:3.8.2}{III,~8.2}.
 
 If we have a diagram with $f,g$ finite, $i,k$ closed immersions, and $q,p$ smooth, 
 \[
@@ -249,14 +266,14 @@ Z
 then there is a commutative diagram
 \[
 \begin{tikzcd}
-(gf)^{Y} \ar[r,"\mathrm{IV}"] \ar[d,"\mathrm{I}"'] & i^{Y}(pq)^{Z} \ar[r,"\mathrm{II}"] & i^{Y}q^{Z}p^{Z} \\
-f^{Y}q^{Y} \ar[r,"\mathrm{IV}"] & f^{Y}k^{Y}p^{Z} \ar[r,"\mathrm{I}"] & (kf)^{Y}p^{Z} \ar[u,"\mathrm{IV}"']
+(gf)^{y} \ar[r,"\mathrm{IV}"] \ar[d,"\mathrm{I}"'] & i^{y}(pq)^{z} \ar[r,"\mathrm{II}"] & i^{y}q^{z}p^{z} \\
+f^{y}g^{y} \ar[r,"\mathrm{IV}"] & f^{y}k^{y}p^{z} \ar[r,"\mathrm{I}"] & (kf)^{y}p^{z} \ar[u,"\mathrm{IV}"']
 \end{tikzcd}
-\tag{v}
+\tag{v}\label{eq:6.2.v}
 \]
-This follows from [III 8.6b] applied to the triples $(i,q,p)$ and $(f,k,p)$.
+This follows from \bookref{prop:3.8.6}{III,~8.6(b)} applied to the triples $(i,q,p)$ and $(f,k,p)$.
 
-There are also two commutative diagrams expressing compatibility between the square isomorphism (III) and the residue isomorphism (IV).
+There are also two commutative diagrams expressing compatibility between the square isomorphism \eqref{eq:6.2.III} and the residue isomorphism \eqref{eq:6.2.IV}.
 
 For the first, suppose one has a diagram with $Q = Y\times_{Z} P$, $i$ finite, $j,k,\ell$ closed immersions, and $f,g$ smooth. 
 \[
@@ -271,19 +288,20 @@ X\arrow[ru, "k"]\arrow[rd, "i"]\\
 Then there is a commutative diagram (vi)
 \[
 \begin{tikzcd}[row sep=2.5em, column sep=4em]
-	(ji)^Y
+	(ji)^y
 	\arrow[r, "\text{IV}"]
 	\arrow[d]
-	& (\ell k)^Y f^z
+	& (\ell k)^y f^z
 	\arrow[dr, "\text{I}"] \\
-	i^Y j^Y
+	i^y j^y
 	\arrow[r, "\text{IV}"]
-	& k^Y g^z j^Y
+	& k^y g^z j^y
 	\arrow[r, "\text{III}"]
-	& k^Y \ell^Y f^z
+	& k^y \ell^y f^z
 \end{tikzcd}
+\tag{vi}\label{eq:6.2.vi}
 \]
-which follows from [III 8.6c].
+which follows from \bookref{prop:3.8.6}{III,~8.6(c)}.
 
 For the second, suppose there is a Cartesian diagram (with $W = X\times_{Y} Z$; $Q = P\times_{Y} Z$) with $f,g$ finite, $i,j$ closed immersions, and $p,q,u,v,w$ smooth.
 \[
@@ -297,22 +315,26 @@ For the second, suppose there is a Cartesian diagram (with $W = X\times_{Y} Z$; 
 Then there is a commutative diagram
 \[
 \begin{tikzcd}
-u^{Z}f^{Y} \ar[r,"\mathrm{IV}"] \ar[d,"\mathrm{III}"'] & u^{Z}i^{Y}p^{Z} \ar[r,"\mathrm{III}"] & j^{Y}v^{Z}p^{Z}  \ar[dr,"\mathrm{II}"']\\
-g^{Y}w^{Z} \ar[r,"\mathrm{IV}"] & j^{Y}q^{Z}w^{Z} \ar[r,"\mathrm{II}"] & j^{Y}(wq)^{Z} \ar[r,"="]& j^{Y}(pv)^{Z}
+u^{z}f^{y} \ar[r,"\mathrm{IV}"] \ar[d,"\mathrm{III}"'] & u^{z}i^{y}p^{z} \ar[r,"\mathrm{III}"] & j^{y}v^{z}p^{z}  \ar[dr,"\mathrm{II}"']\\
+g^{y}w^{z} \ar[r,"\mathrm{IV}"] & j^{y}q^{z}w^{z} \ar[r,"\mathrm{II}"] & j^{y}(wq)^{z} \ar[r,"="]& j^{y}(pv)^{z}
 \end{tikzcd}
-\tag{vii}
+\tag{vii}\label{eq:6.2.vii}
 \]
-This follows from [III 8.6a] modified as in [III 6.4].
+This follows from \bookref{prop:3.8.6}{III,~8.6(a)} modified as in \bookref{cor:3.6.4}{III,~6.4}.
+
+\par\endgroup
 
 \section{$f^{!}$ for residual complexes}\label{sec:6.3}
+\begingroup
+\setlength{\emergencystretch}{2em}
 
-In this section we construct the functor $f^{!}$ for residual complexes, which we call $f^{\Delta}$ to avoid confusion. We refer back to the previous section for the notations $f^{Y}$, $f^{Z}$, the isomorphisms (I)--(IV), and the compatibilities (i)--(vii).
+In this section we construct the functor $f^{!}$ for residual complexes, which we call $f^{\Delta}$ to avoid confusion. We refer back to the previous section for the notations $f^{y}$, $f^{z}$, the isomorphisms \eqref{eq:6.2.I}--\eqref{eq:6.2.IV}, and the compatibilities \hyperref[compat:6.2.i]{(i)}--\eqref{eq:6.2.vii}.
 
 We will work in the category of \emph{locally noetherian preschemes}, and we will consider only morphisms which are of \emph{finite type}, and such that the \emph{dimensions of the fibres are bounded}. It will be understood in the following that these conditions hold for all schemes and morphisms considered.
 
 We are now in a position to state our theorem.
 
-\begin{theorem}\label{thm:6.3.1}
+\begin{booktheorem}{3.1}\label{thm:6.3.1}
 There exists a theory of variance consisting of the data a)--d) below subject to the conditions VAR 1 -- VAR 5. Furthermore, this theory is unique in the sense that given a second collection of such data a')--d') there is a unique isomorphism of the functors a) and a') compatible with the isomorphisms b)--d) and b')--d').
 
 \begin{enumerate}
@@ -327,51 +349,51 @@ c_{f,g}\colon (gf)^{\Delta} \xrightarrow{\sim} f^{\Delta}g^{\Delta}.
 \]
 \item[c)] For every finite morphism $f$, an isomorphism
 \[
-\psi_f\colon f^{\Delta} \xrightarrow{\sim} f^{Y}.
+\psi_f\colon f^{\Delta} \xrightarrow{\sim} f^{y}.
 \]
 \item[d)] For every smooth morphism $g$, an isomorphism
 \[
-\phi_g\colon g^{\Delta} \xrightarrow{\sim} g^{Z}.
+\phi_g\colon g^{\Delta} \xrightarrow{\sim} g^{z}.
 \]
 \end{enumerate}
 
-\medskip\noindent\textbf{VAR 1).} For any $f$, $c_{\id,f}=c_{f,\id}=\id$, and if $f,g,h$ are three consecutive morphisms, then there is a commutative diagram
+\medskip\phantomsection\label{var:6.3.1}\noindent\textbf{VAR 1).} For any $f$, $c_{\id,f}=c_{f,\id}=\id$, and if $f,g,h$ are three consecutive morphisms, then there is a commutative diagram
 \[
 \begin{tikzcd}
-(hgf)^{\Delta} \ar[r,"c_{h,gf}"] \ar[d,"c_{hg,f}"'] & h^{\Delta}(gf)^{\Delta} \ar[d,"c_{g,f}"] \\
-(hg)^{\Delta}f^{\Delta} \ar[r,"c_{h,g}"] & h^{\Delta}g^{\Delta}f^{\Delta}
+(hgf)^{\Delta} \ar[r,"c_{f,hg}"] \ar[d,"c_{gf,h}"'] & f^{\Delta}(hg)^{\Delta} \ar[d,"c_{g,h}"] \\
+(gf)^{\Delta}h^{\Delta} \ar[r,"c_{f,g}"] & f^{\Delta}g^{\Delta}h^{\Delta}
 \end{tikzcd}
 \]
-(In other words, the $f^{\Delta}$ and $c_{f,g}$ define a ``cat\'egorie cliv\'ee normalis\'ee'' in the terminology of [SGA 1960-61, VI]).
+(In other words, the $f^{\Delta}$ and $c_{f,g}$ define a ``cat\'egorie cliv\'ee normalis\'ee'' in the terminology of \cite[\nopp 1960--61, expos\'e~VI]{SGA}).
 
-\medskip\noindent\textbf{VAR 2).} If $f,g$ are consecutive finite morphisms, then $c_{f,g}$ is compatible, via $\psi_f$ and $\psi_g$, with the usual isomorphism (I) above.
+\medskip\phantomsection\label{var:6.3.2}\noindent\textbf{VAR 2).} If $f,g$ are consecutive finite morphisms, then $c_{f,g}$ is compatible, via $\psi_f$ and $\psi_g$, with the usual isomorphism \eqref{eq:6.2.I} above.
 
-\medskip\noindent\textbf{VAR 3).} If $f,g$ are consecutive smooth morphisms, then $c_{f,g}$ is compatible, via $\phi_f$ and $\phi_g$, with the usual isomorphism (II) above.
+\medskip\phantomsection\label{var:6.3.3}\noindent\textbf{VAR 3).} If $f,g$ are consecutive smooth morphisms, then $c_{f,g}$ is compatible, via $\phi_f$ and $\phi_g$, with the usual isomorphism \eqref{eq:6.2.II} above.
 
-\medskip\noindent\textbf{VAR 4).} Given a Cartesian diagram
+\medskip\phantomsection\label{var:6.3.4}\noindent\textbf{VAR 4).} Given a Cartesian diagram
 \[
 \begin{tikzcd}
 	W \arrow[r, "k"] \arrow[d, "h"'] & Y \arrow[d, "g"] \\
 	X \arrow[r, "f"'] & Z
 \end{tikzcd}
 \]
-with f,k finite and g,h smooth, the isomorphisms b) are compatible via c), d) with the isomorphism (III) of a square above, i.e., there is a commutative diagram
+with $f,k$ finite and $g,h$ smooth, the isomorphisms b) are compatible via c), d) with the isomorphism \eqref{eq:6.2.III} of a square above, i.e., there is a commutative diagram
 \[
 \begin{tikzcd}[row sep=3em, column sep=4em]
 	(fh)^\Delta = (gk)^\Delta
 	\arrow[rr, "c_{k,g}"]
 	\arrow[d, "c_{h,f}"']
 	&& k^\Delta g^\Delta
-	\arrow[d, "{\psi_k, \varphi_g}"] \\
+	\arrow[d, "{\psi_k, \phi_g}"] \\
 	h^\Delta f^\Delta
-	\arrow[r, "{\varphi_h, \psi_f}"]
+	\arrow[r, "{\phi_h, \psi_f}"]
 	& h^z f^y
 	\arrow[r, "\text{III}"]
 	& k^y g^z
 \end{tikzcd}
 \]
 
-\medskip\noindent\textbf{VAR 5).} Given a diagram
+\medskip\phantomsection\label{var:6.3.5}\noindent\textbf{VAR 5).} Given a diagram
 \[
 \begin{tikzcd}
 X \ar[rr,"f"] \ar[dr,"i"'] & & Y \\
@@ -381,16 +403,16 @@ X \ar[rr,"f"] \ar[dr,"i"'] & & Y \\
 with $i$ a closed immersion, $f$ finite, and $p$ smooth, we have a commutative diagram
 \[
 \begin{tikzcd}
-f^{\Delta} \ar[r,"="] \ar[d,"\psi_f"'] & i^{\Delta}p^{\Delta} \ar[r,"c_{i,p}"] & i^{Y}p^{Z}\ar[d,"{\psi_i,\phi_p}"'] \\
-f^{Y} \ar[rr,"\mathrm{IV}"] & & i^{Y}p^{Z} 
+f^{\Delta}=(pi)^{\Delta} \ar[r,"c_{i,p}"] \ar[d,"\psi_f"'] & i^{\Delta}p^{\Delta}\ar[d,"{\psi_i,\phi_p}"] \\
+f^{y} \ar[r,"\mathrm{IV}"] & i^{y}p^{z}
 \end{tikzcd}
 \]
 i.e., $c_{i,p}$ is compatible with the residue isomorphism.
-\end{theorem}
+\end{booktheorem}
 
 The proof of this theorem requires drawing a great many diagrams and checking their commutativity. We will therefore carry out in detail only a few of these verifications, by way of example, and will leave the others to the reader, marking them with the symbol (!) which indicates that he has some work to do at that point. The proof per se will follow after some definitions and lemmas.
 
-\begin{definition}
+\begin{definition*}
 Let $f\colon X\to Y$ be a fixed morphism, and let $U\subseteq X$ be an open set. We define a \emph{chart} on $U$ to be the following collection of data:
 \begin{enumerate}
 \item[1)] A functor $f^{a}\colon \operatorname{Res}(Y)\to \operatorname{Res}(U)$.
@@ -403,13 +425,13 @@ U \ar[rr,"f|_{U}"] \ar[dr,"i"'] & & Y \\
 \]
 \item[3)] An isomorphism
 \[
-\gamma_{i,p}\colon f^{a} \xrightarrow{\sim} i^{Y}p^{Z}.
+\gamma_{i,p}\colon f^{a} \xrightarrow{\sim} i^{y}p^{z}.
 \]
 \end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{definition}
-If $f^{b}$, $f|_{U} = jq$, $q\colon Q\to Y$, and $\gamma'_{j,q}$ is a second chart on the same open set $U$, a \emph{permissible isomorphism} between the two is an isomorphism
+\begin{definition*}
+If $f^{b}$, $f|_{U} = qj$, $q\colon Q\to Y$, and $\gamma'_{j,q}$ is a second chart on the same open set $U$, a \emph{permissible isomorphism} between the two is an isomorphism
 \[
 \alpha\colon f^{a} \longrightarrow f^{b}
 \]
@@ -417,36 +439,40 @@ of functors, such that for every commutative diagram
 \[
 \begin{tikzcd}
 	& R \arrow[ld, "r"'] \arrow[rd, "s"] & \\
-	P & U \arrow[l, "i"'] \arrow[r, "j"] \arrow[u, "k"] \arrow[d, "f"'] & Q \\
-	& Y \arrow[lu, "p"] \arrow[ru, "q"'] &
+	P \arrow[rd, "p"'] & U \arrow[l, "i"'] \arrow[r, "j"] \arrow[u, "k"] \arrow[d, "f"'] & Q \arrow[ld, "q"] \\
+	& Y &
 \end{tikzcd}
 \]
 with $k$ a closed immersion and $r,s$ smooth, there is a commutative diagram of isomorphisms
 \[
 \begin{tikzcd}
-f^{a} \ar[r,"\gamma_{i,p}"] \ar[d,"\alpha"'] & i^{Y}p^{Z} \ar[r,"\mathrm{IV}"] & k^{Y}r^{Z}p^{Z}\ar[dr,"II"] \\
-f^{b} \ar[r,"\gamma_{j,q}"] & j^{Y}q^{Z} \ar[r,"\mathrm{IV}"] & k^{Y}s^{Z}q^{Z} \ar[r,"\mathrm{II}"] & k^{Y}(qs)^{Z} = k^{Y}(pr)^{Z}
+f^{a} \ar[r,"\gamma_{i,p}"] \ar[d,"\alpha"'] & i^{y}p^{z} \ar[r,"\mathrm{IV}"] & k^{y}r^{z}p^{z}\ar[dr,"II"] \\
+f^{b} \ar[r,"\gamma'_{j,q}"] & j^{y}q^{z} \ar[r,"\mathrm{IV}"] & k^{y}s^{z}q^{z} \ar[r,"\mathrm{II}"] & k^{y}(qs)^{z} = k^{y}(pr)^{z}
 \end{tikzcd}
 \]
-\end{definition}
+\end{definition*}
 
-\begin{lemma}\label{lem:6.3.2}
+\par\endgroup
+
+\begingroup
+\setlength{\emergencystretch}{2em}
+\begin{booklemma}{3.2}\label{lem:6.3.2}
 Given two charts on an open set $U$, there exists a unique permissible isomorphism between them.
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
 The uniqueness is clear, because one can take $R = P\times_{Y} Q$ and $k$ the diagonal map $i\times j$. Then the isomorphism $\alpha$ is determined by the condition of the definition.
 
-For the existence, let $f^{a},f^{b}$, etc., be two charts as above, and let $(R,k,r,s)$ and $(S,\ell,\cdots)$ be two diagrams as above. We must show that the isomorphisms $\alpha_R$ and $\alpha_S$ defined by the condition above are the same. By considering the third diagram $(R\times S, k\times\ell,\cdots)$ and comparing each to this one, we reduce to the case where $S$ dominates $R$. In other words, we have a commutative diagram with $k,\ell$ closed immersions and $r,s,t$ smooth morphisms. 
+For the existence, let $f^{a},f^{b}$, etc., be two charts as above, and let $(R,k,r,s)$ and $(S,\ell,\cdots)$ be two diagrams as above. We must show that the isomorphisms $\alpha_R$ and $\alpha_S$ defined by the condition above are the same. By considering the third diagram $(R\times_Y S, k\times\ell,\cdots)$ and comparing each to this one, we reduce to the case where $S$ dominates $R$. In other words, we have a commutative diagram with $k,\ell$ closed immersions and $r,s,t$ smooth morphisms.
 \[
 \begin{tikzcd}
 	& S \arrow[rrd, "t"] &&& \\
 	&&& R \arrow[rd, "s"] \arrow[ldd, "r"',pos=0.7] & \\
-	U \arrow[ruu, "\ell"] 
-	\arrow[rrru, "k"] 
-	\arrow[rrrr, "j"] 
-	\arrow[rrd, "i"'] 
-	\arrow[ddrr, "f"'] 
+	U \arrow[ruu, "\ell"]
+	\arrow[rrru, "k"]
+	\arrow[rrrr, "j"]
+	\arrow[rrd, "i"']
+	\arrow[ddrr, "f"']
 	&&&& Q \arrow[ddll, "q"] \\
 	&& P \arrow[d, "p"] && \\
 	&& Y &&
@@ -454,72 +480,73 @@ For the existence, let $f^{a},f^{b}$, etc., be two charts as above, and let $(R,
 \]
 We must show that the following diagram is commutative:
 \[
-\begin{tikzcd}[row sep=1.2cm, column sep=0.7cm]
-	f^a \arrow[r, "\gamma_{i,p}"] \arrow[d, "\mathrm{id}"] & 
-	i^y p^z \arrow[r, "\mathrm{IV}"] & 
-	k^y r^z p^z \arrow[r, "\mathrm{II}"] & 
-	k^y(pr)^z = k^y(qs)^z & 
-	k^y s^z q^z \arrow[l, "\mathrm{II}"'] & 
-	j^y q^z \arrow[l, "\mathrm{IV}"'] & 
+\begin{tikzcd}[row sep=1.2cm, column sep=0.45cm]
+	f^a \arrow[r, "\gamma_{i,p}"] \arrow[d, "\mathrm{id}"] &
+	i^y p^z \arrow[r, "\mathrm{IV}"] &
+	k^y r^z p^z \arrow[r, "\mathrm{II}"] &
+	k^y(pr)^z = k^y(qs)^z &
+	k^y s^z q^z \arrow[l, "\mathrm{II}"'] &
+	j^y q^z \arrow[l, "\mathrm{IV}"'] &
 	f^b \arrow[l, "\gamma'_{j,q}"'] \arrow[d, "\mathrm{id}"] \\
-	f^a \arrow[r, "\gamma_{i,p}"] & 
-	i^y p^z \arrow[r, "\mathrm{IV}"] & 
-	\ell^y(rt)^z p^z \arrow[r, "\mathrm{II}"] & 
-	\ell^y(prt)^z = \ell^y(qst)^z & 
-	\ell^y(st)^z q^z \arrow[l, "\mathrm{II}"'] & 
-	j^y q^z \arrow[l, "\mathrm{IV}"'] & 
+	f^a \arrow[r, "\gamma_{i,p}"] &
+	i^y p^z \arrow[r, "\mathrm{IV}"] &
+	\ell^y(rt)^z p^z \arrow[r, "\mathrm{II}"] &
+	\ell^y(prt)^z = \ell^y(qst)^z &
+	\ell^y(st)^z q^z \arrow[l, "\mathrm{II}"'] &
+	j^y q^z \arrow[l, "\mathrm{IV}"'] &
 	f^b \arrow[l, "\gamma'_{j,q}"']
 \end{tikzcd}
 \]
 We will check this one completely by filling in more arrows to make little commutative diagrams. At the left hand end of the diagram we fill in as follows:
 \[
 \begin{tikzcd}
-f^{a} \ar[r,"\gamma_{i,p}"] \ar[dd,"\id"'] & i^{Y}p^{Z} \ar[r,"\mathrm{IV}"] \ar[dd,"\id"'] & k^{Y}r^{Z}p^{Z} \ar[d,"\mathrm{IV}"] \\
-&&\ell^{Y}t^{Z}r^{Z}p^{Z}\ar[d,"\mathrm{II}"]\\
-f^{a} \ar[r,"\gamma_{i,p}"] & i^{Y}p^{Z} \ar[r,"\mathrm{IV}"] & \ell^{Y}(rt)^{Z}p^{Z}
+f^{a} \ar[r,"\gamma_{i,p}"] \ar[dd,"\id"'] & i^{y}p^{z} \ar[r,"\mathrm{IV}"] \ar[dd,"\id"'] & k^{y}r^{z}p^{z} \ar[d,"\mathrm{IV}"] \\
+&&\ell^{y}t^{z}r^{z}p^{z}\ar[d,"\mathrm{II}"]\\
+f^{a} \ar[r,"\gamma_{i,p}"] & i^{y}p^{z} \ar[r,"\mathrm{IV}"] & \ell^{y}(rt)^{z}p^{z}
 \end{tikzcd}
 \]
-The left-hand square is identically commutative. The right-hand one is commutative by virtue of a special case of compatibility (v) above, where $X=Y$.
+The left-hand square is identically commutative. The right-hand one is commutative by virtue of a special case of compatibility \eqref{eq:6.2.v} above, where $X=Y$.
 
 On the right-hand side of our long diagram we fill in two analogous commutative squares. This leaves in the middle the following diagram
-	
+
 	\[
 	\begin{tikzcd}[row sep=1.4cm, column sep=1.4cm]
 		% Row 1
-		k^y r^z p^z \arrow[r, "\mathrm{II}"] \arrow[d, "\mathrm{IV}"] & 
-		k^y(pr)^z \arrow[r, phantom, "="] \arrow[d, "\mathrm{IV}"] & 
-		k^y(qs)^z \arrow[d, "\mathrm{III}"] & 
+		k^y r^z p^z \arrow[r, "\mathrm{II}"] \arrow[d, "\mathrm{IV}"] &
+		k^y(pr)^z \arrow[r, phantom, "="] \arrow[d, "\mathrm{IV}"] &
+		k^y(qs)^z \arrow[d, "\mathrm{IV}"] &
 		k^y s^z q^z \arrow[l, "\mathrm{II}"'] \arrow[d, "\mathrm{IV}"] \\
 		% Row 2
-		\ell^y t^z r^z p^z \arrow[r, "\mathrm{II}"] & 
-		\ell^y t^z(pr)^z \arrow[r, phantom, "="] & 
-		\ell^y t^z(qs)^z & 
+		\ell^y t^z r^z p^z \arrow[r, "\mathrm{II}"] &
+		\ell^y t^z(pr)^z \arrow[r, phantom, "="] &
+		\ell^y t^z(qs)^z &
 		\ell^y t^z s^z q^z \arrow[l, "\mathrm{II}"'] \\
 		% Row 3
-		\ell^y(rt)^z p^z \arrow[r] \arrow[u, "\mathrm{II}"'] & 
-		\ell^y(prt)^z \arrow[r, phantom, "="] \arrow[u, "\mathrm{II}"'] & 
-		\ell^y(qst)^z \arrow[u, "\mathrm{II}"'] & 
-		\ell^y(ts)^z q^z \arrow[l, "\mathrm{II}"'] \arrow[u, "\mathrm{II}"']
+		\ell^y(rt)^z p^z \arrow[r, "\mathrm{II}"] \arrow[u, "\mathrm{II}"'] &
+		\ell^y(prt)^z \arrow[r, phantom, "="] \arrow[u, "\mathrm{II}"'] &
+		\ell^y(qst)^z \arrow[u, "\mathrm{II}"'] &
+		\ell^y(st)^z q^z \arrow[l, "\mathrm{II}"'] \arrow[u, "\mathrm{II}"']
 	\end{tikzcd}
 	\]
-	
-The middle squares are obviously commutative; the upper left and upper right are commutative because the isomorphism IV operates between $U$ and $R$, and II operates between $R$ and $Y$, so that the order doesn't matter; and the lower left and lower right are commutative by (ii) above.
 
-q.e.d. lemma.
+The middle squares are obviously commutative; the upper left and upper right are commutative because the isomorphism IV operates between $U$ and $R$, and II operates between $R$ and $Y$, so that the order doesn't matter; and the lower left and lower right are commutative by \hyperref[compat:6.2.ii]{(ii)} above.
+
 \end{proof}
 
-\begin{lemma}\label{lem:6.3.3}
+\begin{booklemma}{3.3}\label{lem:6.3.3}
 The composition of permissible isomorphisms is permissible. The inverse of a permissible isomorphism is permissible.
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
-The inverse is obvious. For the composition, let $f^{a}$ and $f^{b}$ be two charts as above, and let $f^{c}$, $\ell$, $r$, $R$ be a third. Using $P\times Q\times R$ to construct the unique permissible isomorphisms of $f^{a}$ with $f^{b}$, $f^{b}$ with $f^{c}$, and $f^{a}$ with $f^{c}$, we see that the composition of the first two is the third.
+The inverse is obvious. For the composition, let $f^{a}$ and $f^{b}$ be two charts as above, and let $f^{c}$, $\ell$, $r$, $R$ be a third. Using $P\times_Y Q\times_Y R$ to construct the unique permissible isomorphisms of $f^{a}$ with $f^{b}$, $f^{b}$ with $f^{c}$, and $f^{a}$ with $f^{c}$, we see that the composition of the first two is the third.
 \end{proof}
+
+\par\endgroup
 
 \begin{proof}[Proof of Theorem 3.1]
 First we prove the existence of the theory of variance.
 
-\medskip\noindent a) \textit{Construction of the functor $f^{\Delta}$}. Let $f\colon X\to Y$ be a morphism. Let $U = (U_{\nu})$ be a cover of $X$ by open sets with charts on them. Note that charts exist locally: If $x\in X$ is a point, let $V$ be a noetherian affine neighborhood of $f(x)$ in $Y$, and let $U$ be an affine neighborhood of $x$ in $f^{-1}(V)$, which is of finite type over $V$. Then $U$ admits a closed immersion $i$ into an affine space $\mathbf{A}_{V}^{n}$ for suitable $n$. Let $P=\mathbf{A}_{V}^{n}$, let $p\colon P\to Y$ be the natural projection, let $f^{a}=i^{Y}p^{Z}$, and $\gamma_{i,p}=\id$. This gives a chart on $U$ which is a neighborhood of the given point $x$.
+\medskip\noindent a) \textit{Construction of the functor $f^{\Delta}$}. Let $f\colon X\to Y$ be a morphism. Let $U = (U_{\nu})$ be a cover of $X$ by open sets with charts on them. Note that charts exist locally: If $x\in X$ is a point, let $V$ be a noetherian affine neighborhood of $f(x)$ in $Y$, and let $U$ be an affine neighborhood of $x$ in $f^{-1}(V)$, which is of finite type over $V$. Then $U$ admits a closed immersion $i$ into an affine space $\mathbf{A}_{V}^{n}$ for suitable $n$. Let $P=\mathbf{A}_{V}^{n}$, let $p\colon P\to Y$ be the natural projection, let $f^{a}=i^{y}p^{z}$, and $\gamma_{i,p}=\id$. This gives a chart on $U$ which is a neighborhood of the given point $x$.
 
 If $f^{a}$, $i$, $P$, $p$, $\gamma_{i,p}$ is a chart on an open set $U$, and if $U'\subseteq U$ is a smaller open set, we define the notion of a \emph{restriction} (not unique) of the chart to $U'$, as follows: let $P'\subseteq P$ be an open set whose intersection with $i(U)$ is $i(U')$. Then we take $f^{a}|_{U'}$, $i|_{U'}$, $P'$, $p|_{P'}$, $\gamma_{i,p}|_{U'}$ as the restriction of the chart. Note that a restriction of permissible isomorphisms is permissible.
 
@@ -584,7 +611,7 @@ Similarly we must consider a change of the chart on $X$ to another, say $i'\colo
 \end{tikzcd}\]
 As before, it will be sufficient to construct the isomorphism $\psi_f$ locally on charts, provided our definition is compatible with permissible isomorphisms of charts. So let $i\colon X\to P$ be a chart for $f$, and define
 \[
-\psi_f\colon f^{a} \xrightarrow{\gamma_{i,p}} i^{Y}p^{Z} \xleftarrow{\mathrm{IV}} f^{Y}.
+\psi_f\colon f^{a} \xrightarrow{\gamma_{i,p}} i^{y}p^{z} \xleftarrow{\mathrm{IV}} f^{y}.
 \]
 If $j\colon X\to Q$ is another chart, one may assume as usual that $j$ dominates $i$, and one checks (!) using compatibility (v) above that $\psi_f$ is compatible.
 
@@ -619,7 +646,7 @@ Let $f\colon X\to Y$ be a morphism of finite type, and choose locally an embeddi
 
 Define $\delta$ by
 \[
-\delta\colon f^{\Delta} \xrightarrow{c^{\Delta}_{i,p}} i^{\Delta} p^{\Delta} \xrightarrow{\psi^{\Delta}_{i}, \phi^{\Delta}_{p}} i^{Y} p^{Z} \xleftarrow{\psi^{X}_{i}, \phi^{X}_{p}} i^{X} p^{X} \xleftarrow{c^{X}_{i,p}} f^{X}.
+\delta\colon f^{\Delta} \xrightarrow{c^{\Delta}_{i,p}} i^{\Delta} p^{\Delta} \xrightarrow{\psi^{\Delta}_{i}, \phi^{\Delta}_{p}} i^{y} p^{z} \xleftarrow{\psi^{X}_{i}, \phi^{X}_{p}} i^{X} p^{X} \xleftarrow{c^{X}_{i,p}} f^{X}.
 \]
 (Note that in order to be compatible with the $c_{i,p}$, $\psi_i$, $\phi_p$, we must choose $\delta$ this way, which proves the uniqueness of $\delta$.)
 
@@ -637,7 +664,7 @@ Thus $\delta$ is well-defined locally. Now cover $X$ by open sets $U$ for which 
 \[
 \delta_{\nu}\colon (f_{j_{\nu}})^{\Delta} \xrightarrow{\sim} (f_{j_{\nu}})^{X}
 \]
-where $j_{\nu}\colon U_{\nu}\to X$ is the open immersion. Since $j_{\nu}^{\Delta}$ is isomorphic via $\phi_{j_{\nu}}^{\Delta}$ with $j_{\nu}^{Z}$ which is the restriction, we can glue the $\delta_{\nu}$ once we have checked (!) that the isomorphisms are compatible with restriction. Thus
+where $j_{\nu}\colon U_{\nu}\to X$ is the open immersion. Since $j_{\nu}^{\Delta}$ is isomorphic via $\phi_{j_{\nu}}^{\Delta}$ with $j_{\nu}^{z}$ which is the restriction, we can glue the $\delta_{\nu}$ once we have checked (!) that the isomorphisms are compatible with restriction. Thus
 \[
 \delta\colon f^{\Delta} \xrightarrow{\sim} f^{X}
 \]
@@ -709,7 +736,7 @@ q.e.d.
 
 Now we are in a position to define the trace map for the finite morphism $f$, which we will call $\rho_f$ to avoid confusion:
 \[
-\rho_{f}\colon f_{*}f^{Y}(K^{\bullet}) \longrightarrow K^{\bullet}.
+\rho_{f}\colon f_{*}f^{y}(K^{\bullet}) \longrightarrow K^{\bullet}.
 \]
 Let $K^\bullet$ be a residual complex on $Y$. Since it is an injective complex, the natural map
 \[
@@ -717,7 +744,7 @@ Let $K^\bullet$ be a residual complex on $Y$. Since it is an injective complex, 
 \]
 of the functor $f'$ into its derived functor $f^{\flat}$ is an isomorphism in $\DD^{+}(X)$ [I.5.1]. Hence also
 \[
-E\xi_{f}\colon f'(K^\bullet) = EQf'(K^\bullet) \longrightarrow Ef^{\flat}Q(K^\bullet) = f^{Y}(K^\bullet)
+E\xi_{f}\colon f'(K^\bullet) = EQf'(K^\bullet) \longrightarrow Ef^{\flat}Q(K^\bullet) = f^{y}(K^\bullet)
 \]
 is an isomorphism of residual complexes (recall $EQ \cong 1$ for any Cousin complex).
 
@@ -731,14 +758,14 @@ f_*f'(K^\bullet) \longrightarrow K^\bullet.
 \]
 Composing with the inverse of the isomorphism $E\xi_f$ above, we obtain the desired map
 \[
-\rho_{f}\colon f_{*}f^{Y}(K^{\bullet}) \longrightarrow K^{\bullet}.
+\rho_{f}\colon f_{*}f^{y}(K^{\bullet}) \longrightarrow K^{\bullet}.
 \]
 
 If $f\colon X\to Y$, and $g\colon Y\to Z$ are two finite morphisms, then there is a commutative diagram
 \[
 \begin{tikzcd}
-(gf)_*(gf)^{Y} \ar[r,"\rho_{gf}"] \ar[d,"\mathrm{I}"'] & 1 \\
-g_*f_* f^{Y}g^{Y} \ar[r,"\rho_f"] & g_*g^{Y} \ar[u,"\rho_g"']
+(gf)_*(gf)^{y} \ar[r,"\rho_{gf}"] \ar[d,"\mathrm{I}"'] & 1 \\
+g_*f_* f^{y}g^{y} \ar[r,"\rho_f"] & g_*g^{y} \ar[u,"\rho_g"']
 \end{tikzcd}
 \]
 which follows from [III 6.6] and the functoriality of the above construction.
@@ -828,7 +855,7 @@ Let $\sJ$ be the ideal of $Z$ with the reduced induced structure, and let $Z_n$,
 For $n<n'$ we have a closed immersion $j_{nn'}\colon Z_n\to Z_{n'}$, and one can verify (!) using VAR 1, VAR 2, and (viii) above, that the following diagrams are commutative.
 \[SOMECD353\]
 
-One can also write down another diagram with three indices $n,n'$ and $n''$ which shows that the sheaves $f_*i_{n*}i_n^{Y}f^{\Delta}(K^\bullet)$ and the maps $\rho_{j_{nn'}}$, I form a direct system as $n$ varies, and this diagram shows that the $\rho_{i_n}$ map this direct system into $f_*f^{\Delta}(K_Y^\bullet)$ and the $\rho_{g_n}\psi_{g_n}c_{i_n,f}\psi_{i_n}$ map it to $K^\bullet$. Furthermore the $\rho_{i_n}$ are all injective maps. Thus we can pass to the limit and obtain a map of a certain subsheaf of $f_*f^{\Delta}(K_Y^\bullet)$ to $K_Y^\bullet$. Looking at the effect of this construction on the component $f_*J(x)$ of $f_*f^{\Delta}K^\bullet$, we see that the $n^{\text{th}}$ term of the direct system, via the inclusion $\rho_{i_n}$, is just $f_*\underline{\Hom}_{X}(\sO_X/\sJ^{n}, J(x))$, and hence the limit is $f_*J(x)$ itself, since $J(x)$ has support on $Z$. Hence the map we obtain is defined on all of $f_*J(x)$, and we decree this to be $\Tr_{f,x}$.
+One can also write down another diagram with three indices $n,n'$ and $n''$ which shows that the sheaves $f_*i_{n*}i_n^{y}f^{\Delta}(K^\bullet)$ and the maps $\rho_{j_{nn'}}$, I form a direct system as $n$ varies, and this diagram shows that the $\rho_{i_n}$ map this direct system into $f_*f^{\Delta}(K_Y^\bullet)$ and the $\rho_{g_n}\psi_{g_n}c_{i_n,f}\psi_{i_n}$ map it to $K^\bullet$. Furthermore the $\rho_{i_n}$ are all injective maps. Thus we can pass to the limit and obtain a map of a certain subsheaf of $f_*f^{\Delta}(K_Y^\bullet)$ to $K_Y^\bullet$. Looking at the effect of this construction on the component $f_*J(x)$ of $f_*f^{\Delta}K^\bullet$, we see that the $n^{\text{th}}$ term of the direct system, via the inclusion $\rho_{i_n}$, is just $f_*\underline{\Hom}_{X}(\sO_X/\sJ^{n}, J(x))$, and hence the limit is $f_*J(x)$ itself, since $J(x)$ has support on $Z$. Hence the map we obtain is defined on all of $f_*J(x)$, and we decree this to be $\Tr_{f,x}$.
 
 To complete the proof of the lemma, we must check various things. First, that $\Tr_{f,x}$ is well-defined, i.e., does not depend on the choice of the open set $V$. That is clear, since $\Tr_{f,x}$ depends only on the stalks at $x$ and $y$, and all of our constructions are compatible with localization.
 
@@ -847,7 +874,7 @@ For a morphism $f\colon X\to Y$, we define $\Tr_f$ to be the map given by the le
 	V\ar[r,"j"]\ar[rd]&Y\ar[d,"g"]\\
 	&Z\\
 \end{tikzcd}\]
-To prove TRA 1, let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms. It is sufficient to prove the condition of TRA 1 for a single residual complex $K^\bullet$ on $X$ and for a single $x\in X$ which is closed in its fibre over $Z$. The question is local, so we may assume that $W = \overline{\{x\}}$ is finite over $Z$, and that $V = \overline{\{y\}}$, where $y=f(x)$, is finite over $Z$. Finally it is sufficient to check the commutativity for a given element $a\in\Gamma(J(x))$. We choose a subscheme structure $W_n$ on $W$ with $n$ large enough so that $a$ is in the image of $i^{Y}J(x)$. Now one can check (!) the required commutativity using the property of the lemma, and (viii), VAR 1, and VAR 2 above.
+To prove TRA 1, let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms. It is sufficient to prove the condition of TRA 1 for a single residual complex $K^\bullet$ on $X$ and for a single $x\in X$ which is closed in its fibre over $Z$. The question is local, so we may assume that $W = \overline{\{x\}}$ is finite over $Z$, and that $V = \overline{\{y\}}$, where $y=f(x)$, is finite over $Z$. Finally it is sufficient to check the commutativity for a given element $a\in\Gamma(J(x))$. We choose a subscheme structure $W_n$ on $W$ with $n$ large enough so that $a$ is in the image of $i^{y}J(x)$. Now one can check (!) the required commutativity using the property of the lemma, and (viii), VAR 1, and VAR 2 above.
 
 The uniqueness of $\Tr_f$ is clear, as it was in the lemma, since TRA 1 and TRA 2 imply the condition of the lemma.
 
@@ -957,13 +984,13 @@ Y' \ar[r,"u"] & Y
 
 If $f$ is a finite morphism, there is a natural isomorphism
 \[
-f'^{Y}u^{*} \xrightarrow{\sim} u'^{*}f^{Y} \tag{V}
+f'^{y}u^{*} \xrightarrow{\sim} u'^{*}f^{y} \tag{V}
 \]
 derived from [III 6.3] (cf.\ section 2 above).
 
 On the other hand if $f$ is smooth, there is a natural isomorphism
 \[
-f'^{Z}u^{*} \xrightarrow{\sim} u'^{*}f^{Z} \tag{VI}
+f'^{z}u^{*} \xrightarrow{\sim} u'^{*}f^{z} \tag{VI}
 \]
 derived from [III 2.1].
 
@@ -996,5 +1023,5 @@ f'_* u'^{*} f^{\Delta} \ar[r,"="] & u^{*} f_* f^{\Delta} \ar[u,"\Tr_f"']
 \end{theorem}
 
 \begin{proof}[Proof (!)]
-Show first that the analogous diagram of $f^{Y}$, $\rho_f$ and V is valid for $f$ finite. Then follow the construction of $\Tr_f$ in \S4 to show that it is true in general.
+Show first that the analogous diagram of $f^{y}$, $\rho_f$ and V is valid for $f$ finite. Then follow the construction of $\Tr_f$ in \S4 to show that it is true in general.
 \end{proof}
