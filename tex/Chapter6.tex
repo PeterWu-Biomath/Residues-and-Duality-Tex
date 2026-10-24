@@ -1,25 +1,26 @@
 
 \chapter{Dualizing Complexes and Local Duality}
+\setcounter{section}{-1}
 
 \section{Introduction}\label{sec:5.0}
 
 In this chapter we discuss dualizing complexes on a locally noetherian prescheme $X$. A dualizing complex is a complex $R^\bullet\in\DD^+(X)$ such that the functor
 \[
-\underline{D}\colon M^{\bullet}\longmapsto \DerR\underline{\Hom}^\bullet(M^{\bullet},R^{\bullet})
+\mathscr{D}\colon M^{\bullet}\longmapsto \RsheafHom^\bullet(M^{\bullet},R^{\bullet})
 \]
-induces an auto-duality of the category $\DD_{\mathrm{c}}^{\mathrm{b}}(X)$ consisting of those bounded complexes in $\DD^+(X)$ which have coherent cohomology. We will show that a large class of preschemes admits dualizing complexes, and that they are almost uniquely determined.
+induces an auto-duality of the category $\DD_{\mathrm{c}}^{b}(X)$ consisting of those bounded complexes in $\DD^+(X)$ which have coherent cohomology. We will show that a large class of preschemes admits dualizing complexes, and that they are almost uniquely determined.
 
-The notion of dualizing complex will allow us to write the duality theorem in a new way. For example, let $X$ be projective $n$-space over a field $k$. Then $R^\bullet=\omega[n]$ (where $\omega=\omega_{X/k}$ is the sheaf of relative $n$-differentials [III \S1]) is a dualizing complex for $X$, and $k$ is a dualizing complex for $k$. We have a canonical isomorphism $\DerR f_*(\omega[n])\cong k$ [III 3.4], and hence, for any complex $F^\bullet\in\DD^b_{\mathrm{c}}(X)$, a homomorphism
+The notion of dualizing complex will allow us to write the duality theorem in a new way. For example, let $X$ be projective $n$-space over a field $k$. Then $R^\bullet=\omega[n]$ (where $\omega=\omega_{X/k}$ is the sheaf of relative $n$-differentials \bookref{sec:3.1}{III,~\S1}) is a dualizing complex for $X$, and $k$ is a dualizing complex for $k$. We have a canonical isomorphism $\RR f_*(\omega[n])\cong k$ \bookref{thm:3.3.4}{III,~3.4}, and hence, for any complex $F^\bullet\in\DD^b_{\mathrm{c}}(X)$, a homomorphism
 \[
-\Theta\colon\ \DerR f_* \underline{D}_X(F^\bullet)\longrightarrow \underline{D}_k(\DerR f_*(F^\bullet)),
+\Theta\colon\ \RR f_* \mathscr{D}_X(F^\bullet)\longrightarrow \mathscr{D}_k(\RR f_*(F^\bullet)),
 \]
-where $\underline{D}_X$ and $\underline{D}_k$ are the dualizing functors on $X$ and on $k$, respectively. The duality theorem [III 5.1] says that $\Theta$ is an isomorphism, i.e., that the dualizing functors on $X$ and on $k$ commute with $\DerR f_*$.
+where $\mathscr{D}_X$ and $\mathscr{D}_k$ are the dualizing functors on $X$ and on $k$, respectively. The duality theorem \bookref{thm:3.5.1}{III,~5.1} says that $\Theta$ is an isomorphism, i.e., that the dualizing functors on $X$ and on $k$ commute with $\RR f_*$.
 
-In the latter part of the chapter we discuss the local duality theorem, as in [LC \S2,4,6] or [SGA 62, expos\'e 2,4]. The proof of the duality theorem given here is different, however.
+In the latter part of the chapter we discuss the local duality theorem, as in \cite[\nopp \S\S2,4,6]{LC} or \cite[\nopp 62, expos\'es~2,4]{SGA}. The proof of the duality theorem given here is different, however.
 
 The reader will see that the existence of a dualizing complex on a locally noetherian prescheme $X$ implies that $X$ has finite Krull dimension. Hence we will give a more general notion, that of a pointwise dualizing complex, to cover the case of infinite Krull dimension.
 
-For convenience we defer the question of existence of dualizing complexes until the end of the chapter (section~10).
+For convenience we defer the question of existence of dualizing complexes until the end of the chapter (section~\hyperref[sec:5.10]{10}).
 
 \section{Example: duality for abelian groups}\label{sec:5.1}
 
@@ -27,55 +28,57 @@ Let $X=\operatorname{Spec}\mathbb{Z}$. Then the category of quasi-coherent sheav
 \[
 \mathbb{Q}\longrightarrow \mathbb{Q}/\mathbb{Z}
 \]
-and work in the derived category $\DD_{\mathrm{c}}^{\mathrm{b}}(\Ab)$, consisting of those bounded complexes in $\DD^{+}(\Ab)$ which have finitely generated cohomology. ($\mathrm{c}$ is for ``coherent'', which means ``finitely generated'' in our case.) Since the complex above is an injective resolution of $\mathbb{Z}$, hence isomorphic to $\mathbb{Z}$ in the derived category, we arrive at the following proposition.
+and work in the derived category $\DD_{\mathrm{c}}^{b}(\Ab)$, consisting of those bounded complexes in $\DD^{+}(\Ab)$ which have finitely generated cohomology. ($\mathrm{c}$ is for ``coherent'', which means ``finitely generated'' in our case.) Since the complex above is an injective resolution of $\mathbb{Z}$, hence isomorphic to $\mathbb{Z}$ in the derived category, we arrive at the following proposition.
 
-\begin{proposition}\label{prop:5.1.1}
+\begin{bookproposition}{1.1}\label{prop:5.1.1}
 The functor
 \[
-D\colon M^{\bullet}\longmapsto \DerR\underline{\Hom}^\bullet(M^{\bullet},\mathbb{Z})
+D\colon M^{\bullet}\longmapsto \RHom^\bullet(M^{\bullet},\mathbb{Z})
 \]
-is a contravariant $\partial$-functor from $\DD_{\mathrm{c}}^{\mathrm{b}}(\Ab)$ into itself, and there is a natural functorial isomorphism
+is a contravariant $\partial$-functor from $\DD_{\mathrm{c}}^{b}(\Ab)$ into itself, and there is a natural functorial isomorphism
 \[
-\eta\colon \id_{\DD_{\mathrm{c}}^{\mathrm{b}}(\Ab)}\xrightarrow{\sim} DD.
+\eta\colon \id_{\DD_{\mathrm{c}}^{b}(\Ab)}\xrightarrow{\sim} DD.
 \]
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-Since the cohomology of $D(M^{\bullet})$ is $\operatorname{Ext}^{i}(M^{\bullet},\mathbb{Z})$, if $M^{\bullet}\in\DD^{b}_{\mathrm{c}}(\Ab)$, then so is $D(M^{\bullet})$. The natural functorial homomorphism $\eta$ is defined in Lemma~1.2 below. To show that it is an isomorphism, by taking a free resolution of $M^{\bullet}$ and applying the lemma on way-out functors [I.7.1], we reduce to the case $M^{\bullet}=\mathbb{Z}^{r}$ for some $r$. Since the functors in question are additive, one reduces to the case $M^{\bullet}=\mathbb{Z}$, and to complete the proof, one need only observe that $\operatorname{Ext}^{i}(\mathbb{Z},\mathbb{Z})=\mathbb{Z}$ if $i=0$, and $0$ otherwise.
+Since the cohomology of $D(M^{\bullet})$ is $\operatorname{Ext}^{i}(M^{\bullet},\mathbb{Z})$, if $M^{\bullet}\in\DD^{b}_{\mathrm{c}}(\Ab)$, then so is $D(M^{\bullet})$. The natural functorial homomorphism $\eta$ is defined in Lemma~\ref{lem:5.1.2} below. To show that it is an isomorphism, by taking a free resolution of $M^{\bullet}$ and applying the lemma on way-out functors \bookref{prop:1.7.1}{I,~7.1}, we reduce to the case $M^{\bullet}=\mathbb{Z}^{r}$ for some $r$. Since the functors in question are additive, one reduces to the case $M^{\bullet}=\mathbb{Z}$, and to complete the proof, one need only observe that $\operatorname{Ext}^{i}(\mathbb{Z},\mathbb{Z})=\mathbb{Z}$ if $i=0$, and $0$ otherwise.
 \end{proof}
 
-\begin{lemma}\label{lem:5.1.2}
+\begin{booklemma}{1.2}\label{lem:5.1.2}
 Let $X$ be a prescheme, let $R^\bullet\in\DD^+(X)$ and let $F^\bullet\in\DD(X)$. Then there is a natural functorial homomorphism
 \[
-\eta\colon F^\bullet\longrightarrow \DerR\underline{\Hom}^\bullet(\DerR\underline{\Hom}^\bullet(F^\bullet,R^\bullet),R^\bullet).
+\eta\colon F^\bullet\longrightarrow \RsheafHom^\bullet(\RsheafHom^\bullet(F^\bullet,R^\bullet),R^\bullet).
 \]
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
-Replacing $R^\bullet$ by an injective resolution, we can erase the $\DerR$. As usual, we need only define $\eta$ on objects of $\DD(X)$, i.e., complexes. Given an index $p$, and a section $s\in F^{p}(U)$ over an open set $U$ in $X$, we must define, for each $q$, a homomorphism of sheaves
+Replacing $R^\bullet$ by an injective resolution, we can erase the $\RR$. As usual, we need only define $\eta$ on objects of $\DD(X)$, i.e., complexes. Given an index $p$, and a section $s\in F^{p}(U)$ over an open set $U$ in $X$, we must define, for each $q$, a homomorphism of sheaves
 \[
-\underline{\Hom}^{q}(F^\bullet,R^\bullet)_U\longrightarrow R_U^{p+q},
+\sheafHom^{q}(F^\bullet,R^\bullet)_U\longrightarrow R_U^{p+q},
 \]
-where the subscript $U$ denotes restriction of sheaves to $U$. Given a homomorphism $f\in\underline{\Hom}^{q}(F^\bullet,R^\bullet)_U(V)$ defined on an open set $V\subseteq U$, we send it to the section $f(s_V)\in R^{p+q}(V)$, where $s_V$ is the section $s$, restricted to $V$. One checks that this indeed does define a morphism of complexes, and that it is functorial in $F^\bullet$.
+where the subscript $U$ denotes restriction of sheaves to $U$. Given a homomorphism $f\in\sheafHom^{q}(F^\bullet,R^\bullet)_U(V)$ defined on an open set $V\subseteq U$, we send it to the section $f(s_V)\in R^{p+q}(V)$, where $s_V$ is the section $s$, restricted to $V$. One checks that this indeed does define a morphism of complexes, and that it is functorial in $F^\bullet$.
 \end{proof}
 
 \section{Dualizing complexes}\label{sec:5.2}
+\begingroup
+\setlength{\emergencystretch}{2em}
 
-Throughout this section, $X$ will denote a locally noetherian prescheme. We will consider complexes $R^\bullet\in\DD^+(X)$ which have coherent cohomology and finite injective dimension, i.e., $R^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$ (see [I.7.6] and [II.7.20]). Note that if $X$ is quasi-compact, then the condition of finite injective dimension on a complex $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ can be checked locally (e.g., by [II 7.20(iii)]). Note also that such a complex $R^\bullet$ is quasi-isomorphic to a bounded complex of quasi-coherent injective sheaves on $X$ [II 7.20(i)${}_{\mathrm{qc}}$], and hence (using [II 3.3]) the functor
+Throughout this section, $X$ will denote a locally noetherian prescheme. We will consider complexes $R^\bullet\in\DD^+(X)$ which have coherent cohomology and finite injective dimension, i.e., $R^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$ (see \bookref{prop:1.7.6}{I,~7.6} and \bookref{prop:2.7.20}{II,~7.20}). Note that if $X$ is quasi-compact, then the condition of finite injective dimension on a complex $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ can be checked locally (e.g., by \bookref{prop:2.7.20}{II,~7.20(iii)}). Note also that such a complex $R^\bullet$ is quasi-isomorphic to a bounded complex of quasi-coherent injective sheaves on $X$ \bookref{prop:2.7.20}{II,~7.20(i)$_{\mathrm{qc}}$}, and hence (using \bookref{prop:2.3.3}{II,~3.3}) the functor
 \[
-\underline{D}\colon F^{\bullet}\longmapsto \DerR\underline{\Hom}^{\bullet}(F^{\bullet}, R^{\bullet})
+\mathscr{D}\colon F^{\bullet}\longmapsto \RsheafHom^{\bullet}(F^{\bullet}, R^{\bullet})
 \]
 sends $\DD_{\mathrm{c}}^{b}(X)$ into itself, and interchanges $\DD_{\mathrm{c}}^{+}(X)$ and $\DD_{\mathrm{c}}^{-}(X)$.
 
-\begin{definition}
+\begin{definition*}
 Let $R^\bullet\in\DD^+(X)$. We say that a complex $F^\bullet\in\DD(X)$ is \emph{reflexive} (with respect to $R^\bullet$) if the natural map
 \[
-\eta\colon F^{\bullet}\longrightarrow \DerR\underline{\Hom}^{\bullet}(\DerR\underline{\Hom}^{\bullet}(F^{\bullet}, R^{\bullet}), R^{\bullet})
+\eta\colon F^{\bullet}\longrightarrow \RsheafHom^{\bullet}(\RsheafHom^{\bullet}(F^{\bullet}, R^{\bullet}), R^{\bullet})
 \]
-of Lemma~1.2 is an isomorphism.
-\end{definition}
+of Lemma~\ref{lem:5.1.2} is an isomorphism.
+\end{definition*}
 
-\begin{proposition}\label{prop:5.2.1}
+\begin{bookproposition}{2.1}\label{prop:5.2.1}
 Let $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$. Then the following conditions are equivalent:
 \begin{itemize}
 \item[(i)] Every $F^\bullet\in\DD_{\mathrm{c}}(X)$ is reflexive (with respect to $R^\bullet$).
@@ -83,69 +86,69 @@ Let $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$. Then the following condi
 \item[(iii)] Every coherent sheaf on $X$ is reflexive.
 \item[(iv)] The structure sheaf $\sO_X$ is reflexive.
 \end{itemize}
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-Clearly (i) $\Longrightarrow$ (ii) $\Longrightarrow$ (iv). To prove (iv) $\Longrightarrow$ (i) we note that the question is local on $X$. Hence we may assume that $X$ is affine. Then every coherent sheaf on $X$ is the quotient of a free sheaf $\sO_X^r$; the functors in question are additive, so the result follows from the Lemma on Way-Out Functors [I.7.1 (ii) and (iv)], taking into account [II 7.20(ii)] which implies that $\DerR\underline{\Hom}^\bullet$ is way-out in both directions.
+Clearly (i) $\Longrightarrow$ (ii) $\Longrightarrow$ (iii) $\Longrightarrow$ (iv). To prove (iv) $\Longrightarrow$ (i) we note that the question is local on $X$. Hence we may assume that $X$ is affine. Then every coherent sheaf on $X$ is the quotient of a free sheaf $\sO_X^r$; the functors in question are additive, so the result follows from the Lemma on Way-Out Functors \bookref{prop:1.7.1}{I,~7.1(ii) and (iv)}, taking into account \bookref{prop:2.7.20}{II,~7.20(ii)} which implies that $\RsheafHom^\bullet(\cdot,R^\bullet)$ is way-out in both directions.
 \end{proof}
 
-\begin{definition}
+\begin{definition*}
 Let $X$ be a locally noetherian prescheme. A complex $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$ satisfying the equivalent conditions of the proposition is called a \emph{dualizing complex} for $X$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}
 The \emph{Krull dimension} of a locally noetherian prescheme $X$ is the largest $n$ (or $+\infty$) for which there is a chain $Z_0<Z_1<\cdots<Z_n$ of closed irreducible subsets $Z_i$ of $X$. It is also the sup of the dimensions of the local rings of $X$.
-\end{definition}
+\end{definition*}
 
-\begin{example}\label{ex:5.2.2}
+\begin{bookexample}{2.2}\label{ex:5.2.2}
 Let $X$ be a regular prescheme of finite Krull dimension. (A \emph{regular prescheme} is a prescheme $X$ such that all the local rings $\sO_{X,x}$ of points of $X$ are regular local rings.) Then the structure sheaf $\sO_X$ is a dualizing complex for $X$.
 
-Indeed, condition (iv) of the proposition is trivial, because $\underline{\operatorname{Ext}}^{i}(\sO_X,\sO_X)=\sO_X$ for $i=0$, and $0$ otherwise. Clearly $\sO_X\in\DD_{\mathrm{c}}^{+}(X)$. To show that $\sO_X$ has finite injective dimension, we use condition $(\mathrm{iii})_{\mathrm{c}}$ of [I.7.20]. Let $n_0$ be the Krull dimension of $X$. Then for every coherent sheaf $F$ on $X$, $\underline{\operatorname{Ext}}^{i}(F,\sO_X)=0$ for $i>n_0$, because $\underline{\operatorname{Ext}}^{i}$ commutes with taking stalks, and the local rings $\sO_{X,x}$ all have cohomological dimension $\leq n_0$, since they are regular local rings [14 (28.2)].
-\end{example}
+Indeed, condition (iv) of the proposition is trivial, because $\sheafExt^{i}(\sO_X,\sO_X)=\sO_X$ for $i=0$, and $0$ otherwise. Clearly $\sO_X\in\DD_{\mathrm{c}}^{+}(X)$. To show that $\sO_X$ has finite injective dimension, we use condition $(\underline{\mathrm{iii}})_{\mathrm{c}}$ of \bookref{prop:2.7.20}{II,~7.20}. Let $n_0$ be the Krull dimension of $X$. Then for every coherent sheaf $F$ on $X$, $\sheafExt^{i}(F,\sO_X)=0$ for $i>n_0$, because $\sheafExt^{i}$ commutes with taking stalks, and the local rings $\sO_{X,x}$ all have cohomological dimension $\leq n_0$, since they are regular local rings \cite[\nopp (28.2)]{14}.
+\end{bookexample}
 
-\begin{corollary}\label{cor:5.2.3}
+\begin{bookcorollary}{2.3}\label{cor:5.2.3}
 Let $R^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$. Then $R^\bullet$ is dualizing if and only if for every $x\in X$, $R_x^\bullet$ is dualizing on the local scheme $\operatorname{Spec}\sO_{X,x}$. Furthermore, it is sufficient to take the closed points $x\in X$.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-For $x\in X$, we see that the stalk $R_x^\bullet$ has finite injective dimension in $\DD^+_{\mathrm{c}}(\operatorname{Spec}\sO_{X,x})$ by using [II 7.20 (i)${}_{\mathrm{qc}}$] and [II.7.17 (iii)]. Thus the result follows from condition (iv) of the Proposition.
+For $x\in X$, we see that the stalk $R_x^\bullet$ has finite injective dimension in $\DD^+_{\mathrm{c}}(\operatorname{Spec}\sO_{X,x})$ by using \bookref{prop:2.7.20}{II,~7.20(i)$_{\mathrm{qc}}$} and \bookref{prop:2.7.17}{II,~7.17(iii)}. Thus the result follows from condition (iv) of the Proposition.
 \end{proof}
 
-\begin{proposition}\label{prop:5.2.4}
-Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes, and let $R^\bullet$ be a dualizing complex on $Y$. Then $f^{\flat}R^\bullet$ is a dualizing complex on $X$ (cf.\ [III \S6]).
-\end{proposition}
+\begin{bookproposition}{2.4}\label{prop:5.2.4}
+Let $f\colon X\to Y$ be a finite morphism of locally noetherian preschemes, and let $R^\bullet$ be a dualizing complex on $Y$. Then $f^{\flat}R^\bullet$ is a dualizing complex on $X$ (cf.\ \bookref{sec:3.6}{III,~\S6}).
+\end{bookproposition}
 
 \begin{proof}
 We may assume that $R^\bullet$ is a bounded complex of quasi-coherent injective sheaves on $Y$. Then
 \[
-f^{\flat}(R^{\bullet}) = \underline{\Hom}_{Y}(f_{*}\sO_{X},R^{\bullet})^{\sim},
+f^{\flat}(R^{\bullet}) = \sheafHom_{Y}(f_{*}\sO_{X},R^{\bullet})^{\sim},
 \]
-which is a bounded complex of quasi-coherent injectives on $X$. Hence $f^{\flat}(R^{\bullet})\in\DD^{b}_{\mathrm{c}}(X)_{\mathrm{fid}}$. To see that $f^{\flat}(R^{\bullet})$ is dualizing, we apply condition (iv) of the previous proposition, and consider the map
+which is a bounded complex of quasi-coherent injectives on $X$. Hence $f^{\flat}(R^{\bullet})\in\DD^{b}_{\mathrm{c}}(X)_{\mathrm{fid}}$. To see that $f^{\flat}(R^{\bullet})$ is dualizing, we apply condition (iv) of Proposition~\ref{prop:5.2.1}, and consider the map
 \[
-\eta\colon \sO_{X}\longrightarrow \DerR\underline{\Hom}_{X}^{\bullet}(\DerR\underline{\Hom}_{X}^{\bullet}(\sO_{X}, f^{\flat}(R^{\bullet})), f^{\flat}(R^{\bullet})).
+\eta\colon \sO_{X}\longrightarrow \RsheafHom_{X}^{\bullet}(\RsheafHom_{X}^{\bullet}(\sO_{X}, f^{\flat}(R^{\bullet})), f^{\flat}(R^{\bullet})).
 \]
-Applying $\DerR f_*$ to this map, and using duality for a finite morphism [III 6.7] twice, we see that $\DerR f_*(\eta)$ is an isomorphism. But we are dealing with quasi-coherent sheaves, and $f_*$ is faithful, so $\eta$ is an isomorphism.
+Applying $\RR f_*$ to this map, and using duality for a finite morphism \bookref{thm:3.6.7}{III,~6.7} twice, we see that $\RR f_*(\eta)$ is an isomorphism. But we are dealing with quasi-coherent sheaves, and $f_*$ is faithful, so $\eta$ is an isomorphism.
 \end{proof}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remarks.}
 \begin{enumerate}
-\item We will see later that if $f$ is a smooth morphism, then $f^{\sharp}$ of a dualizing complex is dualizing (Theorem~8.3 below).
+\item We will see later that if $f$ is a smooth morphism, then $f^{\sharp}$ of a dualizing complex is dualizing (Theorem~\hyperref[thm:5.8.3]{8.3} below).
 \item This result, joined with the example above, shows that any closed subscheme of a regular prescheme of finite Krull dimension admits a dualizing complex.
 \end{enumerate}
-\end{remark}
+\par\medskip
 
-\begin{proposition}\label{prop:5.2.5}
+\begin{bookproposition}{2.5}\label{prop:5.2.5}
 A complex $R^\bullet\in\DD_{\mathrm{c}}^+(X)_{\mathrm{fid}}$ is dualizing if and only if for every closed point $x\in X$, the sheaf $k(x)$, consisting of the residue field $k(x)$ at the point $x$ and zero elsewhere, is reflexive.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-1) Using Corollary~2.3, we reduce to the case where $X$ is the spectrum of a local noetherian ring $A$, with residue field $k$. The assumption is then that $k$ is reflexive, and we wish to show for every $A$-module of finite type $M$ (in particular, for $M=A$), that $M$ is reflexive on $X$.
+1) Using Corollary~\ref{cor:5.2.3}, we reduce to the case where $X$ is the spectrum of a local noetherian ring $A$, with residue field $k$. The assumption is then that $k$ is reflexive, and we wish to show for every $A$-module of finite type $M$ (in particular, for $M=A$), that $M$ is reflexive on $X$.
 
 2) Using induction on the length, we show first that every $A$-module $M$ of finite length is reflexive. Indeed, for $\operatorname{length}M=1$, we have assumed it. For $\operatorname{length}M>1$, one can write a short exact sequence
 \[
 0\longrightarrow M'\longrightarrow M\longrightarrow M''\longrightarrow 0
 \]
-where $M'$ and $M''$ have length $<\operatorname{length}M$. Then by the induction hypothesis $M'$ and $M''$ are reflexive, and by long exact sequences ($DD$ is a $\partial$-functor!) and the five-lemma, $M$ is reflexive.
+where $M'$ and $M''$ have length $<\operatorname{length}M$. Then by the induction hypothesis $M'$ and $M''$ are reflexive, and by long exact sequences ($\mathscr{D}\mathscr{D}$ is a $\partial$-functor!) and the five-lemma, $M$ is reflexive.
 
 3) Now we show that any module of finite type $M$ is reflexive, using induction on the dimension of $M$. If $\dim M=0$, then $M$ has finite length, and $M$ is reflexive by 2) above. Let $M$ be a module of finite type. Let $M'$ be the submodule of elements with support $\mathfrak{m}$, where $\mathfrak{m}$ is the maximal ideal of $A$. Then $M'$ has finite length, so it is sufficient to consider $M/M'$. In other words, we have reduced to the case $\operatorname{Ass}M\cap\{\mathfrak{m}\}=\emptyset$.
 
@@ -155,149 +158,152 @@ Let $t\in\mathfrak{m}$ be an element which is not a zero-divisor in $M$, so that
 \]
 Now $\dim M/tM<\dim M$, so by the induction hypothesis $M/tM$ is reflexive. Therefore, for each $i\neq0$, we have an exact sequence
 \[
-H^{i}(DD(M))\xrightarrow{t}H^{i}(DD(M))\longrightarrow 0.
+H^{i}(\mathscr{D}\mathscr{D}(M))\xrightarrow{t}H^{i}(\mathscr{D}\mathscr{D}(M))\longrightarrow 0.
 \]
-Now these $H^{i}$ are $A$-modules of finite type, and $t\in\mathfrak{m}$, so by Nakayama's lemma, $H^{i}(DD(M))=0$ for $i\neq0$.
+Now these $H^{i}$ are $A$-modules of finite type, and $t\in\mathfrak{m}$, so by Nakayama's lemma, $H^{i}(\mathscr{D}\mathscr{D}(M))=0$ for $i\neq0$.
 
 Consider the commutative diagram
 \[
 \begin{tikzcd}
 0\ar[r] & M \ar[r,"t"] \ar[d] & M \ar[r] \ar[d,"\alpha"] & M/tM \ar[r] \ar[d,"\cong"] & 0\\
-0\ar[r] & H^0(DD(M)) \ar[r,"t"] & H^0(DD(M)) \ar[r] & H^0(DD(M/tM)) \ar[r] & 0
+0\ar[r] & H^0(\mathscr{D}\mathscr{D}(M)) \ar[r,"t"] & H^0(\mathscr{D}\mathscr{D}(M)) \ar[r] & H^0(\mathscr{D}\mathscr{D}(M/tM)) \ar[r] & 0
 \end{tikzcd}
 \]
 with exact rows. A diagram chase shows that
 \[
-H^{0}(DD(M))=\alpha(M)+tH^{0}(DD(M)),
+H^{0}(\mathscr{D}\mathscr{D}(M))=\alpha(M)+tH^{0}(\mathscr{D}\mathscr{D}(M)),
 \]
-so by Nakayama's Lemma, $\alpha$ is surjective. To show that $\alpha$ is injective, let $x\in M$. Choose $n$ so large that $x\notin t^nM$, and draw the same diagram as above, but with $t^n$ in place of $t$. Then $x$ does not become $0$ in $M/t^nM$, and $M/t^nM\cong H^0(DD(M/t^nM))$, so $\alpha(x)\neq0$.
+so by Nakayama's Lemma, $\alpha$ is surjective. To show that $\alpha$ is injective, let $0\neq x\in M$. Choose $n$ so large that $x\notin t^nM$, and draw the same diagram as above, but with $t^n$ in place of $t$. Then $x$ does not become $0$ in $M/t^nM$, and $M/t^nM\cong H^0(\mathscr{D}\mathscr{D}(M/t^nM))$, so $\alpha(x)\neq0$.
 
-Thus $M$ is reflexive. Taking $M=A$, we find that $R^\bullet$ is a dualizing complex. q.e.d.
+Thus $M$ is reflexive. Taking $M=A$, we find that $R^\bullet$ is a dualizing complex.
 \end{proof}
 
-\begin{proposition}\label{prop:5.2.6}
-Let $X$ be a locally noetherian prescheme, let $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$ be a dualizing complex, and let $D$ be the functor $\DerR\underline{\Hom}^\bullet(\cdot,R^\bullet)$. Then
+\begin{bookproposition}{2.6}\label{prop:5.2.6}
+Let $X$ be a locally noetherian prescheme, let $R^\bullet\in\DD^+_{\mathrm{c}}(X)_{\mathrm{fid}}$ be a dualizing complex, and let $\mathscr{D}$ be the functor $\RsheafHom^\bullet(\cdot,R^\bullet)$. Then
 \begin{enumerate}
-\item[a)] A complex $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)$ has finite Tor-dimension [II 4.2] if and only if $D(G^\bullet)$ has finite injective dimension.
+\item[a)] A complex $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)$ has finite Tor-dimension \bookref{prop:2.4.2}{II,~4.2} if and only if $\mathscr{D}(G^\bullet)$ has finite injective dimension.
 \item[b)] There is a functorial isomorphism
 \[
-D(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet)) \xrightarrow{\sim} F^\bullet\otimes D(G^\bullet)
+\mathscr{D}(\RsheafHom^\bullet(F^\bullet,G^\bullet)) \xrightarrow{\sim} F^\bullet\derivedtensor \mathscr{D}(G^\bullet)
 \]
 for $F^\bullet\in\DD_{\mathrm{c}}^-(X)$ and $G^\bullet\in\DD^+(X)$, or for $F^\bullet\in\DD_{\mathrm{c}}(X)$ and $G^\bullet\in\DD^+(X)_{\mathrm{fid}}$.
 \item[c)] There is a functorial isomorphism
 \[
-D(F^{\bullet}\otimes G^{\bullet}) \xrightarrow{\sim} \DerR\underline{\Hom}^{\bullet}(F^{\bullet}, D(G^{\bullet}))
+\mathscr{D}(F^{\bullet}\derivedtensor G^{\bullet}) \xrightarrow{\sim} \RsheafHom^{\bullet}(F^{\bullet}, \mathscr{D}(G^{\bullet}))
 \]
-for $F^\bullet$ and $G^\bullet\in\DD_{\mathrm{c}}(X)$, or for $F^\bullet\in\DD_{\mathrm{c}}(X)$ and $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)_{\mathrm{fTd}}$.
+for $F^\bullet$ and $G^\bullet\in\DD_{\mathrm{c}}^-(X)$, or for $F^\bullet\in\DD_{\mathrm{c}}(X)$ and $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)_{\mathrm{fTd}}$.
 \end{enumerate}
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
 The natural map of sheaves
 \[
-F\otimes\underline{\Hom}(G,R)\longrightarrow \underline{\Hom}(\underline{\Hom}(F,G),R)
+F\otimes\sheafHom(G,R)\longrightarrow \sheafHom(\sheafHom(F,G),R)
 \]
 gives rise to a morphism of functors on the derived category,
 \[
-\tag{*}
-F^\bullet\otimes \DerR\underline{\Hom}^\bullet(G^\bullet,R^\bullet)\longrightarrow \DerR\underline{\Hom}^\bullet(\DerR\underline{\Hom}^\bullet(F^\bullet,G^\bullet),R^\bullet),
+\tag{*}\label{eq:5.2.comparison}
+F^\bullet\derivedtensor \RsheafHom^\bullet(G^\bullet,R^\bullet)\longrightarrow \RsheafHom^\bullet(\RsheafHom^\bullet(F^\bullet,G^\bullet),R^\bullet),
 \]
 provided either
 \begin{itemize}
 \item[1)] $F^\bullet\in\DD^{-}(X)$, $G^\bullet\in\DD^{+}(X)$ and $R^\bullet\in\DD^{+}(X)_{\mathrm{fid}}$, or
-\item[2)] $F^\bullet\in\DD(X)$, $G^\bullet,R^\bullet\in\DD^+(X)$, and $D(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$.
+\item[2)] $F^\bullet\in\DD(X)$, $G^\bullet,R^\bullet\in\DD^+(X)$, and $\mathscr{D}(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$.
 \end{itemize}
-If under the set of conditions 1), we assume furthermore that $F^\bullet\in\DD^-_{\mathrm{c}}(X)$, then by [I.7.1], the morphism $(*)$ is an isomorphism. Indeed, we reduce to the case $F=\sO_X$, which is trivial. Taking the inverse isomorphism gives b) under the first set of hypotheses. As a corollary, we see that if $G^\bullet\in\DD^+(X)$ has finite injective dimension, then $D(G^\bullet)$ has finite Tor-dimension. Indeed, by the Remark following [II 4.2] it is enough to show that there is an integer $n_0$ such that $\underline{\operatorname{Tor}}_i(F,G^\bullet)=0$ for all $i>n_0$ and all coherent sheaves $F$ on $X$, and this follows from b). Thus we have established one half of a). Now if $G^\bullet\in\DD^+(X)_{\mathrm{fid}}$, then as just remarked, $D(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$, so by 2) and [I.7.1] again, we obtain the isomorphism b) under the second set of conditions.
+If under the set of conditions 1), we assume furthermore that $F^\bullet\in\DD^-_{\mathrm{c}}(X)$, then by \bookref{prop:1.7.1}{I,~7.1}, the morphism \eqref{eq:5.2.comparison} is an isomorphism. Indeed, we reduce to the case $F=\sO_X$, which is trivial. Taking the inverse isomorphism gives b) under the first set of hypotheses. As a corollary, we see that if $G^\bullet\in\DD^+(X)$ has finite injective dimension, then $\mathscr{D}(G^\bullet)$ has finite Tor-dimension. Indeed, by the Remark following \bookref{prop:2.4.2}{II,~4.2} it is enough to show that there is an integer $n_0$ such that $\sheafTor_i(F,\mathscr{D}(G^\bullet))=0$ for all $i>n_0$ and all coherent sheaves $F$ on $X$, and this follows from b). Thus we have established one half of a). Now if $G^\bullet\in\DD^+(X)_{\mathrm{fid}}$, then as just remarked, $\mathscr{D}(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$, so by 2) and \bookref{prop:1.7.1}{I,~7.1} again, we obtain the isomorphism b) under the second set of conditions.
 
-For statement c), let $F^\bullet,G^\bullet\in\DD^-_{\mathrm{c}}(X)$, apply b) to $F^\bullet$ and $D(G^\bullet)$, and apply $D$ to the resulting isomorphism. Then since $D^2=\id$ on $\DD^-_{\mathrm{c}}(X)$, we have the required isomorphism under the first set of conditions. As a corollary we deduce (using [II 7.20 ${(\underline{\mathrm{iii}})}_{\mathrm{c}}$]) that if $G^\bullet\in\DD^{\mathrm{b}}_{\mathrm{c}}(X)$ has finite Tor-dimension, then $D(G^\bullet)$ has finite injective dimension. This gives the other half of a), and applying $D$ to the second half of b) gives the second half of c).
+For statement c), let $F^\bullet,G^\bullet\in\DD^-_{\mathrm{c}}(X)$, apply b) to $F^\bullet$ and $\mathscr{D}(G^\bullet)$, and apply $\mathscr{D}$ to the resulting isomorphism. Then since $\mathscr{D}^2=\id$ on $\DD^-_{\mathrm{c}}(X)$, we have the required isomorphism under the first set of conditions. As a corollary we deduce (using \bookref{prop:2.7.20}{II,~7.20 $(\underline{\mathrm{iii}})_{\mathrm{c}}$}) that if $G^\bullet\in\DD^{\mathrm{b}}_{\mathrm{c}}(X)$ has finite Tor-dimension, then $\mathscr{D}(G^\bullet)$ has finite injective dimension. This gives the other half of a), and applying $\mathscr{D}$ to the second half of b) gives the second half of c).
 \end{proof}
+
+\par\endgroup
 
 \section{Uniqueness of the dualizing complex}\label{sec:5.3}
+\begingroup
+\setlength{\emergencystretch}{2em}
 
-\begin{theorem}\label{thm:5.3.1}
+\begin{booktheorem}{3.1}\label{thm:5.3.1}
 Let $X$ be a connected, locally noetherian prescheme, and let $R^\bullet$ be a dualizing complex on $X$. Let $R^{\prime\bullet}\in\DD_{\mathrm{c}}^+(X)$ be any other complex. Then $R^{\prime\bullet}$ is a dualizing complex if and only if there exists an invertible sheaf $L$ on $X$, and an integer $n$, such that
 \[
-R^{\prime\bullet}\cong R^\bullet\otimes L[n].
+R^{\prime\bullet}\cong R^\bullet\derivedtensor L[n].
 \]
 Furthermore, $L$ and $n$ are determined uniquely to within isomorphism.
-\end{theorem}
+\end{booktheorem}
 
 \begin{proof}
-1) Observe that such an $R^{\prime\bullet}$ is a dualizing complex. Indeed, we may assume that $R^\bullet$ is a bounded complex of quasi-coherent injectives. Then $R^\bullet\otimes L[n]$ is also a bounded complex of injectives, since the property of being injective is local [II 7.16], and $L$ is locally free. $R^{\prime\bullet}$ is dualizing by Corollary~2.3.
+1) Observe that such an $R^{\prime\bullet}$ is a dualizing complex. Indeed, we may assume that $R^\bullet$ is a bounded complex of quasi-coherent injectives. Then $R^\bullet\otimes L[n]$ is also a bounded complex of injectives, since the property of being injective is local \bookref{lem:2.7.16}{II,~7.16}, and $L$ is locally free. $R^{\prime\bullet}$ is dualizing by Corollary~\ref{cor:5.2.3}.
 
-2) Observe that $L$ and $n$ are uniquely determined by the identity $L[n]\cong \DerR\underline{\Hom}^\bullet(R^\bullet,R^{\prime\bullet})$.
+2) Observe that $L$ and $n$ are uniquely determined by the identity $L[n]\cong \RsheafHom^\bullet(R^\bullet,R^{\prime\bullet})$.
 
-3) Now we show the existence of $L$ and $n$, assuming that $R^{\prime\bullet}$ is a dualizing complex. Let $D$ and $D'$ be the dualizing functors corresponding to $R^\bullet$ and $R^{\prime\bullet}$. Define
+3) Now we show the existence of $L$ and $n$, assuming that $R^{\prime\bullet}$ is a dualizing complex. Let $\mathscr{D}$ and $\mathscr{D}'$ be the dualizing functors corresponding to $R^\bullet$ and $R^{\prime\bullet}$. Define
 \[
-L^\bullet = D'D(\sO_X) = \DerR\underline{\Hom}^\bullet(R^\bullet,R^{\prime\bullet}).
+L^\bullet = \mathscr{D}'\mathscr{D}(\sO_X) = \RsheafHom^\bullet(R^\bullet,R^{\prime\bullet}).
 \]
-We will prove that $L^\bullet$ is isomorphic, in $\DD^+(X)$, to a complex of the form $L[n]$, where $L$ is an invertible sheaf, and that $R^{\prime\bullet}\cong R^{\bullet}\otimes L^{\bullet}$.
+We will prove that $L^\bullet$ is isomorphic, in $\DD^+(X)$, to a complex of the form $L[n]$, where $L$ is an invertible sheaf, and that $R^{\prime\bullet}\cong R^{\bullet}\derivedtensor L^{\bullet}$.
 
-\begin{lemma}\label{lem:5.3.2}
+\begin{booklemma}{3.2}\label{lem:5.3.2}
 There is a natural functorial isomorphism, for all $M^{\bullet}\in\DD_{\mathrm{c}}^{-}(X)$,
 \[
-M^{\bullet}\otimes L^{\bullet}\xrightarrow{\sim} D'D(M^{\bullet}).
+M^{\bullet}\derivedtensor L^{\bullet}\xrightarrow{\sim} \mathscr{D}'\mathscr{D}(M^{\bullet}).
 \]
-(Note that this tensor product makes sense since $L^\bullet\in\DD^-_{\mathrm{c}}(X)$, cf. [II \S4].)
-\end{lemma}
+(Note that this tensor product makes sense since $L^\bullet\in\DD^-_{\mathrm{c}}(X)$, cf. \bookref{sec:2.4}{II,~\S4}.)
+\end{booklemma}
 
 \begin{proof}
-As in Lemma~1.2 above, one defines a functorial homomorphism
+As in Lemma~\ref{lem:5.1.2} above, one defines a functorial homomorphism
 \[
-M^{\bullet}\otimes \DerR\underline{\Hom}^{\bullet}(R^{\bullet},R^{\prime\bullet})\xrightarrow{} \DerR\underline{\Hom}^{\bullet}(\DerR\underline{\Hom}^{\bullet}(M^{\bullet},R^{\bullet}),R^{\prime\bullet}).
+M^{\bullet}\derivedtensor \RsheafHom^{\bullet}(R^{\bullet},R^{\prime\bullet})\xrightarrow{} \RsheafHom^{\bullet}(\RsheafHom^{\bullet}(M^{\bullet},R^{\bullet}),R^{\prime\bullet}).
 \]
-Since it is an isomorphism for $M^{\bullet}=\sO_X$, by the lemma on way-out functors, it is an isomorphism for all $M^{\bullet}\in\DD_{\mathrm{c}}^{-}(X)$.
+Since it is an isomorphism for $M^{\bullet}=\sO_X$, by the lemma on way-out functors \bookref{prop:1.7.1}{I,~7.1}, it is an isomorphism for all $M^{\bullet}\in\DD_{\mathrm{c}}^{-}(X)$.
 \end{proof}
 
-We now define $L^\bullet = D'D(\sO_X)$, and use the lemma to deduce that
+We now define $L^\bullet = \mathscr{D}'\mathscr{D}(\sO_X)$, and use the lemma to deduce that
 \[
-L^\bullet \otimes L^{\prime\bullet} = D'D(L^{\prime\bullet}) = D'DDD'(\sO_X) = \sO_X
+L^\bullet \derivedtensor L^{\prime\bullet} = \mathscr{D}'\mathscr{D}(L^{\prime\bullet}) = \mathscr{D}'\mathscr{D}\mathscr{D}\mathscr{D}'(\sO_X) = \sO_X
 \]
-where $L^{\prime\bullet}=DD'(\sO_X)$.
+where $L^{\prime\bullet}=\mathscr{D}\mathscr{D}'(\sO_X)$.
 
-\begin{lemma}\label{lem:5.3.3}
-Let $X$ be a connected locally noetherian prescheme, and let $L^\bullet,L^{\prime\bullet}\in\DD_{\mathrm{c}}^{-}(X)$ be such that $L^\bullet\underline{\underline{\otimes}} L^{\prime\bullet}\cong\sO_X$. Then $L^\bullet=L[n]$ for some invertible sheaf $L$, and $L^{\prime\bullet}=L^{\vee}[-n]$.
-\end{lemma}
+\begin{booklemma}{3.3}\label{lem:5.3.3}
+Let $X$ be a connected locally noetherian prescheme, and let $L^\bullet,L^{\prime\bullet}\in\DD_{\mathrm{c}}^{-}(X)$ be such that $L^\bullet\derivedtensor L^{\prime\bullet}\cong\sO_X$. Then $L^\bullet=L[n]$ for some invertible sheaf $L$, and $L^{\prime\bullet}=L^{\vee}[-n]$.
+\end{booklemma}
 
 \begin{proof}
-Since $X$ is connected, we reduce immediately to the case where $X$ is the spectrum of a local noetherian ring $A$, and we wish to show that $L^\bullet=\sO_X[n]$ for some $n$. Let $p$ be the largest integer such that $H^p(L^\bullet)\neq0$, and let $q$ be the largest integer such that $H^q(L^{\prime\bullet})\neq0$. Then one sees easily that $p+q$ is the largest integer for which $H^n(L^\bullet\otimes L^{\prime\bullet})\neq0$, and $H^{p+q}(L^\bullet\otimes L^{\prime\bullet})=H^p(L^\bullet)\otimes H^q(L^{\prime\bullet})$. Therefore $p+q=0$, and $H^p(L^\bullet)\otimes H^q(L^{\prime\bullet})=\sO_X$. It follows, by a simple lemma on modules of finite type over a local noetherian ring [cf.\ EGA, Ch.\ 0, 5.4.3], that $H^p(L^\bullet)\cong H^q(L^{\prime\bullet})\cong\sO_X$. Now since $\sO_X$ is locally free, one shows that $L^\bullet = L_1^\bullet\oplus\sO_X[-p]$, where $L_1^\bullet$ has cohomology only in dimensions $<p$. Similarly, $L^{\prime\bullet}=L_1^{\prime\bullet}\oplus\sO_X[p]$. Thus from $L^\bullet\otimes L^{\prime\bullet}\cong\sO_X$ we deduce
+Since $X$ is connected, we reduce immediately to the case where $X$ is the spectrum of a local noetherian ring $A$, and we wish to show that $L^\bullet=\sO_X[n]$ for some $n$. Let $p$ be the largest integer such that $\mathcal{H}^p(L^\bullet)\neq0$, and let $q$ be the largest integer such that $\mathcal{H}^q(L^{\prime\bullet})\neq0$. Then one sees easily that $p+q$ is the largest integer for which $\mathcal{H}^n(L^\bullet\derivedtensor L^{\prime\bullet})\neq0$, and $\mathcal{H}^{p+q}(L^\bullet\derivedtensor L^{\prime\bullet})=\mathcal{H}^p(L^\bullet)\otimes \mathcal{H}^q(L^{\prime\bullet})$. Therefore $p+q=0$, and $\mathcal{H}^p(L^\bullet)\otimes \mathcal{H}^q(L^{\prime\bullet})=\sO_X$. It follows, by a simple lemma on modules of finite type over a local noetherian ring (cf.\ \cite[\nopp 0,~5.4.3]{EGA}), that $\mathcal{H}^p(L^\bullet)\cong \mathcal{H}^q(L^{\prime\bullet})\cong\sO_X$. Now since $\sO_X$ is locally free, one shows that $L^\bullet = L_1^\bullet\oplus\sO_X[-p]$, where $L_1^\bullet$ has cohomology only in dimensions $<p$. Similarly, $L^{\prime\bullet}=L_1^{\prime\bullet}\oplus\sO_X[p]$. Thus from $L^\bullet\derivedtensor L^{\prime\bullet}\cong\sO_X$ we deduce
 \[
-L_{1}^{\bullet}[p]\oplus L_{1}^{\prime\bullet}[-p]\oplus (L_{1}^{\bullet}\otimes L_{1}^{\prime\bullet}) = 0
+L_{1}^{\bullet}[p]\oplus L_{1}^{\prime\bullet}[-p]\oplus (L_{1}^{\bullet}\derivedtensor L_{1}^{\prime\bullet}) = 0
 \]
 from which it follows that $L_1^\bullet$ and $L_1^{\prime\bullet}$ are $0$ in $\DD_{\mathrm{c}}(X)$, so that $L^\bullet\cong\sO_X[-p]$, and $L^{\prime\bullet}\cong\sO_X[p]$, as required.
 \end{proof}
 
-This proves the lemma, so we have only to show that $R^{\prime\bullet} = R^\bullet\otimes L^{\bullet}$. Indeed, $R^\bullet\in\DD^b_{\mathrm{c}}(X)$, so applying Lemma~3.2,
+This proves the lemma, so we have only to show that $R^{\prime\bullet} = R^\bullet\derivedtensor L^{\bullet}$. Indeed, $R^\bullet\in\DD^b_{\mathrm{c}}(X)$, so applying Lemma~\ref{lem:5.3.2},
 \[
-R^{\bullet}\otimes L^{\bullet} = D'D(R^{\bullet}) = D'(\sO_X) = R^{\prime\bullet}
+R^{\bullet}\derivedtensor L^{\bullet} = \mathscr{D}'\mathscr{D}(R^{\bullet}) = \mathscr{D}'(\sO_X) = R^{\prime\bullet}
 \]
-q.e.d.
 \end{proof}
 
 We now give an application of the uniqueness theorem.
 
-\begin{proposition}\label{prop:5.3.4}
+\begin{bookproposition}{3.4}\label{prop:5.3.4}
 Let $A$ be a noetherian local ring with residue field $k$, and let $R^\bullet\in\DD^+_{\mathrm{c}}(A)$. Then $R^\bullet$ is dualizing if and only if there is an integer $d$ such that
 \[
 \operatorname{Ext}^{i}(k,R^{\bullet}) = \begin{cases} 0 & \text{for } i\neq d \\ k & \text{for } i = d. \end{cases}
 \]
-(Here we write $\DD^+(A)$ for the derived category of the category of $A$-modules. The subscript $\mathrm{c}$ denotes complexes whose cohomology modules are of finite type. We carry over the definitions and results of the previous sections to this case. (Cf.\ [II.7.19] which ensures that we will not get into trouble.))
-\end{proposition}
+(Here we write $\DD^+(A)$ for the derived category of the category of $A$-modules. The subscript $\mathrm{c}$ denotes complexes whose cohomology modules are of finite type. We carry over the definitions and results of the previous sections to this case. (Cf.\ \bookref{cor:2.7.19}{II,~7.19} which ensures that we will not get into trouble.))
+\end{bookproposition}
 
 \begin{proof}
-First suppose that $R^\bullet$ is dualizing, and let $j\colon\operatorname{Spec}k\longrightarrow\operatorname{Spec}A$ be the inclusion. Then by Proposition~2.4,
+First suppose that $R^\bullet$ is dualizing, and let $j\colon\operatorname{Spec}k\longrightarrow\operatorname{Spec}A$ be the inclusion. Then by Proposition~\ref{prop:5.2.4},
 \[
-j^{\flat}(R^{\bullet}) = \DerR\underline{\Hom}^{\bullet}(k,R^{\bullet})
+j^{\flat}(R^{\bullet}) = \RHom_A^{\bullet}(k,R^{\bullet})
 \]
-is a dualizing complex on $k$. But $k$ itself is a dualizing complex on $k$, so by the Uniqueness Theorem above, $j^{\flat}(R^{\bullet})\cong k[-d]$ for some $d$. This $d$ will do.
+is a dualizing complex on $k$. But $k$ itself is a dualizing complex on $k$, so by the Uniqueness Theorem~\ref{thm:5.3.1} above, $j^{\flat}(R^{\bullet})\cong k[-d]$ for some $d$. This $d$ will do.
 
-For the converse, it is clear that $k$ is reflexive, so by Proposition~2.5 we have only to show that $R^\bullet$ has finite injective dimension. Indeed, we will show by induction on $r=\dim M$, for any $A$-module $M$ of finite type, that
+For the converse, it is clear that $k$ is reflexive, so by Proposition~\ref{prop:5.2.5} we have only to show that $R^\bullet$ has finite injective dimension. Indeed, we will show by induction on $r=\dim M$, for any $A$-module $M$ of finite type, that
 \[
 \operatorname{Ext}^{i}(M,R^{\bullet}) = 0 \qquad\text{for } i\notin[d-r,d].
 \]
 Indeed, for $\dim M=0$, $M$ is of finite length, and our statement follows from the case $M=k$ by induction on the length of $M$.
 
-For $\dim M=r>0$, we induct as in the proof of Proposition~2.5. First we may assume that $M\notin\operatorname{Ass}M$, where $\mathfrak{m}$ is the maximal ideal of $A$. Then choosing $t\in\mathfrak{m}$ with $t$ a non-zero-divisor in $M$, we have
+For $\dim M=r>0$, we induct as in the proof of Proposition~\ref{prop:5.2.5}. First we may assume that $\mathfrak{m}\notin\operatorname{Ass}M$, where $\mathfrak{m}$ is the maximal ideal of $A$. Then choosing $t\in\mathfrak{m}$ with $t$ a non-zero-divisor in $M$, we have
 \[
 0\longrightarrow M\xrightarrow{t} M\longrightarrow M/tM\longrightarrow 0
 \]
@@ -305,20 +311,22 @@ and $\dim M/tM<r$. Then for $i\notin[d-r+1,d]$ we have $\operatorname{Ext}^i(M/t
 \[
 \operatorname{Ext}^{i}(M,R^{\bullet})\xrightarrow{t}\operatorname{Ext}^{i}(M,R^{\bullet})\longrightarrow 0.
 \]
-It follows by Nakayama's lemma that $\operatorname{Ext}^{i}(M,R^{\bullet})=0$. q.e.d.
+It follows by Nakayama's lemma that $\operatorname{Ext}^{i}(M,R^{\bullet})=0$.
 \end{proof}
 
-\begin{corollary}\label{cor:5.3.5}
+\begin{bookcorollary}{3.5}\label{cor:5.3.5}
 Let $A$ be a noetherian local ring, and let $R^\bullet\in\DD^+_{\mathrm{c}}(A)$. Then $R^\bullet$ is dualizing on $A$ if and only if $R^\bullet\otimes_{A}\widehat{A}$ is dualizing on the completion $\widehat{A}$ of $A$.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Clearly $R^\bullet\otimes_{A}\widehat{A}\in\DD_{\widehat{\mathrm{c}}}^{+}(\widehat{A})$. Furthermore,
+Clearly $R^\bullet\otimes_{A}\widehat{A}\in\DD_{\mathrm{c}}^{+}(\widehat{A})$. Furthermore,
 \[
 \operatorname{Ext}_{\widehat{A}}^{i}(k, R^{\bullet}\otimes_{A}\widehat{A}) = \operatorname{Ext}_{A}^{i}(k, R^{\bullet})\otimes_{A}\widehat{A}
 \]
 for all $i$. Thus the ``only if'' implication is clear. For the ``if'' implication, note that the functor $\otimes_{A}\widehat{A}$ is faithfully flat, so if $M$ is a non-zero $A$-module, then $M\otimes_{A}\widehat{A}$ is non-zero. Furthermore, if $M$ is an $A$-module, such that $M\otimes_{A}\widehat{A}\cong k$, then $M\cong k$. (Indeed, map $M$ to $k$ via the natural map $M\to M\otimes_{A}\widehat{A}$. This map becomes an isomorphism upon tensoring with $\widehat{A}$, hence was an isomorphism). The result thus follows from the proposition.
 \end{proof}
+
+\par\endgroup
 
 \section{Local cohomology on a prescheme}\label{sec:5.4}
 
