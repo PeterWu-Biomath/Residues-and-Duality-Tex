@@ -1,9 +1,9 @@
 
 \chapter{Local Cohomology}
 
-This chapter consists for a great part in definitions, which generalize those of the Local Cohomology lecture notes [LC]. Notable new material is the spectral sequence of a filtered topological space, and the Cousin complex of a sheaf.
+This chapter consists for a great part in definitions, which generalize those of the Local Cohomology lecture notes \cite{LC}. Notable new material is the spectral sequence of a filtered topological space, and the Cousin complex of a sheaf.
 
-\section{Local cohomology groups, sheaves, and complexes}
+\section{Local cohomology groups, sheaves, and complexes}\label{sec:4.1}
 
 Throughout this section, $X$ will be an arbitrary topological space, and $F$ a sheaf of abelian groups on $X$. There are three ways in which one can vary the basic definition of the cohomology of $F$ with supports in a closed subset $Z$ of $X$: one can replace $Z$ by a family of supports; one can define a relative local cohomology if $Z'\subseteq Z$ are two closed subsets; and one can make everything local by sheafifying. Therefore we will present the definitions in the form of a theme and variations, to allow for all possible combinations of the generalizations suggested above.
 
@@ -14,7 +14,7 @@ We state our results mostly in terms of the cohomology groups, and leave to the 
 since any injective $\sO_X$-module is flasque, and flasque sheaves are acyclic for the functors considered (Motif C below).
 
 \medskip\noindent\textbf{Theme.}
-Let $Z$ be a closed subset of $X$. Define $\Gamma_Z(X,F)$ to be the group consisting of those global sections of $F$ whose support lies in $Z$. Define $H_Z^i(X,F)$ to be the $i$th right derived functor of $\Gamma_Z$ (which is a left-exact functor), and define $\DerR\Gamma_Z$ to be the right derived functor on the derived category $\DD^+(\Ab(X))$. These are called the \emph{local cohomology groups} of $F$ with supports in $Z$. They have the following properties:
+Let $Z$ be a closed subset of $X$. Define $\Gamma_Z(X,F)$ to be the group consisting of those global sections of $F$ whose support lies in $Z$. Define $H_Z^i(X,F)$ to be the $i$th right derived functor of $\Gamma_Z$ (which is a left-exact functor), and define $\RR\Gamma_Z$ to be the right derived functor on the derived category $\DD^+(\Ab(X))$. These are called the \emph{local cohomology groups} of $F$ with supports in $Z$. They have the following properties:
 
 \medskip\noindent\textbf{Motif A.} If
 \[
@@ -26,7 +26,7 @@ is a short exact sequence of abelian sheaves on $X$, then there is a long exact 
 &H^1_Z(X,F')\longrightarrow H^1_Z(X,F)\longrightarrow H^1_Z(X,F'')\longrightarrow\cdots.
 \end{align*}
 \begin{proof}
-This is the same as to say that $\Gamma_Z$ is left exact, and so is equal to $H^0(\DerR\Gamma_Z)$, which it is.
+This is the same as to say that $\Gamma_Z$ is left exact, and so is equal to $H^0(\RR\Gamma_Z)$, which it is.
 \end{proof}
 
 \medskip\noindent\textbf{Motif B.} There is a long exact sequence
@@ -46,8 +46,8 @@ and if $F$ is flasque (in particular if $F$ is injective) one can write a zero o
 which gives rise to a distinguished triangle in $\DD^+(\Ab)$, 
 \[
 \begin{tikzcd}[row sep=2cm, column sep=2cm]
-	\DerR\Gamma_Z(F^\bullet) \arrow[r]& \DerR\Gamma(F^\bullet) \arrow[d] \\
-	& \DerR\Gamma(X-Z, F^\bullet|_{X-Z}) \arrow[lu]
+	\RR\Gamma_Z(X,F) \arrow[r]& \RR\Gamma(X,F) \arrow[d] \\
+	& \RR\Gamma(X-Z,F|_{X-Z}) \arrow[lu]
 \end{tikzcd}
 \]
 Taking cohomology gives the result.
@@ -57,20 +57,20 @@ Taking cohomology gives the result.
 \begin{proof}
 This follows from Motif B, and the fact that $H^i(X,F)=H^i(X-Z,F)=0$ for $i>0$, and $\Gamma(X,F)\to\Gamma(X-Z,F)$ is surjective for $F$ flasque.
 \end{proof}
-\begin{remark}
-In fact, $F$ is flasque $\iff$ for every closed subspace $Z$ of $X$, $H_Z^1(X,F)=0$ [LC, 1.10].
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+In fact, $F$ is flasque $\iff$ for every closed subspace $Z$ of $X$, $H_Z^1(X,F)=0$ \cite[\nopp 1.10]{LC}.
+\par\medskip
 
 \medskip\noindent\textbf{Variation 1.}
-\begin{definition}
+\begin{definition*}
 A \emph{family of supports} on a topological space $X$ is a set $\varphi$ of closed subsets of $X$ such that
 \begin{itemize}
 \item[(a)] if $Z\in\varphi$, and $Z'$ is a closed subset of $Z$, then $Z'\in\varphi$, and
 \item[(b)] if $Z_1,Z_2\in\varphi$, then $Z_1\cup Z_2\in\varphi$.
 \end{itemize}
-\end{definition}
+\end{definition*}
 
-Now let $\varphi$ be a family of supports, and define $\Gamma_\varphi(X,F)$ to be the group of global sections of $F$ whose support is in $\varphi$. Define $\DerR\Gamma_\varphi(X,F)$ and $H^i_\varphi(X,F)$ to be the right derived functors.
+Now let $\varphi$ be a family of supports, and define $\Gamma_\varphi(X,F)$ to be the group of global sections of $F$ whose support is in $\varphi$. Define $\RR\Gamma_\varphi(X,F)$ and $H^i_\varphi(X,F)$ to be the right derived functors.
 
 \medskip\noindent\textbf{Motif A.} Repeat as above, with $Z$ replaced by $\varphi$.
 
@@ -88,7 +88,7 @@ Follows from Motif D, and Motif C above.
 \end{proof}
 
 \medskip\noindent\textbf{Variation 2.}
-Let $Z'\subseteq Z$ be closed subsets of $X$. Define $\Gamma_{Z/Z'}(X,F)$ to be $\Gamma_Z(X,F)/\Gamma_{Z'}(X,F)$. Define $\DerR\Gamma_{Z/Z'}$ and $H^i_{Z/Z'}$ to be the right derived functors. Note that in general $\Gamma_{Z/Z'}$ is not left exact, so that $\Gamma_{Z/Z'}\neq H^0_{Z/Z'}$.
+Let $Z'\subseteq Z$ be closed subsets of $X$. Define $\Gamma_{Z/Z'}(X,F)$ to be $\Gamma_Z(X,F)/\Gamma_{Z'}(X,F)$. Define $\RR\Gamma_{Z/Z'}$ and $H^i_{Z/Z'}$ to be the right derived functors. Note that in general $\Gamma_{Z/Z'}$ is not left exact, so that $\Gamma_{Z/Z'}\neq H^0_{Z/Z'}$.
 
 \medskip\noindent\textbf{Motif A.} Repeat with $H^0$ in place of $\Gamma$, and $Z/Z'$ in place of $Z$.
 
@@ -102,22 +102,22 @@ Let $Z'\subseteq Z$ be closed subsets of $X$. Define $\Gamma_{Z/Z'}(X,F)$ to be 
 \medskip\noindent\textbf{Motif C.} Repeat.
 
 \medskip\noindent\textbf{Variation 3.}
-Let $Z$ be a closed subset of $X$. Define $\underline{\Gamma}_Z(F)$ to be the sheaf whose sections over an open set $U$ are the elements of $\Gamma_{Z\cap U}(U,F|_U)$. Define $\DerR\underline{\Gamma}_Z(F)$ and $\underline{H}_Z^i(F)$ to be the right derived functors, which are now complexes of sheaves, resp.\ sheaves on $X$.
+Let $Z$ be a closed subset of $X$. Define $\underline{\Gamma}_Z(F)$ to be the sheaf whose sections over an open set $U$ are the elements of $\Gamma_{Z\cap U}(U,F|_U)$. Define $\RR\underline{\Gamma}_Z(F)$ and $\mathcal{H}_Z^i(F)$ to be the right derived functors, which are now complexes of sheaves, resp.\ sheaves on $X$.
 
-\medskip\noindent\textbf{Motif A.} Repeat with underlines.
+\medskip\noindent\textbf{Motif A.} Repeat for the corresponding sheaf functors.
 
 \medskip\noindent\textbf{Motif B.} There is a four-term exact sequence
 \[
-0\longrightarrow \underline{\Gamma}_Z(F)\longrightarrow F\longrightarrow j_*(F|_{X-Z})\longrightarrow \underline{H}^1_Z(F)\longrightarrow 0
+0\longrightarrow \underline{\Gamma}_Z(F)\longrightarrow F\longrightarrow j_*(F|_{X-Z})\longrightarrow \mathcal{H}^1_Z(F)\longrightarrow 0
 \]
 where $j\colon X-Z\to X$ is the inclusion, and there are isomorphisms for $i>0$,
 \[
-R^i j_*(F|_{X-Z}) \xrightarrow{\sim} \underline{H}_Z^{i+1}(F).
+R^i j_*(F|_{X-Z}) \xrightarrow{\sim} \mathcal{H}_Z^{i+1}(F).
 \]
 
-\medskip\noindent\textbf{Motif C.} For $F$ flasque and $i>0$, $\underline{H}_Z^{i}(F)=0$.
+\medskip\noindent\textbf{Motif C.} For $F$ flasque and $i>0$, $\mathcal{H}_Z^{i}(F)=0$.
 \begin{proof}
-One sees easily that for any $F$ and for any $i$, $\underline{H}^{i}_Z(F)$ is the sheaf associated to the presheaf
+One sees easily that for any $F$ and for any $i$, $\mathcal{H}^{i}_Z(F)$ is the sheaf associated to the presheaf
 \[
 U\longmapsto H_{Z\cap U}^{i}(U,F|_U).
 \]
@@ -126,15 +126,15 @@ Now since the restriction of a flasque sheaf to an open subset is flasque, the r
 
 \medskip\noindent\textbf{Motif E.} There is a spectral sequence
 \[
-E_2^{pq}=H^p(X, \underline{H}_Z^q(F))\implies E^n=H_Z^n(X,F),
+E_2^{pq}=H^p(X, \mathcal{H}_Z^q(F))\implies E^n=H_Z^n(X,F),
 \]
-or equivalently, in terms of the derived categories, $\DerR\Gamma_Z = \DerR\Gamma\cdot \DerR\underline{\Gamma}_Z$.
+or equivalently, in terms of the derived categories, $\RR\Gamma_Z = \RR\Gamma\cdot \RR\underline{\Gamma}_Z$.
 \begin{proof}
-Referring to [I.5.4], we need only show that $\underline{\Gamma}_Z$ takes injectives into $\Gamma$-acyclic objects. Indeed, any injective is flasque, and $\underline{\Gamma}_Z$ of a flasque is flasque, and any flasque is $\Gamma$-acyclic.
+Referring to \bookref{prop:1.5.4}{I,~5.4}, we need only show that $\underline{\Gamma}_Z$ takes injectives into $\Gamma$-acyclic objects. Indeed, any injective is flasque, and $\underline{\Gamma}_Z$ of a flasque is flasque, and any flasque is $\Gamma$-acyclic.
 \end{proof}
 
 \medskip\noindent\textbf{Variation 4.}
-Combining variations 1 and 2, let $\psi\subseteq\varphi$ be two families of supports. Define $\Gamma_{\varphi/\psi}(X,F)$ and its derived functors $\DerR\Gamma_{\varphi/\psi}(X,F)$ and $H^i_{\varphi/\psi}(X,F)$.
+Combining variations 1 and 2, let $\psi\subseteq\varphi$ be two families of supports. Define $\Gamma_{\varphi/\psi}(X,F)$ and its derived functors $\RR\Gamma_{\varphi/\psi}(X,F)$ and $H^i_{\varphi/\psi}(X,F)$.
 
 \medskip\noindent\textbf{Motif A.} Repeat.
 
@@ -150,11 +150,11 @@ H_{\varphi/\psi}^{i}(X,F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi \\ Z'\i
 \medskip\noindent\textbf{Variation 5.}
 Combining variations 1 and 3 leads us to a
 
-\begin{definition}
+\begin{definition*}
 A \emph{sheaf of families of supports} on a topological space $X$ is a sheaf of sets $\underline{\varphi}$, such that for every open set $U$, $\underline{\varphi}(U)$ is a family of supports on $U$, and such that for $V\subseteq U$ the restriction map $\underline{\varphi}(U)\to\underline{\varphi}(V)$ is given by $Z\in\underline{\varphi}(U)$ goes to $Z\cap V\in\underline{\varphi}(V)$.
-\end{definition}
+\end{definition*}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remarks.}
 \begin{enumerate}
 \item If $\varphi$ is a family of supports on $X$, we can define a sheaf of families of supports $\widetilde{\varphi}$ on $X$ by taking the sheaf associated to the presheaf
 \[
@@ -163,11 +163,11 @@ U\longmapsto \{Z\cap U\mid Z\in\varphi\}.
 \item If $\underline{\varphi}$ is a sheaf of families of supports on $X$, we can define a family of supports $\Gamma(\underline{\varphi})$ on $X$ by $\Gamma(\underline{\varphi})=\underline{\varphi}(X)$.
 \item Note that in general, the operations $\Gamma$ and $\sim$ are not inverses to each other. For example, if $\varphi$ is the family of compact subsets of a locally compact Hausdorff space, then $\widetilde{\varphi}$ is the maximal sheaf of families of supports, and $\Gamma(\widetilde{\varphi})$ is the maximal family of supports. But if $X$ is not compact, $\varphi\neq\Gamma(\widetilde{\varphi})$.
 \item Conversely, let $f\colon X\to Y$ be a morphism of finite type of locally noetherian preschemes. Let $p$ be an integer, and let $\underline{\varphi}$ be the sheaf of families of supports on $X$ given by $\underline{\varphi}(U)=$ the set of (relatively) closed subsets $Z$ of $U$ such that for every $y\in f(U)$, $Z\cap X_y$ is of codimension $\geq p$ in the fibre $X_y$. Then in general $\Gamma(\underline{\varphi})^{\sim}$ is different from $\underline{\varphi}$. (For a specific example, let $Y=\operatorname{Spec}k[x,y]$, let $X=\mathbb{P}^1_Y$ and let $p=1$. Then if $Z\subseteq X$ is obtained by blowing up the origin of $Y$, $Z$ is locally in $\varphi$ except over the origin of $Y$, but $Z\notin \Gamma(\underline{\varphi})$.)
-\item For another example of a family of supports, let $Z$ be a subset of the topological space $X$, stable under specialization (e.g., $Z=\{x\in X\text{ of codimension }\geq p\}$ for some $p$. By the codimension of a point $x$ in a topological space $X$, we mean the largest integer $n$, or $+\infty$, such that there exists a sequence $x_0,x_1,x_2,\cdots,x_n=x$ of points of $X$ where for each $i$, $x_i\to x_{i+1}$ is a proper specialization, i.e., $x_{i+1}\in\overline{\{x_i\}}$ and $x_i\neq x_{i+1}$). Then the set of subsets of finite unions of closures of points of $Z$ is a family of supports $\varphi$. One can also consider the associated sheaf of families of supports $\widetilde{\varphi}$. If $X$ is locally noetherian (as a topological space) and if every closed irreducible subset of $X$ has a unique generic point, then there is a $1$-$1$ correspondence between subsets of $X$, stable under specialization, and families of supports $\varphi$, such that $\varphi=\Gamma(\widetilde{\varphi})$. In these cases we will write $\Gamma_Z$ for $\Gamma_{\varphi}$, $H_Z^i$ for $H_{\varphi}^i$, $\underline{\Gamma}_Z$ for $\underline{\Gamma}_{\widetilde{\varphi}}$, etc.
+\item For another example of a family of supports, let $Z$ be a subset of the topological space $X$, stable under specialization (e.g., $Z=\{x\in X\text{ of codimension }\geq p\}$ for some $p$. By the codimension of a point $x$ in a topological space $X$, we mean the largest integer $n$, or $+\infty$, such that there exists a sequence $x_0,x_1,x_2,\cdots,x_n=x$ of points of $X$ where for each $i$, $x_i\to x_{i+1}$ is a proper specialization, i.e., $x_{i+1}\in\overline{\{x_i\}}$ and $x_i\neq x_{i+1}$). Then the set of closed subsets of finite unions of closures of points of $Z$ is a family of supports $\varphi$. One can also consider the associated sheaf of families of supports $\widetilde{\varphi}$. If $X$ is locally noetherian (as a topological space) and if every closed irreducible subset of $X$ has a unique generic point, then there is a $1$-$1$ correspondence between subsets of $X$, stable under specialization, and families of supports $\varphi$, such that $\varphi=\Gamma(\widetilde{\varphi})$. In these cases we will write $\Gamma_Z$ for $\Gamma_{\varphi}$, $H_Z^i$ for $H_{\varphi}^i$, $\underline{\Gamma}_Z$ for $\underline{\Gamma}_{\widetilde{\varphi}}$, etc.
 \end{enumerate}
-\end{remark}
+\par\medskip
 
-Now let $\underline{\varphi}$ be a sheaf of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}}(F)$ to be the sheaf whose sections on an open set $U$ are $\Gamma_{\underline{\varphi}(U)}(U,F|_U)$. Define $\DerR\underline{\Gamma}_{\underline{\varphi}}(F)$ and $\underline{H}^{\underline{i}}_{\underline{\varphi}}(F)$ to be the right derived functors.
+Now let $\underline{\varphi}$ be a sheaf of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}}(F)$ to be the sheaf whose sections on an open set $U$ are $\Gamma_{\underline{\varphi}(U)}(U,F|_U)$. Define $\RR\underline{\Gamma}_{\underline{\varphi}}(F)$ and $\mathcal{H}^{i}_{\underline{\varphi}}(F)$ to be the right derived functors.
 
 \medskip\noindent\textbf{Motif A.} Repeat.
 
@@ -175,27 +175,27 @@ Now let $\underline{\varphi}$ be a sheaf of families of supports on $X$. Define 
 
 \medskip\noindent\textbf{Motif D.} If $\underline{\varphi}$ is a sheaf of families of supports of global nature (i.e., such that $\underline{\varphi}=\Gamma(\underline{\varphi})^{\sim}$), then
 \[
-\underline{H}_{\varphi}^{i}(F)=\lim_{\substack{\longrightarrow \\ Z\in\varphi(X)}}\,\underline{H}_{Z}^{i}(F).
+\mathcal{H}_{\underline{\varphi}}^{i}(F)=\lim_{\substack{\longrightarrow \\ Z\in\underline{\varphi}(X)}}\,\mathcal{H}_{Z}^{i}(F).
 \]
 
 \medskip\noindent\textbf{Motif E.} There is a spectral sequence
 \[
-E_2^{pq}=H^p(X, \underline{H}_{\underline{\varphi}}^q(F))\implies E^n=H_{\Gamma(\underline{\varphi})}^n(X, F),
+E_2^{pq}=H^p(X, \mathcal{H}_{\underline{\varphi}}^q(F))\implies E^n=H_{\Gamma(\underline{\varphi})}^n(X, F),
 \]
-or, in terms of the derived categories, $\DerR\Gamma_{\Gamma(\underline{\varphi})} = \DerR\Gamma\cdot \DerR\underline{\Gamma}_{\underline{\varphi}}$.
+or, in terms of the derived categories, $\RR\Gamma_{\Gamma(\underline{\varphi})} = \RR\Gamma\cdot \RR\underline{\Gamma}_{\underline{\varphi}}$.
 
 \medskip\noindent\textbf{Variation 6.}
-Combining variations 2 and 3, let $Z'\subseteq Z$ be closed subsets of $X$. Define $\underline{\Gamma}_{Z/Z'}$, $\DerR\underline{\Gamma}_{Z/Z'}$, and $\underline{H}^i_{Z/Z'}$. Repeat Motifs A, B, C, and E.
+Combining variations 2 and 3, let $Z'\subseteq Z$ be closed subsets of $X$. Define $\underline{\Gamma}_{Z/Z'}$, $\RR\underline{\Gamma}_{Z/Z'}$, and $\mathcal{H}^i_{Z/Z'}$. Repeat Motifs A, B, C, and E.
 
 \medskip\noindent\textbf{Variation 7.}
-Combining variations 1, 2, and 3, let $\underline{\psi}\subseteq\underline{\varphi}$ be two sheaves of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, $\DerR\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, and $\underline{H}_{\underline{\varphi}/\underline{\psi}}^{i}$. Repeat Motifs A, B, C, D, and E.
+Combining variations 1, 2, and 3, let $\underline{\psi}\subseteq\underline{\varphi}$ be two sheaves of families of supports on $X$. Define $\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, $\RR\underline{\Gamma}_{\underline{\varphi}/\underline{\psi}}$, and $\mathcal{H}_{\underline{\varphi}/\underline{\psi}}^{i}$. Repeat Motifs A, B, C, D, and E.
 
 \medskip\noindent\textbf{Variation 8.}
-In this case we define a purely punctual invariant. Let $x$ be a point of $X$ and define $\Gamma_x(F)$ to be the subgroup of the stalk $F_x$ consisting of elements $\overline{s}$ which have a representative $s$ in a suitable neighborhood $U$ of $x$, whose support is $\overline{\{x\}}\cap U$. Define the right derived functors $\DerR\Gamma_x(F)$ and $H_x^{i}(F)$. Note that $H_x^{i}(F)=\underline{H}_Z^{i}(F)_x$, where $Z=\overline{\{x\}}$, and the subscript $x$ denotes the stalk. Repeat Motifs A and C.
+In this case we define a purely punctual invariant. Let $x$ be a point of $X$ and define $\Gamma_x(F)$ to be the subgroup of the stalk $F_x$ consisting of elements $\overline{s}$ which have a representative $s$ in a suitable neighborhood $U$ of $x$, whose support is contained in $\overline{\{x\}}\cap U$. Define the right derived functors $\RR\Gamma_x(F)$ and $H_x^{i}(F)$. Note that $H_x^{i}(F)=\mathcal{H}_Z^{i}(F)_x$, where $Z=\overline{\{x\}}$, and the subscript $x$ denotes the stalk. Repeat Motifs A and C.
 
 \medskip\noindent\textbf{Motif F.} Assume that $X$ is a locally noetherian topological space and that every closed irreducible subset of $X$ has a unique generic point. Let $Z'\subseteq Z$ be two subsets of $X$, stable under specialization, and such that every $x\in Z-Z'$ is maximal in $Z$ (i.e., if $x\in Z$ and $x\to x'$ is a non-trivial specialization, then $x'\in Z'$). Let $F^\bullet\in\DD^+(\Ab(X))$ be a complex of sheaves. Then there is a canonical functorial isomorphism
 \[
-\underline{H}_{Z/Z'}^{i}(F^\bullet) \xrightarrow{\sim} \coprod_{x\in Z-Z'} i_x(H_x^{i}(F^\bullet)),
+\mathcal{H}_{Z/Z'}^{i}(F^\bullet) \xrightarrow{\sim} \coprod_{x\in Z-Z'} i_x(H_x^{i}(F^\bullet)),
 \]
 where for any group $G$, $i_x(G)$ is the constant sheaf $G$ on $\overline{\{x\}}$, and $0$ elsewhere. (By abuse of notation we write $Z$, $Z'$ instead of the sheaves of families of supports they define as in Remark 5 of Variation 5 above.)
 \begin{proof}
@@ -203,11 +203,11 @@ Since both sides are derived functors, it will be sufficient to establish a cano
 \[
 \underline{\Gamma}_{Z/Z'}(F)\xrightarrow{\sim} \coprod_{x\in Z-Z'} i_x(\Gamma_x(F)).
 \]
-For an open set $U$ we define a map
+For a noetherian open set $U$ we define a map
 \[
 \Gamma_{Z\cap U}(U,F|_U)\longrightarrow \coprod_{x\in (Z-Z')\cap U} \Gamma_x(F)
 \]
-by sending a section into its germ at each stalk. Only finitely many are non-zero, because the support of any section $s$ is a finite union $\overline{\{z_1\}}\cup\cdots\cup\overline{\{z_n\}}$ with $z_i\in Z$ (since $X$ is locally noetherian!) and because each $x\in Z-Z'$ is maximal in $Z$. A section $s$ goes to zero if and only if it is in $\Gamma_{Z'\cap U}(U,F|_U)$. Thus we have defined an inclusion of sheaves above. Finally, we see that it is surjective, because every germ $\overline{s}\in\Gamma_x(F)$ comes from a section $s$ of $F$ in a suitable neighborhood $U$, with support $\overline{\{x\}}\cap U$.
+by sending a section into its germ at each stalk. Only finitely many are non-zero, because the support of any section $s$ is a finite union $\overline{\{z_1\}}\cup\cdots\cup\overline{\{z_n\}}$ with $z_i\in Z$ (since $U$ is noetherian) and because each $x\in Z-Z'$ is maximal in $Z$. A section $s$ goes to zero if and only if it is in $\Gamma_{Z'\cap U}(U,F|_U)$. Thus we have defined an inclusion of sheaves above. Finally, we see that it is surjective, because every germ $\overline{s}\in\Gamma_x(F)$ comes from a section $s$ of $F$ in a suitable neighborhood $U$, with support contained in $\overline{\{x\}}\cap U$.
 \end{proof}
 
 \medskip\noindent\textbf{Coda.}
@@ -220,21 +220,28 @@ X = \underline{\varphi}^0 \supseteq \underline{\varphi}^1 \supseteq \cdots
 \]
 be a filtration of $X$ by sheaves of families of supports, and let $F^\bullet$ be a complex of abelian sheaves on $X$ bounded below. Then there is a spectral sequence
 \[
-E_1^{pq}=H^{p+q}_{\varphi^p/\varphi^{p+1}}(F^\bullet)\implies E^n=H^n(F^\bullet),
+E_1^{pq}=\mathcal{H}^{p+q}_{\underline{\varphi}^p/\underline{\varphi}^{p+1}}(F^\bullet)\implies E^n=\mathcal{H}^n(F^\bullet),
 \]
-which is biregular [EGA $O_{\mathrm{III}}$ \S11] if the filtration is finite, i.e., $\underline{\varphi}^n=\emptyset$ for some $n$. Or, in terms of the derived category, there is a diagram of distinguished triangles (shown in the convergent case)
+which is biregular \cite[\nopp $0_{\mathrm{III}}$, \S11]{EGA} if the filtration is finite, i.e., $\underline{\varphi}^n=\emptyset$ for some $n$. Or, in terms of the derived category, there is a diagram of distinguished triangles (shown in the convergent case)
+Writing
 \[
-\begin{tikzcd}[row sep=1cm, column sep=0.3cm]
-	& \DerR\underline{\Gamma}_{\underline{\varphi}^{n-1}/\underline{\varphi}^n} \arrow[dl] & & \dots & & \DerR\underline{\Gamma}_{\underline{\varphi}^0/\underline{\varphi}^1} \arrow[dl] & \\
-	0 = \DerR\underline{\Gamma}_{\underline{\varphi}^n} \arrow[rr] & & \DerR\underline{\Gamma}_{\underline{\varphi}^{n-1}} \arrow[ul] \arrow[r] & \dots \arrow[r] & \DerR\underline{\Gamma}_{\underline{\varphi}^1} \arrow[rr] & & \DerR\underline{\Gamma}_{\underline{\varphi}^0} = F^\bullet \arrow[ul]
+A_p=\RR\underline{\Gamma}_{\underline{\varphi}^p}(F^\bullet),
+\qquad B_p=\RR\underline{\Gamma}_{\underline{\varphi}^p/\underline{\varphi}^{p+1}}(F^\bullet),
+\]
+this diagram is
+\[
+\begin{tikzcd}[row sep=large, column sep=small]
+ & B_{n-1} \arrow[dl] & & & B_0 \arrow[d] & \\
+0=A_n \arrow[rr] & & A_{n-1} \arrow[ul] \arrow[r]
+ & \cdots \arrow[r] & A_1 \arrow[r] & A_0=F^\bullet \arrow[ul]
 \end{tikzcd}
 \]
 \begin{proof}
-This is just the spectral sequence of a filtered complex [M, Ch.\ XV]. Take an injective resolution $I^\bullet$ of $F^\bullet$. Then $I^\bullet$ is filtered
+This is just the spectral sequence of a filtered complex \cite[\nopp Ch.~XV]{M}. Take an injective resolution $I^\bullet$ of $F^\bullet$. Then $I^\bullet$ is filtered
 \[
-I^\bullet = \underline{\Gamma}_{\varphi^0}(I^\bullet)\supset \underline{\Gamma}_{\varphi^1}(I^\bullet)\supset \cdots \supset \underline{\Gamma}_{\varphi^n}(I^\bullet)=0,
+I^\bullet = \underline{\Gamma}_{\underline{\varphi}^0}(I^\bullet)\supset \underline{\Gamma}_{\underline{\varphi}^1}(I^\bullet)\supset \cdots \supset \underline{\Gamma}_{\underline{\varphi}^n}(I^\bullet)=0,
 \]
-and the quotients are $\underline{\Gamma}_{\varphi^i/\varphi^{i+1}}(I^\bullet)$.
+and the quotients are $\underline{\Gamma}_{\underline{\varphi}^i/\underline{\varphi}^{i+1}}(I^\bullet)$.
 \end{proof}
 
 \section{Depth and the Cousin complex}\label{sec:4.2}

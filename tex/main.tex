@@ -23,6 +23,30 @@
 \newtheorem{corollary}{Corollary} 
 \newtheorem{example}{Example}
 \newtheorem{remark}{Remark}
+% Unnumbered definitions and scan-verified statement numbers.
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{example*}{Example}
+\newtheorem{definitioncorollary}{Definition and Corollary}
+\theoremstyle{plain}
+\newenvironment{bookproposition}[2][]
+  {\renewcommand{\theproposition}{#2}\begin{proposition}[#1]}
+  {\end{proposition}}
+\newenvironment{booklemma}[1]
+  {\renewcommand{\thelemma}{#1}\begin{lemma}}
+  {\end{lemma}}
+\newenvironment{booktheorem}[2][]
+  {\renewcommand{\thetheorem}{#2}\begin{theorem}[#1]}
+  {\end{theorem}}
+\newenvironment{bookcorollary}[1]
+  {\renewcommand{\thecorollary}{#1}\begin{corollary}}
+  {\end{corollary}}
+\newenvironment{bookdefinition}[1]
+  {\renewcommand{\thedefinition}{#1}\begin{definition}}
+  {\end{definition}}
+\newenvironment{bookdefinitioncorollary}[1]
+  {\renewcommand{\thedefinitioncorollary}{#1}\begin{definitioncorollary}}
+  {\end{definitioncorollary}}
 
 \newcommand{\doubleunderline}[1]{\underline{\underline{#1}}}
 \newcommand{\sO}{\mathcal{O}}
@@ -61,6 +85,9 @@
 \newcommand{\sheafHom}{\mathop{\mathscr{H}\!om}\nolimits}
 \newcommand{\RHom}{\operatorname{RHom}}
 \newcommand{\RsheafHom}{\mathop{\mathrm{R}\mathscr{H}\!om}\nolimits}
+\newcommand{\sheafExt}{\mathop{\mathscr{E}\!xt}\nolimits}
+\newcommand{\sheafTor}{\mathop{\mathscr{T}\!or}\nolimits}
+\newcommand{\derivedtensor}{\mathbin{\otimes^{\mathrm{L}}}}
 \newcommand{\Tor}{\operatorname{Tor}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\D}{\mathcal{D}}
@@ -73,7 +100,7 @@
     backref=true,        % Optional: Add "Cited on page X" links
 ]{biblatex}
 \addbibresource{references.bib} % Your BibTeX file name
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
 % Keep original book locators while linking to stable semantic labels.
 \newcommand{\bookref}[2]{\hyperref[#1]{\textup{[#2]}}}
 
@@ -84,7 +111,6 @@
 \author{Robin Hartshorne}
 \date{May 1966}
 \maketitle
-\frontmatter
 \chapter*{Preface}
 \markboth{Preface}{Preface}
 

@@ -1,6 +1,8 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \markboth{Introduction}{Introduction}
+\begingroup
+\setlength{\emergencystretch}{2em}
 \begin{flushright}
 	\textit{
 		\begin{quote}
@@ -18,14 +20,14 @@ where $D$ is a divisor, $K$ is the canonical divisor, and
 \[
 h^{i}(D)=\dim_{k} \HH^{i}(X, \sO_{X}(D))
 \]
-for any $i$, and any divisor $D$. (See e.g.~\cite[Ch.~II]{16} for a proof.)
+for any $i$, and any divisor $D$. (See e.g.~\cite[\nopp Ch.~II]{16} for a proof.)
 
 Various attempts were made to generalize this theorem to varieties of higher dimension, and as Zariski points out in his report \cite{20}, his generalization of a lemma of Enriques--Severi \cite{19} is equivalent to the statement that for a normal projective variety $X$ of dimension $n$ over $k$, for any divisor $D$,
 \[
 h^{0}(D)=h^{n}(K-D).
 \]
-This is also equivalent to a theorem of Serre \cite[\S76, Thm.~4]{FAC}
-on the vanishing of the cohomology group $\HH^{1}(X, \sL(-m))$ for $m$ large and $\sL$ locally free. Using a related theorem \cite[\S75, Thm.~3]{FAC}, Zariski shows how one can deduce on a non-singular projective variety the formula
+This is also equivalent to a theorem of Serre \cite[\nopp \S76, Thm.~4]{FAC}
+on the vanishing of the cohomology group $\HH^{1}(X, \sL(-m))$ for $m$ large and $\sL$ locally free. Using a related theorem \cite[\nopp \S75, Thm.~3]{FAC}, Zariski shows how one can deduce on a non-singular projective variety the formula
 \[
 h^{i}(D)=h^{n-i}(K-D)
 \]
@@ -50,7 +52,7 @@ we obtain a pairing
 \begin{equation}\tag{3}\label{eq:3}
 	\HH^{i}(X, \sF)\times \Ext_{X}^{n-i}(\sF,\omega)\to k
 \end{equation}
-which one shows easily to be a perfect pairing \cite[62, expos\'e~12]{SGA}. This generalizes the statements above, because for a locally free sheaf $\sF$,
+which one shows easily to be a perfect pairing \cite[\nopp 62, expos\'e~12]{SGA}. This generalizes the statements above, because for a locally free sheaf $\sF$,
 \[
 \Ext^{n-i}(\sF,\omega)=\Ext^{n-i}\bigl(\sO_{X},\sF^{\vee}\otimes\omega\bigr)=\HH^{n-i}\bigl(X,\sF^{\vee}\otimes\omega\bigr).
 \]
@@ -96,6 +98,7 @@ which generalizes \eqref{eq:5}. This is easily proved to be an isomorphism (\boo
 
 Having examined the case of projective space, we can state the following ideal theorem, which is the primum mobile of these notes, although it may never appear explicitly in this form.
 
+\filbreak
 \bigskip
 \noindent
 \textbf{Ideal Theorem.}
@@ -188,9 +191,9 @@ There are so many situations in which we have a functor $f^{!}$ like the one men
 
 In sections~3, 4, and~5 we recall the explicit calculations of cohomology for projective space, and give the old duality for projective space in the new language of derived categories. Sections~6 and~7 give the corresponding formalism for finite morphisms, and its relation to the case of smooth morphisms, so that in sections~8, 10, and~11 we can prove the ideal duality theorem for projective morphisms. Section~9 gives the formalism of a residue symbol which generalizes the classical residue of a differential on a curve. Even over the complex numbers, this important concept of residue for varieties of dimension greater than one was not known before.
 
-In Chapter~\textsc{iv} we study ``local cohomology'', or cohomology with restricted supports, of abelian sheaves on a locally noetherian topological space, generalizing results of \cite[\S\S1,3]{LC}. In particular, we discuss various cohomological properties which a sheaf or complex of sheaves may have with respect to certain families of supports. This gives rise to the notions of depth, Cousin complex, Cohen--Macaulay complex, and Gorenstein complex. The results of this chapter are independent of all other chapters of these notes, and so may be of use elsewhere, although their only application for the moment is to the theory of duality on preschemes.
+In Chapter~\textsc{iv} we study ``local cohomology'', or cohomology with restricted supports, of abelian sheaves on a locally noetherian topological space, generalizing results of \cite[\nopp \S\S1,3]{LC}. In particular, we discuss various cohomological properties which a sheaf or complex of sheaves may have with respect to certain families of supports. This gives rise to the notions of depth, Cousin complex, Cohen--Macaulay complex, and Gorenstein complex. The results of this chapter are independent of all other chapters of these notes, and so may be of use elsewhere, although their only application for the moment is to the theory of duality on preschemes.
 
-Chapter~\textsc{v} discusses dualizing complexes (read section~0 to find out what one is) and gives a duality theorem for modules over a local ring, generalizing results of \cite[\S\S2,4,6]{LC}. In particular, the dualizing functor
+Chapter~\textsc{v} discusses dualizing complexes (read section~0 to find out what one is) and gives a duality theorem for modules over a local ring, generalizing results of \cite[\nopp \S\S2,4,6]{LC}. In particular, the dualizing functor
 \[
 \mathscr{D} = \RsheafHom(\,\bullet\,, R^{\bullet})
 \]
@@ -205,7 +208,7 @@ It remains to give the reader some perspective by listing some topics which have
 \medskip
 \noindent
 1.\ The cohomology class associated to a cycle.
-Let $X$ be proper and smooth of dimension $n$ over a field $k$. In \cite[\S4]{8} it is shown how to associate to each non-singular subvariety $Y$ of codimension $p$ of $X$, a cohomology class
+Let $X$ be proper and smooth of dimension $n$ over a field $k$. In \cite[\nopp \S4]{8} it is shown how to associate to each non-singular subvariety $Y$ of codimension $p$ of $X$, a cohomology class
 \[
 \PP_{X}(Y) \in \HH^{p}\bigl(X, \Omega_{X/k}^{p}\bigr).
 \]
@@ -221,15 +224,15 @@ One defines a natural map
 \[
 \Omega_{Y/k}^{n-p} \to \omega_{Y},
 \]
-which, together with $\eta$ and the construction of \cite[\S4]{8}, gives the cohomology class $\PP_{X}(Y)$. One proves the fundamental theorem that formation of the cohomology class associated to a cycle takes an intersection of cycles into the cup-product of their cohomology classes.
+which, together with $\eta$ and the construction of \cite[\nopp \S4]{8}, gives the cohomology class $\PP_{X}(Y)$. One proves the fundamental theorem that formation of the cohomology class associated to a cycle takes an intersection of cycles into the cup-product of their cohomology classes.
 
 \medskip
 \noindent
-2.\ The theory of Poincaré duality and the Gysin homomorphism can be developed as in \cite[\S7]{8}.
+2.\ The theory of Poincaré duality and the Gysin homomorphism can be developed as in \cite[\nopp \S7]{8}.
 
 \medskip
 \noindent
-3.\ A Lefschetz--Verdier fixed point formula for coherent sheaves on a scheme proper over a field, to generalize \cite[Thm.~2]{21}. In particular, the determination of the local contribution at a non-simple fixed point presents an interesting topic for future investigation.
+3.\ A Lefschetz--Verdier fixed point formula for coherent sheaves on a scheme proper over a field, to generalize \cite[\nopp Thm.~2]{21}. In particular, the determination of the local contribution at a non-simple fixed point presents an interesting topic for future investigation.
 
 \medskip
 \noindent
@@ -237,4 +240,6 @@ which, together with $\eta$ and the construction of \cite[\S4]{8}, gives the coh
 
 \bigskip
 
-A remark on references: Theorem~5.1 of Chapter~\textsc{iii} is referred to as ``Theorem~5.1'' in Chapter~\textsc{iii}, and as \bookref{thm:3.5.1}{III,~5.1} elsewhere. References to the bibliography at the end are given by square brackets with an arabic numeral or some capital letters, e.g., \cite[(31.1)]{14} or \cite[III,~2.1.12]{EGA}.
+A remark on references: Theorem~5.1 of Chapter~\textsc{iii} is referred to as ``Theorem~5.1'' in Chapter~\textsc{iii}, and as \bookref{thm:3.5.1}{III,~5.1} elsewhere. References to the bibliography at the end are given by square brackets with an arabic numeral or some capital letters, e.g., \cite[\nopp (31.1)]{14} or \cite[\nopp III,~2.1.12]{EGA}.
+\par
+\endgroup
