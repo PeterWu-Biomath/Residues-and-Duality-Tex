@@ -74,10 +74,18 @@
 \end{longtable}
 
 \chapter{Index of Notations}
-Of course there is the usual collection of variable notations: $A, B$ for abelian categories or rings, functors or sheaves, $X,Y$ for preschemes, $x,y$ for points of them, $f,g$ for morphisms of preschemes, $\phi$ for morphisms of functors on sheaves, etc.
+Of course there is the usual collection of variable notations: $A, B$ for abelian categories or rings, $F,G$ for functors or sheaves, $X,Y$ for preschemes, $x,y$ for points of them, $f,g$ for morphisms of preschemes, $\phi,\psi$ for morphisms of functors on sheaves, etc.
 
 
-In general no underline denotes a group, as $\Hom(\sF, \sG)$, one underline denotes a sheaf, as $\underline{\Hom}(\sF, \sG)$ or $\underline{\Tor}(\sF, \sG)$, two underlines denotes an object in a derived category, as $\DerR\Hom^\bullet(\sF^\bullet, \sG^\bullet)$, and a dot denotes a complex.
+In this edition, ordinary $\Hom(F,G)$ denotes a group or module, while
+$\sheafHom(F,G)$ and $\sheafTor(F,G)$ denote sheaf-valued functors.
+Derived functors use upright $\RR$ and $\LL$: $\RHom(F^\bullet,G^\bullet)$
+is global derived Hom, $\RsheafHom(F^\bullet,G^\bullet)$ is derived sheaf Hom,
+and $F^\bullet\derivedtensor G^\bullet$ is the derived tensor product.
+A bullet denotes a complex; in particular, $\Hom^\bullet$ and
+$\sheafHom^\bullet$ denote Hom complexes when these are used explicitly.
+The original edition used one underline for sheaves and two underlines
+for derived objects; the notation here replaces that convention.
 
 In the list of stable notations below, we have distinguished five categories: Latin alphabet, other alphabets, superscripts, subscripts, and arbitrary symbols.
 
@@ -98,32 +106,36 @@ In the list of stable notations below, we have distinguished five categories: La
 	$\Ass$ & associated primes & \\
 	$\B$ & boundaries of a complex & \\
 	$\Coh$ & category of coherent sheaves & II.1 \\
-	$\Coz$ & category of Cousin complexes & \\
-	$\DD$ & dualizing functor & V.0 \\
-	$\D(\mathcal{A})$ & derived category & I.4 \\
-	$\D(X)$ & $= \D(\operatorname{Mod}(X))$ & II.1 \\
+	$\Coz$ & category of Cousin complexes & IV.3 \\
+	$\mathscr{D}$ & sheaf-valued dualizing functor & V.0, VII.3 \\
+	$D$ & global dualizing functor & VII.3 \\
+	$\DD(\mathcal{A})$ & derived category & I.4 \\
+	$\DD(X)$ & $=\DD(\operatorname{Mod}(X))$ & II.1 \\
 	dcc & descending chain condition & V.2 \\
 	$\dim$ & dimension & \\
 	$\operatorname{Dual}$ & category of dualizing complexes & VI.1 \\
 	$\operatorname{E}$ & associated Cousin complex & IV.2, IV.3 \\
 	$\Ext$ & Ext groups & I.6 \\
-	$\underline{\Ext}$ & sheaf Ext & II.3 \\
+	$\sheafExt$ & sheaf Ext & II.3 \\
 	fid & finite injective dimension & I.7.6, II.7.20 \\
 	FR1--FR5 & axioms of multiplicative systems & I.3 \\
-	$\operatorname{H}$ & cohomology & I.1, IV.1 \\
+	$H$ & cohomology groups or modules & I.1, IV.1 \\
+	$\mathcal H$ & cohomology sheaves & II.1 \\
 	$\Hom$ & Hom groups & I.6 \\
-	$\underline{\Hom}$ & sheaf Hom & II.3 \\
-	$i_x$ & closed immersion & II.7 \\
-	$\operatorname{Icz}$ & category of injective Cousin complexes & \\
+	$\sheafHom$ & sheaf Hom & II.3 \\
+	$\RHom$ & global derived Hom & II.3 \\
+	$\RsheafHom$ & derived sheaf Hom & II.3 \\
+	$i_x$ & sheaf functor associated to the local scheme at $x$ & II.7 \\
+	$\operatorname{Icz}$ & category of injective Cousin complexes & IV.3 \\
 	$\id$ & identity map & \\
 	$\im$ & image & \\
 	$J(x),J(x,x')$ & standard injectives & II.7 \\
-	$\mathcal{K}(A)$ &  & II.7 \\
+	$\KK(\mathcal A)$ & homotopy category of complexes & I.2 \\
 	$k(x)$ & residue field of a point $x$ & \\
 	$K_\bullet(\underline{f}),K^\bullet(\underline{f};F)$ & Koszul complexes & III.7 \\
 	$\ker$ & kernel & \\
 	L1--L3 & axioms of direct systems & I.3 \\
-	$DerL$ & left derived functor & I.5 \\
+	$\LL$ & left derived functor & I.5 \\
 	lffr & locally free of finite rank & II.5 \\
 	$\operatorname{Lno}$ & category of locally noetherian preschemes & III.8 \\
 	$\operatorname{Mod}(X)$ & category of $\sO_X$-modules & II.1 \\
@@ -133,20 +145,20 @@ In the list of stable notations below, we have distinguished five categories: La
 	$\operatorname{Q}$ & functor into derived category & I.3 \\
 	$\Qco$ & category of quasi-coherent sheaves & II.1 \\
 	$\operatorname{Qis}$ & quasi-isomorphisms & I.4 \\
-	$\DerR$ & right derived functor & I.5 \\
+	$\RR$ & right derived functor & I.5 \\
 	$\operatorname{Res}$ & category of residual complexes & VI.1 \\
-	&  residue symbol & \\
-	&  residue of a differential & III.9 \\
-	$\Spec$ & spectrum of a ring & VII.1 \\
+	$\operatorname{Res}$ & residue symbol & III.9 \\
+	$\operatorname{Res}_x$ & residue of a differential & VII.1 \\
+	$\Spec$ & spectrum of a ring & \\
 	$\Supp$ & support of a sheaf or module & II.7 \\
 	$\operatorname{T}$ & translation functor & I.1 \\
-	$\underline{\Tor}$ &  &  \\
+	$\sheafTor$ & sheaf Tor & II.4  \\
 	$\Tr$ & trace map & III.10, VI.4, VII.1 \\
 	TR1--TR4 & axioms of a triangulated category & I.1 \\
 	TRA & axioms of trace & III.10.5, VI.4.2 \\
 	tr.\ d & transcendence degree & \\
-	$\Tr f$ & trace for a finite morphism & III.6 \\
-	$\Tr p$ & trace for a projective morphism & III.11 \\
+	$\operatorname{Trf}$ & trace for a finite morphism & III.6 \\
+	$\operatorname{Trp}$ & trace for a projective morphism & III.4 \\
 	VAR & axioms for $f^!$ or $f^\Delta$ & III.8.7, VI.3.1 \\
 	$\operatorname{Z}$ & cycles of a complex & \\
 \end{longtable}
@@ -157,13 +169,13 @@ In the list of stable notations below, we have distinguished five categories: La
 	Symbol & Meaning & Reference \\
 	\midrule
 	$\gamma$ & trace for smooth morphism & III.3.4, III.11.2, VII.4.1 \\
-	$\Gamma$ & global sections of a sheaf & II.1.5 \\
-	$\zeta$ & change of differentials & III.7.3 \\
+	$\Gamma$ & global sections of a sheaf & \\
+	$\zeta$ & change of differentials & III.1.5 \\
 	$\eta$ & fundamental local isomorphism  & III.7.3 \\
-	$\theta$ & duality morphism  & III.7.3 \\
-	$\xi$ & map of a functor to its derived functor  & III.7.3 \\
-	$\sigma_{\ge n}$ & truncated complex & I.7 \\
-	$\tau_{\ge n}$ & truncated complex & I.7 \\
+	$\Theta,\underline{\Theta}$ & duality morphisms & \shortstack[l]{III.5, III.6, III.11,\\V.6, VII.3} \\
+	$\xi$ & map of a functor to its derived functor & I.5 \\
+	$\sigma_{>n}$ & truncated complex & I.7 \\
+	$\tau_{>n}$ & truncated complex & I.7 \\
 	$\psi$ & residue isomorphism & III.8 \\
 	$\omega$ & sheaf of differentials & III.1 \\
 	$\Omega$ & sheaf of differentials & III.1 \\
@@ -181,20 +193,20 @@ In the list of stable notations below, we have distinguished five categories: La
 	\toprule
 	Symbol & Meaning & Reference \\
 	\midrule
-	$\mathcal{A^\prime}$ & as in $\mathcal{K}_{\mathcal{A^\prime}}(\mathcal{A}), \D_{\mathcal{A^\prime}}(\mathcal{A})$ & I.4 \\
-	$c$ & as in $\D_c(X)$ & II.1 \\
-	fid & as in $\D(X)_{\text{fid}}$ & I.7 \\
-	fTd & as in $\D(X)_{\text{fTd}}$ & II.4 \\
-	$\operatorname{Gor}(Z^\bullet)$ & as in $\D(X)_{\operatorname{Gor}(Z^\bullet)}$ & IV.3 \\
+	$\mathcal A'$ & as in $\KK_{\mathcal A'}(\mathcal{A}), \DD_{\mathcal A'}(\mathcal{A})$ & I.4 \\
+	$c$ & as in $\DD_c(X)$ & II.1 \\
+	fid & as in $\DD(X)_{\text{fid}}$ & I.7 \\
+	fTd & as in $\DD(X)_{\text{fTd}}$ & II.4 \\
+	$\operatorname{Gor}(Z^\bullet)$ & as in $\DD(X)_{\operatorname{Gor}(Z^\bullet)}$ & IV.3 \\
 	$\mathfrak{p}$ & as in $A_\mathfrak{p},\,M_\mathfrak{p}$: localization at a prime ideal & \\
-	qc & as in $\D_{\text{qc}}(X)$ & II.1 \\
+	qc & as in $\DD_{\text{qc}}(X)$ & II.1 \\
 	$x$ & as in $\sO_x$: local ring at a point  $x$ & \\
 	 & as in $\sF_x$: stalk of a sheaf at  $x$ & \\
 	 & as in $\HH^i_x$: local cohomology & \\
 	$Z$ & as in $\Gamma_Z,\HH^i_Z$ & IV.1 \\
-	$\operatorname{I},\,\operatorname{II}$ & as in $\DerR_{\operatorname{I}},\DerR_{\operatorname{II}}$ & IV.1 \\
-	$\geq n$ & as in $\sigma_{\ge n},\tau_{\ge n}$ & IV.1 \\
-	$*$ & as in $f_*$: direct image & IV.1 \\
+	$\operatorname{I},\,\operatorname{II}$ & as in $\RR_{\operatorname{I}},\RR_{\operatorname{II}}$ & I.6 \\
+	$>n$ & as in $\sigma_{>n},\tau_{>n}$ & I.7 \\
+	$*$ & as in $f_*$: direct image & II.2 \\
 \end{longtable}
 
 \section*{Superscripts}
@@ -202,21 +214,21 @@ In the list of stable notations below, we have distinguished five categories: La
 	\toprule
 	Symbol & Meaning & Reference \\
 	\midrule
-	$b$ & as in $\mathcal{K}^b, \D^b$: bounded & I.2, I.4 \\
+	$b$ & as in $\KK^b, \DD^b$: bounded & I.2, I.4 \\
 	$i$ & as in $X^i$:$i$-th term of a complex & \\
-	& as in $H^i$:$i$ cohomology group & \\
-	& as in $R^i F$:$i$-th derived functor & \\
+	& as in $H^i$:$i$-th cohomology group & \\
+	& as in $\RR^i F$:$i$-th derived functor & \\
 	$y$ & as in $f^y$ & VI.2 \\
 	$z$ & as in $f^z$ & VI.2 \\
 	$\bullet$ & as in $\sF^\bullet, X^\bullet$: denotes a complex  & \\
 	$\bullet\bullet$ & as in $\mathcal{C}^{\bullet\bullet}$: double complex & I.7 \\
-	$\bullet$ & as in $\mathcal{K}(A)^{\bullet}$: opposed category&\\
-	$*$& as in $f^*$: inverse image  & I.7, II.4 \\
-	$+$ & as in $\mathcal{K}^+, \D^+, \DerR^+$: bounded below  & I.2, I.4, I.5 \\
-	$-$ & as in $\mathcal{K}^-, \D^-, \DerR^-$: bounded above  & I.2, I.4, I.5 \\
+	$\mathrm{op}$ & as in $\KK(\mathcal A)^{\mathrm{op}}$: opposite category (a superscript bullet in the original) &\\
+	$*$ & as in $f^*$: inverse image & II.4 \\
+	$+$ & as in $\KK^+, \DD^+, \RR^+$: bounded below  & I.2, I.4, I.5 \\
+	$-$ & as in $\KK^-, \DD^-, \RR^-$: bounded above  & I.2, I.4, I.5 \\
 	$!$ & as in $f^!$ & Intr., III.8, VII.3 \\
-	$\flat$ & $f^\flat$ & IX.6 \\
-	$\sharp$ & $f^\sharp$ & VI.3 \\
+	$\flat$ & $f^\flat$ & III.6 \\
+	$\sharp$ & $f^\sharp$ & III.2 \\
 	$\Delta$ & $f^\Delta$ & VI.3 \\
 	$\vee$ & as in $L^\vee$: dual sheaf & II.5.16, III.1 \\
 	$-$ & as in $\{x\}^-$: closure & \\
@@ -233,16 +245,18 @@ In the list of stable notations below, we have distinguished five categories: La
 	$\gg$ & enough larger than & \\
 	$\times$ & product & \\
 	$\otimes$ & tensor product & \\
+	$\derivedtensor$ & derived tensor product & II.4 \\
 	$\oplus$ & direct sum & \\
+	$\prod$ & product & \\
 	$\coprod$ & disjoint union / sum & \\
-	$[\ ]$ & shift operator  & I.1 \\
-	 & closed interval & I.1 \\
-	&  reference to Bibliography or other chapter  & \\
+	$[\ ]$ & shift operator & I.2 \\
+	 & closed interval & V.8 \\
+	& reference to Bibliography or other chapter & Intr. \\
 	$\bigcup$ & union & \\
 	$\{\ \}$ & the set of & \\
 	$\to$ & morphism & \\
 	$\mapsto$ & effect of a map on elements & \\
-	$\cdot\to$ & distinguished side of triangle & \\
+	$\cdot\to$ & distinguished side of triangle & I.1 \\
 	$\dashrightarrow$ & morphism being constructed & \\
 	$\circ$ & composition of functors ($F\circ G$) & I.2 \\
 \end{longtable}
@@ -532,12 +546,12 @@ Ceci donne $\operatorname{R}f_{1}^{!}I = \omega \otimes f^{*}I[d]$, et la formul
 \item Page 120, Ch II \S7: It has recently come to my attention that S.\ Kleiman has independently arrived at the results of [II 7.8] and [II 7.11] (unpublished).
 \item Page 137, line 5: refer to [EGA IV \S16].
 \item Page 144, line 4: read ``invertible sheaf shifted $n$ places to the left, where $n = \operatorname{rel.\ dim} X/Y$'' instead of ``invertible sheaf''.
-\item Page 185, line 9: observe that the condition ``ff finite'' is a consequence of the other conditions.
-\item Page 190, line 7: read ``a unique isomorphism'' instead of ``an isomorphim''.
+\item Page 185, line 9: observe that the condition ``$f$ finite'' is a consequence of the other conditions.
+\item Page 190, line 7: read ``a unique isomorphism'' instead of ``an isomorphism''.
 \item Page 199: add at bottom: ``Furthermore, the residue symbol is uniquely characterized by the properties (R0), (R1), (R2), (R5), (R6), and (R7).''
 \item Page 249, line 8: ``is'' instead of ``in''.
 \item Page 254, line 8: ``$\mathbb{Z}$'' instead of ``$\mathbb{Q}$''.
-\item Page 288, Theorem 8.3: One must assume also that the fibres of $f$ are of bounded dimension, so that $f_{*}(\operatorname{R}^{\bullet})$ will be in $\mathbb{D}^{*}$.
+\item Page 288, Theorem 8.3: One must assume also that the fibres of $f$ are of bounded dimension, so that $f^{\sharp}(R^{\bullet})$ will be in $\DD^{+}$.
 \item Page 297, line 7: read ``strengthens'' instead of ``generalizes''.
 \item Page 298, line 7: insert ``shifted'' after ``invertible sheaf''.
 \item Page 301, line 5: ``not'' instead of ``now''.

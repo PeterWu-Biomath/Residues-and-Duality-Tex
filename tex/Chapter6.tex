@@ -647,7 +647,7 @@ and so $R^\bullet$ has finite injective dimension \bookref{prop:2.7.20}{II,~7.20
 \end{proof}
 
 \begin{booktheorem}{8.3}\label{thm:5.8.3}
-Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes, and let $R^{\bullet}\in\DD^{+}_{\mathrm{c}}(Y)$ be pointwise dualizing. Then $f^{\sharp}(R^{\bullet})$ (cf.\ \bookref{sec:3.2}{III,~\S2}) is pointwise dualizing on $X$. If furthermore $Y$ is noetherian, $f$ of finite type, and $R^{\bullet}$ dualizing, then $f^{\sharp}(R^{\bullet})$ is also dualizing.
+Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes whose fibres have bounded dimension,\footnote{This hypothesis is added in the author\textquotesingle s errata to ensure that $f^\sharp(R^\bullet)$ is bounded below.} and let $R^{\bullet}\in\DD^{+}_{\mathrm{c}}(Y)$ be pointwise dualizing. Then $f^{\sharp}(R^{\bullet})$ (cf.\ \bookref{sec:3.2}{III,~\S2}) is pointwise dualizing on $X$. If furthermore $Y$ is noetherian, $f$ of finite type, and $R^{\bullet}$ dualizing, then $f^{\sharp}(R^{\bullet})$ is also dualizing.
 \end{booktheorem}
 
 \begin{proof}
@@ -794,7 +794,7 @@ Let $K,L$ be extension fields of a field $k$, and assume that one of them is fin
 \end{bookcorollary}
 
 \begin{proof}
-Similar to the above. One can also give a direct proof, by induction on the number of generators. This generalizes \cite[\nopp IV,~6.7.1.1]{EGA} which says that $K\otimes_k L$ is Cohen-Macaulay.
+Similar to the above. One can also give a direct proof, by induction on the number of generators. This strengthens \cite[\nopp IV,~6.7.1.1]{EGA} which says that $K\otimes_k L$ is Cohen-Macaulay.
 \end{proof}
 
 \begin{bookproposition}{9.6}\label{prop:5.9.6}
@@ -863,3 +863,6 @@ There are local noetherian domains of dimension $3$ which are not catenary, and 
 \item If $X$ is noetherian and of finite Krull dimension, and if it admits a dualizing complex locally, and if it admits a codimension function $d$, we do not know whether $X$ admits a dualizing complex globally.
 \end{enumerate}
 \par\medskip
+
+\noindent\textit{Author's addendum (errata, original p.~423).}
+Giraud~\cite{6} provides an obstruction in $H^2(X,\mathbb{G}_m)$, for the Zariski topology, whose vanishing is necessary and sufficient for a locally existing dualizing complex to exist globally. The author also notes that a noetherian scheme of finite Krull dimension can admit dualizing complexes locally but none globally because it has no global codimension function.

@@ -1042,18 +1042,20 @@ and both have the same length, namely the length of $A/\mathfrak{a}_n$. Therefor
 
 \par\endgroup
 
-\begin{proposition}\label{prop:6.5.3}
+\begingroup
+\setlength{\emergencystretch}{2em}
+\begin{bookproposition}{5.3}\label{prop:6.5.3}
 Let $f\colon X\to Y$ be a residually stable morphism, and let $K^\bullet$ be a residual complex on $Y$. Then $f^{*}(K^\bullet)$ is a residual complex on $X$.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
 Clearly $f^{*}(K^\bullet)$ is a complex of quasi-coherent sheaves with coherent cohomology. We have only to check that there is an isomorphism
 \[
-\sum_{p} f^{*}(K^{p}) \cong \sum_{x\in X} J(x).
+\bigoplus_{p} f^{*}(K^{p}) \cong \bigoplus_{x\in X} J(x).
 \]
 Thus we reduce to the following local statement: For each $x\in X$, let $y=f(x)$, and let $I$ be an injective hull of $k=k(y)$ over the local ring $A=\sO_{Y,y}$ of $y$. Let $B=\sO_{X,x}$ be the local ring of $x$. Then $I\otimes_A B$ is an injective hull of $k'=k(x)$ over $B$.
 
-We apply the criteria of the lemma above. Since $I$ is an injective hull of $k$ over $A$, we have
+We apply the criteria of Lemma~\ref{lem:6.5.2}. Since $I$ is an injective hull of $k$ over $A$, we have
 \begin{enumerate}
 \item[a)] $I$ has support at the closed point of $\Spec A$
 \item[b)] $\Hom_{A}(k,I)\cong k$
@@ -1073,17 +1075,21 @@ since $B/\mathfrak{m}B$ is an Artinian Gorenstein ring. Finally note that for ea
 \[
 \operatorname{length}(B/\mathfrak{m}^{n}B) = \operatorname{length}(\Hom_B(B/\mathfrak{m}^{n}B, I\otimes_A B)).
 \]
-Thus the conditions of the lemma are fulfilled, and $I\otimes_A B$ is an injective hull of $k'$ over $B$.
+Thus the conditions of Lemma~\ref{lem:6.5.2} are fulfilled, and $I\otimes_A B$ is an injective hull of $k'$ over $B$.
 \end{proof}
 
-\begin{proposition}\label{prop:6.5.4}
+\begin{bookproposition}{5.4}\label{prop:6.5.4}
 Let $Y$ be the spectrum of a local Artin ring $A$. Then one can find a residually stable morphism $u\colon Y'\to Y$ where $Y'$ is the spectrum of a local Artin ring $A'$ with algebraically closed residue field.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-By [EGA $\mathrm{O}_{\mathrm{III}}$ 10.3.1] one can find a local Artin ring $A'$ and a local homomorphism $A\to A'$ such that $A'$ is flat over $A$, $\mathfrak{m}A' = \mathfrak{m}'$, and $A'/\mathfrak{m}'$ is algebraically closed. Then $Y' = \Spec A'$ will do. Indeed, $Y'$ is flat over $Y$. It is integral since it is Artinian, and its residue field is algebraic over that of $Y$. The only fibre is a field, which is Gorenstein.
+By \cite[\nopp $0_{\mathrm{III}}$,~10.3.1]{EGA} one can find a local Artin ring $A'$ and a local homomorphism $A\to A'$ such that $A'$ is flat over $A$, $\mathfrak{m}A' = \mathfrak{m}'$, and $A'/\mathfrak{m}'$ is an algebraic closure of $A/\mathfrak{m}$. Then $Y' = \Spec A'$ will do. Indeed, $Y'$ is flat over $Y$. It is integral since it is Artinian, and its residue field is algebraic over that of $Y$. The only fibre is a field, which is Gorenstein.
 \end{proof}
 
+\par\endgroup
+
+\begingroup
+\setlength{\emergencystretch}{2em}
 Now we come to the behavior of $f^{\Delta}$ and $\Tr$ under residually stable base change. Let $f\colon X\to Y$ be a morphism of finite type, and let $u\colon Y'\to Y$ be a residually stable morphism. Let $X' = X\times_{Y} Y'$, and let $u', f'$ be as shown:
 \[
 \begin{tikzcd}
@@ -1094,44 +1100,48 @@ Y' \ar[r,"u"] & Y
 
 If $f$ is a finite morphism, there is a natural isomorphism
 \[
-f'^{y}u^{*} \xrightarrow{\sim} u'^{*}f^{y} \tag{V}
+f'^{y}u^{*} \xrightarrow{\sim} u'^{*}f^{y} \tag{V}\label{eq:6.5.V}
 \]
-derived from [III 6.3] (cf.\ section 2 above).
+derived from \bookref{prop:3.6.3}{III,~6.3} (cf.\ section~\hyperref[sec:6.2]{2} above).
 
 On the other hand if $f$ is smooth, there is a natural isomorphism
 \[
-f'^{z}u^{*} \xrightarrow{\sim} u'^{*}f^{z} \tag{VI}
+f'^{z}u^{*} \xrightarrow{\sim} u'^{*}f^{z} \tag{VI}\label{eq:6.5.VI}
 \]
-derived from [III 2.1].
+derived from \bookref{prop:3.2.1}{III,~2.1}.
 
-\begin{theorem}\label{thm:6.5.5}
+\begin{booktheorem}{5.5}\label{thm:6.5.5}
 For every morphism $f\colon X\to Y$ of finite type, and every residually stable morphism $u\colon Y'\to Y$ (using the notations above) there is an isomorphism
 \[
 d_{u,f}\colon f'^{\Delta}u^{*} \xrightarrow{\sim} u'^{*}f^{\Delta}
 \]
 such that
 \begin{enumerate}
-\item[1)] If $v\colon Y''\to Y'$ is another residually stable morphism, then $d_{uv,f} = d_{u,f} \circ d_{v,f'}$.
+\item[1)] If $v\colon Y''\to Y'$ is another residually stable morphism, then
+\[
+d_{uv,f}=(v'^*d_{u,f})\circ(d_{v,f'}u^*),
+\]
+where $v'\colon X''\to X'$ is the induced base change.
 \item[2)] If $f,g$ are two consecutive morphisms of finite type, then the isomorphisms $d$ are compatible with $c_{f,g}$ and $c_{f',g'}$.
-\item[3)] If $f$ is a finite morphism, then $d_{u,f}$ is compatible with V via the isomorphisms $\psi_f,\psi_{f'}$.
-\item[4)] If $f$ is a smooth morphism, then $d_{u,f}$ is compatible with VI via the isomorphisms $\phi_f,\phi_{f'}$.
+\item[3)] If $f$ is a finite morphism, then $d_{u,f}$ is compatible with \eqref{eq:6.5.V} via the isomorphisms $\psi_f,\psi_{f'}$.
+\item[4)] If $f$ is a smooth morphism, then $d_{u,f}$ is compatible with \eqref{eq:6.5.VI} via the isomorphisms $\phi_f,\phi_{f'}$.
 \end{enumerate}
-\end{theorem}
+\end{booktheorem}
 
 \begin{proof}[Suggestion of Proof (!)]
-Show first that V and VI are compatible with the isomorphisms I, II, III and IV of \S2. Define $d_{u,f}$ for $f$ finite or smooth using 3) and 4). Then define $d_{u,f}$ for arbitrary $f$ and check its properties, following the construction of $f^{\Delta}$ given in \S3.
+Show first that V and VI are compatible with the isomorphisms I, II, III and IV of section~\hyperref[sec:6.2]{2}. Define $d_{u,f}$ for $f$ finite or smooth using 3) and 4). Then define $d_{u,f}$ for arbitrary $f$ and check its properties, following the construction of $f^{\Delta}$ given in section~\hyperref[sec:6.3]{3}.
 \end{proof}
 
-\begin{theorem}\label{thm:6.5.6}
-Let $u$ and $f$ be as in the previous theorem. Then there is a commutative diagram
+\begin{booktheorem}{5.6}\label{thm:6.5.6}
+Let $u$ and $f$ be as in Theorem~\ref{thm:6.5.5}. Then there is a commutative diagram
 \[
 \begin{tikzcd}
 f'_* f'^{\Delta} u^{*} \ar[r,"\Tr_{f'}"] \ar[d,"d_{u,f}"'] & u^{*} \\
-f'_* u'^{*} f^{\Delta} \ar[r,"="] & u^{*} f_* f^{\Delta} \ar[u,"\Tr_f"']
+f'_* u'^{*} f^{\Delta} \ar[r,"\sim"] & u^{*} f_* f^{\Delta} \ar[u,"\Tr_f"']
 \end{tikzcd}
 \]
-\end{theorem}
+\end{booktheorem}
 
 \begin{proof}[Proof (!)]
-Show first that the analogous diagram of $f^{y}$, $\rho_f$ and V is valid for $f$ finite. Then follow the construction of $\Tr_f$ in \S4 to show that it is true in general.
-\end{proof}
+Show first that the analogous diagram of $f^{y}$, $\rho_f$ and V is valid for $f$ finite. Then follow the construction of $\Tr_f$ in section~\hyperref[sec:6.4]{4} to show that it is true in general.
+\end{proof}\par\endgroup

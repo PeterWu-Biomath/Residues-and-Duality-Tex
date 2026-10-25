@@ -1,8 +1,8 @@
 \chapter{The Duality Theorem}
 
-\section{Curves over an Artin ring}
+\section{Curves over an Artin ring}\label{sec:7.1}
 
-In this section we will make explicit the residual complex on a curve over the spectrum of an Artin ring, and we will identify the trace map of [VI \S4] with the ``classical'' residue of a differential. Then, in the case of the projective line over an Artin ring with algebraically closed residue field, we will prove that the sum of the residues is zero, i.e., the trace map is a morphism of complexes. This special case will be used in the following section to prove the general residue theorem for a proper morphism of locally noetherian preschemes, which in turn implies that the sum of the residues is zero on any proper curve.
+In this section we will make explicit the residual complex on a curve over the spectrum of an Artin ring, and we will identify the trace map of \bookref{sec:6.4}{VI,~\S4} with the ``classical'' residue of a differential. Then, in the case of the projective line over an Artin ring with algebraically closed residue field, we will prove that the sum of the residues is zero, i.e., the trace map is a morphism of complexes. This special case will be used in the following section to prove the general residue theorem for a proper morphism of locally noetherian preschemes, which in turn implies that the sum of the residues is zero on any proper curve.
 
 Throughout this section we will let $Y$ be the spectrum of a local Artin ring $A$ with residue field $k$, and we let $X$ be a smooth curve over $Y$ (i.e., a connected irreducible prescheme smooth over $Y$, with relative dimension one). A closed point $x \in X$ is \emph{rational over $Y$} if its residue field $k(x)$ is $k$. In that case one can find a local parameter $t \in \sO_x$ with the following properties:
 \begin{enumerate}
@@ -10,35 +10,35 @@ Throughout this section we will let $Y$ be the spectrum of a local Artin ring $A
 \item[(1)] $t \in \mathfrak{m}_x \setminus \mathfrak{m}_x^2$.
 \item[(2)] $t$ is a non-zero-divisor in $\sO_x$.
 \item[(3)] $\sO_x/t^n$ is a free $A$-module with basis $1,t,\dots,t^{n-1}$.
-\item[(4)] The total quotient ring $K$ of $\sO_x$ is generated as an $\sO_x$-module by $1,t^{-1},t^{-2},\dots$
+\item[(4)] The total quotient ring $K$ of $\sO_x$ is generated as an $\sO_x$-module by $1,t^{-1},t^{-2},\dots$.
 \end{enumerate}
 
-\begin{proposition}[1.1]
+\begin{bookproposition}{1.1}\label{prop:7.1.1}
 Let $f: X \to Y$ be as above. Let $I$ be an injective hull of $k$ over $A$, so that $\widetilde{I}$ is a residual complex on $Y$. Then
 \begin{enumerate}
-\item[(a)] $f^{Z}(\widetilde{I})$ is the complex
+\item[(a)] $f^{z}(\widetilde{I})$ is the complex
 \[
-i_{\eta}(I \otimes_{A} \omega_{\eta}) \xrightarrow{} \coprod_{x \in X \text{ closed}}i_{x}(H_{x}^{1}(I \otimes_{A} \omega_{x}))
+i_{\eta}(I \otimes_{A} \omega_{\eta}) \xrightarrow{} \bigoplus_{x \in X\text{ closed}}i_{x}(H_{x}^{1}(I \otimes_{A} \omega_{x}))
 \]
-with first term grading $-1$ and second grading $0$.
-where $\omega = \Omega_{X/Y}^1$ is the sheaf of relative $1$-differentials, $\eta$ is the generic point of $X$, $i_{\eta}$, $i_{x}$ is the notation of [II \S7], meaning the given module spread out as a constant sheaf, and $H_{x}^{1}$ is a local cohomology group [IV \S1].
+with first term in degree $-1$ and second term in degree $0$,
+where $\omega = \Omega_{X/Y}^1$ is the sheaf of relative $1$-differentials, $\eta$ is the generic point of $X$, $i_{\eta}$ and $i_{x}$ are the notation of \bookref{sec:2.7}{II,~\S7}, meaning the given module spread out as a constant sheaf, and $H_{x}^{1}$ is a local cohomology group \bookref{sec:4.1}{IV,~\S1}.
 
-\item[(b)] $f^{Z}(\widetilde{I})$ is an injective resolution of $f^{*}(\widetilde{I}) \otimes \omega[1]$.
+\item[(b)] $f^{z}(\widetilde{I})$ is an injective resolution of $f^{*}(\widetilde{I}) \otimes \omega[1]$.
 
 \item[(c)] If $x \in X$ is a point rational over $Y$, then
 \[
-H_{x}^{1}(I \otimes_{A} \omega_{x}) \cong I \otimes_{A} \omega_{x} \otimes K/\sO_{x}
+H_{x}^{1}(I \otimes_{A} \omega_{x}) \cong I \otimes_{A} \omega_{x} \otimes_{\sO_x} (K/\sO_{x})
 \]
 where $K$ is the total quotient ring of $\sO_{x}$ (which is equal to the stalk $\sO_{\eta}$ at the generic point, hence independent of $x$).
 \end{enumerate}
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-(a) follows directly from the definition of $f^{Z}$ [VI \S2], using [IV \S3] and [IV 1.F].
+(a) follows directly from the definition of $f^{z}$ \bookref{sec:6.2}{VI,~\S2}, using \bookref{sec:4.3}{IV,~\S3} and \bookref{motif:4.1.F}{IV,~1.F}.
 
-(b) follows from [V 8.3], [V 7.3], and [IV 3.1].
+(b) follows from \bookref{thm:5.8.3}{V,~8.3}, \bookref{prop:5.7.3}{V,~7.3}, and \bookref{prop:4.3.1}{IV,~3.1}.
 
-(c) Suppose that $x$ is rational over $Y$, and let $t \in \sO_x$ be a local parameter. Then by [V 4.1] we can calculate the local cohomology as
+(c) Suppose that $x$ is rational over $Y$, and let $t \in \sO_x$ be a local parameter. Then by \bookref{thm:5.4.1}{V,~4.1} we can calculate the local cohomology as
 \[
 H_{x}^{1}(I \otimes_{A} \omega_{x}) = \varinjlim_{n} \Ext_{\sO_{x}}^{1}(\sO_{x}/t^{n}, I \otimes_{A} \omega_{x}).
 \]
@@ -48,7 +48,7 @@ But $t$ is a non-zero-divisor in $\sO_{x}$, so we can calculate the Ext with the
 \]
 and find that
 \[
-\Ext_{\sO_{x}}^{1}(\sO_{x}/t^{n},\ I \otimes_{A} \omega_{x}) \cong I \otimes_{A} \omega_{x}/t^{n}(I \otimes_{A} \omega_{x}).
+\Ext_{\sO_{x}}^{1}(\sO_{x}/t^{n},\ I \otimes_{A} \omega_{x}) \cong (I \otimes_{A} \omega_{x})/t^{n}(I \otimes_{A} \omega_{x}).
 \]
 The map in the direct system is multiplication by $t$, and
 \[
@@ -56,7 +56,7 @@ The map in the direct system is multiplication by $t$, and
 \]
 so we have
 \[
-H_{x}^{1}(I \otimes_{A} \omega_{x}) \cong I \otimes_{A} \omega_{x} \otimes K/\sO_{x}.
+H_{x}^{1}(I \otimes_{A} \omega_{x}) \cong I \otimes_{A} \omega_{x} \otimes_{\sO_x} (K/\sO_{x}).
 \]
 \end{proof}
 
@@ -67,81 +67,81 @@ Now let $Z$ be a closed subscheme of $X$, concentrated at a closed point $x_{0} 
 	Y
 \end{tikzcd}
 \]
-Then we can write $Z = \Spec B$, with $B$ a local Artin ring, finite over $A$. Let $I$ be an injective hull of $k$ over $A$ as above, and take $\widetilde{I}$ to be a residual complex on $Y$. We propose to calculate explicitly the residue isomorphism (IV) of [VI \S2] between $g^{Y}(\widetilde{I})$ and $i^{Y}f^{Z}(\widetilde{I})$, where $g = fi$ and $i: Z \to X$ is the inclusion. Since $Z$ is an affine scheme, we will use modules, instead of sheaves, for convenience. Using the results above, we have
+Then we can write $Z = \Spec B$, with $B$ a local Artin ring, finite over $A$. Let $I$ be an injective hull of $k$ over $A$ as above, and take $\widetilde{I}$ to be a residual complex on $Y$. We propose to calculate explicitly the residue isomorphism \eqref{eq:6.2.IV} of \bookref{sec:6.2}{VI,~\S2} between $g^{y}(\widetilde{I})$ and $i^{y}f^{z}(\widetilde{I})$, where $g = fi$ and $i: Z \to X$ is the inclusion. Since $Z$ is an affine scheme, we will use modules, instead of sheaves, for convenience. Using the results above, we have
 \begin{align*}
-\Gamma(g^{Y}(\widetilde{I})) &= \Hom_{A}(B, I),\\
-\Gamma(i^{Y}f^{Z}(\widetilde{I})) &= \Hom_{\sO}(B, I \otimes_{A} \omega_{x_{0}} \otimes K/\sO),
+\Gamma(g^{y}(\widetilde{I})) &= \Hom_{A}(B, I),\\
+\Gamma(i^{y}f^{z}(\widetilde{I})) &= \Hom_{\sO}(B, I \otimes_{A} \omega_{x_{0}} \otimes_{\sO} (K/\sO)),
 \end{align*}
 where $\sO = \sO_{x_{0}}$. Indeed, since $Z$ is concentrated at the point $x_{0}$, there are no homomorphisms of $\sO_{Z}$ into $i_{\eta}(I \otimes_{A} \omega_{\eta})$ or into $i_{x}(H^{1}_{x}(I \otimes_{A} \omega_{x}))$ for $x \neq x_{0}$.
 
-Let $t$ be a local parameter at $x_{0}$. Let $b_{0} \in \mathfrak{m}_{B}$ be the image of $t$ under the structural morphism $\sO \to B$. Finally, note that $\omega_{x_{0}}$ is a free $\sO$-module with basis $dt$, so we can represent elements of $I \otimes_{A} \omega_{x_{0}} \otimes K/\sO$ as
+Let $t$ be a local parameter at $x_{0}$. Let $b_{0} \in \mathfrak{m}_{B}$ be the image of $t$ under the structural morphism $\sO \to B$. Finally, note that $\omega_{x_{0}}$ is a free $\sO$-module with basis $dt$, so we can represent elements of $I \otimes_{A} \omega_{x_{0}} \otimes_{\sO} (K/\sO)$ as
 \[
 \sum_{i < 0} a_{i} t^{i} dt
 \]
 with $a_{i} \in I$. Using this notation, we have the following
 
-\begin{lemma}[1.2]
-If $\varphi \in \Hom_{A}(B, I)$ and $\psi \in \Hom_{\sO}(B, I \otimes \omega_{x} \otimes K/\sO)$ correspond under the residue isomorphism, then for each $b \in B$,
+\begin{booklemma}{1.2}\label{lem:7.1.2}
+If $\varphi \in \Hom_{A}(B, I)$ and $\psi \in \Hom_{\sO}(B, I \otimes_A \omega_{x_0} \otimes_{\sO} (K/\sO))$ correspond under the residue isomorphism, then for each $b \in B$,
 \[
 \psi(b) = \sum_{r=0}^{\infty} \varphi(b b_{0}^{r})\, t^{-r-1} dt
 \]
 and $\varphi(b) = \text{coefficient of } t^{-1}dt \text{ in } \psi(b)$.
 
 (Note that the sum in the first expression is finite since $b_{0}$ is nilpotent.)
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
 Left as a good exercise in definition-chasing to the reader!
 \end{proof}
 
-\begin{proposition}[1.3]
-With the above notations, the trace map of [VI \S4]
+\begin{bookproposition}{1.3}\label{prop:7.1.3}
+With the above notations, the trace map of \bookref{sec:6.4}{VI,~\S4}
 \[
 \Tr_{f} : f_{*}f^{\Delta}(\widetilde{I}) \longrightarrow \widetilde{I}
 \]
-is zero on $f_{*}i_{\eta}(I \otimes_{A} \omega_{\eta})$ (where we have identified $f^{\Delta}(\widetilde{I})$ with $f^{Z}(\widetilde{I})$) and for each closed point $x \in X$, rational over $Y$, its restriction
+is zero on $f_{*}i_{\eta}(I \otimes_{A} \omega_{\eta})$ (where we have identified $f^{\Delta}(\widetilde{I})$ with $f^{z}(\widetilde{I})$) and for each closed point $x \in X$, rational over $Y$, its restriction
 \[
-\Gamma(\Tr_{f,x}): \ I \otimes_{A} \omega_{x} \otimes K/\sO_{x} \longrightarrow I
+\Gamma(\Tr_{f,x}): \ I \otimes_{A} \omega_{x} \otimes_{\sO_x} (K/\sO_{x}) \longrightarrow I
 \]
-to the stalk at $x$ is given as follows: let $t \in \sO_{x}$ be a local parameter, and write $u \in I \otimes_{A} \omega_{x} \otimes K/\sO_{x}$ as
+to the stalk at $x$ is given as follows: let $t \in \sO_{x}$ be a local parameter, and write $u \in I \otimes_{A} \omega_{x} \otimes_{\sO_x} (K/\sO_{x})$ as
 \[
 u = \sum_{i < 0} a_{i} t^{i} dt
 \]
 with $a_{i} \in I$. Then $\Gamma(\Tr_{f,x})(u) = a_{-1}$.
-\end{proposition}
+\end{bookproposition}
 
 \begin{proof}
-To apply the definition of the trace map, we must choose a closed subscheme $i: Z \to X$ of $X$, finite over $Y$, such that $u \in \Gamma(i^{Y}f^{Z}(\widetilde{I}))$. Given $u$ as above, suppose that $a_{i} = 0$ for $i < -r$. Then $Z = \Spec \sO_{x}/t^{r}$ will do.
+To apply the definition of the trace map, we must choose a closed subscheme $i: Z \to X$ of $X$, finite over $Y$, such that $u \in \Gamma(i^{y}f^{z}(\widetilde{I}))$. Given $u$ as above, suppose that $a_{i} = 0$ for $i < -r$. Then $Z = \Spec(\sO_{x}/t^{r})$ will do.
 
 Our element $u$ is then identified with the element
 \[
-\psi \in \Hom_{\sO_{x}}(B, I \otimes_{A} \omega_{x} \otimes K/\sO_{x})
+\psi \in \Hom_{\sO_{x}}(B, I \otimes_{A} \omega_{x} \otimes_{\sO_x} (K/\sO_{x}))
 \]
 defined by $\psi(1) = u$. This corresponds by the residue isomorphism to a certain $\varphi \in \Hom_{A}(B, I)$, and by definition of the trace morphism we then have
 \[
 \Gamma(\Tr_{f,x})(u) = \varphi(1).
 \]
-But by the lemma above, $\varphi(1)$ is the coefficient of $t^{-1}dt$ in $\psi(1) = u$, so our trace is $a_{-1}$, as required.
+But by Lemma~\ref{lem:7.1.2}, $\varphi(1)$ is the coefficient of $t^{-1}dt$ in $\psi(1) = u$, so our trace is $a_{-1}$, as required.
 \end{proof}
 
-\begin{remark}
-Since the trace morphism has already been defined, and we are here calculating it, we can state as a corollary that the process of taking the coefficient of $t^{-1}dt$ in $u$ is independent of the local parameter $t$ chosen. This is in strong contrast with the approach of Serre's book [16, Ch. II \S7], where the residue of a differential is defined as $a_{-1}$, and a tedious proof is required to show that it is independent of the local parameter [loc. cit. Prop. 5].
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+Since the trace morphism has already been defined, and we are here calculating it, we can state as a corollary that the process of taking the coefficient of $t^{-1}dt$ in $u$ is independent of the local parameter $t$ chosen. This is in strong contrast with the approach of Serre's book \cite[\nopp Ch.~II,~\S7]{16}, where the residue of a differential is defined as $a_{-1}$, and a tedious proof is required to show that it is independent of the local parameter \cite[\nopp Ch.~II,~\S7, Prop.~5]{16}.
+\par\medskip
 
 To establish the relation between his approach and ours, we make the following
 
-\begin{definition}
+\begin{definition*}\label{def:7.1.residue}
 Let $M$ be an $A$-module, and let
 \[
 w \in M \otimes_{A} \omega_{\eta}
 \]
 be a meromorphic differential on $X$ with coefficients in $M$. Then for each closed point $x \in X$, rational over $Y$, we define the \emph{residue} of $w$ at $x$, as follows. Choose a local parameter $t$ at $x$. Let
 \[
-w_{x} \in M \otimes_{A} \omega_{x} \otimes K/\sO_{x}
+w_{x} \in M \otimes_{A} \omega_{x} \otimes_{\sO_x} (K/\sO_{x})
 \]
 be the image of $w$ under the natural map
 \[
-\omega_{\eta} = \omega_{x} \otimes K \longrightarrow \omega_{x} \otimes K/\sO_{x}.
+\omega_{\eta} = \omega_{x} \otimes_{\sO_x} K \longrightarrow \omega_{x} \otimes_{\sO_x} (K/\sO_{x}).
 \]
 Write
 \[
@@ -152,24 +152,23 @@ with $a_{i} \in M$, and then define
 \Res_{x}(w) = a_{-1}.
 \]
 (Observe that $a_{-1}$ is independent of the choice of local parameter. Indeed, we may assume that $M$ is finitely generated, in which case it is a submodule of $I^{n}$ for some $n$, so we reduce to the case $M = I$, where $a_{-1} = \Gamma(\Tr_{f,x})(w_{x})$ which is independent of $t$.)
-\end{definition}
+\end{definition*}
 
-\begin{lemma}[1.4]
-Residues have the following properties [16, Ch. II \S7].
+\begin{booklemma}{1.4}\label{lem:7.1.4}
+Residues have the following properties \cite[\nopp Ch.~II,~\S7]{16}.
 \begin{enumerate}
 \item[(i)] $\Res_{x}(w)$ is $A$-linear in $w$.
-\item[(ii)] $\Res_{x}(w) = 0$ if $w \in M \otimes \omega_{x}$.
+\item[(ii)] $\Res_{x}(w) = 0$ if $w \in M \otimes_A \omega_{x}$.
 \item[(iii)] $\Res_{x}(dg) = 0$ for any $g \in M \otimes_{A} K$.
-\item[(iv)] $\Res_{x}(t^{-1}dt) = 1$ if $t$ is a local parameter at $x$.
+\item[(iv)] $\Res_x(a\otimes t^{-1}dt)=a$ for $a\in M$ and any local parameter $t$ at $x$ (in particular, $\Res_x(t^{-1}dt)=1$ when $M=A$).
 \end{enumerate}
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
 All properties follow from the definition.
 \end{proof}
 
-\begin{theorem}[1.5]
-(Residue formula for the projective line). Let $A$ be a local Artin ring with algebraically closed residue field $k$, let $Y = \Spec A$, and let $X = \bbP^{1}_{Y}$ be the projective line over $Y$. Let $M$ be an $A$-module, and let
+\begin{booktheorem}[Residue formula for the projective line]{1.5}\label{thm:7.1.5} Let $A$ be a local Artin ring with algebraically closed residue field $k$, let $Y = \Spec A$, and let $X = \bbP^{1}_{Y}$ be the projective line over $Y$. Let $M$ be an $A$-module, and let
 \[
 w \in M \otimes_{A} \omega_{\eta}
 \]
@@ -177,24 +176,24 @@ be a meromorphic differential on $X$ with coefficients in $M$. Then
 \[
 \sum_{x \in X \text{ closed}} \Res_{x}(w) = 0.
 \]
-\end{theorem}
+\end{booktheorem}
 
 \begin{proof}
-(Modeled on the proof of [16, Ch. II, \S12, Lemma 3], which is the same statement in the case $A = k = M$.) First of all, we may assume that $M$ is finitely generated. Then writing $M$ as a quotient of $A^{n}$ for suitable $n$, we reduce to the case $M = A$.
+(Modeled on the proof of \cite[\nopp Ch.~II,~\S12, Lemma~3]{16}, which is the same statement in the case $A = k = M$.) First of all, we may assume that $M$ is finitely generated. Then writing $M$ as a quotient of $A^{n}$ for suitable $n$, we reduce to the case $M = A$.
 
-Let $w \in \omega_{\eta}$ be a meromorphic differential (recall $\eta$ is the generic point of $X$). Let $X_{0}$ be the affine line $\Spec A[t]$ contained as an open subset of $X$. Then from the exact sequence of sheaves
+Let $w \in \omega_{\eta}$ be a meromorphic differential (recall $\eta$ is the generic point of $X$). Let $X_{0}$ be the affine line $\Spec A[t]$ contained as an open subset of $X$. Then from the exact sequence of sheaves on $X_0$
 \[
-0 \longrightarrow \omega \longrightarrow i_{\eta}(\omega_{\eta}) \longrightarrow \coprod_{x \in X_{0}\text{ closed}} i_{x}(\omega_{x} \otimes K/\sO_{x}) \longrightarrow 0
+0 \longrightarrow \omega \longrightarrow i_{\eta}(\omega_{\eta}) \longrightarrow \bigoplus_{x \in X_{0}\text{ closed}} i_{x}(\omega_{x} \otimes_{\sO_x} (K/\sO_{x})) \longrightarrow 0
 \]
 we obtain the following exact sequence of global sections on $X_{0}$:
 \[
-0 \longrightarrow \Gamma(X_{0}, \omega) \longrightarrow \omega_{\eta} \longrightarrow \coprod_{x \in X_{0}\text{ closed}} \omega_{x} \otimes K/\sO_{x} \longrightarrow 0.
+0 \longrightarrow \Gamma(X_{0}, \omega) \longrightarrow \omega_{\eta} \longrightarrow \bigoplus_{x \in X_{0}\text{ closed}} \omega_{x} \otimes_{\sO_x} (K/\sO_{x}) \longrightarrow 0.
 \]
-For each closed point $x \in X_{0}$, we can choose a local parameter of the form $t - c_{x}$, with $c_{x} \in A$. Then our exact sequence shows that $w$ can be written (uniquely) in the form
+For each closed point $x \in X_{0}$, we can choose a local parameter of the form $t - c_{x}$, with $c_{x} \in A$. Fix such choices of $c_x$. Then our exact sequence shows that $w$ can be written uniquely in the form
 \[
 w = f(t)dt + \sum_{x \in X_{0}\text{ closed}} \sum_{i < 0} a_{i,x}(t - c_{x})^{i} dt
 \]
-where $f(t) \in A[t]$ is a polynomial in $t$ with coefficients in $A$. By linearity, we reduce to proving the residue formula in the two cases
+where $f(t) \in A[t]$ is a polynomial in $t$ with coefficients in $A$, and only finitely many $a_{i,x}$ are nonzero. By linearity, we reduce to proving the residue formula in the two cases
 \begin{enumerate}
 \item[(1)] $w = t^{n} dt$, $n \ge 0$.
 \item[(2)] $w = (t - c_{x_{0}})^{n} dt$, $n < 0$, $x_{0} \in X_{0}$.
@@ -205,206 +204,243 @@ In the first case, $\Res_{x}(w) = 0$ for every $x \in X_{0}$, by (ii) of the lem
 In the second case, for any $x \neq x_{0}$, $x \in X_{0}$, $t - c_{x_{0}}$ is invertible in $\sO_{x}$, so the residue at $x$ is zero. The residue at $x_{0}$ is $0$ if $n < -1$, $1$ if $n = -1$. We take $s = 1/(t - c_{x_{0}})$ as a local parameter at $\infty$. Then $w = -s^{-n-2}ds$, so its residue is $0$ if $n < -1$, and $-1$ if $n = -1$. Hence the sum of the residues is zero.
 \end{proof}
 
-\begin{remark}
+\par\medskip\noindent\textbf{Remark.}
 It follows from the theorem of the next section that the theorem remains true for any smooth curve $X$ proper over $Y$.
-\end{remark}
+\par\medskip
 
-\begin{corollary}[1.6]
+\begin{bookcorollary}{1.6}\label{cor:7.1.6}
 Under the hypotheses of the theorem
 \[
 \Tr_{f}: f_{*}f^{\Delta}(\widetilde{I}) \longrightarrow \widetilde{I}
 \]
 is a morphism of complexes.
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Using Proposition 1.3 above, this is precisely the statement of the Theorem in the case $M = I$.
+Using Proposition~\ref{prop:7.1.3}, this is precisely the statement of the Theorem in the case $M = I$.
 \end{proof}
 
-\section{The residue theorem}
+\section{The residue theorem}\label{sec:7.2}
 
-\begin{theorem}[2.1]
-(Residue theorem) Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $K^{\bullet}$ be a residual complex on $Y$. Then the trace map
+\begin{booktheorem}[Residue theorem]{2.1}\label{thm:7.2.1} Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $K^{\bullet}$ be a residual complex on $Y$. Then the trace map
 \[
 \Tr_{f}: f_{*}f^{\Delta}K^{\bullet} \longrightarrow K^{\bullet}
 \]
-defined in [VI \S4] is a morphism of complexes.
-\end{theorem}
+defined in \bookref{sec:6.4}{VI,~\S4} is a morphism of complexes.
+\end{booktheorem}
 
 \begin{proof}
 We write the residual complexes as sums of injective hulls.
 \[
-\sum K^{p} = \coprod_{y \in Y} J(y)
+\bigoplus_p K^{p} = \bigoplus_{y \in Y} J(y)
 \]
 and
 \[
-\sum (f^{\Delta}K^{\bullet})^{p} = \coprod_{x \in X} J(x).
+\bigoplus_p (f^{\Delta}K^{\bullet})^{p} = \bigoplus_{x \in X} J(x).
 \]
 We must show that for each $x \in X$ and each $a \in \Gamma(J(x))$ that $\Tr_{f}(da) = d(\Tr_{f} a)$, where $d$ denotes the operator in the complex $K^{\bullet}$ (resp.\ $f^{\Delta}K^{\bullet}$).
 
-\medskip\noindent\textit{Case 1.} Suppose that $x$ is closed in its fibre. Then $\Tr_{f}$ maps $f_{*}(J(x))$ into $J(y)$ where $y = f(x)$ (see the proof of [VI 4.4]), and we must show that the following diagram is commutative:
+\medskip\noindent\textit{Case 1.} Suppose that $x$ is closed in its fibre. Then $\Tr_{f}$ maps $f_{*}(J(x))$ into $J(y)$ where $y = f(x)$ (see the proof of \bookref{lem:6.4.4}{VI,~4.4}), and we must show that the following diagram is commutative:
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-f_{*}(J(x)) \ar[r,"d"] \ar[d,"\Tr_{f}"'] & \displaystyle\coprod_{x\rightarrow x'} f_{*}(J(x')) \ar[d,"\Tr_{f}"] \\
-J(y) \ar[r,"d"'] & \displaystyle\coprod_{y\rightarrow y'} J(y')
+f_{*}(J(x)) \ar[r,"d"] \ar[d,"\Tr_{f}"'] & \displaystyle\bigoplus_{x\rightarrow x'} f_{*}(J(x')) \ar[d,"\Tr_{f}"] \\
+J(y) \ar[r,"d"'] & \displaystyle\bigoplus_{y\rightarrow y'} J(y')
 \end{tikzcd}
 \]
 where we take those $x'$ which are immediate specializations of $x$, and those $y'$ which are immediate specializations of $y$. Clearly it is enough to consider each $y'$ separately, so we must show the commutativity of the diagram
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-f_{*}(J(x)) \ar[r,"d"] \ar[d,"\Tr_{f}"'] & \displaystyle\coprod_{x \rightarrow x',\, f(x')=y'} f_{*}(J(x')) \ar[d,"\Tr_{f}"] \\
+f_{*}(J(x)) \ar[r,"d"] \ar[d,"\Tr_{f}"'] & \displaystyle\bigoplus_{x \rightarrow x',\, f(x')=y'} f_{*}(J(x')) \ar[d,"\Tr_{f}"] \\
 J(y) \ar[r,"d"'] & J(y')
 \end{tikzcd}
 \]
 
-Given a particular element $a \in \Gamma(J(x))$, we can put a subscheme structure on $Z = \overline{\{x\}}$ so that $a \in \Gamma(i_{*}i^{\Delta}f^{\Delta}K^{\bullet})$ where $i: Z \to X$ is the inclusion. Let $g: Z \to Y$ be the composition $fi$. Then since $i$ is a finite morphism, $\Tr_{i} = \rho_{i}$ is a morphism of complexes (see [VI \S4]) and so using TRA 1 it will be sufficient to show that $\Tr_{g}$ is a morphism of complexes. In other words, we may replace $X$ by $Z$ and thus reduce to the case $X$ is irreducible and $x$ is the generic point.
+Given a particular element $a \in \Gamma(J(x))$, we can put a subscheme structure on $Z = \overline{\{x\}}$ so that $a \in \Gamma(i_{*}i^{\Delta}f^{\Delta}K^{\bullet})$ where $i: Z \to X$ is the inclusion. Let $g: Z \to Y$ be the composition $fi$. Then since $i$ is a finite morphism, $\Tr_{i} = \rho_{i}$ is a morphism of complexes (see \bookref{sec:6.4}{VI,~\S4}) and so using \hyperref[tra:6.4.1]{TRA~1} it will be sufficient to show that $\Tr_{g}$ is a morphism of complexes. In other words, we may replace $X$ by $Z$ and thus reduce to the case $X$ is irreducible and $x$ is the generic point.
 
-Now by reason of codimensions [VI 3.4] each $x'$ is closed in its fibre, i.e., the fibre of $y'$ is discrete. Also $f$ is a proper morphism, so by [EGA III 4.4.11] there is an open neighborhood $U$ of $y'$ such that the restriction of $f$ to $f^{-1}(U)$ is a finite morphism. Thus we may assume that $f$ itself is finite, in which case $\Tr_{f} = \rho_{f}$ which is a morphism of complexes, and we are done.
+Now by reason of codimensions \bookref{prop:6.3.4}{VI,~3.4} each $x'$ is closed in its fibre, i.e., the fibre of $y'$ is discrete. Also $f$ is a proper morphism, so by \cite[\nopp III,~4.4.11]{EGA} there is an open neighborhood $U$ of $y'$ such that the restriction of $f$ to $f^{-1}(U)$ is a finite morphism. Thus we may assume that $f$ itself is finite, in which case $\Tr_{f} = \rho_{f}$ which is a morphism of complexes, and we are done.
 
 \medskip\noindent\textit{Case 2.} Suppose that $x$ is not closed in its fibre. Then $\Tr_{f}$ maps $f_{*}(J(x))$ to zero. If no immediate specialization of $x$ is closed in its fibre, then also $\Tr_{f} \cdot d$ is zero on $f_{*}(J(x))$, and there is nothing to prove. So suppose that some immediate specializations $x'$ of $x$ are closed in their fibres. Then we have $f(x) = f(x') = y$ for all such $x'$, and we must check that the diagram
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-f_{*}(J(x)) \ar[r,"d"] \ar[d,"0"'] & \displaystyle\coprod_{x\rightarrow x'} f_{*}(J(x')) \ar[d,"\Tr_{f}"] \\
+f_{*}(J(x)) \ar[r,"d"] \ar[d,"0"'] & \displaystyle\bigoplus_{x\rightarrow x'} f_{*}(J(x')) \ar[d,"\Tr_{f}"] \\
 0 \ar[r] & J(y)
 \end{tikzcd}
 \]
 is commutative. As above, we fix an element $a \in \Gamma(J(x))$, and then can replace $X$ by $\overline{\{x\}}$ with a suitable subscheme structure. Thus we reduce to the case $X$ irreducible and $x$ its generic point.
 
-Next we make the base extension $\Spec \sO_{y} \to Y$, and thus reduce to the case $y$ is a closed point of $Y$, since everything is compatible with localization. Now since $X$ is noetherian, and $f$ maps the generic point of $X$ to the closed point of $Y$, $f$ factors through a closed subscheme $Y'$ of $Y$ defined by a suitable power of the maximal ideal of $\sO_{y}$. Since $Y' \to Y$ is a finite morphism, its trace is a morphism of complexes, so we can replace $Y$ by $Y'$, and so reduce to the case where $Y$ is the spectrum of a local Artin ring, and $X$ is proper over $Y$, of relative dimension $1$.
+Next we make the base extension $\Spec \sO_{y} \to Y$, and thus reduce to the case $y$ is a closed point of $Y$, since everything is compatible with localization. Now since $X$ is noetherian, and $f$ maps the generic point of $X$ to the closed point of $Y$, $f$ factors through a closed subscheme $Y'$ of $Y$ defined by a suitable power of the maximal ideal of $\sO_{y}$. Since $Y' \to Y$ is a finite morphism, its trace is a morphism of complexes, so we can replace $Y$ by $Y'$, and so reduce to the case where $Y$ is the spectrum of a local Artin ring, and $X$ is irreducible of dimension one over $Y$.
 
-We refer to [EGA IV \S\S22, 25] for the following two results:
+We refer to \cite[\nopp V]{EGA} for the following two results:
 \begin{enumerate}
 \item[(a)] A proper scheme of dimension $1$ over an Artin ring is projective, and
 \item[(b)] A projective scheme $X$ of relative dimension $\le n$ over a local ring $A$ admits a finite morphism into $\bbP^{n}_{A}$.
 \end{enumerate}
-(The adventurous reader can replace the reference by a proof of his own, using [EGA III 2.6.2] and [EGA III 4.7.1]. For (a) one reduces to the case of a non-singular curve over a field, where any positive divisor of sufficiently high degree is very ample. For (b) one puts $X$ first in a large projective space $\bbP_{A}^{N}$, and then projects successively into smaller projective spaces.)
+(The adventurous reader can replace the reference by a proof of his own, using \cite[\nopp III,~2.6.2]{EGA} and \cite[\nopp III,~4.7.1]{EGA}. For (a) one reduces to the case of a non-singular curve over a field, where any positive divisor of sufficiently high degree is very ample. For (b) one puts $X$ first in a large projective space $\bbP_{A}^{N}$, and then projects successively into smaller projective spaces.)
 
-Using these results, we see that $X$ is projective over $Y$, and admits a finite morphism onto $\bbP^{1}_{A}$. Since the theorem is known for a finite morphism, we reduce to the case $X = \bbP^{1}_{A}$, with $A$ an Artin ring. We now invoke [VI 5.4] and [VI 5.6] to reduce to the case where the residue field of $A$ is algebraically closed. (Note that the base extension $Y' \to Y$ is faithfully flat, so that it is enough to prove the theorem in the extended situation.) But this is Corollary 1.6, so we are done.
+Using these results, we see that $X$ is projective over $Y$, and admits a finite morphism onto $\bbP^{1}_{A}$. Since the theorem is known for a finite morphism, we reduce to the case $X = \bbP^{1}_{A}$, with $A$ an Artin ring. We now invoke \bookref{prop:6.5.4}{VI,~5.4} and \bookref{thm:6.5.6}{VI,~5.6} to reduce to the case where the residue field of $A$ is algebraically closed. (Note that the base extension $Y' \to Y$ is faithfully flat, so that it is enough to prove the theorem in the extended situation.) But this is Corollary~\ref{cor:7.1.6}, so we are done.
 \end{proof}
 
 \section{The duality theorem for proper morphisms}\label{sec:7.3}
 
-In this section we prove the long-awaited duality theorem for a proper morphism of locally noetherian preschemes $f: X \to Y$. We will suppose the existence of a residual complex $K^{\bullet}$ on $Y$. Then $K^{\bullet}$ and $f^{\Delta}K^{\bullet}$ give rise to pointwise dualizing functors $\underline{\D}_{Y}$ and $\underline{\D}_{X}$ on $Y$ and $X$, respectively, and we express the duality theorem as
+In this section we prove the long-awaited duality theorem for a proper morphism of locally noetherian preschemes $f: X \to Y$. We will suppose the existence of a residual complex $K^{\bullet}$ on $Y$. Then $K^{\bullet}$ and $f^{\Delta}K^{\bullet}$ give rise to pointwise dualizing functors $D_{Y}$ and $D_{X}$ on $Y$ and $X$, respectively, and we express the duality theorem as
 \[
-\underline{\D}_{X}(F^{\bullet}) \cong \underline{\D}_{Y}(\DerR f_{*}F^{\bullet})
+D_{X}(F^{\bullet}) \cong D_{Y}(\RR f_{*}F^{\bullet})
 \]
-for $F^{\bullet} \in D_{\Qco}(X)$.
+for $F^{\bullet} \in \DD_{\mathrm{qc}}(X)$.
 
-Before proving the theorem, we must show that the trace map $\Tr_{f}$ of [VI 4.2] agrees in the case of a finite or projective morphism with the trace maps $\operatorname{Trf}_{f}$ of [III 6.5] and $\operatorname{Trp}_{f}$ of [III 4.3].
+Before proving the theorem, we must show that the trace map $\Tr_{f}$ of \bookref{thm:6.4.2}{VI,~4.2} agrees in the case of a finite or projective morphism with the trace maps $\operatorname{Trf}_{f}$ of \bookref{prop:3.6.5}{III,~6.5} and $\operatorname{Trp}_{f}$ of \bookref{prop:3.4.3}{III,~4.3}.
 
 So let $f: X \to Y$ be a finite morphism of preschemes, and assume that $Y$ is noetherian and has finite Krull dimension. Let $K^{\bullet}$ be a residual complex on $Y$. Then we construct an isomorphism
 \[
-\alpha_{f}: Q f_{*} f^{\Delta} K^{\bullet} \xrightarrow{\sim} \DerR f_{*} f^{\flat} Q K^{\bullet}
+\alpha_{f}: Q f_{*} f^{\Delta} K^{\bullet} \xrightarrow{\sim} \RR f_{*} f^{\flat} Q K^{\bullet}
 \]
 as follows:
 \[
-Q f_{*} f^{\Delta} K^{\bullet} \xrightarrow{\xi_{f_{*}}} \DerR f_{*} Q f^{\Delta} K^{\bullet} \xrightarrow{\psi_{f}} \DerR f_{*} Q f^{Y} K^{\bullet} \xrightarrow{(1)} \DerR f_{*} QE f^{\flat} Q K^{\bullet} \xrightarrow{(2)} \DerR f_{*} f^{\flat} Q K^{\bullet}
+\begin{aligned}
+Q f_{*} f^{\Delta} K^{\bullet}
+&\xrightarrow{\xi_{f_{*}}} \RR f_{*} Q f^{\Delta} K^{\bullet}
+ \xrightarrow{\psi_{f}} \RR f_{*} Q f^{y} K^{\bullet} \\
+&\xrightarrow{(1)} \RR f_{*} QE f^{\flat} Q K^{\bullet}
+ \xrightarrow{(2)} \RR f_{*} f^{\flat} Q K^{\bullet}.
+\end{aligned}
 \]
-where as usual, $Q$ denotes the natural map from complexes to elements of the derived category; $\xi_{f_{*}}$ is the isomorphism of [I 5.1]; $\psi_{f}$ is the isomorphism of [VI 3.1c]; the map (1) is the definition of $f^{Y}$ [VI \S2]; and (2) is the isomorphism of [VI 1.1c] (here is where we need the hypothesis that $Y$ is noetherian of finite Krull dimension).
+where as usual, $Q$ denotes the natural map from complexes to elements of the derived category; $\xi_{f_{*}}$ is the isomorphism of \bookref{thm:1.5.1}{I,~5.1}; $\psi_{f}$ is the isomorphism of \bookref{thm:6.3.1}{VI,~3.1c}; the map (1) is the definition of $f^{y}$ \bookref{sec:6.2}{VI,~\S2}; and (2) is the isomorphism of \bookref{prop:6.1.1}{VI,~1.1c} (here is where we need the hypothesis that $Y$ is noetherian of finite Krull dimension).
 
-\begin{proposition}[3.1]
+\begin{bookproposition}{3.1}\label{prop:7.3.1}
 Let $f: X \to Y$ be a finite morphism, with $Y$ noetherian of finite Krull dimension, and let $K^{\bullet}$ be a residual complex on $Y$. Then there is a commutative diagram
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-Q f_{*} f^{\Delta} K^{\bullet} \ar[rr,"\alpha_{f}"] \ar[rd,"Q \Tr_{f}"'] && \DerR f_{*} f^{\dagger} Q K^{\bullet} \ar[ld,"\operatorname{Trf}_{f}Q"] \\
+Q f_{*} f^{\Delta} K^{\bullet} \ar[rr,"\alpha_{f}"] \ar[rd,"Q \Tr_{f}"'] && \RR f_{*} f^{\flat} Q K^{\bullet} \ar[ld,"\operatorname{Trf}_{f}Q"] \\
 & Q K^{\bullet} 
 \end{tikzcd}
 \]
-where $\Tr_{f}$ is the trace of [VI 4.2] and $\operatorname{Trf}_{f}$ is the trace of [III 6.5].
-\end{proposition}
+where $\Tr_{f}$ is the trace of \bookref{thm:6.4.2}{VI,~4.2} and $\operatorname{Trf}_{f}$ is the trace of \bookref{prop:3.6.5}{III,~6.5}.
+\end{bookproposition}
 
 \begin{proof}
-Follows immediately from TRA 2 [VI 4.2] and the definition of $\rho_{f}$ [VI \S4].
+Follows immediately from \hyperref[tra:6.4.2]{TRA~2} \bookref{thm:6.4.2}{VI,~4.2} and the definition of $\rho_{f}$ \bookref{sec:6.4}{VI,~\S4}.
 \end{proof}
 
 Now let $Y$ be a noetherian prescheme of finite Krull dimension, and let $f: X = \bbP^{n}_{Y} \to Y$ be the structural map of an $n$-dimensional projective space over $Y$. Let $K^{\bullet}$ be a residual complex on $Y$. Then we define an isomorphism
 \[
-\beta_{f}: Q f_{*} f^{\Delta} K^{\bullet} \xrightarrow{\sim} \DerR f_{*} f^{*} Q K^{\bullet}
+\beta_{f}: Q f_{*} f^{\Delta} K^{\bullet} \xrightarrow{\sim} \RR f_{*} f^{\sharp} Q K^{\bullet}
 \]
-similar to the map $\alpha_{f}$ above, using $\xi_{f_{*}}$, the map $\phi_{f}$ of [VI 3.1d], the definition of $f^{Z}$ [VI \S2], and [VI 1.1c].
+similar to the map $\alpha_{f}$ above, using $\xi_{f_{*}}$, the map $\phi_{f}$ of \bookref{thm:6.3.1}{VI,~3.1d}, the definition of $f^{z}$ \bookref{sec:6.2}{VI,~\S2}, and \bookref{prop:6.1.1}{VI,~1.1c}.
 
-\begin{proposition}[3.2]
+\begin{bookproposition}{3.2}\label{prop:7.3.2}
 Let $Y$ be a noetherian prescheme of finite Krull dimension, let $X = \bbP^{n}_{Y}$, let $f: X \to Y$ be the projection, and let $K^{\bullet}$ be a residual complex on $Y$. Then there is a commutative diagram
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-Q f_{*} f^{\Delta} K^{\bullet} \ar[rr,"\beta_{f}"] \ar[rd,"Q \Tr_{f}"'] && \DerR f_{*} f^{*} Q K^{\bullet} \ar[dl,"\operatorname{Trp}_{f}Q"] \\
+Q f_{*} f^{\Delta} K^{\bullet} \ar[rr,"\beta_{f}"] \ar[rd,"Q \Tr_{f}"'] && \RR f_{*} f^{\sharp} Q K^{\bullet} \ar[dl,"\operatorname{Trp}_{f}Q"] \\
 &Q K^{\bullet} 
 \end{tikzcd}
 \]
-where $\Tr_{f}$ is the trace of [VI 4.2], and $\operatorname{Trp}_{f}$ is the trace of [III 4.3].
-\end{proposition}
+where $\Tr_{f}$ is the trace of \bookref{thm:6.4.2}{VI,~4.2}, and $\operatorname{Trp}_{f}$ is the trace of \bookref{prop:3.4.3}{III,~4.3}.
+\end{bookproposition}
 
 \begin{proof}
-Choose a section $s: Y \to X$ of $f$, and consider the following diagram:
+Choose a section $s\colon Y\to X$ of $f$. To display the comparison, put
+\[
+\begin{aligned}
+A&=QK^\bullet, & C&=Qf_*f^\Delta K^\bullet,\\
+B&=Qf_*s_*s^\Delta f^\Delta K^\bullet,\\
+D&=\RR f_*\RR s_*s^\flat f^\sharp QK^\bullet,
+& E&=\RR f_*f^\sharp QK^\bullet.
+\end{aligned}
+\]
+Then consider the diagram
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-Q K^{\bullet} \ar[r,"Q c_{s,f}"] \ar[d,equals] & Q f_{*} s_{*} s^{\Delta} f^{\Delta} K^{\bullet} \ar[r,"Q \Tr_{s}"] \ar[d] & Q f_{*} f^{\Delta} K^{\bullet} \ar[r,"Q \Tr_{f}"] \ar[d] & Q K^{\bullet} \ar[d,equals] \\
-Q K^{\bullet} \ar[r,"\operatorname{Trp}_{f} \circ c_{s,f}"'] & \DerR f_{*} s_{*} s^{*} f^{*} Q K^{\bullet} \ar[r,"\operatorname{Trp}_{f} \circ \operatorname{Trf}_{s}"'] & \DerR f_{*} f^{*} Q K^{\bullet} \ar[r,"\operatorname{Trp}_{f}"'] & Q K^{\bullet}
+A \ar[r,"Q c_{s,f}"] \ar[d,equals]
+ & B \ar[r,"Qf_*\Tr_s"] \ar[d,"\gamma"]
+ & C \ar[r,"Q\Tr_f"] \ar[d,"\beta_f"]
+ & A \ar[d,equals] \\
+A \ar[r,"\psi_{s,f}Q"']
+ & D \ar[r,"\RR f_*\operatorname{Trf}_s Q"']
+ & E \ar[r,"\operatorname{Trp}_f Q"'] & A.
 \end{tikzcd}
 \]
-\[SOMEcd385\]
-where the notations have the sources indicated, and the second vertical arrow is obtained by sandwiching $\alpha_{s}$ in the middle of the four isomorphisms which define $\beta_{f}$. Now we make the following observations:
+Here $c_{s,f}$ is from \bookref{thm:6.3.1}{VI,~3.1b},
+$\Tr_s$ and $\Tr_f$ are from \bookref{thm:6.4.2}{VI,~4.2},
+$\psi_{s,f}$ is from \bookref{lem:3.8.1}{III,~8.1}, and
+$\operatorname{Trf}_s$ and $\operatorname{Trp}_f$ are from
+\bookref{prop:3.6.5}{III,~6.5} and \bookref{prop:3.4.3}{III,~4.3}.
+The arrow $\gamma$ is obtained by sandwiching $\alpha_s$ in the middle
+of the four isomorphisms which define $\beta_f$.
+Now we make the following observations:
 \begin{enumerate}
-\item[(1)] The composition of the upper row of arrows is the identity on $Q K^{\bullet}$. This follows from TRA 1 [VI 4.2].
-\item[(2)] The composition of the lower row of arrows is also the identity on $Q K^{\bullet}$. This is the statement of [III 10.1].
-\item[(3)] The left-hand square is commutative. This follows from VAR 5 [VI 3.1] and the definition of the isomorphisms $\alpha_{s}$, $\beta_{f}$ and (IV) of [VI \S2].
-\item[(4)] The middle square is commutative. This is Proposition 3.1 above.
-\item[(5)] $\operatorname{Trp}_{f}$ and $\operatorname{Trp}_{f}$ are isomorphisms by construction, hence $\operatorname{Trf}_{s}$ is an isomorphism.
-\item[(6)] $c_{s,f}$ is an isomorphism, hence $Q \Tr_{s}$ and $Q \Tr_{f}$ are isomorphisms. (Note incidentally we have used Theorem 2.1 above that $\Tr_{f}$ is a morphism of complexes, in order to consider $Q \Tr_{f}$ in the first place.)
+\item[(1)] The composition of the upper row of arrows is the identity on $Q K^{\bullet}$. This follows from \hyperref[tra:6.4.1]{TRA~1} \bookref{thm:6.4.2}{VI,~4.2}.
+\item[(2)] The composition of the lower row of arrows is also the identity on $Q K^{\bullet}$. This is the statement of \bookref{prop:3.10.1}{III,~10.1}.
+\item[(3)] The left-hand square is commutative. This follows from \hyperref[var:6.3.5]{VAR~5} of \bookref{thm:6.3.1}{VI,~3.1} and the definition of the isomorphisms $\alpha_{s}$, $\beta_{f}$ and \eqref{eq:6.2.IV} of \bookref{sec:6.2}{VI,~\S2}.
+\item[(4)] The middle square is commutative. This is Proposition~\ref{prop:7.3.1}.
+\item[(5)] $\psi_{s,f}$ and $\operatorname{Trp}_{f}$ are isomorphisms by construction, hence $\operatorname{Trf}_{s}$ is an isomorphism.
+\item[(6)] $c_{s,f}$ is an isomorphism, hence $Q \Tr_{s}$ and $Q \Tr_{f}$ are isomorphisms. (Note incidentally we have used Theorem~\ref{thm:7.2.1} that $\Tr_{f}$ is a morphism of complexes, in order to consider $Q \Tr_{f}$ in the first place.)
 \item[(7)] We conclude finally that the right-hand square is a commutative diagram of isomorphisms.
 \end{enumerate}
 \end{proof}
 
-Now we come to the duality theorem itself. Let $f: X \to Y$ be a proper morphism of noetherian preschemes of finite Krull dimension. Let $K^{\bullet}$ be a residual complex on $Y$. (Note that the existence of a residual complex imposes a slight restriction on the preschemes considered [VI 1.1] and [V \S10].) We denote by $\underline{\D}_{Y}$ (resp.\ $\underline{\D}_{X}$) the pointwise dualizing functor $F^{\bullet} \mapsto \DerR \underline{\Hom}_{Y}^{\bullet}(F^{\bullet}, Q K^{\bullet})$ (resp.\ $F^{\bullet} \mapsto \DerR \underline{\Hom}_{X}^{\bullet}(F^{\bullet}, Q f^{\Delta} K^{\bullet})$). Then composing the morphism of [II 5.5] with $Q \Tr_{f}$, we obtain the duality morphism
+Now we come to the duality theorem itself. Let $f: X \to Y$ be a proper morphism of noetherian preschemes of finite Krull dimension. Let $K^{\bullet}$ be a residual complex on $Y$. (Note that the existence of a residual complex imposes a slight restriction on the preschemes considered \bookref{prop:6.1.1}{VI,~1.1} and \bookref{sec:5.10}{V,~\S10}.) We denote by $D_Y$ and $\mathscr{D}_Y$ the global and sheaf-valued pointwise dualizing functors, respectively:
 \[
-\underline{\Theta}_{f} : \DerR f_{*} \underline{\D}_{X}(F^{\bullet}) \longrightarrow \underline{\D}_{Y}(\DerR f_{*}F^{\bullet})
+\begin{aligned}
+D_Y(F^\bullet)&=\RHom_Y(F^\bullet,QK^\bullet),\\
+\mathscr{D}_Y(F^\bullet)&=\RsheafHom_Y(F^\bullet,QK^\bullet).
+\end{aligned}
 \]
-for $F^{\bullet} \in D^{-}(X)$. Applying the functor $\operatorname{R}\Gamma(Y, \cdot)$ to both sides, and using [II 5.2] and [II 5.3] we obtain a global duality morphism
+Similarly, on $X$ we put
 \[
-\Theta_{f} : D_{X}(F^{\bullet}) \longrightarrow D_{Y}(\DerR f_{*}F^{\bullet}).
+\begin{aligned}
+D_X(F^\bullet)&=\RHom_X(F^\bullet,Qf^\Delta K^\bullet),\\
+\mathscr{D}_X(F^\bullet)&=\RsheafHom_X(F^\bullet,Qf^\Delta K^\bullet).
+\end{aligned}
+\] Then composing the morphism of \bookref{prop:2.5.5}{II,~5.5} with $\xi_{f_*}$ and $Q\Tr_f$, we obtain the duality morphism
+\[
+\underline{\Theta}_{f} : \RR f_{*} \mathscr{D}_{X}(F^{\bullet}) \longrightarrow \mathscr{D}_{Y}(\RR f_{*}F^{\bullet})
+\]
+for $F^{\bullet} \in \DD^{-}(X)$. Applying the functor $\RR\Gamma(Y, \cdot)$ to both sides, and using \bookref{prop:2.5.2}{II,~5.2} and \bookref{prop:2.5.3}{II,~5.3} we obtain a global duality morphism
+\[
+\Theta_{f} : D_{X}(F^{\bullet}) \longrightarrow D_{Y}(\RR f_{*}F^{\bullet}).
 \]
 Taking the cohomology of this, we get morphisms
 \[
-\Theta_{f}^{i} : \Ext_{X}^{i}(F^{\bullet}, Q f^{\Delta} K^{\bullet}) \longrightarrow \Ext_{Y}^{i}(\DerR f_{*}F^{\bullet}, Q K^{\bullet}).
+\Theta_{f}^{i} : \Ext_{X}^{i}(F^{\bullet}, Q f^{\Delta} K^{\bullet}) \longrightarrow \Ext_{Y}^{i}(\RR f_{*}F^{\bullet}, Q K^{\bullet}).
 \]
 
-\begin{theorem}[3.3]
-(Duality Theorem). Let $f: X \to Y$ be a proper morphism of noetherian preschemes of finite Krull dimension, and let $K^{\bullet}$ be a residual complex on $Y$. Then the duality morphisms $\underline{\Theta}_{f}$, $\Theta_{f}$, and $\Theta_{f}^{i}$ defined above are isomorphisms for all $F^{\bullet} \in D_{\Qco}^{-}(X)$.
+\begin{booktheorem}[Duality Theorem]{3.3}\label{thm:7.3.3} Let $f: X \to Y$ be a proper morphism of noetherian preschemes of finite Krull dimension, and let $K^{\bullet}$ be a residual complex on $Y$. Then the duality morphisms $\underline{\Theta}_{f}$, $\Theta_{f}$, and $\Theta_{f}^{i}$ defined above are isomorphisms for all $F^{\bullet} \in \DD_{\mathrm{qc}}^{-}(X)$.
 
-(Note that the hypothesis of finite Krull dimension is needed only for the definition of $\underline{\Theta}_{f}$ (cf.\ [II 5.5]). If we restrict to \emph{bounded complexes} $F^{\bullet} \in D_{\Qco}^{b}(X)$, we can state the theorem assuming only that $X$ and $Y$ are locally noetherian, and that the fibres of $f$ are of bounded dimension. The proof is the same.)
-\end{theorem}
+(Note that the hypothesis of finite Krull dimension is needed only for the definition of $\underline{\Theta}_{f}$ (cf.\ \bookref{prop:2.5.5}{II,~5.5}). If we restrict to \emph{bounded complexes} $F^{\bullet} \in \DD_{\mathrm{qc}}^{b}(X)$, we can state the theorem assuming only that $X$ and $Y$ are locally noetherian, and that the fibres of $f$ are of bounded dimension. The proof is the same.)
+\end{booktheorem}
 
 \begin{proof}
 We proceed in several steps, eventually using Chow's lemma to reduce to the case of projective space which we know already.
 
-\medskip\noindent(a) Clearly it is sufficient to show that $\Theta_{f}$ is an isomorphism. The question is local on $Y$, so we may assume $Y$ is the spectrum of a local ring. In particular, we may assume that $Y$ is noetherian, affine, and of finite Krull dimension. Using the lemma on way-out functors, we reduce to the case of a single quasi-coherent sheaf $F$ on $X$.
+\medskip\noindent(a) Clearly it is sufficient to show that $\underline{\Theta}_{f}$ is an isomorphism. The question is local on $Y$, so we may assume $Y$ is the spectrum of a local ring. In particular, we may assume that $Y$ is noetherian, affine, and of finite Krull dimension. Using the lemma on way-out functors \bookref{prop:1.7.1}{I,~7.1}, we reduce to the case of a single quasi-coherent sheaf $F$ on $X$.
 
-\medskip\noindent(b) Any quasi-coherent sheaf $F$ is the direct limit of its coherent subsheaves. In particular, it is a quotient of a direct sum of coherent sheaves. Thus using the lemma on way-out functors again, we reduce to the case of a direct sum of coherent sheaves. Now since $\DerR \underline{\Hom}^\bullet$ transforms direct sums in the first variable to direct products, we reduce to the case of a single coherent sheaf $F$ on $X$.
+\medskip\noindent(b) Any quasi-coherent sheaf $F$ is the direct limit of its coherent subsheaves. In particular, it is a quotient of a direct sum of coherent sheaves. Thus using the lemma on way-out functors \bookref{prop:1.7.1}{I,~7.1} again, we reduce to the case of a direct sum of coherent sheaves. Now since $\RHom$ transforms direct sums in the first variable to direct products, we reduce to the case of a single coherent sheaf $F$ on $X$.
 
 \medskip\noindent(c) Now since $Y$ is affine, and all the sheaves considered are quasi-coherent, it is enough to show $\Theta_{f}$ is an isomorphism.
 
-\medskip\noindent(d) If $f: X \to Y$ and $g: Y \to Z$ are two proper morphisms, and $K_{Z}^{\bullet}$ a residual complex on $Z$, and if we take $K^{\bullet} = g^{\Delta} K_{Z}^{\bullet}$, then for any $F^{\bullet} \in D_{\Qco}^{-}(X)$ we have a commutative diagram
+\medskip\noindent(d) If $f: X \to Y$ and $g: Y \to Z$ are two proper morphisms, and $K_{Z}^{\bullet}$ a residual complex on $Z$, and if we take $K^{\bullet} = g^{\Delta} K_{Z}^{\bullet}$, then for any $F^{\bullet} \in \DD_{\mathrm{c}}^{-}(X)$ we have a commutative diagram
 \[
 \begin{tikzcd}
 	D_X(F^\bullet)
 	\arrow[rr, "\Theta_{gf}"]
 	\arrow[dr, "\Theta_f"']
-	& & D_Z(\DerR g_*\mathrm{R}f_*F^\bullet) \\
-	& D_Y(\DerR f_*F^\bullet)
+	& & D_Z(\RR g_*\RR f_*F^\bullet) \\
+	& D_Y(\RR f_*F^\bullet)
 	\arrow[ur, "\Theta_g"']
 \end{tikzcd}
 \]
 
 We deduce the following elementary but essential consequences:
 \begin{enumerate}
-\item[(i)] If $\underline{\Theta}_{f}$ and $\underline{\Theta}_{g}$ are isomorphisms for all arguments, so is $\underline{\Theta}_{gf}$.
-\item[(ii)] If $\underline{\Theta}_{g}$ and $\underline{\Theta}_{gf}$ are isomorphisms for all arguments, so is $\underline{\Theta}_{f}$.
-\item[(iii)] If $\underline{\Theta}_{f}$ and $\underline{\Theta}_{gf}$ are isomorphisms for all arguments, then $\underline{\Theta}_{g}$ is an isomorphism for every complex of the form $\DerR f_{*}F^{\bullet}$ with $F^{\bullet} \in D_{\Qco}^{-}(X)$.
+\item[(i)] If $\Theta_{f}$ and $\Theta_{g}$ are isomorphisms for all arguments, so is $\Theta_{gf}$.
+\item[(ii)] If $\Theta_{g}$ and $\Theta_{gf}$ are isomorphisms for all arguments, so is $\Theta_{f}$.
+\item[(iii)] If $\Theta_{f}$ and $\Theta_{gf}$ are isomorphisms for all arguments, then $\Theta_{g}$ is an isomorphism for every complex of the form $\RR f_{*}F^{\bullet}$ with $F^{\bullet} \in \DD_{\mathrm{c}}^{-}(X)$.
 \end{enumerate}
 
 \medskip\noindent(e) By noetherian induction on $X$, we may assume the theorem proven for every morphism of the form $g: Z \to Y$, where $g = fi$, and $i: Z \to X$ is a closed immersion of $Z$ onto a subscheme of $X$, different from $X$.
 
-\medskip\noindent(f) We now apply Chow's Lemma [EGA II 5.6.1] to deduce the existence of a scheme $X'$ projective over $Y$, together with a projective $Y$-morphism $g: X' \to X$, which is an isomorphism on a non-empty open subset $U$ of $X$ (we may assume $X \neq \emptyset$!).
+\medskip\noindent(f) We now apply Chow's Lemma \cite[\nopp II,~5.6.1]{EGA} to deduce the existence of a scheme $X'$ projective over $Y$, together with a projective $Y$-morphism $g: X' \to X$, which is an isomorphism on a non-empty open subset $U$ of $X$ (we may assume $X \neq \emptyset$!).
 
 \[
 \begin{tikzcd}
@@ -415,16 +451,16 @@ X'\ar[r,"g"]\ar[rd,"fg"]&X\ar[d,"f"]\\
 
 Given a coherent sheaf $F$ on $X$, consider the natural map
 \[
-u: F \longrightarrow \DerR g_{*} g^{*}F,
+u: F \longrightarrow \RR g_{*} g^{*}F,
 \]
 and embed it in a triangle
 \[
 \begin{tikzcd}
 	&G^\bullet \ar[ld] \\
-	F \ar[rr,"u"]&&\DerR g_{*} g^{*}F \ar[lu]
+	F \ar[rr,"u"]&&\RR g_{*} g^{*}F \ar[lu]
 \end{tikzcd}
 \]
-Then since $g$ is an isomorphism on $U$, $G^{\bullet}$ has support on $X - U$, and so $\Theta_{f}(G^{\bullet})$ is an isomorphism by our induction hypothesis (e). Thus it will be sufficient to show that $\Theta_{f}(\DerR g_{*} g^{*}F)$ is an isomorphism. Using (iii) above, we reduce to showing $\Theta_{g}$ and $\Theta_{fg}$ are isomorphisms for all arguments, and so we reduce to the case $f$ is projective.
+Then since $g$ is an isomorphism on $U$, $G^{\bullet}$ has support on $X - U$, and so $\Theta_{f}(G^{\bullet})$ is an isomorphism by our induction hypothesis (e). Thus it will be sufficient to show that $\Theta_{f}(\RR g_{*} g^{*}F)$ is an isomorphism. Using (iii) above, we reduce to showing $\Theta_{g}$ and $\Theta_{fg}$ are isomorphisms for all arguments, and so we reduce to the case $f$ is projective.
 
 \medskip\noindent(g) Since $Y$ is affine, we can embed $X$ in a suitable projective space over $Y$, say $f = pi$, with $p:\bbP^n_{Y}\rightarrow Y$ the projection
 \[
@@ -433,193 +469,233 @@ Then since $g$ is an isomorphism on $U$, $G^{\bullet}$ has support on $X - U$, a
 	Y
 \end{tikzcd}
 \]
-and it is sufficient to prove the theorem for $i$ and $p$ separately. Now $i$ is a finite morphism, so $\Theta_{i}$ is an isomorphism by Proposition 3.1 above, and [III 6.7]. Also $\Theta_{p}$ is an isomorphism by Proposition 3.2 above, and [III 5.1].
+and it is sufficient to prove the theorem for $i$ and $p$ separately. Now $i$ is a finite morphism, so $\Theta_{i}$ is an isomorphism by Proposition~\ref{prop:7.3.1}, and \bookref{thm:3.6.7}{III,~6.7}. Also $\Theta_{p}$ is an isomorphism by Proposition~\ref{prop:7.3.2}, and \bookref{thm:3.5.1}{III,~5.1}.
 \end{proof}
 
 We can now pull ourselves up by our bootstraps, and obtain a theory of $f^{!}$ and $\Tr_{f}$ for complexes with coherent cohomology and schemes admitting dualizing complexes.
 
-\begin{corollary}[3.4]\label{cor:7.3.4}
+\begin{bookcorollary}{3.4}\label{cor:7.3.4}
 We consider the category of noetherian preschemes which admit a dualizing complex, and we consider morphisms of finite type. Then
 
 \begin{enumerate}
 \item[(a)] For every such morphism $f: X \to Y$, there is a theory of $f^{!}$ consisting of a functor
 \[
-f^{!}: D_{C}^{+}(Y) \longrightarrow D_{C}^{+}(X)
+f^{!}: \DD_{\mathrm{c}}^{+}(Y) \longrightarrow \DD_{\mathrm{c}}^{+}(X)
 \]
-plus the data 2)--5) and properties VAR 1 -- VAR 6 of [III 8.7] (only leave out the word ``embeddable'' wherever it occurs).
+plus the data 2)--5) and properties VAR 1 -- VAR 6 of \bookref{thm:3.8.7}{III,~8.7} (only leave out the word ``embeddable'' wherever it occurs).
 
 \item[(b)] For every such \emph{proper} morphism $f: X \to Y$, there is a theory of trace consisting of a functorial morphism
 \[
-\Tr_{f} : \DerR f_{*} f^{!} \longrightarrow 1
+\Tr_{f} : \RR f_{*} f^{!} \longrightarrow 1
 \]
-with the properties TRA 1 -- TRA 4 of [III 10.5] (only leave out the phrase ``projectively embeddable'' wherever it occurs).
+with the properties TRA 1 -- TRA 4 of \bookref{thm:3.10.5}{III,~10.5} (only leave out the phrase ``projectively embeddable'' wherever it occurs).
 
 \item[(c)] For every such \emph{proper} morphism $f: X \to Y$, the duality morphism
 \[
-\underline{\Theta}_{f} \colon \ \DerR f_{*} \DerR \underline{\Hom}_{X}^{\bullet}(F^{\bullet},\ f^{!}G^{\bullet}) \longrightarrow \DerR \underline{\Hom}_{Y}^{\bullet}(\DerR f_{*}F^{\bullet},\ G^{\bullet}),
+\underline{\Theta}_{f} \colon \ \RR f_{*} \RsheafHom_X(F^{\bullet},\ f^{!}G^{\bullet}) \longrightarrow \RsheafHom_Y(\RR f_{*}F^{\bullet},\ G^{\bullet}),
 \]
-obtained by composing the morphism of [II 5.5] with $\Tr_{f}$ in the second place, is an isomorphism for $F^{\bullet} \in D_{\Qco}^{-}(X)$ and $G^{\bullet} \in D_{C}^{+}(Y)$. (Compare [III 11.1].)
+obtained by composing the morphism of \bookref{prop:2.5.5}{II,~5.5} with $\Tr_{f}$ in the second place, is an isomorphism for $F^{\bullet} \in \DD_{\mathrm{qc}}^{-}(X)$ and $G^{\bullet} \in \DD_{\mathrm{c}}^{+}(Y)$. (Compare \bookref{thm:3.11.1}{III,~11.1}.)
 \end{enumerate}
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-(a) Let $K^{\bullet}$ be a residual complex on $Y$ (and observe that $Q K^{\bullet}$ is then a dualizing complex on $Y$, and $Q f^{\Delta} K^{\bullet}$ a dualizing complex on $X$). Let $\underline{\D}_{Y}$ and $\underline{\D}_{X}$ be as in the theorem above, and define
+(a) Let $K^{\bullet}$ be a residual complex on $Y$ (and observe that $Q K^{\bullet}$ is then a dualizing complex on $Y$, and $Q f^{\Delta} K^{\bullet}$ a dualizing complex on $X$). Let $\mathscr{D}_{Y}$ and $\mathscr{D}_{X}$ be as in the theorem above, and define
 \[
-f^{!}(G^{\bullet}) = \underline{\D}_{X}(\doubleunderline{L}f^{*} \underline{\D}_{Y}(G^{\bullet}))
+f^{!}(G^{\bullet}) = \mathscr{D}_{X}(\LL f^{*} \mathscr{D}_{Y}(G^{\bullet}))
 \]
-for all $G^{\bullet} \in D_{C}^{+}(Y)$. Note that $\underline{\D}_{Y}(G^{\bullet}) \in D_{C}^{-}(Y)$, so that $\doubleunderline{L}f^{*}$ of it is defined. Here is where we need that $Q K^{\bullet}$ is a dualizing complex, not just pointwise dualizing. Observe also that $f^{!}$ is independent of the choice of $K^{\bullet}$ (use [V 3.1]).
+for all $G^{\bullet} \in \DD_{\mathrm{c}}^{+}(Y)$. Note that $\mathscr{D}_{Y}(G^{\bullet}) \in \DD_{\mathrm{c}}^{-}(Y)$, so that $\LL f^{*}$ of it is defined. Here is where we need that $Q K^{\bullet}$ is a dualizing complex, not just pointwise dualizing. Observe also that $f^{!}$ is independent of the choice of $K^{\bullet}$ (use \bookref{thm:5.3.1}{V,~3.1}).
 
-The construction of the isomorphisms $c_{f,g}$ is easy, using [VI 3.1]. For the isomorphisms $d_{f}$ and $e_{f}$, we use [III 6.9b] and [III 2.4], respectively. The details of these constructions, and verifications of VAR 1 -- VAR 6 are left to the reader (!).
+The construction of the isomorphisms $c_{f,g}$ is easy, using \bookref{thm:6.3.1}{VI,~3.1}. For the isomorphisms $d_{f}$ and $e_{f}$, we use \bookref{prop:3.6.9}{III,~6.9b} and \bookref{prop:3.2.4}{III,~2.4}, respectively. The details of these constructions, and verifications of VAR 1 -- VAR 6 are left to the reader (!).
 
-Observe, by the way, that this part of the Corollary does not depend on the duality theorem, and could have come just after the construction of $f^{\Delta}$ [VI 3.1].
+Observe, by the way, that this part of the Corollary does not depend on the duality theorem, and could have come just after the construction of $f^{\Delta}$ \bookref{thm:6.3.1}{VI,~3.1}.
 
-\medskip\noindent(b) To define $\Tr_{f}$, let $G^{\bullet} \in D_{C}^{+}(Y)$, and use [II 5.10], [VI 4.2], Theorem 2.1 above, and [V 2.1]:
+\medskip\noindent(b) To define $\Tr_{f}$, let $G^{\bullet} \in \DD_{\mathrm{c}}^{+}(Y)$, and use \bookref{prop:2.5.10}{II,~5.10}, \bookref{thm:6.4.2}{VI,~4.2}, Theorem~\ref{thm:7.2.1}, and \bookref{prop:5.2.1}{V,~2.1}:
+Put $H^\bullet=\mathscr{D}_Y(G^\bullet)$ and
+$L^\bullet=Qf^\Delta K^\bullet$. The trace is defined by the diagram
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
-\DerR f_{*} f^{!} G^{\bullet} \ar[r,equals]\ar[dd,dotted] & \DerR f_{*} \DerR \underline{\Hom}_{X}^{\bullet}(\doubleunderline{L}f^{*} \underline{\D}_{Y}(G^{\bullet}),\, Q f^{\Delta} K^{\bullet}) \ar[d,"\text{[II 5.10]}"] \\
-& \DerR \underline{\Hom}_{Y}^{\bullet}(\underline{\D}_{Y}(G^{\bullet}),\, \DerR f_{*} Q f^{\Delta} K^{\bullet}) \ar[d,"Q \Tr_{f}"] \\
-G^{\bullet} \ar[r,"\sim"] & \DerR \underline{\Hom}_{Y}^{\bullet}(\underline{\D}_{Y}(G^{\bullet}),\, Q K^{\bullet})
+\RR f_*f^!G^\bullet \ar[r,equals] \ar[dd,dotted,"\Tr_f"']
+ & \RR f_*\RsheafHom_X(\LL f^*H^\bullet,L^\bullet)
+   \ar[d,"\text{adjunction}"] \\
+ & \RsheafHom_Y(H^\bullet,\RR f_*L^\bullet)
+   \ar[d,"Q\Tr_f"] \\
+G^\bullet \ar[r,"\sim"']
+ & \RsheafHom_Y(H^\bullet,QK^\bullet).
 \end{tikzcd}
 \]
-The verification of TRA 1 is clear, using TRA 1 of [VI 4.2]. For TRA 2 we use [III 6.9c]. Details left to reader (:).
+The upper vertical arrow is \bookref{prop:2.5.10}{II,~5.10}; the last
+vertical arrow is induced by the residual trace, using the canonical
+identification $\RR f_*Qf^\Delta K^\bullet\cong Qf_*f^\Delta K^\bullet$.
+The verification of TRA 1 is clear, using TRA 1 of \bookref{thm:6.4.2}{VI,~4.2}. For TRA 2 we use \bookref{prop:3.6.9}{III,~6.9c}. Details left to reader (:).
 
-\medskip\noindent(c) To prove the duality formula, we reduce as in part (b) of the proof of the theorem above, to the case of complexes $F^{\bullet}$ with coherent cohomology. So let $F^{\bullet} \in D_{C}^{-}(X)$ and $G^{\bullet} \in D_{C}^{+}(Y)$. Consider
+\medskip\noindent(c) To prove the duality formula, we reduce as in part (b) of the proof of Theorem~\ref{thm:7.3.3} to complexes with coherent cohomology.\footnote{Editorial correction: the chain in the original printed proof, pp.~385--386, is replaced here by the tensor--Hom and projection-formula argument. The original expression (2) is not in general isomorphic to (1).}
+Let $F^\bullet\in\DD_{\mathrm{c}}^-(X)$ and $G^\bullet\in\DD_{\mathrm{c}}^+(Y)$, and put
 \[
-\DerR f_{*} \DerR \underline{\Hom}_{X}^{\bullet}(F^{\bullet}, f^{!}G^{\bullet}). \tag{1}
+H^\bullet=\mathscr{D}_Y(G^\bullet),\qquad
+A^\bullet=\LL f^*H^\bullet,\qquad E^\bullet=\RR f_*F^\bullet.
 \]
-We write $F^{\bullet} = \underline{\D}_{X} \underline{\D}_{X}(F^{\bullet})$ and $f^{!}G^{\bullet} = \underline{\D}_{X}(\doubleunderline{L}f^{*} \underline{\D}_{Y}(G^{\bullet}))$. Now since $\underline{\D}_{X}$ is a dualizing functor, it transforms $\operatorname{R}\!\Hom$ into $\operatorname{R}\!\Hom$ of the duals of the arguments, with the order reversed. Thus (1) becomes
-\[
-\DerR f_{*} \underline{\D}_{X} \DerR \underline{\Hom}_{X}^{\bullet}(\doubleunderline{L}f^{*} \underline{\D}_{Y}(G^{\bullet}), \underline{\D}_{X}(F^{\bullet})). \tag{2}
-\]
-Applying the duality theorem above, this becomes
-\[
-\underline{\D}_{Y} \DerR f_{*} \DerR \underline{\Hom}_{X}^{\bullet}(\doubleunderline{L}f^{*} \underline{\D}_{Y}(G^{\bullet}), \underline{\D}_{X}(F^{\bullet})) \tag{3}
-\]
-which in turn, since $\doubleunderline{L}f^{*}$ is a left adjoint of $\DerR f_{*}$ [II 5.10], is isomorphic to
-\[
-\underline{\D}_{Y} \DerR \underline{\Hom}_{Y}^{\bullet}(\underline{\D}_{Y}(G^{\bullet}), \DerR f_{*} \underline{\D}_{X}(F^{\bullet})). \tag{4}
-\]
-Now applying duality to the second argument, (4) becomes
-\[
-\underline{\D}_{Y} \DerR \underline{\Hom}_{Y}^{\bullet}(\underline{\D}_{Y}(G^{\bullet}), \underline{\D}_{Y}(\DerR f_{*}F^{\bullet}))
-\]
-and since $\underline{\D}_{Y}$ is dualizing, this is
-\[
-\DerR \underline{\Hom}_{Y}^{\bullet}(\DerR f_{*}F^{\bullet}, G^{\bullet}).
-\]
-The reader may check that our chain of isomorphisms is indeed $\underline{\Theta}_{f}$, which proves (c).
+Then $H^\bullet$ and $A^\bullet$ have bounded-above coherent cohomology,
+$f^!G^\bullet=\mathscr{D}_X(A^\bullet)$, and $E^\bullet\in\DD_{\mathrm{c}}^-(Y)$
+by properness. Tensor--Hom adjunction, or \bookref{prop:5.2.6}{V,~2.6c}, gives
+\begin{equation}\tag{1}\label{eq:7.3.4.1}
+\RR f_*\RsheafHom_X(F^\bullet,f^!G^\bullet)
+\cong\RR f_*\mathscr{D}_X(F^\bullet\derivedtensor A^\bullet).
+\end{equation}
+The complex $F^\bullet\derivedtensor A^\bullet$ belongs to $\DD_{\mathrm{c}}^-(X)$,
+so Theorem~\ref{thm:7.3.3} identifies the right-hand side with
+\begin{equation}\tag{2}\label{eq:7.3.4.2}
+\mathscr{D}_Y\bigl(\RR f_*(F^\bullet\derivedtensor\LL f^*H^\bullet)\bigr).
+\end{equation}
+By the projection formula \bookref{prop:2.5.6}{II,~5.6}, this is
+\begin{equation}\tag{3}\label{eq:7.3.4.3}
+\mathscr{D}_Y(E^\bullet\derivedtensor H^\bullet).
+\end{equation}
+Finally, tensor--Hom adjunction and biduality \bookref{prop:5.2.1}{V,~2.1} give
+\begin{equation}\tag{4}\label{eq:7.3.4.4}
+\mathscr{D}_Y(E^\bullet\derivedtensor H^\bullet)
+\cong\RsheafHom_Y(E^\bullet,\mathscr{D}_YH^\bullet)
+\cong\RsheafHom_Y(\RR f_*F^\bullet,G^\bullet).
+\end{equation}
+These identifications give the stated morphism $\underline{\Theta}_f$:
+after tensor--Hom adjunction, both the composite and the morphism defined
+in (c) are induced by evaluation against $F^\bullet$ and $\LL f^*H^\bullet$,
+followed by the residual trace $\RR f_*Qf^\Delta K^\bullet\to QK^\bullet$.
+The trace on $f^!G^\bullet$ in part (b) is defined by this same evaluation
+and residual trace, and the projection formula uses the corresponding
+adjunction maps. Thus the composite agrees with $\underline{\Theta}_f$,
+and proves (c).
 \end{proof}
 
-\begin{proposition}[3.5]
-(Compatibility of Local and Global duality). Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $K^{\bullet}$ be a residual complex on $Y$. Let $x \in X$ be a closed point, with local ring $A = \sO_{x}$. Let $R^{\bullet}$ be the dualizing complex $(Q f^{\Delta} K^{\bullet})_{x}$ on $A$, and assume that $R^{\bullet}$ is normalized [V \S6]. Let $I = \Gamma_{x}(R^{\bullet})$. Let $F^{\bullet} \in D_{C}^{+}(X)$. Then the diagram
+\begin{bookproposition}[Compatibility of Local and Global Duality]{3.5}\label{prop:7.3.5}
+Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $K^{\bullet}$ be a residual complex on $Y$. Let $x \in X$ be a closed point, with local ring $A = \sO_{x}$. Let $R^{\bullet}$ be the dualizing complex $(Q f^{\Delta} K^{\bullet})_{x}$ on $A$, and assume that $R^{\bullet}$ is normalized \bookref{sec:5.6}{V,~\S6}. Let $I = \Gamma_{x}(R^{\bullet})$. Let $F^{\bullet} \in \DD_{\mathrm{c}}^{+}(X)$. Regard the local modules in the diagram as sheaves on $Y$ supported at $f(x)$. Put
 \[
-\begin{tikzcd}[row sep=large, column sep=large]
-\DerR \Gamma_{x}(F^{\bullet}) \ar[r,"\Theta_{x}"] \ar[d,"\alpha"'] & {\Hom}_{A}^{\bullet}({\Hom}_{A}^{\bullet}(F_{x}^{\bullet},R^{\bullet}),  I) \ar[d,"\beta"] \\
-\DerR f_{*}(F^{\bullet}) \ar[r,"\underline{\D}_{Y}(\Theta_{f})"'] & \underline{\Hom}_{Y}^{\bullet}(\DerR f_{*} \DerR \underline{\Hom}_{X}^{\bullet}(F^{\bullet}, Q f^{\Delta} K^{\bullet}), Q K^{\bullet})
+\begin{aligned}
+L^\bullet&=Qf^\Delta K^\bullet,\\
+C^\bullet&=\Hom_A^\bullet(F_x^\bullet,R^\bullet),\\
+B^\bullet&=\RR f_*\sheafHom_X^\bullet(F^\bullet,L^\bullet).
+\end{aligned}
+\]
+Then the diagram
+\[
+\begin{tikzcd}[row sep=large,column sep=large]
+\RR\Gamma_x(F^\bullet) \ar[r,"\Theta_x"] \ar[d,"\alpha"']
+ & \Hom_A^\bullet(C^\bullet,I) \ar[d,"\beta"] \\
+\RR f_*F^\bullet \ar[r,"\mathscr{D}_Y(\underline{\Theta}_f)"']
+ & \sheafHom_Y^\bullet(B^\bullet,QK^\bullet)
 \end{tikzcd}
 \]
-is commutative, where $\theta_{x}$ is the local duality isomorphism [V 6.2], $\alpha$ is the natural map of derived functors obtained from the inclusion $\Gamma_{x} \subseteq f_{*}$, $\beta$ is obtained from the stalk map
+is commutative. Here $\Theta_x$ is the local duality isomorphism
+\bookref{thm:5.6.2}{V,~6.2}, and $\alpha$ is induced by the inclusion
+$\Gamma_x\subseteq f_*$. The map $\beta$ is obtained from the stalk map
 \[
-\DerR f_{*} \DerR \underline{\Hom}_{X}^{\bullet}(F^{\bullet}, Q f^{\Delta} K^{\bullet}) \longrightarrow \underline{\Hom}_{A}^{\bullet}(F_{x}^{\bullet}, R^{\bullet})
+B^\bullet\longrightarrow C^\bullet
 \]
 and the trace map
 \[
-\Tr_{f,x}: f_{*}J(x) = I \longrightarrow K^{\bullet},
+\Tr_{f,x}\colon f_*J(x)=I\longrightarrow K^\bullet.
 \]
-and $\underline{\D}_{Y} \Theta_{f}$ is the transpose by $\underline{\D}_{Y}$ of the global duality isomorphism of Theorem 3.3. (Note we write four times $\underline{\Hom}$ instead of $\DerR \underline{\Hom}$ because the second argument in each case is injective.)
-\end{proposition}
+The lower arrow is the transpose, under $\mathscr{D}_Y$, of the sheaf
+duality isomorphism $\underline{\Theta}_f$ of Theorem~\ref{thm:7.3.3},
+using biduality to identify its source with $\RR f_*F^\bullet$.
+We use Hom complexes in the four places displayed as
+$\Hom_A^\bullet$ or $\sheafHom_Y^\bullet,\sheafHom_X^\bullet$:
+the injective second arguments compute the corresponding derived Hom.
+\end{bookproposition}
 
 \begin{proof}
 Immediate from the definitions of the maps in question.
 \end{proof}
 
-\begin{remark}
-This compatibility is the one needed to complete the proof of ``Lichtenbaum's theorem'' [LC theorem 6.9, see parenthetical remark in middle of p.\ 103].
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+This compatibility is the one needed to complete the proof of ``Lichtenbaum's theorem'' \cite[\nopp Thm.~6.9; see the parenthetical remark on p.~103]{LC}.
+\par\medskip
 
-\section{Smooth morphisms}
+\section{Smooth morphisms}\label{sec:7.4}
 
 In this section we give the special case of the duality theorem for a proper smooth morphism of locally noetherian preschemes. In this case we can eliminate the hypothesis that our preschemes admit residual complexes.
 
-The results below are valid practically without change for Cohen--Macaulay morphisms (see [V 9.7]). In that case one defines $\omega_{X/Y}$ to be the unique cohomology group of $f^{!}(\sO_{Y})$. The functor $f^{!}$ is defined only locally, but one can glue the sheaves $\omega_{X/Y}$ to obtain a global one. One then defines $f^{\sharp} = f^{*} \otimes \omega_{X/Y}[n]$ as in the smooth case. We leave the details to the reader.
+The results below are valid practically without change for Cohen--Macaulay morphisms (see \bookref{rem:5.9.7}{V,~9.7}). In that case one defines $\omega_{X/Y}$ to be the unique cohomology sheaf of $f^{!}(\sO_{Y})$. The functor $f^{!}$ is defined only locally, but one can glue the sheaves $\omega_{X/Y}$ to obtain a global one. One then defines $f^{\sharp} = f^{*} \otimes \omega_{X/Y}[n]$ as in the smooth case. We leave the details to the reader.
 
 Throughout this section, $f: X \to Y$ will be a proper, smooth morphism of locally noetherian preschemes, and we will suppose for simplicity that the fibres are all of the same dimension, say $n$. We denote by $\omega_{X/Y}$ the sheaf $\Omega_{X/Y}^{n}$ of relative $n$-differentials, and by $f^{\sharp}$ the functor
 \[
-f^{\sharp}: D(Y) \longrightarrow D(X)
+f^{\sharp}: \DD(Y) \longrightarrow \DD(X)
 \]
 given by
 \[
 f^{\sharp}(G^{\bullet}) = f^{*}(G^{\bullet}) \otimes \omega_{X/Y}[n]
 \]
-(compare [III, \S\S1,2]).
+(compare \bookref{sec:3.1}{III,~\S1} and \bookref{sec:3.2}{III,~\S2}).
 
-\begin{theorem}[4.1]
+\begin{booktheorem}{4.1}\label{thm:7.4.1}
 For every proper, smooth morphism $f: X \to Y$ of relative dimension $n$ of locally noetherian preschemes, there is a morphism
 \[
-\gamma_{f}: \operatorname{R}^{n} f_{*}(\omega_{X/Y}) \longrightarrow \sO_{Y}
+\gamma_{f}: \RR^{n} f_{*}(\omega_{X/Y}) \longrightarrow \sO_{Y}
 \]
-with the properties (b)--(g) of [III 11.2].
-\end{theorem}
+with the properties (b)--(g) of \bookref{cor:3.11.2}{III,~11.2}.
+\end{booktheorem}
 
 \begin{proof}
-We will first consider the case where $Y$ is noetherian and admits a dualizing complex. Then by Corollary 3.4, we have
+We will first consider the case where $Y$ is noetherian and admits a dualizing complex. Then by Corollary~\ref{cor:7.3.4}, we have
 \[
-f^{!}(\sO_{Y}) = f^{*}(\sO_{Y}) = \omega_{X/Y}[n],
+f^{!}(\sO_{Y}) = f^{\sharp}(\sO_{Y}) = \omega_{X/Y}[n],
 \]
 and we have a trace map
 \[
-\Tr_{f} \colon \DerR f_{*} f^{!}(\sO_{Y}) \longrightarrow \sO_{Y}.
+\Tr_{f} \colon \RR f_{*} f^{!}(\sO_{Y}) \longrightarrow \sO_{Y}.
 \]
-Taking the cohomology in degree $n$, we obtain a map
+Taking cohomology in degree $0$,\footnote{Editorial correction: the original says degree $n$. The shift gives $\mathcal H^0(\RR f_*\omega_{X/Y}[n])=\RR^n f_*\omega_{X/Y}$.} we obtain a map
 \[
-\gamma_{f}: \operatorname{R}^{n} f_{*}(\omega_{X/Y}) \longrightarrow \sO_{Y}
+\gamma_{f}: \RR^{n} f_{*}(\omega_{X/Y}) \longrightarrow \sO_{Y}
 \]
 as required. The proofs of the properties (b)--(g) are similar to loc.\ cit.\ except for (c), which we will leave to the reader.
 
-For the general case, the question is local by (c), so we may assume $Y = \Spec A$ is the spectrum of a noetherian ring $A$. We consider flat base extensions $u_{i}: Y_{i} \to Y$, where $Y_{i}$ is the spectrum of a complete local noetherian ring $B_{i}$, flat over $A$. By the Cohen structure theorem [14, (31.1)], each $B_{i}$ is a quotient of a regular local ring, hence admits a dualizing complex, and so the theorem holds for $Y_{i}$. Thus for each $i$ we have a morphism
+For the general case, the question is local by (c), so we may assume $Y = \Spec A$ is the spectrum of a noetherian ring $A$. We consider flat base extensions $u_{i}: Y_{i} \to Y$, where $Y_{i}$ is the spectrum of a complete local noetherian ring $B_{i}$, flat over $A$. By the Cohen structure theorem \cite[\nopp (31.1)]{14}, each $B_{i}$ is a quotient of a regular local ring, hence admits a dualizing complex, and so the theorem holds for $Y_{i}$. Thus for each $i$ we have a morphism
 \[
-\gamma_{f_{i}}: \operatorname{R}^{n} f_{i*}(\omega_{X_{i}/Y_{i}}) \longrightarrow \sO_{Y_{i}}.
+\gamma_{f_{i}}: \RR^{n} f_{i*}(\omega_{X_{i}/Y_{i}}) \longrightarrow \sO_{Y_{i}}.
 \]
 Furthermore, by (c), if $v_{ij}: Y_{i} \to Y_{j}$ is a morphism compatible with the morphisms $u_{i}$, $u_{j}$, we have
 \[
 \gamma_{f_{i}} = v_{ij}^{*} \gamma_{f_{j}}.
 \]
-By the lemma below, applied to the $A$-module
+By Lemma~\ref{lem:7.4.2}, applied to the $A$-module
 \[
-\Hom_{Y}(\operatorname{R}^{n} f_{*}(\omega_{X/Y}), \sO_{Y}),
+\Hom_{Y}(\RR^{n} f_{*}(\omega_{X/Y}), \sO_{Y}),
 \]
 there is a unique
 \[
-\gamma_{f} \colon \operatorname{R}^{n} f_{*}(\omega_{X/Y}) \longrightarrow \sO_{Y}
+\gamma_{f} \colon \RR^{n} f_{*}(\omega_{X/Y}) \longrightarrow \sO_{Y}
 \]
 such that $\gamma_{f_{i}} = u_{i}^{*} \gamma_{f}$ for all $i$. By virtue of its construction, this $\gamma_{f}$ has the properties (b)--(g), which completes the proof (details left to reader!).
 \end{proof}
 
-\begin{lemma}[4.2]
+\begin{booklemma}{4.2}\label{lem:7.4.2}
 Let $A$ be a noetherian ring, and let $M$ be an $A$-module. We consider the category $(B_{i})_{i \in I}$ of $A$-algebras which are complete noetherian local rings, flat over $A$, and morphisms of $A$-algebras. Then the natural map
 \[
-\phi\colon \ M \longrightarrow \varprojlim \ M \otimes_{A} B_{i}
+\phi\colon \ M \longrightarrow \varprojlim_i (M\otimes_A B_i)
 \]
 is injective, and if moreover $M$ is of finite type, $\phi$ is bijective.
-\end{lemma}
+\end{booklemma}
 
 \begin{proof}
 To see that $\phi$ is injective, it is sufficient to notice that the map
 \[
-M \longrightarrow \prod M \otimes \widehat{A}_{\mathfrak{m}}
+M \longrightarrow \prod_{\mathfrak m\in\operatorname{Max}A}(M\otimes_A\widehat{A_{\mathfrak m}})
 \]
 is injective, where the product is taken over the maximal ideals $\mathfrak{m}$ of $A$.
 
-For surjectivity, suppose first that $M \cong A/\mathfrak{p}$, where $\mathfrak{p}$ is a prime ideal of $A$. Then we have the following commutative diagram:
+For surjectivity, suppose first that $M \cong A/\mathfrak{p}$, where $\mathfrak{p}$ is a prime ideal of $A$. Put $T(N)=\varprojlim_i(N\otimes_A B_i)$. Then we have the following commutative diagram:
 \[
-\begin{tikzcd}[row sep=large, column sep=large]
-0 \ar[r] & M \ar[r] \ar[d,"\varphi_{1}"] & M_{\mathfrak{p}} \ar[r] \ar[d,"\varphi_{2}"] & M_{\mathfrak{p}}/M \ar[r] \ar[d,"\varphi_{3}"] & 0 \\
-0 \ar[r] & \varprojlim M \otimes B_{i} \ar[r] & \varprojlim M_{\mathfrak{p}} \otimes B_{i} \ar[r] & \varprojlim (M_{\mathfrak{p}}/M) \otimes B_{i}
+\begin{tikzcd}[row sep=large,column sep=large]
+0 \ar[r] & M \ar[r] \ar[d,"\phi_1"]
+ & M_{\mathfrak p} \ar[r] \ar[d,"\phi_2"]
+ & M_{\mathfrak p}/M \ar[r] \ar[d,"\phi_3"] & 0 \\
+0 \ar[r] & T(M) \ar[r] & T(M_{\mathfrak p}) \ar[r]
+ & T(M_{\mathfrak p}/M)
 \end{tikzcd}
 \]
 Now $\phi_{2}$ is bijective, because $M_{\mathfrak{p}} = k(\mathfrak{p})$, and so the natural map
 \[
-M_{\mathfrak{p}}\rightarrow M_{\mathfrak{p}}\otimes_{A}(A_{\mathfrak{p}})^{\wedge}
+M_{\mathfrak{p}}\rightarrow M_{\mathfrak{p}}\otimes_{A}\widehat{A_{\mathfrak p}}
 \]
 is bijective. On the other hand, $\phi_{3}$ is injective, so $\phi_{1}$ is bijective.
 
@@ -630,26 +706,26 @@ Now let $M$ be an arbitrary $A$-module of finite type. Then we can find a filtra
 whose quotients $M_{i}/M_{i-1}$ are of the form $A/\mathfrak{p}_{i}$ with $\mathfrak{p}_{i} \in \Ass M$. By using the $5$-lemma and induction on $r$, we reduce to the previous case.
 \end{proof}
 
-\begin{remark}
-One sees from the proof that it would be sufficient to consider only $B_{i}$ of the form $(\widehat{A_{\mathfrak{p}}})$ where $\mathfrak{p}$ is either maximal, or an element of $\Ass M$.
-\end{remark}
+\par\medskip\noindent\textbf{Remark.}
+One sees from the proof that it would be sufficient to consider only $B_{i}$ of the form $\widehat{A_{\mathfrak p}}$ where $\mathfrak{p}$ is either maximal, or an element of $\Ass M$.
+\par\medskip
 
-\begin{corollary}[4.3]\label{cor:7.4.3}
+\begin{bookcorollary}{4.3}\label{cor:7.4.3}
 \begin{enumerate}
 \item[(a)] For every proper, smooth morphism $f: X \to Y$ of noetherian preschemes of finite Krull dimension, there is a trace morphism
 \[
-\Tr_{f} : \DerR f_{*} f^{\sharp} G^{\bullet} \longrightarrow G^{\bullet}
+\Tr_{f} : \RR f_{*} f^{\sharp} G^{\bullet} \longrightarrow G^{\bullet}
 \]
-for $G^{\bullet} \in D_{\Qco}^{b}(Y)$, satisfying TRA 1--TRA 4 of [III 10.5] (but where TRA 4 is valid for arbitrary base extension).
+for $G^{\bullet} \in \DD_{\mathrm{qc}}^{b}(Y)$, satisfying TRA 1--TRA 4 of \bookref{thm:3.10.5}{III,~10.5} (but where TRA 4 is valid for arbitrary base extension).
 
 \item[(b)] The resulting duality morphism
 \[
-\underline{\Theta}_{f} \colon \DerR f_{*} \DerR \underline{\Hom}_{X}^{\bullet}(F^{\bullet}, f^{\sharp}G^{\bullet}) \longrightarrow \DerR \underline{\Hom}_{Y}^{\bullet}(\DerR f_{*}F^{\bullet}, G^{\bullet})
+\underline{\Theta}_{f} \colon \RR f_{*} \RsheafHom_X(F^{\bullet}, f^{\sharp}G^{\bullet}) \longrightarrow \RsheafHom_Y(\RR f_{*}F^{\bullet}, G^{\bullet})
 \]
-is an isomorphism for $F^{\bullet} \in D_{\Qco}^{-}(X)$ and $G^{\bullet} \in D_{\Qco}^{b}(Y)$.
+is an isomorphism for $F^{\bullet} \in \DD_{\mathrm{qc}}^{-}(X)$ and $G^{\bullet} \in \DD_{\mathrm{qc}}^{b}(Y)$.
 \end{enumerate}
-\end{corollary}
+\end{bookcorollary}
 
 \begin{proof}
-Define $\Tr_{f}$ by the projection formula and $\gamma_{f}$. Details left to reader!
+Define $\Tr_{f}$ by the projection formula \bookref{prop:2.5.6}{II,~5.6} and $\gamma_f$ of Theorem~\ref{thm:7.4.1}. Details left to reader!
 \end{proof}
