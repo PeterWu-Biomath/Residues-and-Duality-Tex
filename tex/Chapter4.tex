@@ -914,7 +914,12 @@ Let $X=\operatorname{Spec}A$ be an affine scheme; let $\underline{f}=(f_1,\dots,
 \end{booklemma}
 
 \begin{proof}
-One has only to note that there is an isomorphism $\bigwedge\underline{c}$ of $K_\bullet(\underline{g})$ into $K_\bullet(\underline{f})$ which is given in the $p$th degree by $\bigwedge^p(c_{ij})$. In particular its action on the $n$th degree is $\det(c_{ij})$. The result follows immediately.
+The matrix $\underline{c}=(c_{ij})$ defines a morphism of complexes
+\[
+\bigwedge\underline{c}\colon K_\bullet(\underline{g})
+ \longrightarrow K_\bullet(\underline{f}),
+\]
+whose map in degree $p$ is $\bigwedge^p(c_{ij})$. It commutes with the augmentations to $\sO_X/J$ and induces the identity on that quotient. Since both Koszul complexes resolve $\sO_X/J$, this morphism is a quasi-isomorphism.\footnote{Editorial correction: the original calls this an isomorphism of complexes. For example, in $A=k[x,y]$, the regular sequences $(x,y)$ and $(x,(1+x)y)$ generate the same ideal, but the comparison matrix $\operatorname{diag}(1,1+x)$ is not invertible over $A$.} In degree $n$ its map is multiplication by $\det(c_{ij})$. Applying $\sheafHom^\bullet(-,F)$ and taking degree-$n$ cohomology therefore gives the stated diagram.
 \end{proof}
 
 \begin{bookproposition}[Fundamental Local Isomorphism]{7.2}\label{prop:3.7.2}
