@@ -122,7 +122,7 @@ The \emph{Krull dimension} of a locally noetherian prescheme $X$ is the largest 
 \begin{bookexample}{2.2}\label{ex:5.2.2}
 Let $X$ be a regular prescheme of finite Krull dimension. (A \emph{regular prescheme} is a prescheme $X$ such that all the local rings $\sO_{X,x}$ of points of $X$ are regular local rings.) Then the structure sheaf $\sO_X$ is a dualizing complex for $X$.
 
-Indeed, condition (iv) of the proposition is trivial, because $\sheafExt^{i}(\sO_X,\sO_X)=\sO_X$ for $i=0$, and $0$ otherwise. Clearly $\sO_X\in\DD_{\mathrm{c}}^{+}(X)$. To show that $\sO_X$ has finite injective dimension, we use condition $(\underline{\mathrm{iii}})_{\mathrm{c}}$ of \bookref{prop:2.7.20}{II,~7.20}. Let $n_0$ be the Krull dimension of $X$. Then for every coherent sheaf $F$ on $X$, $\sheafExt^{i}(F,\sO_X)=0$ for $i>n_0$, because $\sheafExt^{i}$ commutes with taking stalks, and the local rings $\sO_{X,x}$ all have cohomological dimension $\leq n_0$, since they are regular local rings \cite[\nopp (28.2)]{14}.
+Indeed, condition (iv) of the proposition is trivial, because $\sheafExt^{i}(\sO_X,\sO_X)=\sO_X$ for $i=0$, and $0$ otherwise. Clearly $\sO_X\in\DD_{\mathrm{c}}^{+}(X)$. To show that $\sO_X$ has finite injective dimension, we use condition $(\underline{\mathrm{iii}})_{\mathrm{c}}$ of [I,~7.20].\footnote{Editorial reference correction: read \bookref{prop:2.7.20}{II,~7.20}, with the sheaf-valued condition $(\underline{\mathrm{iii}})_{\mathrm{c}}$.} Let $n_0$ be the Krull dimension of $X$. Then for every coherent sheaf $F$ on $X$, $\sheafExt^{i}(F,\sO_X)=0$ for $i>n_0$, because $\sheafExt^{i}$ commutes with taking stalks, and the local rings $\sO_{X,x}$ all have cohomological dimension $\leq n_0$, since they are regular local rings \cite[\nopp (28.2)]{14}.
 \end{bookexample}
 
 \begin{bookcorollary}{2.3}\label{cor:5.2.3}
@@ -192,7 +192,7 @@ with exact rows. A diagram chase shows that
 \[
 H^{0}(\mathscr{D}\mathscr{D}(M))=\alpha(M)+tH^{0}(\mathscr{D}\mathscr{D}(M)),
 \]
-so by Nakayama's Lemma, $\alpha$ is surjective. To show that $\alpha$ is injective, let $0\neq x\in M$. Choose $n$ so large that $x\notin t^nM$, and draw the same diagram as above, but with $t^n$ in place of $t$. Then $x$ does not become $0$ in $M/t^nM$, and $M/t^nM\cong H^0(\mathscr{D}\mathscr{D}(M/t^nM))$, so $\alpha(x)\neq0$.
+so by Nakayama's Lemma, $\alpha$ is surjective. To show that $\alpha$ is injective, let $x\in M$.\footnote{Editorial clarification: take $x\neq0$; the next choice of $n$ and the conclusion $\alpha(x)\neq0$ are for a nonzero element.} Choose $n$ so large that $x\notin t^nM$, and draw the same diagram as above, but with $t^n$ in place of $t$. Then $x$ does not become $0$ in $M/t^nM$, and $M/t^nM\cong H^0(\mathscr{D}\mathscr{D}(M/t^nM))$, so $\alpha(x)\neq0$.
 
 Thus $M$ is reflexive. Taking $M=A$, we find that $R^\bullet$ is a dualizing complex.
 \end{proof}
@@ -229,7 +229,7 @@ provided either
 \item[1)] $F^\bullet\in\DD^{-}(X)$, $G^\bullet\in\DD^{+}(X)$ and $R^\bullet\in\DD^{+}(X)_{\mathrm{fid}}$, or
 \item[2)] $F^\bullet\in\DD(X)$, $G^\bullet,R^\bullet\in\DD^+(X)$, and $\mathscr{D}(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$.
 \end{itemize}
-If under the set of conditions 1), we assume furthermore that $F^\bullet\in\DD^-_{\mathrm{c}}(X)$, then by \bookref{prop:1.7.1}{I,~7.1}, the morphism \eqref{eq:5.2.comparison} is an isomorphism. Indeed, we reduce to the case $F=\sO_X$, which is trivial. Taking the inverse isomorphism gives b) under the first set of hypotheses. As a corollary, we see that if $G^\bullet\in\DD^+(X)$ has finite injective dimension, then $\mathscr{D}(G^\bullet)$ has finite Tor-dimension. Indeed, by the Remark following \bookref{prop:2.4.2}{II,~4.2} it is enough to show that there is an integer $n_0$ such that $\sheafTor_i(F,\mathscr{D}(G^\bullet))=0$ for all $i>n_0$ and all coherent sheaves $F$ on $X$, and this follows from b). Thus we have established one half of a). Now if $G^\bullet\in\DD^+(X)_{\mathrm{fid}}$, then as just remarked, $\mathscr{D}(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$, so by 2) and \bookref{prop:1.7.1}{I,~7.1} again, we obtain the isomorphism b) under the second set of conditions.
+If under the set of conditions 1), we assume furthermore that $F^\bullet\in\DD^-_{\mathrm{c}}(X)$, then by \bookref{prop:1.7.1}{I,~7.1}, the morphism \eqref{eq:5.2.comparison} is an isomorphism. Indeed, we reduce to the case $F=\sO_X$, which is trivial. Taking the inverse isomorphism gives b) under the first set of hypotheses. As a corollary, we see that if $G^\bullet\in\DD^+(X)$ has finite injective dimension, then $\mathscr{D}(G^\bullet)$ has finite Tor-dimension. Indeed, by the Remark following \bookref{prop:2.4.2}{II,~4.2} it is enough to show that there is an integer $n_0$ such that $\sheafTor_i(F,G^\bullet)=0$\footnote{Editorial correction: the second argument should be $\mathscr D(G^\bullet)$, whose finite Tor-dimension is being proved.} for all $i>n_0$ and all coherent sheaves $F$ on $X$, and this follows from b). Thus we have established one half of a). Now if $G^\bullet\in\DD^+(X)_{\mathrm{fid}}$, then as just remarked, $\mathscr{D}(G^\bullet)\in\DD^b(X)_{\mathrm{fTd}}$, so by 2) and \bookref{prop:1.7.1}{I,~7.1} again, we obtain the isomorphism b) under the second set of conditions.
 
 For statement c), let $F^\bullet,G^\bullet\in\DD^-_{\mathrm{c}}(X)$, apply b) to $F^\bullet$ and $\mathscr{D}(G^\bullet)$, and apply $\mathscr{D}$ to the resulting isomorphism. Then since $\mathscr{D}^2=\id$ on $\DD^-_{\mathrm{c}}(X)$, we have the required isomorphism under the first set of conditions. As a corollary we deduce (using \bookref{prop:2.7.20}{II,~7.20 $(\underline{\mathrm{iii}})_{\mathrm{c}}$}) that if $G^\bullet\in\DD^{\mathrm{b}}_{\mathrm{c}}(X)$ has finite Tor-dimension, then $\mathscr{D}(G^\bullet)$ has finite injective dimension. This gives the other half of a), and applying $\mathscr{D}$ to the second half of b) gives the second half of c).
 \end{proof}
@@ -275,11 +275,11 @@ M^{\bullet}\derivedtensor \RsheafHom^{\bullet}(R^{\bullet},R^{\prime\bullet})\xr
 Since it is an isomorphism for $M^{\bullet}=\sO_X$, by the lemma on way-out functors \bookref{prop:1.7.1}{I,~7.1}, it is an isomorphism for all $M^{\bullet}\in\DD_{\mathrm{c}}^{-}(X)$.
 \end{proof}
 
-We now define $L^\bullet = \mathscr{D}'\mathscr{D}(\sO_X)$, and use the lemma to deduce that
+We now define $L^{\prime\bullet} = \mathscr{D}\mathscr{D}'(\sO_X)$, and use the lemma to deduce that
 \[
 L^\bullet \derivedtensor L^{\prime\bullet} = \mathscr{D}'\mathscr{D}(L^{\prime\bullet}) = \mathscr{D}'\mathscr{D}\mathscr{D}\mathscr{D}'(\sO_X) = \sO_X
 \]
-where $L^{\prime\bullet}=\mathscr{D}\mathscr{D}'(\sO_X)$.
+
 
 \begin{booklemma}{3.3}\label{lem:5.3.3}
 Let $X$ be a connected locally noetherian prescheme, and let $L^\bullet,L^{\prime\bullet}\in\DD_{\mathrm{c}}^{-}(X)$ be such that $L^\bullet\derivedtensor L^{\prime\bullet}\cong\sO_X$. Then $L^\bullet=L[n]$ for some invertible sheaf $L$, and $L^{\prime\bullet}=L^{\vee}[-n]$.
@@ -374,7 +374,7 @@ Taking derived functors, we deduce a map of functors from $\DD^{+}(X)$ to $\DD^{
 \end{equation}
 
 \begin{booktheorem}{4.1}\label{thm:5.4.1}
-If $X$ is a noetherian prescheme, and $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$, i.e., the complex $F^\bullet$ has quasi-coherent cohomology (cf.\ \bookref{sec:2.1}{II,~\S1}), then \eqref{eq:5.4.support-comparison} is an isomorphism.
+If $X$ is a noetherian prescheme, and $F^\bullet\in\DD^+_{\mathrm{qc}}(X)$, i.e., the complex $F^\bullet$ has quasi-coherent cohomology (cf.\ [II,~\S17])\footnote{Editorial reference clarification: the intended discussion of quasi-coherent cohomology is \bookref{sec:2.1}{II,~\S1}.}, then \eqref{eq:5.4.support-comparison} is an isomorphism.
 \end{booktheorem}
 
 \par\medskip\noindent\textbf{Remarks.}
@@ -648,7 +648,7 @@ A complex $R^\bullet\in\DD^+_{\mathrm{c}}(X)$ with pfid is \emph{pointwise duali
 \begin{enumerate}
 \item Since fid implies pfid, we see that any dualizing complex is pointwise dualizing.
 \item If $X=\Spec A$ where $A$ is a local ring, then $\text{fid}\iff\text{pfid}$, so a complex is dualizing if and only if it is pointwise dualizing.
-\item We say a complex $F^\bullet\in\DD(X)$ is \emph{pointwise bounded below} if for every $x\in X$, $F_x^\bullet\in\DD^+(\Spec\sO_{X,x})$, and we write $F^\bullet\in\DD^{\mathrm{p}+}(X)$. Similarly we define $\DD^{\mathrm{p}-}(X)$ and $\DD^{\mathrm{pb}}(X)$. These are full subcategories of $\DD(X)$ (cf.\ \bookref{sec:1.4}{I,~\S4}, \bookref{sec:1.5}{I,~\S5}). Now if $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ is pointwise dualizing, then the functor $\RsheafHom^\bullet(\cdot,R^\bullet)$ gives an anti-isomorphism of $\DD_{\mathrm{c}}^{\mathrm{p}-}(X)$ and $\DD_{\mathrm{c}}^{\mathrm{p}+}(X)$, and an auto-anti-isomorphism of $\DD_{\mathrm{c}}^{\mathrm{pb}}(X)$.
+\item We say a complex $F^\bullet\in\DD(X)$ is \emph{pointwise bounded below} if for every $x\in X$, $F_x^\bullet\in\DD^+(\Spec\sO_{X,x})$, and we write $F^\bullet\in\DD^{\mathrm{p}+}(X)$. Similarly we define $\DD^{\mathrm{p}-}(X)$ and $\DD^{\mathrm{pb}}(X)$. These are full subcategories of $\DD(X)$ (cf.\ \bookref{sec:1.4}{I,~\S4}, \bookref{sec:1.5}{I,~\S5}). Now if $R^\bullet\in\DD_{\mathrm{c}}^+(X)$ is pointwise dualizing, then the functor $\RsheafHom^\bullet(\cdot,R^\bullet)$ gives an anti-isomorphism of $\DD^{\mathrm{p}-}(X)$ and $\DD^{\mathrm{p}+}(X)$, and an auto-anti-isomorphism of $\DD^{\mathrm{pb}}(X)$.\footnote{Editorial qualification: restrict these duality assertions to coherent cohomology, namely $\DD_{\mathrm c}^{\mathrm p-}(X)$, $\DD_{\mathrm c}^{\mathrm p+}(X)$ and $\DD_{\mathrm c}^{\mathrm{pb}}(X)$. Over a field, the bidual map of an infinite-dimensional vector space need not be an isomorphism. The definitions of pointwise boundedness remain unrestricted.}
 \item If $R^\bullet$ is a pointwise dualizing complex on $X$, we can define as in section~\hyperref[sec:5.7]{7} the associated codimension function $d\colon X\to\mathbb{Z}$, and the associated filtration $Z^\bullet$. Proposition~\ref{prop:5.7.1} holds in this case, so the filtration $Z^\bullet$ satisfies the conditions of \bookref{sec:4.3}{IV,~\S3}, in particular, it is separated. Thus we see as in Corollary~\ref{cor:5.7.2} that $X$ is catenary.
 \item If $R^\bullet$ is pointwise dualizing on $X$, and if $R^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(X)$, then $R^\bullet$ is Gorenstein with respect to the filtration $Z^\bullet$ (cf.\ Proposition~\ref{prop:5.7.3}). The boundedness hypothesis is necessary for \bookref{prop:4.3.1}{IV,~3.1}.
 \end{enumerate}
@@ -659,7 +659,7 @@ If $X$ is a regular prescheme, then $\sO_X$ is a pointwise dualizing complex for
 \end{example*}
 
 \begin{bookproposition}{8.2}\label{prop:5.8.2}
-Let $R^\bullet\in\DD_{\mathrm{c}}^{+}(X)$ be pointwise dualizing, and assume that $X$ is noetherian and of finite Krull dimension. Then $R^\bullet$ has finite injective dimension and so is dualizing (by Corollary~\ref{cor:5.2.3}).
+Let $R^\bullet\in\DD_{\mathrm{c}}^{+}(X)$ be pointwise dualizing, and assume that $X$ is noetherian and of finite Krull dimension. Then $R^\bullet$ has finite injective dimension and so is dualizing (by Proposition 2.3).\footnote{Editorial reference clarification: item~\ref{cor:5.2.3} is a corollary.}
 \end{bookproposition}
 
 \begin{proof}
@@ -675,13 +675,13 @@ and so $R^\bullet$ has finite injective dimension \bookref{prop:2.7.20}{II,~7.20
 \end{proof}
 
 \begin{booktheorem}{8.3}\label{thm:5.8.3}
-Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes whose fibres have bounded dimension,\footnote{This hypothesis is added in the author\textquotesingle s errata to ensure that $f^\sharp(R^\bullet)$ is bounded below.} and let $R^{\bullet}\in\DD^{+}_{\mathrm{c}}(Y)$ be pointwise dualizing. Then $f^{\sharp}(R^{\bullet})$ (cf.\ \bookref{sec:3.2}{III,~\S2}) is pointwise dualizing on $X$. If furthermore $Y$ is noetherian, $f$ of finite type, and $R^{\bullet}$ dualizing, then $f^{\sharp}(R^{\bullet})$ is also dualizing.
+Let $f\colon X\to Y$ be a smooth morphism of locally noetherian preschemes,\footnote{Author's erratum (original p.288): also assume that the fibres of $f$ have bounded dimension, so that $f^\sharp(R^\bullet)$ lies in $\DD^+(X)$.} and let $R^{\bullet}\in\DD^{+}_{\mathrm{c}}(Y)$ be pointwise dualizing. Then $f^{\sharp}(R^{\bullet})$ (cf.\ \bookref{sec:3.2}{III,~\S2}) is pointwise dualizing on $X$. If furthermore $Y$ is noetherian, $f$ of finite type, and $R^{\bullet}$ dualizing, then $f^{\sharp}(R^{\bullet})$ is also dualizing.
 \end{booktheorem}
 
 \begin{proof}
 For the first statement, the question is local on $X$ and $Y$, so we reduce immediately to the case $Y=\Spec A$, with $A$ a local ring, and $X$ of finite type, affine over $Y$. Then $X$ admits a closed immersion into a suitable affine space $\mathbf{A}_{Y}^{n}$, so using \bookref{prop:3.8.4}{III,~8.4} and Proposition~\ref{prop:5.2.4} (which is valid also for ``pointwise dualizing''), we reduce to the case $X=\mathbf{A}_{Y}^{n}$.
 
-\medskip\noindent\textit{Case 1.} $A$ is a regular local ring. Then $R^\bullet$ is dualizing, since $A$ is local, and by uniqueness (Theorem~\ref{thm:5.3.1}) we may assume, after shifting if necessary, that $R^\bullet\cong A$. Then $f^{\sharp}(R^\bullet)\cong\omega_{X/Y}[n]=\Omega_{X/Y}^{n}[n]$, which is a shift of a locally free sheaf of rank one, and hence pointwise dualizing (Example~\ref{ex:5.2.2}, since $X$ is regular if $Y$ is).
+\medskip\noindent\textit{Case 1.} $A$ is a regular local ring. Then $R^\bullet$ is dualizing, since $A$ is local, and by uniqueness (Theorem~\ref{thm:5.3.1}) we may assume, after shifting if necessary, that $R^\bullet\cong A$. Then $f^{\sharp}(R^\bullet)\cong\omega_{X/Y}=\Omega_{X/Y}^{n}$, which is locally free of rank one,\footnote{Editorial correction: by \bookref{sec:3.2}{III,~\S2}, the actual pullback is $\omega_{X/Y}[n]=\Omega^n_{X/Y}[n]$, a shift of the line bundle. Shifting preserves the pointwise dualizing property used here.} and hence pointwise dualizing (Example~\ref{ex:5.2.2}, since $X$ is regular if $Y$ is).
 
 \medskip\noindent\textit{Case 2.} $A$ is a quotient of a regular local ring $A'$. Let $Y'=\Spec A'$. Then $X$ is obtained from the morphism $\mathbf{A}_{Y'}^{n}\to Y'$ by the base extension $Y\to Y'$, and we reduce to the previous case by means of \bookref{cor:3.6.4}{III,~6.4}, Proposition~\ref{prop:5.2.4}, and the uniqueness (Theorem~\ref{thm:5.3.1}) on $Y$.
 
@@ -718,13 +718,13 @@ Put $K=f^{\sharp}R^\bullet$. Flat base change for $f^\sharp$, \bookref{prop:3.2.
 \begin{bookcorollary}{8.4}\label{cor:5.8.4}
 Under the hypotheses of the theorem, let $d_{Y}$ and $d_{X}$ be the codimension functions associated with the pointwise dualizing complexes $R^{\bullet}$ and $f^{\sharp}(R^{\bullet})$, respectively. Then for each $x\in X$,
 \[
-d_{X}(x) = d_{Y}(y) - \operatorname{tr.d.} k(x)/k(y)
+d_{X}(x) = d_{Y}(y) + \operatorname{tr.d.} k(x)/k(y)
 \]
-where $y=f(x)$.
+where $y=f(x)$.\footnote{Editorial correction: the sign is minus. For affine $n$-space over a field and the smooth pullback $\omega[n]$, the generic point has degree $-n$ and closed points degree $0$, consistently with \S\ref{sec:5.7}.}
 \end{bookcorollary}
 
 \begin{proof}
-Chasing through the reductions above (and noting that this formula holds trivially for a finite morphism and $f^{\flat}(R^{\bullet})$), we reduce to the case $Y=\Spec A$, $A$ a regular local ring, $R^\bullet=A$, and $X=\mathbf{A}_{Y}^{n}$. Then $f^{\sharp}(R^\bullet)=\omega_{X/Y}[n]$, a shift of a locally free sheaf of rank one, so for any $x\in X$ we have $d_X(x)=\dim\sO_{X,x}-n$, and for any $y\in Y$, $d_Y(y)=\dim\sO_{Y,y}$ \cite[\nopp \S4]{LC}. Our formula is then the usual dimension formula for a local homomorphism of local rings (cf.\ \cite[\nopp $0_{\mathrm{IV}}$,~17.3.3]{EGA}).
+Chasing through the reductions above (and noting that this formula holds trivially for a finite morphism and $f^{\flat}(R^{\bullet})$), we reduce to the case $Y=\Spec A$, $A$ a regular local ring, $R^\bullet=A$, and $X=\mathbf{A}_{Y}^{n}$. Then $f^{\sharp}(R^\bullet)=\omega_{X/Y}$, which is locally free of rank one, so for any $x\in X$ we have $d_X(x)=\dim\sO_{X,x}$,\footnote{Editorial correction: insert $[n]$ in the smooth pullback and subtract $n$ in its codimension function: $f^\sharp(R^\bullet)=\omega_{X/Y}[n]$ and $d_X(x)=\dim\sO_{X,x}-n$.} and for any $y\in Y$, $d_Y(y)=\dim\sO_{Y,y}$ \cite[\nopp \S4]{LC}. Our formula is then the usual dimension formula for a local homomorphism of local rings (cf.\ \cite[\nopp $0_{\mathrm{IV}}$,~17.3.3]{EGA}).
 \end{proof}
 
 \par\medskip\noindent\textbf{Remark.}
@@ -746,7 +746,7 @@ Apply \bookref{prop:3.8.8}{III,~8.8(7)} to $\mathscr{D}(F^\bullet)$ and $R^\bull
 \begin{bookcorollary}{8.6}\label{cor:5.8.6}
 Under the hypotheses of the proposition, assume furthermore that $f$ is flat, of finite type, and that $Y$ is noetherian. Then there is a functorial isomorphism
 \[
-f^{!}(F^{\bullet}\derivedtensor G^{\bullet}) \xrightarrow{\sim} f^{!}(F^{\bullet}) \derivedtensor f^{*}(G^{\bullet})
+f^{!}(F^{\bullet}\derivedtensor G^{\bullet}) \xrightarrow{\sim} f^{*}(F^{\bullet}) \derivedtensor f^{!}(G^{\bullet})
 \]
 for $F^\bullet\in\DD_{\mathrm{c}}^{+}(Y)$ and $G^\bullet\in\DD_{\mathrm{c}}^{\mathrm{b}}(Y)_{\mathrm{fTd}}$.
 \end{bookcorollary}
@@ -792,7 +792,7 @@ where $x$ is the closed point of $\Spec A$.
 
 \noindent (v) $\Longrightarrow$ (vi) By \bookref{prop:4.3.4}{IV,~3.4}, $E(A)$ is an injective resolution of $A$, and furthermore, for each $p\in\mathbb{Z}$, $E^{p}(A)$ is a direct sum of constant (injective) sheaves on subspaces $\overline{\{y\}}$ of $\Spec A$ with $y\in Z^{p}-Z^{p+1}$. We can calculate $H_{x}^{i}(A)$ as $H^{i}(\Gamma_{x}(E(A)))$. But $\Gamma_{x}(E(A))$ by what we have just seen, consists of a single injective sheaf in some degree (say $d$), since $x$ is a minimal point of $\Spec A$.
 
-\noindent (vi) $\Longrightarrow$ (iv) First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, and let $N=(x_1,\dots,x_n)$. Then $H_{x}^{n}(A)$ is an essential extension of $A/N$ \cite[\nopp proof of Prop.~2]{11}, and so is irreducible, since $A/N$ is a simple $A$-module, and hence irreducible. We conclude that $H_{x}^{n}(A)$ is an irreducible injective $A$-module with support at $x$, and so is an injective hull of $k$ \bookref{prop:2.7.4}{II,~7.4}.\footnote{Editorial note: \noindent (vi) $\Longrightarrow$ (iv) First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, let $N=(x_1,\dots,x_n)$, and put $B=A/N$ and $H=H_x^n(A)$. The ring $B$ is artinian local. (Editorial repair: the original claims that $A/N$ is a simple $A$-module. For $A=k[[t]]$ and $N=(t^2)$ it has length two. The required conclusion is instead that its socle is one-dimensional, as established here.)
+\noindent (vi) $\Longrightarrow$ (iii)\footnote{Editorial clarification: the residue-field Ext conclusion below directly proves (iv), equivalent to (iii) by the preceding result of Bass.} First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, and let $N=(x_1,\dots,x_n)$. Then $H_{x}^{n}(A)$ is an essential extension of $A/N$ \cite[\nopp proof of Prop.~2]{11}, and so is irreducible, since $A/N$ is a simple $A$-module, and hence irreducible. We conclude that $H_{x}^{n}(A)$ is an irreducible injective $A$-module with support at $x$, and so is an injective hull of $k$ \bookref{prop:2.7.4}{II,~7.4}.\footnote{Editorial note: \noindent (vi) $\Longrightarrow$ (iv) First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, let $N=(x_1,\dots,x_n)$, and put $B=A/N$ and $H=H_x^n(A)$. The ring $B$ is artinian local. (Editorial repair: the original claims that $A/N$ is a simple $A$-module. For $A=k[[t]]$ and $N=(t^2)$ it has length two. The required conclusion is instead that its socle is one-dimensional, as established here.)
 Since $B$ is supported at $x$, the local-cohomology spectral sequence and the Koszul resolution for the regular sequence give
 \[
 J:=\operatorname{Hom}_A(B,H)
@@ -814,9 +814,9 @@ Now for any $A$-module $M$,
 \[
 \operatorname{Hom}(k,M) = \operatorname{Hom}(k, \Gamma_{x}(M)).
 \]
-Furthermore, the functor $\Gamma_{x}$ takes injectives into injectives, so we have a spectral sequence of derived functors, which degenerates in this case to give
+Furthermore, the functor $\Gamma_{x}$ takes injectives into injectives, so we have a spectral sequence of derived functors, which degenerates in this case to give\footnote{Editorial correction: the local-cohomology term is $H_x^i(A)$, not the printed $H_x^n(A)$, before the degree-dependent cases.}
 \[
-\operatorname{Ext}^{i}(k,A) \cong \operatorname{Hom}(k, H_{x}^{i}(A)) = \begin{cases} 0 & i\neq n \\ k & i = n. \end{cases}
+\operatorname{Ext}^{i}(k,A) \cong \operatorname{Hom}(k, H_{x}^{n}(A)) = \begin{cases} 0 & i\neq n \\ k & i = n. \end{cases}
 \]
 \end{proof}
 
@@ -841,7 +841,7 @@ Follows from condition (i) of the Theorem, and Corollary~\ref{cor:5.2.3} above.
 \end{proof}
 
 \begin{bookproposition}{9.3}\label{prop:5.9.3}
-Let $f\colon X\to\Spec k$ be an embeddable morphism, where $k$ is a field. Then $X$ is Gorenstein if and only if $f^{!}(k)$ is locally isomorphic in $\DD^+(X)$ to $L[n]$, where $L$ is an invertible sheaf and $n$ is an integer.
+Let $f\colon X\to\Spec k$ be an embeddable morphism, where $k$ is a field. Then $X$ is Gorenstein if and only if $f^{!}(k)$ is isomorphic in $\DD^+(X)$ to an invertible sheaf on $X$.\footnote{Editorial correction: use a locally shifted invertible sheaf $L[n]$. For a smooth $n$-dimensional scheme over $k$, the convention of \bookref{sec:3.2}{III,~\S2} gives $f^!k=\omega_{X/k}[n]$.}
 \end{bookproposition}
 
 \begin{proof}
@@ -861,7 +861,7 @@ Let $K,L$ be extension fields of a field $k$, and assume that one of them is fin
 \end{bookcorollary}
 
 \begin{proof}
-Similar to the above. One can also give a direct proof, by induction on the number of generators. This strengthens \cite[\nopp IV,~6.7.1.1]{EGA} which says that $K\otimes_k L$ is Cohen-Macaulay.
+Similar to the above. One can also give a direct proof, by induction on the number of generators. This generalizes\footnote{Author's erratum (original p.297): read ``strengthens'' instead of ``generalizes''.} \cite[\nopp IV,~6.7.1.1]{EGA} which says that $K\otimes_k L$ is Cohen-Macaulay.
 \end{proof}
 
 \begin{bookproposition}{9.6}\label{prop:5.9.6}
@@ -883,7 +883,7 @@ for each $i$, whence the result.
 \end{proof}
 
 \begin{bookexercise}{9.7}\label{rem:5.9.7}
-Let $f\colon X\to Y$ be a flat morphism of finite type of locally noetherian preschemes. Show that $f^{!}(\sO_Y)$ (which is defined locally on $X$) is locally isomorphic in $\DD^+(X)$ to an invertible sheaf shifted by an integer if and only if all the fibres $X_y$ of $f$, for $y\in Y$, are Gorenstein preschemes. Also show that, locally on $X$, $f^{!}(\sO_Y)$ has a unique non-zero cohomology sheaf, which is flat over $Y$, if and only if all the fibres of $f$ are Cohen-Macaulay preschemes. Such morphisms are called \emph{Gorenstein morphisms} (resp.\ \emph{Cohen-Macaulay morphisms}).
+Let $f\colon X\to Y$ be a flat morphism of finite type of locally noetherian preschemes. Show that $f^{!}(\sO_Y)$ (which is defined locally on $X$) is isomorphic in $\DD^+(X)$ to an invertible sheaf\footnote{Author's erratum (original p.298): insert ``shifted'' after ``invertible sheaf''. Editorial qualification: interpret the integer shift locally on $X$.} if and only if all the fibres $X_y$ of $f$, for $y\in Y$, are Gorenstein preschemes. Also show that $f^{!}(\sO_Y)$ has a unique non-zero cohomology sheaf, which is flat over $X$,\footnote{Editorial qualification: interpret the single-degree assertion locally on $X$, and read flat over $Y$. Distinct components may have different relative dimensions, and flatness here is relative to the base.} if and only if all the fibres of $f$ are Cohen-Macaulay preschemes. Such morphisms are called \emph{Gorenstein morphisms} (resp.\ \emph{Cohen-Macaulay morphisms}).
 
 Compare \cite[\nopp IV,~6.3 and 6.7]{EGA} for statements analogous to Corollary~\ref{cor:5.9.5} and Proposition~\ref{prop:5.9.6} for Cohen-Macaulay.
 \end{bookexercise}
@@ -926,10 +926,7 @@ There are local noetherian domains of dimension $3$ which are not catenary, and 
 
 \par\medskip\noindent\textbf{Problems.}
 \begin{enumerate}
-\item We do not know if $\widehat{A}\otimes_A K$ is a Gorenstein ring, even if $A$ is a local domain of dimension $1$, hence we do not know whether every local domain of dimension $1$ admits a dualizing complex.
-\item If $X$ is noetherian and of finite Krull dimension, and if it admits a dualizing complex locally, and if it admits a codimension function $d$, we do not know whether $X$ admits a dualizing complex globally.
+\item We do now know\footnote{Author's erratum (original p.301, line5): read ``not'' instead of ``now''.} if $\widehat{A}\otimes_A K$ is a Gorenstein ring, even if $A$ is a local domain of dimension $1$, hence we do not know whether every local domain of dimension $1$ admits a dualizing complex.
+\item If $X$ is noetherian and of finite Krull dimension, and if it admits a dualizing complex locally, and if it admits a codimension function $d$, we do not know whether $X$ admits a dualizing complex globally.\footnote{Author's addendum (errata, original p.423): Giraud~\cite{6} provides an obstruction in $H^2(X,\mathbb{G}_m)$, for the Zariski topology, whose vanishing is necessary and sufficient for a locally existing dualizing complex to exist globally. The author also notes that a noetherian scheme of finite Krull dimension can admit dualizing complexes locally but none globally because it has no global codimension function.}
 \end{enumerate}
 \par\medskip
-
-\noindent\textit{Author's addendum (errata, original p.~423).}
-Giraud~\cite{6} provides an obstruction in $H^2(X,\mathbb{G}_m)$, for the Zariski topology, whose vanishing is necessary and sufficient for a locally existing dualizing complex to exist globally. The author also notes that a noetherian scheme of finite Krull dimension can admit dualizing complexes locally but none globally because it has no global codimension function.

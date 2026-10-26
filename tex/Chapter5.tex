@@ -307,10 +307,10 @@ of $F$ into a sheaf $G$ which lies on the $Z/Z'$-skeleton. (By \emph{$Z'$-isomor
 \begin{proof}
 (1) To show the existence of $\alpha$, we take $G=\mathcal{H}_{Z/Z'}^{0}(F)$, and let $\alpha$ be the natural map of $F=\underline{\Gamma}_Z(F)$ into $G$. Then from the exact sequence of Motif B we see that $\alpha$ is a $Z'$-isomorphism, and from Motif F we see that $G$ lies on the $Z/Z'$-skeleton.
 
-(2) To see that $\alpha$ is unique up to isomorphism, let $\beta\colon F\to G'$ be another such $Z'$-isomorphism. Applying the functor $\mathcal{H}_{Z/Z'}^{0}$ (which takes $Z'$-isomorphisms into isomorphisms) we get a commutative diagram
+(2) To see that $\alpha$ is unique up to isomorphism, let $\beta\colon F\to G'$ be another such $Z'$-isomorphism. Applying the functor $\mathcal{H}_{Z/Z'}^{0}$ (which takes $Z'$-isomorphisms into isomorphisms) we get a commutative diagram\footnote{Editorial correction: the upper-right object should be $G'$, the target of $\beta$ and the source of the displayed identity map.}
 \[
 \begin{tikzcd}
-F \arrow[r, "\beta"] \arrow[d, "\alpha"'] & G' \arrow[d, "\operatorname{Id}"] \\
+F \arrow[r, "\beta"] \arrow[d, "\alpha"'] & G \arrow[d, "\operatorname{Id}"] \\
 G \arrow[r, "\gamma"] & G'
 \end{tikzcd}
 \]
@@ -389,7 +389,7 @@ Under the hypotheses of Proposition~\ref{prop:4.2.3}, $\mathcal{H}_{Z^{p}/Z^{p+1
 \end{booklemma}
 
 \begin{proof}
-Using Motif F, we have only to show that for all $x\in Z^p-Z^{p+1}$, $H_x^{i}(F)=0$. But this group can be calculated as the $i$th derived functor of $\Gamma_x$ on the topological space $X_{(x)}$ consisting of all generizations of $x$ (i.e., points $x'$ which specialize to $x$). Indeed, it can be calculated by flasque sheaves (Motif C), and the restriction of a flasque sheaf to $X_{(x)}$ is flasque. Now since $x\notin Z^{p+1}$, the space $X_{(x)}$ has combinatorial dimension $\leq p$, and so $H_x^{i}(F)=0$ for $i>p$ \cite[\nopp II,~4.15.2]{G}, or \cite[\nopp 1.12]{LC}.
+Using Motif F, we have only to show that for all $x\in Z^p-Z^{p+1}$, $H_x^{i}(F)=0$. But this group can be calculated as the $i$th derived functor of $\Gamma_x$ on the topological space $X_{(x)}$ consisting of all generizations of $x$ (i.e., points $x'$ which specialize to $x$). Indeed, it can be calculated by flasque sheaves (Motif C), and the restriction of a flasque sheaf to $X_{(x)}$ is flasque. Now since $x\notin Z^{p+1}$, the space $X_{(x)}$ has combinatorial dimension $\geq p$,\footnote{Editorial correction: the bound is $\leq p$, since $x\notin Z^{p+1}$ and strict specializations increase the filtration index; this is the upper bound used for the ensuing vanishing.} and so $H_x^{i}(F)=0$ for $i>p$ \cite[\nopp II,~4.15.2]{G}, or \cite[\nopp 1.12]{LC}.
 \end{proof}
 
 \begin{bookproposition}{2.5}\label{prop:4.2.5}
@@ -422,7 +422,7 @@ Now we ask when the Cousin complex is a resolution of $F$.
 Under the hypotheses of Proposition~\ref{prop:4.2.5}, the following conditions are equivalent:
 \begin{enumerate}
 \item[(i)] $\mathcal{H}_{Z^p}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
-\item[(ii)] $Z^{p}$-depth $F\geq p$ for all $p$.
+\item[(ii)] $Z^{p}$-depth $F\geq 0$ for all $p$.\footnote{Editorial correction: read $Z^p$-depth $F\geq p$. The vanishing in degrees below $p$ is needed for the implication to (iii).}
 \item[(iii)] $\mathcal{H}_{Z^{p}/Z^{p+1}}^{i}(F)=0$ for all $i,p$ with $i\neq p$.
 \item[(iv)] The Cousin complex of $F$ is a (flasque) resolution of $F$.
 \end{enumerate}
@@ -541,7 +541,7 @@ F^\bullet = \RR\underline{\Gamma}_{Z^p}(F^\bullet)\quad\text{and}\quad QE(F^\bul
 \]
 for $p$ small enough, which will give us the isomorphism $\varphi$.
 
-For $p$ large enough (say $p\geq i_0$), $\RR\underline{\Gamma}_{Z^p}(F^\bullet)$ has cohomology only in degree $p$. Indeed,
+For $p$ large enough (say $p\geq i_0$), $\RR\underline{\Gamma}_{Z^p}(F^\bullet)$ has a unique non-zero cohomology group.\footnote{Editorial clarification: here and in the following assertion about the truncation, cohomology is concentrated in degree $p$, but the degree-$p$ sheaf may itself vanish.} Indeed,
 \[
 \mathcal{H}_{Z^{p}}^{i}(F^\bullet)=0\quad\text{for }i<p
 \]
@@ -555,7 +555,7 @@ since $p\geq i_0$. Furthermore, there is an exact sequence
 \end{equation}
 from Motif B.
 
-At the same time, for $p\geq i_0$, $\tau_{\geq p}E(F^\bullet)$ has cohomology only in degree $p$. Indeed, $\mathcal{H}^{i}=0$ for $i<p$ since the complex is zero in those degrees. $\mathcal{H}^{i}=0$ for $i>p$, since $p\geq i_0$ (see above). Finally since this is a truncated complex, and $\mathcal{H}^{p+1}(E(F^\bullet))=0$, there is an exact sequence
+At the same time, for $p\geq i_0$, $\tau_{\geq p}E(F^\bullet)$ has a unique non-zero cohomology group. Indeed, $\mathcal{H}^{i}=0$ for $i<p$ since the complex is zero in those degrees. $\mathcal{H}^{i}=0$ for $i>p$, since $p\geq i_0$ (see above). Finally since this is a truncated complex, and $\mathcal{H}^{p+1}(E(F^\bullet))=0$, there is an exact sequence
 \begin{equation}\tag{2}\label{eq:4.3.2}
 0\longrightarrow \mathcal{H}^{p}(\tau_{\geq p}E(F^\bullet))\longrightarrow E^{p}(F^\bullet)\longrightarrow E^{p+1}(F^\bullet).
 \end{equation}
@@ -645,7 +645,7 @@ A complex $F^\bullet\in\DD^b(X)$ is \emph{Gorenstein} with respect to the filtra
 \par\medskip
 
 \begin{example*}
-We will see in Chapter~V that a dualizing complex on a prescheme is Gorenstein with respect to the corresponding filtration by codimension.
+We will see in Chapter~V that a dualizing complex on a prescheme in Gorenstein\footnote{Author's erratum (original p.249): read ``is'' instead of ``in''.} with respect to the corresponding filtration by codimension.
 \end{example*}
 
 \begin{bookproposition}{3.4}\label{prop:4.3.4}

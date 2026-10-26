@@ -4,7 +4,7 @@
 \setlength{\emergencystretch}{2em}
 \section{Differentials}\label{sec:3.1}
 
-In this section we recall some facts on relative differentials which we will need in the sequel. See \cite[\nopp IV,~\S16]{EGA} for these results (the reference supplied in the author's errata); the original reference is \cite[\nopp 60--61, expos\'e~II]{SGA}.
+In this section we recall some facts on relative differentials which we will need in the sequel. See \cite[\nopp 60--61, expos\'e~II]{SGA} for these results.\footnote{Author's erratum (original p.137): refer to \cite[\nopp IV,~\S16]{EGA}.}
 
 \begin{definition*}
 If $A\to B$ is a morphism of rings, and $M$ a $B$-module, we define $\operatorname{Der}_A(B,M)$ to be the $A$-module of derivations of $B$ into $M$ over $A$. We define $\Omega^1_{B/A}$, the module of relative one-differentials of $B$ over $A$, to be the $B$-module representing the functor
@@ -96,7 +96,7 @@ Left to reader.
 \begin{definition*}
 \begin{enumerate}
 \item[a)] Let $f\colon X\to Y$ be a smooth morphism of relative dimension $n$. Then we define $\omega_{X/Y}=\Lambda^n\Omega^1_{X/Y}$. Note by Proposition~\ref{prop:3.1.1} that $\omega_{X/Y}$ is a locally free sheaf of rank one.
-\item[b)] Let $f\colon X\to Y$ be a closed immersion which is locally a complete intersection of codimension $n$ (i.e., locally defined by $n$ equations), and let $J$ be the sheaf of ideals of $X$. Then we define $\omega_{X/Y}=(\Lambda^n(J/J^2))^{\vee}$, where $\vee$ denotes dual. Note that $J/J^2$ is locally free of rank $n$ on $X$, so that $\omega_{X/Y}$ is a locally free sheaf of rank one on $X$.
+\item[b)] Let $f\colon X\to Y$ be a closed immersion which is locally a complete intersection of codimension $n$ (i.e., locally defined by $n$ equations), and let $J$ be the sheaf of ideals of $X$. Then we define $\omega_{X/Y}=(\Lambda^n(J/J^2))^{\vee}$, where $\vee$ denotes dual. Note that $J/J^2$ is locally free of rank $n$ on $X$, so that $\omega_{X/Y}$ is a locally free sheaf of rank one on $Y$.\footnote{Editorial correction: this sheaf is on $X$, as is $J/J^2$; the printed $Y$ is an error.}
 \end{enumerate}
 \end{definition*}
 
@@ -121,7 +121,7 @@ Let $X\xrightarrow{f} Y\xrightarrow{g} Z$ be morphisms of preschemes, with $g$ s
 \end{booklemma}
 
 \begin{proof}
-We apply Proposition~\ref{prop:3.1.2} to $W=X\times_Z Y$, $X$, and the section $\Gamma$. Note that $p_1\colon W\to X$ is smooth by base extension from $g$, hence $\Gamma$ is a local complete intersection, and $J/J^2\cong\Gamma^*\Omega^1_{W/X}$. Therefore $\omega_{X/W}=\Gamma^*\omega_{W/X}^{\vee}$. But again by base extension, $\omega_{W/X}=p_2^*\omega_{Y/Z}$, and $f=p_2\Gamma$, so $\omega_{X/W}=f^*\omega_{Y/Z}^{\vee}$ as required.
+We apply Proposition~\ref{prop:3.1.2} to $W=X\times_Z Y$, $X$, and the section $\Gamma$. Note that $p_1\colon W\to X$ is smooth by base extension from $g$, hence $\Gamma$ is a local complete intersection, and $J/J^2\cong\Gamma^*\Omega^1_{W/X}$. Therefore $\omega_{X/W}=\Gamma^*\omega_{W/X}^{\vee}$. But again by base extension, $\omega_{W/X}=p_2^*\omega_{Y/Z}$, and $f=p_2\Gamma$, so $\omega_{X/W}=f^*\omega_{Y/Z}$ as required.\footnote{Editorial correction: the final term should be $f^*\omega_{Y/Z}^{\vee}$, with the dual, as in the lemma and the preceding computation.}
 \end{proof}
 
 \begin{bookdefinition}{1.5}\label{def:3.1.5}
@@ -133,7 +133,7 @@ There are four cases to consider.
 
 \begin{enumerate}
 \item[a)] $f,g$, and $gf$ are all smooth. Then we take $\zeta$ to be $\varphi$ of the exact sequence of Proposition~\ref{prop:3.1.1}.
-\item[b)] $f,g$, and $gf$ are all local complete intersections. If $J$ is the ideal of $Y$ in $Z$, and $K$ is the ideal of $X$ in $Z$, then we have an exact sequence on $X$:
+\item[b)] $f,g$, and $gf$ are all local complete intersections. If $J$ is the ideal of $Y$ in $Z$, and $K$ is the ideal of $X$ in $X$,\footnote{Editorial correction: $K$ is the ideal of $X$ in $Z$, so that $K/J$ is the ideal of $X$ in $Y$.} then we have an exact sequence on $X$:
 \[
 0 \longrightarrow f^*(J/J^2) \longrightarrow K/K^2 \longrightarrow (K/J)/(K/J)^2 \longrightarrow 0.
 \]
@@ -162,9 +162,9 @@ Now by base extension, $\omega_{X\times_Z Y/Y}=p_1^*\omega_{X/Z}$, and by the le
 \end{bookdefinition}
 
 \begin{bookproposition}{1.6}\label{prop:3.1.6}
-Let $X\xrightarrow{f} Y\xrightarrow{g} Z\xrightarrow{h} W$ be three morphisms of locally noetherian preschemes, and suppose that each of the morphisms $f,g,h,gf,hg,hgf$ is either smooth or a local complete intersection. Then the isomorphisms $\zeta$ give a commutative diagram
+Let $X\xrightarrow{f} Y\xrightarrow{g} Z\xrightarrow{h} W$ be three morphisms of locally noetherian preschemes, and suppose that each of the morphisms $f,g,h,gf,hg,hgf$ is either smooth or a local complete intersection. Then the isomorphisms $\zeta$ give a commutative diagram\footnote{Editorial correction: the first factor should be $\zeta_{g,h}$, matching $Y\xrightarrow{g}Z\xrightarrow{h}W$, rather than the printed $\zeta_{h,g}$.}
 \[
-\zeta_{g,h}\,\zeta_{f,hg} = \zeta_{f,g}\,\zeta_{gf,h}.
+\zeta_{h,g}\,\zeta_{f,hg} = \zeta_{f,g}\,\zeta_{gf,h}.
 \]
 \end{bookproposition}
 
@@ -173,15 +173,15 @@ Use Lemma~\ref{lem:3.1.3}.
 \end{proof}
 
 \textbf{Remark.}
-The reader will realize later that the proper context for the notion of $\omega_{X/Y}$ just studied is that of a Gorenstein morphism, and we will leave him to elaborate on the following indications. A morphism $f\colon X\to Y$ of locally noetherian preschemes is called \emph{Gorenstein} if it is locally of finite type, has finite Tor-dimension, and if $f^!(\sO_Y)$ is isomorphic in $\DD^+(X)$ to an invertible sheaf shifted $n$ places to the left, where $n$ is the relative dimension of $X$ over $Y$. Then we call that invertible sheaf $\omega_{X/Y}$, and prove that
+The reader will realize later that the proper context for the notion of $\omega_{X/Y}$ just studied is that of a Gorenstein morphism, and we will leave him to elaborate on the following indications. A morphism $f\colon X\to Y$ of locally noetherian preschemes is called \emph{Gorenstein} if it is locally of finite type, has finite Tor-dimension, and if $f^!(\sO_Y)$ is isomorphic in $\DD^+(X)$ to an invertible sheaf.\footnote{Author's erratum (original p.144): read ``invertible sheaf shifted $n$ places to the left, where $n$ is the relative dimension of $X$ over $Y$''. The following formula must likewise include this shift.} Then we call that invertible sheaf $\omega_{X/Y}$, and prove that
 \[
-f^!(F^\bullet) = \bigl(\LL f^*(F^\bullet)\otimes\omega_{X/Y}\bigr)[n]
+f^!(F^\bullet) = \LL f^*(F^\bullet)\otimes\omega_{X/Y}
 \]
-for all $F^\bullet\in\DD_{\mathrm{qc}}^+(Y)$.
+for all $F^\bullet\in\DD_{\mathrm{qc}}^+(Y)$.\footnote{Editorial consequence of the preceding author erratum: the right-hand side should be $\bigl(\LL f^*(F^\bullet)\otimes\omega_{X/Y}\bigr)[n]$.}
 
-Smooth morphisms, and locally complete intersection morphisms are Gorenstein, and in those two cases the sheaf $\omega_{X/Y}$ is the one we have already defined. Furthermore, if $f\colon X\to Y$ and $g\colon Y\to Z$ are Gorenstein, so is $gf$, and there is an isomorphism
+Smooth morphisms, and locally complete intersection morphisms are Gorenstein, and in those two cases the sheaf $\omega_{X/Y}$ is the one we have already defined. Furthermore, if $f\colon X\to Y$ and $g\colon Y\to Z$ are Gorenstein, so is $gf$, and there is an isomorphism\footnote{Editorial correction: the second factor should be $\omega_{X/Y}$, as in Definition~\ref{def:3.1.5}; the original repeats the denominator $Z$.}
 \[
-\zeta_{f,g}\colon \omega_{X/Z} \xrightarrow{\sim} f^*\omega_{Y/Z}\otimes\omega_{X/Y}.
+\zeta_{f,g}\colon \omega_{X/Z} \xrightarrow{\sim} f^*\omega_{Y/Z}\otimes\omega_{X/Z}.
 \]
 
 For a composition of three Gorenstein morphisms, there is a commutative diagram as in the Proposition.
@@ -790,7 +790,7 @@ As in Proposition~\ref{prop:3.6.2}, there is a natural map
 \]
 which is defined and is an isomorphism on $\DD^+(Z)$ (resp.\ $\DD(Z)$). One need only note that $\overline{f}^*$ and $\overline{g}^*$ are the identity maps, so the reduction to the quasi-coherent case is unnecessary.
 
-The trace map of Proposition~\ref{prop:3.6.5},
+The trace map of Proposition 6.4,\footnote{Editorial reference correction: read Proposition~\ref{prop:3.6.5}, which defines the trace.}
 \[
 \operatorname{Trf}_f \colon \RR f_* f^{\flat}(G^\bullet) \longrightarrow G^\bullet,
 \]
@@ -798,7 +798,7 @@ is defined for $G^\bullet\in\DD^+(Y)$ (resp.\ $\DD(Y)$) since the morphism $\tau
 
 The compatibilities of Proposition~\ref{prop:3.6.6} carry over to this more general case. (Here one needs to note that the quasi-coherence assumption in \bookref{prop:2.5.12}{II,~5.12} is unnecessary if $f$ is a closed immersion, because then $f_*$ is an exact functor on $\operatorname{Mod}(X)$.)
 
-Finally, the duality of Theorem~\ref{thm:3.6.7} is valid for $F^\bullet\in\DD(X)$ and $G^\bullet\in\DD^+(Y)$. Indeed, we may assume that $G^\bullet$ is a complex of injective $\sO_Y$-modules. Then $f^{\flat}G^\bullet$ is also a complex of injectives; $f_*$ is exact, so we have to show that
+Finally, the duality of Theorem 6.6\footnote{Editorial reference correction: read Theorem~\ref{thm:3.6.7}.} is valid for $F^\bullet\in\DD(X)$ and $G^\bullet\in\DD^+(Y)$. Indeed, we may assume that $G^\bullet$ is a complex of injective $\sO_Y$-modules. Then $f^{\flat}G^\bullet$ is also a complex of injectives; $f_*$ is exact, so we have to show that
 \[
 f_*\sheafHom_X^\bullet(F^\bullet, f^{\flat}G^\bullet) \xrightarrow{\sim} \sheafHom_Y^\bullet(f_*F^\bullet, G^\bullet)
 \]
@@ -960,7 +960,7 @@ Let $i\colon Y\to X$ and $\omega_{Y/X}$ be as in the proposition. Then there is 
 \end{bookcorollary}
 
 \begin{proof}
-(Note that we write $\otimes$ on the right, not $\derivedtensor$, because $\omega_{Y/X}$ is locally free on $Y$ and so tensoring by it is an exact functor.) In the first place, if $F^\bullet$ is reduced to a single sheaf $F$, which is $i^*$-acyclic, then on the left we have the single sheaf $\sheafExt_X^n(\sO_Y,F)$ in degree $n$, by the Proposition, and on the right we have $F\otimes_{\sO_X}\sO_Y\otimes_Y\omega_{Y/X}[-n]$ which is isomorphic to it by the isomorphism $\varphi$ of the Proposition.
+(Note that we write $\otimes$ on the right, not $\derivedtensor$, because $\omega_{Y/X}$ is locally free on $Y$ and so tensoring by it is an exact functor.) In the first place, if $F^\bullet$ is reduced to a single sheaf $F$, which is $i^*$-acyclic, then on the left we have the single sheaf $\sheafExt_X^n(\sO_Y,F)$ in degree $n$, by the Proposition, and on the right we have $F\otimes_{\sO_X}\sO_Y\otimes_Y\omega_{X/Y}[-n]$\footnote{Editorial correction: the last factor is $\omega_{Y/X}$, as in the statement of Corollary~\ref{cor:3.7.3}.} which is isomorphic to it by the isomorphism $\varphi$ of the Proposition.
 
 In the second place, $i^*$ is a functor of finite cohomological dimension, because its derived functors are the $\sheafTor_j^{\sO_X}(\sO_Y,\cdot)$, and $\sO_Y$ locally has a flat resolution of length $n$, namely the Koszul complex mentioned above. Therefore every $F^\bullet\in\DD(X)$ admits a (left)-resolution by $i^*$-acyclic $\sO_X$-modules.
 
@@ -985,7 +985,7 @@ which is just what we want.
 \end{tikzcd}}
 \]
 where $\alpha$ is the isomorphism of Proposition~\ref{prop:3.6.2}, and $\beta$ is
-obtained by composing the isomorphism $\zeta_{j,i}$ of Definition~\ref{def:3.1.5}
+obtained by composing the isomorphism $\zeta_{i,j}$ of Definition~\ref{def:3.1.5}\footnote{Editorial correction: read $\zeta_{j,i}$, for $Z\xrightarrow{j}Y\xrightarrow{i}X$.}
 with the isomorphisms of \bookref{prop:2.5.4}{II,~5.4}, \bookref{prop:2.5.9}{II,~5.9}, and \bookref{prop:2.5.13}{II,~5.13}.
 
 \item[b)] If $i\colon Y\to X$ is a locally complete intersection of codimension $n$, and if $f\colon X'\to X$ is a flat morphism.
@@ -1127,7 +1127,7 @@ there is a commutative diagram
 	i^\flat j^\flat \arrow[r] & k^\flat g^\sharp j^\flat \arrow[r] & k^\flat l^\flat f^\sharp
 \end{tikzcd}
 \]
-using the isomorphisms of Proposition~\ref{prop:3.6.2}, Corollary~\ref{cor:3.6.4}, and Proposition~\ref{prop:3.8.2}.
+using the isomorphisms of Propositions~\ref{prop:3.6.2}, \ref{cor:3.6.4}, and~\ref{prop:3.8.2}.\footnote{Editorial reference clarification: item~\ref{cor:3.6.4} is a corollary, although the original groups it with the propositions.}
 \end{enumerate}
 \end{bookproposition}
 
@@ -1143,7 +1143,7 @@ Let $S$ be a fixed prescheme. We say a morphism $f\colon X\to Y$ in the category
 A projective morphism $f\colon X\to Y$ where $Y$ is quasi-compact and admits an ample sheaf is embeddable (for any $S$). Indeed, $f$ can be factored through some $\mathbb{P}_Y^N$ \cite[\nopp II,~5.5.4(ii)]{EGA}. Any finite morphism is embeddable, by taking $P=S$. Any morphism of finite type of affine schemes is embeddable in some affine space. Note that any composition of embeddable morphisms is embeddable (!) and that embeddable morphisms are stable under base extension.
 
 \begin{booktheorem}[$f^!$ for embeddable morphisms]{8.7}\label{thm:3.8.7}
-We fix a base prescheme $S$, and consider the category $\mathrm{Lno}(S)$ of locally noetherian preschemes over $S$. Then there exists a theory of $f^!$ for embeddable morphisms in $\mathrm{Lno}(S)$ consisting of the data 1) to 5) below, subject to the conditions VAR 1 -- VAR 6. Furthermore this theory is unique in the sense that if 1')--5') is another set of such data satisfying VAR 1 -- VAR 6, then there is a unique isomorphism of the functors 1) and 1') compatible with the isomorphisms 2)--5) and 2')--5').
+We fix a base prescheme $S$, and consider the category $\mathrm{Lno}(S)$ of locally noetherian preschemes over $S$. Then there exists a theory of $f^!$ for embeddable morphisms in $\mathrm{Lno}(S)$ consisting of the data 1) to 5) below, subject to the conditions VAR 1 -- VAR 6. Furthermore this theory is unique in the sense that if 1')--5') is another set of such data satisfying VAR 1 -- VAR 6, then there is an isomorphism of the functors 1) and 1') compatible with the isomorphisms 2)--5) and 2')--5').\footnote{Author's erratum (original p.190): read ``a unique isomorphism'' instead of ``an isomorphism''.}
 
 \begin{enumerate}\renewcommand{\labelenumi}{\arabic{enumi})}
 \item For every embeddable morphism $f\colon X\to Y$ in $\mathrm{Lno}(S)$, a functor
@@ -1294,10 +1294,10 @@ and conversely if $\operatorname{Res}\bigl[\begin{smallmatrix} fw \\ t_1,\dots,t
 \[
 \operatorname{Res}_{X'/Y}\begin{bmatrix} \omega' \\ t_1',\dots,t_n' \end{bmatrix} = \operatorname{Res}_{X/Y}\begin{bmatrix} \operatorname{Tr}_g(\omega') \\ t_1,\dots,t_n \end{bmatrix},
 \]
-where $\operatorname{Tr}_g$ is the map of Corollary~\ref{cor:3.8.5}.
+where $\operatorname{Tr}_g$ is the map of Corollary~\ref{cor:3.8.5}.\footnote{Author's addition (original p.199): Furthermore, the residue symbol is uniquely characterized by properties \hyperref[res:R0]{(R0)}, \hyperref[res:R1]{(R1)}, \hyperref[res:R2]{(R2)}, \hyperref[res:R5]{(R5)}, \hyperref[res:R6]{(R6)}, and \hyperref[res:R7]{(R7)}.}
 \end{enumerate}
 
-Furthermore, the residue symbol is uniquely characterized by properties \hyperref[res:R0]{(R0)}, \hyperref[res:R1]{(R1)}, \hyperref[res:R2]{(R2)}, \hyperref[res:R5]{(R5)}, \hyperref[res:R6]{(R6)}, and \hyperref[res:R7]{(R7)}.
+
 
 \section{Trace for projective morphisms}\label{sec:3.10}
 
@@ -1334,7 +1334,7 @@ Thus $\delta(s)=(p_2 s)^*\delta(\Delta)$ and we reduce to showing that $\delta(\
 
 Recalling the notation of \S\ref{sec:3.3}, we calculate $\gamma$ (which is the $\gamma$ of Theorem~\ref{thm:3.3.4}) by means of the cover $\mathcal{U}=(U_i)$ of $X$, the section $\tau=dt_1\wedge\cdots\wedge dt_n$ of $\omega_{X/Y}|_{U_0}$, and the $n$-cocycle $\tau/T_0\cdots T_n$ of the \v{C}ech complex $f_*(C^\bullet(\mathcal{U};\omega_{X/Y}))$.
 
-To calculate $\alpha$, we use the notation of \S\ref{sec:3.7}, and the Koszul complex $K^\bullet(\underline{t};\omega_{X/Y})$ where $t_1,\dots,t_n$ are the local coordinates $T_1/T_0,\dots,T_n/T_0$ on $U_0$. The map $\alpha$ is obtained by composing the fundamental local isomorphism of Proposition~\ref{prop:3.7.2} with the isomorphism $\zeta_{s,f}$ of Definition~\ref{def:3.1.5}. Recalling that the map $J/J^2\to s^*\Omega^1_{X/Y}$ of Proposition~\ref{prop:3.1.2} is defined by sending $t\in J$ to $dt$, we see that $\alpha(1)$ is the cocycle
+To calculate $\alpha$, we use the notation of \S\ref{sec:3.7}, and the Koszul complex $K^\bullet(\underline{t};\omega_{X/Y})$ where $t_1,\dots,t_n$ are the local coordinates $T_1/T_0,\dots,T_n/T_0$ on $U_0$. The map $\alpha$ is obtained by composing the fundamental local isomorphism $\eta_i$ of Proposition~\ref{prop:3.7.2}\footnote{Editorial clarification: Proposition~\ref{prop:3.7.2} denotes its isomorphism by $\varphi$; the name $\eta_i$ belongs to Corollary~\ref{cor:3.7.3}.} with the isomorphism $\zeta_{s,f}$ of Definition~\ref{def:3.1.5}. Recalling that the map $J/J^2\to s^*\Omega^1_{X/Y}$ of Proposition~\ref{prop:3.1.2} is defined by sending $t\in J$ to $dt$, we see that $\alpha(1)$ is the cocycle
 \[
 \alpha(1) \in K^n(\underline{t}; \omega_{X/Y})
 \]
@@ -1511,13 +1511,13 @@ We consider smooth, projectively embeddable morphisms $f\colon X\to Y$ of locall
 \[
 \gamma_f \colon \RR^n f_*(\omega_{X/Y}) \longrightarrow \sO_Y.
 \]
-\item[b)] For each pair $f\colon X\to Y$ and $g\colon Y\to Z$ of such morphisms, of relative dimensions $n$ and $m$, respectively, there is a commutative diagram
+\item[b)] For each pair $f\colon X\to Y$ and $g\colon Y\to Z$ of such morphisms, of relative dimensions $n$ and $m$, respectively, there is a commutative diagram\footnote{Editorial correction: the lower-left target is $\sO_Z$, rather than the printed $Z$, since both trace maps take values in the structure sheaf.}
 	\[
 	\resizebox{\linewidth}{!}{\begin{tikzcd}[ampersand replacement=\&, row sep=large, column sep=large]
 		\RR^{n+m}(gf)_*(\omega_{X/Z}) \arrow[r, "\zeta_{f,g}"] \arrow[dd, "\gamma_{gf}"']
 		\& \RR^m g_* \RR^n f_*(f^* \omega_{Y/Z} \otimes \omega_{X/Y}) \arrow[d, "\approx"] \\
 		\& \RR^m g_*(\RR^n f_*(\omega_{X/Y}) \otimes \omega_{Y/Z}) \arrow[d, "\gamma_f"] \\
-		\sO_Z
+		Z
 		\& \RR^m g_*(\omega_{Y/Z}) \arrow[l, "\gamma_g"']
 	\end{tikzcd}}
 	\]

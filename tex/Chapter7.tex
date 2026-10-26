@@ -131,7 +131,7 @@ of the restrictions of these complexes to $U_{\mu\nu}=U_{\mu}\cap U_{\nu}$, such
 \[
 \alpha_{\mu\nu}\alpha_{\nu\lambda}\alpha_{\lambda\mu}=1
 \]
-on $U_{\mu\nu\lambda}$, with $\alpha_{\nu\nu}=1$ and $\alpha_{\nu\mu}=\alpha_{\mu\nu}^{-1}$. Suppose finally that the lower bound of the complexes $K_{\nu}$ can be chosen uniformly for all $\nu$. Then there exists a residual complex, unique up to unique compatible isomorphism, $K^{\bullet}$ on $X$, together with isomorphisms
+on $U_{\mu\nu\lambda}$.\footnote{Editorial qualification: require the normalized descent datum $\alpha_{\nu\nu}=1$ and $\alpha_{\nu\mu}=\alpha_{\mu\nu}^{-1}$. The cyclic relation alone does not imply it: on a one-point scheme over $\mathbb C$, take $K=\mathbb C[0]$ and $\alpha_{11}$ multiplication by a nontrivial cube root of unity. Its cube is one, but it cannot be compatible with a gluing isomorphism $\beta_1$. With normalization the cyclic relation is the usual cocycle condition. The uniqueness below is up to unique isomorphism compatible with the $\beta_\nu$.} Suppose finally that the lower bound of the complexes $K_{\nu}$ can be chosen uniformly for all $\nu$. Then there exists a unique residual complex $K^{\bullet}$ on $X$, together with isomorphisms
 \[
 \beta_{\nu}\colon K^{\bullet}|_{U_{\nu}}\longrightarrow K_{\nu}^{\bullet}
 \]
@@ -445,7 +445,7 @@ U \ar[rr,"f|_{U}"] \ar[dr,"i"'] & & Y \\
 \end{definition*}
 
 \begin{definition*}
-If $f^{b}$, $f|_{U} = qj$, $q\colon Q\to Y$, and $\gamma'_{j,q}$ is a second chart on the same open set $U$, a \emph{permissible isomorphism} between the two is an isomorphism
+If $f^{b}$, $f|_{U} = jq$,\footnote{Editorial correction: the factorization is $qj$, for $U\xrightarrow{j}Q\xrightarrow{q}Y$.} $q\colon Q\to Y$, and $\gamma'_{j,q}$ is a second chart on the same open set $U$, a \emph{permissible isomorphism} between the two is an isomorphism
 \[
 \alpha\colon f^{a} \longrightarrow f^{b}
 \]
@@ -692,7 +692,7 @@ X \ar[ru,"j"] \ar[rr,"i"] \ar[rd,"f"'] && P \ar[ld,"p"] \\
 \end{tikzcd}
 \]
 
-We must check that the perimeter of the resulting diagram is commutative.
+We must check that the perimeter of the resulting diagram is commutative.\footnote{Editorial correction: the lower upward composition labels should be $c^\Delta_{q,p}$ and $c^X_{q,p}$, since $(pq)^T\to q^Tp^T$. The original left label is $c^\Delta_{p,q}$; the right-hand ditto has been expanded with the same printed convention.}
 
 Write, for $T=\Delta,X$,
 \[
@@ -711,9 +711,9 @@ f^X \ar[l,"c^X_{i,p}"'] \ar[dd,"\id"] \\
 j^y q^z p^z &
 j^X q^X p^X \ar[l,"{B_{X}}"'] & \\
 f^\Delta \ar[r,"c^\Delta_{j,pq}"'] &
-j^\Delta(pq)^\Delta \ar[u,"c^\Delta_{q,p}"] \ar[r,"{C_{\Delta}}"'] &
+j^\Delta(pq)^\Delta \ar[u,"c^\Delta_{p,q}"] \ar[r,"{C_{\Delta}}"'] &
 j^y(pq)^z \ar[u,"\mathrm{II}"'] &
-j^X(pq)^X \ar[u,"c^X_{q,p}"'] \ar[l,"{C_{X}}"] &
+j^X(pq)^X \ar[u,"c^X_{p,q}"'] \ar[l,"{C_{X}}"] &
 f^X \ar[l,"c^X_{j,pq}"]
 \end{tikzcd}
 \]
@@ -734,9 +734,9 @@ Now we must check that $\delta$ is compatible with the isomorphisms $c_{f,g}$, $
 \end{proof}
 
 \begin{bookproposition}{3.4}\label{prop:6.3.4}
-Let $f\colon X\to Y$ be a morphism (with the conventions above) and let $K^\bullet$ be a residual complex on $Y$. Let $d$ denote the codimension function on $X$ (resp.\ $Y$) associated with the pointwise dualizing complex $f^{\Delta}K^\bullet$ (resp.\ $K^\bullet$). Then for each $x\in X$, if $y=f(x)$, we have
+Let $f\colon X\to Y$ be a morphism (with the conventions above) and let $K^\bullet$ be a residual complex on $Y$. Let $d$ denote the codimension function on $X$ (resp.\ $Y$) associated with the pointwise dualizing complex $f^{\Delta}K^\bullet$ (resp.\ $K^\bullet$). Then for each $x\in X$, if $y=f(x)$, we have\footnote{Editorial correction: subtract the transcendence degree, as explained in the correction to \bookref{cor:5.8.4}{V,~8.4}. This agrees with the smooth pullback shift and the codimension convention.}
 \[
-d(x) = d(y) - \operatorname{tr.d.} k(x)/k(y).
+d(x) = d(y) + \operatorname{tr.d.} k(x)/k(y).
 \]
 \end{bookproposition}
 
@@ -813,7 +813,7 @@ Consider the map
 \[
 Qf_{*}f'(K^{\bullet}) \xrightarrow{\xi_{f_{*}}} \RR f_{*}Qf'(K^{\bullet}) \xrightarrow{\xi_{f'}} \RR f_{*}f^{\flat}Q(K^{\bullet}) \xrightarrow{\operatorname{Trf}_{f}} Q(K^{\bullet}),
 \]
-where the last map, $\operatorname{Trf}_f$, is the trace of \bookref{prop:3.6.5}{III,~6.5}. By Lemma~\ref{lem:6.4.1}, $f_*f'(K^\bullet)$ is a Cousin complex with respect to the filtration $Z^\bullet$, and $K^\bullet$ is an injective Cousin complex, so by \bookref{lem:4.3.2}{IV,~3.2}, this map in the derived category is represented by a unique map of complexes
+where the last map, $\operatorname{Trf}_f$, is the trace of \bookref{prop:3.6.5}{III,~6.5}. By Lemma~\ref{lem:6.4.1}, $f_*f'(K^\bullet)$ is a Cousin complex with respect to the filtration $Z^\bullet$, and $K^\bullet$ is an injective Cousin complex, so by [III,~3.2],\footnote{Editorial reference correction: the lifting and uniqueness statement is \bookref{lem:4.3.2}{IV,~3.2}.} this map in the derived category is represented by a unique map of complexes
 \[
 f_*f'(K^\bullet) \longrightarrow K^\bullet.
 \]
@@ -822,11 +822,11 @@ Composing with the inverse of the isomorphism $E\xi_f$ above, we obtain the desi
 \rho_{f}\colon f_{*}f^{y}(K^{\bullet}) \longrightarrow K^{\bullet}.
 \]
 
-If $f\colon X\to Y$, and $g\colon Y\to Z$ are two finite morphisms, then there is a commutative diagram
+If $f\colon X\to Y$, and $g\colon Y\to Z$ are two finite morphisms, then there is a commutative diagram\footnote{Editorial correction: the right vertical arrow here and in TRA~1 below should point upward, from $g_*g^y$ (respectively $g_*g^\Delta$) to the identity functor. The printed downward arrows are retained in the diagrams.}
 \[
 \begin{tikzcd}
-(gf)_*(gf)^{y} \ar[r,"\rho_{gf}"] \ar[d,"\mathrm{I}"'] & 1 \\
-g_*f_* f^{y}g^{y} \ar[r,"\rho_f"] & g_*g^{y} \ar[u,"\rho_g"']
+(gf)_*(gf)^{y} \ar[r,"\rho_{gf}"] \ar[d,"\mathrm{I}"'] & 1 \ar[d,"\rho_g"] \\
+g_*f_* f^{y}g^{y} \ar[r,"\rho_f"] & g_*g^{y}
 \end{tikzcd}
 \tag{viii}\label{eq:6.4.viii}
 \]
@@ -846,12 +846,12 @@ As above, we work in the category of locally noetherian preschemes, and morphism
 \medskip\phantomsection\label{tra:6.4.1}\noindent\textbf{TRA 1).} If $f$ and $g$ are two consecutive morphisms of finite type, then there is a commutative diagram
 \[
 \begin{tikzcd}
-(gf)_*(gf)^{\Delta} \ar[r,"\Tr_{gf}"] \ar[d,"c_{f,g}"'] & 1 \\
-g_*f_* f^{\Delta}g^{\Delta} \ar[r,"\Tr_f"] & g_*g^{\Delta} \ar[u,"\Tr_g"']
+(gf)_*(gf)^{\Delta} \ar[r,"\Tr_{gf}"] \ar[d,"c_{f,g}"'] & 1 \ar[d,"\Tr_g"] \\
+g_*f_* f^{\Delta}g^{\Delta} \ar[r,"\Tr_f"] & g_*g^{\Delta}
 \end{tikzcd}
 \]
 
-\medskip\phantomsection\label{tra:6.4.2}\noindent\textbf{TRA 2).} If $f$ is a finite morphism, then $\Tr_f$ is the one we already know, i.e., $\Tr_f = \rho_f\circ f_*(\psi_f)$, using the notation of Theorem~\ref{thm:6.3.1}.
+\medskip\phantomsection\label{tra:6.4.2}\noindent\textbf{TRA 2).} If $f$ is a finite morphism, then $\Tr_f$ is the one we already know, i.e., $\Tr_f = \rho_f\psi_f$,\footnote{Editorial clarification: here and in the finite-case formula below, write the composite as $\rho_f\circ f_*(\psi_f)$, making the pushforward of the comparison map explicit.} using the notation of Theorem~\ref{thm:6.3.1}.
 \end{booktheorem}
 
 \par\endgroup
@@ -928,7 +928,7 @@ is equivalent to giving, for each $x\in X$ which is closed in its fibre, a map
 \[
 \Tr_{f,x}\colon f_{*}J(x) \longrightarrow J(y)
 \]
-where $y=f(x)$. Indeed, $x$ is closed in its fibre if and only if $\operatorname{tr.d.} k(x)/k(y)=0$, i.e., if and only if $d(x)=d(y)$, by Proposition~\ref{prop:6.3.4} above. Hence $\Tr_f$ certainly gives rise to a collection of maps $\Tr_{f,x}$ as above. On the other hand, if $y'\in Y$ is a point not equal to $y$, with $d(y')=d(x)$, then there is no non-zero map of $f_*J(x)$ into $J(y')$, because $d(y')\leq d(y)$ by Proposition~\ref{prop:6.3.4}, and so $y'\notin\overline{\{y\}}$. (Note that $f_*J(x)$ has support in $\overline{\{y\}}$.) Thus $\Tr_f$ is determined by the maps $\Tr_{f,x}$ above, and these can be given arbitrarily.
+where $y=f(x)$. Indeed, $x$ is closed in its fibre if and only if $\operatorname{tr.d.} k(x)/k(y)=0$, i.e., if and only if $d(x)=d(y)$, by Proposition~\ref{prop:6.3.4} above. Hence $\Tr_f$ certainly gives rise to a collection of maps $\Tr_{f,x}$ as above. On the other hand, if $y'\in Y$ is a point not equal to $y$, with $d(y')=d(x)$, then there is no non-zero map of $f_*J(x)$ into $J(y')$, because $d(y')\geq d(y)$\footnote{Editorial correction: read $d(y^{\prime})\leq d(y)$, using the corrected minus-transcendence-degree formula in Proposition~\ref{prop:6.3.4}. A distinct specialization of $y$ has strictly larger codimension degree and hence cannot be this $y^{\prime}$.} by Proposition~\ref{prop:6.3.4}, and so $y'\notin\overline{\{y\}}$. (Note that $f_*J(x)$ has support in $\overline{\{y\}}$.) Thus $\Tr_f$ is determined by the maps $\Tr_{f,x}$ above, and these can be given arbitrarily.
 
 We will now construct maps $\Tr_{f,x}$ as above for each point $x\in X$ which is closed in its fibre.
 
@@ -966,9 +966,9 @@ K^\bullet && C \ar[d,"\rho_{j_{nn'}}"] & T \\
 
 \par\endgroup
 
-One can also write down a diagram with three indices $n,n',n''$ showing that the sheaves $A_n=f_*i_{n*}i_n^y f^\Delta(K^\bullet)$ and the transition maps induced by $\rho_{j_{nn'}}$ and I form a direct system. The maps $\rho_{i_n}$ embed this system into $f_*f^\Delta(K^\bullet)$, and the compatible maps
+One can also write down a diagram with three indices $n,n',n''$ showing that the sheaves $A_n=f_*i_{n*}i_n^y f^\Delta(K^\bullet)$ and the transition maps induced by $\rho_{j_{nn'}}$ and I form a direct system. The maps $\rho_{i_n}$ embed this system into $f_*f^\Delta(K^\bullet)$, and the compatible maps\footnote{Editorial correction: with the comparison $\theta_n:B_n\to A_n$ defined above, the correctly typed map is $\rho_{g_n}\circ\theta_n^{-1}$. The printed compressed comparison chain has wrongly oriented factors.}
 \[
-\rho_{g_n}\circ\theta_n^{-1}\colon A_n\longrightarrow K^\bullet
+\rho_{g_n}\psi_{g_n}c_{i_n,f}f_*\psi_{i_n}\colon A_n\longrightarrow K^\bullet
 \]
 map it to $K^\bullet$. Thus we may pass to the limit and obtain a map from a subsheaf of $f_*f^\Delta(K^\bullet)$ to $K^\bullet$.
 
@@ -990,13 +990,13 @@ Third we must check the uniqueness, but this is clear from the construction.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:6.4.2}]
-For a morphism $f\colon X\to Y$, we define $\Tr_f$ to be the map given by Lemma~\ref{lem:6.4.4}. It is clearly functorial in $K^\bullet$. In case $f$ is a finite morphism, we can take $U=Y$ and $W=X$, so that $\Tr_f = \rho_f\circ f_*(\psi_f)$, which proves condition \hyperref[tra:6.4.2]{TRA 2}.
+For a morphism $f\colon X\to Y$, we define $\Tr_f$ to be the map given by Lemma~\ref{lem:6.4.4}. It is clearly functorial in $K^\bullet$. In case $f$ is a finite morphism, we can take $U=Y$ and $W=X$, so that $\Tr_f = \rho_f\psi_f$, which proves condition \hyperref[tra:6.4.2]{TRA 2}.
 \[\begin{tikzcd}
 	W\ar[r,"i"]\ar[d]&X\ar[d,"f"]\\
 	V\ar[r,"j"]\ar[rd]&Y\ar[d,"g"]\\
 	&Z\\
 \end{tikzcd}\]
-To prove \hyperref[tra:6.4.1]{TRA 1}, let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms. It is sufficient to prove the condition of TRA 1 for a single residual complex $K^\bullet$ on $Z$ and for a single $x\in X$ which is closed in its fibre over $Z$. The question is local, so we may assume that $W = \overline{\{x\}}$ is finite over $Z$, and that $V = \overline{\{y\}}$, where $y=f(x)$, is finite over $Z$. Finally it is sufficient to check the commutativity for a given element $a\in\Gamma(J(x))$. We choose a subscheme structure $W_n$ on $W$ with $n$ large enough so that $a$ is in the image of $i^{y}J(x)$. Now one can check (!) the required commutativity using the property of the lemma, and \eqref{eq:6.4.viii}, \hyperref[var:6.3.1]{VAR 1}, and \hyperref[var:6.3.2]{VAR 2} above.
+To prove \hyperref[tra:6.4.1]{TRA 1}, let $f\colon X\to Y$ and $g\colon Y\to Z$ be two morphisms. It is sufficient to prove the condition of TRA 1 for a single residual complex $K^\bullet$ on $X$\footnote{Editorial correction: the input residual complex is on $Z$ for the composite $X\xrightarrow{f}Y\xrightarrow{g}Z$.} and for a single $x\in X$ which is closed in its fibre over $Z$. The question is local, so we may assume that $W = \overline{\{x\}}$ is finite over $Z$, and that $V = \overline{\{y\}}$, where $y=f(x)$, is finite over $Z$. Finally it is sufficient to check the commutativity for a given element $a\in\Gamma(J(x))$. We choose a subscheme structure $W_n$ on $W$ with $n$ large enough so that $a$ is in the image of $i^{y}J(x)$. Now one can check (!) the required commutativity using the property of the lemma, and \eqref{eq:6.4.viii}, \hyperref[var:6.3.1]{VAR 1}, and \hyperref[var:6.3.2]{VAR 2} above.
 
 The uniqueness of $\Tr_f$ is clear, as it was in the lemma, since TRA 1 and TRA 2 imply the condition of the lemma.
 
@@ -1032,11 +1032,11 @@ If $f\colon X\to Y$ is a residually stable morphism, and if $u\colon Y'\to Y$ is
 \end{bookproposition}
 
 \begin{proof}
-Clearly $g$ is flat and integral. To show that the fibres of $g$ are Gorenstein, let $y'\in Y'$, let $y = u(y')$, and consider the map of fibres $v\colon X'_{y'}\to X_{y}$. Now $X_{y}$ is Gorenstein since $f$ is residually stable. The fibres of $v$ are tensor products of fields, one of which is finitely generated (namely $k(y')/k(y)$), hence Gorenstein \bookref{cor:5.9.5}{V,~9.5}. Hence $X'_{y'}$ is Gorenstein \bookref{prop:5.9.6}{V,~9.6}.
+Clearly $g$ is flat and integral. To show that the fibres of $g$ are Gorenstein, let $y'\in Y$, \footnote{Editorial correction: $y'$ is a point of $Y'$, the domain of $u$.}let $y = u(y')$, and consider the map of fibres $v\colon X'_{y'}\to X_{y}$. Now $X_{y}$ is Gorenstein since $f$ is residually stable. The fibres of $v$ are tensor products of fields, one of which is finitely generated (namely $k(y')/k(y)$), hence Gorenstein \bookref{cor:5.9.5}{V,~9.5}. Hence $X'_{y'}$ is Gorenstein \bookref{prop:5.9.6}{V,~9.6}.
 \end{proof}
 
 \begin{booklemma}{5.2}\label{lem:6.5.2}
-Let $A$ be a noetherian local ring with maximal ideal $\mathfrak{m}$, and let $I$ be an $A$-module. Then $I$ is an injective hull of the residue field $k$ of $A$ if and only if
+Let $A$ be a noetherian local ring, and let $I$ be an $A$-module.\footnote{Editorial notation clarification: $\mathfrak m$ in condition c) denotes the maximal ideal of $A$.} Then $I$ is an injective hull of the residue field $k$ of $A$ if and only if
 \begin{enumerate}
 \item[a)] $I$ has support at the closed point of $\Spec A$,
 \item[b)] $\Hom_{A}(k,I)\cong k$, and
@@ -1133,11 +1133,10 @@ d_{u,f}\colon f'^{\Delta}u^{*} \xrightarrow{\sim} u'^{*}f^{\Delta}
 \]
 such that
 \begin{enumerate}
-\item[1)] If $v\colon Y''\to Y'$ is another residually stable morphism, then
+\item[1)] If $v\colon Y''\to Y'$ is another residually stable morphism, then\footnote{Editorial clarification: with $v'\colon X''\to X'$ the induced base change, the displayed shorthand means $d_{uv,f}=(v'^*d_{u,f})\circ(d_{v,f'}u^*)$.}
 \[
-d_{uv,f}=(v'^*d_{u,f})\circ(d_{v,f'}u^*),
+d_{uv,f}=d_{u,f}d_{v,f'},
 \]
-where $v'\colon X''\to X'$ is the induced base change.
 \item[2)] If $f,g$ are two consecutive morphisms of finite type, then the isomorphisms $d$ are compatible with $c_{f,g}$ and $c_{f',g'}$.
 \item[3)] If $f$ is a finite morphism, then $d_{u,f}$ is compatible with \eqref{eq:6.5.V} via the isomorphisms $\psi_f,\psi_{f'}$.
 \item[4)] If $f$ is a smooth morphism, then $d_{u,f}$ is compatible with \eqref{eq:6.5.VI} via the isomorphisms $\phi_f,\phi_{f'}$.
@@ -1149,11 +1148,11 @@ Show first that V and VI are compatible with the isomorphisms I, II, III and IV 
 \end{proof}
 
 \begin{booktheorem}{5.6}\label{thm:6.5.6}
-Let $u$ and $f$ be as in Theorem~\ref{thm:6.5.5}. Then there is a commutative diagram
+Let $u$ and $f$ be as in Theorem~\ref{thm:6.5.5}. Then there is a commutative diagram\footnote{Editorial clarification: the bottom equality denotes the canonical flat-base-change isomorphism $f'_*u'^*\cong u^*f_*$, applied to $f^\Delta$.}
 \[
 \begin{tikzcd}
 f'_* f'^{\Delta} u^{*} \ar[r,"\Tr_{f'}"] \ar[d,"d_{u,f}"'] & u^{*} \\
-f'_* u'^{*} f^{\Delta} \ar[r,"\sim"] & u^{*} f_* f^{\Delta} \ar[u,"\Tr_f"']
+f'_* u'^{*} f^{\Delta} \ar[r,phantom,"="] & u^{*} f_* f^{\Delta} \ar[u,"\Tr_f"']
 \end{tikzcd}
 \]
 \end{booktheorem}

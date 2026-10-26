@@ -9,7 +9,7 @@ Let $(X,\sO_X)$ be a prescheme. We will denote by $\operatorname{Mod}(X)$ the ca
 We will consider the thick subcategories of $\operatorname{Mod}(X)$ consisting of the quasi-coherent sheaves, denoted by $\Qco(X)$, and the coherent sheaves, denoted by $\Coh(X)$. (Cf.\ \cite[\nopp $0$, \S5]{EGA} for definitions and the fact that these are thick subcategories.) We will write $\DD_{\mathrm{qc}}(X)$ for $\DD_{\Qco(X)}(\operatorname{Mod}(X))$ and $\DD_{\mathrm{c}}(X)$ for $\DD_{\Coh(X)}(\operatorname{Mod}(X))$, using the notation of \bookref{sec:1.4}{I,~\S4}. Similarly $\DD_{\mathrm{qc}}^+(X)$ etc.
 
 \begin{bookproposition}{1.1}\label{prop:2.1.1}
-There are enough injectives in the category $\operatorname{Mod}(X)$, and also in $\Qco(X)$ if $X$ is quasi-separated.
+There are enough injectives in the categories $\operatorname{Mod}(X)$ and $\Qco(X)$.\footnote{Author's erratum (original p.85): for the assertion about $\Qco(X)$, add the hypothesis that $X$ is quasi-separated.}
 \end{bookproposition}
 
 \begin{proof}
@@ -43,7 +43,7 @@ On the other hand, if $f_*$ has finite cohomological dimension on $\Qco(X)$, we 
 This will be the case if
 \begin{enumerate}
 \item[a)] $f$ is separated, quasi-compact, and $Y$ is quasi-compact, by \cite[\nopp III,~1.4.12]{EGA}, or
-\item[b)] if $X,Y$ are locally noetherian, $f$ is proper, and the fibres of $f$ are of bounded dimension (use \cite[\nopp III,~4.1.5]{EGA} and \cite[\nopp 3.6.5]{T}).
+\item[b)] if $X,Y$ are locally noetherian, $f$ is of finite type,\footnote{Author's erratum (original p.88): replace ``of finite type by ``proper.} and the fibres of $f$ are of bounded dimension (use \cite[\nopp III,~4.1.5]{EGA} and \cite[\nopp 3.6.5]{T}).
 \end{enumerate}
 
 We will often make statements in only one of these two contexts, and will let the reader make the necessary modifications for the other. We will also write $\RR f_*$ instead of $\RR^+f_*$, when no confusion can arise.
@@ -353,7 +353,7 @@ If furthermore $f$ and $g$ have finite Tor-dimension (see \S4) then so does $g\c
 \[
 \zeta\colon \LL(g\circ f)^* \xrightarrow{\sim} \LL f^*\cdot \LL g^*
 \]
-of functors from $\DD(Z)$ to $\DD(X)$.
+of functors from $\DD^-(Z)$ to $\DD^-(X)$.\footnote{Editorial clarification: the finite Tor-dimension hypothesis permits the displayed comparison on the unbounded categories $\DD(Z)$ and $\DD(X)$; the printed minus-bounded domains repeat the first assertion.}
 \end{bookproposition}
 
 \begin{proof}
@@ -555,7 +555,7 @@ for $F^\bullet\in\DD_{\mathrm{qc}}(X)$.
 \end{bookproposition}
 
 \begin{proof}
-To define the morphism, we may assume $F^\bullet$ is a complex of $f_*$-acyclic sheaves, and use the natural map $u^*f_*F^\bullet\to g_*v^*F^\bullet$ followed by $\xi_{g_*}$. Both sides are way-out in both directions, so to prove the isomorphism we reduce by the lemma on way-out functors to the case of a single quasi-coherent sheaf $F$ on $X$. Then we must show that for each $i$,
+To define the morphism, we may assume $F^\bullet$ is a complex of $f_*$-acyclic sheaves, and use the natural map $u^*f_*F^\bullet\to g_*v^*F^\bullet$ followed by $\xi_{g_*}$. Both sides are way-out in both directions, so to prove the isomorphism we reduce by the lemma on way-out functors to the case of a single quasi-coherent sheaf $F$ on $Y$.\footnote{Editorial correction: $F$ is a sheaf on $X$, as required for the argument of $\RR f_*$.} Then we must show that for each $i$,
 \[
 \mathcal{H}^i(u^*\RR f_*F) \xrightarrow{\sim} \mathcal{H}^i(\RR g_* v^*F).
 \]
@@ -883,7 +883,7 @@ Let $X$ be a locally noetherian prescheme. Then every quasi-coherent $\sO_X$-mod
 \end{booktheorem}
 
 \begin{proof}
-Indeed, we will show that the injective hull $I$ of a quasi-coherent sheaf $F$ is quasi-coherent. Let $I$ be written as a direct sum of sheaves $J(x,x')$, by Corollary~\ref{cor:2.7.13}. For each such $J(x,x')$, since $I$ is an injective hull of $F$, there is a neighborhood $U$ of $x'$, and a section $s\in J(x,x')(U)$ which is also a section of $F(U)$. By shrinking $U$ if necessary, we may assume that the support of $s$ is just $U\cap Z'$, where $Z'=\overline{\{x'\}}$. Since $s$ is a section of a quasi-coherent sheaf $F$, it must be annihilated by some power of the ideal $\mathcal{I}_{Z'}$ of $Z'$. This implies $x=x'$, for if $x\neq x'$, no section of $J(x,x')$ is annihilated by any power of $\mathcal{I}_{Z'}$. Thus $J(x,x')=J(x)$ is quasi-coherent, and so $I$ is quasi-coherent.
+Indeed, we will show that the injective hull $I$ of a quasi-coherent sheaf $F$ is quasi-coherent. Let $I$ be written as a direct sum of sheaves $J(x,x')$, by Corollary~\ref{cor:2.7.13}. For each such $J(x,x')$, since $I$ is an injective hull of $F$, there is a neighborhood $U$ of $x'$, and a section $s\in J(x,x')(U)$ which is also a section of $F(U)$. By shrinking $U$ if necessary, we may assume that the support of $s$ is just $U\cap Z'$, where $Z'=\overline{\{x'\}}$. Since $s$ is a section of a quasi-coherent sheaf $F$, it must be annihilated by some power of the ideal $\sO_{Z'}$ of $Z'$.\footnote{Editorial clarification: the printed symbol here and below denotes the ideal sheaf of $Z'$, for which $\mathcal I_{Z'}$ avoids confusion with the structure sheaf.} This implies $x=x'$, for if $x\neq x'$, no section of $J(x,x')$ is annihilated by any power of $\sO_{Z'}$. Thus $J(x,x')=J(x)$ is quasi-coherent, and so $I$ is quasi-coherent.
 \end{proof}
 
 \begin{bookcorollary}{7.19}\label{cor:2.7.19}
