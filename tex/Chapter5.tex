@@ -45,7 +45,7 @@ and if $F$ is flasque (in particular if $F$ is injective) one can write a zero o
 \[
 0\longrightarrow \Gamma_Z(X,I^\bullet)\longrightarrow \Gamma(X,I^\bullet)\longrightarrow \Gamma(X-Z,I^\bullet)\longrightarrow 0
 \]
-which gives rise to a distinguished triangle in $\DD^+(\Ab)$, 
+which gives rise to a distinguished triangle in $\DD^+(\Ab)$,
 \[
 \begin{tikzcd}[row sep=2cm, column sep=2cm]
 	\RR\Gamma_Z(X,F) \arrow[r]& \RR\Gamma(X,F) \arrow[d] \\
@@ -316,7 +316,7 @@ G \arrow[r, "\gamma"] & G'
 \]
 where $\gamma=\mathcal{H}_{Z/Z'}^{0}(\beta)$ is an isomorphism.
 
-(3) To show that the isomorphism $\gamma$ is unique, let $\delta\colon G\to G'$ be any other homomorphism which gives a commutative diagram. 
+(3) To show that the isomorphism $\gamma$ is unique, let $\delta\colon G\to G'$ be any other homomorphism which gives a commutative diagram.
 \[
 \begin{tikzcd}
 	F \arrow[r, "\alpha"] \arrow[d, "\beta"'] & G \arrow[dl, "\delta"] \\
@@ -653,7 +653,12 @@ The functor
 \[
 E\colon \DD^b(X)_{\mathrm{Gor}(Z^\bullet)}\longrightarrow \operatorname{Icz}(Z^\bullet,X)
 \]
-is an equivalence of categories of the category of Gorenstein complexes with the (additive) category $\operatorname{Icz}(Z^\bullet,X)$ of injective Cousin complexes. Furthermore, the natural functor $Q$ is an inverse to $E$.
+is an equivalence of categories of the category of Gorenstein complexes with the (additive) category $\operatorname{Icz}(Z^\bullet,X)$ of injective Cousin complexes. Furthermore, the natural functor $Q$ is an inverse to $E$.\footnote{Editorial note: Let $\operatorname{Icz}^{b}(Z^\bullet,X)$ denote the full additive subcategory of injective Cousin complexes whose cohomology sheaves vanish outside a finite range. The superscript $b$ refers to cohomology, not to the terms of the complex. Then the functor
+\[
+E\colon \DD^b(X)_{\mathrm{Gor}(Z^\bullet)}
+ \longrightarrow \operatorname{Icz}^{b}(Z^\bullet,X)
+\]
+is an equivalence of categories. Furthermore, the natural functor $Q$ is an inverse to $E$. (Editorial qualification: the original gives all injective Cousin complexes as the target. This is too broad without a bounded-cohomology restriction. For example, let $X=\coprod_{n\geq0}\operatorname{Spec}k$, with $Z^p$ the union of the components indexed by $n\geq p$. The complex with $k$ on the $n$th component in degree $n$ and zero differentials is an injective Cousin complex, but has nonzero cohomology in every nonnegative degree. Its image under $Q$ is not in $\DD^b(X)$.)}
 \end{bookproposition}
 
 \begin{proof}
@@ -690,7 +695,8 @@ g\colon E(F^\bullet)\longrightarrow E(G^\bullet).
 \]
 Since $E$ is a functor, our condition on $\mathcal{H}^{i}(\varphi(F^\bullet))$ and $\mathcal{H}^{i}(\varphi(G^\bullet))$ shows that $E(f)$ and $g$ have the same effect on cohomology. Hence by Lemma~\ref{lem:4.3.2}(a), they are equal. Thus $\varphi$ is functorial, as required.
 
-For $\psi$, one need only note that if $F^\bullet\in\Coz(Z^\bullet,X)$, then $EQ(F^\bullet)=F^\bullet$ in an obvious way.
+For $\psi$, one need only note that if $F^\bullet\in\Coz(Z^\bullet,X)$, then $EQ(F^\bullet)=F^\bullet$ in an obvious way.\footnote{Editorial note: For $\psi$, let $F^\bullet\in\operatorname{Icz}^{b}(Z^\bullet,X)$. Then $Q(F^\bullet)\in\DD^b(X)$; computing local cohomology with the injective Cousin complex shows that it is Gorenstein. Moreover, $EQ(F^\bullet)=F^\bullet$ by the skeleton description of its terms, so the resulting identification gives $\psi$.}
+
 \end{proof}
 
 \par\medskip\noindent\textbf{Remark.}

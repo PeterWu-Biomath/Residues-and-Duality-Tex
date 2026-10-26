@@ -57,7 +57,26 @@ Replacing $R^\bullet$ by an injective resolution, we can erase the $\RR$. As usu
 \[
 \sheafHom^{q}(F^\bullet,R^\bullet)_U\longrightarrow R_U^{p+q},
 \]
-where the subscript $U$ denotes restriction of sheaves to $U$. Given a homomorphism $f\in\sheafHom^{q}(F^\bullet,R^\bullet)_U(V)$ defined on an open set $V\subseteq U$, we send it to the section $f(s_V)\in R^{p+q}(V)$, where $s_V$ is the section $s$, restricted to $V$. One checks that this indeed does define a morphism of complexes, and that it is functorial in $F^\bullet$.
+where the subscript $U$ denotes restriction of sheaves to $U$. Given a homomorphism $f\in\sheafHom^{q}(F^\bullet,R^\bullet)_U(V)$ defined on an open set $V\subseteq U$, we send it to the section $f(s_V)\in R^{p+q}(V)$, where $s_V$ is the section $s$, restricted to $V$. One checks that this indeed does define a morphism of complexes, and that it is functorial in $F^\bullet$.\footnote{Editorial note: where the subscript $U$ denotes restriction of sheaves to $U$. Given a homomorphism $f\in\sheafHom^{q}(F^\bullet,R^\bullet)_U(V)$ defined on an open set $V\subseteq U$, we send it to the section
+\[
+\eta^p(s)(f)=\epsilon_{p+q}f(s_V),
+\qquad \epsilon_m=(-1)^{m(m+1)/2},
+\]
+where $s_V$ is the restriction of $s$ to $V$. (Editorial correction: the original gives unsigned evaluation. The sign here is required by the Hom differential in \bookref{sec:1.6}{I,~\S6}; it is not the sign obtained with the usual modern Hom differential.)
+Indeed, the convention of \bookref{sec:1.6}{I,~\S6}, written on a homogeneous map $a$ of degree $n$, is
+\[
+\delta a=a\,d+(-1)^{n+1}d\,a.
+\]
+For $s$ of degree $p$ and $f$ of degree $q$, applying it twice gives
+\begin{align*}
+(\delta\eta(s))(f)
+ &=\epsilon_{p+q+1}f(ds) \\
+ &\quad+\bigl((-1)^{q+1}\epsilon_{p+q+1}
+              +(-1)^{p+1}\epsilon_{p+q}\bigr)d(f(s)) \\
+ &=\epsilon_{p+q+1}f(ds)=\eta(ds)(f),
+\end{align*}
+since $\epsilon_{m+1}=(-1)^{m+1}\epsilon_m$. Thus $\eta$ is a morphism of complexes. Evaluation commutes with restriction and with degree-zero morphisms of complexes, so it is functorial in $F^\bullet$.}
+
 \end{proof}
 
 \section{Dualizing complexes}\label{sec:5.2}
@@ -272,6 +291,15 @@ Since $X$ is connected, we reduce immediately to the case where $X$ is the spect
 L_{1}^{\bullet}[p]\oplus L_{1}^{\prime\bullet}[-p]\oplus (L_{1}^{\bullet}\derivedtensor L_{1}^{\prime\bullet}) = 0
 \]
 from which it follows that $L_1^\bullet$ and $L_1^{\prime\bullet}$ are $0$ in $\DD_{\mathrm{c}}(X)$, so that $L^\bullet\cong\sO_X[-p]$, and $L^{\prime\bullet}\cong\sO_X[p]$, as required.
+\footnote{Editorial note: We now pass from the local-ring assertion to $X$. (Editorial completion: the original reduces to the local-ring case using connectedness without explaining the passage to open neighborhoods. Tensor-invertibility implies local perfectness; a modern reference is the \href{https://stacks.math.columbia.edu/tag/0FNP}{Stacks Project, Tag 0FNP}.)
+On an affine open set, the identity $L^\bullet\derivedtensor L^{\prime\bullet}\cong\sO_X$ makes both complexes tensor-invertible, hence perfect: locally they have bounded finite free representatives. For any $x\in X$, the local-ring result gives
+$L_x^\bullet\cong\sO_{X,x}[-p_x]$.
+Represent this isomorphism by a cycle in a finite free representative near $x$. After shrinking, the cycle defines a map
+\[
+\sO_U[-p_x]\longrightarrow L^\bullet|_U.
+\]
+Its cone is perfect and has zero cohomology at $x$. Its finitely many coherent cohomology sheaves therefore vanish on a common neighborhood of $x$; on that neighborhood the map is an isomorphism.\par
+Thus $x\mapsto p_x$ is locally constant. Since $X$ is connected, it has a single value $p$. Consequently $L=\mathcal{H}^p(L^\bullet)$ is an invertible sheaf on $X$, all other cohomology sheaves vanish, and truncation gives $L^\bullet\cong L[-p]$. Tensoring the given identity with $L^\vee[p]$ gives $L^{\prime\bullet}\cong L^\vee[p]$. Setting $n=-p$ proves the global statement.}
 \end{proof}
 
 This proves the lemma, so we have only to show that $R^{\prime\bullet} = R^\bullet\derivedtensor L^{\bullet}$. Indeed, $R^\bullet\in\DD^b_{\mathrm{c}}(X)$, so applying Lemma~\ref{lem:5.3.2},
@@ -659,10 +687,33 @@ For the first statement, the question is local on $X$ and $Y$, so we reduce imme
 
 \medskip\noindent\textit{General case.} $A$ is an arbitrary noetherian local ring.
 
-Let $\widehat{A}$ be the completion of $A$, and let $Y'=\Spec\widehat{A}$. We make the base extension $u\colon Y'\to Y$, and then $u^{*}(R^\bullet)$ is dualizing on $Y'$ by Corollary~\ref{cor:5.3.5}. But $\widehat{A}$ is a quotient of a regular local ring by Cohen's structure theorem \cite[\nopp (31.1)]{14}, so $f'^{\sharp}(u^{*}(R^\bullet))$ is dualizing on $X' = X\times_{Y} Y'$, by Case 2. Now for any point $x\in X$, the completion $\widehat{\sO}_{X,x}$ of its local ring is also the completion of the ring $\sO_{X,x}\otimes_{A}\widehat{A}$, which is the semilocal ring of the points of $X'$ lying over $x$, and so applying Corollary~\ref{cor:5.3.5} once in each direction, and \bookref{prop:3.2.1}{III,~2.1} we see that $f^{\sharp}(R^\bullet)$ is pointwise dualizing on $X$.
+Let $\widehat{A}$ be the completion of $A$, and let $Y'=\Spec\widehat{A}$. We make the base extension $u\colon Y'\to Y$, and then $u^{*}(R^\bullet)$ is dualizing on $Y'$ by Corollary~\ref{cor:5.3.5}. But $\widehat{A}$ is a quotient of a regular local ring by Cohen's structure theorem \cite[\nopp (31.1)]{14}, so $f'^{\sharp}(u^{*}(R^\bullet))$ is dualizing on $X' = X\times_{Y} Y'$, by Case 2. Now for any point $x\in X$, the completion $\widehat{\sO}_{X,x}$ of its local ring is also the completion of the ring $\sO_{X,x}\otimes_{A}\widehat{A}$, which is the semilocal ring of the points of $X'$ lying over $x$, and so applying Corollary~\ref{cor:5.3.5} once in each direction, and \bookref{prop:3.2.1}{III,~2.1} we see that $f^{\sharp}(R^\bullet)$ is pointwise dualizing on $X$.\footnote{For a detailed repair of the completion argument, see the editorial remark following this proof.}
 
 Now if $Y$ is noetherian, $f$ of finite type, and $R^\bullet$ dualizing, then $Y$ has finite Krull dimension by Corollary~\ref{cor:5.7.2}, hence $X$ has finite Krull dimension, and so $f^{\sharp}(R^\bullet)$ is dualizing by Proposition~\ref{prop:5.8.2}.
 \end{proof}
+
+\subsection*{Editorial remark on Theorem 8.3: completion}
+Fix $x\in X$. Localizing the base at $f(x)$, we may assume that $(A,\mathfrak m)$ is local and that $x$ lies over its closed point. Let $\widehat A$ be its completion and $u\colon Y'=\Spec\widehat A\to Y$. The complex $R^\bullet$ on $\Spec A$ is dualizing, since it is dualizing at the closed point; hence $u^*R^\bullet$ is dualizing by Corollary~\ref{cor:5.3.5}. By Cohen's structure theorem \cite[\nopp (31.1)]{14}, $\widehat A$ is a quotient of a regular local ring. Case 2 therefore shows that
+\[
+K'=f'^{\sharp}(u^*R^\bullet)
+\]
+is pointwise dualizing on $X'=X\times_Y Y'$.\par
+Set $B=\sO_{X,x}$, with maximal ideal $\mathfrak n$, and $T=B\otimes_A\widehat A$. Since $\mathfrak mB\subseteq\mathfrak n$, we have
+\[
+T/\mathfrak nT
+ = k(x)\otimes_A\widehat A = k(x).
+\]
+Thus $\mathfrak q=\mathfrak nT$ is a maximal ideal. Let $C=T_{\mathfrak q}$, the local ring at the corresponding point $x'\in X'$. This is a noetherian local ring, since $B$ is essentially of finite type over $A$. (Editorial repair: the original calls $B\otimes_A\widehat A$ the semilocal ring of the points above $x$ and identifies its completion with $\widehat B$ without specifying a local factor or an ideal of completion. Here we first localize the base at $f(x)$ and then select the distinguished local ring $C$ over the closed fibre.)
+For every $r\geq1$, the ideal $\mathfrak m^r$ annihilates $B/\mathfrak n^r$, so
+\[
+T/\mathfrak n^rT
+ \cong (B/\mathfrak n^r)\otimes_{A/\mathfrak m^r}
+                (\widehat A/\mathfrak m^r\widehat A)
+ \cong B/\mathfrak n^r.
+\]
+The last ring is local, so localizing $T$ at $\mathfrak q$ does not change this quotient. Taking inverse limits gives a compatible isomorphism $\widehat C\cong\widehat B$.\par
+Put $K=f^{\sharp}R^\bullet$. Flat base change for $f^\sharp$, \bookref{prop:3.2.1}{III,~2.1}, identifies $K'_{x'}$ with $K_x\otimes_B C$. Since $K'_{x'}$ is dualizing, Corollary~\ref{cor:5.3.5} shows that its extension to $\widehat C$ is dualizing. Under the isomorphism above this is $K_x\otimes_B\widehat B$. Applying the same corollary to $B$ now shows that $K_x$ is dualizing. As $x$ was arbitrary, $K$ is pointwise dualizing.
+
 
 \begin{bookcorollary}{8.4}\label{cor:5.8.4}
 Under the hypotheses of the theorem, let $d_{Y}$ and $d_{X}$ be the codimension functions associated with the pointwise dualizing complexes $R^{\bullet}$ and $f^{\sharp}(R^{\bullet})$, respectively. Then for each $x\in X$,
@@ -741,7 +792,23 @@ where $x$ is the closed point of $\Spec A$.
 
 \noindent (v) $\Longrightarrow$ (vi) By \bookref{prop:4.3.4}{IV,~3.4}, $E(A)$ is an injective resolution of $A$, and furthermore, for each $p\in\mathbb{Z}$, $E^{p}(A)$ is a direct sum of constant (injective) sheaves on subspaces $\overline{\{y\}}$ of $\Spec A$ with $y\in Z^{p}-Z^{p+1}$. We can calculate $H_{x}^{i}(A)$ as $H^{i}(\Gamma_{x}(E(A)))$. But $\Gamma_{x}(E(A))$ by what we have just seen, consists of a single injective sheaf in some degree (say $d$), since $x$ is a minimal point of $\Spec A$.
 
-\noindent (vi) $\Longrightarrow$ (iv) First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, and let $N=(x_1,\dots,x_n)$. Then $H_{x}^{n}(A)$ is an essential extension of $A/N$ \cite[\nopp proof of Prop.~2]{11}, and so is irreducible, since $A/N$ is a simple $A$-module, and hence irreducible. We conclude that $H_{x}^{n}(A)$ is an irreducible injective $A$-module with support at $x$, and so is an injective hull of $k$ \bookref{prop:2.7.4}{II,~7.4}.
+\noindent (vi) $\Longrightarrow$ (iv) First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, and let $N=(x_1,\dots,x_n)$. Then $H_{x}^{n}(A)$ is an essential extension of $A/N$ \cite[\nopp proof of Prop.~2]{11}, and so is irreducible, since $A/N$ is a simple $A$-module, and hence irreducible. We conclude that $H_{x}^{n}(A)$ is an irreducible injective $A$-module with support at $x$, and so is an injective hull of $k$ \bookref{prop:2.7.4}{II,~7.4}.\footnote{Editorial note: \noindent (vi) $\Longrightarrow$ (iv) First note by \cite[\nopp 6.4, part~4]{LC} that $H_{x}^{n}(A)\neq0$, where $n=\dim A$, so $n=d$. (The hypothesis in loc.\ cit.\ that $A$ is a quotient of a regular local ring can be circumvented by passing to the completion \cite[\nopp 5.9]{LC}.) Therefore $A$ is Cohen-Macaulay \cite[\nopp 3.10]{LC}. Let $(x_1,\dots,x_n)$ be a maximal $A$-sequence, let $N=(x_1,\dots,x_n)$, and put $B=A/N$ and $H=H_x^n(A)$. The ring $B$ is artinian local. (Editorial repair: the original claims that $A/N$ is a simple $A$-module. For $A=k[[t]]$ and $N=(t^2)$ it has length two. The required conclusion is instead that its socle is one-dimensional, as established here.)
+Since $B$ is supported at $x$, the local-cohomology spectral sequence and the Koszul resolution for the regular sequence give
+\[
+J:=\operatorname{Hom}_A(B,H)
+ \cong\operatorname{Ext}_A^n(B,A)\cong B.
+\]
+Moreover, $J$ is an injective $B$-module: for every $B$-module $M$,
+\[
+\operatorname{Hom}_B(M,J)\cong\operatorname{Hom}_A(M,H),
+\]
+and the latter functor is exact by (vi). Thus $B$ is injective over itself.\par
+Let $E_B(k)$ be the injective hull of $k$ over $B$, and let $r$ be the dimension of the socle of $B$. Every nonzero submodule of the finite-length module $B$ meets its socle, so its injective hull is $E_B(k)^{\oplus r}$. Since $B$ is injective, $B\cong E_B(k)^{\oplus r}$. The exact functor $\operatorname{Hom}_B(-,E_B(k))$ preserves length, as follows by induction along a composition series and $\operatorname{Hom}_B(k,E_B(k))\cong k$. In particular $\operatorname{length}_B E_B(k)=\operatorname{length}_B B$, and comparison of lengths forces $r=1$. Consequently
+\[
+\operatorname{Hom}_A(k,H)
+ \cong\operatorname{Hom}_B(k,J)
+ \cong\operatorname{Hom}_B(k,B)\cong k.
+\]}
 
 Now for any $A$-module $M$,
 \[

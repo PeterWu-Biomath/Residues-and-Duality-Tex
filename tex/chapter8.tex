@@ -311,7 +311,7 @@ Let $f: X \to Y$ be a finite morphism, with $Y$ noetherian of finite Krull dimen
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
 Q f_{*} f^{\Delta} K^{\bullet} \ar[rr,"\alpha_{f}"] \ar[rd,"Q \Tr_{f}"'] && \RR f_{*} f^{\flat} Q K^{\bullet} \ar[ld,"\operatorname{Trf}_{f}Q"] \\
-& Q K^{\bullet} 
+& Q K^{\bullet}
 \end{tikzcd}
 \]
 where $\Tr_{f}$ is the trace of \bookref{thm:6.4.2}{VI,~4.2} and $\operatorname{Trf}_{f}$ is the trace of \bookref{prop:3.6.5}{III,~6.5}.
@@ -332,7 +332,7 @@ Let $Y$ be a noetherian prescheme of finite Krull dimension, let $X = \bbP^{n}_{
 \[
 \begin{tikzcd}[row sep=large, column sep=large]
 Q f_{*} f^{\Delta} K^{\bullet} \ar[rr,"\beta_{f}"] \ar[rd,"Q \Tr_{f}"'] && \RR f_{*} f^{\sharp} Q K^{\bullet} \ar[dl,"\operatorname{Trp}_{f}Q"] \\
-&Q K^{\bullet} 
+&Q K^{\bullet}
 \end{tikzcd}
 \]
 where $\Tr_{f}$ is the trace of \bookref{thm:6.4.2}{VI,~4.2}, and $\operatorname{Trp}_{f}$ is the trace of \bookref{prop:3.4.3}{III,~4.3}.
@@ -528,7 +528,35 @@ vertical arrow is induced by the residual trace, using the canonical
 identification $\RR f_*Qf^\Delta K^\bullet\cong Qf_*f^\Delta K^\bullet$.
 The verification of TRA 1 is clear, using TRA 1 of \bookref{thm:6.4.2}{VI,~4.2}. For TRA 2 we use \bookref{prop:3.6.9}{III,~6.9c}. Details left to reader (:).
 
-\medskip\noindent(c) To prove the duality formula, we reduce as in part (b) of the proof of Theorem~\ref{thm:7.3.3} to complexes with coherent cohomology.\footnote{Editorial correction: the chain in the original printed proof, pp.~385--386, is replaced here by the tensor--Hom and projection-formula argument. The original expression (2) is not in general isomorphic to (1).}
+\medskip\noindent(c) To prove the duality formula,\footnote{The original chain is retained here. A corrected argument is given in the editorial remark following this proof.} we reduce as in part (b) of the proof of Theorem~\ref{thm:7.3.3}, to the case of complexes $F^{\bullet}$ with coherent cohomology. So let $F^{\bullet} \in \DD_{\mathrm{c}}^{-}(X)$ and $G^{\bullet} \in \DD_{\mathrm{c}}^{+}(Y)$. Consider
+\[
+\RR f_{*} \RsheafHom_{X}^{\bullet}(F^{\bullet}, f^{!}G^{\bullet}). \tag{1}
+\]
+We write $F^{\bullet} = \mathscr{D}_{X} \mathscr{D}_{X}(F^{\bullet})$ and $f^{!}G^{\bullet} = \mathscr{D}_{X}(\LL f^{*} \mathscr{D}_{Y}(G^{\bullet}))$. Now since $\mathscr{D}_{X}$ is a dualizing functor, it transforms $\operatorname{R}\!\Hom$ into $\operatorname{R}\!\Hom$ of the duals of the arguments, with the order reversed. Thus (1) becomes
+\[
+\RR f_{*} \mathscr{D}_{X} \RsheafHom_{X}^{\bullet}(\LL f^{*} \mathscr{D}_{Y}(G^{\bullet}), \mathscr{D}_{X}(F^{\bullet})). \tag{2}
+\]
+Applying the duality theorem above, this becomes
+\[
+\mathscr{D}_{Y} \RR f_{*} \RsheafHom_{X}^{\bullet}(\LL f^{*} \mathscr{D}_{Y}(G^{\bullet}), \mathscr{D}_{X}(F^{\bullet})) \tag{3}
+\]
+which in turn, since $\LL f^{*}$ is a left adjoint of $\RR f_{*}$ \bookref{prop:2.5.10}{II,~5.10}, is isomorphic to
+\[
+\mathscr{D}_{Y} \RsheafHom_{Y}^{\bullet}(\mathscr{D}_{Y}(G^{\bullet}), \RR f_{*} \mathscr{D}_{X}(F^{\bullet})). \tag{4}
+\]
+Now applying duality to the second argument, (4) becomes
+\[
+\mathscr{D}_{Y} \RsheafHom_{Y}^{\bullet}(\mathscr{D}_{Y}(G^{\bullet}), \mathscr{D}_{Y}(\RR f_{*}F^{\bullet}))
+\]
+and since $\mathscr{D}_{Y}$ is dualizing, this is
+\[
+\RsheafHom_{Y}^{\bullet}(\RR f_{*}F^{\bullet}, G^{\bullet}).
+\]
+The reader may check that our chain of isomorphisms is indeed $\underline{\Theta}_{f}$, which proves (c).
+\end{proof}
+
+\subsection*{Editorial remark on Corollary 3.4(c): duality formula}
+To prove the duality formula, we reduce as in part (b) of the proof of Theorem~\ref{thm:7.3.3} to complexes with coherent cohomology. (Editorial correction: the chain in the original printed proof, pp.~385--386, is replaced here by the tensor--Hom and projection-formula argument. The original expression (2) is not in general isomorphic to (1).)
 Let $F^\bullet\in\DD_{\mathrm{c}}^-(X)$ and $G^\bullet\in\DD_{\mathrm{c}}^+(Y)$, and put
 \[
 H^\bullet=\mathscr{D}_Y(G^\bullet),\qquad
@@ -564,7 +592,8 @@ The trace on $f^!G^\bullet$ in part (b) is defined by this same evaluation
 and residual trace, and the projection formula uses the corresponding
 adjunction maps. Thus the composite agrees with $\underline{\Theta}_f$,
 and proves (c).
-\end{proof}
+
+
 
 \begin{bookproposition}[Compatibility of Local and Global Duality]{3.5}\label{prop:7.3.5}
 Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $K^{\bullet}$ be a residual complex on $Y$. Let $x \in X$ be a closed point, with local ring $A = \sO_{x}$. Let $R^{\bullet}$ be the dualizing complex $(Q f^{\Delta} K^{\bullet})_{x}$ on $A$, and assume that $R^{\bullet}$ is normalized \bookref{sec:5.6}{V,~\S6}. Let $I = \Gamma_{x}(R^{\bullet})$. Let $F^{\bullet} \in \DD_{\mathrm{c}}^{+}(X)$. Regard the local modules in the diagram as sheaves on $Y$ supported at $f(x)$. Put
@@ -643,7 +672,7 @@ and we have a trace map
 \[
 \Tr_{f} \colon \RR f_{*} f^{!}(\sO_{Y}) \longrightarrow \sO_{Y}.
 \]
-Taking cohomology in degree $0$,\footnote{Editorial correction: the original says degree $n$. The shift gives $\mathcal H^0(\RR f_*\omega_{X/Y}[n])=\RR^n f_*\omega_{X/Y}$.} we obtain a map
+Taking cohomology in degree $n$,\footnote{Editorial correction: take degree $0$ here. The shift gives $\mathcal H^0(\RR f_*\omega_{X/Y}[n])=\RR^n f_*\omega_{X/Y}$.} we obtain a map
 \[
 \gamma_{f}: \RR^{n} f_{*}(\omega_{X/Y}) \longrightarrow \sO_{Y}
 \]
@@ -657,7 +686,7 @@ Furthermore, by (c), if $v_{ij}: Y_{i} \to Y_{j}$ is a morphism compatible with 
 \[
 \gamma_{f_{i}} = v_{ij}^{*} \gamma_{f_{j}}.
 \]
-By Lemma~\ref{lem:7.4.2}, applied to the $A$-module
+By Lemma~\ref{lem:7.4.2},\footnote{Editorial note: Properness gives coherence of $\RR^n f_*\omega_{X/Y}$. Hence its Hom module into $\sO_Y$ is finite over the noetherian ring $A$. Flat base change for cohomology, together with flat base change for Hom from a finitely presented module, identifies its tensor extensions with the Hom modules containing the maps $\gamma_{f_i}$ above.} applied to the $A$-module
 \[
 \Hom_{Y}(\RR^{n} f_{*}(\omega_{X/Y}), \sO_{Y}),
 \]
@@ -669,7 +698,7 @@ such that $\gamma_{f_{i}} = u_{i}^{*} \gamma_{f}$ for all $i$. By virtue of its 
 \end{proof}
 
 \begin{booklemma}{4.2}\label{lem:7.4.2}
-Let $A$ be a noetherian ring, and let $M$ be an $A$-module. We consider the category $(B_{i})_{i \in I}$ of $A$-algebras which are complete noetherian local rings, flat over $A$, and morphisms of $A$-algebras. Then the natural map
+Let $A$ be a noetherian ring, and let $M$ be an $A$-module. We consider the category $(B_{i})_{i \in I}$ of $A$-algebras which are complete noetherian local rings, flat over $A$, and morphisms of $A$-algebras \footnote{Here the morphisms are not required to be local homomorphisms.}. Then the natural map
 \[
 \phi\colon \ M \longrightarrow \varprojlim_i (M\otimes_A B_i)
 \]
@@ -677,7 +706,7 @@ is injective, and if moreover $M$ is of finite type, $\phi$ is bijective.
 \end{booklemma}
 
 \begin{proof}
-To see that $\phi$ is injective, it is sufficient to notice that the map
+To see that $\phi$ is injective,\footnote{For corrections and a completed descent argument, see the editorial remark after the original remark below.} it is sufficient to notice that the map
 \[
 M \longrightarrow \prod_{\mathfrak m\in\operatorname{Max}A}(M\otimes_A\widehat{A_{\mathfrak m}})
 \]
@@ -709,6 +738,55 @@ whose quotients $M_{i}/M_{i-1}$ are of the form $A/\mathfrak{p}_{i}$ with $\math
 \par\medskip\noindent\textbf{Remark.}
 One sees from the proof that it would be sufficient to consider only $B_{i}$ of the form $\widehat{A_{\mathfrak p}}$ where $\mathfrak{p}$ is either maximal, or an element of $\Ass M$.
 \par\medskip
+
+\subsection*{Editorial remark on Lemma 4.2: descent and filtration}
+Put $T(N)=\varprojlim_i(N\otimes_A B_i)$. This is a left-exact functor, since the $B_i$ are flat and inverse limits preserve kernels.
+For injectivity it suffices to use the objects $\widehat{A_{\mathfrak m}}$:
+\[
+M\longrightarrow\prod_{\mathfrak m\in\operatorname{Max}A}
+ M\otimes_A\widehat{A_{\mathfrak m}}
+\]
+is injective, by localization and faithful flatness of local completion.\par
+We first show that $\phi\colon k(\mathfrak p)\to T(k(\mathfrak p))$ is bijective for every prime $\mathfrak p$. A compatible family has a component
+\[
+\lambda\in k(\mathfrak p)\otimes_A\widehat{A_{\mathfrak p}}
+ =k(\mathfrak p).
+\]
+We must prove that every other component is the image of this same $\lambda$. (Editorial completion: the original checks only the component at $\widehat{A_{\mathfrak p}}$. The comparison objects constructed here establish compatibility with every object of the indexing category.)
+For any object $B$, put $C=k(\mathfrak p)\otimes_A B$, a noetherian ring. If $C=0$ there is nothing to prove. Otherwise, for every maximal ideal $\mathfrak r$ of $C$, let $\mathfrak q$ be its inverse image in $B$. Then $\mathfrak q\cap A=\mathfrak p$. The ring
+\[
+D=\widehat{B_{\mathfrak q}}
+\]
+is a complete noetherian local ring flat over $A$, so is another object of the category. It receives the natural map from $B$ and a map from $\widehat{A_{\mathfrak p}}$, obtained by completing the local homomorphism $A_{\mathfrak p}\to B_{\mathfrak q}$. Compatibility therefore makes the image of the $B$-component equal to $\lambda$ in $D/\mathfrak pD$. The map
+\[
+C_{\mathfrak r}=B_{\mathfrak q}/\mathfrak pB_{\mathfrak q}
+ \longrightarrow D/\mathfrak pD
+\]
+is faithfully flat. These maps, as $\mathfrak r$ varies, detect equality in $C$. Thus the $B$-component is the image of $\lambda$, proving the assertion for $k(\mathfrak p)$.\par
+For $M=A/\mathfrak p$, compare the following exact rows (the lower row is only asserted to be left exact):
+\[
+\begin{tikzcd}[row sep=large,column sep=large]
+0 \ar[r] & M \ar[r] \ar[d,"\phi_1"]
+ & M_{\mathfrak p} \ar[r] \ar[d,"\phi_2"]
+ & M_{\mathfrak p}/M \ar[r] \ar[d,"\phi_3"] & 0 \\
+0 \ar[r] & T(M) \ar[r] & T(M_{\mathfrak p}) \ar[r]
+ & T(M_{\mathfrak p}/M).
+\end{tikzcd}
+\]
+Here $\phi_2$ is bijective by the preceding paragraph and $\phi_3$ is injective. A diagram chase gives surjectivity of $\phi_1$.\par
+Finally, a finite $A$-module $M$ has a finite prime filtration
+\[
+0=M_0\subseteq M_1\subseteq\cdots\subseteq M_r=M,
+\qquad M_i/M_{i-1}\cong A/\mathfrak p_i,
+\]
+with $\mathfrak p_i\in\Supp M$. (Editorial correction: the original requires $\mathfrak p_i\in\Ass M$, which is not a general prime-filtration theorem. For example, the nonprincipal ideal $(x,y)$ of $k[x,y]$ has associated-prime set $\{(0)\}$, but a filtration with all quotients $k[x,y]$ would force it to be free.)
+Surjectivity passes through a short exact sequence: map a compatible family to the quotient, lift its corresponding module element, and lift the remaining difference from the submodule by left exactness of $T$. Induction on the filtration proves surjectivity for $M$; injectivity was already proved.
+
+\noindent\textit{The completion-only remark.} The completions of the local rings at maximal ideals suffice to test injectivity, but the inverse-limit assertion also needs comparison algebras and maps. The original claim that one may retain only completions at maximal or associated primes is false. For example, take
+\[
+A=\mathbb F_2[t]_{(t)},\qquad M=A.
+\]
+The proposed subcategory has the objects $\mathbb F_2(t)$ and $\mathbb F_2[[t]]$. There is no $A$-algebra map from the former to the latter, since $t$ is invertible only in the former. A map in the other direction would have zero kernel (as $t$ has nonzero image), and would inject the uncountable DVR $\mathbb F_2[[t]]$ into the countable field $\mathbb F_2(t)$, which is impossible. The pair with components $0$ and $1$ is therefore compatible on this subcategory but is not the image of any element of $A$.
 
 \begin{bookcorollary}{4.3}\label{cor:7.4.3}
 \begin{enumerate}

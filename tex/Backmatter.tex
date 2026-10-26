@@ -336,11 +336,11 @@ Les foncteurs $H^p$ forment un syst\`eme conservatif\footnote{i.e.\ si $u$ est u
 
 Soit $f: K \to L$ une fl\`eche de $\operatorname{pro}\DD^b\mathcal{A}$ telle que les $H^p(K) \to H^p(L)$ soient des isomorphismes (dans $\operatorname{pro}\mathcal{A}$). Il s'agit de v\'erifier que pour tout $M$ dans $\DD^b(\mathcal{A})$, $\Hom(K,M) \longleftarrow \Hom(L,M)$ est un isomorphisme. Posons $K = \text{``$\varprojlim$''} K_{\kappa}$. On dispose d'une suite spectrale convergente\footnote{Correction \'editoriale d'indices: le texte original porte $H^qK_{\kappa}$. Pour l'aboutissement en degr\'e $p+q$, il faut $H^{-q}K_{\kappa}$.}
 \[
-\Ext^p(H^{-q}K_{\kappa},M)\Longrightarrow\Ext^{p+q}(K_{\kappa},M),
+\Ext^p(H^{q}K_{\kappa},M)\Longrightarrow\Ext^{p+q}(K_{\kappa},M),
 \]
 d'o\`u, par passage \`a la limite,
 \[
-\varinjlim_{\kappa}\Ext^p(H^{-q}K_{\kappa},M)
+\varinjlim_{\kappa}\Ext^p(H^{q}K_{\kappa},M)
 \Longrightarrow\varinjlim_{\kappa}\Ext^{p+q}(K_{\kappa},M),
 \]
 encore convergente car $K$ est uniform\'ement born\'e. Utilisant que tout
@@ -599,7 +599,7 @@ Voici comment d\'efinir une telle r\'esolution:
 \item[2)] Sinon: les r\'esolutions flasques canoniques ont ici deux d\'efauts: (a) $f_{*}C^{*}$ n'est plus quasi-coh\'erent; cela ne porte pas \`a cons\'equence tant que, comme ici, les injectifs quasi-coh\'erents sont injectifs en tant que faisceaux. (b) $C^{*}$ ne commute pas aux limites inductives filtrantes. Il est facile de corriger ce d\'efaut: on repr\'esente un quasi-coh\'erent comme $\mathcal{F} = \varinjlim \mathcal{F}_i$ ($\mathcal{F}_i$ de pr\'esentation finie) et on pose $C'{}^{*}\mathcal{F} = \varinjlim C^{*}\mathcal{F}_i$. Cela ne d\'epend pas de l'arbitraire.
 \end{enumerate}
 
-Pour une immersion ouverte, on prendra $\RR f^{!}K = f^{*}K$. Pour un morphisme compos\'e $f = gh$ ($g$ propre, $h$ immersion ouverte), on prendra $\RR f^{!} = \RR h^{!}\RR g^{!}$\footnote{Correction \`a l'original: pour $X\xrightarrow{h}\overline{X}\xrightarrow{g}S$, les foncteurs contravariants se composent dans l'ordre $\RR h^{!}\RR g^{!}$.}. Mettant bout \`a bout la \bookref{app:prop4}{proposition 4} et ce qui pr\'ec\`ede, on trouve
+Pour une immersion ouverte, on prendra $\RR f^{!}K = f^{*}K$. Pour un morphisme compos\'e $f = gh$ ($g$ propre, $h$ immersion ouverte), on prendra $\RR f^{!} = \RR g^{!}\RR h^{!}$\footnote{Correction \`a l'original: pour $X\xrightarrow{h}\overline{X}\xrightarrow{g}S$, les foncteurs contravariants se composent dans l'ordre $\RR h^{!}\RR g^{!}$.}. Mettant bout \`a bout la \bookref{app:prop4}{proposition 4} et ce qui pr\'ec\`ede, on trouve
 
 \begin{booktheorem}{2}\label{app:thm2}
 (Dualit\'e) Soit $f: X \longrightarrow S$ compactifiable, $f = gh$. Les foncteurs $\RR f_{!}: \operatorname{pro}\DD_{\operatorname{coh}}^{b}(X) \longrightarrow \operatorname{pro}\DD_{\operatorname{coh}}^{b}(S)$ et $\RR f^{!}: \DD^{+}(S) \longrightarrow \DD^{+}(X)$ sont ``adjoints'' l'un de l'autre.

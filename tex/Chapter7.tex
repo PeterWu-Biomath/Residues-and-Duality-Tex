@@ -47,7 +47,7 @@ for pointwise dualizing complexes. Hence the functor
 \[
 E\colon \operatorname{Ptwdual}(X)\longrightarrow \operatorname{Res}(X)
 \]
-is an equivalence of the category of pointwise dualizing complexes of $\DD_{\mathrm{c}}^{+}(X)$ and the category of residual complexes (and morphisms of complexes). Its inverse is $Q$.
+is an equivalence of the category of pointwise dualizing complexes of $\DD_{\mathrm{c}}^{+}(X)$ and the category of residual complexes (and morphisms of complexes). Its inverse is $Q$.\footnote{The category and boundedness qualifications are discussed in the editorial remark following the original remarks below.}
 \end{enumerate}
 \end{bookproposition}
 
@@ -82,8 +82,22 @@ is an equivalence of categories, with inverse $Q$.
 \end{enumerate}
 \par\medskip
 
+\subsection*{Editorial remark on Proposition 1.1: filtration and bounds}
+For an equivalence with actual morphisms of complexes, fix a bounded-below codimension function $d$, put $Z^p=\{x\mid d(x)\geq p\}$, and use the categories $\operatorname{Ptwdual}_d(X)$ and $\operatorname{Res}_d(X)$ of objects with this function. Then $E$ and $Q$ give inverse equivalences. This is a qualification of the printed claim, not a change in what the author wrote.
+
+For a DVR $A$ with fraction field $F$, let $C=(F\xrightarrow{\pi}F/A)$ in degrees $0,1$. The nonzero map $C\to C[1]$ with degree-zero component $\pi$ is null-homotopic: take $h^0=-\mathrm{id}_F$ and all other components zero. Thus $Q$ is not faithful when codimension functions vary, even for bounded residual complexes. In particular, a construction factoring through $Q$ cannot be naturally isomorphic to the actual identity functor on that broader category. This also affects unrestricted functoriality assertions in the following sections; an objectwise reconstruction alone does not settle them.
+
+For bounded cohomology this follows from \bookref{sec:5.8}{V,~\S8, Remark~5} and \bookref{prop:4.3.4}{IV,~3.4}. For the stated bounded-below categories, use the Cousin equivalence for an admissible strictly exhaustive filtration. (Editorial supplement: K.\ Suominen, \emph{Localization of sheaves and Cousin complexes}, Acta Math.\ 131 (1973), 27--41, Theorem~3.9 and its following remark; \href{https://doi.org/10.1007/BF02392035}{doi:10.1007/BF02392035}. This result postdates the original book.) The specialization-stable filtration $Z^\bullet$ on the locally noetherian scheme $X$ is admissible and is strictly exhaustive because $d$ is bounded below. Pointwise dualizing complexes satisfy
+\[
+\mathcal H^i_{Z^p/Z^{p+1}}(R^\bullet)=0\qquad(i\ne p)
+\]
+by \bookref{motif:4.1.F}{IV,~1.F} and their local dualizing property. The Cousin equivalence therefore gives the natural isomorphism to $QE(R^\bullet)$ without an upper cohomology bound. Parts a) and b) identify its restrictions with the two categories in c).
+
+For dualizing complexes, the corresponding target consists of residual complexes with the same $d$ and bounded terms. The printed target includes unbounded examples: on $X=\coprod_{n\geq0}\operatorname{Spec}k$, put $k$ on component $n$ in degree $n$. This residual complex has no finite global injective-dimension bound. The author's second remark is retained as historical commentary; the later fixed-filtration Cousin equivalence removes the bounded-cohomology obstruction in that setting.
+
 \begin{exercise*}
-Show that there is a uniqueness theorem analogous to \bookref{thm:5.3.1}{V,~3.1} for residual complexes, i.e., two residual complexes can differ only by shifting degrees and tensoring with an invertible sheaf. The touchy point is to show that if $K^{\bullet}, K^{\prime\bullet}$ are residual complexes, then $\sheafHom^{\bullet}(K^{\bullet}, K^{\prime\bullet})$ is a complex with coherent cohomology!
+Show that there is a uniqueness theorem analogous to \bookref{thm:5.3.1}{V,~3.1} for residual complexes, i.e., two residual complexes can differ only by shifting degrees and tensoring with an invertible sheaf. The touchy point is to show that if $K^{\bullet}, K^{\prime\bullet}$ are residual complexes, then $\sheafHom^{\bullet}(K^{\bullet}, K^{\prime\bullet})$ is a complex with coherent cohomology!\footnote{Editorial note: On a connected $X$, the shift is a single integer. On a general $X$, it is a locally constant integer-valued function, and the resulting complex must retain a global lower bound. The exercise is not supplied with a proof here.}
+
 \end{exercise*}
 
 We now give two technical results which will be used in the following sections.
@@ -105,7 +119,7 @@ of the actual residual complexes, and these $\overline{\psi}_x$ are compatible w
 \[
 \varphi_x\colon I(x)\longrightarrow I'(x)
 \]
-for each $x\in X$, where $I(x)$ (resp.\ $I'(x)$) is the (unique) subsheaf of $K^\bullet$ (resp.\ $K^{\prime\bullet}$) isomorphic to $J(x)$, such that for an immediate specialization $x\rightsquigarrow y$, $\varphi_x$ and $\varphi_y$ are compatible with the boundary maps of the complexes $K^\bullet$ and $K^{\prime\bullet}$. But to give such a collection of isomorphisms $(\varphi_x)$ is to give an isomorphism $\psi\colon K^\bullet\to K^{\prime\bullet}$, so we are done.
+for each $x\in X$, where $I(x)$ (resp.\ $I'(x)$) is the (unique) subsheaf of $K^\bullet$ (resp.\ $K^{\prime\bullet}$) isomorphic to $J(x)$, such that for an immediate specialization $x\rightsquigarrow y$, $\varphi_x$ and $\varphi_y$ are compatible with the boundary maps of the complexes $K^\bullet$ and $K^{\prime\bullet}$. But to give such a collection of isomorphisms $(\varphi_x)$ is to give an isomorphism $\psi\colon K^\bullet\to K^{\prime\bullet}$, so we are done.\footnote{Editorial note: For the use of Proposition 1.1(c), first observe that the given local derived isomorphisms force equality of the codimension functions, by the degrees of the nonzero local Ext groups. Apply reconstruction with that common filtration; the subsequent chain-level isomorphisms are compatible with localization.}
 \end{proof}
 
 \begin{booklemma}[Glueing Lemma]{1.3}\label{lem:6.1.3}
@@ -133,7 +147,7 @@ Hence $K^\bullet$ is a residual complex.
 \end{proof}
 
 \par\medskip\noindent\textbf{Remark.}
-This lemma has the interesting consequence that one can glue dualizing complexes given locally in $\DD_{\mathrm{c}}^{+}(U_{\nu})$ into a global dualizing complex in $\DD_{\mathrm{c}}^{+}(X)$, whereas one cannot glue arbitrary objects of the derived category given locally (cf.\ remarks at end of \bookref{sec:3.8}{III,~\S8}).
+This lemma has the interesting consequence that one can glue dualizing complexes given locally in $\DD_{\mathrm{c}}^{+}(U_{\nu})$ into a global dualizing complex in $\DD_{\mathrm{c}}^{+}(X)$, whereas one cannot glue arbitrary objects of the derived category given locally (cf.\ remarks at end of \bookref{sec:3.8}{III,~\S8}).\footnote{Editorial note: The lemma permits gluing dualizing complexes supplied with compatible overlap isomorphisms satisfying the cocycle condition: pass to their residual complexes and glue the resulting actual complexes. The uniform lower bound in the lemma is essential. It yields a residual complex and hence a pointwise dualizing object of $\DD_{\mathrm{c}}^+(X)$. To conclude that this object is dualizing, one also needs a common upper bound for the injective dimensions of the local dualizing complexes. Their local Ext vanishing then gives global finite injective dimension by \bookref{prop:2.7.20}{II,~7.20}. These bounds are automatic for a finite cover, in particular after taking a finite subcover when $X$ is quasi-compact. (Editorial qualification of the original gluing claim: on $X=\coprod_{n\geq0}\operatorname{Spec}k$, the local complexes $k[n]$ have no uniform lower bound, while the local complexes $k[-n]$ glue to a bounded-below pointwise dualizing complex with no finite global injective-dimension bound. Thus neither bound can be omitted for arbitrary infinite covers.) This special gluing procedure does not assert descent for arbitrary objects of the derived category (cf.\ \bookref{sec:3.8}{III,~\S8}).}
 \par\medskip
 
 \par\endgroup
@@ -231,7 +245,7 @@ with $r$ also a finite morphism, then there is a commutative diagram of isomorph
 \tag{iii}\label{eq:6.2.iii}
 \]
 \phantomsection\label{compat:6.2.iv}
-Also if we have another Cartesian diagram doubling the smooth side of the square, 
+Also if we have another Cartesian diagram doubling the smooth side of the square,
 \[
 \begin{tikzcd}
 	Q \arrow[r, "p"] \arrow[d, "q"'] & P \arrow[d, "r"] \\
@@ -241,7 +255,7 @@ Also if we have another Cartesian diagram doubling the smooth side of the square
 \]
 i.e., with $r$ smooth, then there is a similar commutative diagram (iv) involving the isomorphisms \eqref{eq:6.2.II} and (III). These two compatibilities follow from \bookref{cor:3.6.4}{III,~6.4}.
 
-For the \emph{residue isomorphism}, we suppose that we have a finite morphism $f$ which is factored into $pi$, with $i$ a closed immersion, and $p$ smooth. 
+For the \emph{residue isomorphism}, we suppose that we have a finite morphism $f$ which is factored into $pi$, with $i$ a closed immersion, and $p$ smooth.
 \[
 \begin{tikzcd}
 	& P \arrow[dd, "p"] \\
@@ -255,7 +269,7 @@ f^{y} \xrightarrow{\sim} i^{y}p^{z} \tag{IV}\label{eq:6.2.IV}
 \]
 obtained as above from that of \bookref{prop:3.8.2}{III,~8.2}.
 
-If we have a diagram with $f,g$ finite, $i,k$ closed immersions, and $q,p$ smooth, 
+If we have a diagram with $f,g$ finite, $i,k$ closed immersions, and $q,p$ smooth,
 \[
 \begin{tikzcd}
 X\arrow[rr, "i"] \arrow[d, "f"]&&A\arrow[dl, "q"]\\
@@ -275,7 +289,7 @@ This follows from \bookref{prop:3.8.6}{III,~8.6(b)} applied to the triples $(i,q
 
 There are also two commutative diagrams expressing compatibility between the square isomorphism \eqref{eq:6.2.III} and the residue isomorphism \eqref{eq:6.2.IV}.
 
-For the first, suppose one has a diagram with $Q = Y\times_{Z} P$, $i$ finite, $j,k,\ell$ closed immersions, and $f,g$ smooth. 
+For the first, suppose one has a diagram with $Q = Y\times_{Z} P$, $i$ finite, $j,k,\ell$ closed immersions, and $f,g$ smooth.
 \[
 \begin{tikzcd}
 & Q\arrow[dd, "g"]\arrow[r, "l"]&P\arrow[dd, "f"]\\
@@ -588,7 +602,7 @@ Define $c_{f,g}$ (depending on the charts chosen, and taking $ji: X \longrightar
 	c_{f,g}: (gf)^a \arrow[r, "\gamma_{ji,rq}"] & (ji)^y(rq)^z \arrow[r,"\mathrm{I,II}"] & i^y j^y q^z r^z & i^y p^z k^y r^z \arrow[l, "\mathrm{III}"'] & f^b g^c. \arrow[l, "\gamma_{i,p} \gamma_{k,r}"']
 \end{tikzcd}
 \]
-Now we must show that $c_{f,g}$ is compatible with the permissible isomorphisms of change of chart for $f$ and $g$. It is sufficient to vary one at a time. Furthermore, if $k'\colon Y\to Q$ is another chart for $g$, by considering the third chart $k'' = k\times k'\colon Y\to P\times_Z Q$, we reduce to the case where $Q$ dominates $P$. So we have diagram such as the one shown, 
+Now we must show that $c_{f,g}$ is compatible with the permissible isomorphisms of change of chart for $f$ and $g$. It is sufficient to vary one at a time. Furthermore, if $k'\colon Y\to Q$ is another chart for $g$, by considering the third chart $k'' = k\times k'\colon Y\to P\times_Z Q$, we reduce to the case where $Q$ dominates $P$. So we have diagram such as the one shown,
 
 \[\begin{tikzcd}[row sep=2.5em, column sep=2.5em]
 	& & & \mathbb{A}^n_Q \arrow[rd, "v"] & \\
@@ -845,11 +859,12 @@ g_*f_* f^{\Delta}g^{\Delta} \ar[r,"\Tr_f"] & g_*g^{\Delta} \ar[u,"\Tr_g"']
 \begingroup
 \setlength{\emergencystretch}{2em}
 \begin{booklemma}{4.3}\label{lem:6.4.3}
-\cite[\nopp IV]{EGA} Let $f\colon X\to Y$ be a morphism of finite type, let $x\in X$ be a point which is closed in its fibre, and let $Z$ be the closure of $x$ in $X$, with the reduced induced structure. Then there is an open neighborhood $V$ of $y=f(x)$ such that $Z\cap f^{-1}(V)$ is finite over $V$.
+\cite[\nopp IV,~\S?]{EGA} Let $f\colon X\to Y$ be a morphism of finite type, let $x\in X$ be a point which is closed in its fibre, and let $Z$ be the closure of $x$ in $X$, with the reduced induced structure. Then there is an open neighborhood $V$ of $y=f(x)$ such that $Z\cap f^{-1}(V)$ is finite over $V$.
 \end{booklemma}
 
 \begin{proof}
-Replacing $X$ by $Z$ and $Y$ by $\overline{f(Z)}$ with the reduced induced structure, we reduce to the case where $X$ and $Y$ are integral schemes, $x$ is the generic point of $X$, and $f$ is dominant. Since furthermore the question is local on $X$ and $Y$, we may assume $X$ and $Y$ are affine, and thus we reduce to the following statement in algebra:
+Replacing $X$ by $Z$ and $Y$ by $\overline{f(Z)}$ with the reduced induced structure, we reduce to the case where $X$ and $Y$ are integral schemes, $x$ is the generic point of $X$, and $f$ is dominant. Since furthermore the question is local on $X$ and $Y$, we may assume $X$ and $Y$ are affine, and thus we reduce to the following statement in algebra:\footnote{Editorial note: First restrict $Y$ to an affine neighborhood of $y$. Replacing $X$ by $Z$ and $Y$ by the reduced closure of $y$, we may assume that $X$ and $Y$ are integral, $Y$ is affine noetherian with generic point $y$, and $f$ is dominant. The generic fibre has the single point $x$, since $x$ was closed in its original fibre. An open neighborhood of $y$ in this reduced closure is obtained by intersecting it with an open neighborhood in the original target.\par
+Choose an affine open $U\subseteq X$ containing $x$, and let $W=X\setminus U$ with its reduced closed subscheme structure. The image $f(W)$ is constructible by Chevalley's theorem, \cite[\nopp IV,~1.8.5]{EGA}. Since it does not contain $y$, its closure is a proper closed subset of the integral scheme $Y$. After shrinking $Y$ to a nonempty principal open disjoint from that closure, the restricted source is contained in $U$ and is a principal open subset of $U$, hence affine. (Editorial completion: the original cites only ``EGA IV \S?'' and says the question is local on $X$ and $Y$. The shrinking step above justifies the affine reduction. The pinpoint citation identifies its constructibility input, not a claimed verbatim occurrence of the whole lemma.) We have therefore reduced to the following statement in algebra:}
 
 Let $A\to B$ be an inclusion of integral domains, with $B$ a finitely generated $A$-algebra. Let $K$ be the quotient field of $A$, and assume that $B\otimes_A K$ is a finite extension field of $K$. Then there exists an element $f\neq0$ in $A$ such that $B\otimes_A A_f$ is a finite $A_f$-module.
 
@@ -1004,7 +1019,8 @@ A morphism $f\colon X\to Y$ of locally noetherian preschemes is \emph{residually
 
 \begin{example*}
 \begin{enumerate}
-\item An open immersion is residually stable.
+\item An open immersion is residually stable.\footnote{Editorial note: An open-and-closed immersion is residually stable: it is flat as an open immersion, integral as a closed immersion, and its nonempty fibres are spectra of fields. (Editorial correction: the original says ``an open immersion''. Under the integral definition above, an open immersion is residually stable if and only if its image is also closed, since integral morphisms are closed. For example, $\Spec\mathbb Z[1/2]\to\Spec\mathbb Z$ is open but is not integral.)
+\par For an arbitrary open immersion $j\colon U\hookrightarrow Y$, restriction still takes residual complexes to residual complexes. Indeed, $j^*J(y)$ is $J_U(y)$ if $y\in U$, and zero otherwise; the defining decomposition, coherence and lower bound therefore restrict to $U$. This restriction fact does not require $j$ to satisfy the integral definition above.}
 \item A composition of residually stable morphisms is residually stable (use \bookref{prop:5.9.6}{V,~9.6}).
 \item If $X$ and $Y$ are the spectra of fields $k\subseteq K$, then $f$ is residually stable if and only if $K$ is algebraic over $k$.
 \item If $f\colon X\to Y$ is residually stable, then every point $x\in X$ is closed in its fibre, since $f$ is integral. Thus the fibres are zero-dimensional Gorenstein preschemes.

@@ -133,7 +133,7 @@ This data is subject to the following axioms:
 
 	where $f_* = \Hom(Z', f)$ etc. Now since $f$ and $g$ are isomorphisms in $\mathcal{C}$, it follows that $f_*, g_*, T(f)_*$, and $T(g)_*$ are isomorphisms of abelian groups. Hence by the five-lemma, $h_*$ is an isomorphism. We conclude that there exists a $\varphi \in \Hom_{\mathcal{C}}(Z',Z)$ such that $h_*(\varphi) = h\varphi$ is $\operatorname{id}_{Z'} \in \Hom(Z',Z')$.
 
-	Similarly using the cohomological functor $\Hom_{\mathcal{C}}(\cdot, Z)$ we find there is a $\psi \in \Hom(Z',Z)$ such that $\psi h = \operatorname{id}_{Z}$. It follows that $\varphi = \psi$ and $h$ is an isomorphism.
+	Similarly using the cohomological functor $\Hom_{\mathcal{C}}(\cdot, Z)$ we find there is a $\psi \in \Hom(Z',Z)$ such that $\psi h = \operatorname{id}_{Z'}$.\footnote{Editorial correction: the composite $\psi h$ is an endomorphism of $Z$, so the identity should be $\operatorname{id}_Z$.} It follows that $\varphi = \psi$ and $h$ is an isomorphism.
 
 \end{proof}
 
@@ -886,11 +886,11 @@ Straightforward.
 \begin{enumerate}
 \item If $F,G,H$ are three consecutive functors,
 then there is a commutative diagram of $\zeta$s (provided they all
-exist):
+exist):\footnote{Editorial correction: the top arrow is printed $\xi_{G\cdot F,H}$, but it is the comparison $\zeta_{G\cdot F,H}$ defined in Proposition~\ref{prop:1.5.4}.}
 \[
 \begin{tikzcd}
 	\RR(H \cdot G \cdot F)
-	\arrow[rr, "\zeta_{G \cdot F, H}"]
+	\arrow[rr, "\xi_{G \cdot F, H}"]
 	\arrow[dd, "\zeta_{F, H \cdot G}"']
 	& &
 	\RR H \cdot \RR(G \cdot F)
@@ -916,17 +916,17 @@ Left to the reader: Illustrate the Proposition in the style of Corollary~\ref{co
 \begin{bookproposition}{5.6}\label{prop:1.5.6}
 Let $\mathcal{A}$ be an abelian category, let $\mathcal{A}'$ be a thick abelian subcategory, let $\mathcal{B}$ be another abelian category, and let $F\colon\KK^+(\mathcal{A})\to\KK^+(\mathcal{B})$ be a $\partial$-functor. Suppose that $\RR^+F$ and $\RR^+\big(F|_{\mathcal{A}'}\big)$ both exist. Then there is a natural morphism
 \[
-\zeta\colon \RR^+\big(F|_{\mathcal{A}'}\big) \longrightarrow \RR^+F\circ\varphi
+\zeta\colon \RR^+\big(F|_{\mathcal{A}'}\big) \longrightarrow \varphi\circ\RR^+F
 \]
 of functors from $\DD^+(\mathcal{A}')$ to $\DD(\mathcal{B})$, where
 \[
 \varphi\colon\DD^+(\mathcal{A}')\longrightarrow\DD^+(\mathcal{A})
 \]
-is the natural functor. If furthermore $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, and $\mathcal{A}$ has enough injectives, then $\zeta$ is an isomorphism.
+is the natural functor.\footnote{Editorial correction: the target of $\zeta$ should be $\RR^+F\circ\varphi$; the printed reverse composition is not defined for the displayed domains.} If furthermore $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, and $\mathcal{A}$ has enough injectives, then $\zeta$ is an isomorphism.
 \end{bookproposition}
 
 \begin{proof}
-The existence of $\zeta$ follows from the definition of the derived functor. If $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, and $\mathcal{A}$ has enough injectives, then we can use $\mathcal{A}$-injectives to calculate both functors above, by Corollary~\ref{cor:1.5.3} $\alpha$, and so $\zeta$ is an isomorphism. (Recall by Proposition~\ref{prop:1.4.8} that $\varphi$ identifies $\DD^+(\mathcal{A}')$ with $\DD_{\mathcal{A}'}^+(\mathcal{A})$ in that case.)
+The existence of $\zeta$ follows from the definition of the derived functor. If $\mathcal{A}'$ has enough $\mathcal{A}$-injectives, and $\mathcal{A}$ has enough injectives, then we can use $\mathcal{A}$-injectives to calculate both functors above, by Corollary~\ref{cor:1.5.3} $\alpha$, and so $\zeta$ is an isomorphism. (Recall by Proposition~\ref{prop:1.4.8} that $\varphi$ is an equivalence of categories in that case.)\footnote{Editorial qualification: Proposition 4.8 identifies $\DD^+(\mathcal{A}')$ with $\DD_{\mathcal{A}'}^+(\mathcal{A})$, rather than with all of $\DD^+(\mathcal{A})$.}
 \end{proof}
 
 \section{Examples. $\operatorname{Ext}$ and $\RHom$}\label{sec:1.6}
@@ -1060,10 +1060,10 @@ Now using Lemma~\ref{lem:1.6.2}(b), we see that this functor is ``exact'' in the
 \]
 (We will denote this functor by $\RHom^\bullet$ when no confusion can result.)
 
-Suppose on the other hand that $\mathcal{A}$ has enough projectives. Then by the usual process of ``reversing the arrows'' we see that there is also a functor
+Suppose on the other hand that $\mathcal{A}$ has enough projectives.\footnote{Editorial correction: the codomain of the following derived Hom functor should be $\DD(\mathbf{Ab})$, as for the injective construction above.} Then by the usual process of ``reversing the arrows'' we see that there is also a functor
 \[
 \RR_{\mathrm{II}}\RR_{\mathrm{I}}\Hom^\bullet\colon
-\DD^-(\mathcal{A})^\circ\times\DD(\mathcal{A})\longrightarrow\DD(\mathbf{Ab}).
+\DD^-(\mathcal{A})^\circ\times\DD(\mathcal{A})\longrightarrow\DD(\mathcal{A}).
 \]
 Now if $\mathcal{A}$ has enough injectives and enough projectives, then both functors $\RR_{\mathrm{I}}\RR_{\mathrm{II}}\Hom^\bullet$ and $\RR_{\mathrm{II}}\RR_{\mathrm{I}}\Hom^\bullet$ are defined on $\DD^-(\mathcal{A})^\circ\times\DD^+(\mathcal{A})$, and are canonically isomorphic, as we see by the lemma below. Thus we are justified in using the ambiguous notation $\RHom^\bullet$.
 
@@ -1334,7 +1334,7 @@ $\LL G(f)\cdot\psi(X^\bullet)=\psi(Y^\bullet)\cdot\RR F(f)$.
 
 \begin{definition*}
 Let $\mathcal{A}$ be an abelian category, $X^\bullet$ a complex of objects of $\mathcal{A}$. We refer to \cite[\nopp Ch.~IV, \S4]{M} for the definition of double complexes, maps and homotopies of double complexes, and injective resolutions of complexes. We recall the following facts.
- A \emph{(right) Cartan--Eilenberg resolution} of $X^\bullet$ is a double complex $C^{\cdot\cdot}$ of injective objects of $\mathcal{A}$, with $C^{p,q}=0$ if $q<0$, together with an augmentation morphism $\epsilon\colon X^\bullet\to C^{\bullet,0}$ such that for every $p\in\mathbb{Z}$, the induced maps
+ A \emph{(right) Cartan--Eilenberg resolution} of $X^\bullet$ is a double complex $C^{\cdot\cdot}$ of injective objects of $\mathcal{A}$, with $C^{p,q}=0$ if $p<0$,\footnote{Editorial correction: the vanishing condition should be $q<0$, since the augmentation enters $C^{\bullet,0}$ and the resolutions run in the second index; compare Lemma~\ref{lem:1.7.5}(f).} together with an augmentation morphism $\epsilon\colon X^\bullet\to C^{\bullet,0}$ such that for every $p\in\mathbb{Z}$, the induced maps
 \[
 B^p(\epsilon)\colon B^p(X^\bullet) \to B^p_{\mathrm{I}}(C^{\cdot\cdot}),\qquad
 H^p(\epsilon)\colon H^p(X^\bullet) \to H^p_{\mathrm{I}}(C^{\cdot\cdot})
