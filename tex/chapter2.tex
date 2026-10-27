@@ -119,21 +119,21 @@ This data is subject to the following axioms:
 
 	A similar proof shows that $\Hom_{\mathcal{C}}(\cdot,M)$ is a contravariant cohomological functor.
 
-	c) In the situation of (TR3) suppose that $f$ and $g$ are isomorphisms. We apply the cohomological functor $\Hom_{\mathcal{C}}(Z', \cdot)$ to the whole situation, and obtain an exact commutative diagram
+	c) In the situation of (TR3) suppose that $f$ and $g$ are isomorphisms. We apply the cohomological functor $\Hom_{\mathcal{C}}(Z', \cdot)$ to the whole situation, and obtain an exact commutative diagram\footnote{Editorial typesetting note: in this diagram only, $H(A)$ abbreviates $\Hom(Z',A)$.}
 
 	\[
-\resizebox{.9\hsize}{!}	{	$
-	\begin{CD}
-		\Hom(Z',X) @>>> \Hom(Z',Y) @>>> \Hom(Z',Z) @>>> \Hom(Z',T(X)) @>>> \Hom(Z',T(Y)) \\
-		@V{f_*}VV @V{g_*}VV @V{h_*}VV @V{T(f)_*}VV @V{T(g)_*}VV \\
-		\Hom(Z',X') @>>> \Hom(Z',Y') @>>> \Hom(Z',Z') @>>> \Hom(Z',T(X')) @>>> \Hom(Z',T(Y'))
-	\end{CD}
-	$
-	}\]
+\begin{tikzcd}[column sep=small,row sep=small]
+H(X) \ar[r] \ar[d,"f_*"'] & H(Y) \ar[r] \ar[d,"g_*"']
+ & H(Z) \ar[r] \ar[d,"h_*"'] & H(T(X)) \ar[r] \ar[d,"T(f)_*"']
+ & H(T(Y)) \ar[d,"T(g)_*"] \\
+H(X') \ar[r] & H(Y') \ar[r] & H(Z') \ar[r]
+ & H(T(X')) \ar[r] & H(T(Y'))
+\end{tikzcd}
+\]
 
 	where $f_* = \Hom(Z', f)$ etc. Now since $f$ and $g$ are isomorphisms in $\mathcal{C}$, it follows that $f_*, g_*, T(f)_*$, and $T(g)_*$ are isomorphisms of abelian groups. Hence by the five-lemma, $h_*$ is an isomorphism. We conclude that there exists a $\varphi \in \Hom_{\mathcal{C}}(Z',Z)$ such that $h_*(\varphi) = h\varphi$ is $\operatorname{id}_{Z'} \in \Hom(Z',Z')$.
 
-	Similarly using the cohomological functor $\Hom_{\mathcal{C}}(\cdot, Z)$ we find there is a $\psi \in \Hom(Z',Z)$ such that $\psi h = \operatorname{id}_{Z'}$.\footnote{Editorial correction: the composite $\psi h$ is an endomorphism of $Z$, so the identity should be $\operatorname{id}_Z$.} It follows that $\varphi = \psi$ and $h$ is an isomorphism.
+	Similarly using the cohomological functor $\Hom_{\mathcal{C}}(\cdot, Z)$ we find there is a $\psi \in \Hom(Z',Z)$ such that $\psi h = \operatorname{id}_{Z'}$.\footnote{Editorial correction: the composite $\psi h$ is an endomorphism of $Z$, so the identity should be $\operatorname{id}_Z$.} It follows that $\varphi = \psi$ and $h$ is an isomorphism.\qedhere
 
 \end{proof}
 
@@ -1487,9 +1487,11 @@ For any $Y$, we have
 \]
 and there is an exact sequence
 \[
-\cdots \to \operatorname{Ext}^{n+1}\big(Y,\tau_{\le n}(X'^\bullet)\big)
-\to \operatorname{Ext}^{n+1}\big(Y,B^{n+1}[-n]\big)
-\to \operatorname{Ext}^{n+2}\big(Y,\sigma_{\le n}(X'^\bullet)\big) \to \cdots
+\begin{aligned}
+\cdots &\to \operatorname{Ext}^{n+1}\big(Y,\tau_{\le n}(X'^\bullet)\big)
+\to \operatorname{Ext}^{n+1}\big(Y,B^{n+1}[-n]\big) \\
+&\to \operatorname{Ext}^{n+2}\big(Y,\sigma_{\le n}(X'^\bullet)\big) \to \cdots
+\end{aligned}
 \]
 The group on the left is zero since $\tau_{\le n}(X'^\bullet)$ is an injective
 complex which stops in degree $n$. The group on the right is zero by

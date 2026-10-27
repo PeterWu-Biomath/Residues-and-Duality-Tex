@@ -23,20 +23,20 @@ The file numbers include the Introduction, so they differ from the original book
 | Source file | Original material |
 |---|---|
 | `tex/main.tex` | Main document, preface, packages, and shared notation |
-| `tex/Chapter1.tex` | Introduction |
-| `tex/Chapter2.tex` | Chapter I — The Derived Category |
-| `tex/Chapter3.tex` | Chapter II — Application to Preschemes |
-| `tex/Chapter4.tex` | Chapter III — Duality for Projective Morphisms |
-| `tex/Chapter5.tex` | Chapter IV — Local Cohomology |
-| `tex/Chapter6.tex` | Chapter V — Dualizing Complexes and Local Duality |
-| `tex/Chapter7.tex` | Chapter VI — Residual Complexes |
+| `tex/chapter1.tex` | Introduction |
+| `tex/chapter2.tex` | Chapter I — The Derived Category |
+| `tex/chapter3.tex` | Chapter II — Application to Preschemes |
+| `tex/chapter4.tex` | Chapter III — Duality for Projective Morphisms |
+| `tex/chapter5.tex` | Chapter IV — Local Cohomology |
+| `tex/chapter6.tex` | Chapter V — Dualizing Complexes and Local Duality |
+| `tex/chapter7.tex` | Chapter VI — Residual Complexes |
 | `tex/chapter8.tex` | Chapter VII — The Duality Theorem |
 | `tex/Backmatter.tex` | Indices, bibliography, Deligne appendix, and errata |
 | `tex/references.bib` | Main bibliography |
 
 References retain the **original chapter and statement numbers**, not the source-file numbers. The appendix has its own local identifiers and bibliography.
 
-Git currently records mixed filename capitalization, while the chapter includes use lowercase names. This works in the checked Windows workspace; filename/include casing still needs normalization for case-sensitive systems.
+Chapter filenames and includes now match exactly: `chapter1.tex` through `chapter8.tex`. A build on a case-sensitive filesystem remains to be verified.
 
 ## Editorial policy
 
@@ -77,13 +77,14 @@ The output is `tex/main.pdf`. Check the final log for unresolved references, rer
 
 ## Remaining work
 
-- [ ] **Finish the original-text preservation review.** Classify earlier inline changes against Git history and scans; move remaining author corrections and editorial supplements into the required notes/remarks. In particular, recheck the Introduction’s inline “see Appendix” substitution against the printed “unpublished” and the author’s erratum.
+- [ ] **Finish the original-text preservation review.** Classify earlier inline changes against Git history and scans; move remaining author corrections and editorial supplements into the required notes/remarks.
 - [ ] **Complete the semantic reference audit.** Check every statement/equation locator, visible original number, citation postnote, appendix-local reference, and PDF destination against the intended passage.
 - [ ] **Complete the contextual notation audit.** Check Hom/sheaf Hom/RHom/derived sheaf Hom, ordinary versus derived tensor, global versus sheaf cohomology, and global versus internal duality throughout the text.
 - [ ] **Resolve or document the remaining mathematical checkpoints.** Review fixed-filtration uses of VI Proposition 1.1(c) in VI–VII variance/trace constructions, the residual-complex uniqueness exercise, and the appendix’s conditional independence/associativity/compatibility, truncation, and formal pro/Ind duality calculations. Preserve explicitly omitted proofs as such; do not present source repair as proof completion.
 - [ ] **Finish checking added bibliography metadata.** All 31 entries have been investigated initially, but partial records and access failures leave open fields. Verify those fields against reliable original-edition evidence or remove unsupported additions, without replacing historical citations with later editions.
 - [ ] **Review every page of the current PDF.** Check formulas, diagrams, footnote continuations and length, headings, table breaks, indices, bookmarks, and links. Recheck affected pages after edits or pagination changes.
-- [ ] **Normalize filename/include capitalization** and verify a build on a case-sensitive filesystem.
+- [x] **Normalize filename/include capitalization:** all eight chapter filenames match their lowercase includes.
+- [ ] **Verify a build on a case-sensitive filesystem.** Exact filename matching has been checked locally; a cross-platform build has not yet been run.
 - [ ] **Investigate the built-in editor compiler failure** while retaining the working MiKTeX build path.
 - [ ] **Run the final completion audit.** Rebuild with Biber as needed, converge references, refresh inventories, and record evidence for each closed item. The book is not ready to declare fully proofread.
 
