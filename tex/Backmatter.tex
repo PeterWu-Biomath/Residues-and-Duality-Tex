@@ -504,7 +504,7 @@ S
 \end{tikzcd}
 \]
 o\`u $j'$ et $j''$ sont des immersions ouvertes, $\overline f$ et $g$
-des applications propres. Il faut prouver que
+des applications propres. $j'X=g^{-1}j''X\cap j'X$. Il faut prouver que
 \[
 \RR\overline f_*\RR j''_!
 =\RR(\overline f g)_*\RR j'_!.
@@ -520,9 +520,7 @@ sur $X'$. Le complexe $g_*\overline K$ prolonge $K$ sur $X''$, et on a une fl\`e
 \begin{equation}\tag{1}\label{app:eq:independence}
 g_*(\mathcal J^n\overline K)\longrightarrow\RR g_*(\mathcal J^n\overline K).
 \end{equation}
-Ici $\mathcal J$ d\'efinit $X'\setminus X$. On peut le choisir induit
-d'un id\'eal d\'efinissant $X''\setminus X$; c'est le choix utilis\'e pour
-appliquer la Proposition~\ref{app:prop5}.
+Ici $\mathcal J$ d\'efinit $X'\setminus X$.\footnote{Pr\'ecision \'editoriale: on peut choisir $\mathcal J$ induit d'un id\'eal d\'efinissant $X''\setminus X$; c'est le choix utilis\'e pour appliquer la Proposition~\ref{app:prop5}.}
 La partie (ii) de cette proposition donne, dans la cat\'egorie des pro-objets,
 \[
 j''_!K\cong\text{``}\varprojlim_n\text{''}\,g_*(\mathcal J^n\overline K).
@@ -533,8 +531,7 @@ Par passage \`a la limite projective formelle, on trouve la suite spectrale
 \Longrightarrow
 \text{``}\varprojlim_n\text{''}\,\RR^{p+q}g_*(\mathcal J^n\overline K).
 \]
-La Proposition~\ref{app:prop5}(i) montre qu'elle d\'eg\'en\`ere: les termes
-de degr\'e $p>0$ sont des pro-objets nuls. Il r\'esulte alors de la
+La Proposition~\ref{app:prop5}(i) montre que cette suite spectrale d\'eg\'en\`ere.\footnote{Explication \'editoriale: les termes de degr\'e $p>0$ sont des pro-objets nuls.} Il r\'esulte alors de la
 Proposition~\ref{app:prop3} que la fl\`eche d\'eduite de
 \eqref{app:eq:independence} par passage \`a la limite projective formelle
 est un isomorphisme, d'o\`u la formule voulue.
@@ -686,16 +683,16 @@ On suppose $f$ compactifiable, plat et localement d'intersection compl\`ete rela
 R^{d}\overline{f}_{*}\mathcal{F}[-d]
  \longrightarrow \RR\overline{f}_{*}\mathcal{F}
 \]
-pour tout $\mathcal{F}$ sur $\overline{X}$ (le dernier faisceau de cohomologie s'envoie dans son complexe). On en tire des morphismes de complexes
+pour tout $\mathcal{F}$ sur $X$\footnote{Clarification \'editoriale: le texte original (p.~420) \'ecrit ici $X$ et emploie ensuite $f_*$ sans barre dans les complexes Hom. Pour le calcul sur la compactification $\overline f:\overline X\to S$, lire $\mathcal F$ sur $\overline X$, $\RR\overline f_*$ et $R^d\overline f_*$ dans ces formules, et $\Hom_{\overline X}(\mathcal F,I_1)$ dans l'identit\'e de repr\'esentation.} (le dernier faisceau de cohomologie s'envoie dans son complexe). On en tire des morphismes de complexes
 \[
-\Hom_{S}^{\bullet}(\RR\overline{f}_{*}\mathcal{F}, I)
+\Hom_{S}^{\bullet}(\RR f_{*}\mathcal{F}, I)
  \longrightarrow
-\Hom_{S}^{\bullet}(R^{d}\overline{f}_{*}\mathcal{F}[-d], I)
+\Hom_{S}^{\bullet}(R^{d}f_{*}\mathcal{F}[-d], I)
 \]
-pour tout complexe $I$ sur $S$. Soit $I$ un injectif. $R^{d}\overline{f}_{*}\mathcal{F}[-d]$ est exact \`a droite en $\mathcal{F}$, le foncteur en $\mathcal{F}$ \`a droite de la fl\`eche est donc repr\'esentable: on d\'efinit $I_1$ par
+pour tout complexe $I$ sur $S$. Soit $I$ un injectif. $R^{d}f_{*}\mathcal{F}[-d]$ est exact \`a droite en $\mathcal{F}$, le foncteur en $\mathcal{F}$ \`a droite de la fl\`eche est donc repr\'esentable: on d\'efinit $I_1$ par
 \[
-\Hom_{S}(R^{d}\overline{f}_{*}\mathcal{F}, I)
- = \Hom_{\overline{X}}(\mathcal{F}, I_1),
+\Hom_{S}(R^{d}f_{*}\mathcal{F}, I)
+ = \Hom_{X}(\mathcal{F}, I_1),
  \qquad \RR f_{1}^{!}I = I_1[d].
 \]
 Ce qui pr\'ec\`ede d\'efinit
@@ -724,9 +721,9 @@ Ceci donne $\RR f_{1}^{!}I = \omega \otimes f^{*}I[d]$, et la formule g\'en\'era
 
 \begin{itemize}
 \item Page 10, line 1: read ``see Appendix'' instead of ``unpublished''.
-\item Page 85, Proposition 1.1: For the case of $\Qco(X)$, one needs the hypothesis ``$X$ quasi-separated''.
+\item Page 85, \hyperref[prop:2.1.1]{Proposition 1.1}: For the case of $\Qco(X)$, one needs the hypothesis ``$X$ quasi-separated''.
 \item Page 88, line 5: read ``proper'' instead of ``of finite type''.
-\item Page 120, Ch II \S7: It has recently come to my attention that S.\ Kleiman has independently arrived at the results of [II 7.8] and [II 7.11] (unpublished).
+\item Page 120, Ch II \S7: It has recently come to my attention that S.\ Kleiman has independently arrived at the results of \bookref{thm:2.7.8}{II 7.8} and \bookref{thm:2.7.11}{II 7.11} (unpublished).
 \item Page 137, line 5: refer to [EGA IV \S16].
 \item Page 144, line 4: read ``invertible sheaf shifted $n$ places to the left, where $n = \operatorname{rel.\ dim} X/Y$'' instead of ``invertible sheaf''.
 \item Page 185, line 9: observe that the condition ``$f$ finite'' is a consequence of the other conditions.
@@ -734,7 +731,7 @@ Ceci donne $\RR f_{1}^{!}I = \omega \otimes f^{*}I[d]$, et la formule g\'en\'era
 \item Page 199: add at bottom: ``Furthermore, the residue symbol is uniquely characterized by the properties (R0), (R1), (R2), (R5), (R6), and (R7).''
 \item Page 249, line 8: ``is'' instead of ``in''.
 \item Page 254, line 8: ``$\mathbb{Z}$'' instead of ``$\mathbb{Q}$''.
-\item Page 288, Theorem 8.3: One must assume also that the fibres of $f$ are of bounded dimension, so that $f^{\sharp}(R^{\bullet})$ will be in $\DD^{+}$.
+\item Page 288, \hyperref[thm:5.8.3]{Theorem 8.3}: One must assume also that the fibres of $f$ are of bounded dimension, so that $f^{\sharp}(R^{\bullet})$ will be in $\DD^{+}$.
 \item Page 297, line 7: read ``strengthens'' instead of ``generalizes''.
 \item Page 298, line 7: insert ``shifted'' after ``invertible sheaf''.
 \item Page 301, line 5: ``not'' instead of ``now''.

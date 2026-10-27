@@ -160,7 +160,7 @@ Residues have the following properties \cite[\nopp Ch.~II,~\S7]{16}.
 \item[(i)] $\Res_{x}(w)$ is $A$-linear in $w$.
 \item[(ii)] $\Res_{x}(w) = 0$ if $w \in M \otimes_A \omega_{x}$.
 \item[(iii)] $\Res_{x}(dg) = 0$ for any $g \in M \otimes_{A} K$.
-\item[(iv)] $\Res_x(a\otimes t^{-1}dt)=a$ for $a\in M$ and any local parameter $t$ at $x$ (in particular, $\Res_x(t^{-1}dt)=1$ when $M=A$).
+\item[(iv)] $\Res_x(t^{-1}dt)=1$ if $t$ is a local parameter at $x$.\footnote{Editorial clarification: this normalization is literal when $M=A$. For general coefficients in the $A$-module $M$, the module-valued statement is $\Res_x(a\otimes t^{-1}dt)=a$ for every $a\in M$.}
 \end{enumerate}
 \end{booklemma}
 
@@ -270,7 +270,7 @@ is commutative. As above, we fix an element $a \in \Gamma(J(x))$, and then can r
 
 Next we make the base extension $\Spec \sO_{y} \to Y$, and thus reduce to the case $y$ is a closed point of $Y$, since everything is compatible with localization. Now since $X$ is noetherian, and $f$ maps the generic point of $X$ to the closed point of $Y$, $f$ factors through a closed subscheme $Y'$ of $Y$ defined by a suitable power of the maximal ideal of $\sO_{y}$. Since $Y' \to Y$ is a finite morphism, its trace is a morphism of complexes, so we can replace $Y$ by $Y'$, and so reduce to the case where $Y$ is the spectrum of a local Artin ring, and $X$ is irreducible of dimension one over $Y$.
 
-We refer to \cite[\nopp V]{EGA} for the following two results:
+We refer to \cite[\nopp IV,~\S\S22,25]{EGA}\footnote{Author's erratum (original p.~423): change this reference to \cite[\nopp V]{EGA}.} for the following two results:
 \begin{enumerate}
 \item[(a)] A proper scheme of dimension $1$ over an Artin ring is projective, and
 \item[(b)] A projective scheme $X$ of relative dimension $\le n$ over a local ring $A$ admits a finite morphism into $\bbP^{n}_{A}$.
@@ -509,7 +509,7 @@ The construction of the isomorphisms $c_{f,g}$ is easy, using \bookref{thm:6.3.1
 
 Observe, by the way, that this part of the Corollary does not depend on the duality theorem, and could have come just after the construction of $f^{\Delta}$ \bookref{thm:6.3.1}{VI,~3.1}.
 
-\medskip\noindent(b) To define $\Tr_{f}$, let $G^{\bullet} \in \DD_{\mathrm{c}}^{+}(Y)$, and use \bookref{prop:2.5.10}{II,~5.10}, \bookref{thm:6.4.2}{VI,~4.2}, Theorem~\ref{thm:7.2.1}, and \bookref{prop:5.2.1}{V,~2.1}:
+\medskip\noindent(b) To define $\Tr_{f}$, let $G^{\bullet} \in \DD_{\mathrm{c}}^{+}(Y)$, and use \bookref{prop:2.5.10}{II,~5.10}, \bookref{thm:6.4.2}{VI,~4.2}, Theorem~\ref{thm:7.2.1}, and \bookref{prop:5.2.1}{V,~2.1}:\footnote{Editorial explanation: in the diagram, the upper vertical arrow is \bookref{prop:2.5.10}{II,~5.10}; the last vertical arrow is induced by the residual trace, using the canonical identification $\RR f_*Qf^\Delta K^\bullet\cong Qf_*f^\Delta K^\bullet$. The symbols $H^\bullet$ and $L^\bullet$ below abbreviate the printed arguments.}
 Put $H^\bullet=\mathscr{D}_Y(G^\bullet)$ and
 $L^\bullet=Qf^\Delta K^\bullet$. The trace is defined by the diagram
 \[
@@ -523,16 +523,13 @@ G^\bullet \ar[r,"\sim"']
  & \RsheafHom_Y(H^\bullet,QK^\bullet).
 \end{tikzcd}
 \]
-The upper vertical arrow is \bookref{prop:2.5.10}{II,~5.10}; the last
-vertical arrow is induced by the residual trace, using the canonical
-identification $\RR f_*Qf^\Delta K^\bullet\cong Qf_*f^\Delta K^\bullet$.
 The verification of TRA 1 is clear, using TRA 1 of \bookref{thm:6.4.2}{VI,~4.2}. For TRA 2 we use \bookref{prop:3.6.9}{III,~6.9c}. Details left to reader (:).
 
 \medskip\noindent(c) To prove the duality formula,\footnote{The original chain is retained here. A corrected argument is given in the editorial remark following this proof.} we reduce as in part (b) of the proof of Theorem~\ref{thm:7.3.3}, to the case of complexes $F^{\bullet}$ with coherent cohomology. So let $F^{\bullet} \in \DD_{\mathrm{c}}^{-}(X)$ and $G^{\bullet} \in \DD_{\mathrm{c}}^{+}(Y)$. Consider
 \[
 \RR f_{*} \RsheafHom_{X}^{\bullet}(F^{\bullet}, f^{!}G^{\bullet}). \tag{1}
 \]
-We write $F^{\bullet} = \mathscr{D}_{X} \mathscr{D}_{X}(F^{\bullet})$ and $f^{!}G^{\bullet} = \mathscr{D}_{X}(\LL f^{*} \mathscr{D}_{Y}(G^{\bullet}))$. Now since $\mathscr{D}_{X}$ is a dualizing functor, it transforms $\operatorname{R}\!\Hom$ into $\operatorname{R}\!\Hom$ of the duals of the arguments, with the order reversed. Thus (1) becomes
+We write $F^{\bullet} = \mathscr{D}_{X} \mathscr{D}_{X}(F^{\bullet})$ and $f^{!}G^{\bullet} = \mathscr{D}_{X}(\LL f^{*} \mathscr{D}_{Y}(G^{\bullet}))$. Now since $\mathscr{D}_{X}$ is a dualizing functor, it transforms $\RsheafHom$ into $\RsheafHom$ of the duals of the arguments, with the order reversed. Thus (1) becomes
 \[
 \RR f_{*} \mathscr{D}_{X} \RsheafHom_{X}^{\bullet}(\LL f^{*} \mathscr{D}_{Y}(G^{\bullet}), \mathscr{D}_{X}(F^{\bullet})). \tag{2}
 \]
@@ -609,7 +606,7 @@ Then the diagram
 \begin{tikzcd}[row sep=large,column sep=large]
 \RR\Gamma_x(F^\bullet) \ar[r,"\Theta_x"] \ar[d,"\alpha"']
  & \Hom_A^\bullet(C^\bullet,I) \ar[d,"\beta"] \\
-\RR f_*F^\bullet \ar[r,"\mathscr{D}_Y(\underline{\Theta}_f)"']
+\RR f_*F^\bullet \ar[r,"\mathscr{D}_Y(\Theta_f)"']
  & \sheafHom_Y^\bullet(B^\bullet,QK^\bullet)
 \end{tikzcd}
 \]
@@ -623,12 +620,7 @@ and the trace map
 \[
 \Tr_{f,x}\colon f_*J(x)=I\longrightarrow K^\bullet.
 \]
-The lower arrow is the transpose, under $\mathscr{D}_Y$, of the sheaf
-duality isomorphism $\underline{\Theta}_f$ of Theorem~\ref{thm:7.3.3},
-using biduality to identify its source with $\RR f_*F^\bullet$.
-We use Hom complexes in the four places displayed as
-$\Hom_A^\bullet$ or $\sheafHom_Y^\bullet,\sheafHom_X^\bullet$:
-the injective second arguments compute the corresponding derived Hom.
+and $\mathscr{D}_Y\Theta_f$ is the transpose by $\mathscr{D}_Y$ of the global duality isomorphism of Theorem~\ref{thm:7.3.3}.\footnote{Editorial clarification: the displayed lower arrow uses the sheaf duality isomorphism $\underline{\Theta}_f$ of Theorem~\ref{thm:7.3.3}; biduality identifies its transpose's source with $\RR f_*F^\bullet$. The original says ``global'' and labels the arrow without the underline. The symbols $L^\bullet,C^\bullet,B^\bullet$ above abbreviate the printed Hom arguments.} (Note we write four times $\Hom^\bullet$ instead of $\RHom^\bullet$, because the second argument in each case is injective.)
 \end{bookproposition}
 
 \begin{proof}
