@@ -12,7 +12,7 @@ As of **27 October 2026**:
 - Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; retrospective review of how earlier corrections are presented is still underway.
 - Subject and notation indices have linked locators. Selected destinations and notation families have been checked contextually; a resolved link does not by itself establish that the reference is correct.
 - Every bibliography entry has an initial metadata investigation recorded. Some fields remain unverified; unsupported additions and erroneous name expansions have been corrected or removed.
-- Selected PDF pages have been visually reviewed, including 31 pages containing Chapter V–VI editorial notes. Full coverage of the current PDF remains unfinished.
+- Visual review covers the current Introduction (PDF pages 9–18), all of original Chapters I–VII (19–238, including separating versos). Indices, bibliography, appendix, and errata (239–266) have also been reviewed; the frontmatter (1–8) remains, and some layout warnings remain open.
 
 The editor’s built-in compiler currently fails with an auxiliary-file/font issue. The successful build evidence comes from installed MiKTeX. A clean build does not certify the original arguments or the correctness of every formula.
 
@@ -77,6 +77,8 @@ The output is `tex/main.pdf`. Check the final log for unresolved references, rer
 
 ## Remaining work
 
+The next visual pass starts at **the frontmatter**, `tex/main.tex`, PDF page **1** in the current build. Page numbers here refer to the generated PDF, not the original scan. Review the rendered pages, repair confirmed layout problems, rebuild after source changes, and record the exact pages checked. Continue the reference, notation, and preservation audits alongside this pass.
+
 - [ ] **Finish the original-text preservation review.** Classify earlier inline changes against Git history and scans; move remaining author corrections and editorial supplements into the required notes/remarks.
 - [ ] **Complete the semantic reference audit.** Check every statement/equation locator, visible original number, citation postnote, appendix-local reference, and PDF destination against the intended passage.
 - [ ] **Complete the contextual notation audit.** Check Hom/sheaf Hom/RHom/derived sheaf Hom, ordinary versus derived tensor, global versus sheaf cohomology, and global versus internal duality throughout the text.
@@ -84,7 +86,5 @@ The output is `tex/main.pdf`. Check the final log for unresolved references, rer
 - [ ] **Finish checking added bibliography metadata.** All 31 entries have been investigated initially, but partial records and access failures leave open fields. Verify those fields against reliable original-edition evidence or remove unsupported additions, without replacing historical citations with later editions.
 - [ ] **Review every page of the current PDF.** Check formulas, diagrams, footnote continuations and length, headings, table breaks, indices, bookmarks, and links. Recheck affected pages after edits or pagination changes.
 - [x] **Normalize filename/include capitalization:** all eight chapter filenames match their lowercase includes.
-- [ ] **Verify a build on a case-sensitive filesystem.** Exact filename matching has been checked locally; a cross-platform build has not yet been run.
-- [ ] **Investigate the built-in editor compiler failure** while retaining the working MiKTeX build path.
 - [ ] **Run the final completion audit.** Rebuild with Biber as needed, converge references, refresh inventories, and record evidence for each closed item. The book is not ready to declare fully proofread.
 
