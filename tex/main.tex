@@ -106,6 +106,14 @@
 ]{biblatex}
 \addbibresource{references.bib} % Your BibTeX file name
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
+% Leave room for Roman chapter numbers and locators such as III.10.
+\makeatletter
+\patchcmd{\l@chapter}{\setlength\@tempdima{1.5em}}{\setlength\@tempdima{2.5em}}{}{\PackageError{book-layout}{Cannot widen contents chapter numbers}{}}
+\renewcommand*\l@section{\@dottedtocline{1}{2.5em}{3.8em}}
+% Keep inserted separating versos entirely blank.
+\let\book@cleardoublepage\cleardoublepage
+\renewcommand{\cleardoublepage}{\clearpage{\pagestyle{empty}\book@cleardoublepage}}
+\makeatother
 % Keep original book locators while linking to stable semantic labels.
 \newcommand{\bookref}[2]{\hyperref[#1]{\textup{[#2]}}}
 
