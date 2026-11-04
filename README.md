@@ -6,12 +6,12 @@ A typesetting and proofreading project for Robin Hartshorne’s *Residues and Du
 
 ## Current state
 
-As of **1 November 2026**:
+As of **4 November 2026**:
 
 - The current source builds with installed MiKTeX and Biber to **266 pages**. Build checks find no undefined reference/citation targets, duplicate PDF destinations, missing characters, empty bibliography, or pending reference rerun.
 - Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; retrospective review of how earlier corrections are presented is still underway.
-- Subject and notation indices have linked locators. Selected destinations and notation families have been checked contextually; a resolved link does not by itself establish that the reference is correct.
-- Ordinary Hom, sheaf Hom and their derived forms have been checked throughout the chapters and appendix. Other notation and reference checks remain open.
+- Subject and notation indices have linked locators. Explicit internal reference commands in the Introduction and Chapters I–III have been checked in context; other reference checks remain incomplete. A resolved link does not by itself establish that the reference is correct.
+- Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix. Other notation and reference checks remain open.
 - Every bibliography entry has an initial metadata investigation recorded. Some fields remain unverified; unsupported additions and erroneous name expansions have been corrected or removed.
 - Every page of the current **266-page PDF** has been visually reviewed. Contents-number spacing was repaired; some pagination polish and small layout warnings remain. This pass does not certify every reference, notation use, or proof.
 
@@ -78,11 +78,11 @@ The output is `tex/main.pdf`. Check the final log for unresolved references, rer
 
 ## Remaining work
 
-The full visual pass is complete. The added reference in VI Lemma 5.2 has been moved into a labelled footnote explicitly naming V.5.1. Continue the reference, notation, and original-text preservation checks. Recheck affected pages after edits.
+The full visual pass is complete. Continue the reference, notation and original-text preservation checks, and recheck affected pages after edits.
 
 - [ ] **Finish the original-text preservation review.** Classify earlier inline changes against Git history and scans; move remaining author corrections and editorial supplements into the required notes/remarks.
 - [ ] **Complete the semantic reference audit.** Check every statement/equation locator, visible original number, citation postnote, appendix-local reference, and PDF destination against the intended passage.
-- [ ] **Complete the contextual notation audit.** The Hom family has received a contextual pass. Finish the remaining Ext/Tor, tensor, cohomology and duality-context checks.
+- [ ] **Complete the contextual notation audit.** Hom and Ext/Tor symbols have received a contextual pass. Finish tensor, cohomology and other duality-context checks.
 - [ ] **Resolve or document the remaining mathematical checkpoints.** Review fixed-filtration uses of VI Proposition 1.1(c) in VI–VII variance/trace constructions, the residual-complex uniqueness exercise, and the appendix’s conditional independence/associativity/compatibility, truncation, and formal pro/Ind duality calculations. Preserve explicitly omitted proofs as such; do not present source repair as proof completion.
 - [ ] **Finish checking added bibliography metadata.** All 31 entries have been investigated initially, but partial records and access failures leave open fields. Verify those fields against reliable original-edition evidence or remove unsupported additions, without replacing historical citations with later editions.
 - [x] **Complete the first visual pass of all 266 PDF pages.**

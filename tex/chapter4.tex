@@ -1505,7 +1505,12 @@ We factor $f$ into $pg$ with $g$ finite and $p\colon\mathbb{P}_Y^n\to Y$ the pro
 \[
 \operatorname{Hom}_{\DD(X)}(F^\bullet,f^!G^\bullet) \xrightarrow{\sim} \operatorname{Hom}_{\DD(Y)}(\RR f_*F^\bullet,G^\bullet).
 \]
-For $F^\bullet\in\DD_{\mathrm{qc}}^b(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^b(Y)$ this says that $f^!$ (and the map $\operatorname{Tr}_f\colon \RR f_* f^!\to 1$) is a right adjoint of the functor $\RR f_*$. Therefore the pair $(f^!,\operatorname{Tr}_f)$ is uniquely determined on $\DD_{\mathrm{qc}}^b(Y)$. It is conceivable, however, that there are non-isomorphic functors $f^!\colon\DD_{\mathrm{qc}}^+(Y)\to\DD_{\mathrm{qc}}^+(X)$ each of which gives a duality theorem.
+For $F^\bullet\in\DD_{\mathrm{qc}}^b(X)$ and $G^\bullet\in\DD_{\mathrm{qc}}^b(Y)$ this says that $f^!$ (and the map $\operatorname{Tr}_f\colon \RR f_* f^!\to 1$) is a right adjoint of the functor $\RR f_*$.\footnote{Editorial qualification: an adjunction between the bounded categories also requires $f^!$ to preserve boundedness. This is not automatic. Let $A=k[x,y]/(x,y)^2$, for a field $k$, and let $f\colon\operatorname{Spec}k\to\operatorname{Spec}A$ be the finite closed immersion. Then
+\[
+f^!A=\RHom_A(k,A),\qquad
+\dim_k\operatorname{Ext}_A^n(k,A)=3\cdot2^{n-1}\quad(n\geq1),
+\]
+so $f^!A$ is unbounded. Indeed, the $n$th syzygy of $k$ is $k^{2^n}$, and the first Ext group of $k$ into $A$ has dimension $3$. For the finite-map description of $f^!$, compare \href{https://stacks.math.columbia.edu/tag/0BZI}{Stacks Project, Section~47.24}. The usual uniqueness-of-right-adjoint argument on the bounded categories needs the extra boundedness condition; the original assertion is retained.} Therefore the pair $(f^!,\operatorname{Tr}_f)$ is uniquely determined on $\DD_{\mathrm{qc}}^b(Y)$. It is conceivable, however, that there are non-isomorphic functors $f^!\colon\DD_{\mathrm{qc}}^+(Y)\to\DD_{\mathrm{qc}}^+(X)$ each of which gives a duality theorem.
 \end{enumerate}
 
 \begin{bookcorollary}{11.2}\label{cor:3.11.2}

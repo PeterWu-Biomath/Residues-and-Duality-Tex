@@ -508,7 +508,11 @@ Let $\mathcal{A}$ be abelian, $s\colon I^\bullet\to Y^\bullet$ a morphism of com
 \item[(2)] Each $I^p$ is injective;
 \item[(3)] $I^\bullet$ is bounded below.
 \end{enumerate}
-Then $s$ admits a homotopy inverse.
+Then $s$ admits a homotopy inverse.\footnote{Editorial clarification: the proof constructs a left homotopy inverse $t$, with $ts\simeq\operatorname{id}_{I^\bullet}$. A two-sided homotopy inverse need not exist. For example, take $I^\bullet=0$ and the acyclic complex of abelian groups
+\[
+Y^\bullet=(0\longrightarrow\mathbb Z\xrightarrow{2}\mathbb Z\longrightarrow\mathbb Z/2\mathbb Z\longrightarrow0).
+\]
+This complex is not contractible, since the surjection $\mathbb Z\to\mathbb Z/2\mathbb Z$ has no section. Thus $0\to Y^\bullet$ is a quasi-isomorphism satisfying the stated hypotheses but is not a homotopy equivalence. If $Y^\bullet$ is also a bounded-below complex of injectives, the inverse is two-sided; compare \href{https://stacks.math.columbia.edu/tag/070G}{Stacks Project, Lemmas~13.31.2 and~13.31.4}. The original wording is retained.}
 \end{booklemma}
 
 \begin{proof}
