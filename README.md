@@ -6,12 +6,12 @@ A typesetting and proofreading project for Robin Hartshorne’s *Residues and Du
 
 ## Current state
 
-As of **4 November 2026**:
+As of **5 November 2026**:
 
 - The current source builds with installed MiKTeX and Biber to **266 pages**. Build checks find no undefined reference/citation targets, duplicate PDF destinations, missing characters, empty bibliography, or pending reference rerun.
 - Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; retrospective review of how earlier corrections are presented is still underway.
-- Subject and notation indices have linked locators. Explicit internal reference commands in the Introduction and Chapters I–III have been checked in context; other reference checks remain incomplete. A resolved link does not by itself establish that the reference is correct.
-- Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix. Other notation and reference checks remain open.
+- Subject and notation indices have linked locators. Explicit internal reference commands in the Introduction and Chapters I–V have been checked in context; other reference checks remain incomplete. A resolved link does not by itself establish that the reference is correct.
+- Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix; local-cohomology notation has also been checked in IV–V. Other notation and reference checks remain open.
 - Every bibliography entry has an initial metadata investigation recorded. Some fields remain unverified; unsupported additions and erroneous name expansions have been corrected or removed.
 - Every page of the current **266-page PDF** has been visually reviewed. Contents-number spacing was repaired; some pagination polish and small layout warnings remain. This pass does not certify every reference, notation use, or proof.
 

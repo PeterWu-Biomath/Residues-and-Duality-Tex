@@ -108,6 +108,8 @@
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
 % Leave room for Roman chapter numbers and locators such as III.10.
 \makeatletter
+% BibLaTeX page links use printed folios; keep automatic names for statement anchors.
+\patchcmd{\Hy@EveryPageAnchor}{\ifHy@hypertexnames}{\iftrue}{}{\PackageError{book-links}{Cannot use printed page anchors}{}}
 \patchcmd{\l@chapter}{\setlength\@tempdima{1.5em}}{\setlength\@tempdima{2.5em}}{}{\PackageError{book-layout}{Cannot widen contents chapter numbers}{}}
 \renewcommand*\l@section{\@dottedtocline{1}{2.5em}{3.8em}}
 % Keep inserted separating versos entirely blank.

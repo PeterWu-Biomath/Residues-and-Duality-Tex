@@ -95,6 +95,14 @@ by \bookref{motif:4.1.F}{IV,~1.F} and their local dualizing property. The Cousin
 
 For dualizing complexes, the corresponding target consists of residual complexes with the same $d$ and bounded terms. The printed target includes unbounded examples: on $X=\coprod_{n\geq0}\operatorname{Spec}k$, put $k$ on component $n$ in degree $n$. This residual complex has no finite global injective-dimension bound. The author's second remark is retained as historical commentary; the later fixed-filtration Cousin equivalence removes the bounded-cohomology obstruction in that setting.
 
+For the later variance constructions, fix $d$ on the target $Y$ and, for $f\colon X\to Y$ of finite type with fibre dimensions at most $N$, use
+\[
+d_f(x)=d(f(x))-\operatorname{tr.d.} k(x)/k(f(x)).
+\]
+This uses the corrected sign in Proposition~\ref{prop:6.3.4} below. If $d\geq a$, then $d_f\geq a-N$. For finite $f$, $d_f=d\circ f$; for a composite, additivity of transcendence degrees gives $d_{gf}=(d_g)_f$. Thus different finite--smooth factorizations of the same morphism lead to the same filtration, within which the derived comparison isomorphisms can be lifted. Naturality here concerns morphisms between input complexes with the same $d$; it does not restore the printed assertions for all chain maps between residual complexes with varying codimension functions. A later treatment using schemes equipped with codimension functions is J.\ Lipman, S.\ Nayak and P.\ Sastry, \emph{Pseudofunctorial behavior of Cousin complexes on formal schemes}, \S\S1.2, 2.1 and 9.1 (\href{https://arxiv.org/abs/math/0310032}{arXiv:math/0310032}). The author's compatibility checks marked (!) below remain unsupplied here.
+
+For the finite trace construction, Lemma~\ref{lem:6.4.1} places $f_*f'(K^\bullet)$ and $K^\bullet$ in the Cousin category for the same filtration on $Y$. Thus the lifting step of \bookref{lem:4.3.2}{IV,~3.2} has the required common filtration and injective target; it does not need an equivalence between categories with varying filtrations.
+
 \begin{exercise*}
 Show that there is a uniqueness theorem analogous to \bookref{thm:5.3.1}{V,~3.1} for residual complexes, i.e., two residual complexes can differ only by shifting degrees and tensoring with an invertible sheaf. The touchy point is to show that if $K^{\bullet}, K^{\prime\bullet}$ are residual complexes, then $\sheafHom^{\bullet}(K^{\bullet}, K^{\prime\bullet})$ is a complex with coherent cohomology!\footnote{Editorial note: On a connected $X$, the shift is a single integer. On a general $X$, it is a locally constant integer-valued function, and the resulting complex must retain a global lower bound. The exercise is not supplied with a proof here.}
 
@@ -189,7 +197,7 @@ We will use this same technique of reduction to the case of finite Krull dimensi
 \phantomsection\label{compat:6.2.i}
 For a composition of three finite morphisms, there is the usual commutative diagram (referred to as (i)) of the isomorphisms \eqref{eq:6.2.I}.
 
-For a \emph{smooth} morphism $f\colon X\to Y$ of locally noetherian preschemes we define a functor
+For a \emph{smooth} morphism $f\colon X\to Y$ of locally noetherian preschemes\footnote{Editorial qualification: assume that the fibre dimensions are bounded, as required by the author's erratum to V,~8.3. Without this bound, the smooth map $\coprod_{n\geq0}\mathbb A_k^n\to\Spec k$ takes $k[0]$ under $f^\sharp$ to the complexes $\omega_{\mathbb A_k^n}[n]$ on the components, with no common lower bound. Its Cousin complex is therefore not a residual complex in the bounded-below sense used here. Section~3 below explicitly imposes the fibre-dimension bound.} we define a functor
 \[
 f^{z}\colon \operatorname{Res}(Y)\longrightarrow \operatorname{Res}(X)
 \]
