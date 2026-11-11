@@ -6,11 +6,11 @@ A typesetting and proofreading project for Robin Hartshorne’s *Residues and Du
 
 ## Current state
 
-As of **5 November 2026**:
+As of **11 November 2026**:
 
 - The current source builds with installed MiKTeX and Biber to **266 pages**. Build checks find no undefined reference/citation targets, duplicate PDF destinations, missing characters, empty bibliography, or pending reference rerun.
 - Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; retrospective review of how earlier corrections are presented is still underway.
-- Subject and notation indices have linked locators. All explicit internal reference commands, including the backmatter, have been checked in context. Bibliography page links lead to the correct printed folios. Plain-text locators and citation postnotes still need checking; a resolved link does not by itself establish that the reference is correct.
+- All explicit internal references, including index links, have been checked in context. A pass over numbered plain-text references added 31 links without changing the wording. Bibliography page links lead to the correct printed folios. External citation details still need checking.
 - Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix; cohomology notation has also been checked in IV–VII, and tensor notation in VI–VII. Other notation checks remain open.
 - Every bibliography entry has an initial metadata investigation recorded. Some fields remain unverified; unsupported additions and erroneous name expansions have been corrected or removed.
 - Every page of the current **266-page PDF** has been visually reviewed. Contents-number spacing was repaired; some pagination polish and small layout warnings remain. This pass does not certify every reference, notation use, or proof.
@@ -81,7 +81,7 @@ The output is `tex/main.pdf`. Check the final log for unresolved references, rer
 The full visual pass is complete. Continue the reference, notation and original-text preservation checks, and recheck affected pages after edits.
 
 - [ ] **Finish the original-text preservation review.** Classify earlier inline changes against Git history and scans; move remaining author corrections and editorial supplements into the required notes/remarks.
-- [ ] **Complete the semantic reference audit.** Explicit reference commands and index links are checked. Finish unlinked statement/equation locators, visible original numbers, citation postnotes and appendix-local references.
+- [ ] **Finish checking citation details.** Explicit internal links and numbered plain-text locators have received a pass. Check external citation postnotes and review remaining free-form locators during the preservation pass.
 - [ ] **Complete the contextual notation audit.** Hom and Ext/Tor symbols have received a contextual pass. Finish tensor, cohomology and other duality-context checks.
 - [x] **Document the mathematical qualifications.** VI–VII's common filtrations and the appendix's compactification, truncation and formal pro/Ind issues are documented in editorial notes. Original exercises, conditional arguments and omitted compatibility proofs remain identified as such.
 - [ ] **Finish checking added bibliography metadata.** All 31 entries have been investigated initially, but partial records and access failures leave open fields. Verify those fields against reliable original-edition evidence or remove unsupported additions, without replacing historical citations with later editions.
