@@ -80,11 +80,11 @@ The output is `tex/main.pdf`. Check the final log for unresolved references, rer
 
 The full visual pass is complete. Continue the reference, notation and original-text preservation checks, and recheck affected pages after edits.
 
-- [ ] **Finish the original-text preservation review.** Classify earlier inline changes against Git history and scans; move remaining author corrections and editorial supplements into the required notes/remarks.
+- [ ] **Finish the original-text preservation review.** Identified corrections now have review records across all chapters and backmatter. Reconcile their coverage with the earlier change history and check that every added correction is in a labelled note or remark.
 - [ ] **Finish checking citation details.** Explicit internal links and numbered plain-text locators have received a pass. Check external citation postnotes and review remaining free-form locators during the preservation pass.
-- [ ] **Complete the contextual notation audit.** Hom and Ext/Tor symbols have received a contextual pass. Finish tensor, cohomology and other duality-context checks.
+- [ ] **Complete the contextual notation audit.** Hom, Ext/Tor, tensor and cohomology symbols have received contextual passes across the book. Finish the final notation and duality consistency review.
 - [x] **Document the mathematical qualifications.** VI–VII's common filtrations and the appendix's compactification, truncation and formal pro/Ind issues are documented in editorial notes. Original exercises, conditional arguments and omitted compatibility proofs remain identified as such.
-- [ ] **Finish checking added bibliography metadata.** All 31 entries have been investigated initially, but partial records and access failures leave open fields. Verify those fields against reliable original-edition evidence or remove unsupported additions, without replacing historical citations with later editions.
+- [x] **Check added bibliography metadata.** Reviewed the current fields in all 31 entries against scans and primary/institutional records; removed unsupported additions. Historical citations and exact-edition caveats are retained.
 - [x] **Complete the first visual pass of all 266 PDF pages.**
 - [ ] **Finish layout polish.** Address sparse chapter endings and remaining overfull warnings. The split definition and separating-verso headers have been repaired. Recheck affected pages after edits.
 - [x] **Normalize filename/include capitalization:** all eight chapter filenames match their lowercase includes.

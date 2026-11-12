@@ -592,16 +592,9 @@ and proves (c).
 
 
 
+\begin{samepage}
 \begin{bookproposition}[Compatibility of Local and Global Duality]{3.5}\label{prop:7.3.5}
-Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $K^{\bullet}$ be a residual complex on $Y$. Let $x \in X$ be a closed point, with local ring $A = \sO_{x}$. Let $R^{\bullet}$ be the dualizing complex $(Q f^{\Delta} K^{\bullet})_{x}$ on $A$, and assume that $R^{\bullet}$ is normalized \bookref{sec:5.6}{V,~\S6}. Let $I = \Gamma_{x}(R^{\bullet})$. Let $F^{\bullet} \in \DD_{\mathrm{c}}^{+}(X)$. Regard the local modules in the diagram as sheaves on $Y$ supported at $f(x)$. Put
-\[
-\begin{aligned}
-L^\bullet&=Qf^\Delta K^\bullet,\\
-C^\bullet&=\Hom_A^\bullet(F_x^\bullet,R^\bullet),\\
-B^\bullet&=\RR f_*\sheafHom_X^\bullet(F^\bullet,L^\bullet).
-\end{aligned}
-\]
-Then the diagram
+Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $K^{\bullet}$ be a residual complex on $Y$. Let $x \in X$ be a closed point, with local ring $A = \sO_{x}$. Let $R^{\bullet}$ be the dualizing complex $(Q f^{\Delta} K^{\bullet})_{x}$ on $A$, and assume that $R^{\bullet}$ is normalized \bookref{sec:5.6}{V,~\S6}. Let $I = \Gamma_{x}(R^{\bullet})$. Let $F^{\bullet} \in \DD_{\mathrm{c}}^{+}(X)$. Then the diagram\footnote{Editorial notation: to shorten the printed Hom arguments in the diagram, put $L^\bullet=Qf^\Delta K^\bullet$, $C^\bullet=\Hom_A^\bullet(F_x^\bullet,R^\bullet)$ and $B^\bullet=\RR f_*\sheafHom_X^\bullet(F^\bullet,L^\bullet)$. Regard the local modules as sheaves on $Y$ supported at $f(x)$.}
 \[
 \begin{tikzcd}[row sep=large,column sep=large]
 \RR\Gamma_x(F^\bullet) \ar[r,"\Theta_x"] \ar[d,"\alpha"']
@@ -610,9 +603,9 @@ Then the diagram
  & \sheafHom_Y^\bullet(B^\bullet,QK^\bullet)
 \end{tikzcd}
 \]
-is commutative. Here $\Theta_x$ is the local duality isomorphism
-\bookref{thm:5.6.2}{V,~6.2}, and $\alpha$ is induced by the inclusion
-$\Gamma_x\subseteq f_*$. The map $\beta$ is obtained from the stalk map
+is commutative, where $\Theta_x$ is the local duality isomorphism
+\bookref{thm:5.6.2}{V,~6.2}, $\alpha$ is the natural map of derived functors obtained from the inclusion
+$\Gamma_x\subseteq f_*$. $\beta$ is obtained from the stalk map
 \[
 B^\bullet\longrightarrow C^\bullet
 \]
@@ -620,8 +613,9 @@ and the trace map
 \[
 \Tr_{f,x}\colon f_*J(x)=I\longrightarrow K^\bullet.
 \]
-and $\mathscr{D}_Y\Theta_f$ is the transpose by $\mathscr{D}_Y$ of the global duality isomorphism of Theorem~\ref{thm:7.3.3}.\footnote{Editorial clarification: the displayed lower arrow uses the sheaf duality isomorphism $\underline{\Theta}_f$ of Theorem~\ref{thm:7.3.3}; biduality identifies its transpose's source with $\RR f_*F^\bullet$. The original says ``global'' and labels the arrow without the underline. The symbols $L^\bullet,C^\bullet,B^\bullet$ above abbreviate the printed Hom arguments.} (Note we write four times $\Hom^\bullet$ instead of $\RHom^\bullet$, because the second argument in each case is injective.)
+and $\mathscr{D}_Y\Theta_f$ is the transpose by $\mathscr{D}_Y$ of the global duality isomorphism of Theorem~\ref{thm:7.3.3}.\footnote{Editorial clarification: the displayed lower arrow uses the sheaf duality isomorphism $\underline{\Theta}_f$ of Theorem~\ref{thm:7.3.3}; biduality identifies its transpose's source with $\RR f_*F^\bullet$. The original says ``global'' and labels the arrow without the underline.} (Note we write four times $\Hom^\bullet$ instead of $\RHom^\bullet$, because the second argument in each case is injective.)
 \end{bookproposition}
+\end{samepage}
 
 \begin{proof}
 Immediate from the definitions of the maps in question.

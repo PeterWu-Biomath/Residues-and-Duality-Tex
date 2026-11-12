@@ -71,6 +71,7 @@ If $X$ is a prescheme, the global section functor $\Gamma$ has a right derived f
 As above, we can extend the domain of definition of $\RR\Gamma$ to $\DD(X)$ if $X$ is noetherian of finite Krull dimension.
 \section{The derived functor of $\sheafHom^\bullet$}\label{sec:2.3}
 
+\begingroup\setlength{\emergencystretch}{2em}
 Let $X$ be a prescheme, and let $F^\bullet,G^\bullet\in\KK(\operatorname{Mod}(X))$. Then we define $\sheafHom^\bullet(F^\bullet,G^\bullet)\in\KK(\operatorname{Mod}(X))$ as in \bookref{sec:1.6}{I,~\S6} by
 \[
 \sheafHom{}^n(F^\bullet,G^\bullet) = \prod_{p\in\mathbb{Z}} \sheafHom_{\operatorname{Mod}(X)}(F^p, G^{p+n})
@@ -82,7 +83,7 @@ d^n = d_F + (-1)^{n+1} d_G.
 Then $\sheafHom^\bullet$ is a bi-$\partial$-functor
 \[
 \sheafHom^\bullet\colon \KK(\operatorname{Mod}(X))^\circ \times \KK(\operatorname{Mod}(X)) \longrightarrow \KK(\operatorname{Mod}(X)).
-\]
+\]\par\endgroup
 
 \begin{booklemma}{3.1}\label{lem:2.3.1}
 Let $F^\bullet$ be a complex of $\sO_X$-modules, and let $G^\bullet$ be a complex of injective $\sO_X$-modules, bounded below. Assume that either $F^\bullet$ or $G^\bullet$ is acyclic. Then $\sheafHom^\bullet(F^\bullet,G^\bullet)$ is acyclic.
@@ -339,8 +340,9 @@ of bi-functors from $\DD^-(X)^\circ\times\DD^+(X)$ to $\DD(\Ab)$.
 \end{bookproposition}
 
 \begin{proof}
+\begingroup\setlength{\emergencystretch}{2em}
 Use \bookref{prop:1.5.4}{I,~5.4}. Note that for any two sheaves $F$ and $G$, $\Hom(F,G)=\Gamma(\sheafHom(F,G))$. Also note that if $G$ is injective, then $\sheafHom(F,G)$ is flasque \cite[\nopp II,~7.3.2]{G}, and hence $\Gamma$-acyclic.
-\end{proof}
+\end{proof}\par\endgroup
 
 \begin{bookproposition}{5.4}\label{prop:2.5.4}
 Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of preschemes. Then there is a natural isomorphism
@@ -674,7 +676,7 @@ In particular, I believe that all reasonable compatibilities one could imagine b
 
 For a completely satisfactory treatment of this question of ``natural'' isomorphisms and their compatibilities, we must await future developments. Mac Lane \cite[pp.~14,15]{12} refers to the problem in the context of the associativity of the tensor product, where he says that he does not know even a finite number of diagrams such as the one in example 3 above, which together imply that all such diagrams involving associativities are commutative.\footnote{\emph{Editorial reference.} The published revision, S.~Mac~Lane, \href{https://doi.org/10.1090/S0002-9904-1965-11234-4}{``Categorical algebra''}, \emph{Bull.\ Amer.\ Math.\ Soc.}\ \textbf{71} (1965), Theorem~15.1, pp.76--77, gives the coherence theorem: the pentagon condition suffices for diagrams built from a natural associativity isomorphism. This does not by itself verify all the derived-functor compatibilities discussed here.} Perhaps the language of fibred categories \cite[\nopp 60--61, expos\'e~VI]{SGA} or the techniques of Giraud's thesis~\cite{6} will supply what is needed.
 
-\section{Injective sheaves on a locally noetherian prescheme}\label{sec:2.7}
+\section[Injective sheaves on a locally noetherian prescheme]{Injective sheaves on a locally\\noetherian prescheme}\label{sec:2.7}
 
 In this section we give the structure of the injective objects in the category $\operatorname{Mod}(X)$ of all $\sO_X$-modules on a locally noetherian prescheme $X$. We show in particular that every quasi-coherent $\sO_X$-module can be embedded in a quasi-coherent injective $\sO_X$-module, and hence that the natural functor
 \[

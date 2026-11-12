@@ -93,12 +93,13 @@ This data is subject to the following axioms:
 \end{definition*}
 
 \begin{definition*}
-	An additive functor $H\colon \mathcal{C}\to\mathcal{A}$ from a triangulated category to an abelian category is called a \emph{covariant cohomological functor} if whenever $(X,Y,Z,u,v,w)$ is a triangle, the long sequence
+	\begingroup\setlength{\emergencystretch}{2em}
+An additive functor $H\colon \mathcal{C}\to\mathcal{A}$ from a triangulated category to an abelian category is called a \emph{covariant cohomological functor} if whenever $(X,Y,Z,u,v,w)$ is a triangle, the long sequence
 	\[
 	\cdots\to H(T^iX)\to H(T^iY)\to H(T^iZ)\to H(T^{i+1}X)\to\cdots
 	\]
 	is exact (the morphisms being $H(T^iu)$, etc.). If $H$ is a cohomological functor, we often write $H^i(X)$ for $H(T^iX)$, $i\in\mathbb{Z}$. One defines a contravariant cohomological functor by reversing the arrows.
-\end{definition*}
+\end{definition*}\par\endgroup
 
 \begin{bookproposition}{1.1}\label{prop:1.1}
 	\begin{enumerate}
@@ -1352,8 +1353,8 @@ are injective resolutions in the usual sense (cf.\ \cite[\nopp Ch.~XVII, \S1]{M}
 \item[a)] If $\mathcal{A}$ has enough injectives, every complex $X^\bullet$ of objects of $\mathcal{A}$ has a Cartan--Eilenberg resolution.
 \item[b)] If $f\colon X^\bullet\to Y^\bullet$ is a morphism of complexes, and $C^{\cdot\cdot},D^{\cdot\cdot}$ are Cartan--Eilenberg resolutions of $X^\bullet,Y^\bullet$, then there exists a map $F\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ of double complexes lying over $f$.
 \item[c)] If $f,g\colon X^\bullet\to Y^\bullet$ are homotopic maps, and $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are maps of Cartan--Eilenberg resolutions lying over $f,g$, then $F$ is homotopic to $G$.
-\item[d)] If $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are homotopic maps of double complexes, then $s(F),s(G)\colon s(C^{\cdot\cdot})\to s(D^{\cdot\cdot})$ are homotopic maps of the associated simple complexes.
-\item[e)] If $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are homotopic maps of double complexes, and $\sigma^{\mathrm{II}}_{\le n}$ denotes truncation with respect to the second differential $\mathrm{d}_2$, then the restrictions of $F$ and $G$ to maps $\sigma^{\mathrm{II}}_{\le n}(C^{\cdot\cdot})\to\sigma^{\mathrm{II}}_{\le n}(D^{\cdot\cdot})$ are homotopic.
+\item[d)] \begingroup\setlength{\emergencystretch}{2em} If $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are homotopic maps of double complexes, then $s(F),s(G)\colon s(C^{\cdot\cdot})\to s(D^{\cdot\cdot})$ are homotopic maps of the associated simple complexes.\par\endgroup
+\item[e)] \begingroup\setlength{\emergencystretch}{2em} If $F,G\colon C^{\cdot\cdot}\to D^{\cdot\cdot}$ are homotopic maps of double complexes, and $\sigma^{\mathrm{II}}_{\le n}$ denotes truncation with respect to the second differential $\mathrm{d}_2$, then the restrictions of $F$ and $G$ to maps $\sigma^{\mathrm{II}}_{\le n}(C^{\cdot\cdot})\to\sigma^{\mathrm{II}}_{\le n}(D^{\cdot\cdot})$ are homotopic.\par\endgroup
 \item[f)] If $\epsilon\colon X^\bullet\to C^{\cdot\cdot}$ augments $X^\bullet$ to a double complex $C^{\cdot\cdot}$ with $C^{p,q}=0$ for $q<0$ and $q>n_0$ (for suitable $n_0$), and such that for each $p$ the map $X^p\to C^{p,\bullet}$ is a resolution, then the natural map $X^\bullet\to s(C^{\cdot\cdot})$ into the associated simple complex is a quasi-isomorphism.
 \end{enumerate}
 \end{booklemma}
