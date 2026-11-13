@@ -6,14 +6,15 @@ A typesetting and proofreading project for Robin Hartshorne’s *Residues and Du
 
 ## Current state
 
-As of **11 November 2026**:
+As of **13 November 2026**:
 
-- The current source builds with installed MiKTeX and Biber to **266 pages**. Build checks find no undefined reference/citation targets, duplicate PDF destinations, missing characters, empty bibliography, or pending reference rerun.
+- The current source builds with installed MiKTeX and Biber to **284 pages**. Build checks find no undefined reference/citation targets, duplicate PDF destinations, missing characters, empty bibliography, or pending reference rerun.
+- A complete English translation follows Deligne’s French appendix, before the errata. All five sections, formulas, diagrams, bibliography and 14 footnotes are included; the French text is unchanged.
 - Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; retrospective review of how earlier corrections are presented is still underway.
 - All explicit internal references, including index links, have been checked in context. A pass over numbered plain-text references added 31 links without changing the wording. Bibliography page links lead to the correct printed folios. External citation details still need checking.
 - Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix; cohomology notation has also been checked in IV–VII, and tensor notation in VI–VII. Other notation checks remain open.
-- Every bibliography entry has an initial metadata investigation recorded. Some fields remain unverified; unsupported additions and erroneous name expansions have been corrected or removed.
-- Every page of the current **266-page PDF** has been visually reviewed. Contents-number spacing was repaired; some pagination polish and small layout warnings remain. This pass does not certify every reference, notation use, or proof.
+- Added metadata in all 31 bibliography entries has been reviewed; unsupported additions were removed. Historical-edition and citation caveats remain.
+- The earlier 266-page layout received a full visual pass. All pages of the English translation have now been inspected; the remaining book-wide layout changes still need a final review. Small layout warnings remain. These checks do not certify every original proof.
 
 The editor’s built-in compiler currently fails with an auxiliary-file/font issue. The successful build evidence comes from installed MiKTeX. A clean build does not certify the original arguments or the correctness of every formula.
 
@@ -33,6 +34,7 @@ The file numbers include the Introduction, so they differ from the original book
 | `tex/chapter7.tex` | Chapter VI — Residual Complexes |
 | `tex/chapter8.tex` | Chapter VII — The Duality Theorem |
 | `tex/Backmatter.tex` | Indices, bibliography, Deligne appendix, and errata |
+| `tex/appendix-english.tex` | English translation, included after the French appendix |
 | `tex/references.bib` | Main bibliography |
 
 References retain the **original chapter and statement numbers**, not the source-file numbers. The appendix has its own local identifiers and bibliography.
