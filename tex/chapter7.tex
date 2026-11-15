@@ -529,14 +529,14 @@ f^{a} \ar[r,"\gamma_{i,p}"] & i^{y}p^{z} \ar[r,"\mathrm{IV}"] & \ell^{y}(rt)^{z}
 \]
 The left-hand square is identically commutative. The right-hand one is commutative by virtue of a special case of compatibility \eqref{eq:6.2.v} above, where $X=Y$.
 
-On the right-hand side of our long diagram we fill in two analogous commutative squares. This leaves in the middle the following diagram
+On the right-hand side of our long diagram we fill in two analogous commutative squares. This leaves in the middle the following diagram\footnote{Editorial correction: the printed third downward label III should be IV, and the lower-right composite $(ts)^z$ should be $(st)^z$. The unlabelled lower-left horizontal arrow is the composition isomorphism II.}
 
 	\[
 	\begin{tikzcd}[row sep=1.4cm, column sep=1.4cm]
 		% Row 1
 		k^y r^z p^z \arrow[r, "\mathrm{II}"] \arrow[d, "\mathrm{IV}"] &
 		k^y(pr)^z \arrow[r, phantom, "="] \arrow[d, "\mathrm{IV}"] &
-		k^y(qs)^z \arrow[d, "\mathrm{IV}"] &
+		k^y(qs)^z \arrow[d, "\mathrm{III}"] &
 		k^y s^z q^z \arrow[l, "\mathrm{II}"'] \arrow[d, "\mathrm{IV}"] \\
 		% Row 2
 		\ell^y t^z r^z p^z \arrow[r, "\mathrm{II}"] &
@@ -544,10 +544,10 @@ On the right-hand side of our long diagram we fill in two analogous commutative 
 		\ell^y t^z(qs)^z &
 		\ell^y t^z s^z q^z \arrow[l, "\mathrm{II}"'] \\
 		% Row 3
-		\ell^y(rt)^z p^z \arrow[r, "\mathrm{II}"] \arrow[u, "\mathrm{II}"'] &
+		\ell^y(rt)^z p^z \arrow[r] \arrow[u, "\mathrm{II}"'] &
 		\ell^y(prt)^z \arrow[r, phantom, "="] \arrow[u, "\mathrm{II}"'] &
 		\ell^y(qst)^z \arrow[u, "\mathrm{II}"'] &
-		\ell^y(st)^z q^z \arrow[l, "\mathrm{II}"'] \arrow[u, "\mathrm{II}"']
+		\ell^y(ts)^z q^z \arrow[l, "\mathrm{II}"'] \arrow[u, "\mathrm{II}"']
 	\end{tikzcd}
 	\]
 
@@ -592,7 +592,7 @@ f^{\Delta}\colon \operatorname{Res}(Y)\longrightarrow \operatorname{Res}(X)
 $i: X \longrightarrow \mathbb{A}^n_Y$ and $k: Y \longrightarrow P$, smooth
 over $Z$, and note that $\mathbb{A}^n_Y = \mathbb{A}^n_P \times_P Y$, so
 that we have a commutative diagram as
-shown, with $i, j, k$ closed immersions, $p, q, r$ smooth, and the upper right square Cartesian.
+shown, with $i, j, k$ closed immersions, $p, q, r$ smooth, and the upper right square Cartesian.\looseness=-1
 \[
 \begin{tikzcd}[row sep=1.2cm, column sep=1cm]
 	X \arrow[r, "i"] \arrow[dr, "f"'] & \mathbb{A}^n_Y \arrow[rr, "j"] \arrow[d, "p"'] & & \mathbb{A}^n_P \arrow[d, "k"] \\
@@ -741,12 +741,14 @@ is defined.
 Now we must check that $\delta$ is compatible with the isomorphisms $c_{f,g}$, $\psi_f$, $\phi_g$. This can be done locally using the conditions VAR 1 -- VAR 5, and we leave the details to the reader (!).
 \end{proof}
 
+\begin{samepage}
 \begin{bookproposition}{3.4}\label{prop:6.3.4}
 Let $f\colon X\to Y$ be a morphism (with the conventions above) and let $K^\bullet$ be a residual complex on $Y$. Let $d$ denote the codimension function on $X$ (resp.\ $Y$) associated with the pointwise dualizing complex $f^{\Delta}K^\bullet$ (resp.\ $K^\bullet$). Then for each $x\in X$, if $y=f(x)$, we have\footnote{Editorial correction: subtract the transcendence degree, as explained in the correction to \bookref{cor:5.8.4}{V,~8.4}. This agrees with the smooth pullback shift and the codimension convention.}
 \[
 d(x) = d(y) + \operatorname{tr.d.} k(x)/k(y).
 \]
 \end{bookproposition}
+\end{samepage}
 
 \begin{proof}
 The question is local, and compatible with composition of morphisms. Thus we reduce to the case $f$ finite (trivial) or $f$ smooth (which is \bookref{cor:5.8.4}{V,~8.4}).
