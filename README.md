@@ -2,7 +2,7 @@
 
 A typesetting and proofreading project for Robin Hartshorne’s *Residues and Duality*, including the Introduction, original Chapters I–VII, indices, bibliography, Deligne’s appendix, and the author’s errata.
 
-**Work in progress.** Much of the initial transcription came from OCR and AI-assisted processing. Scan-comparison passes have covered the whole book, but mathematical, reference, notation, and layout checks remain incomplete. Doubao OCR can rewrite the mathematics; it must not be treated as an authoritative transcription.
+**Book-wide typesetting/proofreading pass completed.** Much of the initial transcription came from OCR and AI-assisted processing. Scan-comparison, reference, notation, preservation and final verification passes cover the whole book. Doubao OCR can rewrite the mathematics; it must not be treated as an authoritative transcription.
 
 ## Current state
 
@@ -10,13 +10,13 @@ As of **15 November 2026**:
 
 - The current source builds with installed MiKTeX and Biber to **284 pages**. Build checks find no undefined reference/citation targets, duplicate PDF destinations, missing characters, empty bibliography, or pending reference rerun.
 - A complete English translation follows Deligne’s French appendix, before the errata. All five sections, formulas, diagrams, bibliography and 14 footnotes are included. Scan-confirmed omissions are restored in both versions.
-- Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; retrospective review of how earlier corrections are presented is still underway.
-- All explicit internal references, including index links, have been checked in context. A pass over numbered plain-text references added 31 links without changing the wording. Bibliography page links lead to the correct printed folios. External citation details still need checking.
-- Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix; cohomology notation has also been checked in IV–VII, and tensor notation in VI–VII. Other notation checks remain open.
+- Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; identified earlier corrections have been reconciled with the preservation policy.
+- All explicit internal references, including index links, have been checked in context. A pass over numbered plain-text references added 31 links without changing the wording. Bibliography page links lead to the correct printed folios. External citations retain their recorded edition caveats; six unavailable locators remain as printed, as requested.
+- Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix; cohomology notation has also been checked in IV–VII, and tensor notation in VI–VII. The final notation/duality consistency check is complete.
 - Added metadata in all 31 bibliography entries has been reviewed; unsupported additions were removed. Historical-edition and citation caveats remain.
 - All pages of the current **284-page PDF** have visual coverage: changed pages were inspected and the others match reviewed images. No overfull boxes remain. These checks do not certify every original proof.
 
-The editor’s built-in compiler currently fails with an auxiliary-file/font issue. The successful build evidence comes from installed MiKTeX. A clean build does not certify the original arguments or the correctness of every formula.
+Build verification uses installed MiKTeX. The edition retains original mathematical errors and provisional arguments with labelled notes; a clean build does not certify the original proofs.
 
 ## Source layout
 
@@ -70,25 +70,24 @@ Use a LaTeX installation with pdfLaTeX, Biber, and the packages loaded by `tex/m
 
 ```sh
 cd tex
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -synctex=1 -interaction=nonstopmode "main.tex"
 biber main
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -synctex=1 -interaction=nonstopmode "main.tex"
+pdflatex -synctex=1 -interaction=nonstopmode "main.tex"
 ```
 
 The output is `tex/main.pdf`. Check the final log for unresolved references, rerun requests, missing glyphs, and layout warnings, then inspect the rendered pages. Generated PDFs and most auxiliary files are not tracked.
 
-## Remaining work
+## Review status
 
-The full visual pass is complete. Continue the reference, notation and original-text preservation checks, and recheck affected pages after edits.
+No required tasks remain from this pass. Original provisional arguments and documented historical citation limits are retained.
 
-- [ ] **Finish the original-text preservation review.** Identified corrections now have review records across all chapters and backmatter. Reconcile their coverage with the earlier change history and check that every added correction is in a labelled note or remark.
+- [x] **Review original-text preservation.** Reconciled identified corrections with scans and earlier patches; original errors remain in the body with labelled corrections or remarks.
 - [x] **Retain the original citations.** Accessible citation checks and edition caveats are recorded. The six locators whose source pages were unavailable are retained as printed, as requested; they are not marked verified.
-- [ ] **Complete the contextual notation audit.** Hom, Ext/Tor, tensor and cohomology symbols have received contextual passes across the book. Finish the final notation and duality consistency review.
+- [x] **Complete the contextual notation audit.** Hom, Ext/Tor, tensor and cohomology symbols have book-wide contextual coverage; definitions, notation index and global/sheaf duality conventions agree.
 - [x] **Document the mathematical qualifications.** VI–VII's common filtrations and the appendix's compactification, truncation and formal pro/Ind issues are documented in editorial notes. Original exercises, conditional arguments and omitted compatibility proofs remain identified as such.
 - [x] **Check added bibliography metadata.** Reviewed the current fields in all 31 entries against scans and primary/institutional records; removed unsupported additions. Historical citations and exact-edition caveats are retained.
-- [x] **Complete the first visual pass of all 266 PDF pages.**
 - [x] **Finish the current layout pass.** All 284 pages are covered; no overfull boxes remain. Split statements, long headings/formulas and blank-verso headers have been addressed.
 - [x] **Normalize filename/include capitalization:** all eight chapter filenames match their lowercase includes.
-- [ ] **Run the final completion audit.** Rebuild with Biber as needed, converge references, refresh inventories, and record evidence for each closed item. The book is not ready to declare fully proofread.
+- [x] **Run the final completion audit.** Current source/PDF hashes, all 284 reviewed pages, 953 reference commands, 109 bibliography page links and 31 printed cited-on lists pass verification.
 

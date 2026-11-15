@@ -11,3 +11,5 @@ User instruction, 26 October 2026:
 - Use Git history to recover previous wording, and verify it against the scan where its provenance is uncertain. Do not revert unrelated work or discard a correction when moving it into a note.
 
 Current conversion evidence and remaining historical checks are recorded in audit/PROGRESS.md. The restoration pass of 26 October covers the recent uncommitted mathematical edits and selected earlier documented original errors; it is not a claim that every earlier inline change has been reclassified.
+
+The subsequent book-wide preservation and older-patch reconciliation was completed on 15 November 2026; current evidence and review scope are recorded in audit/PROGRESS.md and audit/final-completion-audit.json. The 26 October paragraph above describes the narrower scope of that initial pass.
