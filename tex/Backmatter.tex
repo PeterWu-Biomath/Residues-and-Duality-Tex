@@ -292,7 +292,7 @@ Soit $\mathcal{C}$ une $\mathbb{U}$-cat\'egorie\footnote{$\mathbb{U}$ d\'esigne 
 \end{enumerate}
 \end{bookproposition}
 
-Les implications (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) sont triviales et (iii) $\Rightarrow$ (ii) standard ($h$ est limite des $h_F$ selon la cat\'egorie des $(F, \alpha)$ pour $\alpha \in h(F)$ et $F$ dans la sous-cat\'egorie de $\mathcal{C}$ stable par $\varinjlim$ finie engendr\'ee par le petit ensemble donn\'e). Reste \`a prouver que (ii) $\Rightarrow$ (i). Si $\mathcal{L}$ et $\mathcal{M}$ sont deux cat\'egories filtrantes, un foncteur $F: \mathcal{L} \to \mathcal{M}$ est dit cofinal si $\varinjlim_{L\in\mathcal L} h_{F(L)}$ est le foncteur final. Pour tout $G\colon\mathcal M\to\mathcal N$, on a alors $\varinjlim_{\mathcal M}G=\varinjlim_{\mathcal L}(G\circ F)$.
+Les implications (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) sont triviales et (iii) $\Rightarrow$ (ii) standard ($h$ est limite des $h_F$ selon la cat\'egorie des $(F, \alpha)$ pour $\alpha \in h(F)$ et $F$ dans la sous-cat\'egorie de $\mathcal{C}$ stable par $\varinjlim$ finie engendr\'ee par le petit ensemble donn\'e). Reste \`a prouver que (ii) $\Rightarrow$ (i). Si $\mathcal{L}$ et $\mathcal{M}$ sont deux cat\'egories filtrantes, un foncteur $F: \mathcal{L} \to \mathcal{M}$ est dit cofinal si $\varinjlim_{L\in\mathcal L} h_{F(L)}$ est le foncteur final. Pour tout $G\colon\mathcal M\to\mathcal N$, on a alors $\varinjlim_{\mathcal M}G=\varinjlim_{\mathcal L}(G\circ F)$. Il s'agit de prouver:
 
 \par\medskip\noindent\textbf{Lemme.} Pour toute petite cat\'egorie filtrante $\mathcal{L}$, il existe un foncteur cofinal d'un petit ensemble ordonn\'e filtrant dans $\mathcal{L}$.
 
@@ -402,7 +402,7 @@ ce qui ach\`eve la d\'emonstration.
 La proposition~\ref{app:prop4} donne une formule explicite pour le foncteur
 $(\text{coh sur }U)\to\operatorname{pro}(\text{coh sur }X)$
 ``adjoint'' \`a gauche de $j^*$. On notera ce foncteur $j_!$
-(``prolongement par z\'ero'')\footnote{Cette terminologie et notation conflictent \'evidemment avec ceux g\'en\'eralement admis (livre de Godement, SGA 1962, \dots).};
+(``prolongement par z\'ero'')\footnote{Cette terminologie et notation conflictent \'evidemment avec ceux g\'en\'eralement admis (livre de Godement, SGA 1962, \dots). Le lecteur pr\'ef\'erera peut-\^etre lire $\mathfrak{j}_!$ au lieu de $j_!$.};
 il r\'esulte de Krull qu'il est exact; cela r\'esulte aussi de ce que,
 $X$ \'etant noeth\'erien, un injectif de la cat\'egorie des faisceaux
 quasi-coh\'erents sur $X$, restreint \`a $U$, reste injectif quasi-coh\'erent sur $U$.
@@ -638,6 +638,7 @@ Si on veut rendre plus explicite la d\'efinition de $\RR f^{!}$ dans le cas prop
 
 Pour un morphisme fini, $\RR f^{!}$ est ce qu'on veut; pour le voir, il suffit de prendre pour foncteur r\'esolvant, dans le calcul de $\RR f_{*}$, l'identit\'e. Pour l'espace projectif, l'unicit\'e d'un adjoint ne laisse pas le choix (on utilise le fait qu'on a la formule d'adjonction pour $\RR f_{!} = \RR f_{*}: \DD(X) \to \DD(S)$), on reviendra sur la fl\`eche. Pour une immersion ouverte, $\RR f^{!} = \RR f^{*}$. Pour tout ouvert quasi-projectif $U$ de $X$ au-dessus de $S$, on peut donc calculer la restriction \`a $U$ de $\RR f^{!}$. En particulier, si on peut v\'erifier localement que $\mathcal{H}^{q}\RR f^{!}K = 0$ pour $q \neq p$, on conna\^it $\RR f^{!}K$, puisqu'un objet de la cat\'egorie d\'eriv\'ee n'ayant qu'un faisceau de cohomologie non nul est d\'etermin\'e par ce faisceau. Rappelons un cas important o\`u cette condition est v\'erifi\'ee, avec $K = \mathcal{O}$.
 
+\begin{samepage}
 \begin{bookproposition}{7}\label{app:prop7}
 Soit $f: X \to Y$, compactifiable. Supposons que localement (sur $X$ et $Y$) on puisse trouver un diagramme
 \[
@@ -648,6 +649,7 @@ X \ar[r,"f"] \ar[dr,"g"'] & Y \ar[d,"h"] \\
 \]
 o\`u $g$ et $h$ sont localement intersection compl\`ete de dimension relative $d'$ et $d''$, et soit $d = d' - d''$. Alors $\RR f^{!}\mathcal{O}$ est r\'eduit \`a un seul faisceau de cohomologie, situ\'e en degr\'e $-d$, qui est inversible.
 \end{bookproposition}
+\end{samepage}
 
 En effet, $\RR g^{!}\mathcal{O} = \RR f^{!}\RR h^{!}\mathcal{O}$, on sait que $\RR g^{!}\mathcal{O}$ et $\RR h^{!}\mathcal{O}$ sont du type indiqu\'e, situ\'es en degr\'e $-d'$ et $-d''$, par des calculs locaux dans l'espace projectif; tout \'etant local, on peut supposer $\mathcal{H}^{-d''}\RR h^{!}\mathcal{O}$ isomorphe \`a $\mathcal{O}$, et l'assertion en r\'esulte.
 

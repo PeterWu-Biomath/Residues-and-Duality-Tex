@@ -595,13 +595,13 @@ that we have a commutative diagram as
 shown, with $i, j, k$ closed immersions, $p, q, r$ smooth, and the upper right square Cartesian.
 \[
 \begin{tikzcd}[row sep=1.2cm, column sep=1cm]
-	X \arrow[r, "i"] \arrow[dr, "f"'] & \mathbb{A}^n_Y \arrow[rr, "j"] \arrow[d, "p"'] & & \mathbb{A}^n_P \arrow[d, "q"] \\
-	& Y \arrow[rr, "k"] \arrow[dr, "g"'] & & P \arrow[dl, "r"] \\
+	X \arrow[r, "i"] \arrow[dr, "f"'] & \mathbb{A}^n_Y \arrow[rr, "j"] \arrow[d, "p"'] & & \mathbb{A}^n_P \arrow[d, "k"] \\
+	& Y \arrow[rr, "k"] \arrow[dr, "q"'] & & P \arrow[dl, "r"] \\
 	& & Z &
 \end{tikzcd}
 \]
 
-Define $c_{f,g}$ (depending on the charts chosen, and taking $ji: X \longrightarrow \mathbb{A}^n_P$ as a chart for $gf$) as follows:
+Define $c_{f,g}$ (depending on the charts chosen, and taking $ji: X \longrightarrow \mathbb{A}^n_P$ as a chart for $gf$) as follows:\footnote{Editorial correction: the printed labels $k$ on $\mathbb{A}^n_P\to P$ and $q$ on $Y\to Z$ should be $q$ and $g$, respectively.}
 
 \[
 \begin{tikzcd}
@@ -618,19 +618,21 @@ Now we must show that $c_{f,g}$ is compatible with the permissible isomorphisms 
 	& & & Z &
 	\arrow[from=1-4, to=3-4, "q'" near start, crossing over]
 \end{tikzcd}\]
-and we must show that the two $c_{f,g}$ are compatible, i.e., that the following diagram is commutative:
+and we must show that the two $c_{f,g}$ are compatible, i.e., that the following diagram is commutative:\footnote{Editorial correction: in the lower row read $\gamma_{j'i,rqv}=\gamma_{j'i,ruq'}$ for $\gamma_{j'i,vqr}$, since $qv=uq'$, and $(j'i)^y$ for $(ji)^y$.}
+\begin{samepage}
 For legibility, write
 \[
 \begin{gathered}
-\Gamma=\gamma_{ji,rq},\qquad \Gamma'=\gamma_{j'i,rqv},\qquad
+\Gamma=\gamma_{ji,rq},\qquad \Gamma'=\gamma_{j'i,vqr},\qquad
 \theta=\gamma_{i,p},\\
 \eta=\gamma_{k,r},\qquad \eta'=\gamma_{k',ru}.
 \end{gathered}
 \]
 \[\begin{tikzcd}[column sep=1em]
 	(gf)^a \arrow[r, "\Gamma"] \arrow[d, "\alpha_{gf}"'] & (ji)^y(rq)^z \arrow[r, "\mathrm{I,II}"] & i^y j^y q^z r^z & i^y p^z k^y r^z \arrow[l, "\mathrm{III}"'] & i^y p^z g^c \arrow[l, "\eta"'] & f^b g^c \arrow[l, "\theta"'] \arrow[d, "\alpha_{g}"] \\
-	(gf)^d \arrow[r, "\Gamma'"] & (j'i)^y(ruq')^z \arrow[r, "\mathrm{I,II}"] & i^y j'^y q'^z (ru)^z & i^y p^z k'^y (ru)^z \arrow[l, "\mathrm{III}"'] & i^y p^z g^e \arrow[l, "\eta'"'] & f^b g^e \arrow[l, "\theta"']
+	(gf)^d \arrow[r, "\Gamma'"] & (ji)^y(ruq')^z \arrow[r, "\mathrm{I,II}"] & i^y j'^y q'^z (ru)^z & i^y p^z k'^y (ru)^z \arrow[l, "\mathrm{III}"'] & i^y p^z g^e \arrow[l, "\eta'"'] & f^b g^e \arrow[l, "\theta"']
 \end{tikzcd}\]
+\end{samepage}
 
 One may verify this (!) using the definition of a permissible isomorphism, and the compatibilities \hyperref[compat:6.2.ii]{(ii)}, \eqref{eq:6.2.v}, and \eqref{eq:6.2.vii} above.
 
@@ -724,7 +726,7 @@ f^X \ar[l,"c^X_{j,pq}"]
 \end{tikzcd}
 \]
 
-The left inner regions commute by VAR $1^{\Delta}$, VAR $3^{\Delta}$, and VAR $5^{\Delta}$, together with the residue and smooth-composition isomorphisms IV and II. The right regions use VAR $1^{X}$, VAR $3^{X}$, and VAR $5^{X}$ in the same way.
+That in fact it is, is shown by chopping it into little squares, which are commutative for the reasons shown. On the right we use VAR $1^{X}$, VAR $3^{X}$, and VAR $5^{X}$ similarly.
 
 Thus $\delta$ is well-defined locally. Now cover $X$ by open sets $U$ for which this is possible, and glue together the local isomorphisms
 \[
@@ -781,7 +783,7 @@ It is clear that $f'$ takes quasi-coherent injectives on $Y$ to quasi-coherent i
 \[
 f'(J(y)) \cong \bigoplus_{f(x)=y} J(x).
 \]
-Letting $A$ be the local ring of $y$ on $Y$, and $B$ the semilocal ring of the points $x$ of $X$ lying over $y$, we have a homomorphism from the local ring $A$ to the semilocal ring $B$, where $B$ is a finite $A$-module. If $k$ is the residue field of $A$, and $I$ is an injective hull of $k$ over $A$, we must show that $J = \Hom_A(B,I)$ is a direct sum $\bigoplus_{i=1}^{r} I_i$ where $k_1,\dots,k_r$ are the residue fields of $B$, and $I_i$ is an injective hull of $k_i$ over $B$. For any $B$-module of finite type $M$, we have isomorphisms
+Letting $A$ be the local ring of $y$ on $Y$, and $B$ the semilocal ring of the points $x$ of $X$ lying over $y$, we have a local homomorphism $A\to B$ where $B$ is a finite $A$-module.\footnote{Editorial clarification: $B$ is semilocal; the induced map $A\to B_{\mathfrak n}$ is local for each maximal ideal $\mathfrak n$ of $B$.} If $k$ is the residue field of $A$, and $I$ is an injective hull of $k$ over $A$, we must show that $J = \Hom_A(B,I)$ is a direct sum $\bigoplus_{i=1}^{r} I_i$ where $k_1,\dots,k_r$ are the residue fields of $B$, and $I_i$ is an injective hull of $k_i$ over $B$. For any $B$-module of finite type $M$, we have isomorphisms
 \[
 \Hom_{B}(M,J) = \Hom_{B}(M, \Hom_{A}(B,I)) \cong \Hom_{A}(M,I).
 \]
@@ -870,11 +872,11 @@ g_*f_* f^{\Delta}g^{\Delta} \ar[r,"\Tr_f"] & g_*g^{\Delta}
 
 \begin{proof}
 Replacing $X$ by $Z$ and $Y$ by $\overline{f(Z)}$ with the reduced induced structure, we reduce to the case where $X$ and $Y$ are integral schemes, $x$ is the generic point of $X$, and $f$ is dominant. Since furthermore the question is local on $X$ and $Y$, we may assume $X$ and $Y$ are affine, and thus we reduce to the following statement in algebra:\footnote{Editorial note: First restrict $Y$ to an affine neighborhood of $y$. Replacing $X$ by $Z$ and $Y$ by the reduced closure of $y$, we may assume that $X$ and $Y$ are integral, $Y$ is affine noetherian with generic point $y$, and $f$ is dominant. The generic fibre has the single point $x$, since $x$ was closed in its original fibre. An open neighborhood of $y$ in this reduced closure is obtained by intersecting it with an open neighborhood in the original target.\par
-Choose an affine open $U\subseteq X$ containing $x$, and let $W=X\setminus U$ with its reduced closed subscheme structure. The image $f(W)$ is constructible by Chevalley's theorem, \cite[\nopp IV,~1.8.5]{EGA}. Since it does not contain $y$, its closure is a proper closed subset of the integral scheme $Y$. After shrinking $Y$ to a nonempty principal open disjoint from that closure, the restricted source is contained in $U$ and is a principal open subset of $U$, hence affine. (Editorial completion: the original cites only ``EGA IV \S?'' and says the question is local on $X$ and $Y$. The shrinking step above justifies the affine reduction. The pinpoint citation identifies its constructibility input, not a claimed verbatim occurrence of the whole lemma.) We have therefore reduced to the following statement in algebra:}
+Choose an affine open $U\subseteq X$ containing $x$, and let $W=X\setminus U$ with its reduced closed subscheme structure. The image $f(W)$ is constructible by Chevalley's theorem, \cite[\nopp IV,~1.8.5]{EGA}. Since it does not contain $y$, its closure is a proper closed subset of the integral scheme $Y$. After shrinking $Y$ to a nonempty principal open disjoint from that closure, the restricted source is contained in $U$ and is a principal open subset of $U$, hence affine. (Editorial completion: the original cites only ``EGA IV \S?'' and says the question is local on $X$ and $Y$. The shrinking step above justifies the affine reduction. The pinpoint citation identifies its constructibility input, not a claimed verbatim occurrence of the whole lemma.) We have therefore reduced to the following statement in algebra. In the algebra argument below, include $1$ among the $b_i$ so that $B_0$ contains the identity.}
 
 Let $A\to B$ be an inclusion of integral domains, with $B$ a finitely generated $A$-algebra. Let $K$ be the quotient field of $A$, and assume that $B\otimes_A K$ is a finite extension field of $K$. Then there exists an element $f\neq0$ in $A$ such that $B\otimes_A A_f$ is a finite $A_f$-module.
 
-To prove this statement, let $b_1,\dots,b_n$ be a finite set of elements in $B$, with $b_1=1$, such that
+To prove this statement, let $b_1,\dots,b_n$ be a finite set of elements in $B$ such that
 \begin{enumerate}
 \item[1)] the $b_i$ generate $B$ as an $A$-algebra, and
 \item[2)] the elements $b_i\otimes 1$ generate $B\otimes K$ as a $K$-vector space.
@@ -898,7 +900,7 @@ W \ar[rr,"i"] \ar[dr,"g"'] && f^{-1}(U) \ar[dl,"f"] \\
 & U
 \end{tikzcd}
 \]
- we require the following compatibility. Write $L^\bullet=f^\Delta K^\bullet$ and $N^\bullet=g^\Delta K^\bullet$. The required diagram is
+ we have a commutative diagram. For legibility, write $L^\bullet=f^\Delta K^\bullet$ and $N^\bullet=g^\Delta K^\bullet$:
 \[
 \begin{tikzcd}[column sep=1.2em,row sep=3em]
 g_*g^y K^\bullet \ar[drr,"\rho_g"'] &
@@ -972,18 +974,7 @@ K^\bullet && C \ar[d,"\rho_{j_{nn'}}"] & T \\
 
 \par\endgroup
 
-One can also write down a diagram with three indices $n,n',n''$ showing that the sheaves $A_n=f_*i_{n*}i_n^y f^\Delta(K^\bullet)$ and the transition maps induced by $\rho_{j_{nn'}}$ and I form a direct system. The maps $\rho_{i_n}$ embed this system into $f_*f^\Delta(K^\bullet)$, and the compatible maps\footnote{Editorial correction: with the comparison $\theta_n:B_n\to A_n$ defined above, the correctly typed map is $\rho_{g_n}\circ\theta_n^{-1}$. The printed compressed comparison chain has wrongly oriented factors.}
-\[
-\rho_{g_n}\psi_{g_n}c_{i_n,f}f_*\psi_{i_n}\colon A_n\longrightarrow K^\bullet
-\]
-map it to $K^\bullet$. Thus we may pass to the limit and obtain a map from a subsheaf of $f_*f^\Delta(K^\bullet)$ to $K^\bullet$.
-
-On the component $f_*J(x)$, the $n$th term, via the inclusion $\rho_{i_n}$, is
-\[
-f_*\sheafHom_{\sO_X}(\sO_X/\sJ^n,J(x)).
-\]
-Its limit is $f_*J(x)$ itself, since $J(x)$ has support on $Z$. Hence the resulting map is defined on all of $f_*J(x)$, and we define it to be $\Tr_{f,x}$.
-
+One can also write down another diagram with three indices $n,n'$ and $n''$ which shows that the sheaves $f_*i_{n*}i_n^y f^\Delta(K^\bullet)$ and the maps $\rho_{j_{nn'}}$, I form a direct system as $n$ varies, and this diagram shows that the $\rho_{i_n}$ map this direct system into $f_*f^\Delta(K_Y^\bullet)$ and the $\rho_{g_n}\psi_{g_n}c_{i_n,f}f_*\psi_{i_n}$ map it to $K^\bullet$.\footnote{Editorial correction: with the comparison $\theta_n:B_n\to A_n$ defined above, the correctly typed map is $\rho_{g_n}\circ\theta_n^{-1}$. The printed compressed comparison chain has wrongly oriented factors.} Furthermore the $\rho_{i_n}$ are all injective maps. Thus we can pass to the limit and obtain a map of a certain subsheaf of $f_*f^\Delta(K_Y^\bullet)$ to $K_Y^\bullet$. Looking at the effect of this construction on the component $f_*J(x)$ of $f_*f^\Delta K^\bullet$, we see that the $n^{\text{th}}$ term of the direct system, via the inclusion $\rho_{i_n}$, is just $f_*\sheafHom_{\sO_X}(\sO_X/\sJ^n,J(x))$, and hence the limit is $f_*J(x)$ itself, since $J(x)$ has support on $Z$. Hence the map we obtain is defined on all of $f_*J(x)$, and we decree this to be $\Tr_{f,x}$.
 
 To complete the proof of the lemma, we must check various things. First, that $\Tr_{f,x}$ is well-defined, i.e., does not depend on the choice of the open set $V$. That is clear, since $\Tr_{f,x}$ depends only on the stalks at $x$ and $y$, and all of our constructions are compatible with localization.
 

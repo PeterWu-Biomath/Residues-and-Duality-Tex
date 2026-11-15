@@ -6,15 +6,15 @@ A typesetting and proofreading project for Robin Hartshorne’s *Residues and Du
 
 ## Current state
 
-As of **13 November 2026**:
+As of **15 November 2026**:
 
 - The current source builds with installed MiKTeX and Biber to **284 pages**. Build checks find no undefined reference/citation targets, duplicate PDF destinations, missing characters, empty bibliography, or pending reference rerun.
-- A complete English translation follows Deligne’s French appendix, before the errata. All five sections, formulas, diagrams, bibliography and 14 footnotes are included; the French text is unchanged.
+- A complete English translation follows Deligne’s French appendix, before the errata. All five sections, formulas, diagrams, bibliography and 14 footnotes are included. Scan-confirmed omissions are restored in both versions.
 - Scan-comparison passes cover all chapters and backmatter. All 18 printed author errata have been reconciled; retrospective review of how earlier corrections are presented is still underway.
 - All explicit internal references, including index links, have been checked in context. A pass over numbered plain-text references added 31 links without changing the wording. Bibliography page links lead to the correct printed folios. External citation details still need checking.
 - Hom and Ext/Tor notation has received a contextual pass throughout the chapters and appendix; cohomology notation has also been checked in IV–VII, and tensor notation in VI–VII. Other notation checks remain open.
 - Added metadata in all 31 bibliography entries has been reviewed; unsupported additions were removed. Historical-edition and citation caveats remain.
-- The earlier 266-page layout received a full visual pass. All pages of the English translation have now been inspected; the remaining book-wide layout changes still need a final review. Small layout warnings remain. These checks do not certify every original proof.
+- All pages of the current **284-page PDF** have visual coverage: changed pages were inspected and the others match reviewed images. No overfull boxes remain. These checks do not certify every original proof.
 
 The editor’s built-in compiler currently fails with an auxiliary-file/font issue. The successful build evidence comes from installed MiKTeX. A clean build does not certify the original arguments or the correctness of every formula.
 
@@ -83,12 +83,12 @@ The output is `tex/main.pdf`. Check the final log for unresolved references, rer
 The full visual pass is complete. Continue the reference, notation and original-text preservation checks, and recheck affected pages after edits.
 
 - [ ] **Finish the original-text preservation review.** Identified corrections now have review records across all chapters and backmatter. Reconcile their coverage with the earlier change history and check that every added correction is in a labelled note or remark.
-- [ ] **Finish checking citation details.** Explicit internal links and numbered plain-text locators have received a pass. Check external citation postnotes and review remaining free-form locators during the preservation pass.
+- [x] **Retain the original citations.** Accessible citation checks and edition caveats are recorded. The six locators whose source pages were unavailable are retained as printed, as requested; they are not marked verified.
 - [ ] **Complete the contextual notation audit.** Hom, Ext/Tor, tensor and cohomology symbols have received contextual passes across the book. Finish the final notation and duality consistency review.
 - [x] **Document the mathematical qualifications.** VI–VII's common filtrations and the appendix's compactification, truncation and formal pro/Ind issues are documented in editorial notes. Original exercises, conditional arguments and omitted compatibility proofs remain identified as such.
 - [x] **Check added bibliography metadata.** Reviewed the current fields in all 31 entries against scans and primary/institutional records; removed unsupported additions. Historical citations and exact-edition caveats are retained.
 - [x] **Complete the first visual pass of all 266 PDF pages.**
-- [ ] **Finish layout polish.** Address sparse chapter endings and remaining overfull warnings. The split definition and separating-verso headers have been repaired. Recheck affected pages after edits.
+- [x] **Finish the current layout pass.** All 284 pages are covered; no overfull boxes remain. Split statements, long headings/formulas and blank-verso headers have been addressed.
 - [x] **Normalize filename/include capitalization:** all eight chapter filenames match their lowercase includes.
 - [ ] **Run the final completion audit.** Rebuild with Biber as needed, converge references, refresh inventories, and record evidence for each closed item. The book is not ready to declare fully proofread.
 
